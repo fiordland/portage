@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install prepare setup
+DEPEND=virtual/libusb:0 doc? ( app-doc/doxygen ) python? ( dev-lang/swig ) || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.14:1.14 ) >=sys-devel/autoconf-2.68 sys-devel/libtool python? ( =dev-lang/python-2* )
+DESCRIPTION=Provides a generic and flexible way to access and interact with USB HID devices
+EAPI=2
+HOMEPAGE=http://libhid.alioth.debian.org/
+IUSE=debug doc python
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=virtual/libusb:0 python? ( =dev-lang/python-2* )
+SLOT=0
+SRC_URI=http://beta.magicaltux.net/libhid-0.2.16.tar.gz
+_eclasses_=autotools	d491cbee372fe390ce066f901abdaaaf	libtool	5932e418cf62147cad2d902718aacc56	multilib	892e597faee02a5b94eb02ab512e7622	multiprocessing	cb9b3738be1b3f35643266534a605bc6	python	305197b0aa1194fa3ef67ca21f6faa7e	toolchain-funcs	51e6c948e72c43bcc8edc7544411c953
+_md5_=b2551d98038ad07043d25984c18bde66

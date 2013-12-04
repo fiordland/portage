@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install
+DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXpm x11-proto/xproto x11-proto/xextproto x11-misc/gccmakedep x11-misc/imake
+DESCRIPTION=a dockapp that displays time and date (same style as NEXTSTEP(tm) operating systems)
+EAPI=4
+HOMEPAGE=http://www.bluestop.org/wmclock/
+KEYWORDS=~amd64 ~ppc ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXpm
+SLOT=0
+SRC_URI=http://www.bluestop.org/wmclock/wmclock-1.0.14.tar.gz
+_eclasses_=multilib	892e597faee02a5b94eb02ab512e7622	toolchain-funcs	51e6c948e72c43bcc8edc7544411c953
+_md5_=5efd0f90b63c27062ce382a1f9707dce

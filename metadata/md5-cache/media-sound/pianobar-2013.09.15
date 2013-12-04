@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=media-libs/libao net-libs/gnutls dev-libs/libgcrypt dev-libs/json-c aac? ( media-libs/faad2 ) mp3? ( media-libs/libmad ) virtual/pkgconfig
+DESCRIPTION=A console-based replacement for Pandora's flash player
+EAPI=5
+HOMEPAGE=http://6xq.net/projects/pianobar/
+IUSE=+aac mp3 static-libs
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=media-libs/libao net-libs/gnutls dev-libs/libgcrypt dev-libs/json-c aac? ( media-libs/faad2 ) mp3? ( media-libs/libmad )
+REQUIRED_USE=|| ( aac mp3 )
+SLOT=0
+SRC_URI=http://6xq.net/projects/pianobar/pianobar-2013.09.15.tar.bz2
+_eclasses_=eutils	a82a329b538368791f5a6113c60e557e	flag-o-matic	65cef1287b9d62b1a0f180765d1e0c69	multilib	892e597faee02a5b94eb02ab512e7622	toolchain-funcs	51e6c948e72c43bcc8edc7544411c953	user	d0a4d0735a6c0183d707ca919bd72f28
+_md5_=bdb31905f5a1d36eb16a63d89be76ff8

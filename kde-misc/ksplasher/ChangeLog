@@ -1,0 +1,25 @@
+# ChangeLog for kde-misc/ksplasher
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-misc/ksplasher/ChangeLog,v 1.4 2013/09/09 04:20:15 floppym Exp $
+
+*ksplasher-2.0_beta2-r2 (09 Sep 2013)
+
+  09 Sep 2013; Mike Gilbert <floppym@gentoo.org> +files/ksplasher-pillow.patch,
+  +ksplasher-2.0_beta2-r2.ebuild, -ksplasher-2.0_beta2-r1.ebuild:
+  Fix PIL imports, bug 471520.
+
+  13 Feb 2011; Tomáš Chvátal <scarabeus@gentoo.org>
+  -ksplasher-2.0_beta2.ebuild:
+  old
+
+*ksplasher-2.0_beta2-r1 (21 Aug 2010)
+
+  21 Aug 2010; Theo Chatzimichos <tampakrap@gentoo.org>
+  +ksplasher-2.0_beta2-r1.ebuild:
+  Improved python-related code, thanks to Locke Shinseiko
+
+*ksplasher-2.0_beta2 (11 Nov 2009)
+
+  11 Nov 2009; Samuli Suominen <ssuominen@gentoo.org>
+  +ksplasher-2.0_beta2.ebuild:
+  Initial commit wrt #233801, thanks to Matija Suklje for reporting.

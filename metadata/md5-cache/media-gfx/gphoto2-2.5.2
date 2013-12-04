@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/popt >=media-libs/libgphoto2-2.5.2[exif?] virtual/libusb:0 aalib? ( media-libs/aalib virtual/jpeg:0 ) exif? ( media-libs/libexif ) ncurses? ( dev-libs/cdk ) readline? ( sys-libs/readline ) virtual/pkgconfig nls? ( >=sys-devel/gettext-0.14.1 ) || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.14:1.14 ) >=sys-devel/autoconf-2.68 sys-devel/libtool
+DESCRIPTION=Free, redistributable digital camera software application
+EAPI=5
+HOMEPAGE=http://www.gphoto.org/
+IUSE=aalib exif ncurses nls readline
+KEYWORDS=~alpha amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/popt >=media-libs/libgphoto2-2.5.2[exif?] virtual/libusb:0 aalib? ( media-libs/aalib virtual/jpeg:0 ) exif? ( media-libs/libexif ) ncurses? ( dev-libs/cdk ) readline? ( sys-libs/readline )
+SLOT=0
+SRC_URI=mirror://sourceforge/gphoto/gphoto2-2.5.2.tar.bz2
+_eclasses_=autotools	d491cbee372fe390ce066f901abdaaaf	libtool	5932e418cf62147cad2d902718aacc56	multilib	892e597faee02a5b94eb02ab512e7622	multiprocessing	cb9b3738be1b3f35643266534a605bc6	toolchain-funcs	51e6c948e72c43bcc8edc7544411c953
+_md5_=f33eb395ca21bd9734769ebf258f50bd
