@@ -1,0 +1,15 @@
+DEFINED_PHASES=configure install prepare test
+DEPEND=alsa? ( media-libs/alsa-lib ) g726? ( >=media-libs/spandsp-0.0.6_pre1 ) gsm? ( media-sound/gsm ) opus? ( media-libs/opus ) ortp? ( >=net-libs/ortp-0.17[ipv6?] ) pcap? ( sys-libs/libcap ) portaudio? ( media-libs/portaudio ) pulseaudio? ( >=media-sound/pulseaudio-0.9.21 ) speex? ( >=media-libs/speex-1.2_beta3 ) upnp? ( net-libs/libupnp ) video? ( virtual/ffmpeg opengl? ( media-libs/glew virtual/opengl x11-libs/libX11 ) v4l? ( media-libs/libv4l sys-kernel/linux-headers ) theora? ( media-libs/libtheora ) sdl? ( media-libs/libsdl[video,X] ) X? ( x11-libs/libX11 x11-libs/libXv ) ) dev-util/intltool virtual/pkgconfig doc? ( app-doc/doxygen ) opengl? ( dev-util/xxdi ) test? ( >=dev-util/cunit-2.1_p2[ncurses] ) X? ( x11-proto/videoproto ) || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.14:1.14 ) >=sys-devel/autoconf-2.68 sys-devel/libtool
+DESCRIPTION=Mediastreaming library for telephony application
+EAPI=5
+HOMEPAGE=http://www.linphone.org/
+IUSE=+alsa amr bindist coreaudio debug doc examples +filters g726 g729 gsm ilbc ipv6 ntp-timestamp opengl opus +ortp oss pcap portaudio pulseaudio sdl silk +speex static-libs test theora upnp v4l video x264 X
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+PDEPEND=amr? ( !bindist? ( media-plugins/mediastreamer-amr ) ) g729? ( !bindist? ( media-plugins/mediastreamer-bcg729 ) ) ilbc? ( media-plugins/mediastreamer-ilbc ) video? ( x264? ( media-plugins/mediastreamer-x264 ) ) silk? ( !bindist? ( media-plugins/mediastreamer-silk ) )
+RDEPEND=alsa? ( media-libs/alsa-lib ) g726? ( >=media-libs/spandsp-0.0.6_pre1 ) gsm? ( media-sound/gsm ) opus? ( media-libs/opus ) ortp? ( >=net-libs/ortp-0.17[ipv6?] ) pcap? ( sys-libs/libcap ) portaudio? ( media-libs/portaudio ) pulseaudio? ( >=media-sound/pulseaudio-0.9.21 ) speex? ( >=media-libs/speex-1.2_beta3 ) upnp? ( net-libs/libupnp ) video? ( virtual/ffmpeg opengl? ( media-libs/glew virtual/opengl x11-libs/libX11 ) v4l? ( media-libs/libv4l sys-kernel/linux-headers ) theora? ( media-libs/libtheora ) sdl? ( media-libs/libsdl[video,X] ) X? ( x11-libs/libX11 x11-libs/libXv ) )
+REQUIRED_USE=|| ( oss alsa portaudio coreaudio pulseaudio ) video? ( || ( opengl sdl X ) ) theora? ( video ) X? ( video ) v4l? ( video ) opengl? ( video )
+SLOT=0/3
+SRC_URI=mirror://nongnu/linphone/mediastreamer/mediastreamer-2.9.0.tar.gz
+_eclasses_=autotools	d491cbee372fe390ce066f901abdaaaf	eutils	a82a329b538368791f5a6113c60e557e	libtool	5932e418cf62147cad2d902718aacc56	multilib	892e597faee02a5b94eb02ab512e7622	multiprocessing	cb9b3738be1b3f35643266534a605bc6	toolchain-funcs	51e6c948e72c43bcc8edc7544411c953	user	d0a4d0735a6c0183d707ca919bd72f28
+_md5_=ce326dcadec7e18180271dbebf539ad9

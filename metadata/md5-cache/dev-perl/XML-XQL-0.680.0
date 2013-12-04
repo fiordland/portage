@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=>=dev-perl/libxml-perl-0.07-r1 >=dev-perl/XML-DOM-1.39-r1 >=dev-perl/Parse-Yapp-1.05 dev-perl/libwww-perl >=dev-perl/DateManip-5.40-r1 || ( >=dev-lang/perl-5.16 <dev-lang/perl-5.16[-build] )
+DESCRIPTION=A Perl module that allows you to perform XQL queries on XML trees
+EAPI=4
+HOMEPAGE=http://search.cpan.org/dist/XML-XQL/
+KEYWORDS=alpha amd64 hppa ia64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x86-solaris
+LICENSE=|| ( Artistic GPL-1 GPL-2 GPL-3 )
+RDEPEND=>=dev-perl/libxml-perl-0.07-r1 >=dev-perl/XML-DOM-1.39-r1 >=dev-perl/Parse-Yapp-1.05 dev-perl/libwww-perl >=dev-perl/DateManip-5.40-r1 || ( >=dev-lang/perl-5.16 <dev-lang/perl-5.16[-build] )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/T/TJ/TJMATHER/XML-XQL-0.68.tar.gz
+_eclasses_=base	ec46b36a6f6fd1d0b505a33e0b74e413	eutils	a82a329b538368791f5a6113c60e557e	multilib	892e597faee02a5b94eb02ab512e7622	multiprocessing	cb9b3738be1b3f35643266534a605bc6	perl-module	d93571ca1c77e98760e5aa406388b02d	toolchain-funcs	51e6c948e72c43bcc8edc7544411c953	user	d0a4d0735a6c0183d707ca919bd72f28
+_md5_=a1664f54325f1730128699303fb7bd32

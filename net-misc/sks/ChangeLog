@@ -1,0 +1,35 @@
+# ChangeLog for net-misc/sks
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/sks/ChangeLog,v 1.7 2013/11/22 02:35:45 mrueg Exp $
+
+*sks-1.1.4 (22 Nov 2013)
+
+  22 Nov 2013; Manuel Rüger <mrueg@gentoo.org>
+  +files/sks-1.1.4-ECC_OID_fix_x86.patch, +files/sks-db.initd,
+  +files/sks-db.service, +files/sks-recon.initd, +files/sks-recon.service,
+  +files/sks.confd, +sks-1.1.4.ebuild, metadata.xml:
+  Version bump. Add initd scripts and systemd unit files by Emery Hemingway.
+  Fixes bug #427030. Add Kristian Fiskerstrand as maintainer and proxy-
+  maintainers as herd.
+
+  20 Dec 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Drop maintainer as talked with him
+
+  07 Feb 2012; Mike Doty <kingtaco@gentoo.org> sks-1.1.2.ebuild:
+  fixed symlinks
+
+  07 Feb 2012; Mike Doty <kingtaco@gentoo.org> sks-1.1.2.ebuild:
+  Fixed symlinks
+
+  07 Feb 2012; Mike Doty <kingtaco@gentoo.org> sks-1.1.2.ebuild, metadata.xml:
+  Fixed formatting in metadata.xml
+  Fixed USE=optimize src_install()
+
+  06 Feb 2012; Mike Doty <kingtaco@gentoo.org> ChangeLog:
+  Signing Manifest
+
+*sks-1.1.2 (06 Feb 2012)
+
+  06 Feb 2012; Mike Doty <kingtaco@gentoo.org> +sks-1.1.2.ebuild,
+  +files/bdb_stubs-gentoo.patch, +metadata.xml:
+  Initial commit
