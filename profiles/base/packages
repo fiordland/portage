@@ -76,3 +76,10 @@
 *virtual/service-manager
 *virtual/shadow
 *virtual/ssh
+
+# fiordland adds
+
+
+*dev-java/icedtea-bin
+*x11-libs/cairo
+*media-libs/mesa

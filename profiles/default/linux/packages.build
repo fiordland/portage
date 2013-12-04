@@ -28,6 +28,7 @@ sys-apps/gawk
 sys-apps/grep
 sys-apps/less
 sys-apps/net-tools
+sys-apps/openrc
 sys-apps/sed
 sys-devel/binutils
 sys-devel/bison
