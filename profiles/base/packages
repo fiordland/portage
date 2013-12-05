@@ -81,4 +81,5 @@
 
 
 *dev-java/icedtea-bin
+*x11-libs/cairo
 *media-libs/mesa
