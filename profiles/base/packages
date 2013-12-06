@@ -79,9 +79,3 @@
 
 # fiordland adds
 
-*dev-vcs/git
-*net-misc/dhcpcd
-*sys-apps/gptfdisk
-*sys-devel/bc
-*sys-apps/pciutils
-*app-portage/gentoolkit
