@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/profiles/base/package.use.force,v 1.43 2013/10/30 19:10:03 mgorny Exp $
 
 #Temp for stage2
-=dev-util/pkgconfig-0.28 internal-glib
+#=dev-util/pkgconfig-0.28 internal-glib
 
 # Michał Gorny <mgorny@gentoo.org> (26 Feb 2013)
 # Meta-packages which use multilib ebuilds always install development
