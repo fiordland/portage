@@ -79,7 +79,9 @@
 
 # fiordland adds
 
-
-*dev-java/icedtea-bin
-*x11-libs/cairo
-*media-libs/mesa
+*dev-vcs/git
+*net-misc/dhcpcd
+*sys-apps/gptfdisk
+*sys-devel/bc
+*sys-apps/pciutils
+*app-portage/gentoolkit
