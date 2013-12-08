@@ -40,8 +40,8 @@ USE="mmx sse sse2"
 
 # Pacho Ramos <pacho@gentoo.org> (30 Nov 2013)
 # Python 3.3 is going to stable, bug #474128
-#USE="${USE} -python_targets_python3_2 python_targets_python3_3"
-#BOOTSTRAP_USE="${BOOTSTRAP_USE} -python_targets_python3_2 python_targets_python3_3"
+USE="${USE} -python_targets_python3_2 python_targets_python3_3"
+BOOTSTRAP_USE="${BOOTSTRAP_USE} -python_targets_python3_2 python_targets_python3_3"
 
 # Michał Górny <mgorny@gentoo.org> (03 Sep 2013)
 # Enable abi_x86_64 for packages that don't have it forced.
