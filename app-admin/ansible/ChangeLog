@@ -1,6 +1,16 @@
 # ChangeLog for app-admin/ansible
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.28 2013/11/22 12:07:46 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.30 2013/12/09 18:53:34 prometheanfire Exp $
+
+  09 Dec 2013; Matthew Thode <prometheanfire@gentoo.org>
+  +files/tests-ansible-1.4.1.patch, ansible-1.4.1.ebuild:
+  tests work now (with patch)
+
+*ansible-1.4.1 (09 Dec 2013)
+
+  09 Dec 2013; Matthew Thode <prometheanfire@gentoo.org> +ansible-1.4.1.ebuild:
+  updated ansible to 1.4.1 with restricted tests due to
+  https://github.com/ansible/ansible/issues/5224
 
 *ansible-1.3.4 (22 Nov 2013)
 

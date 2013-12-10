@@ -1,10 +1,31 @@
 # ChangeLog for profile directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8412 2013/12/06 22:22:52 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8418 2013/12/09 20:40:56 sochotnicky Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  09 Dec 2013; Stanislav Ochotnicky <sochotnicky@gentoo.org> package.mask:
+  Unmask media-sound/beets-1.3.1 (#488074 fixed)
+
+  09 Dec 2013; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Remove mask on sys-apps/pcfclock, package was removed from tree, bug #489510
+
+  08 Dec 2013; Ben de Groot <yngwin@gentoo.org> package.mask:
+  New freetype2 header location breaks compilation of reverse dependencies,
+  see tracker bug #493570
+
+  08 Dec 2013; Justin Lecher <jlec@gentoo.org> package.mask:
+  Following gentoo-sources mask for aufs-sources
+
+  08 Dec 2013; Pacho Ramos <pacho@gentoo.org> arch/x86/make.defaults,
+  default/linux/x86/13.0/use.stable.mask, +hardened/linux/x86/use.stable.mask:
+  Prepare for python-3.3 going to stable on x86 (#474128)
+
+  07 Dec 2013; Justin Lecher <jlec@gentoo.org> arch/amd64/package.use.mask,
+  arch/x86/package.use.mask, base/package.use.mask:
+  Mask USE=cuda for sci-libs/flann on all unsupported arches
 
   06 Dec 2013; Tom Wijsman <TomWij@gentoo.org> package.mask:
   Mask gentoo-sources:3.12.0 as well as it is also affected by the sandbox
