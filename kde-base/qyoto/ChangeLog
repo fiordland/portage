@@ -1,6 +1,15 @@
 # ChangeLog for kde-base/qyoto
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/qyoto/ChangeLog,v 1.93 2013/12/09 05:44:18 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/qyoto/ChangeLog,v 1.96 2013/12/12 03:37:33 ago Exp $
+
+  12 Dec 2013; Agostino Sarubbo <ago@gentoo.org> -qyoto-4.10.5.ebuild:
+  Remove old
+
+  11 Dec 2013; Agostino Sarubbo <ago@gentoo.org> qyoto-4.11.2.ebuild:
+  Stable for ppc, wrt bug #484884
+
+  10 Dec 2013; Agostino Sarubbo <ago@gentoo.org> qyoto-4.11.2.ebuild:
+  Stable for ppc, wrt bug #484884
 
   09 Dec 2013; Agostino Sarubbo <ago@gentoo.org> qyoto-4.11.2.ebuild:
   Stable for x86, wrt bug #484884
