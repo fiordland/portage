@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/testtools/testtools-0.9.32.ebuild,v 1.1 2013/09/17 18:21:08 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/testtools/testtools-0.9.32.ebuild,v 1.2 2013/12/13 05:59:39 idella4 Exp $
 
 EAPI=5
 
@@ -25,17 +25,12 @@ DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 #		test? ( dev-python/mimeparse[${PYTHON_USEDEP}] ) "
 RDEPEND=""
 
-python_prepare() {
+python_prepare_all() {
 	sed -i '/\_build/d' "${S}/MANIFEST.in"
-	distutils-r1_python_prepare
-}
-
-python_compile() {
-	distutils-r1_python_compile
-
-#	if [[ ! -e "${BUILD_DIR}"/lib/testtools/_compat2x.py ]]; then
-#		die "_compat2x.py removed upstream; fix src_compile"
-#	fi
+	sed -e 's:test_test_module:_&:' \
+		-e 's:test_test_suite:_&:' \
+		-i testtools/tests/test_distutilscmd.py || die
+	distutils-r1_python_prepare_all
 }
 
 python_test() {
