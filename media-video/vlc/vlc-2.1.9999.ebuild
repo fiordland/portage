@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.1.9999.ebuild,v 1.12 2013/12/13 19:41:52 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.1.9999.ebuild,v 1.13 2013/12/15 23:07:19 tomwij Exp $
 
 EAPI="5"
 
@@ -241,6 +241,11 @@ src_prepare() {
 
 	# Disable avcodec checks when avcodec is not used.
 	sed -i 's/^#if LIBAVCODEC_VERSION_CHECK(.*)$/#if 0/' modules/codec/avcodec/fourcc.c || die
+
+	# Don't use --started-from-file when not using dbus.
+	if ! use dbus ; then
+		sed -i 's/ --started-from-file//' share/vlc.desktop.in || die
+	fi
 
 	eautoreconf
 

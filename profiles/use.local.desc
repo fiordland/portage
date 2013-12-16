@@ -585,6 +585,7 @@ app-emulation/wine:custom-cflags - Bypass strip-flags; use at your own peril
 app-emulation/wine:dos - Pull in games-emulation/dosbox to run DOS applications
 app-emulation/wine:gecko - Add support for the Gecko engine when using iexplore
 app-emulation/wine:mono - Add support for .NET using Wine's Mono add-on
+app-emulation/wine:netapi - Use libnetapi from net-fs/samba to support Windows networks in netapi32.dll
 app-emulation/wine:opencl - Enable OpenCL support
 app-emulation/wine:osmesa - Add support for OpenGL in bitmaps using libOSMesa
 app-emulation/wine:perl - Install helpers written in perl (winedump/winemaker)
@@ -2363,6 +2364,16 @@ games-emulation/higan:profile_accuracy - Compile a binary optimized for accuracy
 games-emulation/higan:profile_balanced - Compile a binary with balanced optimization
 games-emulation/higan:profile_performance - Compile a binary optimized for performance
 games-emulation/mednafen:debugger - Build with internal debugger
+games-emulation/mupen64plus:audio-sdl - Enable SDL audio plugin.
+games-emulation/mupen64plus:input-sdl - Enable SDL input plugin.
+games-emulation/mupen64plus:rsp-hle - Enable HLE RSP plugin.
+games-emulation/mupen64plus:ui-console - Enable default console UI.
+games-emulation/mupen64plus:ui-m64py - Enable PyQt4 UI using games-emulation/m64py.
+games-emulation/mupen64plus:video-glide64mk2 - Enable Glide64mk2 video plugin.
+games-emulation/mupen64plus:video-rice - Enable Rice video plugin.
+games-emulation/mupen64plus-core:new-dynarec - Enable new experimental dynamic recompiler implementation (only for x86 and arm)
+games-emulation/mupen64plus-core:osd - Overlay emulator messages using on-screen-display
+games-emulation/mupen64plus-video-glide64mk2:hires - Support hi-resolution textures (requires dev-libs/boost)
 games-emulation/pcsxr:cdio - Use libcdio for CD support
 games-emulation/pcsxr:sdl - Use SDL sound backend (other parts of SDL are used unconditionally)
 games-emulation/snes9x:netplay - Enable playing ROMs over the network (not recommended)
@@ -4203,7 +4214,10 @@ net-analyzer/linkchecker:login - login form submission
 net-analyzer/linkchecker:nagios - Install nagios cli plugin
 net-analyzer/linkchecker:sqlite - Mozilla Bookmark parsing
 net-analyzer/linkchecker:syntax-check - HTML/CSS syntax checks
+net-analyzer/metasploit:development - Install dependancies needed for metasploit and exploit development
 net-analyzer/metasploit:gui - Enable Java GUI
+net-analyzer/metasploit:lorcon - Enable lorcon for raw packet injection
+net-analyzer/metasploit:pcap - Enable libpcap for packet sniffing
 net-analyzer/munin:apache - Set up the configuration of the CGI generation of HTML and graphs to work with Apache. This also install an include-able configuration file.
 net-analyzer/munin:asterisk - Install the packages required for monitoring Asterisk. Disabling the flag does not remove any plugin files.
 net-analyzer/munin:cgi - Install the CGI-compatible scripts for on-the-fly generation of web pages and graphs. This is only meaningful if the minimal USE flag is disabled.
@@ -4906,8 +4920,6 @@ net-libs/opal:ilbc - Enable iLBC (RFC 3951) speech codec
 net-libs/opal:ivr - Enable Interactive Voice Response
 net-libs/opal:ixj - Enable xJack cards support
 net-libs/opal:lid - Enable Line Interface Device
-net-libs/opal:noaudio - Disable audio codecs
-net-libs/opal:novideo - Disable video codecs
 net-libs/opal:plugins - Enable plugins support
 net-libs/opal:sbc - Enable the Bluetooth low-complexity, SubBand Codec
 net-libs/opal:sip - Enable Session Initiation Protocol
@@ -4920,8 +4932,6 @@ net-libs/opal:vpb - Enable Voicetronics VPB card support
 net-libs/opal:vxml - Enable VXML support
 net-libs/opal:wav - Enable WAVFILE support
 net-libs/opal:x264-static - Install x264 plugin statically linked with x264
-net-libs/openh323:audio - Enable audio codecs
-net-libs/openh323:video - Enable video codecs
 net-libs/ortp:ntp-timestamp - Turn on NTP timestamping on received packet
 net-libs/ortp:srtp - Add support for Secure RTP
 net-libs/pjsip:cli - Installs pjsua, a simple command-line SIP client
@@ -5801,6 +5811,7 @@ sci-libs/libghemical:mopac7 - Use sci-chemistry/mopac7 for semi-empirical calcul
 sci-libs/libghemical:mpqc - Use sci-chemistry/mpqc for quantum-mechanical calculations
 sci-libs/libsvm:tools - Install python based tool scripts
 sci-libs/linux-gpib:firmware - Install firmware
+sci-libs/linux-gpib:isa - Build ISA kernel modules; from 3.12 on the setting is ignored and the decision based on the kernel configuration
 sci-libs/lis:fma - Use the Fused Multiply Add instruction set (x86 arches)
 sci-libs/lis:quad - Enable quadruple precision operations
 sci-libs/lis:saamg - Build the Smoothed Aggregation Algebraic MultiGrid preconditioner
