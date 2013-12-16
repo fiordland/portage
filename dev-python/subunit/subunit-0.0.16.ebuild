@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/subunit/subunit-0.0.16.ebuild,v 1.1 2013/12/11 02:33:29 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/subunit/subunit-0.0.16.ebuild,v 1.3 2013/12/15 19:38:36 floppym Exp $
 
 EAPI=5
 
@@ -17,9 +17,9 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~x86 ~x86-fbsd"
 #need to keyword the following in =dev-python/extras-0.0.3 then readd the keywords here
 #ia64 s390 sh sparc amd64-fbsd
-IUSE=""
+IUSE="static-libs"
 
-RDEPEND=">=dev-python/testtools-0.9.30[${PYTHON_USEDEP}]
+RDEPEND=">=dev-python/testtools-0.9.34[${PYTHON_USEDEP}]
 	dev-python/extras[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]
@@ -29,13 +29,19 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_configure() {
-	econf
+	econf --enable-shared $(use_enable static-libs static)
 	distutils-r1_src_configure
 }
 
 src_compile() {
 	emake
 	distutils-r1_src_compile
+}
+
+python_test() {
+	local -x PATH="${PWD}/shell/share:${PATH}"
+	local -x PYTHONPATH=python
+	"${PYTHON}" -m testtools.run all_tests.test_suite || die "Testing failed with ${EPYTHON}"
 }
 
 src_install() {
