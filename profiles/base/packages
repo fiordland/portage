@@ -82,4 +82,13 @@
 # fiordland adds
 
 *dev-vcs/git
+*dev-java/icedtea-bin
+*x11-libs/cairo
+*media-libs/mesa
+*net-misc/dhcpcd
+*sys-apps/gptfdisk
+*sys-devel/bc
+*sys-apps/pciutils
+*app-portage/gentoolkit
+*app-portage/genlop
 
