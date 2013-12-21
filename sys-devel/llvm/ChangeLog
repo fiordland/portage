@@ -1,6 +1,34 @@
 # ChangeLog for sys-devel/llvm
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/ChangeLog,v 1.148 2013/12/03 14:02:42 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/ChangeLog,v 1.155 2013/12/20 21:50:34 mgorny Exp $
+
+  20 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Disable libxml2 support in non-native ABIs since it is meaningful for
+  installed c-index-test only.
+
+  20 Dec 2013; Michał Górny <mgorny@gentoo.org>
+  +files/llvm-3.5-gentoo-install.patch, llvm-9999.ebuild:
+  Update LLVM build patch for -9999.
+
+  20 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Fix gcc version check. Add missing libxml2 dependency (for clang). Install
+  CMake modules.
+
+  19 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Symlink the LLVM gold plugin to bfd-plugins directory to enable LLVM object
+  support in various binutils tools, bug #462554.
+
+  19 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Remove traces of BugpointPasses in darwin branch.
+
+  19 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Delay building unnecessary tools & unittests until src_test(). Do not install
+  BugpointPasses.so (seems unused). Match man phase generation & install phases.
+
+  19 Dec 2013; Michał Górny <mgorny@gentoo.org> llvm-9999.ebuild:
+  Clean up the build procedure a bit. Pass the same MAKEOPTS to all calls, and
+  therefore make tests verbose as well. Avoid building unnecessary tools for
+  non-native ABIs.
 
   03 Dec 2013; Michał Górny <mgorny@gentoo.org>
   +files/clang-3.5-gentoo-install.patch, llvm-9999.ebuild:

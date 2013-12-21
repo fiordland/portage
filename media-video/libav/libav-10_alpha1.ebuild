@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/libav/libav-10_alpha1.ebuild,v 1.1 2013/12/18 19:43:32 lu_zero Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/libav/libav-10_alpha1.ebuild,v 1.3 2013/12/20 02:43:08 patrick Exp $
 
 EAPI=5
 
@@ -21,6 +21,8 @@ elif [[ ${PV%_p*} != ${PV} ]] ; then # Gentoo snapshot
 else # Official release
 	SRC_URI="http://${PN}.org/releases/${P}.tar.xz"
 fi
+
+SRC_URI+=" test? ( http://dev.gentoo.org/~lu_zero/libav/fate-10.tar.xz )"
 
 LICENSE="LGPL-2.1  gpl? ( GPL-3 )"
 SLOT="0/9"
@@ -120,9 +122,6 @@ REQUIRED_USE="bindist? ( !faac !openssl !fdk )
 	amr? ( gpl ) aac? ( gpl ) x264? ( gpl ) X? ( gpl ) cdio? ( gpl )
 	test? ( encode zlib )
 "
-
-# Test on live ebuild are not possible as they require trunk fate
-RESTRICT="test"
 
 src_prepare() {
 	# if we have snapshot then we need to hardcode the version
