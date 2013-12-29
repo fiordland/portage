@@ -1,10 +1,64 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1083 2013/12/19 06:00:43 dirtyepic Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1099 2013/12/28 17:19:10 mgorny Exp $
+
+  28 Dec 2013; Michał Górny <mgorny@gentoo.org> eutils.eclass:
+  Fix eclassdoc for einstalldocs.
+
+  28 Dec 2013; Ryan Hill <dirtyepic@gentoo.org> toolchain.eclass:
+  Missed one.
+
+  28 Dec 2013; Ryan Hill <dirtyepic@gentoo.org> toolchain.eclass:
+  Use version ranges instead of case statements in gcc_do_filter_flags().
+
+  28 Dec 2013; Ryan Hill <dirtyepic@gentoo.org> toolchain.eclass:
+  Add tc_version_is_between() helper.
+
+  28 Dec 2013; Ryan Hill <dirtyepic@gentoo.org> toolchain.eclass:
+  Reintroduce texinfo patch to unbreak older versions (bug #496224).
+
+  28 Dec 2013; Robin H. Johnson <robbat2@gentoo.org> flag-o-matic.eclass:
+  Spelling fixes.
+
+  27 Dec 2013; Julian Ospald <hasufell@gentoo.org> multilib-minimal.eclass:
+  add debug print function wrt #493214
+
+  27 Dec 2013; Ryan Hill <dirtyepic@gentoo.org> toolchain.eclass:
+  Initial EAPI support (bug #474358).
+
+  27 Dec 2013; Robin H. Johnson <robbat2@gentoo.org> flag-o-matic.eclass:
+  Per discussion with Flameeyes, make -l and -L always valid, and only warn
+  about other arguments to append-libs. Also document expected arguments to
+  append-libs.
+
+  27 Dec 2013; Robin H. Johnson <robbat2@gentoo.org> flag-o-matic.eclass:
+  There are usages in the tree of "append-libs $(pkg-config ...)"; if
+  pkg-config returns something other than a library, append-libs can end up
+  inserting -l-L/usr/lib64 or other weirdness. We need to check for these and
+  warn about them.
+
+  27 Dec 2013; Michał Górny <mgorny@gentoo.org> eutils.eclass:
+  Document einstalldocs.
+
+  26 Dec 2013; Hans de Graaff <graaff@gentoo.org> ruby-ng.eclass:
+  Add support for the ruby21 target.
+
+  24 Dec 2013; Andreas K. Huettel <dilfridge@gentoo.org> cmake-utils.eclass:
+  Add another pathological use flag function, useno (inversion of use)
+
+  23 Dec 2013; Ryan Hill <dirtyepic@gentoo.org> toolchain.eclass:
+  Rename gtk USE flag to awt. Remove lto USE flag. Minor cleanup.
+
+  21 Dec 2013; Davide Pesavento <pesa@gentoo.org> qt4-r2.eclass:
+  Use eqmake4() from qmake-utils.eclass
+
+  21 Dec 2013; Ryan Hill <dirtyepic@gentoo.org> toolchain.eclass:
+  Reorder by phase and group functions together with the phase that uses them.
+  No functional changes.
 
   19 Dec 2013; Ryan Hill <dirtyepic@gentoo.org> toolchain.eclass:
-  Refactoring: Inline gcc-compiler-configure() into gcc_do_configure(). Clean
-  up, sort and group options.
+  Inline gcc-compiler-configure() into gcc_do_configure(). Clean up, sort and
+  group options.
 
   16 Dec 2013; Sven Vermeulen <swift@gentoo.org> selinux-policy-2.eclass:
   Added HTTPS URL to EGIT_REPO_URI to allow live ebuilds to fetch data if
