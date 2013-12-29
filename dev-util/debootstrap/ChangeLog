@@ -1,6 +1,18 @@
 # ChangeLog for dev-util/debootstrap
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/debootstrap/ChangeLog,v 1.234 2013/12/14 13:07:59 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/debootstrap/ChangeLog,v 1.238 2013/12/23 15:29:33 ago Exp $
+
+  23 Dec 2013; Agostino Sarubbo <ago@gentoo.org> debootstrap-1.0.55.ebuild:
+  Stable for sparc, wrt bug #491590
+
+  22 Dec 2013; Pacho Ramos <pacho@gentoo.org> debootstrap-1.0.55.ebuild:
+  amd64 stable, bug #491590
+
+  22 Dec 2013; Agostino Sarubbo <ago@gentoo.org> debootstrap-1.0.55.ebuild:
+  Stable for ppc64, wrt bug #491590
+
+  21 Dec 2013; Agostino Sarubbo <ago@gentoo.org> debootstrap-1.0.55.ebuild:
+  Stable for ppc, wrt bug #491590
 
   14 Dec 2013; Johannes Huber <johu@gentoo.org> debootstrap-1.0.55.ebuild:
   x86 stable, bug #491590
