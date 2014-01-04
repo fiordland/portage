@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/ruby/ruby-2.1.0.ebuild,v 1.1 2013/12/26 09:24:39 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/ruby/ruby-2.1.0.ebuild,v 1.2 2014/01/03 07:31:54 graaff Exp $
 
 EAPI=5
 
@@ -121,6 +121,7 @@ src_configure() {
 	INSTALL="${EPREFIX}/usr/bin/install -c" econf \
 		--program-suffix=${MY_SUFFIX} \
 		--with-soname=ruby${MY_SUFFIX} \
+		--docdir=${EPREFIX}/usr/share/doc/${P} \
 		--enable-shared \
 		--enable-pthread \
 		--enable-psych \
