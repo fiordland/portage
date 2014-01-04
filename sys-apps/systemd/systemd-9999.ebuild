@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-9999.ebuild,v 1.76 2013/12/28 13:01:30 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-9999.ebuild,v 1.78 2013/12/31 18:55:28 floppym Exp $
 
 EAPI=5
 
@@ -26,7 +26,7 @@ LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0/1"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 IUSE="acl audit cryptsetup doc +firmware-loader gcrypt gudev http introspection
-	+kmod lzma pam policykit python qrcode selinux tcpd test
+	+kdbus +kmod lzma pam policykit python qrcode selinux tcpd test
 	vanilla xattr"
 
 MINKV="3.0"
@@ -86,14 +86,17 @@ DEPEND="${COMMON_DEPEND}
 #if LIVE
 DEPEND="${DEPEND}
 	dev-libs/gobject-introspection
-	>=dev-libs/libgcrypt-1.4.5:0
-	>=dev-util/gtk-doc-1.18"
+	>=dev-libs/libgcrypt-1.4.5:0"
 
 SRC_URI=
 KEYWORDS=
 
 src_prepare() {
-	gtkdocize --docdir docs/ || die
+	if use doc; then
+		gtkdocize --docdir docs/ || die
+	else
+		echo 'EXTRA_DIST =' > docs/gtk-doc.make
+	fi
 
 	autotools-utils_src_prepare
 }
@@ -173,6 +176,7 @@ multilib_src_configure() {
 		$(use_enable gudev)
 		$(use_enable http microhttpd)
 		$(use_enable introspection)
+		$(use_enable kdbus)
 		$(use_enable kmod)
 		$(use_enable lzma xz)
 		$(use_enable pam)

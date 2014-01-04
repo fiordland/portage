@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-3.3-r2.ebuild,v 1.3 2013/12/28 22:56:42 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-3.3-r2.ebuild,v 1.5 2013/12/30 09:07:11 mgorny Exp $
 
 EAPI=5
 
@@ -62,6 +62,11 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	test? ( || ( $(python_gen_useflags 'python*') ) )"
 
 S=${WORKDIR}/${P}.src
+
+# Some people actually override that in make.conf. That sucks since
+# we need to run install per-directory, and ninja can't do that...
+# so why did it call itself ninja in the first place?
+CMAKE_MAKEFILE_GENERATOR=emake
 
 pkg_pretend() {
 	# in megs
@@ -311,7 +316,7 @@ multilib_src_compile() {
 
 		if use doc; then
 			emake -C "${S}"/docs -f Makefile.sphinx man
-			emake -C "${S}"/tools/clang/docs/tools \
+			use clang && emake -C "${S}"/tools/clang/docs/tools \
 				BUILD_FOR_WEBSITE=1 DST_MAN_DIR="${T}"/ man
 			emake -C "${S}"/docs -f Makefile.sphinx html
 		fi

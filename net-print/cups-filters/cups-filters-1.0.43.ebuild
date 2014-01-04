@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/cups-filters/cups-filters-1.0.43.ebuild,v 1.1 2013/12/27 22:32:17 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/cups-filters/cups-filters-1.0.43.ebuild,v 1.3 2014/01/01 21:00:49 dilfridge Exp $
 
 EAPI=5
 
@@ -14,15 +14,14 @@ if [[ "${PV}" == "9999" ]] ; then
 	KEYWORDS=""
 else
 	SRC_URI="http://www.openprinting.org/download/${PN}/${P}.tar.xz"
-#	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-fbsd ~m68k-mint"
-	KEYWORDS=""
+	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-fbsd ~m68k-mint"
 fi
 DESCRIPTION="Cups PDF filters"
 HOMEPAGE="http://www.linuxfoundation.org/collaborate/workgroups/openprinting/pdfasstandardprintjobformat"
 
 LICENSE="MIT GPL-2"
 SLOT="0"
-IUSE="jpeg perl png static-libs tiff zeroconf"
+IUSE="dbus jpeg perl png static-libs tiff zeroconf"
 
 RDEPEND="
 	>=app-text/ghostscript-gpl-9.09
@@ -36,8 +35,9 @@ RDEPEND="
 	sys-devel/bc
 	sys-libs/zlib
 	!net-print/foomatic-filters
+	dbus? ( sys-apps/dbus )
 	jpeg? ( virtual/jpeg:0 )
-	perl? ( dev-lang/perl )
+	perl? ( dev-lang/perl:= )
 	png? ( media-libs/libpng:0= )
 	tiff? ( media-libs/tiff )
 	zeroconf? ( net-dns/avahi[dbus] )
@@ -53,6 +53,7 @@ src_prepare() {
 src_configure() {
 	econf \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
+		$(use_enable dbus) \
 		$(use_enable zeroconf avahi) \
 		$(use_enable static-libs static) \
 		--with-fontdir="fonts/conf.avail" \
