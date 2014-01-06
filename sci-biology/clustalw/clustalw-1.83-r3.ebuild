@@ -1,10 +1,10 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/clustalw/clustalw-1.83-r3.ebuild,v 1.2 2010/01/02 18:31:12 fauli Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/clustalw/clustalw-1.83-r3.ebuild,v 1.4 2014/01/06 08:46:49 jlec Exp $
 
-EAPI="2"
+EAPI=5
 
-inherit base toolchain-funcs
+inherit eutils toolchain-funcs
 
 DESCRIPTION="General purpose multiple alignment program for DNA and proteins"
 HOMEPAGE="http://www.embl-heidelberg.de/~seqanal/"
@@ -17,19 +17,19 @@ IUSE=""
 
 S="${WORKDIR}"/${PN}${PV}
 
-PATCHES=(
-	"${FILESDIR}"/${PV}-as-needed.patch
-)
-
 src_prepare() {
-	base_src_prepare
-	sed -i -e "s/CC	= cc/CC	= $(tc-getCC)/" \
-		makefile || die
-	sed -i -e "s%clustalw_help%/usr/share/doc/${PF}/clustalw_help%" clustalw.c || die
+	epatch "${FILESDIR}"/${PV}-as-needed.patch
+
+	sed \
+		-e "/^CC/s:cc:$(tc-getCC):g" \
+		-i makefile || die
+	sed \
+		-e "s%clustalw_help%/usr/share/doc/${PF}/clustalw_help%" \
+		-i clustalw.c || die
 }
 
 src_install() {
-	dobin clustalw || die
+	dobin clustalw
 	dodoc README clustalv.doc clustalw.doc clustalw.ms
 	insinto /usr/share/doc/${PF}
 	doins clustalw_help
