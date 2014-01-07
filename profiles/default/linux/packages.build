@@ -30,6 +30,7 @@ sys-apps/less
 sys-apps/net-tools
 sys-apps/openrc
 sys-apps/sed
+sys-apps/util-linux
 sys-devel/binutils
 sys-devel/bison
 sys-devel/flex
