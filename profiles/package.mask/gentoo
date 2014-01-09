@@ -1,6 +1,6 @@
 ####################################################################
 
-# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15302 2014/01/06 23:23:57 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15318 2014/01/08 21:42:50 mr_bones_ Exp $
 #
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked. Please be extremely
@@ -30,6 +30,66 @@
 ## app-misc/some-package
 
 #--- END OF EXAMPLES ---
+
+# Joerg Bornkessel <hd_brummy@gentoo.org> (08/Jan/2014)
+# masked for removal, wrt bug 497574
+media-plugins/vdr-premiereepg
+
+# Joerg Bornkessel <hd_brummy@gentoo.org> (08/Jan/2014)
+# masked for removal, wrt bug 414193
+media-plugins/vdr-softplay
+
+# Joerg Bornkessel <hd_brummy@gentoo.org> (08/Jan/2014)
+# masked for removal, wrt bug 420859 
+media-plugins/vdr-softdevice
+
+# Joerg Bornkessel <hd_brummy@gentoo.org> (08/Jan/2014)
+# masked for removal, wrt bug 420881
+media-plugin/vdr-reelchannelscan
+
+# Matti Bickel <mabi@gentoo.org> (08/Jan/2014)
+# masked for removal 08/Feb/2014, bundled with dev-php/phpunit
+dev-php/PHPUnit_MockObject
+
+# Matti Bickel <mabi@gentoo.org> (08/Jan/2014)
+# masked for removal 08/Feb/2014, bundled with dev-php/phpunit
+dev-php/PHPUnit_Selenium
+
+# Matti Bickel <mabi@gentoo.org> (08/Jan/2014)
+# masked for removal 08/Feb/2014, outdated, not maintained
+dev-php/PEAR-Tree
+
+# Matti Bickel <mabi@gentoo.org> (08/Jan/2014)
+# masked for removal 08/Feb/2014, outdated, not maintained
+dev-php/PEAR-Text_Highlighter
+
+# Matti Bickel <mabi@gentoo.org> (08/Jan/2014)
+# masked for removal 08/Feb/2014, outdated, not maintained
+dev-php/PEAR-Structures_DataGrid
+
+# Matti Bickel <mabi@gentoo.org> (08/Jan/2014)
+# masked for removal 08/Feb/2014, outdated, not maintained
+dev-php/PEAR-HTTP_WebDAV_Server
+
+# Matti Bickel <mabi@gentoo.org> (08/Jan/2014)
+# masked for removal 08/Feb/2014, outdated, not maintained
+dev-php/PEAR-HTTP_Upload
+
+# Matti Bickel <mabi@gentoo.org> (08/Jan/2014)
+# masked for removal 08/Feb/2014, outdated, not maintained
+dev-php/PEAR-HTML_QuickForm_ElementGrid
+
+# Matti Bickel <mabi@gentoo.org> (08/Jan/2014)
+# masked for removal 08/Feb/2014, outdated, not maintained
+dev-php/PEAR-HTML_BBcodeParser
+
+# Joerg Bornkessel <hd_brummy@gentoo.org> (08/Jan/2014)
+# masked for removal ~08/Feb/2014, wrt bug 424281
+media-plugins/vdr-dvdconvert
+
+# Joerg Bornkessel <hd_brummy@gentoo.org> (08 Jan 2014)
+# masked for removal ~08 Feb 2014, wrt bug 424257
+media-plugins/vdr-analogtv
 
 # Michał Górny <mgorny@gentoo.org> (06 Jan 2014)
 # Masked for testing.
@@ -285,18 +345,9 @@ dev-ruby/gettext_rails
 kde-base/kdegraphics-strigi-analyzer
 kde-base/kdesdk-misc
 kde-base/kdesdk-scripts
-kde-base/kdesdk-strigi-analyzer
 kde-base/kstartperf
 kde-base/kuiviewer
 kde-base/solid
-
-# Michael Sterrett <mr_bones_@gentoo.org> (10 Dec 2013)
-# Dead upstream; requires java-1.5; open bugs:
-# https://bugs.gentoo.org/show_bug.cgi?id=196522
-# https://bugs.gentoo.org/show_bug.cgi?id=241512
-# https://bugs.gentoo.org/show_bug.cgi?id=355055
-# Masked for removal on 20140109
-dev-java/jdictrayapi
 
 # Ben de Groot <yngwin@gentoo.org> (08 Dec 2013)
 # New header location breaks compilation of reverse dependencies,

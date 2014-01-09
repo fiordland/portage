@@ -2539,6 +2539,7 @@ games-strategy/heroes3:sounds - Installs optional sound data
 games-strategy/ja2-stracciatella:editor - Adds necessary file to run the editor
 games-strategy/ja2-stracciatella:linguas_ru_gold - Support for russian gold ja2 version
 games-strategy/liquidwar6:doc - Convert the info pages to html
+games-strategy/liquidwar6:gles2 - Enable OpenGL ES 2.0 support
 games-strategy/liquidwar6:gtk - Used to display error/critical messages
 games-strategy/liquidwar6:maps - Install extra maps
 games-strategy/liquidwar6:ogg - Enable mod-ogg via media-libs/sdl-mixer (currently the only sound provider)
@@ -3449,7 +3450,6 @@ media-plugins/mythplugins:mythweather - Adds weather information within MythTV
 media-plugins/mythplugins:mythzoneminder - Adds support for zoneminder (requires a server with the appropriate mythtv daemon somewhere on the network).
 media-plugins/mythplugins:raw - Allows MythGallery to view photos saved in RAW format
 media-plugins/vdr-burn:dvdarchive - DMH DVD - Archive
-media-plugins/vdr-burn:projectx - Enables support for media-video/projectx
 media-plugins/vdr-dvdconvert:projectx - Enable support for media-video/projectx
 media-plugins/vdr-epgsearch:tre - Add support for unlimited fuzzy searching with help of dev-libs/tre library
 media-plugins/vdr-graphtft:graphtft-fe - Install external x11 remote frontend
@@ -4030,7 +4030,6 @@ media-video/mpv:enca - Enables support for charset discovery and conversion usin
 media-video/mpv:libguess - Enables support for charset discovery and conversion using app-i18n/libguess
 media-video/mpv:luajit - Use dev-lang/luajit instead of dev-lang/lua
 media-video/mpv:mng - MNG input support
-media-video/mpv:mp3 - Enable support for mp3 decoding over media-sound/mpg123 instead of relying on ffmpeg support.
 media-video/mpv:mpg123 - Enable support for mp3 decoding over media-sound/mpg123 instead of relying on ffmpeg support.
 media-video/mpv:postproc - Enable image post-processing via libpostproc
 media-video/mpv:pvr - Enable Video4Linux2 MPEG PVR
@@ -5720,6 +5719,8 @@ sci-chemistry/gsim:emf - Support for .emf export
 sci-chemistry/icm:32bit - Automatically generated description for 32bit
 sci-chemistry/icm:64bit - Automatically generated description for 64bit
 sci-chemistry/jmol:client-only - Install the viewer only, no applet files for httpd
+sci-chemistry/molequeue:client - Build the client application
+sci-chemistry/molequeue:server - Build the serve application
 sci-chemistry/molequeue:zeromq - Build with net-libs/zeromq support
 sci-chemistry/mopac7:gmxmopac7 - Add support library for gromacs
 sci-chemistry/oasis:minimal - Restricts functionality on free software
@@ -5843,6 +5844,8 @@ sci-libs/linux-gpib:isa - Build ISA kernel modules; from 3.12 on the setting is 
 sci-libs/lis:fma - Use the Fused Multiply Add instruction set (x86 arches)
 sci-libs/lis:quad - Enable quadruple precision operations
 sci-libs/lis:saamg - Build the Smoothed Aggregation Algebraic MultiGrid preconditioner
+sci-libs/magma:fermi - Compile for GPU NVIDIA Fermi family (2.x cards)
+sci-libs/magma:kepler - Compile for GPU NVIDIA Kepler family (GF 6xx cards)
 sci-libs/mathgl:hdf - Add support for the Hierarchical Data Format v.4 sci-libs/hdf
 sci-libs/mathgl:octave - Add bindings for sci-mathematics/octave
 sci-libs/matio:sparse - Extend formats for sparse matrix (not matlab)
