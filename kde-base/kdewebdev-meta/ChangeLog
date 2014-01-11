@@ -1,6 +1,16 @@
 # ChangeLog for kde-base/kdewebdev-meta
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kdewebdev-meta/ChangeLog,v 1.269 2013/12/18 19:58:04 johu Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kdewebdev-meta/ChangeLog,v 1.271 2014/01/10 04:31:47 creffett Exp $
+
+  10 Jan 2014; Chris Reffett <creffett@gentoo.org>
+  -kdewebdev-meta-4.11.4.ebuild:
+  Remove KDE SC 4.11.4
+
+*kdewebdev-meta-4.11.5 (10 Jan 2014)
+
+  10 Jan 2014; Chris Reffett <creffett@gentoo.org>
+  +kdewebdev-meta-4.11.5.ebuild:
+  Bump KDE SC 4.11.5
 
 *kdewebdev-meta-4.12.0 (18 Dec 2013)
 
