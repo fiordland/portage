@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libisoburn/libisoburn-1.3.2.ebuild,v 1.7 2013/12/23 11:20:48 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libisoburn/libisoburn-1.3.2.ebuild,v 1.8 2014/01/11 12:28:04 billie Exp $
 
 EAPI=5
 

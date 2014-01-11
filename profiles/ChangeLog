@@ -1,10 +1,44 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8517 2014/01/08 21:23:53 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8527 2014/01/11 13:25:20 mgorny Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  11 Jan 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Link the license issue bug to m64py mask.
+
+  11 Jan 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask llvm-3.4 and rev-deps.
+
+  11 Jan 2014; Pacho Ramos <pacho@gentoo.org> arch/alpha/package.use.mask,
+  arch/ia64/package.use.mask, arch/powerpc/package.use.mask:
+  Drop obsolete masking for systemd in dracut on arches that now have systemd
+
+  11 Jan 2014; Pacho Ramos <pacho@gentoo.org>
+  arch/powerpc/ppc64/package.use.mask:
+  Drop obsolete USE maskings on ppc64 as systemd is stable there for a long
+  time
+
+  11 Jan 2014; Pacho Ramos <pacho@gentoo.org> arch/ia64/package.use.mask:
+  Drop unneeded use mask
+
+  10 Jan 2014; Markos Chandras <hwoarang@gentoo.org> thirdpartymirrors:
+  Update openssl mirrors thanks to Ben Kohler <bkohler@gmail.com>. Bug #494866
+
+  10 Jan 2014; Magnus Granberg <zorry@gentoo.org> package.mask:
+  Mask sys-devel/gcc-4.8.2-r1 has default ssp and need testing
+
+  10 Jan 2014; Justin Lecher <jlec@gentoo.org> package.mask:
+  Mask +sys-kernel/aufs-sources:3.12.7 because aufs3 patches do not apply
+  cleanly onto linux-3.12.7
+
+  10 Jan 2014; Justin Lecher <jlec@gentoo.org> package.mask:
+  Drop obsolete mask
+
+  08 Jan 2014; Matti Bickel <mabi@gentoo.org> package.mask:
+  dev-php/Text_Highlighter still has a reverse dep, unmask again
 
   08 Jan 2014; Pacho Ramos <pacho@gentoo.org> arch/alpha/package.use.mask:
   systemd[pam] cannot be provided for alpha, bug #438368
