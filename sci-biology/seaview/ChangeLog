@@ -1,6 +1,18 @@
 # ChangeLog for sci-biology/seaview
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/seaview/ChangeLog,v 1.50 2014/01/06 15:31:22 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/seaview/ChangeLog,v 1.54 2014/01/14 15:39:14 jlec Exp $
+
+  14 Jan 2014; Justin Lecher <jlec@gentoo.org> -seaview-4.3.3.ebuild:
+  Drop old
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> seaview-4.3.5.ebuild:
+  Stable for ppc, wrt bug #497216
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> seaview-4.3.5.ebuild:
+  Stable for x86, wrt bug #497216
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> seaview-4.3.5.ebuild:
+  amd64 stable, bug #497216
 
   06 Jan 2014; Justin Lecher <jlec@gentoo.org> seaview-4.3.3.ebuild:
   Punt base.eclass

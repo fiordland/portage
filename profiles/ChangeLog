@@ -1,10 +1,49 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8527 2014/01/11 13:25:20 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8538 2014/01/14 19:35:44 hd_brummy Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  14 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org> package.mask:
+  media-plugins/vdr-xxvautotimer masked for removal ~ 14/02/2014, wrt bug
+  141181
+
+  14 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org> package.mask:
+  media-plugins/vdr-skinclassic masked for removal ~14/02/2014, wrt bug 414887
+
+  14 Jan 2014; Alexis Ballier <aballier@gentoo.org> arch/amd64/use.mask,
+  arch/x86/use.mask, base/use.mask:
+  Add some usemasks for cpu related useflags that will be added to
+  media-video/ffmpeg. Unmask relevant flags on amd64/x86. Leave arm and mips
+  useflags to the arch team that know better where to unmask them.
+
+  14 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org> package.mask:
+  media-plugins/vdr-sky masked for removal ~ 14/02/2014, wrt bug 420869
+
+  14 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org> package.mask:
+  media-plugins/vdr-skinreel masked for removal ~ 14/02/2014, wrt bug 420873
+
+  14 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  targets/desktop/kde/package.mask:
+  Unmask nvidia-drivers-331.38 since the signal mask bug is hopefully fixed
+  there
+
+  14 Jan 2014; Justin Lecher <jlec@gentoo.org> package.mask:
+  Drop mask as patches apply now
+
+  13 Jan 2014; Tony Vroon <chainsaw@gentoo.org> package.mask:
+  Mask off Asterisk 12 as the first ebuild goes in.
+
+  13 Jan 2014; Justin Lecher <jlec@gentoo.org> package.mask:
+  Mask aufs-sources:3.10.26 because aufs3 patches do not apply correctly
+
+  13 Jan 2014; Manuel Rüger <mrueg@gentoo.org> package.mask:
+  Cleanup pmasked ruby packages.
+
+  12 Jan 2014; Markus Meier <maekke@gentoo.org> package.mask:
+  mask media-libs/libpano13 and media-gfx/hugin for testing
 
   11 Jan 2014; Michał Górny <mgorny@gentoo.org> package.mask:
   Link the license issue bug to m64py mask.

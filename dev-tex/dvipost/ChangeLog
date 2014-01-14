@@ -1,6 +1,18 @@
 # ChangeLog for dev-tex/dvipost
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tex/dvipost/ChangeLog,v 1.33 2014/01/01 16:15:08 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-tex/dvipost/ChangeLog,v 1.37 2014/01/14 16:48:32 ago Exp $
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> dvipost-1.1-r2.ebuild:
+  Stable for ppc64, wrt bug #495652
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> dvipost-1.1-r2.ebuild:
+  Stable for ppc, wrt bug #495652
+
+  14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> dvipost-1.1-r2.ebuild:
+  Stable for x86, wrt bug #495652
+
+  12 Jan 2014; Pacho Ramos <pacho@gentoo.org> dvipost-1.1-r2.ebuild:
+  amd64 stable, bug #495652
 
   01 Jan 2014; Jeroen Roovers <jer@gentoo.org> dvipost-1.1-r2.ebuild:
   Stable for HPPA (bug #495652).
@@ -113,4 +125,3 @@
   +dvipost-1.0.ebuild, +dvipost-1.0-src_test.diff:
   Initial import. Ebuild submitted by Christopher Ford
   <ctford0@engr.uky.edu>, closing bug #47148.
-
