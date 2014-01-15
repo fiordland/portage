@@ -1,3 +1,0 @@
-# Big endian Aarch64 settings.
-
-CHOST="aarch64_be-unknown-linux-gnu"
