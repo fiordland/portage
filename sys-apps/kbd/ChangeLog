@@ -1,6 +1,16 @@
 # ChangeLog for sys-apps/kbd
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kbd/ChangeLog,v 1.121 2014/01/09 13:37:41 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/kbd/ChangeLog,v 1.124 2014/01/18 05:12:21 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> kbd-1.15.5-r1.ebuild,
+  kbd-2.0.1.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> kbd-1.15.5-r1.ebuild:
+  Mark m68k/s390/sh stable.
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> kbd-1.15.5-r1.ebuild:
+  Stable for ia64, wrt bug #496434
 
   09 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> kbd-1.15.5-r1.ebuild:
   x86 stable (bug #496434).

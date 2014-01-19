@@ -1,5 +1,5 @@
 ####################################################################
-# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15337 2014/01/14 19:35:44 hd_brummy Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15346 2014/01/18 14:22:08 eras Exp $
 #
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked. Please be extremely
@@ -29,6 +29,35 @@
 ## app-misc/some-package
 
 #--- END OF EXAMPLES ---
+
+# Eray Aslan <eras@gentoo.org> (18 Jan 2014)
+# Mask experimental software
+=mail-mta/postfix-2.12*
+
+# Alexis Ballier <aballier@gentoo.org> (18 Jan 2014)
+# Rev. deps fail to build
+>=media-libs/aubio-0.4
+
+# Pawel Hajdan jr <phajdan.jr@gentoo.org> (18 Jan 2014)
+# Dev channel releases are only for people who are developers or want more
+# experimental features and accept a more unstable release.
+>=www-client/chromium-34
+
+# Michael Sterrett <mr_bones_@gentoo.org> (16 Jan 2014)
+# testing mask for 3.5.x releases
+>=app-admin/syslog-ng-3.5
+
+# Lars Wendler <polynomial-c@gentoo.org>
+# Multilib ready ebuild (bug #496218). Collides with emul-linux-x86-baselibs
+=sys-devel/gettext-0.18.3.2
+=virtual/libintl-0-r1
+
+# Michał Górny <mgorny@gentoo.org> (15 Jan 2014)
+# Multilib conversion and Python support code seriously broken.
+# Has dependencies that are not converted to multilib yet.
+# Do not unmask without prior review from multilib@g.o.
+# https://bugs.gentoo.org/show_bug.cgi?id=474654#c5
+=media-gfx/exiv2-0.23-r2
 
 # Joerg Bornkessel <hd_brummy@gentoo.org (14 Jan 2014)
 # plugin fails on compile >=vdr-1.7.27
@@ -353,27 +382,6 @@ games-emulation/mupen64plus-video-glide64mk2
 games-emulation/mupen64plus-video-rice
 games-emulation/m64py
 
-# Hans de Graaff <graaff@gentoo.org> (15 Dec 2013)
-# Masked for removal in a month due to ruby18 deprecation.
-# Rails 2.3 is only available for ruby18 in Gentoo, and it
-# is also officially no longer supported upstream.
-# This mask contains the Rails 2.3 packages and packages
-# directly related to it, or packages depending on it.
-# Rails 2.3 also has open security issues (bug #406547)
-dev-ruby/radiant
-dev-ruby/rails:2.3
-dev-ruby/actionpack:2.3
-dev-ruby/actionmailer:2.3
-dev-ruby/activerecord:2.3
-dev-ruby/activeresource:2.3
-dev-ruby/activesupport:2.3
-dev-ruby/actionwebservice:2.3
-dev-ruby/i18n:0.4
-dev-ruby/will_paginate:2.3
-dev-ruby/gettext_activerecord
-dev-ruby/gettext_rails
-
-
 # Johannes Huber <johu@gentoo.org> (14 Dec 2013)
 # Masked for removal in 30 days. Not packaged in current
 # stable KDE SC 4.11 and later.
@@ -409,11 +417,6 @@ kde-base/solid
 # Masked for testing
 ~dev-util/boost-build-1.55.0
 ~dev-libs/boost-1.55.0
-
-# Mike Gilbert <floppym@gentoo.org> (12 Nov 2013)
-# Dev channel releases are only for people who are developers or want more
-# experimental features and accept a more unstable release.
->=www-client/chromium-33
 
 # Ben de Groot <yngwin@gentoo.org> (11 Nov 2013)
 # Mask older roboto versions to give users a regular upgrade path
@@ -731,10 +734,6 @@ media-gfx/yablex
 # Davide Pesavento <pesa@gentoo.org> (02 Mar 2013)
 # Depends on blender, which is masked.
 media-gfx/yafaray
-
-# Eray Aslan <eras@gentoo.org> (13 Feb 2013)
-# Mask experimental software
-=mail-mta/postfix-2.11*
 
 # Doug Goldstein <cardoe@gentoo.org> (22 Jan 2013)
 # Masked for development

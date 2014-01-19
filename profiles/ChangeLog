@@ -1,10 +1,34 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8538 2014/01/14 19:35:44 hd_brummy Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8546 2014/01/18 14:22:08 eras Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  18 Jan 2014; Eray Aslan <eras@gentoo.org> package.mask:
+  Unmask mail-mta/postfix-2.11 and mask mail-mta/postfix-2.12
+
+  18 Jan 2014; Alexis Ballier <aballier@gentoo.org> package.mask:
+  mask latest aubio
+
+  18 Jan 2014; Hans de Graaff <graaff@gentoo.org> package.mask:
+  Remove mask for Rails 2.3 now that the packages have been removed.
+
+  18 Jan 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> package.mask:
+  Update dev channel mask for chromium-34
+
+  16 Jan 2014; Jeroen Roovers <jer@gentoo.org> desc/fftools.desc:
+  Spelling.
+
+  16 Jan 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib libintl as well.
+
+  16 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> package.mask:
+  Multilib ready gettext (bug #496218). Collides with emul-linux-x86-baselibs.
+
+  15 Jan 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask poor media-gfx/exiv2 multilib conversion.
 
   14 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org> package.mask:
   media-plugins/vdr-xxvautotimer masked for removal ~ 14/02/2014, wrt bug

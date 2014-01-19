@@ -1,6 +1,22 @@
 # ChangeLog for dev-libs/openssl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/openssl/ChangeLog,v 1.500 2014/01/06 19:15:22 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/openssl/ChangeLog,v 1.505 2014/01/18 19:08:00 pacho Exp $
+
+  18 Jan 2014; Pacho Ramos <pacho@gentoo.org> openssl-1.0.1f.ebuild:
+  amd64 stable, bug #497838
+
+  17 Jan 2014; Jeroen Roovers <jer@gentoo.org> openssl-1.0.1f.ebuild:
+  Stable for HPPA (bug #497838).
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> files/gentoo.config-1.0.1,
+  openssl-1.0.1f.ebuild:
+  Initial arm64 and little endian ppc support.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> openssl-1.0.1f.ebuild:
+  Mark m68k/s390/sh stable #497838.
+
+  16 Jan 2014; Mike Frysinger <vapier@gentoo.org> openssl-1.0.1e-r1.ebuild:
+  Mark m68k/s390/sh stable.
 
   06 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> openssl-1.0.1f.ebuild,
   +files/openssl-1.0.1f-perl-5.18.patch:

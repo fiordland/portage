@@ -1,6 +1,12 @@
 # ChangeLog for virtual/pager
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/pager/ChangeLog,v 1.13 2013/12/26 16:29:24 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/pager/ChangeLog,v 1.15 2014/01/18 04:37:19 vapier Exp $
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> pager-0.ebuild:
+  Add arm64 love.
+
+  17 Jan 2014; Mike Frysinger <vapier@gentoo.org> pager-0.ebuild:
+  Mark m68k/s390/sh stable.
 
   26 Dec 2013; Ulrich Müller <ulm@gentoo.org> pager-0.ebuild:
   Drop to unstable on m68k, s390 and sh. Remove empty variable assignments.

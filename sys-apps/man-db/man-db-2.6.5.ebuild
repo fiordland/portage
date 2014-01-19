@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/man-db/man-db-2.6.5.ebuild,v 1.6 2013/12/31 08:45:39 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/man-db/man-db-2.6.5.ebuild,v 1.11 2014/01/18 20:15:11 ago Exp $
 
 EAPI="4"
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://nongnu/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc x86 ~arm-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ~ppc ~ppc64 s390 sh ~sparc x86 ~arm-linux ~x86-linux"
 IUSE="berkdb +gdbm nls selinux static-libs zlib"
 
 RDEPEND="dev-libs/libpipeline
@@ -35,6 +35,10 @@ pkg_setup() {
 	# Create user now as Makefile in src_install does setuid/chown
 	enewgroup man 15
 	enewuser man 13 -1 /usr/share/man man
+
+	if (use gdbm && use berkdb) || (use !gdbm && use !berkdb) ; then #496150
+		ewarn "Defaulting to USE=gdbm due to ambiguous berkdb/gdbm USE flag settings"
+	fi
 }
 
 src_configure() {
