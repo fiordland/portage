@@ -1,6 +1,17 @@
 # ChangeLog for app-text/highlight
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/highlight/ChangeLog,v 1.74 2014/01/14 15:11:16 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/highlight/ChangeLog,v 1.77 2014/01/18 20:08:06 ago Exp $
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> highlight-3.16.ebuild:
+  Stable for alpha, wrt bug #495352
+
+*highlight-3.17 (16 Jan 2014)
+
+  16 Jan 2014; Tim Harder <radhermit@gentoo.org> +highlight-3.17.ebuild:
+  Version bump.
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> highlight-3.16.ebuild:
+  Stable for ia64, wrt bug #495352
 
   14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> highlight-3.16.ebuild:
   Stable for ppc, wrt bug #495352

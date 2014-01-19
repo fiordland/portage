@@ -1,6 +1,15 @@
 # ChangeLog for sci-libs/coinor-clp
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/coinor-clp/ChangeLog,v 1.2 2014/01/14 21:45:03 bicatali Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/coinor-clp/ChangeLog,v 1.4 2014/01/17 18:11:19 bicatali Exp $
+
+  17 Jan 2014; Sébastien Fabbro <bicatali@gentoo.org>
+  coinor-clp-1.15.6-r1.ebuild:
+  When sparse flag is not set and glpk is, workaround bundled amd in glpk <
+  4.52, bug #498242
+
+  15 Jan 2014; Sébastien Fabbro <bicatali@gentoo.org>
+  coinor-clp-1.15.6-r1.ebuild:
+  Cleanup, as-needed applied upstream
 
 *coinor-clp-1.15.6-r1 (14 Jan 2014)
 

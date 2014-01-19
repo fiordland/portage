@@ -1,6 +1,45 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1113 2014/01/14 20:50:23 mpagano Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1125 2014/01/18 15:06:56 floppym Exp $
+
+  18 Jan 2014; Mike Gilbert <floppym@gentoo.org> distutils-r1.eclass:
+  Silence sandbox for /usr/local, bug 498232.
+
+  18 Jan 2014; Mike Gilbert <floppym@gentoo.org> kernel-2.eclass:
+  Convert to python-any-r1.eclass
+
+  18 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org> kde4-base.eclass:
+  Sync from kde overlay, adds subslot
+
+  17 Jan 2014; Mike Pagano <mpagano@gentoo.org> kernel-2.eclass:
+  Fix QA warning concerning inherit
+
+  17 Jan 2014; Michael Pagano <mpagano@gentoo.org> kernel-2.eclass:
+  Fix kernel-2.eclass to use python.eclass for it's python needs. (deblob
+  script). See bug #497966
+
+  17 Jan 2014; Jeroen Roovers <jer@gentoo.org> mozcoreconf-2.eclass:
+  Revert inadvertent change, as noted by arfrever.
+
+  17 Jan 2014; Jeroen Roovers <jer@gentoo.org> mozcoreconf-2.eclass,
+  python-utils-r1.eclass:
+  Spelling.
+
+  16 Jan 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Typo.
+
+  16 Jan 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Support MULTILIB_CHOST_TOOLS for tool renaming/preserving.
+
+  16 Jan 2014; Hans de Graaff <graaff@gentoo.org> ruby-ng.eclass:
+  Explicitly cp symlinks as-is. The default for this changed in coreutils 8.22.
+  Fixes bug 472710.
+
+  15 Jan 2014; Michał Górny <mgorny@gentoo.org> autotools-multilib.eclass:
+  Actually enable in-source build support.
+
+  15 Jan 2014; Joerg Bornkessel <hd_brummy@gentoo.org> vdr-plugin.eclass:
+  vdr-plugin.eclass marked @DEAD
 
   14 Jan 2014; Michael Pagano <mpagano@gentoo.org> linux-mod.eclass:
   Remove use of sed in linux-mod.eclass. Replace with bash.

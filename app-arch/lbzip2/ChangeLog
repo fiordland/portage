@@ -1,6 +1,18 @@
 # ChangeLog for app-arch/lbzip2
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/lbzip2/ChangeLog,v 1.61 2014/01/14 15:34:17 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-arch/lbzip2/ChangeLog,v 1.65 2014/01/18 20:06:55 ago Exp $
+
+  18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> lbzip2-2.3-r1.ebuild:
+  Stable for alpha, wrt bug #495322
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> lbzip2-2.3-r1.ebuild:
+  Add arm64 love.
+
+  18 Jan 2014; Mike Frysinger <vapier@gentoo.org> lbzip2-2.3-r1.ebuild:
+  Mark m68k/s390/sh stable.
+
+  15 Jan 2014; Agostino Sarubbo <ago@gentoo.org> lbzip2-2.3-r1.ebuild:
+  Stable for ia64, wrt bug #495322
 
   14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> lbzip2-2.3-r1.ebuild:
   Stable for ppc, wrt bug #495322
