@@ -1,10 +1,28 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8546 2014/01/18 14:22:08 eras Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8550 2014/01/19 19:23:51 pacho Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  19 Jan 2014; Pacho Ramos <pacho@gentoo.org> arch/sparc/package.use.force,
+  arch/sparc/package.use.mask, arch/sparc/use.mask,
+  +default/linux/sparc/13.0/desktop/gnome/systemd/parent,
+  +default/linux/sparc/13.0/desktop/kde/systemd/parent,
+  default/linux/sparc/13.0/eapi, +default/linux/sparc/13.0/use.stable.mask,
+  profiles.desc:
+  systemd is now keyworded on sparc
+
+  19 Jan 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Remove mask for app-editors/emacs-vcs. The live ebuild will switch to empty
+  keywords instead.
+
+  19 Jan 2014; Jeroen Roovers <jer@gentoo.org> thirdpartymirrors:
+  Remove Easynet (bug #498536 by Helmut Jarausch).
+
+  19 Jan 2014; Mike Gilbert <floppym@gentoo.org> package.mask:
+  Mask current google-chrome slots, bug 498306.
 
   18 Jan 2014; Eray Aslan <eras@gentoo.org> package.mask:
   Unmask mail-mta/postfix-2.11 and mask mail-mta/postfix-2.12

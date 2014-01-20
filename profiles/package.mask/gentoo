@@ -1,5 +1,5 @@
 ####################################################################
-# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15346 2014/01/18 14:22:08 eras Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15353 2014/01/19 17:46:35 idl0r Exp $
 #
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked. Please be extremely
@@ -29,6 +29,37 @@
 ## app-misc/some-package
 
 #--- END OF EXAMPLES ---
+
+# Christian Ruppert <idl0r@gentoo.org> (19 Jan 2014)
+# Experimental, for now
+=dev-vcs/gitolite-gentoo-3*
+
+# Dion Moult <moult@gentoo.org> (19 Jan 2014)
+# Mask for removal in 30 days. Packages now depend on dev-lang/mono directly and
+# not on virtual/monodoc (bug #471180)
+virtual/monodoc
+
+# Dion Moult <moult@gentoo.org> (19 Jan 2014)
+# Mask for removal in 30 days. Flyte service discontinued so package is useless.
+# (bug #495138)
+app-misc/flyte-download-manager
+
+# Mike Gilbert <floppym@gentoo.org> (19 Jan 2014)
+# To prevent accidental switching of release channels (bug 498306),
+# google-chrome has been split into 3 packages:
+#
+# www-client/google-chrome
+# www-client/google-chrome-beta
+# www-client/google-chrome-unstable
+#
+# The stable channel remains as www-client/google-chrome, but has been
+# switched to SLOT="0".
+#
+# Please unmerge your currently installed version and remerge one of the new
+# packages.
+www-client/google-chrome:beta
+www-client/google-chrome:stable
+www-client/google-chrome:unstable
 
 # Eray Aslan <eras@gentoo.org> (18 Jan 2014)
 # Mask experimental software
@@ -688,12 +719,6 @@ x11-misc/pcmanfm-qt
 # Masked to get 0.10 tested
 =net-libs/nodejs-0.11*
 
-# Mike Gilbert <floppym@gentoo.org> (04 Apr 2013)
-# Dev channel releases are only for people who are developers or want more
-# experimental features and accept a more unstable release.
-www-client/google-chrome:unstable
-www-plugins/chrome-binary-plugins:unstable
-
 # Sergey Popov <pinkbyte@gentoo.org> (02 Apr 2013)
 # Masking =media-libs/ffmpegsource-2.17.4_pre753
 # by maintainer's request.
@@ -1045,7 +1070,6 @@ sys-auth/pam_keystore
 # per QA team policy, all these need to be kept masked by default, if
 # available in the tree.
 ~app-doc/devmanual-9999
-~app-editors/emacs-vcs-24.3.9999
 =app-forensics/openscap-9999
 ~app-i18n/skk-jisyo-9999
 =app-misc/mc-9999
