@@ -1,6 +1,34 @@
 # ChangeLog for www-apps/mediawiki
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/ChangeLog,v 1.252 2013/12/13 18:10:00 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/ChangeLog,v 1.258 2014/01/23 16:10:24 sdamashek Exp $
+
+  23 Jan 2014; Samuel Damashek <sdamashek@gentoo.org> -mediawiki-1.19.9.ebuild,
+  -mediawiki-1.20.8.ebuild, -mediawiki-1.21.3.ebuild, -mediawiki-1.22.0.ebuild:
+  Remove vulnerable versions wrt bug #498064
+
+  23 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> mediawiki-1.19.10.ebuild,
+  mediawiki-1.21.4.ebuild:
+  ppc stable wrt bug #498064
+
+  23 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> mediawiki-1.19.10.ebuild,
+  mediawiki-1.21.4.ebuild:
+  x86 stable wrt bug #498064
+
+  23 Jan 2014; Samuel Damashek <sdamashek@gentoo.org> mediawiki-1.19.10.ebuild,
+  mediawiki-1.21.4.ebuild, mediawiki-1.22.1.ebuild:
+  Fix ebuild syntax, add die to external commands
+
+  22 Jan 2014; Mikle Kolyada <zlogene@gentoo.org> mediawiki-1.19.10.ebuild,
+  mediawiki-1.21.4.ebuild:
+  amd64 stable wrt bug #498064
+
+*mediawiki-1.19.10 (22 Jan 2014)
+*mediawiki-1.21.4 (22 Jan 2014)
+*mediawiki-1.22.1 (22 Jan 2014)
+
+  22 Jan 2014; Samuel Damashek <sdamashek@gentoo.org> +mediawiki-1.19.10.ebuild,
+  +mediawiki-1.21.4.ebuild, +mediawiki-1.22.1.ebuild:
+  Version bump wrt bug 498064
 
   13 Dec 2013; Tim Harder <radhermit@gentoo.org> -mediawiki-1.19.8.ebuild,
   -mediawiki-1.20.7.ebuild, -mediawiki-1.21.2.ebuild:
