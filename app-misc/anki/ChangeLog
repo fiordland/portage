@@ -1,6 +1,15 @@
 # ChangeLog for app-misc/anki
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/anki/ChangeLog,v 1.74 2014/01/18 19:04:31 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/anki/ChangeLog,v 1.76 2014/01/26 10:56:19 ago Exp $
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> anki-2.0.20.ebuild:
+  Stable for x86, wrt bug #498452
+
+*anki-2.0.21 (24 Jan 2014)
+
+  24 Jan 2014; Thomas Kahle <tom@gentoo.org> -anki-2.0.19.ebuild,
+  +anki-2.0.21.ebuild:
+  bump to 2.0.21, remove old
 
   18 Jan 2014; Pacho Ramos <pacho@gentoo.org> anki-2.0.20.ebuild:
   amd64 stable, bug #498452

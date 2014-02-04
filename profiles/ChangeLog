@@ -1,10 +1,105 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8558 2014/01/23 19:48:33 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8587 2014/02/04 12:19:32 polynomial-c Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  04 Feb 2014; Lars Wendler <polynomial-c@gentoo.org>
+  arch/amd64/no-multilib/package.mask:
+  Removed virtualbox mask (bug #476324). arch/amd64/no-multilib/package.mask
+
+  04 Feb 2014; Tim Harder <radhermit@gentoo.org> package.mask:
+  Mask =media-sound/lilypond-2.19* for testing.
+
+  03 Feb 2014; Mike Gilbert <floppym@gentoo.org> package.mask:
+  Mask the other dev-python/moz* packages.
+
+  02 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  default/linux/alpha/13.0/use.stable.mask,
+  default/linux/ia64/13.0/use.stable.mask,
+  default/linux/sparc/13.0/use.stable.mask:
+  Remove stable mask for USE systemd on arches with it already in stable
+
+  31 Jan 2014; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Add CC-BY-SA-4.0 license to MISC-FREE-DOCS group.
+
+  31 Jan 2014; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Remove beta net-analyzer/tcpreplay mask.
+
+  30 Jan 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> package.mask:
+  drop mask of multilib gettext
+
+  30 Jan 2014; Aaron W. Swenson <titanofold@gentoo.org> package.mask:
+  Mask x11-misc/slimlock for removal.
+
+  29 Jan 2014; Gilles Dartiguelongue <eva@gentoo.org> package.mask:
+  Lift Gnome 3.10 mask after bug #499512 resolution.
+
+  29 Jan 2014; Ian Stakenvicius <axs@gentoo.org> package.mask:
+  adjust libav p.mask for recently added multilib-build ebuilds
+
+  29 Jan 2014; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Drop net-misc/socat-2 mask.
+
+  29 Jan 2014; Mike Gilbert <floppym@gentoo.org> package.mask:
+  Mask dev-python/mozrunner.
+
+  29 Jan 2014; Naohiro Aota <naota@gentoo.org> package.mask:
+  Mask prime and its related packages. #464286
+
+  29 Jan 2014; Manuel Rüger <mrueg@gentoo.org> package.mask:
+  Remove dev-ruby/mkrf mask.
+
+  28 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Remove obsolete libreoffice-bin-debug mask
+
+  27 Jan 2014; Ian Stakenvicius <axs@gentoo.org>
+  targets/systemd/package.use.mask:
+  add sys-fs/dmraid[static] to systemd package.use.mask since it cant be built
+  without lvm2[static-libs]
+
+  27 Jan 2014; Manuel Rüger <mrueg@gentoo.org> package.mask:
+  Append mask for >=oxygen-gtk-1.3.3:3 because it depends on gtk+-3.10
+
+  27 Jan 2014; Manuel Rüger <mrueg@gentoo.org> package.mask:
+  Clean up ruby18 mask.
+
+  27 Jan 2014; Dion Moult <moult@gentoo.org> package.mask:
+  Mask dev-libs/jrtplib and dev-libs/jthread (bug 489550)
+
+  27 Jan 2014; Mike Gilbert <floppym@gentoo.org> desc/grub_platforms.desc:
+  Add xen to GRUB_PLATFORMS.
+
+  27 Jan 2014; Tim Harder <radhermit@gentoo.org> package.mask:
+  Unmask =media-libs/portaudio-19_pre20140121_rc.
+
+  26 Jan 2014; Mike Gilbert <floppym@gentoo.org> package.mask:
+  Mask dev-python/certifi.
+
+  26 Jan 2014; Tim Harder <radhermit@gentoo.org> package.mask:
+  Mask =media-libs/portaudio-19_pre20140121_rc until upstream resolves again
+  (bug #499292).
+
+  25 Jan 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  fixed sandbox violation wrt #499020
+
+  25 Jan 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  hardmask >=sci-visualization/paraview-4.1.0 wrt #499020
+
+  25 Jan 2014; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Add Mini-XML license to MISC-FREE group.
+
+  24 Jan 2014; Tim Harder <radhermit@gentoo.org> package.mask:
+  Unmask =dev-libs/libtasn1-3*.
+
+  24 Jan 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Mask >=media-libs/jpeg-9 and roll ~arch back from .so.9 to .so.8 due to too
+  many issues being open at the Tracker wrt #479818
+
+  24 Jan 2014; Manuel Rüger <mrueg@gentoo.org> package.mask:
+  Clean up further obsolete ruby18 masks.
 
   23 Jan 2014; Ulrich Müller <ulm@gentoo.org> updates/1Q-2014:
   Update package move for games-board/capicity.

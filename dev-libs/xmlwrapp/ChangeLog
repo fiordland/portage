@@ -1,6 +1,15 @@
 # ChangeLog for dev-libs/xmlwrapp
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/xmlwrapp/ChangeLog,v 1.39 2013/12/02 09:32:43 pinkbyte Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/xmlwrapp/ChangeLog,v 1.42 2014/02/02 11:05:11 ago Exp $
+
+  02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> xmlwrapp-0.7.1.ebuild:
+  Stable for ppc, wrt bug #499758
+
+  01 Feb 2014; Akinori Hattori <hattya@gentoo.org> xmlwrapp-0.7.1.ebuild:
+  ia64 stable wrt bug #499758
+
+  30 Jan 2014; Jeroen Roovers <jer@gentoo.org> xmlwrapp-0.7.1.ebuild:
+  Stable for HPPA (bug #499758).
 
 *xmlwrapp-0.7.1 (02 Dec 2013)
 
@@ -142,4 +151,3 @@
  
   12 Jul 2003; Daniel Ahlberg <aliz@gentoo.org> :
   Added missing changelog entry.
-

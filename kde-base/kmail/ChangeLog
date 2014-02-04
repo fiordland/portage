@@ -1,6 +1,18 @@
 # ChangeLog for kde-base/kmail
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/kmail/ChangeLog,v 1.386 2014/01/20 15:00:07 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/kmail/ChangeLog,v 1.388 2014/01/31 13:21:02 dilfridge Exp $
+
+*kmail-4.12.1-r2 (31 Jan 2014)
+
+  31 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  +kmail-4.12.1-r2.ebuild:
+  Build all mail-related agents here; bug 499538
+
+*kmail-4.12.1-r1 (27 Jan 2014)
+
+  27 Jan 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  +kmail-4.12.1-r1.ebuild:
+  Move all agents into kdepim-common-libs, bug 494754
 
   20 Jan 2014; Michael Palimaka <kensington@gentoo.org> -kmail-4.12.0.ebuild:
   Remove KDE SC 4.12.0

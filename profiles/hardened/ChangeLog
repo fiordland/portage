@@ -1,6 +1,26 @@
 # ChangeLog for Gentoo/AMD64 profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/ChangeLog,v 1.29 2014/01/23 13:01:32 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/ChangeLog,v 1.34 2014/02/03 18:45:12 blueness Exp $
+
+  03 Feb 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/uclibc/package.mask:
+  Remove -sys-libs/uclibc from hardened/linux/uclibc/package.mask, bug #500202
+
+  27 Jan 2014; Anthony G. Basile <blueness@gentoo.org> linux/musl/use.mask:
+  hardened/linux/musl: provide nls support with gettext
+
+  26 Jan 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/packages.build:
+  hardened/linux/musl: switch to dev-util/pkgconf which does better in musl
+
+  24 Jan 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/amd64/make.defaults, linux/musl/x86/make.defaults:
+  Move musl's linker path to gcc's specs file
+
+  24 Jan 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/amd64/make.defaults, linux/musl/make.defaults,
+  linux/musl/packages, linux/musl/packages.build, linux/musl/x86/make.defaults:
+  linux/musl: fix linker path and remove libiconv
 
   23 Jan 2014; Mikle Kolyada <zlogene@gentoo.org>
   linux/amd64/package.use.stable.mask:
