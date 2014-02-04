@@ -1,6 +1,22 @@
 # ChangeLog for x11-wm/enlightenment
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/enlightenment/ChangeLog,v 1.190 2013/11/13 22:29:07 tommy Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/enlightenment/ChangeLog,v 1.193 2014/02/01 15:19:36 tommy Exp $
+
+*enlightenment-0.17.6 (01 Feb 2014)
+
+  01 Feb 2014; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +enlightenment-0.17.6.ebuild, -enlightenment-0.17.6_pre2.ebuild:
+  Version bump, drop pre-release
+
+  26 Jan 2014; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  enlightenment-0.17.6_pre2.ebuild:
+  Add missing dep on dev-libs/e_dbus
+
+*enlightenment-0.17.6_pre2 (25 Jan 2014)
+
+  25 Jan 2014; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  +enlightenment-0.17.6_pre2.ebuild:
+  Version bump for move to efl-1.8
 
 *enlightenment-0.17.5 (13 Nov 2013)
 

@@ -1,6 +1,23 @@
 # ChangeLog for www-servers/apache
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/ChangeLog,v 1.253 2014/01/15 22:48:44 robbat2 Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/apache/ChangeLog,v 1.257 2014/01/31 08:48:40 vapier Exp $
+
+  31 Jan 2014; Mike Frysinger <vapier@gentoo.org> apache-2.4.7.ebuild:
+  Declare mod_proxy_balancer dep on mod_proxy_balancer #460434 by Jaco Kroon.
+
+  31 Jan 2014; Mike Frysinger <vapier@gentoo.org> apache-2.2.24.ebuild,
+  apache-2.2.25.ebuild, apache-2.2.26.ebuild, apache-2.4.6-r1.ebuild,
+  apache-2.4.6-r2.ebuild, apache-2.4.7.ebuild:
+  Add arm64 love.
+
+  31 Jan 2014; Mike Frysinger <vapier@gentoo.org> apache-2.4.7.ebuild:
+  Add workaround for gen_test_char behavior when cross-compiling #385783 by
+  Bertrand Jacquin.
+
+  24 Jan 2014; Mike Frysinger <vapier@gentoo.org> apache-2.2.24.ebuild,
+  apache-2.2.25.ebuild, apache-2.2.26.ebuild, apache-2.4.6-r1.ebuild,
+  apache-2.4.6-r2.ebuild, apache-2.4.7.ebuild:
+  Disable dumb cross-compiling size check.
 
   15 Jan 2014; Robin H. Johnson <robbat2@gentoo.org> apache-2.4.7.ebuild:
   proxy_scgi should behind IfDefine PROXY as well, otherwise you get undefined

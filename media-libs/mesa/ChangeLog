@@ -1,6 +1,45 @@
 # ChangeLog for media-libs/mesa
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/mesa/ChangeLog,v 1.528 2014/01/11 11:15:22 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/mesa/ChangeLog,v 1.537 2014/02/03 21:44:45 mattst88 Exp $
+
+*mesa-10.0.3 (03 Feb 2014)
+
+  03 Feb 2014; Matt Turner <mattst88@gentoo.org> +mesa-10.0.3.ebuild:
+  Version bump to 10.0.3.
+
+  30 Jan 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-8.0.4-r1.ebuild:
+  Drop wayland support from old mesa, as it depends on obsolete wayland
+  versions.
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org>
+  files/mesa-10.0.2-update-glxext.h.patch:
+  Remove hunk from patch that CVS insists on changing on commit.
+
+  26 Jan 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  mesa-7.10.3.ebuild, mesa-7.11.2.ebuild, mesa-8.0.4-r1.ebuild,
+  mesa-9.0.3.ebuild, mesa-9.1.6.ebuild, mesa-9.2.5.ebuild:
+  Fix repoman warnings.
+
+  26 Jan 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  files/mesa-10.0.2-update-glxext.h.patch:
+  Fix glxext.h patch for good.
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org>
+  files/mesa-10.0.2-update-glxext.h.patch:
+  Fix patch, bug #499352.
+
+*mesa-10.0.2-r1 (26 Jan 2014)
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org>
+  +files/mesa-10.0.2-update-glxext.h.patch, +mesa-10.0.2-r1.ebuild,
+  -mesa-10.0.2.ebuild:
+  Update glxext.h for bug #491644.
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org> mesa-10.0.2.ebuild,
+  mesa-9.2.5.ebuild:
+  Check for libxml2 with --host-root, bug #499234. Thanks to James Le Cuirot
+  <chewi@aura-online.co.uk> for the patch.
 
   11 Jan 2014; Michał Górny <mgorny@gentoo.org> mesa-9.1.6.ebuild,
   mesa-9.2.5.ebuild:

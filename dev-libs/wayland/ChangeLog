@@ -1,6 +1,14 @@
 # ChangeLog for dev-libs/wayland
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/wayland/ChangeLog,v 1.32 2013/12/31 18:23:49 mattst88 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/wayland/ChangeLog,v 1.34 2014/01/26 03:46:32 mattst88 Exp $
+
+  26 Jan 2014; Matt Turner <mattst88@gentoo.org> wayland-1.4.0.ebuild:
+  Added ~alpha, bug 403015.
+
+*wayland-1.4.0 (24 Jan 2014)
+
+  24 Jan 2014; Matt Turner <mattst88@gentoo.org> +wayland-1.4.0.ebuild:
+  Version bump to 1.4.0.
 
 *wayland-1.3.0 (31 Dec 2013)
 

@@ -1,6 +1,17 @@
 # ChangeLog for x11-libs/wxGTK
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/wxGTK/ChangeLog,v 1.303 2014/01/08 00:28:11 dirtyepic Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/wxGTK/ChangeLog,v 1.306 2014/02/02 11:03:47 ago Exp $
+
+  02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> wxGTK-2.8.12.1-r1.ebuild:
+  Stable for ppc, wrt bug #499476
+
+  28 Jan 2014; Jeroen Roovers <jer@gentoo.org> wxGTK-2.8.12.1-r1.ebuild:
+  Stable for HPPA (bug #499476).
+
+  27 Jan 2014; Ryan Hill <dirtyepic@gentoo.org> wxGTK-2.8.12.1.ebuild,
+  wxGTK-2.8.12.1-r1.ebuild, -wxGTK-2.9.3.1.ebuild, -wxGTK-2.9.3.1-r1.ebuild,
+  -wxGTK-2.9.4.1.ebuild, wxGTK-2.9.4.1-r1.ebuild, wxGTK-3.0.0.0.ebuild:
+  Drop unnecessary gconf dep (bug #499416 by Nikoli).
 
   08 Jan 2014; Ryan Hill <dirtyepic@gentoo.org> wxGTK-3.0.0.0.ebuild:
   Stop using libgnomeprint (bug #358445) and drop now-unused gnome USE flag.

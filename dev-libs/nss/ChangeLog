@@ -1,6 +1,33 @@
 # ChangeLog for dev-libs/nss
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/nss/ChangeLog,v 1.344 2014/01/23 01:02:11 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/nss/ChangeLog,v 1.350 2014/02/01 04:57:05 vapier Exp $
+
+*nss-3.15.4-r1 (01 Feb 2014)
+
+  01 Feb 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/nss-3.15.4-enable-pem.patch, +nss-3.15.4-r1.ebuild, metadata.xml:
+  Put cacert.org root certs behind USE=cacert, and rework the nss-pem support
+  and put that behind USE=nss-pem.
+
+  01 Feb 2014; Mike Frysinger <vapier@gentoo.org> nss-3.15.4.ebuild:
+  Keep lists of patches together.
+
+  01 Feb 2014; Mike Frysinger <vapier@gentoo.org> nss-3.15.4.ebuild:
+  Mark m68k/s390/sh stable.
+
+  27 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -nss-3.15.2.ebuild,
+  -nss-3.15.3.ebuild, -nss-3.15.3.1.ebuild,
+  -files/nss-3.12.6-gentoo-fixup-warnings.patch,
+  -files/nss-3.14.1-gentoo-fixups-r1.patch, -files/nss-3.14.2-x32.patch,
+  -files/nss-3.14.3_sync_with_upstream_softokn_changes.patch,
+  -files/nss-3.15.1-fipstest-warnings.patch:
+  Removed old...
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> nss-3.15.4.ebuild:
+  Stable for sparc, wrt bug #498172
+
+  26 Jan 2014; Agostino Sarubbo <ago@gentoo.org> nss-3.15.4.ebuild:
+  Stable for ia64, wrt bug #498172
 
   23 Jan 2014; Mike Frysinger <vapier@gentoo.org> nss-3.15.4.ebuild:
   Add aarch64 arch to avoid clashing with arm* in build system.
