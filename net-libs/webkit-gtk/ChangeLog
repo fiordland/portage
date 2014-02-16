@@ -1,6 +1,29 @@
 # ChangeLog for net-libs/webkit-gtk
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/ChangeLog,v 1.237 2014/02/04 08:37:19 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/ChangeLog,v 1.242 2014/02/11 22:43:12 eva Exp $
+
+  11 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> webkit-gtk-2.2.4.ebuild,
+  webkit-gtk-2.2.4-r200.ebuild:
+  Really drop unsupported LDFLAG for ld.gold.
+
+  11 Feb 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.4-r200.ebuild,
+  webkit-gtk-2.2.4.ebuild:
+  web-audio relies on gstreamer (#500406 by Dennis New)
+
+  11 Feb 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.4-r200.ebuild,
+  webkit-gtk-2.2.4.ebuild:
+  reduce-memory-overheads options is not recognized by ld.gold (#469942 by
+  Samuli Suominen)
+
+  10 Feb 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-1.10.2-r300.ebuild,
+  webkit-gtk-1.8.3-r200.ebuild, webkit-gtk-2.2.4-r200.ebuild,
+  webkit-gtk-2.2.4.ebuild:
+  >=dev-libs/atk-2.8.0 is needed because atk_object_get_object_locale is used
+  (#500898 by Balint SZENTE)
+
+  06 Feb 2014; Pacho Ramos <pacho@gentoo.org> -webkit-gtk-2.2.2.ebuild,
+  webkit-gtk-2.2.4-r200.ebuild, webkit-gtk-2.2.4.ebuild:
+  Newer bison is needed due 'code' usage (#500454 by Dennis New), drop old
 
   04 Feb 2014; Gilles Dartiguelongue <eva@gentoo.org> webkit-gtk-2.2.4.ebuild,
   webkit-gtk-2.2.4-r200.ebuild:

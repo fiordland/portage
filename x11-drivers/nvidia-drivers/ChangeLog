@@ -1,6 +1,49 @@
 # ChangeLog for x11-drivers/nvidia-drivers
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/ChangeLog,v 1.516 2014/01/27 13:14:35 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/ChangeLog,v 1.524 2014/02/10 16:22:41 jer Exp $
+
+*nvidia-drivers-334.16-r5 (10 Feb 2014)
+
+  10 Feb 2014; Jeroen Roovers <jer@gentoo.org> +nvidia-drivers-334.16-r5.ebuild,
+  -nvidia-drivers-334.16-r4.ebuild:
+  Install the correct libGLESv2.so in multilib cases (bug #500866 by Enrico
+  Tagliavini).
+
+*nvidia-drivers-334.16-r4 (08 Feb 2014)
+
+  08 Feb 2014; Jeroen Roovers <jer@gentoo.org>
+  -nvidia-drivers-334.16-r3.ebuild, +nvidia-drivers-334.16-r4.ebuild:
+  Install libnvidia-eglcore.so too (bug #500708 by Mariusz Ceier).
+
+*nvidia-drivers-334.16-r3 (08 Feb 2014)
+
+  08 Feb 2014; Jeroen Roovers <jer@gentoo.org>
+  -nvidia-drivers-334.16-r2.ebuild, +nvidia-drivers-334.16-r3.ebuild:
+  Install libGLESv2.so differently.
+
+*nvidia-drivers-334.16-r2 (07 Feb 2014)
+
+  07 Feb 2014; Jeroen Roovers <jer@gentoo.org>
+  -nvidia-drivers-334.16-r1.ebuild, +nvidia-drivers-334.16-r2.ebuild:
+  Install libnvidia-fbc.so only for native ABI.
+
+  07 Feb 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-334.16-r1.ebuild:
+  Do not install libnvidia-fbc.so (bug #500634).
+
+*nvidia-drivers-334.16-r1 (07 Feb 2014)
+
+  07 Feb 2014; Jeroen Roovers <jer@gentoo.org> -nvidia-drivers-334.16.ebuild,
+  +nvidia-drivers-334.16-r1.ebuild:
+  Install some missing libraries.
+
+*nvidia-drivers-334.16 (07 Feb 2014)
+
+  07 Feb 2014; Jeroen Roovers <jer@gentoo.org> +nvidia-drivers-334.16.ebuild:
+  Version bump.
+
+  05 Feb 2014; Jeroen Roovers <jer@gentoo.org> -nvidia-drivers-304.117.ebuild,
+  nvidia-drivers-304.119.ebuild:
+  Stable for AMD64 x86 too.
 
 *nvidia-drivers-304.119 (27 Jan 2014)
 

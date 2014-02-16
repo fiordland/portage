@@ -1,6 +1,38 @@
 # ChangeLog for app-emulation/xen-tools
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen-tools/ChangeLog,v 1.215 2014/01/28 08:25:49 dlan Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen-tools/ChangeLog,v 1.221 2014/02/15 21:28:04 ago Exp $
+
+  15 Feb 2014; Agostino Sarubbo <ago@gentoo.org> xen-tools-4.3.1-r5.ebuild:
+  Stable for x86, wrt bug #500530
+
+  15 Feb 2014; Agostino Sarubbo <ago@gentoo.org> xen-tools-4.3.1-r5.ebuild:
+  Stable for amd64, wrt bug #500530
+
+*xen-tools-4.2.3 (14 Feb 2014)
+
+  14 Feb 2014; Yixun Lan <dlan@gentoo.org> +xen-tools-4.2.3.ebuild:
+  bumped, fix security bugs, see #500530 for details
+
+*xen-tools-4.3.1-r5 (13 Feb 2014)
+*xen-tools-4.2.2-r7 (13 Feb 2014)
+
+  13 Feb 2014; Yixun Lan <dlan@gentoo.org> -xen-tools-4.2.2-r6.ebuild,
+  +xen-tools-4.2.2-r7.ebuild, -xen-tools-4.3.1-r4.ebuild,
+  +xen-tools-4.3.1-r5.ebuild, +files/xen-tools-4-CVE-2014-1950-XSA-88.patch,
+  +files/xen-tools-4.2.2-rt-link.patch, files/xenconsoled.initd:
+  fix sec bug #500530, #501080, missing -lrt bug #463840, glib deps bug #500604
+
+*xen-tools-4.3.1-r4 (08 Feb 2014)
+
+  08 Feb 2014; Ian Delaney <idella4@gentoo.org> +files/xen-4-CVE-XSA-86.patch,
+  +xen-tools-4.3.1-r4.ebuild:
+  revbump; only to 4.3.1 (for now), add sec. patch XSA-86 patch wrt bug #500530
+
+*xen-tools-4.2.2-r6 (07 Feb 2014)
+
+  07 Feb 2014; Ian Delaney <idella4@gentoo.org> +xen-tools-4.2.2-r6.ebuild,
+  -xen-tools-4.2.2-r5.ebuild:
+  revbump; add xencommons init scripts to 4.2.2, rm 4.2.2-r5, fixes Bug #499992
 
   28 Jan 2014; Yixun Lan <dlan@gentoo.org> files/xenstored.initd:
   fix local variable  collision, thanks Cyril Nahon

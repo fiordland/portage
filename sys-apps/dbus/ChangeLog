@@ -1,6 +1,22 @@
 # ChangeLog for sys-apps/dbus
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/dbus/ChangeLog,v 1.399 2013/12/01 16:18:28 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/dbus/ChangeLog,v 1.403 2014/02/13 16:06:27 jer Exp $
+
+  13 Feb 2014; Jeroen Roovers <jer@gentoo.org> dbus-1.6.18-r1.ebuild:
+  Stable for HPPA (bug #496628).
+
+  13 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> dbus-1.8.0.ebuild:
+  Update app-text/docbook-xml-dtd dependency from 4.1.2 to 4.4 and move it out
+  from USE="doc" together with app-text/xmlto to always build manpages wrt
+  #501144 by Ryan Hill
+
+  12 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> dbus-1.8.0.ebuild:
+  Use epatch_user wrt #498958 by Manuel Nickschas
+
+*dbus-1.8.0 (12 Feb 2014)
+
+  12 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> +dbus-1.8.0.ebuild:
+  Version bump wrt #499348 by Lars Wendler
 
   01 Dec 2013; Michał Górny <mgorny@gentoo.org> dbus-1.6.18-r1.ebuild:
   Fix the libxml hack to set correct variables.
