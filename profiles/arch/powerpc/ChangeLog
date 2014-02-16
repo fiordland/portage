@@ -1,6 +1,21 @@
 # ChangeLog for Gentoo/PPC profile directory
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ChangeLog,v 1.257 2013/10/27 06:22:54 gienah Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ChangeLog,v 1.261 2014/02/05 02:56:16 chithanh Exp $
+
+  05 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask opencl flag for two more packages, bug #500326.
+
+  04 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Unmask opencl for powerpc.
+
+  04 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask opencl flag for imagemagick and johntheripper
+
+  04 Feb 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  ppc64/64ul/use.mask:
+  Mask opencl flag on ppc64, in preparation for unmasking it on ppc
 
   25 Oct 2013; Davide Pesavento <pesa@gentoo.org> package.use.force:
   Remove obsolete entry.

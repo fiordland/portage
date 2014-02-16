@@ -1,6 +1,25 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1136 2014/02/02 23:43:48 dirtyepic Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1142 2014/02/11 21:14:20 pacho Exp $
+
+  11 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome2.eclass:
+  Pass --docdir with proper directory, bug #482646
+
+  11 Feb 2014; Sergei Trofimovich <slyfox@gentoo.org> ghc-package.eclass,
+  haskell-cabal.eclass:
+  Add support for parallel building (ghc-7.8+). Disable dynamic library
+  stripping and respect --sysconfdir (Cabal-1.18+).
+
+  09 Feb 2014; Pacho Ramos <pacho@gentoo.org> gnome2-utils.eclass:
+  Drop also values of DGSEAL_ENABLE (#500730)
+
+  06 Feb 2014; Michael Palimaka <kensington@gentoo.org> kde4-meta.eclass:
+  Disable more bogus dependency checks wrt bug #494680.
+
+  05 Feb 2014; Ryan Hill <dirtyepic@gentoo.org> tests/toolchain.sh,
+  toolchain.eclass:
+  Limit downgrading flags to amd64 and x86. Strip -mtune for < 3.4. Only
+  worry about -mno* flags, -m* are removed by strip-flags. Add -mno-movbe.
 
   02 Feb 2014; Ryan Hill <dirtyepic@gentoo.org> +tests/toolchain.sh,
   toolchain.eclass:
@@ -9,6 +28,9 @@
 
   02 Feb 2014; Julian Ospald <hasufell@gentoo.org> games.eclass:
   respect ECONF_SOURCE wrt #494210
+
+  02 Feb 2014; Joerg Bornkessel <hd_brummy@gentoo.org> vdr-plugin-2.eclass:
+  removed debuginfos depends on base.eclass removing, wrt bug #497056
 
   01 Feb 2014; Ryan Hill <dirtyepic@gentoo.org> flag-o-matic.eclass:
   Add -fdiagnostics* and ISA flags for 4.8 and 4.9.
