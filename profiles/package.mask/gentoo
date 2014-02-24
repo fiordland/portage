@@ -1,5 +1,5 @@
 ####################################################################
-# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15401 2014/02/16 17:10:38 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15417 2014/02/21 13:07:56 tomwij Exp $
 #
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked. Please be extremely
@@ -30,6 +30,57 @@
 
 #--- END OF EXAMPLES ---
 
+# Tom Wijsman <TomWij@gentoo.org> (21 Feb 2014)
+# MATE introduction mask
+mate-base/mate-common
+
+# Tom Wijsman <TomWij@gentoo.org> (21 Feb 2014)
+# MATE 1.7 mask
+>=mate-base/mate-common-1.7
+
+# Ulrich Müller <ulm@gentoo.org> (21 Feb 2014)
+# Included with Emacs since version 23.
+# Last stand-alone release in 2008.
+# Masked for removal in 30 days, bug 501964.
+app-emacs/mairix
+
+# Ulrich Müller <ulm@gentoo.org> (20 Feb 2014)
+# Abandoned by upstream: Last release in 2003, last visible
+# upstream activity in 2004. Does not work with Emacs 24.
+# File a bug for moving app-emacs/oddmuse (currently in emacs
+# overlay) to the main tree if you need a replacement.
+# Masked for removal in 30 days, bug 501926.
+app-emacs/http-emacs
+
+# Luca Barbato <lu_zero@gentoo.org> (20 Feb 2014)
+# Beta ebuild, unmask to test the tree.
+~media-video/libav-10_beta1
+
+# Tom Wijsman <TomWij@gentoo.org> (19 Feb 2014)
+# Masked for removal in 30 days, as this is an old revision that stuck behind;
+# however we are not sure if it is kept for a reason, if it is then please let
+# me know such that we can continue to keep it around. Guess nobody even still
+# uses this package either, but that's for another day...
+=dev-java/jikes-1.22-r1
+
+# Ulrich Müller <ulm@gentoo.org> (18 Feb 2014)
+# Last upstream release in 1996.
+# Doesn't appear to work with Emacs 23 and 24.
+# Masked for removal in 30 days, bug 501660.
+app-emacs/view-process
+
+# Mike Gilbert <floppym@gentoo.org> (17 Feb 2014)
+# Masked for testing.
+dev-lang/python:3.4
+
+# Eray Aslan <eras@gentoo.org> (17 Feb 2014)
+# Security mask - bug #492494 until
+# mail-filter/dovecot-antispam and
+# mail-filter/dovecot_deleted_to_trash are punted/fixed
+=net-mail/dovecot-2.0*
+=net-mail/dovecot-2.1*
+<mail-filter/dovecot_deleted_to_trash-0.5-r1
+
 # Ulrich Müller <ulm@gentoo.org> (16 Feb 2014)
 # Last upstream release in 2005.
 # Does not work with Emacs 24.
@@ -38,7 +89,7 @@ app-emacs/eperiodic
 
 # Jeroen Roovers <jer@gentoo.org> (16 Feb 2014)
 # Unmaintained, has several problems on modern systems,
-# superseded by net-analyzer/ifststatus (bug #501432)
+# superseded by net-analyzer/ifstatus (bug #501432)
 net-analyzer/ethstatus
 
 # Ulrich Müller <ulm@gentoo.org> (15 Feb 2014)
@@ -218,7 +269,7 @@ www-client/google-chrome:unstable
 =media-gfx/exiv2-0.23-r2
 
 # Tony Vroon <chainsaw@gentoo.org> (13 Jan 2014)
-# Asterisk 12 is a short term "standard" release 
+# Asterisk 12 is a short term "standard" release
 # containing significant architectural changes.
 # This is not for your production kit quite yet.
 =net-misc/asterisk-12*
@@ -469,7 +520,7 @@ net-irc/xchat-otr
 # updates; masking to make users aware of this, users that still need this
 # package and have no alternative can unmask at their own risk. See bug #473830.
 #
-# This is continued by Oracle Corproation, which has acquired Sun Microsystems
+# This is continued by Oracle Corporation, which has acquired Sun Microsystems
 # in early 2010; as per http://en.wikipedia.org/wiki/Sun_acquisition_by_Oracle
 #
 # Users are suggested to upgrade to one of the newer Oracle packages like

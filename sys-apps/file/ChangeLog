@@ -1,6 +1,37 @@
 # ChangeLog for sys-apps/file
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/file/ChangeLog,v 1.259 2014/02/13 05:45:55 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/file/ChangeLog,v 1.269 2014/02/22 08:51:58 polynomial-c Exp $
+
+  22 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> -file-5.15.ebuild,
+  -file-5.16.ebuild:
+  Removed vulnerable versions.
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> file-5.17.ebuild:
+  Stable for sparc, wrt bug #501574
+
+  20 Feb 2014; Akinori Hattori <hattya@gentoo.org> file-5.17.ebuild:
+  ia64 stable wrt bug #501574
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> file-5.17.ebuild:
+  Stable for ppc, wrt bug #501574
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> file-5.17.ebuild:
+  Stable for ppc64, wrt bug #501574
+
+  19 Feb 2014; Sergey Popov <pinkbyte@gentoo.org> file-5.17.ebuild:
+  Stable on x86, wrt bug #501574
+
+  18 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> file-5.17.ebuild:
+  alpha stable wrt bug #501574
+
+  18 Feb 2014; Mikle Kolyada <zlogene@gentoo.org> file-5.17.ebuild:
+  arm stable wrt bug #501574
+
+  18 Feb 2014; Richard Freeman <rich0@gentoo.org> file-5.17.ebuild:
+  amd64 stable - 501574
+
+  17 Feb 2014; Jeroen Roovers <jer@gentoo.org> file-5.17.ebuild:
+  Stable for HPPA (bug #501574).
 
 *file-5.17 (13 Feb 2014)
 

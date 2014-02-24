@@ -1,6 +1,42 @@
 # ChangeLog for sys-kernel/vanilla-sources
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/vanilla-sources/ChangeLog,v 1.1260 2014/02/16 07:07:45 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/vanilla-sources/ChangeLog,v 1.1265 2014/02/22 22:49:41 gregkh Exp $
+
+*vanilla-sources-3.13.5 (22 Feb 2014)
+
+  22 Feb 2014; Greg Kroah-Hartman <gregkh@gentoo.org>
+  +vanilla-sources-3.13.5.ebuild, -vanilla-sources-3.13.4.ebuild:
+  3.13.4 version bump
+
+*vanilla-sources-3.12.13 (22 Feb 2014)
+
+  22 Feb 2014; Greg Kroah-Hartman <gregkh@gentoo.org>
+  +vanilla-sources-3.12.13.ebuild, -vanilla-sources-3.12.12.ebuild:
+  3.12.13 version bump
+
+*vanilla-sources-3.10.32 (22 Feb 2014)
+
+  22 Feb 2014; Greg Kroah-Hartman <gregkh@gentoo.org>
+  +vanilla-sources-3.10.32.ebuild, -vanilla-sources-3.10.31.ebuild:
+  3.10.32 version bump
+
+*vanilla-sources-3.4.82 (22 Feb 2014)
+
+  22 Feb 2014; Greg Kroah-Hartman <gregkh@gentoo.org>
+  +vanilla-sources-3.4.82.ebuild, -vanilla-sources-3.4.81.ebuild:
+  3.4.82 kernel version bump
+
+*vanilla-sources-3.13.4 (20 Feb 2014)
+*vanilla-sources-3.12.12 (20 Feb 2014)
+*vanilla-sources-3.10.31 (20 Feb 2014)
+*vanilla-sources-3.4.81 (20 Feb 2014)
+
+  20 Feb 2014; Mike Pagano <mpagano@gentoo.org> -vanilla-sources-3.4.80.ebuild,
+  +vanilla-sources-3.4.81.ebuild, -vanilla-sources-3.10.30.ebuild,
+  +vanilla-sources-3.10.31.ebuild, -vanilla-sources-3.12.11.ebuild,
+  +vanilla-sources-3.12.12.ebuild, -vanilla-sources-3.13.3.ebuild,
+  +vanilla-sources-3.13.4.ebuild:
+  Version bumps, remove old
 
 *vanilla-sources-3.2.55 (16 Feb 2014)
 
