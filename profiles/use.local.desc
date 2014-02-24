@@ -938,11 +938,9 @@ app-office/lyx:enchant - Add support for enchant spellchecking wrapper (both asp
 app-office/lyx:gnumeric - Add support for importing Gnumeric/OpenOffice/MS Excel spreadsheets into LyX.
 app-office/lyx:html - Add support for HTML import
 app-office/lyx:hunspell - Add support for spellchecking based on hunspell and reuse system-wide OpenOffice dictionaries. This also enable thesaurus dictionaries not accessible via aspell.
-app-office/lyx:luatex - Add support for LuaTeX typesetting
 app-office/lyx:monolithic-build - This should speed up compilation significantly when you have enough RAM (> 600 MB)
 app-office/lyx:rcs - Add support for revision control via dev-vcs/rcs
 app-office/lyx:rtf - Add support for RTF import/export packages
-app-office/lyx:xetex - Add support for XeTeX typesetting
 app-office/scribus:aspell - Enable support for spell checking with app-text/aspell
 app-office/scribus:graphicsmagick - Add support for media-gfx/graphicsmagick
 app-office/scribus:hunspell - Enable support for spell checking with app-text/hunspell
@@ -1270,6 +1268,8 @@ dev-games/physfs:zip - Enable ZIP archive support
 dev-haskell/abstract-deque:usecas - Enable the reference implementation to use hardware compare-and-swap.
 dev-haskell/aeson:developer - Operate in developer mode.'
 dev-haskell/aeson-pretty:lib-only - don't build 'aeson-pretty' executable.
+dev-haskell/ansi-terminal:example - Build the example application.
+dev-haskell/ansi-wl-pprint:example - Build the example application.
 dev-haskell/cabal-install:noprefs - Ignore 'preferred-versions' file from hackage's tarball.
 dev-haskell/certificate:executable - Build the executable
 dev-haskell/cgi:extensible-exceptions-in-base - Required to be enabled for >=dev-lang/ghc-7.
@@ -1278,6 +1278,7 @@ dev-haskell/citeproc-hs:embed_data_files - Embed locale files into the library (
 dev-haskell/citeproc-hs:hexpat - use dev-haskell/hexpat instead of dev-haskell/xml for XML parsing
 dev-haskell/citeproc-hs:network - use dev-haskell/network and dev-haskell/http to retrieve CSL file from URIs
 dev-haskell/citeproc-hs:small_base - Choose the new smaller, split-up base package.
+dev-haskell/citeproc-hs:unicode_collation - Use Haskell bindings to the dev-libs/icu
 dev-haskell/cmdargs:quotation - Build quote module
 dev-haskell/cmdargs:testprog - Build the test program
 dev-haskell/comonad:test-doctests - Run the doctests test suite
@@ -1300,6 +1301,7 @@ dev-haskell/hashtables:sse4_1 - Enable optimization for SSE4_1 capable processor
 dev-haskell/hashtables:unsafe-tricks - turn on unsafe GHC tricks
 dev-haskell/highlighting-kate:executable - Build the Highlight executable.
 dev-haskell/highlighting-kate:pcre-light - Use the pcre-light library instead of regex-pcre-builtin.
+dev-haskell/hslogger:buildtests - Build the executable to run unit tests.
 dev-haskell/hsopenssl:fast-bignum - Enable fast moving of bignums between OpenSSL and GMP (GHC Only)
 dev-haskell/hstringtemplate:quasi-quotation - Build module providing a quasi-quoter
 dev-haskell/hstringtemplate:syb-with-class - Generic instances for TOSElem
@@ -1328,6 +1330,7 @@ dev-haskell/persistent-sqlite:systemlib - Use the system-wide sqlite library
 dev-haskell/quickcheck:template_haskell - Enable additional test modules requiring Template Haskell support.
 dev-haskell/rfc5051:mkunicodedata - build codes generator itself
 dev-haskell/sendfile:portable - Explicitly enable portable sendfile support (implemented in Haskell)
+dev-haskell/sha:exe - Build a sha1 and a sha384 executable similar to 'md5sum'.
 dev-haskell/shakespeare:test_export - Test export.
 dev-haskell/shakespeare-js:test_coffee - Test coffee.
 dev-haskell/shakespeare-js:test_export - Test export.
@@ -1931,6 +1934,7 @@ dev-python/ipython:notebook - Install requirements for the web notebook based on
 dev-python/ipython:octave - Enable octave bridge via dev-python/oct2py
 dev-python/jinja:i18n - Enables support for i18n with dev-python/Babel
 dev-python/kaa-base:tls - SSL/TLS support via dev-python/tlslite
+dev-python/kazoo:gevent - Enable support for the gevent based handler
 dev-python/kombu:amqplib - Enable amqplib support
 dev-python/ldaptor:web - enable the web front end for ldaptor (uses dev-python/nevow)
 dev-python/lxml:beautifulsoup3 - Enable support for Beautiful Soup 3
@@ -2390,6 +2394,7 @@ games-emulation/generator:sdlaudio - Enable SDL Audio
 games-emulation/higan:profile_accuracy - Compile a binary optimized for accuracy
 games-emulation/higan:profile_balanced - Compile a binary with balanced optimization
 games-emulation/higan:profile_performance - Compile a binary optimized for performance
+games-emulation/higan:udev - Enable udev based input
 games-emulation/mednafen:debugger - Build with internal debugger
 games-emulation/mupen64plus:audio-sdl - Enable SDL audio plugin.
 games-emulation/mupen64plus:input-sdl - Enable SDL input plugin.
@@ -3072,6 +3077,9 @@ media-gfx/eog-plugins:picasa - Enable uploading to Google's Picasa Web Albums
 media-gfx/exact-image:swig - Adds Swig support dev-lang/swig
 media-gfx/exiv2:contrib - Build additional contrib components
 media-gfx/f-spot:flickr - Enable building of the Flickr exported.
+media-gfx/fbida:X - Install the Motif based image viewer "ida"
+media-gfx/fbida:fbcon - Install the framebuffer image viewer "fbi"
+media-gfx/fbida:webp - Enable support for the WebP image format
 media-gfx/fim:dia - Enable DIA file support via app-office/dia
 media-gfx/fim:graphicsmagick - Enable GraphicsMagick library support
 media-gfx/fim:imagemagick - Use convert from media-gfx/imagemagick as fallback file opener
@@ -4206,7 +4214,7 @@ media-video/vlc:switcher - Enables MPEG2 video switcher stream output module.
 media-video/vlc:swscale - Enables image scaling and conversion via libswscale (part of FFmpeg).
 media-video/vlc:tremor - Enables tremor, a fixed-point version of the Ogg Vorbis decoder.
 media-video/vlc:twolame - Enables twolame support (MPEG Audio Layer 2 encoder).
-media-video/vlc:upnp - Enables support for Intel UPnP stack.
+media-video/vlc:upnp - Enables support for the Intel SDK stack based UPnP discovery module instead of CyberLink.
 media-video/vlc:vaapi - Enables VAAPI (Video Acceleration API) for hardware decoding
 media-video/vlc:vcdx - Enables VCD with navigation via libvcdinfo (depends on cdio)
 media-video/vlc:visual - Enables a libvisual based visualization plugin.
@@ -4215,6 +4223,7 @@ media-video/vlc:vpx - Enables the decoder(s) from the WebM VP8 / VP9 Codec SDK.
 media-video/vlc:waveout - Enable win32 waveOut plugin.
 media-video/vlc:wingdi - Enable Win32 GDI module.
 media-video/vlc:wma-fixed - Enables fixed point WMA decoder.
+media-video/vlc:xcb - Support the X C-language Binding, a replacement for Xlib; !!! you will need this option to be able to integrate video in the Qt interface, see bug #500678.
 media-video/vlc:zvbi - Enables support for teletext subtitles via the zvbi library.
 media-video/winki:mjpeg - Enables mjpegtools support
 media-video/x264-encoder:10bit - Set output bit depth to 10
@@ -5052,6 +5061,8 @@ net-mail/dbmail:sieve - Enable sieve filter support
 net-mail/dovecot:cydir - Add cydir storage support
 net-mail/dovecot:imapc - Add imap client storage support
 net-mail/dovecot:lucene - Add lucene full text search (FTS) support using dev-cpp/clucene
+net-mail/dovecot:lz4 - Add support for lz4 (de)compression
+net-mail/dovecot:lzma - Add support for lzma (de)compression
 net-mail/dovecot:managesieve - Add managesieve protocol support
 net-mail/dovecot:mdbox - Add mdbox storage support
 net-mail/dovecot:pop3c - Add pop3 client storage support
@@ -5209,7 +5220,7 @@ net-misc/connman:tools - Enable testing tools.
 net-misc/connman:vpnc - Use net-misc/vpnc for cisco VPN support.
 net-misc/csync:sftp - Enable sftp transfer support via net-libs/libssh
 net-misc/curl:metalink - Enable metalink support
-net-misc/curl:rtmp - Enable Enables RTMPDump Streaming Media support
+net-misc/curl:rtmp - Enable RTMPDump Streaming Media support
 net-misc/curl:ssh - Enabled SSH urls in curl using libssh2
 net-misc/curl:ssl - Enable crypto engine support (via openssl if USE='-gnutls -nss')
 net-misc/dahdi:flash - Support (short) flash on FXS
@@ -5255,6 +5266,7 @@ net-misc/lldpd:fdp - Enable Foundry Discovery Protocol
 net-misc/lldpd:graph - Create dot graphs in documentations
 net-misc/lldpd:json - Enable JSON output via Jansson
 net-misc/lldpd:lldpmed - Enable LLDP-MED extension
+net-misc/lldpd:seccomp - Enable use of libseccomp for system call filtering
 net-misc/lldpd:snmp - Enable the use of SNMP
 net-misc/lldpd:sonmp - Enable SynOptics Network Management
 net-misc/mediatomb:id3tag - Use media-libs/libid3tag for reading files' metadata rather than taglib
@@ -5544,7 +5556,6 @@ net-p2p/transmission-remote-cli:rdns - Enable support for host name resolution
 net-p2p/transmission-remote-gtk:libproxy - Use net-libs/libproxy for getting the HTTP/HTTPS/SOCKS proxy configuration.
 net-p2p/transmission-remote-gtk:unique - Enable single instance support using dev-libs/libunique
 net-p2p/tribler:vlc - Enable vlc support.
-net-print/cups:filters - Pull in net-print/foomatic-filters for filtering by default.
 net-print/cups:java - Add support for the Java interpeter in the web server CGIs.
 net-print/cups:lprng-compat - Do not install lp... binaries so cups and lprng can coexist.
 net-print/cups:python - Add support for the Python interpeter in the web server CGIs.
@@ -5586,6 +5597,7 @@ net-proxy/obfsproxy:daemon - Run obfsproxy as a standalone daemon
 net-proxy/rejik:banlists - Install upstream provided simple banlists
 net-proxy/squid:ecap - Adds support for loadable content adaptation modules (http://www.e-cap.org)
 net-proxy/squid:epoll - Enables Linux epoll() support
+net-proxy/squid:htcp - Enable HTCP protocol
 net-proxy/squid:icap-client - Adds ICAP client support
 net-proxy/squid:ipf-transparent - Adds transparent proxy support for systems using IP-Filter (only for *bsd)
 net-proxy/squid:kqueue - Enables *BSD kqueue() support
@@ -5594,6 +5606,8 @@ net-proxy/squid:pf-transparent - Adds transparent proxy support for systems usin
 net-proxy/squid:qos - Adds support for Quality of Service using netfilter conntrack - see qos_flow directive for more info
 net-proxy/squid:ssl-crtd - Adds support for dynamic SSL certificate generation in SslBump environments
 net-proxy/squid:tproxy - Enables real Transparent Proxy support for Linux Netfilter TPROXY
+net-proxy/squid:wccp - Enable Web Cache Coordination Protocol
+net-proxy/squid:wccp2 - Enable Web Cache Coordination V2 Protocol
 net-proxy/squid:zero-penalty-hit - Add Zero Penalty Hit patch (http://zph.bratcheda.org)
 net-proxy/sshproxy:client-only - Install only the client wrappers
 net-proxy/tinyproxy:filter-proxy - Enable filtering of domains/URLS
@@ -6020,6 +6034,7 @@ sci-mathematics/msieve:ecm - Enable support for the GMP-ECM library
 sci-mathematics/normaliz:extras - Install sci-mathematics/Macaulay2 and sci-mathematics/singular packages as shipped by upstream
 sci-mathematics/nusmv:minisat - Enable support for MiniSat
 sci-mathematics/octave:glpk - Add support for sci-libs/glpk for linear programming
+sci-mathematics/octave:jit - (EXPERIMENTAL) enable JIT compiler
 sci-mathematics/octave:qhull - Add support for sci-libs/qhull, to allow `delaunay', `convhull', and related functions
 sci-mathematics/octave:qrupdate - Add support for sci-libs/qrupdatefor QR and Cholesky update functions
 sci-mathematics/octave:sparse - Add enhanced support for sparse matrix algebra with SuiteSparse
@@ -6229,6 +6244,7 @@ sys-apps/systemd:keymap - Map custom hardware's multimedia keys
 sys-apps/systemd:kmod - Enable kernel module loading via sys-apps/kmod
 sys-apps/systemd:openrc - Depend on sys-fs/udev-init-scripts
 sys-apps/systemd:qrcode - Enable qrcode output support in journal
+sys-apps/systemd:seccomp - Enable system call filtering via seccomp
 sys-apps/systemd:vanilla - Disable Gentoo-specific behavior and compatibility quirks
 sys-apps/tcp-wrappers:netgroups - Support matching NIS (host) netgroup names via the @netgroup syntax (if you don't know what this means, you most likely need want it)
 sys-apps/timer_entropyd:debug - Enable printf debugging and logging to the syslog at DEBUG level
@@ -6967,9 +6983,10 @@ x11-drivers/ati-drivers:disable-watermark - Do a potentially dangerous binary se
 x11-drivers/ati-drivers:modules - Build the kernel modules
 x11-drivers/ati-drivers:pax_kernel - Enable pax kernel specific patches
 x11-drivers/ati-drivers:qt4 - Install qt4 dependent optional tools (e.g Catalyst Control Panel)
-x11-drivers/nvidia-drivers:X - Controls whether the X.org driver, OpenGL libraries, XvMC libraries, and VDPAU libraries are installed
+x11-drivers/nvidia-drivers:X - Install the X.org driver, OpenGL libraries, XvMC libraries, and VDPAU libraries
 x11-drivers/nvidia-drivers:pax_kernel - PaX patches from the PaX project
-x11-drivers/nvidia-drivers:tools - Installs additional tools such as nvidia-settings
+x11-drivers/nvidia-drivers:tools - Install additional tools such as nvidia-settings
+x11-drivers/nvidia-drivers:uvm - Install the Unified Memory kernel module (nvidia-uvm) for sharing memory between CPU and GPU in CUDA programs
 x11-drivers/xf86-video-ati:glamor - Enable Glamor OpenGL 2D acceleration
 x11-drivers/xf86-video-geode:ztv - Enable building the V4L2 ZTV driver
 x11-drivers/xf86-video-intel:glamor - Enable Glamor OpenGL 2D acceleration
@@ -7155,7 +7172,6 @@ x11-wm/compiz:gconf - Enable the GConf-based configuration backend; it is not re
 x11-wm/compiz-fusion:emerald - Install the x11-wm/emerald package.
 x11-wm/compiz-fusion:unsupported - Install the x11-plugins/compiz-fusion-plugins-unsupported package.
 x11-wm/echinus:xrandr - Enable support for multihead configuration
-x11-wm/enlightenment:emotion - Enable support for media-libs/emotion
 x11-wm/enlightenment:enlightenment_modules_access - Accessibility module designed to improve ease of use for the vision impaired and the blind
 x11-wm/enlightenment:enlightenment_modules_backlight - Backlight control slider gadget
 x11-wm/enlightenment:enlightenment_modules_battery - A gadget to visualize your battery status

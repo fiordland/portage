@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-9999.ebuild,v 1.80 2014/01/20 22:53:07 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-9999.ebuild,v 1.88 2014/02/23 15:43:31 floppym Exp $
 
 EAPI=5
 
@@ -13,7 +13,7 @@ inherit git-r3
 #endif
 
 AUTOTOOLS_PRUNE_LIBTOOL_FILES=all
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python{2_7,3_2,3_3} )
 inherit autotools-utils bash-completion-r1 fcaps linux-info multilib \
 	multilib-minimal pam python-single-r1 systemd toolchain-funcs udev \
 	user
@@ -26,8 +26,8 @@ LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0/1"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 IUSE="acl audit cryptsetup doc +firmware-loader gcrypt gudev http introspection
-	+kdbus +kmod lzma pam policykit python qrcode selinux tcpd test
-	vanilla xattr"
+	kdbus +kmod lzma pam policykit python qrcode +seccomp selinux tcpd
+	test vanilla xattr"
 
 MINKV="3.0"
 
@@ -45,6 +45,7 @@ COMMON_DEPEND=">=sys-apps/util-linux-2.20:0=
 	pam? ( virtual/pam:= )
 	python? ( ${PYTHON_DEPS} )
 	qrcode? ( media-gfx/qrencode:0= )
+	seccomp? ( sys-libs/libseccomp:0= )
 	selinux? ( sys-libs/libselinux:0= )
 	tcpd? ( sys-apps/tcp-wrappers:0= )
 	xattr? ( sys-apps/attr:0= )
@@ -73,6 +74,7 @@ PDEPEND=">=sys-apps/dbus-1.6.8-r1:0
 DEPEND="${COMMON_DEPEND}
 	app-arch/xz-utils:0
 	app-text/docbook-xml-dtd:4.2
+	app-text/docbook-xml-dtd:4.5
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt:0
 	dev-util/gperf
@@ -92,6 +94,7 @@ DEPEND="${DEPEND}
 
 SRC_URI=
 KEYWORDS=
+#endif
 
 src_prepare() {
 	if use doc; then
@@ -105,7 +108,6 @@ src_prepare() {
 
 	autotools-utils_src_prepare
 }
-#endif
 
 pkg_pretend() {
 	local CONFIG_CHECK="~AUTOFS4_FS ~BLK_DEV_BSG ~CGROUPS ~DEVTMPFS ~DMIID
@@ -172,6 +174,8 @@ multilib_src_configure() {
 		# no deps
 		--enable-efi
 		--enable-ima
+		# we enable compat libs, for now. hopefully we can drop this flag later
+		--enable-compat-libs
 		# optional components/dependencies
 		$(use_enable acl)
 		$(use_enable audit)
@@ -188,6 +192,7 @@ multilib_src_configure() {
 		$(use_enable policykit polkit)
 		$(use_enable python python-devel)
 		$(use_enable qrcode qrencode)
+		$(use_enable seccomp)
 		$(use_enable selinux)
 		$(use_enable tcpd tcpwrap)
 		$(use_enable test tests)
@@ -217,6 +222,7 @@ multilib_src_configure() {
 			DBUS_CFLAGS=' '
 			DBUS_LIBS=' '
 
+			--enable-compat-libs
 			--disable-acl
 			--disable-audit
 			--disable-gcrypt
@@ -225,9 +231,11 @@ multilib_src_configure() {
 			--disable-kmod
 			--disable-libcryptsetup
 			--disable-microhttpd
+			--disable-networkd
 			--disable-pam
 			--disable-polkit
 			--disable-qrencode
+			--disable-seccomp
 			--disable-selinux
 			--disable-tcpwrap
 			--disable-tests
@@ -280,6 +288,9 @@ multilib_src_install() {
 
 	if multilib_is_native_abi; then
 		emake "${mymakeopts[@]}" install
+		# Even with --enable-networkd, it's not right to have this running by default
+		# when it's unconfigured.
+		rm -f "${D}"/etc/systemd/system/multi-user.target.wants/systemd-networkd.service
 	else
 		mymakeopts+=(
 			install-libLTLIBRARIES
@@ -320,7 +331,7 @@ migrate_locale() {
 	local locale_conf="${EROOT%/}/etc/locale.conf"
 
 	if [[ ! -L ${locale_conf} && ! -e ${locale_conf} ]]; then
-		# if locale.conf does not exist...
+		# If locale.conf does not exist...
 		if [[ -e ${envd_locale} ]]; then
 			# ...either copy env.d/??locale if there's one
 			ebegin "Moving ${envd_locale} to ${locale_conf}"

@@ -1,6 +1,34 @@
 # ChangeLog for sys-fs/udev
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/ChangeLog,v 1.984 2014/02/02 16:11:59 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/ChangeLog,v 1.990 2014/02/21 13:53:38 ssuominen Exp $
+
+  21 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-209.ebuild,
+  udev-9999.ebuild:
+  Create empty /etc/systemd/network. Restore --disable-logind to avoid
+  installation of 70-uaccess.rules and 70-power-switch.rules.
+
+  21 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-209.ebuild,
+  udev-9999.ebuild:
+  Document the possibility of overriding 99-default.link in
+  /etc/systemd/network.
+
+*udev-209 (21 Feb 2014)
+
+  21 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> +udev-209.ebuild:
+  Version bump without KEYWORDS because the 80-net-name-slot.rules ->
+  99-default.link change needs some documentation work.
+
+  21 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Use bash-completion-r1.eclass to determine directory for udevadm.
+  Since /lib/udev/rules.d/80-net-name-slot.rules was replaced with
+  /lib/systemd/network/99-default.link, start installing udevd as
+  systemd-udevd to it's original location at /lib/systemd too.
+  Sort configure flags based on ./configure --help and pass only
+  required --disable flags for ebuild readability.
+
+  16 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> udev-9999.ebuild:
+  Check for CONFIG_FHANDLE wrt http://cgit.freedesktop.org/systemd/systemd/commi
+  t/?id=5d31974e44b8fa163f859d8467a3667ed52056d0
 
   02 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> -udev-204.ebuild,
   metadata.xml:
