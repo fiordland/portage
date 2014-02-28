@@ -1,6 +1,16 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1146 2014/02/23 22:05:55 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1149 2014/02/27 00:20:57 ottxor Exp $
+
+  27 Feb 2014; Christoph Junghans <ottxor@gentoo.org> unpacker.eclass:
+  added lzip support (bug #501912)
+
+  25 Feb 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Use git init+fetch rather than clone in order to fix checking out to
+  non-empty directory. Fixes bug #502400.
+
+  24 Feb 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Fetch and preserve git notes as well.
 
   23 Feb 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
   Use complete git clones, and clone them onto the checkout directory. This

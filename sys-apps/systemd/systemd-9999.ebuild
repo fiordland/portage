@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-9999.ebuild,v 1.88 2014/02/23 15:43:31 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-9999.ebuild,v 1.95 2014/02/26 03:36:44 floppym Exp $
 
 EAPI=5
 
@@ -23,8 +23,8 @@ HOMEPAGE="http://www.freedesktop.org/wiki/Software/systemd"
 SRC_URI="http://www.freedesktop.org/software/systemd/${P}.tar.xz"
 
 LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
-SLOT="0/1"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
+SLOT="0/2"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="acl audit cryptsetup doc +firmware-loader gcrypt gudev http introspection
 	kdbus +kmod lzma pam policykit python qrcode +seccomp selinux tcpd
 	test vanilla xattr"
@@ -60,7 +60,7 @@ RDEPEND="${COMMON_DEPEND}
 		<sys-apps/sysvinit-2.88-r4
 	)
 	!sys-auth/nss-myhostname
-	!<sys-libs/glibc-2.10
+	!<sys-libs/glibc-2.14
 	!sys-fs/udev"
 
 # sys-apps/daemon: the daemon only (+ build-time lib dep for tests)
@@ -73,10 +73,6 @@ PDEPEND=">=sys-apps/dbus-1.6.8-r1:0
 # Newer linux-headers needed by ia64, bug #480218
 DEPEND="${COMMON_DEPEND}
 	app-arch/xz-utils:0
-	app-text/docbook-xml-dtd:4.2
-	app-text/docbook-xml-dtd:4.5
-	app-text/docbook-xsl-stylesheets
-	dev-libs/libxslt:0
 	dev-util/gperf
 	>=dev-util/intltool-0.50
 	>=sys-devel/binutils-2.23.1
@@ -85,10 +81,15 @@ DEPEND="${COMMON_DEPEND}
 	ia64? ( >=sys-kernel/linux-headers-3.9 )
 	virtual/pkgconfig
 	doc? ( >=dev-util/gtk-doc-1.18 )
+	python? ( dev-python/lxml[${PYTHON_USEDEP}] )
 	test? ( >=sys-apps/dbus-1.6.8-r1:0 )"
 
 #if LIVE
 DEPEND="${DEPEND}
+	app-text/docbook-xml-dtd:4.2
+	app-text/docbook-xml-dtd:4.5
+	app-text/docbook-xsl-stylesheets
+	dev-libs/libxslt:0
 	dev-libs/gobject-introspection
 	>=dev-libs/libgcrypt-1.4.5:0"
 
@@ -174,8 +175,6 @@ multilib_src_configure() {
 		# no deps
 		--enable-efi
 		--enable-ima
-		# we enable compat libs, for now. hopefully we can drop this flag later
-		--enable-compat-libs
 		# optional components/dependencies
 		$(use_enable acl)
 		$(use_enable audit)
@@ -190,6 +189,7 @@ multilib_src_configure() {
 		$(use_enable lzma xz)
 		$(use_enable pam)
 		$(use_enable policykit polkit)
+		$(use_with python)
 		$(use_enable python python-devel)
 		$(use_enable qrcode qrencode)
 		$(use_enable seccomp)
@@ -222,7 +222,6 @@ multilib_src_configure() {
 			DBUS_CFLAGS=' '
 			DBUS_LIBS=' '
 
-			--enable-compat-libs
 			--disable-acl
 			--disable-audit
 			--disable-gcrypt
@@ -303,6 +302,11 @@ multilib_src_install() {
 
 		emake "${mymakeopts[@]}"
 	fi
+
+	# install compat pkg-config files
+	local pcfiles=( src/compat-libs/libsystemd-{daemon,id128,journal,login}.pc )
+	emake "${mymakeopts[@]}" install-pkgconfiglibDATA \
+		pkgconfiglib_DATA="${pcfiles[*]}"
 }
 
 multilib_src_install_all() {

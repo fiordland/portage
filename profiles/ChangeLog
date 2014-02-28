@@ -1,13 +1,74 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8633 2014/02/23 10:49:49 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8650 2014/02/28 20:50:29 mgorny Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
 
+  28 Feb 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask new emul-linux-x86-gtklibs.
+
+  28 Feb 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask new emul-linux as well.
+
+  28 Feb 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask new multilib packages before committing.
+
+  28 Feb 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Expand MATE mask messages to be more verbose, include more details, give
+  advice to early installers and help overlay users.
+
+  28 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> desc/xfce_plugins.desc:
+  Introduce xfce_plugins_xmonad to get rid of USE="xfce4" in xmonad-log-applet
+  as per Xfce policy to not include generic flags like USE="xfce xfce4" in
+  gentoo-x86
+
+  28 Feb 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Mask dev-libs/libmateweather, mate-base/mate-desktop,
+  mate-extra/mate-dialogs, mate-extra/mate-polkit and x11-libs/libmatewnck for
+  MATE introduction.
+
+  28 Feb 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Mask app-text/mate-doc-utils and mate-base/libmatekbd for MATE introduction.
+
+  27 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> package.mask:
+  Update dev channel mask for chromium-35.
+
+  27 Feb 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Mask mate-base/mate-menus for MATE introduction.
+
+  27 Feb 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Mask mate-base/mate-session-manager for MATE introduction.
+
+  27 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  default/linux/alpha/13.0/package.use.stable.mask:
+  USE stable mask on alpha until we are able to stabilize thunderbird, bug
+  #488766
+
+  25 Feb 2014; Michael Palimaka <kensington@gentoo.org> package.mask:
+  Mask media-gfx/kgraphviewer for removal.
+
+  25 Feb 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask new systemd for testing.
+
+  24 Feb 2014; Michael Palimaka <kensington@gentoo.org> updates/1Q-2014:
+  Move sys-block/kvpm from SLOT 0 to 4.
+
+  24 Feb 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Mask app-emacs/tnt for removal.
+
+  24 Feb 2014; Andrey Grozin <grozin@gentoo.org> package.mask:
+  Unmask dev-python/pyfeyn - added a patch to fix problems
+
+  24 Feb 2014; Andrey Grozin <grozin@gentoo.org> package.mask:
+  Mask dev-python/pyfeyn - many incompatibilities with dev-python/pyx-0.12.1-r1
+
   23 Feb 2014; Pacho Ramos <pacho@gentoo.org> arch/ia64/package.use.mask:
   Needed dependencies cannot be installed on ia64, bug #498638
+
+  21 Feb 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Mask mate-base/mate-common for MATE introduction.
 
   21 Feb 2014; Vladimir Smirnov <civil@gentoo.org> package.mask:
   Unmask mail-filter/dovecot_deleted_to_trash-0.5-r1, as it's fixed.
@@ -23,6 +84,12 @@
 
   20 Feb 2014; Luca Barbato <lu_zero@gentoo.org> package.mask:
   New libav10 beta
+
+  19 Feb 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Fixed a small typo that I noticed while looking this up during the QA meeting.
+
+  19 Feb 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Mask old revision of jikes.
 
   18 Feb 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
   Unmask eselect-enabled versions of app-editors/xemacs and app-emacs/gnuserv.
@@ -156,6 +223,10 @@
 
   04 Feb 2014; Tim Harder <radhermit@gentoo.org> package.mask:
   Mask =media-sound/lilypond-2.19* for testing.
+
+  03 Feb 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  sys-kernel/module-rebuild removal (pending 1st February 2014), see bug 
+  #410739 for reference.
 
   03 Feb 2014; Mike Gilbert <floppym@gentoo.org> package.mask:
   Mask the other dev-python/moz* packages.
