@@ -1,6 +1,35 @@
 # ChangeLog for sys-kernel/dracut
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/ChangeLog,v 1.154 2014/02/23 17:07:41 aidecoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/ChangeLog,v 1.160 2014/02/27 13:02:33 aidecoe Exp $
+
+  27 Feb 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-034-r4.ebuild,
+  dracut-036-r3.ebuild, dracut-036-r4.ebuild:
+  The same goes for systemd: blocking 210.
+
+  27 Feb 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-034-r4.ebuild,
+  dracut-036-r3.ebuild, dracut-036-r4.ebuild:
+  udevd has been moved once again to remind us of its existence, thus I'm
+  blocking 210.
+
+*dracut-036-r4 (26 Feb 2014)
+
+  26 Feb 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-036-r4.ebuild,
+  +files/036-0008-Add-legacy-flag-l-to-lz4-and-update-ma.patch:
+  Fixed bug #502102.
+
+  Commit on behalf of Alexander Tsoy <alexander@tsoy.me>.
+
+  24 Feb 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> -dracut-036.ebuild,
+  -dracut-036-r1.ebuild, -dracut-036-r2.ebuild:
+  Removed older revisions of 036.
+
+  24 Feb 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-036-r3.ebuild:
+  elog message in postinst reformatted.
+
+*dracut-036-r3 (24 Feb 2014)
+
+  24 Feb 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-036-r3.ebuild:
+  Added missing patch entry to the list.
 
 *dracut-036-r2 (23 Feb 2014)
 

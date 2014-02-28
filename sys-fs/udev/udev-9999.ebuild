@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-9999.ebuild,v 1.266 2014/02/21 13:53:38 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-9999.ebuild,v 1.274 2014/02/26 18:40:51 ssuominen Exp $
 
 EAPI=5
 
@@ -43,6 +43,7 @@ COMMON_DEPEND=">=sys-apps/util-linux-2.20
 	)"
 DEPEND="${COMMON_DEPEND}
 	dev-util/gperf
+	sys-libs/libcap
 	virtual/os-headers
 	virtual/pkgconfig
 	!<sys-devel/make-3.82-r4
@@ -85,7 +86,7 @@ check_default_rules() {
 }
 
 pkg_setup() {
-	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD ~EPOLL ~FHANDLE"
+	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD ~EPOLL ~FHANDLE ~NET"
 	linux-info_pkg_setup
 
 	# Based on README from tarball:
@@ -123,14 +124,6 @@ src_prepare() {
 	# accept4() function is supported for some arch's wrt #457868
 	SUBSYSTEM=="mem", KERNEL=="null|zero|full|random|urandom", MODE="0666"
 	EOF
-
-	# Create link to systemd-udevd.8 here to avoid parallel build problem and
-	# while at it, create convinience link to `man 8 udevd` even if upstream
-	# doesn't do that anymore
-	local man
-	for man in udevd systemd-udevd; do
-		echo '.so systemd-udevd.service.8' > "${T}"/${man}.8
-	done
 
 	# Remove requirements for gettext and intltool wrt bug #443028
 	if ! has_version dev-util/intltool && ! [[ ${PV} = 9999* ]]; then
@@ -182,8 +175,6 @@ multilib_src_configure() {
 	# when *required* to avoid external deps or unnecessary compile
 	local econf_args
 	econf_args=(
-		ac_cv_search_cap_init=
-		ac_cv_header_sys_capability_h=yes
 		--libdir=/usr/$(get_libdir)
 		--docdir=/usr/share/doc/${PF}
 		--disable-nls
@@ -277,6 +268,7 @@ multilib_src_compile() {
 
 		if [[ ${PV} = 9999* ]]; then
 			local man_targets=(
+				man/systemd.link.5
 				man/udev.7
 				man/udevadm.8
 				man/systemd-udevd.service.8
@@ -325,7 +317,6 @@ multilib_src_install() {
 		fi
 
 		# add final values of variables:
-		# TODO: networkdir follows prefix, not rootprefix, which is an upstream bug
 		targets+=(
 			rootlibexec_PROGRAMS=systemd-udevd
 			rootbin_PROGRAMS=udevadm
@@ -335,7 +326,7 @@ multilib_src_install() {
 					$(sysconfdir)/udev/hwdb.d \
 					$(sysconfdir)/systemd/network'
 			dist_bashcompletion_DATA="shell-completion/bash/udevadm"
-			networkdir=/lib/systemd/network
+			dist_network_DATA="network/99-default.link"
 		)
 		emake -j1 DESTDIR="${D}" "${targets[@]}"
 
@@ -348,9 +339,9 @@ multilib_src_install() {
 		dosym {../bin,sbin}/udevadm
 
 		if [[ ${PV} = 9999* ]]; then
-			doman man/{udev.7,udevadm.8,systemd-udevd.service.8}
+			doman man/{systemd.link.5,udev.7,udevadm.8,systemd-udevd.service.8}
 		else
-			doman "${S}"/man/{udev.7,udevadm.8,systemd-udevd.service.8}
+			doman "${S}"/man/{systemd.link.5,udev.7,udevadm.8,systemd-udevd.service.8}
 		fi
 	else
 		local lib_LTLIBRARIES="libudev.la" \
@@ -380,10 +371,13 @@ multilib_src_install_all() {
 		"${D}"/lib/udev/rules.d/99-systemd.rules \
 		"${D}"/usr/share/doc/${PF}/{LICENSE.*,sd-shutdown.h}
 
-	# see src_prepare() for content of these files
+	# see src_prepare() for content of 40-gentoo.rules
 	insinto /lib/udev/rules.d
 	doins "${T}"/40-gentoo.rules
-	doman "${T}"/{systemd-,}udevd.8
+
+	# maintainer note: by not letting the upstream build-sys create the .so
+	# link, you also avoid a parallel make problem
+	mv "${D}"/usr/share/man/man8/systemd-udevd{.service,}.8
 }
 
 pkg_preinst() {
