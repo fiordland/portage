@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libssh/libssh-0.6.1.ebuild,v 1.1 2014/02/11 10:23:20 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libssh/libssh-0.6.1.ebuild,v 1.3 2014/03/06 08:24:11 pinkbyte Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ HOMEPAGE="http://www.libssh.org/"
 SRC_URI="https://red.libssh.org/attachments/download/81/${MY_P}.tar.xz -> ${P}.tar.xz"
 
 LICENSE="LGPL-2.1"
-KEYWORDS="~amd64 ~arm ~hppa ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~hppa ~s390 ~x86 ~amd64-linux ~x86-linux"
 SLOT="0/4" # subslot = soname major version
 IUSE="debug doc examples gcrypt gssapi pcap +sftp ssh1 server static-libs test zlib"
 # Maintainer: check IUSE-defaults at DefineOptions.cmake
@@ -20,7 +20,7 @@ IUSE="debug doc examples gcrypt gssapi pcap +sftp ssh1 server static-libs test z
 RDEPEND="
 	zlib? ( >=sys-libs/zlib-1.2 )
 	!gcrypt? ( >=dev-libs/openssl-0.9.8 )
-	gcrypt? ( >=dev-libs/libgcrypt-1.5 )
+	gcrypt? ( >=dev-libs/libgcrypt-1.5:0 )
 	gssapi? ( virtual/krb5 )
 "
 DEPEND="${RDEPEND}

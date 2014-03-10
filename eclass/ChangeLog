@@ -1,6 +1,68 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1149 2014/02/27 00:20:57 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1169 2014/03/09 18:54:44 ulm Exp $
+
+  09 Mar 2014; Ulrich Müller <ulm@gentoo.org> texlive-module.eclass:
+  Do not inherit base.eclass, bug 497054.
+
+  09 Mar 2014; Michael Palimaka <kensington@gentoo.org> cmake-utils.eclass:
+  Remove stray character thanks to mimi_vx.
+
+  09 Mar 2014; Michael Palimaka <kensington@gentoo.org> cmake-utils.eclass:
+  Add missing quotes wrt bug #503336.
+
+  05 Mar 2014; Patrick Lauer <patrick@gentoo.org> kde4-base.eclass:
+  Fix KDE 4.11.7 SRC_URI
+
+  03 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Force EGIT_CLONE_TYPE=mirror for submodules since they can reference commits
+  in any branch without explicitly naming the branch, bug #503332.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> xorg-2.eclass:
+  Use git-r3 for live ebuilds.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Clarify where EGIT_CLONE_TYPE and EGIT_MIN_CLONE_TYPE is supposed to be set.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Do not try shallow clones on local repositories.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Force non-forward updates on git refs.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Add EGIT_MIN_CLONE_TYPE to control clone type via ebuilds.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Auto-unshallow when fetching by commit hash.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Support EGIT_CLONE_TYPE=shallow.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Support EGIT_CLONE_TYPE=single.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Introduce EGIT_CLONE_TYPE for future use.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Support using a local git mirror.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Fix support for non-master default branch.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Replace "git fetch" checkout with more efficient and compatible pseudo-shared
+  clone.
+
+  02 Mar 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Improve docs.
+
+  01 Mar 2014; Sergei Trofimovich <slyfox@gentoo.org> autotools.eclass:
+  Call 'automake' via 'autotools_run_tool' (found by 'ebuild.sh' QA warnings).
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> gnome2-utils.eclass:
+  Add multilib love for gnome2_gdk_pixbuf_update().
 
   27 Feb 2014; Christoph Junghans <ottxor@gentoo.org> unpacker.eclass:
   added lzip support (bug #501912)

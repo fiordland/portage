@@ -1,6 +1,24 @@
 # ChangeLog for dev-python/urllib3
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/urllib3/ChangeLog,v 1.12 2013/11/06 23:29:04 floppym Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/urllib3/ChangeLog,v 1.16 2014/03/07 23:11:34 radhermit Exp $
+
+  07 Mar 2014; Tim Harder <radhermit@gentoo.org> urllib3-1.8-r1.ebuild:
+  Make sure pypy2_0 use flag deps are generated as well.
+
+  07 Mar 2014; Tim Harder <radhermit@gentoo.org> urllib3-1.8-r1.ebuild:
+  Fix backports-ssl-match-hostname conditional dep for pypy2_0.
+
+*urllib3-1.8-r1 (07 Mar 2014)
+
+  07 Mar 2014; Tim Harder <radhermit@gentoo.org> -urllib3-1.8.ebuild,
+  +urllib3-1.8-r1.ebuild:
+  Properly conditionalize dev-python/backports-ssl-match-hostname dep for
+  python2* only.
+
+*urllib3-1.8 (06 Mar 2014)
+
+  06 Mar 2014; Tim Harder <radhermit@gentoo.org> +urllib3-1.8.ebuild:
+  Version bump.
 
   06 Nov 2013; Mike Gilbert <floppym@gentoo.org> urllib3-1.7.1.ebuild:
   Restore python 3 support.

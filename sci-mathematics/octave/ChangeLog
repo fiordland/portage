@@ -1,6 +1,33 @@
 # ChangeLog for sci-mathematics/octave
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/octave/ChangeLog,v 1.157 2014/02/24 11:16:44 gienah Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/octave/ChangeLog,v 1.162 2014/03/08 14:12:30 gienah Exp $
+
+*octave-3.8.1 (08 Mar 2014)
+
+  08 Mar 2014; Mark Wright <gienah@gentoo.org>
+  +files/octave-3.8.1-imagemagick.patch, +octave-3.8.1.ebuild:
+  Bump octave to 3.8.1
+
+  06 Mar 2014; Jeroen Roovers <jer@gentoo.org> octave-3.8.0.ebuild,
+  octave-3.8.1_rc4.ebuild, octave-3.8.1_rc4-r1.ebuild:
+  Marked ~hppa (bug #503594).
+
+  06 Mar 2014; Jeroen Roovers <jer@gentoo.org> octave-3.8.0.ebuild,
+  octave-3.8.1_rc4.ebuild, octave-3.8.1_rc4-r1.ebuild:
+  Drop keywords properly (bug #503594).
+
+*octave-3.8.1_rc4-r1 (01 Mar 2014)
+
+  01 Mar 2014; Mark Wright <gienah@gentoo.org> +octave-3.8.1_rc4-r1.ebuild,
+  -octave-3.8.1_rc3.ebuild, metadata.xml:
+  Thanks to David Kredba for reporting, add gui USE flag to add
+  x11-libs/qscintilla dependency. Remove 3.8.1-rc3 at it is obsoleted by
+  3.8.1-rc4.
+
+*octave-3.8.1_rc4 (01 Mar 2014)
+
+  01 Mar 2014; Mark Wright <gienah@gentoo.org> +octave-3.8.1_rc4.ebuild:
+  Bump octave to 3.8.1-rc4
 
   24 Feb 2014; Mark Wright <gienah@gentoo.org> octave-3.6.4-r1.ebuild,
   octave-3.6.4.ebuild, octave-3.8.0.ebuild, octave-3.8.1_rc3.ebuild:

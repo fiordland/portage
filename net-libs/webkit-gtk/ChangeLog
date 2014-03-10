@@ -1,6 +1,47 @@
 # ChangeLog for net-libs/webkit-gtk
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/ChangeLog,v 1.246 2014/02/24 07:44:35 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/ChangeLog,v 1.254 2014/03/09 12:03:40 pacho Exp $
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  amd64 stable, bug 499954
+
+  08 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/webkit-gtk-2.2.5-gir-nvidia-hangs.patch, webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  webkit-gtk can keep compiling forever due deadlock issue between gir and
+  nvidia-drivers, applied patch solves the issue (at least for me), bug #463960
+
+  08 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/webkit-gtk-2.2.5-sparc64-build.patch, webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  Apply openBSD patch for compat with sparc64
+
+  08 Mar 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  The ugly build system doesn't properly disable JIT in all places causing
+  problems in some arches. Try to really disable it when jit is wanted to be
+  disabled
+
+  04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org>
+  webkit-gtk-2.2.5.ebuild:
+  Add ~mips keyword.
+
+  04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org>
+  webkit-gtk-2.2.5-r200.ebuild:
+  Add ~mips keyword.
+
+  01 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/webkit-gtk-2.2.5-hppa-platform.patch,
+  +files/webkit-gtk-2.2.5-ia64-malloc.patch,
+  +files/webkit-gtk-2.2.5-ia64-platform.patch, webkit-gtk-2.2.5-r200.ebuild,
+  webkit-gtk-2.2.5.ebuild:
+  Apply various fixes to improve support on some arches (#502492 by Emeric
+  Maschino)
 
   24 Feb 2014; Pacho Ramos <pacho@gentoo.org> webkit-gtk-2.2.5-r200.ebuild,
   webkit-gtk-2.2.5.ebuild:
