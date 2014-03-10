@@ -1,6 +1,22 @@
 # ChangeLog for sys-libs/libselinux
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libselinux/ChangeLog,v 1.110 2014/02/02 15:38:07 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libselinux/ChangeLog,v 1.113 2014/03/08 22:11:32 vapier Exp $
+
+*libselinux-2.2.2-r3 (08 Mar 2014)
+
+  08 Mar 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/libselinux-2.2.2-build.patch, +libselinux-2.2.2-r3.ebuild:
+  Clean up linking behavior #500674 by SpanKY.
+
+  04 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  libselinux-2.2.2-r2.ebuild:
+  Fix installation of python site-packages w/ multilib-strict by passing LIBDIR
+  to "make install" phase wrt #502954
+
+*libselinux-2.2.2-r2 (04 Mar 2014)
+
+  04 Mar 2014; Sven Vermeulen <swift@gentoo.org> +libselinux-2.2.2-r2.ebuild:
+  Fix bug #502544 - Honor multilib dir in pkgconfig file
 
 *libselinux-2.2.2-r1 (02 Feb 2014)
 

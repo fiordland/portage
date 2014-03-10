@@ -1,6 +1,16 @@
 # ChangeLog for x11-misc/xdg-utils
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xdg-utils/ChangeLog,v 1.122 2014/02/24 05:04:03 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xdg-utils/ChangeLog,v 1.125 2014/03/08 06:06:30 ssuominen Exp $
+
+  08 Mar 2014; Samuli Suominen <ssuominen@gentoo.org>
+  xdg-utils-1.1.0_rc2.ebuild:
+  arm/x86 stable wrt #503488
+
+  07 Mar 2014; Pacho Ramos <pacho@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  amd64 stable, bug #503488
+
+  07 Mar 2014; Jeroen Roovers <jer@gentoo.org> xdg-utils-1.1.0_rc2.ebuild:
+  Stable for HPPA (bug #503488).
 
   24 Feb 2014; Samuli Suominen <ssuominen@gentoo.org>
   xdg-utils-1.1.0_rc2.ebuild:

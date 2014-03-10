@@ -1,6 +1,18 @@
 # ChangeLog for net-libs/openpgm
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/openpgm/ChangeLog,v 1.19 2014/02/16 19:55:38 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/openpgm/ChangeLog,v 1.23 2014/03/08 13:17:22 maekke Exp $
+
+  08 Mar 2014; Markus Meier <maekke@gentoo.org> openpgm-5.2.122.ebuild:
+  arm stable, bug #502888
+
+  05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> openpgm-5.2.122.ebuild:
+  Stable for ppc, wrt bug #502888
+
+  04 Mar 2014; Agostino Sarubbo <ago@gentoo.org> openpgm-5.2.122.ebuild:
+  Stable for x86, wrt bug #502888
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> openpgm-5.2.122.ebuild:
+  amd64 stable, bug #502888
 
   16 Feb 2014; Mike Frysinger <vapier@gentoo.org> openpgm-5.1.118.ebuild:
   Mark arm stable.

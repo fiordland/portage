@@ -1,10 +1,16 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/package.use.mask,v 1.546 2014/02/28 05:50:07 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/package.use.mask,v 1.548 2014/03/09 12:36:26 aballier Exp $
 
 # This file requires >=portage-2.1.1
 # New entries go on top.
 #
+
+# Manuel Rüger <mrueg@gentoo.org> (07 Mar 2014)
+# Mask ruby18-only compatible flags
+# Bugs: 483104, 483102
+media-libs/libcaca ruby
+=dev-vcs/subversion-1.7* ruby
 
 # Michał Górny <mgorny@gentoo.org> (27 Feb 2014)
 # Very experimental with unstable kernel- and userspace API.
@@ -121,7 +127,7 @@ app-editors/gvim luajit racket
 # Alexis Ballier <aballier@gentoo.org> (11 Aug 2013)
 # Multilib migrated version for binary compatibility.
 # Those useflags have deps that are not migrated yet.
-=media-video/ffmpeg-0.10* libass frei0r gnutls rtmp vaapi sdl openssl
+=media-video/ffmpeg-0.10* libass frei0r gnutls rtmp sdl openssl
 
 # Kacper Kowalik <xarthisius@gentoo.org> (09 Aug 2013)
 # Doesn't work on most profiles. Easier to mask here and 
