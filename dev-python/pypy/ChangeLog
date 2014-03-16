@@ -1,6 +1,22 @@
 # ChangeLog for dev-python/pypy
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pypy/ChangeLog,v 1.52 2013/11/17 03:42:36 prometheanfire Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pypy/ChangeLog,v 1.56 2014/03/12 13:00:13 mgorny Exp $
+
+  12 Mar 2014; Michał Górny <mgorny@gentoo.org> metadata.xml:
+  Add Alice Ferrazzi as proxy-maintainer.
+
+  12 Mar 2014; Michał Górny <mgorny@gentoo.org> pypy-2.2.1.ebuild:
+  Fix to be non-slotted.
+
+*pypy-2.2.1 (12 Mar 2014)
+
+  12 Mar 2014; Patrick Lauer <patrick@gentoo.org>
+  +files/2.1-distutils-fix_handling_of_executables_and_flags.patch,
+  +pypy-2.2.1.ebuild:
+  Bump for #479832, patch by Ian Delaney.
+
+  11 Mar 2014; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Cleanup due #239126
 
   17 Nov 2013; Matthew Thode <prometheanfire@gentoo.org> pypy-2.0.2.ebuild:
   fix for pypy on hardened

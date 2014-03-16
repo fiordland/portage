@@ -1,6 +1,17 @@
 # ChangeLog for dev-lang/python
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/python/ChangeLog,v 1.745 2014/03/01 22:49:32 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/python/ChangeLog,v 1.748 2014/03/16 18:36:25 floppym Exp $
+
+  16 Mar 2014; Mike Gilbert <floppym@gentoo.org> python-2.6.9.ebuild:
+  Backport fix for bug 503180.
+
+*python-3.4.0_rc3 (15 Mar 2014)
+
+  15 Mar 2014; Mike Gilbert <floppym@gentoo.org> +python-3.4.0_rc3.ebuild:
+  Bump.
+
+  15 Mar 2014; Mike Gilbert <floppym@gentoo.org> python-2.7.6.ebuild:
+  Backport upstream fixes for bug 503180.
 
   01 Mar 2014; Mike Gilbert <floppym@gentoo.org> python-3.4.0_rc1.ebuild:
   Disable ensurepip.
