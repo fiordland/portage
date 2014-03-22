@@ -1,6 +1,18 @@
 # ChangeLog for dev-libs/nss
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/nss/ChangeLog,v 1.351 2014/02/22 10:42:36 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/nss/ChangeLog,v 1.354 2014/03/22 14:39:28 jer Exp $
+
+  22 Mar 2014; Jeroen Roovers <jer@gentoo.org> nss-3.16.ebuild:
+  Stable for HPPA (bug #505072).
+
+*nss-3.16 (20 Mar 2014)
+
+  20 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> -nss-3.15.4-r1.ebuild,
+  +nss-3.16.ebuild:
+  Version bump. Removed old.
+
+  19 Mar 2014; Mike Frysinger <vapier@gentoo.org> metadata.xml:
+  Clarify USE=cacert also installs SPI certs.
 
 *nss-3.15.5 (22 Feb 2014)
 

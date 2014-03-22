@@ -1,6 +1,31 @@
 # ChangeLog for www-client/firefox
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/firefox/ChangeLog,v 1.309 2014/03/07 09:17:46 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/firefox/ChangeLog,v 1.315 2014/03/22 14:40:30 jer Exp $
+
+  22 Mar 2014; Jeroen Roovers <jer@gentoo.org> firefox-24.4.0.ebuild:
+  Stable for HPPA (bug #505072).
+
+  22 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> firefox-28.0.ebuild:
+  Removed mirror restriction (bug #505304). Was added by accident during
+  testing of firefox-27.
+
+  21 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> firefox-28.0.ebuild:
+  Fixed dependency on libvpx (bug #505258).
+
+*firefox-28.0 (21 Mar 2014)
+
+  21 Mar 2014;  <anarchy@gentoo.org> +firefox-28.0.ebuild,
+  -firefox-27.0.1.ebuild, -firefox-27.0.ebuild:
+  Security bump for testing
+
+  20 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> firefox-24.3.0.ebuild,
+  firefox-27.0.ebuild, firefox-27.0.1.ebuild:
+  Fixed icu dependency.
+
+*firefox-24.4.0 (20 Mar 2014)
+
+  20 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> +firefox-24.4.0.ebuild:
+  Security bump (bug #505072).
 
   07 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> firefox-24.3.0.ebuild:
   Fixed dependency on dev-libs/nss (bug #503704).
