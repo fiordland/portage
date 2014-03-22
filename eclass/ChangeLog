@@ -1,6 +1,24 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1177 2014/03/16 18:38:37 rhill Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1182 2014/03/21 22:03:00 robbat2 Exp $
+
+  21 Mar 2014; Robin H. Johnson <robbat2@gentoo.org> linux-info.eclass:
+  linux-info: Bug #504346: Change one message from error to warning, kernel
+  sources are optional for most uses (checking configs), and knowledge if the
+  lack of kernel sources being missing is fatal should be left to the ebuild.
+
+  19 Mar 2014; Julian Ospald <hasufell@gentoo.org> mysql-cmake.eclass:
+  respect CFLAGS wrt #497532
+
+  18 Mar 2014; Christoph Junghans <ottxor@gentoo.org> texlive-common.eclass:
+  added prefix support (bug #485608)
+
+  18 Mar 2014; Michał Górny <mgorny@gentoo.org> boost-utils.eclass:
+  Mark @DEAD.
+
+  17 Mar 2014; Justin Lecher <jlec@gentoo.org> python-utils-r1.eclass,
+  readme.gentoo.eclass:
+  Some Gentoo PREFIX love
 
   16 Mar 2014; Ryan Hill <rhill@gentoo.org> toolchain.eclass:
   Update my src_uri.

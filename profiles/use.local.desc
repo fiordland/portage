@@ -426,7 +426,6 @@ app-emacs/auctex:preview-latex - Use bundled preview-latex
 app-emacs/bbdb:tex - Install plain TeX support files
 app-emacs/calfw:howm - Add support for the app-emacs/howm note-taking tool
 app-emacs/company-mode:ropemacs - Install backend for dev-python/ropemacs
-app-emacs/company-mode:semantic - Install backend for semantic (app-emacs/cedet)
 app-emacs/delicious:planner - Include support for app-emacs/planner
 app-emacs/emacs-common-gentoo:games - Support shared score files for games
 app-emacs/emhacks:jde - Enable support for Java Development Environment
@@ -760,6 +759,7 @@ app-misc/anki:sound - Enable support for adding sound to cards
 app-misc/binwalk:graph - Enable support for generating entropy graphs
 app-misc/brewtarget:phonon - Enable sound support via media-libs/phonon or dev-qt/qtphonon
 app-misc/byobu:screen - Use app-misc/screen as the default backend
+app-misc/ca-certificates:cacert - Include root certs from CAcert (http://http://www.cacert.org/) and Software in the Public Interest (http://www.spi-inc.org/)
 app-misc/ddccontrol:ddcpci - enable direct PCI memory access (the setuid ddcpci util)
 app-misc/digitemp:ds2490 - Build support for the ds2490 sensor
 app-misc/digitemp:ds9097 - Build support for the ds9097 sensor
@@ -1740,7 +1740,7 @@ dev-libs/m17n-lib:athena - Enable the MIT Athena widget set (x11-libs/libXaw)
 dev-libs/m17n-lib:gd - Build API and utilities based on media-libs/gd. This flag is only meaningful if the X USE flag is also enabled.
 dev-libs/m17n-lib:libotf - Use dev-libs/libotf to handle OpenType fonts
 dev-libs/m17n-lib:libxml2 - Use dev-libs/libxml2 to parse XML
-dev-libs/nss:cacert - Include CAcert root certificates (http://http://www.cacert.org/)
+dev-libs/nss:cacert - Include root certs from CAcert (http://http://www.cacert.org/) and Software in the Public Interest (http://www.spi-inc.org/)
 dev-libs/nss:nss-pem - Add support for libnsspem
 dev-libs/nss:utils - Install utilities included with the library
 dev-libs/oniguruma:combination-explosion-check - enable combination explosion check
@@ -2226,6 +2226,7 @@ dev-util/cwdiff:a2ps - install app-text/a2ps for postscript output
 dev-util/cwdiff:mercurial - install hg wdiff alias for dev-vcs/mercurial
 dev-util/devhelp:gedit - Install plugin for app-editors/gedit
 dev-util/dialog:minimal - Disable library, install command-line program only
+dev-util/emilpro:system-binutils - Use the gentoo binutils instead of building against an unpatched vanilla version
 dev-util/fatrace:powertop - Add powetop integration
 dev-util/geany:vte - Enable Terminal support (x11-libs/vte)
 dev-util/geany-plugins:commander - Enable the commander plugin which provides a command panel for rapid access to any action.
@@ -2972,6 +2973,7 @@ mail-filter/maildrop:tools - Install maildirmake and deliverquota tools
 mail-filter/maildrop:trashquota - Count deleted messages as part of the maildir quota
 mail-filter/mimedefang:poll - Use poll instead of select
 mail-filter/opendkim:ldap - Enable openldap as a dataset facilitator or keys, determining domains to sign for, and any other dataset that opendkim supports.
+mail-filter/opendkim:lmdb - Add support for using dev-db/lmdb
 mail-filter/opendkim:lua - Enables control over signature verification, filtering and policy to be controlled by user defined lua scripts.
 mail-filter/opendkim:memcached - Add support for using dev-libs/libmemcached
 mail-filter/opendkim:opendbx - Use opendbx backend to facilitate dataset driven OpenDKIM configuration options like stats, bodylengthdb, etc. against a wide variety of database types
@@ -3030,6 +3032,9 @@ mail-mta/qpsmtpd:postfix - create user with permissions for proper postfix inter
 mail-mta/ssmtp:mta - Install symlinks for sendmail-compatible MTA.
 mate-base/mate-file-manager:mate - Install x11-themes/mate-icon-theme which is needed when this package is used in the MATE desktop environment.
 mate-base/mate-file-manager:unique - Enable single instance support using dev-libs/libunique.
+mate-extra/mate-file-manager-sendto:gajim - Enables support for net-im/gajim
+mate-extra/mate-file-manager-sendto:mail - Enables support for mailto using gnome-extra/evolution-data-server
+mate-extra/mate-file-manager-sendto:pidgin - Enables support for net-im/pidgin
 mate-extra/mate-power-manager:applet - Enable building of the MATE applet.
 mate-extra/mate-power-manager:man - Build power manager's man page.
 mate-extra/mate-power-manager:unique - Enable single instance support using dev-libs/libunique.
@@ -3079,6 +3084,8 @@ media-gfx/blender:doc - Build C and Python API documentation directly from the s
 media-gfx/blender:elbeem - Adds surface fluid simulation to Blender using El'Beem library.
 media-gfx/blender:game-engine - Adds Game Engine support to Blender.
 media-gfx/blender:ndof - Enable NDOF input devices (SpaceNavigator and friends).
+media-gfx/blender:openimageio - Enable OpenImageIO Support
+media-gfx/blender:opennl - Enable use of Open Numerical Library
 media-gfx/blender:player - Build the Blender Player. THis requires the Game engine.
 media-gfx/blender:redcode - This flag add support for RED CODE camera digital format (5K HD images *.r3d) - EXPERIMENTAL.
 media-gfx/blender:tweak-mode - This flag allows you to model without confirming each translation, in particular it lets you grab with left mouse button (LMB) and not having to confirm by another click. Blender 'Tweak Mode' is similar to the 'Tweak Mode' of the Wings modeller (media-gfx/wings).
@@ -3720,7 +3727,9 @@ media-sound/picard:acoustid - Use media-libs/chromaprint for acoustic fingerprin
 media-sound/pms:regex - Enable regular expression searches using dev-libs/boost
 media-sound/podcatcher:bittorrent - Enable support for bittorrent downloads
 media-sound/pragha:glyr - Enable music metadata searchengine support using media-libs/glyr
+media-sound/pragha:keybinder - Enable shortcut support using dev-libs/keybinder
 media-sound/pragha:lastfm - Enable last.fm support using media-libs/libclastfm
+media-sound/pragha:peas - Enable various plugins that will pull in dev-libs/libpeas as a dependency
 media-sound/pragha:playlist - Enable enhanced playlist support using dev-libs/totem-pl-parser
 media-sound/puddletag:acoustid - Use media-libs/chromaprint for acoustic fingerprinting
 media-sound/puddletag:cover - Enables editing of FLAC cover art
@@ -3972,6 +3981,7 @@ media-video/ffmpeg:twolame - Enables MP2 encoding via media-sound/twolame as an 
 media-video/ffmpeg:vaapi - Enables VAAPI (Video Acceleration API) for hardware decoding
 media-video/ffmpeg:vis - Adds support for SIMD optimizations for UltraSPARC processors.
 media-video/ffmpeg:vpx - Enables vp8 codec support using libvpx: Decoding vp8 does not require this to be enabled but libvpx can also be used for decoding; encoding vp8 requires this useflag to be enabled though.
+media-video/ffmpeg:webp - Enables WebP encoding with media-libs/libwebp.
 media-video/ffmpeg:x265 - Enables HEVC encoding with media-libs/x265.
 media-video/ffmpeg:zvbi - Enables media-libs/zvbi based teletext decoder.
 media-video/ffmpeg2theora:kate - Adds support for Ogg Kate subtitles via libkate.
@@ -5471,13 +5481,13 @@ net-misc/tigervnc:xorgmodule - Build the Xorg module
 net-misc/tightvnc:server - Build vncserver. Allows us to only build server on one machine if set, build only viewer otherwise.
 net-misc/tinc:uml - Enable support for User Mode Linux Sockets
 net-misc/tinc:vde - Enable Virtual Distributed Ethernet (VDE) based networking
-net-misc/tor:bufferevents - Use Libevent's buffered IO
+net-misc/tor:bufferevents - Use libevent's buffered IO implementation (unstable, buggy)
 net-misc/tor:ecc - Enable Elliptical Curve Cyptography
 net-misc/tor:nat-pmp - Enable NAT Port Mapping Protocol
 net-misc/tor:stats - Enable to keep track of how much of each kind of resource we download
 net-misc/tor:tor-hardening - Compile tor with hardening on vanilla compilers/linkers
 net-misc/tor:transparent-proxy - Enable transparent proxying
-net-misc/tor:web - Enable tor2web support
+net-misc/tor:web - Build a tor2web service instead of a tor client
 net-misc/uftp:server - Install uftp server daemon
 net-misc/vde:pcap - Enable the pcap-based plugin that allows creating a switch against a real interface.
 net-misc/vde:ssl - Enable the cryptcab plugin that allows creating an encrypted virtual cable.
@@ -6829,6 +6839,8 @@ www-apps/ikiwiki:extras - Installs additional modules used by ikiwiki plugins
 www-apps/lxr:freetext - Adds support for freetext search using swish-e
 www-apps/nikola:assets - Support web asset management through dev-python/assets
 www-apps/nikola:charts - Support chart generation through dev-python/pygal
+www-apps/nikola:hyphenation - Add hyphenation support through dev-python/pyphen
+www-apps/nikola:ipython - Add IPython notebook compilation and LESS support
 www-apps/nikola:jinja - Add support for dev-python/jinja as alternative templating engine to Mako
 www-apps/nikola:markdown - Add support for Markdown as alternative markup language to reStructuredText
 www-apps/novnc:nova - Installs Openstack Nova for it's libraries

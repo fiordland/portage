@@ -1,6 +1,42 @@
 # ChangeLog for Gentoo base-profile
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/ChangeLog,v 1.650 2014/03/16 08:23:40 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/ChangeLog,v 1.660 2014/03/22 15:24:48 floppym Exp $
+
+  22 Mar 2014; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask:
+  Transfer sys-boot/grub[libzfs] stable mask.
+
+  22 Mar 2014; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask:
+  Reorder the file correctly.
+
+  20 Mar 2014; Manuel Rüger <mrueg@gentoo.org> package.use.mask:
+  Mask server useflag for rubygems-1.8.x due to ruby1.8 deprecation
+
+  19 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> package.use.stable.mask:
+  Mask USE="opencl" for stable users of media-gfx/imagemagick wrt #472766
+
+  19 Mar 2014; Andrey Grozin <grozinge@gentoo.org>
+  use.stable.mask:
+  Mask gcl
+
+  18 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  package.use.stable.mask:
+  Migrate net-libs/libkolab entry from eapi-5-files
+
+  16 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -package.use.mask.example:
+  We have enough examples in the real file now.
+
+  16 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  package.use.stable.mask:
+  Migrate kde-base/kalzium entry from eapi-5-files
+
+  16 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  +package.use.stable.mask:
+  Add empty file for migrating entries
+
+  16 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> +eapi,
+  +package.use.stable.force, +use.stable.force, +use.stable.mask:
+  Increase EAPI to 5 and move empty stable mask/force files here
 
   16 Mar 2014; Michał Górny <mgorny@gentoo.org> use.mask:
   Mask new PyPy flags.

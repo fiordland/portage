@@ -1,10 +1,74 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8709 2014/03/16 20:08:20 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8727 2014/03/22 15:07:13 angelos Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  22 Mar 2014; Christoph Mende <angelos@gentoo.org> updates/1Q-2014:
+  Move media-sound/audio-entropyd to sys-apps (bug #495000)
+
+  22 Mar 2014; Ulrich Müller <ulm@gentoo.org> -updates/1Q-2008,
+  -updates/2Q-2008, -updates/3Q-2008, -updates/4Q-2008:
+  Cleanup of old updates.
+
+  22 Mar 2014; Hans de Graaff <graaff@gentoo.org> package.mask:
+  Mask www-apache/mod_ruby for removal, fixing bug 505236.
+
+  21 Mar 2014; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Remove dev-libs/libevent-2.1 mask.
+
+  21 Mar 2014; Ben de Groot <yngwin@gentoo.org>  base/package.use.mask,
+  package.mask:
+  Mask harfbuzz useflag so we can unmask media-libs/freetype-2.5.3-r1 for
+  security stabilization
+
+  20 Mar 2015; Mikle Kolyada <zlogene@gentoo.org> package.mask:
+  perl-5.18.2 and co. unmasked.
+
+  20 Mar 2014; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Mask vulnerable versions of net-nds/openldap, bug #424167
+
+  20 Mar 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Remove app-emacs/{eperiodic,view-process} masks, packages have been removed.
+
+  19 Mar 2014; Mikle Kolyada <zlogene#gentoo.org> package.mask:
+  Mask app-misc/bins for removal.
+
+  19 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Lastrite x11-misc/suxpanel wrt #500408
+
+  19 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> use.desc:
+  Don't explicitely mention sys-fs/udev in USE="udev" description as the flag
+  can be used also with sys-fs/eudev and sys-apps/systemd wrt #505090 by
+  Francesco Turco
+
+  19 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -targets/server/make.defaults:
+  Remove targets/server, not inherited anywhere anymore
+
+  19 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> -releases/10.0/eapi,
+  -releases/10.0/make.defaults, -releases/10.0/package.mask,
+  -releases/10.0/parent:
+  Remove releases/10.0, not inherited anywhere anymore
+
+  19 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> eapi:
+  Increase EAPI to 5
+
+  18 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Mask new media-sound/pragha together with GTK+-3.x libxfce4ui from Xfce 4.12
+  (git)
+
+  17 Mar 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Remove app-emacs/{alt-font-menu,cperl-mode,erc,nxml-mode,u-vm-color} masks,
+  packages have been removed.
+
+  17 Mar 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Add new freetype with harfbuzz dep to multilib mask.
+
+  17 Mar 2014; Bernard Cafarelli <voyageur@gentoo.org> package.mask:
+  Remove mask on gnustep-libs/cddb after last rites, bug #501160
 
   16 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org>
   targets/developer/make.defaults, targets/developer/parent:
