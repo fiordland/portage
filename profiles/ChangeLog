@@ -1,10 +1,76 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8727 2014/03/22 15:07:13 angelos Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8748 2014/03/27 15:00:52 floppym Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  27 Mar 2014; Mike Gilbert <floppym@gentoo.org> package.mask:
+  Remove mask on >=sys-apps/systemd-210.
+
+  27 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Mask -r22 of emul-linux-x86-baselibs with removed libmagic.so* together with
+  >=sys-apps/file-5.18-r1 wrt #505936
+
+  26 Mar 2014; Ulrich Müller <ulm@gentoo.org> profiles.desc:
+  Drop m68k, s390, sh profiles to exp per 20140225 council decision.
+
+  26 Mar 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.mask:
+  Mask <mesa-9.1.4 for security bugs #445916, #471098 and #472280.
+
+  25 Mar 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Remove app-emacs/{tnt,gnuserv-programs} masks, packages have been removed.
+
+  24 Mar 2014; Joerg Bornkessel <hd_brummy@gentoo.org> package.mask:
+  media-plugins/vdr-bistreamout media-plugins/vdr-eggtimer masked for removal
+
+  24 Mar 2014; Joerg Bornkessel <hd_brummy@gentoo.org> package.mask:
+  media-plugins/vdr-ac3mode masked for removal
+
+  24 Mar 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Remove MATE Desktop Environment 1.6 introduction mask.
+
+  24 Mar 2014; Tom Wijsman <TomWij@gentoo.org> updates/1Q-2014:
+  SLOT move =mate-base/mate-control-center-1.6.2 from 2 to 0.
+
+  24 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> updates/1Q-2014:
+  Move dev-libs/libusbx to dev-libs/libusb since the usbx project is now in
+  control of the libusb sf.net project page and they renamed the library from
+  usbx to usb within 1.0.18 release.
+
+  24 Mar 2014; Dion Moult <moult@gentoo.org> package.mask:
+  x11-plugins/desklet-sudoku package mask removed as package removed
+
+  24 Mar 2014; Dion Moult <moult@gentoo.org> package.mask:
+  www-client/htmlview package mask removed as package removed
+
+  24 Mar 2014; Dion Moult <moult@gentoo.org> package.mask:
+  rox-extra/comicthumb package mask removed as package removed
+
+  24 Mar 2014; Dion Moult <moult@gentoo.org> package.mask:
+  dev-libs/jrtplib package mask removed as package removed
+
+  24 Mar 2014; Dion Moult <moult@gentoo.org> package.mask:
+  virtual/monodoc package mask removed as package removed
+
+  24 Mar 2014; Dion Moult <moult@gentoo.org> package.mask:
+  app-misc/flyte-download-manager package mask removed as package removed
+
+  23 Mar 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Remove app-emacs/{http-emacs,mairix} masks, packages have been removed.
+
+  23 Mar 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Mask app-emacs/gnuserv-programs for removal.
+
+  22 Mar 2014; Rick Farina <zerochaos@gentoo.org> package.mask:
+  mask dissy, replaced by emilpro
+
+  22 Mar 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Mask app-admin/mate-system-tools, mate-base/libmatekeyring, mate-base/mate,
+  mate-base/mate-control-center, mate-base/mate-keyring, mate-extra/mate-media,
+  mate-extra/mate-user-share for MATE introduction.
 
   22 Mar 2014; Christoph Mende <angelos@gentoo.org> updates/1Q-2014:
   Move media-sound/audio-entropyd to sys-apps (bug #495000)
