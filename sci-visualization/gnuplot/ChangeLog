@@ -1,6 +1,18 @@
 # ChangeLog for sci-visualization/gnuplot
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/gnuplot/ChangeLog,v 1.231 2014/03/21 21:09:35 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-visualization/gnuplot/ChangeLog,v 1.233 2014/03/23 13:55:21 ulm Exp $
+
+*gnuplot-4.6.4-r2 (23 Mar 2014)
+
+  23 Mar 2014; Ulrich Müller <ulm@gentoo.org> +gnuplot-4.6.4-r2.ebuild:
+  Drop emacs and xemacs USE flags because gnuplot-mode for Emacs is now
+  maintained and distributed separately, bug 504354. For Emacs support,
+  app-emacs/gnuplot-mode should be installed. KEYWORDS dropped to those
+  of gnuserv-mode; they will be readded later.
+
+  22 Mar 2014; Ulrich Müller <ulm@gentoo.org> gnuplot-4.6.4-r1.ebuild:
+  Install the GNU Info file with doinfo, as the install-info make target does
+  not work with USE=-emacs.
 
   21 Mar 2014; Ulrich Müller <ulm@gentoo.org> -files/gnuplot-4.4.4-tikz.patch:
   Remove unused patch.
