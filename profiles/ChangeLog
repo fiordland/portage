@@ -1,10 +1,33 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8750 2014/03/27 22:18:15 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8757 2014/03/29 16:11:47 ssuominen Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  29 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Release the working udev virtuals to ~arch as no policy has been violated and
+  there has been no consensus for masking them among the QA team or council.
+  This is a maintainer commit which can be reverted only by the maintainers, or
+  majority vote in the respective authorities.
+
+  29 Mar 2014; Rick Farina <zerochaos@gentoo.org> package.mask:
+  Restore QA mask incorrectly reverted without permission.
+  sys-power/upower was fixed BEFORE the initial mask, please learn
+  to cvs up before complaining about 'breakage'
+
+  29 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Drop wrong mask of working udev virtuals.
+
+  28 Mar 2014; Rick Farina <zerochaos@gentoo.org> package.mask:
+  missed virtual/udev-208-r2 in previous mask
+
+  28 Mar 2014; Rick Farina <zerochaos@gentoo.org> package.mask:
+  Mask virtual/lib[g]udev pending discussion on -dev, bug #506114
+
+  28 Mar 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Add a note to update wiki page when unmasking multilib packages.
 
   27 Mar 2014; Michał Górny <mgorny@gentoo.org> targets/desktop/package.use:
   Copy the USE defaults to virtual/libgudev.

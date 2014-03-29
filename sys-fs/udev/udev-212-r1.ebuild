@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-212-r1.ebuild,v 1.2 2014/03/28 04:27:10 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-212-r1.ebuild,v 1.5 2014/03/29 06:17:38 ssuominen Exp $
 
 EAPI=5
 
@@ -10,7 +10,7 @@ if [[ ${PV} = 9999* ]]; then
 	EGIT_REPO_URI="git://anongit.freedesktop.org/systemd/systemd"
 	inherit git-2
 else
-	patchset=
+	patchset=1
 	SRC_URI="http://www.freedesktop.org/software/systemd/systemd-${PV}.tar.xz"
 	if [[ -n "${patchset}" ]]; then
 				SRC_URI="${SRC_URI}
@@ -48,7 +48,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/os-headers
 	virtual/pkgconfig
 	!<sys-devel/make-3.82-r4
-	!<sys-kernel/linux-headers-2.6.32
+	!<sys-kernel/linux-headers-3.7
 	doc? ( >=dev-util/gtk-doc-1.18 )"
 # Try with `emerge -C docbook-xml-dtd` to see the build failure without DTDs
 if [[ ${PV} = 9999* ]]; then
@@ -62,10 +62,7 @@ fi
 RDEPEND="${COMMON_DEPEND}
 	!<sys-fs/lvm2-2.02.103
 	!<sec-policy/selinux-base-2.20120725-r10"
-PDEPEND=">=virtual/libudev-208
-	>=virtual/udev-208
-	>=sys-apps/hwids-20140304[udev]
-	gudev? ( >=virtual/libgudev-208 )
+PDEPEND=">=sys-apps/hwids-20140304[udev]
 	openrc? ( >=sys-fs/udev-init-scripts-26 )"
 
 S=${WORKDIR}/systemd-${PV}

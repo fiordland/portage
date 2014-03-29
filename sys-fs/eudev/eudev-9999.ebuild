@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/eudev/eudev-9999.ebuild,v 1.44 2014/03/27 22:57:43 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/eudev/eudev-9999.ebuild,v 1.47 2014/03/28 20:02:03 axs Exp $
 
 EAPI="5"
 
@@ -56,7 +56,6 @@ RDEPEND="${COMMON_DEPEND}
 
 PDEPEND="hwdb? ( >=sys-apps/hwids-20130717-r1[udev] )
 	keymap? ( >=sys-apps/hwids-20130717-r1[udev] )
-	>=virtual/udev-206-r2
 	openrc? ( >=sys-fs/udev-init-scripts-18 )"
 
 REQUIRED_USE="keymap? ( hwdb )"
@@ -165,7 +164,7 @@ multilib_src_compile()
 		emake
 	else
 		emake -C src/libudev
-		emake -C src/gudev
+		use gudev && emake -C src/gudev
 	fi
 }
 
@@ -175,7 +174,7 @@ multilib_src_install()
 		emake DESTDIR="${D}" install
 	else
 		emake -C src/libudev DESTDIR="${D}" install
-		emake -C src/gudev DESTDIR="${D}" install
+		use gudev && emake -C src/gudev DESTDIR="${D}" install
 	fi
 }
 
@@ -269,7 +268,8 @@ pkg_postinst()
 	ewarn "upgrade go into effect:"
 	ewarn "\t/etc/init.d/udev --nodeps restart"
 
-	if use rule-generator && use openrc; then
+	if use rule-generator && use openrc && \
+	[[ -x $(type -P rc-update) ]] && rc-update show | grep udev-postmount | grep -qsv 'boot\|default\|sysinit'; then
 		ewarn
 		ewarn "Please add the udev-postmount init script to your default runlevel"
 		ewarn "to ensure the legacy rule-generator functionality works as reliably"
