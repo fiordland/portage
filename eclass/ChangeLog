@@ -1,6 +1,28 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1186 2014/03/29 16:06:44 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1192 2014/04/01 15:22:40 mgorny Exp $
+
+  01 Apr 2014; Michał Górny <mgorny@gentoo.org> tests/python-utils-r1.sh:
+  Add slot op to expected PyPy dependency string.
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> java-ant-2.eclass:
+  Ban the java-ant_remove-taskdefs() function and remove Python dependency, bug
+  #479838.
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Revert the introduction of ABI_PPC due to a lot of breakage, bug #506298 to
+  track it.
+
+  30 Mar 2014; Sven Vermeulen <swift@gentoo.org> selinux-policy-2.eclass:
+  Add support for USE triggered policy decisions
+
+  30 Mar 2014; Johannes Huber <johu@gentoo.org> kde4-base.eclass:
+  Sync with kde overlay. Raise QT_MINIMAL to latest stable and simplify Qt deps
+  by Michael Palimaka <kensington@gentoo.org>. Add kde-workspace 4.11.8
+  SRC_URI.
+
+  30 Mar 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Support rewriting symlinks in MULTILIB_CHOST_TOOLS, bug #506062.
 
   29 Mar 2014; Ulrich Müller <ulm@gentoo.org> check-reqs.eclass:
   Move test for MERGE_TYPE from check-reqs_pkg_setup() to check-reqs_run().
