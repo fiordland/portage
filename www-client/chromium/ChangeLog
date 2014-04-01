@@ -1,6 +1,24 @@
 # ChangeLog for www-client/chromium
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/ChangeLog,v 1.1047 2014/03/21 23:23:30 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/chromium/ChangeLog,v 1.1050 2014/04/01 17:21:11 phajdan.jr Exp $
+
+*chromium-35.0.1916.6 (01 Apr 2014)
+
+  01 Apr 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +chromium-35.0.1916.6.ebuild, -chromium-35.0.1897.2.ebuild:
+  Dev channel bump. Remove old.
+
+*chromium-34.0.1847.92 (30 Mar 2014)
+
+  30 Mar 2014; Mike Gilbert <floppym@gentoo.org> +chromium-34.0.1847.92.ebuild,
+  -chromium-34.0.1847.60.ebuild:
+  Beta channel bump.
+
+*chromium-35.0.1912.2 (30 Mar 2014)
+
+  30 Mar 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +chromium-35.0.1912.2.ebuild, -chromium-35.0.1870.2.ebuild:
+  Dev channel bump - aura is no longer optional. Remove old.
 
 *chromium-34.0.1847.76 (21 Mar 2014)
 
