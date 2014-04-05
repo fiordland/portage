@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/udev-init-scripts-9999.ebuild,v 1.24 2014/03/28 18:57:01 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/udev-init-scripts-9999.ebuild,v 1.27 2014/04/03 19:16:01 ssuominen Exp $
 
 EAPI=5
 
@@ -27,6 +27,7 @@ RESTRICT="test"
 
 RDEPEND=">=virtual/udev-180
 	!<sys-fs/udev-186"
+DEPEND="${RDEPEND}"
 
 src_prepare()
 {
@@ -39,13 +40,15 @@ pkg_postinst()
 	# the first install of this package.
 	if [[ -z ${REPLACING_VERSIONS} ]]
 	then
-		if [[ -x "${ROOT}"etc/init.d/udev \
-			&& -d "${ROOT}"etc/runlevels/sysinit ]]
+		if [[ ! -d "${ROOT}"etc/runlevels/sysinit ]]
+		then
+			mkdir -p "${ROOT}"etc/runlevels/sysinit
+		fi
+		if [[ -x "${ROOT}"etc/init.d/udev ]]
 		then
 			ln -s /etc/init.d/udev "${ROOT}"/etc/runlevels/sysinit/udev
 		fi
-		if [[ -x "${ROOT}"etc/init.d/udev-mount \
-			&& -d "${ROOT}"etc/runlevels/sysinit ]]
+		if [[ -x "${ROOT}"etc/init.d/udev-mount ]]
 		then
 			ln -s /etc/init.d/udev-mount \
 				"${ROOT}"etc/runlevels/sysinit/udev-mount
