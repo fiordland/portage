@@ -202,6 +202,7 @@ app-admin/sshguard:ipfilter - Enable ipfilter firewall support (only for *bsd)
 app-admin/sudo:offensive - Let sudo print insults when the user types the wrong password.
 app-admin/sudo:sendmail - Allow sudo to send emails with sendmail.
 app-admin/sysklogd:logrotate - use app-admin/logrotate for rotating logs rather than custom cron scripts
+app-admin/syslog-ng:amqp - Enable support for AMQP destinations
 app-admin/syslog-ng:json - Enable support for JSON template formatting via dev-libs/json-glib
 app-admin/syslog-ng:mongodb - Enable support for mongodb destinations
 app-admin/syslog-ng:smtp - Enable support for SMTP destinations
@@ -1113,15 +1114,8 @@ app-text/wv:tools - Install optional utilities considered deprecated in favor of
 app-text/xiphos:webkit - Use net-libs/webkit-gtk instead of gnome-extra/gtkhtml
 app-text/yagf:cuneiform - Enable support for the app-text/cuneiform OCR engine.
 app-text/yagf:tesseract - Enable support for the app-text/tesseract OCR engine.
-app-text/zathura:deprecated - Use x11-libs/gtk+:2 instead of x11-libs/gtk+:3
 app-text/zathura:magic - Use libmagic to determine mimetypes
-app-text/zathura-cb:deprecated - Use x11-libs/gtk+:2 instead of x11-libs/gtk+:3
-app-text/zathura-djvu:deprecated - Use x11-libs/gtk+:2 instead of x11-libs/gtk+:3
 app-text/zathura-meta:cb - Install plug-in for ComicBook support
-app-text/zathura-meta:deprecated - Use x11-libs/gtk+:2 instead of x11-libs/gtk+:3
-app-text/zathura-pdf-mupdf:deprecated - Use x11-libs/gtk+:2 instead of x11-libs/gtk+:3
-app-text/zathura-pdf-poppler:deprecated - Use x11-libs/gtk+:2 instead of x11-libs/gtk+:3
-app-text/zathura-ps:deprecated - Use x11-libs/gtk+:2 instead of x11-libs/gtk+:3
 app-vim/gentoo-syntax:ignore-glep31 - Remove GLEP 31 (UTF-8 file encodings) settings
 app-vim/vim-latex:html - Install HTML documentation
 app-vim/vim-latex:python - Enable python support which can help speed up some functionality
@@ -1903,6 +1897,8 @@ dev-php/pecl-memcached:json - Enable support for json serialization
 dev-php/pecl-redis:igbinary - Enables igbinary serialisation support
 dev-php/smarty-docs:html - Install the documentation in HTML format
 dev-php/smarty-docs:pdf - Install the documentation in PDF format
+dev-python/Kivy:camera - Install libraries needed to support camera
+dev-python/Kivy:garden - Install garden tool to manage user maintained widgets
 dev-python/PyFoam:extras - Enable optional dependencies
 dev-python/PyQt4:X - Build QtGui and QtTest modules
 dev-python/PyQt4:declarative - Build QtDeclarative module
@@ -2222,6 +2218,7 @@ dev-util/anjuta:glade - Build glade plugin for anjuta
 dev-util/anjuta:packagekit - Use packagekit to search for missing tools
 dev-util/anjuta:terminal - Enable terminal plugin based on x11-libs/vte
 dev-util/anjuta:vala - Enable support for the Vala programming language
+dev-util/apitrace:cli - Enable command line interface
 dev-util/apitrace:egl - Enable EGL support
 dev-util/buildbot:irc - Add support for status delivery through an ircbot.
 dev-util/buildbot:mail - Add support for watching a maildir for commits.
@@ -4121,7 +4118,7 @@ media-video/mpv:bluray - Enable playback of Blu-ray filesystems
 media-video/mpv:bs2b - Enable Bauer stereophonic-to-binaural headphone filter
 media-video/mpv:cdio - Use libcdio for CD support (instead of cdparanoia)
 media-video/mpv:doc-pdf - Build documentation in pdf format
-media-video/mpv:dvdnav - Enable support for DVD navigation using media-libs/dvdnav.
+media-video/mpv:dvdnav - Enable support for DVD navigation using media-libs/libdvdnav
 media-video/mpv:enca - Enables support for charset discovery and conversion using app-i18n/enca
 media-video/mpv:libguess - Enables support for charset discovery and conversion using app-i18n/libguess
 media-video/mpv:luajit - Use dev-lang/luajit instead of dev-lang/lua
@@ -4753,7 +4750,6 @@ net-im/qutim:phonon - Add sound support via media-libs/phonon or dev-qt/qtphonon
 net-im/qutim:purple - Enable libpurple-based protocol support
 net-im/qutim:qml - Enable QtQuick-based chat plugin
 net-im/qutim:sdl - Add sound support via media-libs/sdl-mixer
-net-im/qutim:telepathy - Enable telepathy-based protocol support
 net-im/qutim:vkontakte - Enable vkontakte protocol support
 net-im/qutim:webkit - Enable Adium-like WebView plugin
 net-im/qutim:xscreensaver - Use X screensaver protocol extension to monitor idle/active status based on mouse/keyboard events
@@ -4988,7 +4984,9 @@ net-libs/h323plus:video - Enable video codecs
 net-libs/iax:snomhack - Use slower memset for SNOM phoneem
 net-libs/ldns:ecdsa - Enable ECDSA support
 net-libs/ldns:gost - Enable GOST support
+net-libs/libbtbb:pcap - Add support for network packet capture via net-libs/libpcap
 net-libs/libbtbb:wireshark - Build the wireshark plugin for bluetooth baseband sniffing
+net-libs/libbtbb:wireshark-plugins - Build the wireshark plugins for bluetooth baseband sniffing
 net-libs/libeXosip:srv - enable support for SRV records DNS queries
 net-libs/libesmtp:ssl - Enable support for advanced SMTP authentication methods, like NTML and STARTTLS. Also use OpenSSL's MD5 implementation over internal version.
 net-libs/libetpan:liblockfile - Enable support for liblockfile library
@@ -6899,7 +6897,6 @@ www-client/firefox:webm - Use system media-libs/libvpx for HTML5 WebM video supp
 www-client/google-chrome:plugins - Add system plugins path to launcher
 www-client/google-chrome-beta:plugins - Add system plugins path to launcher
 www-client/google-chrome-unstable:plugins - Add system plugins path to launcher
-www-client/jumanji:deprecated - Use x11-libs/gtk+:2 instead of x11-libs/gtk+:3
 www-client/luakit:luajit - Use the lua just-in-time compiler dev-lang/luajit instead of dev-lang/lua, which should make luakit faster.
 www-client/lynx:gnutls - Use gnutls library for HTTPS support (openssl is the default library for HTTPS support).
 www-client/lynx:ssl - Enable HTTPS support.
@@ -7163,10 +7160,8 @@ x11-misc/wbar:gtk - Enables the gtk-based wbar-config GUI
 x11-misc/x11vnc:system-libvncserver - Build x11vnc against the system libvncserver (experimental)
 x11-misc/x11vnc:tk - Support the simple tcl/tk -gui option
 x11-misc/xlockmore:xlockrc - Enables xlockrc for people without PAM
-x11-misc/xmobar:mail - Support the mail plugin. Pulls dependency dev-haskell/hinotify.
 x11-misc/xmobar:mpd - Support mpd plugin
 x11-misc/xmobar:mpris - Enables MPRIS v1, v2 support
-x11-misc/xmobar:threaded - Use threaded GHC runtime
 x11-misc/xmobar:timezone - Enables localized date support
 x11-misc/xscreensaver:gdm - Use gdmflexiserver from gnome-base/gdm instead of x11-misc/lightdm
 x11-misc/xscreensaver:new-login - Enable user switching support using gdmflexiserver (x11-misc/lightdm) or kdmctl (kde-base/kdm)

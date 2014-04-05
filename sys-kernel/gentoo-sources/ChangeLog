@@ -1,6 +1,37 @@
 # ChangeLog for sys-kernel/gentoo-sources
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1291 2014/04/01 18:52:08 mpagano Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1296 2014/04/04 23:59:02 mpagano Exp $
+
+*gentoo-sources-3.10.36 (04 Apr 2014)
+
+  04 Apr 2014; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.10.36.ebuild:
+  Update for systemd default config option to select CONFIG_NET_NS. bug
+  #506396. Linux patch 3.10.36
+
+*gentoo-sources-3.4.86 (03 Apr 2014)
+
+  03 Apr 2014; Michael Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.4.86.ebuild:
+  Linux patch 3.4.86. Update for systemd default config option to select
+  CONFIG_NET_NS. bug #506396
+
+*gentoo-sources-3.13.9 (04 Apr 2014)
+
+  04 Apr 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.13.9.ebuild:
+  Linux patch 3.13.9. Update for systemd default config option to select
+  CONFIG_NET_NS. bug #506396.
+
+  02 Apr 2014; Tom Wijsman <TomWij@gentoo.org> -gentoo-sources-3.10.17.ebuild,
+  -gentoo-sources-3.10.31.ebuild, -gentoo-sources-3.10.7-r1.ebuild,
+  -gentoo-sources-3.12.12.ebuild, -gentoo-sources-3.13.4.ebuild,
+  -gentoo-sources-3.4.81-r1.ebuild:
+  Removed versions older than a stable version in the same branch, oldest stable
+  kernels (newer versions were stabilized for all arches), as well as versions
+  older than a month.
+
+  02 Apr 2014; Jeroen Roovers <jer@gentoo.org> gentoo-sources-3.12.13.ebuild:
+  Stable for HPPA (bug #503310).
 
   01 Apr 2014; Mike Pagano <mpagano@gentoo.org> gentoo-sources-3.14.0.ebuild:
   Fix for BFQ patchset PATCH_DEPTH
