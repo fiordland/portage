@@ -48,8 +48,8 @@
 # stopgap solution for functions.sh #373219
 *sys-apps/openrc
 #*>=sys-apps/portage-2.0.51.22
-# Fiordland builds are systemd based
-*sys-apps/systemd
+# Fiordland builds are openrc based
+#*sys-apps/systemd
 *sys-process/procps
 *sys-process/psmisc
 *sys-apps/sed
