@@ -399,7 +399,6 @@ app-editors/fe:sendmail - Send mail after editor abend
 app-editors/gedit:zeitgeist - Build the plugin to inject events to gnome-extra/zeitgeist
 app-editors/gedit-plugins:charmap - Insert special characters just by clicking on them
 app-editors/gedit-plugins:git - Shows document changes related to git's HEAD
-app-editors/gedit-plugins:synctex - Synchronize between LaTeX and PDF with gedit and evince
 app-editors/gedit-plugins:terminal - Embed a terminal in the bottom pane
 app-editors/gvim:luajit - Use dev-lang/luajit instead of dev-lang/lua
 app-editors/gvim:netbeans - Include netbeans external editor integration support
@@ -585,6 +584,8 @@ app-emulation/virtualbox-bin:sdk - Enable building of SDK
 app-emulation/virtualbox-bin:vboxwebsrv - Install the VirtualBox webservice
 app-emulation/virtualbox-modules:pax_kernel - Apply patch needed for pax enabled kernels
 app-emulation/vmware-modules:pax_kernel - Apply patch needed for pax enabled kernels
+app-emulation/vmware-modules:vmci - Build the Virtual Machine Communication Interface module; disable this if you want to use the module from the mainline kernel
+app-emulation/vmware-modules:vsock - Build the VMware VMCI transport for Virtual Sockets; disable this if you want to use the module from the mainline kernel
 app-emulation/vmware-player:vmware-tools - Install VMware Tools images
 app-emulation/vmware-workstation:ovftool - Install OVF tool.
 app-emulation/vmware-workstation:server - Install VMware Workstation Server component.
@@ -621,8 +622,9 @@ app-emulation/xen-tools:pam - Enable pam support
 app-emulation/xen-tools:pygrub - Install the pygrub boot loader
 app-emulation/xen-tools:qemu - Enable IOEMU support via the use of qemu-dm
 app-emulation/xen-tools:screen - Enable support for running domain U console in an app-misc/screen session
+app-emulation/xen-tools:system-qemu - Using app-emulation/qemu instead of the bundled one
 app-emulation/xen-tools:xend - Enable support the xend and xm to manage xen
-app-emulation/xtrs:ldos - Install disk images for Model 4P
+app-emulation/xtrs:ls-dos - Install LS-DOS disk images for Model 4P
 app-forensics/afflib:fuse - Enable extra fuse thingies
 app-forensics/afflib:qemu - Enable qemu stuff
 app-forensics/afflib:s3 - Enable support for Amazon S3
@@ -2239,8 +2241,10 @@ dev-util/dialog:minimal - Disable library, install command-line program only
 dev-util/emilpro:system-binutils - Use the gentoo binutils instead of building against an unpatched vanilla version
 dev-util/fatrace:powertop - Add powetop integration
 dev-util/geany:vte - Enable Terminal support (x11-libs/vte)
+dev-util/geany-plugins:autoclose - Enable the autoclose plugin.
 dev-util/geany-plugins:commander - Enable the commander plugin which provides a command panel for rapid access to any action.
 dev-util/geany-plugins:debugger - Enable the debugger plugin which interfaces with sys-devel/gdb
+dev-util/geany-plugins:defineformat - Enable the defineformat plugin.
 dev-util/geany-plugins:devhelp - Enable the devhelp plugin which integrates dev-util/devhelp
 dev-util/geany-plugins:enchant - Enable spell checking using enchant
 dev-util/geany-plugins:gpg - Enable geanypg plugin which integrates GPG using app-crypt/gpgme
@@ -3465,6 +3469,7 @@ media-libs/x264:interlaced - enable interlaced encoding support, this can decrea
 media-libs/x264:opencl - Add support for OpenCL.
 media-libs/x264:pic - disable optimized assembly code that is not PIC friendly
 media-libs/x265:10bit - Set output bit depth to 10.
+media-libs/xine-lib:avformat - Enables libformat support for reading and writing various media containers. libavformat is part of FFmpeg.
 media-libs/xine-lib:bluray - Enable playback of Blu-ray filesystems using media-libs/libbluray
 media-libs/xine-lib:dxr3 - Enable support for DXR3 mpeg acceleration cards.
 media-libs/xine-lib:flac - Build the media-libs/flac based FLAC demuxer and decoder. This flag is not needed for playing FLAC content, neither standalone nor in Ogg container (OggFLAC), but might have better support for exotic features like 24-bit samples or 96kHz sample rates.
@@ -3478,6 +3483,7 @@ media-libs/xine-lib:vaapi - Enables VAAPI (Video Acceleration API) for hardware 
 media-libs/xine-lib:vdr - Build the VDR plugin
 media-libs/xine-lib:vidix - Enable support for vidix video output.
 media-libs/xine-lib:vis - Adds support for SIMD optimizations for UltraSPARC processors.
+media-libs/xine-lib:vpx - Enable VP8 codec support via media-libs/libvpx.
 media-libs/xine-lib:xvmc - Enable support for XVideo Motion Compensation (accelerated mpeg playback).
 media-libs/xvid:pic - disable optimized assembly code that is not PIC friendly
 media-plugins/audacious-plugins:adplug - Build with AdPlug (Adlib sound card emulation) support
@@ -3661,6 +3667,7 @@ media-sound/denemo:fluidsynth - Enable Fluidsynth MIDI software synthesis
 media-sound/denemo:portmidi - Enable support for the portmidi backend
 media-sound/dir2ogg:mac - Add support for decoding Monkey's Audio files
 media-sound/dir2ogg:wma - Add support for wma files through mplayer
+media-sound/easytag:opus - Enable support for media-libs/opus and media-libs/opusfile (opus audio codec)
 media-sound/ecasound:lv2 - Add support for Ladspa V2
 media-sound/ecasound:oil - Use dev-libs/liboil for inner loop optimizations
 media-sound/fapg:xspf - Enable support for saving XSPF playlists.
@@ -5106,7 +5113,6 @@ net-libs/rest:gnome - Extract proxy information using net-libs/libsoup-gnome
 net-libs/telepathy-glib:vala - Enable bindings for dev-lang/vala
 net-libs/telepathy-qt:farsight - Enable support for farsight connection manager
 net-libs/telepathy-qt:farstream - Enable support for audio/video calls via farstream
-net-libs/telepathy-qt:glib - Enable support for various telepathy/glib related packages
 net-libs/webkit-gtk:coverage - Enable code coverage support
 net-libs/webkit-gtk:egl - Enable EGL support.
 net-libs/webkit-gtk:geoloc - Enable geolocation support through app-misc/geoclue
@@ -5297,7 +5303,7 @@ net-misc/connman:tools - Enable testing tools.
 net-misc/connman:vpnc - Use net-misc/vpnc for cisco VPN support.
 net-misc/csync:sftp - Enable sftp transfer support via net-libs/libssh
 net-misc/curl:metalink - Enable metalink support
-net-misc/curl:rtmp - Enable RTMPDump Streaming Media support
+net-misc/curl:rtmp - Enable RTMP Streaming Media support
 net-misc/curl:ssh - Enabled SSH urls in curl using libssh2
 net-misc/curl:ssl - Enable crypto engine support (via openssl if USE='-gnutls -nss')
 net-misc/dahdi:flash - Support (short) flash on FXS
@@ -5355,6 +5361,7 @@ net-misc/mediatomb:thumbnail - Enables video thumbnails generation throughmedia-
 net-misc/memcached:slabs-reassign - Allow manual reassignment of memory slabs at the cost of slab optimizations.
 net-misc/minidlna:netgear - Enable netgear branding
 net-misc/minidlna:readynas - Enable readynas branding
+net-misc/modemmanager:mbim - Enable MBIM modem protocol
 net-misc/modemmanager:qmi - Enable support for the QMI modem protocol used by devices with Qualcomm chipsets
 net-misc/modemmanager:qmi-newest - Avoid deprecated QMI commands. Warning: may cause incompatibility with older devices.
 net-misc/mosh:client - Build network client
@@ -6376,6 +6383,9 @@ sys-auth/sssd:netlink - Add support for netlink protocol via dev-libs/libnl
 sys-auth/sssd:ssh - Build helper to let net-misc/openssh use sssd provided information
 sys-auth/sssd:sudo - Build helper to let app-admin/sudo use sssd provided information
 sys-auth/ykpers:consolekit - Use sys-auth/consolekit and virtual/udev to allow access to the YubiKey HID device to the console user.
+sys-block/fio:aio - Enable AIO ioengine
+sys-block/fio:gnuplot - Install tools for generating gnuplots
+sys-block/fio:numa - Enable numa support
 sys-block/gparted:btrfs - Include Btrfs support (sys-fs/btrfs-progs)
 sys-block/gparted:dmraid - Support for dmraid devices, also known as ATA-RAID, or Fake RAID.
 sys-block/gparted:f2fs - Include F2FS support (sys-fs/f2fs-tools)

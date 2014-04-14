@@ -1,5 +1,5 @@
 ####################################################################
-# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15559 2014/04/11 17:22:04 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15566 2014/04/14 12:21:25 johu Exp $
 #
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked. Please be extremely
@@ -29,6 +29,23 @@
 ## app-misc/some-package
 
 #--- END OF EXAMPLES ---
+
+# Johannes Huber <johu@gentoo.org> (14 Apr 2014)
+# Masked for removal in 30 days. Superseeded by kde-misc/plasma-nm.
+# Acknowledged and marked as deprecated by upstream.
+# Does not build with >=net-misc/openconnect-5.99, bug #503898.
+kde-misc/networkmanagement
+
+# Samuli Suominen <ssuominen@gentoo.org> (12 Apr 2014)
+# Dead upstream, unused in gentoo-x86.
+# Removal in 30 days wrt bug #380193
+dev-cpp/libsexymm
+
+# Ulrich Müller <ulm@gentoo.org> (12 Apr 2014)
+# No license, SRC_URI dead, unresponsive upstream.
+# Last release in 2002. No reverse dependencies.
+# Masked for removal in 30 days, bug 446162.
+dev-java/randomguid
 
 # Michał Górny <mgorny@gentoo.org> (10 Apr 2014)
 # The new version with refurbished install phase. Fixes multilib-
@@ -298,11 +315,6 @@ dev-ruby/system_timer
 <app-text/migemo-0.40_p2
 =dev-ruby/mecab-ruby-0.98-r1
 
-# Ulrich Müller <ulm@gentoo.org> (15 Mar 2014)
-# No license, unknown copyright holder. No Gentoo maintainer.
-# Masked for removal in 30 days, bug 465784.
-net-ftp/pftpfxp
-
 # Lars Wendler <polynomial-c@gentoo.org> (14 Mar 2014)
 # Masked for security reasons.
 # Do NOT remove this mask or the affected packages without speaking to
@@ -314,12 +326,6 @@ net-ftp/pftpfxp
 # fetch videos anymore. Dead upstream.
 # Masked for removal in 30 days. Bug #504550.
 kde-misc/youtube-servicemenu
-
-# Ulrich Müller <ulm@gentoo.org> (13 Mar 2014)
-# No license, therefore not redistributable. SRC_URI dead.
-# Gentoo live media don't use gdm any more.
-# Masked for removal in 30 days, bug 446794.
-x11-themes/gdm-themes-livecd
 
 # Ulrich Müller <ulm@gentoo.org> (13 Mar 2014)
 # No reverse dependencies. Use dev-libs/libbsd instead.
