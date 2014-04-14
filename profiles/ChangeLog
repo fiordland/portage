@@ -1,10 +1,41 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8810 2014/04/11 17:22:04 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8819 2014/04/14 12:21:25 johu Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  14 Apr 2014; Johannes Huber <johu@gentoo.org> package.mask:
+  Masked kde-misc/networkmanagement for removal.
+
+  14 Apr 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Drop net-ftp/pftpfxp mask, package removed.
+
+  13 Apr 2014; Sebastian Pipping <sping@gentoo.org> package.mask:
+  Unmask redshift 1.9-r*
+
+  13 Apr 2014; Sebastian Pipping <sping@gentoo.org> package.mask:
+  Mask upcoming ~x11-misc/redshift-1.9
+
+  13 Apr 2014; Pacho Ramos <pacho@gentoo.org> +arch/alpha/use.stable.mask,
+  +arch/arm/use.stable.mask, +arch/ia64/use.stable.mask,
+  +arch/powerpc/use.stable.mask, +arch/sparc/use.stable.mask:
+  use.stable.mask because it won't be stabilized in that arches
+
+  12 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Lastrite dev-cpp/libsexymm as part of the effort in bug #380193
+
+  12 Apr 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Mask dev-java/randomguid for removal.
+
+  12 Apr 2014; Pacho Ramos <pacho@gentoo.org> arch/alpha/package.use.mask,
+  arch/ia64/package.use.mask, arch/powerpc/package.use.mask,
+  arch/sparc/package.use.mask:
+  Mask mbim USE due missing keywords on some arches
+
+  12 Apr 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Drop x11-themes/gdm-themes-livecd mask, package removed.
 
   11 Apr 2014; Rick Farina <zerochaos@gentoo.org> package.mask:
   adjust date on dev-util/dissy removal due to late announement
