@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pypy-bin/pypy-bin-2.2.1.ebuild,v 1.2 2014/04/11 08:19:10 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pypy-bin/pypy-bin-2.2.1.ebuild,v 1.4 2014/04/21 11:18:32 mgorny Exp $
 
 EAPI=5
 
 PYTHON_COMPAT=( python2_7 pypy pypy2_0 )
 inherit eutils multilib pax-utils python-any-r1 versionator
 
-BINHOST="http://dev.gentoo.org/~mgorny/dist/${PN}"
+BINHOST="http://pypy.aliceinwire.net/pypy-bin/"
 
 DESCRIPTION="A fast, compliant alternative implementation of the Python language (binary package)"
 HOMEPAGE="http://pypy.org/"
@@ -61,7 +61,7 @@ RDEPEND="
 		>=dev-libs/openssl-1.0.1c:0 )
 	( <sys-libs/glibc-2.20:2.2
 		>=sys-libs/glibc-2.15:2.2 )
-	~sys-libs/ncurses-5.9:5
+	~sys-libs/ncurses-5.9:5[tinfo]
 	( <sys-libs/zlib-1.2.9:0
 		>=sys-libs/zlib-1.2.7:0 )
 	sqlite? ( dev-db/sqlite:3 )

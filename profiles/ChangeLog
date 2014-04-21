@@ -1,10 +1,137 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8819 2014/04/14 12:21:25 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8858 2014/04/21 14:16:32 mgorny Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  21 Apr 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask new versions of emul-linux to fix vulnerable openssl.
+
+  20 Apr 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  targets/desktop/gnome/package.use:
+  Enable needed apache2 modules for gnome-user-share
+
+  20 Apr 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask the first set of gx86-multilib conversions.
+
+  20 Apr 2014; Mike Gilbert <floppym@gentoo.org> package.mask:
+  Drop certifi and moz* masks after package removal.
+
+  20 Apr 2014; Julian Ospald <hasufell@gentoo.org> arch/alpha/package.use.mask,
+  arch/arm/package.use.mask, arch/powerpc/package.use.mask,
+  arch/sparc/package.use.mask:
+  mask 'media-video/mpv sdl' on arches where media-libs/libsdl2 is not
+  keyworded yet wrt #506982 and #508226
+
+  20 Apr 2014; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  Required lightdm-1.4.X versions have been restored. Bug #507358
+
+  19 Apr 2014; Julian Ospald <hasufell@gentoo.org> targets/desktop/package.use:
+  prepare for media-video/mpv[sdl] wrt #506982
+
+  18 Apr 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask updated emul-linux-x86-sdl.
+
+  18 Apr 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask updated emul-linux-x86-gtklibs.
+
+  18 Apr 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask updated emul-linux-x86-baselibs.
+
+  18 Apr 2014; Tim Harder <radhermit@gentoo.org> package.mask:
+  Mask >=media-video/mkvtoolnix-6.9.0 waiting for qt5.
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-libs/sdl-gfx-2.0.24-r1 for multilib conversion
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-libs/sdl-sound-1.0.3-r1 for multilib conversion
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-libs/freealut-1.1.0-r3 for multilib conversion
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-libs/sdl-ttf-2.0.11-r1 for multilib conversion
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-libs/sdl-net-1.2.8-r1 for multilib conversion
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-libs/smpeg-0.4.4-r10 for multilib conversion
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-libs/sdl-image-1.2.12-r1 for multilib conversion
+
+  18 Apr 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Remove stray comments from middle of multilib mask, update note on unmasking.
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  remove obsolete mask on >=media-libs/libsdl2-2.0.2-r1, it does not depend on
+  masked libs
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-libs/libsdl2-2.0.2-r1 for multilib migration wrt #484130
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-libs/libsdl-1.2.15-r5 for multilib migration wrt #489122
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-libs/libcaca-0.99_beta18-r2 for multilib conversion wrt #497776
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  prepare media-libs/imlib2 for multilib conversion wrt #496376
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-libs/imlib-1.9.15-r4 for multilib conversion wrt #499268
+
+  18 Apr 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask sys-libs/slang, media-libs/giflib, media-libs/aalib for multilib
+  conversion wrt #496586, #496548, #497774
+
+  17 Apr 2014; Pacho Ramos <pacho@gentoo.org> arch/alpha/use.stable.mask,
+  arch/ia64/use.stable.mask, arch/powerpc/use.stable.mask,
+  arch/sparc/use.stable.mask:
+  Mask gnumeric USE on arches that will lose its stable keyword for that
+
+  17 Apr 2014; Pacho Ramos <pacho@gentoo.org> arch/alpha/use.stable.mask,
+  arch/ia64/use.stable.mask, arch/powerpc/use.stable.mask,
+  arch/sparc/use.stable.mask:
+  Drop stable keywords after the discussion caused by Gnome 3.8/3.10
+  stabilization on this arches
+
+  17 Apr 2014; Alexey Shvetsov <alexxy@gentoo.org> base/package.use.mask:
+  Use mask ppc driver
+
+  17 Apr 2014; Patrick Lauer <patrick@gentoo.org> package.mask:
+  Mask uninstallable razorqt-base/razorqt-lightdm-greeter version #507358
+
+  16 Apr 2014; Mike Gilbert <floppym@gentoo.org> package.mask:
+  Roll dev channel mask for chromium-36.
+
+  16 Apr 2014; Alexey Shvetsov <alexxy@gentoo.org> desc/ofed_drivers.desc:
+  Add new ib drivers description
+
+  15 Apr 2014; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Add no-source-code license notice to BINARY-REDISTRIBUTABLE group.
+
+  15 Apr 2014; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Drop obsolete mask for dev-libs/boost and dev-util/boost-build
+
+  15 Apr 2014; Johannes Huber <johu@gentoo.org> package.mask:
+  Remove obsolete mask on kde-misc/youtube-servicemenu.
+
+  15 Apr 2014; Tiziano Müller <dev-zero@gentoo.org>
+  desc/nginx_modules_http.desc:
+  Add USE flag descriptions for nginx_modules_http_{ajp,sticky}.
+
+  14 Apr 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Removal of >=sys-kernel/git-sources-3.15_rc1 mask, as this is temporarily
+  fixed in kernel-2.eclass; see bug #507656.
+
+  14 Apr 2014; Mike Pagano <mpagano@gentoo.org> package.mask:
+  Masking git-sources-3.15_rc1 due to broken patch
 
   14 Apr 2014; Johannes Huber <johu@gentoo.org> package.mask:
   Masked kde-misc/networkmanagement for removal.
