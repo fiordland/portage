@@ -507,7 +507,7 @@ app-emulation/libvirt:openvz - Support management of OpenVZ virtualisation (see 
 app-emulation/libvirt:parted - Allow using real disk partitions as pool for disk image storage, using sys-block/parted to create, resize and delete them.
 app-emulation/libvirt:pcap - Support auto learning IP addreses for routing
 app-emulation/libvirt:phyp - Support IBM HMC / IVM hypervisor via PHYP protocol
-app-emulation/libvirt:qemu - Support management of QEmu virtualisation (one of app-emulation/qemu, app-emulation/qemu-kvm or app-emulation/qemu-spice)
+app-emulation/libvirt:qemu - Support management of QEMU virtualisation (app-emulation/qemu)
 app-emulation/libvirt:rbd - Enable rados block device support via sys-cluster/ceph
 app-emulation/libvirt:uml - Support management of User Mode Linux virtualisation
 app-emulation/libvirt:vepa - Virtual Ethernet Port Aggregator (VEPA) / 802.1Qbg support. Relies on macvtap support.
@@ -897,12 +897,12 @@ app-office/abiword:goffice - Enable goffice plugin
 app-office/abiword:grammar - Enable grammar checking via dev-libs/link-grammar
 app-office/abiword:map - Enable world map support through media-libs/libchamplain
 app-office/abiword:math - Enable support for x11-libs/gtkmathview
-app-office/abiword:openxml - Enable OpenXML support
 app-office/abiword:ots - Enable Text Summarizer plugin
 app-office/abiword:plugins - Enable plugins build (see http://www.abisource.com/wiki/PluginMatrix for more information). If your file cannot be opened due lack of support, try enabling this.
 app-office/abiword:redland - Enables support redland and raptor libs.
 app-office/abiword:thesaurus - Enable thesaurus support
 app-office/abiword:wordperfect - Enable wordperfect file support via app-text/libwpd
+app-office/akonadi-server:soprano - Enable deprecated dev-libs/soprano, needed for nepomuk search
 app-office/calligra:attica - Get hot stuff with dev-libs/libattica
 app-office/calligra:eigen - Enable dev-cpp/eigen mathematical templates support
 app-office/calligra:glew - Enable media-libs/glew opengl extension library support
@@ -922,7 +922,6 @@ app-office/glabels:barcode - Enable barcode support through external libraries.
 app-office/gnucash:chipcard - Enable support for chipcard reading and processing.
 app-office/gnucash:hbci - Enable HBCI support, for connecting to some internet banks
 app-office/gnucash:quotes - Enable Online Stock Quote retrieval
-app-office/gnucash:webkit - Use net-libs/webkit-gtk for rendering rather than gnome-extra/gtkhtml
 app-office/gnumeric:libgda - Enable database support through gnome-extra/libgda.
 app-office/gnumeric:perl - Enable perl plugin loader.
 app-office/gnumeric:python - Enable python plugin loader.
@@ -1041,7 +1040,6 @@ app-text/getxbook:ocr - Use app-text/tesseract for optical character recognition
 app-text/ghostscript-gpl:bindist - Disable dejavu support for binary distribution because of licensing issue
 app-text/glark:zip - Support for ZIP files using dev-ruby/rubyzip
 app-text/gtkspell:vala - Enable bindings for dev-lang/vala
-app-text/gtranslator:http - Enable support for open translation plugin using net-libs/libsoup
 app-text/hyperestraier:mecab - Enable app-text/mecab support for Estraier
 app-text/jmupdf:system-mupdf - Link against system version of app-text/mupdf
 app-text/lcdf-typetools:kpathsea - Enable integration with kpathsea search library (TeX related)
@@ -1548,7 +1546,6 @@ dev-lang/python:wininst - Install Windows executables required to create an exec
 dev-lang/qu-prolog:pedro - Pedro subscription/notification communications system
 dev-lang/rakudo:parrot - Build the parrot backend (default)
 dev-lang/rubinius:llvm - Build with llvm. Currently the package only builds against old versions of llvm.
-dev-lang/ruby:libedit - Use the dev-libs/libedit library to provide the readline extension, used for instance by the irb tool. This flag will take precedence over the readline USE flag. If neither libedit nor readline USE flags are enabled, the readline extension will not be built (and irb will lose line editing functionality).
 dev-lang/ruby:rdoc - Install dev-ruby/rdoc after installing Ruby.
 dev-lang/ruby:readline - Use the sys-libs/readline library to provide the readline extension, used for instance by the irb tool. This flag is meaningful only if the libedit USE flag is disabled. If neither libedit nor readline USE flags are enabled, the readline extension will not be built (and irb will lose line editing functionality).
 dev-lang/ruby:rubytests - Install ruby tests that can only be run after ruby is installed
@@ -2639,7 +2636,6 @@ gnome-base/gnome-applets:cpufreq - Build cpu frequency scaling monitor applet
 gnome-base/gnome-control-center:colord - Support color management using x11-misc/colord
 gnome-base/gnome-control-center:gnome-online-accounts - Enable configuration panel for net-libs/gnome-online-accounts accounts
 gnome-base/gnome-control-center:i18n - Enable support for enhanced input methods through app-i18n/ibus
-gnome-base/gnome-control-center:modemmanager - Enable support for mobile broadband devices using net-misc/modemmanager
 gnome-base/gnome-control-center:socialweb - Add support for desktop background images from Flickr using net-libs/libsocialweb
 gnome-base/gnome-desktop:license-docs - Install help files documenting GNOME's licenses
 gnome-base/gnome-extra-apps:games - Install Gnome Games
@@ -2797,6 +2793,8 @@ kde-base/kdeplasma-addons:qwt - Enable applets that use x11-libs/qwt:5.
 kde-base/kdeplasma-addons:scim - Enable applets that use app-i18n/scim.
 kde-base/kdeutils-meta:floppy - Install kde-base/kfloppy to format and create DOS or ext2fs filesystems in a floppy.
 kde-base/kdm:consolekit - Enables support for authorization using consolekit
+kde-base/kfilemetadata:epub - Adds support for reading EPUB ebook metadata
+kde-base/kfilemetadata:mobi - Adds support for reading MOBI ebook metadata
 kde-base/kget:bittorrent - Enable bittorrent transfer plugin through net-libs/libktorrent
 kde-base/kget:webkit - Enable KdeWebkit browser plugin using kde-misc/kwebkitpart
 kde-base/kig:scripting - Support Python scripting
@@ -2844,7 +2842,9 @@ kde-base/marble:designer-plugin - Enable designer plugin
 kde-base/marble:shapefile - Enable support for ESRI shapefiles
 kde-base/marble:zip - Enable support for reading and displaying .kmz files
 kde-base/nepomuk-core:epub - Adds support for reading EPUB ebook metadata
+kde-base/nepomuk-core:migrator - Installs a kde-base/baloo migration tool
 kde-base/okular:chm - Enable support for Microsoft Compiled HTML Help files
+kde-base/okular:dpi - DPI detection support for PDF rendering via x11-libs/libkscreen
 kde-base/okular:ebook - Add E-Book support
 kde-base/okular:mobi - Add mobipocket support
 kde-base/oxygen-icons:bindist - Additionally install the svg sources of the bitmap icons (needed for redistribution)
@@ -2924,7 +2924,6 @@ mail-client/claws-mail:valgrind - Add support for memory debugging using valgrin
 mail-client/evolution:bogofilter - Build mail-filter/bogofilter plugin
 mail-client/evolution:clutter - Build with clutter support for animation effects
 mail-client/evolution:crypt - Enable GPG encryption support using app-crypt/gnupg and app-crypt/pinentry
-mail-client/evolution:gnome-online-accounts - Enable using net-libs/gnome-online-accounts for authorization
 mail-client/evolution:highlight - Enable text highlighting plugin
 mail-client/evolution:ldap - Enable support for fetching contacts from an LDAP or Active Directory server using net-nds/openldap
 mail-client/evolution:map - Enable support for displaying contacts on a map inside evolution using media-libs/libchamplain
@@ -3054,6 +3053,7 @@ mate-base/mate-file-manager:mate - Install x11-themes/mate-icon-theme which is n
 mate-base/mate-file-manager:unique - Enable single instance support using dev-libs/libunique.
 mate-base/mate-keyring:gpg-agent - Include GPG agent in mate-keyring.
 mate-base/mate-keyring:ssh-agent - Include SSH agent in mate-keyring.
+mate-base/mate-session-manager:upower - Suspend and hibernate using sys-power/upower.
 mate-extra/mate-file-manager-sendto:gajim - Enables support for net-im/gajim
 mate-extra/mate-file-manager-sendto:mail - Enables support for mailto using gnome-extra/evolution-data-server
 mate-extra/mate-file-manager-sendto:pidgin - Enables support for net-im/pidgin
@@ -3667,6 +3667,8 @@ media-sound/denemo:fluidsynth - Enable Fluidsynth MIDI software synthesis
 media-sound/denemo:portmidi - Enable support for the portmidi backend
 media-sound/dir2ogg:mac - Add support for decoding Monkey's Audio files
 media-sound/dir2ogg:wma - Add support for wma files through mplayer
+media-sound/easytag:gtk2 - Enable GTK+:2 support and disable default GTK+:3 support
+media-sound/easytag:gtk3 - Enable GTK+:3 support (default) and disable GTK+:2 support
 media-sound/easytag:opus - Enable support for media-libs/opus and media-libs/opusfile (opus audio codec)
 media-sound/ecasound:lv2 - Add support for Ladspa V2
 media-sound/ecasound:oil - Use dev-libs/liboil for inner loop optimizations
@@ -3951,7 +3953,6 @@ media-video/avidemux:vaapi - Enable VAAPI (Video Acceleration API) for hardware 
 media-video/avidemux:vpx - Enable VP8 codec support via media-libs/libvpx.
 media-video/bombono-dvd:gnome - Use GVFS for desktop integration
 media-video/chaplin:transcode - Enable DVD ripping and transcoding
-media-video/cheese:sendto - Build the gnome-extra/nautilus-sendto plugin
 media-video/clive:clipboard - Support reading from X clipboard
 media-video/clive:pager - Support pager!?
 media-video/clive:password - Support password controlled sites
@@ -4146,6 +4147,7 @@ media-video/mpv:postproc - Enable image post-processing via libpostproc
 media-video/mpv:pvr - Enable Video4Linux2 MPEG PVR
 media-video/mpv:quvi - Enable support for streaming sites using media-libs/libquvi
 media-video/mpv:radio - Enable V4L2 radio interface and support
+media-video/mpv:sdl - Enable video and audio support via media-libs/libsdl2
 media-video/mpv:shm - Enable support for shm
 media-video/mpv:vaapi - Enable VAAPI (Video Acceleration API) for hardware decoding
 media-video/mpv:vf-dlopen - Install additional video filters for using with -vf dlopen
@@ -4345,7 +4347,6 @@ net-analyzer/linkchecker:nagios - Install nagios cli plugin
 net-analyzer/linkchecker:sqlite - Mozilla Bookmark parsing
 net-analyzer/linkchecker:syntax-check - HTML/CSS syntax checks
 net-analyzer/metasploit:development - Install dependancies needed for metasploit and exploit development
-net-analyzer/metasploit:gui - Enable Java GUI
 net-analyzer/metasploit:lorcon - Enable lorcon for raw packet injection
 net-analyzer/metasploit:oracle - Enable restricted oracle modules which have additional deps
 net-analyzer/metasploit:pcap - Enable libpcap for packet sniffing
@@ -5294,6 +5295,7 @@ net-misc/cgminer:minion - Enable support for mining with BlackArrow Bitfury
 net-misc/cgminer:modminer - Enable support for mining with ModMiner FPGAs
 net-misc/cgminer:opencl - Enable support for mining with OpenCL-capable devices (GPUs)
 net-misc/cgminer:scrypt - Enable support for scrypt mining algorithm
+net-misc/cgminer:spondoolies - Enable support for Spondoolies
 net-misc/chrony:rtc - Include support for the Linux Real Time Clock interface
 net-misc/connman:ethernet - Enable ethernet support.
 net-misc/connman:ofono - Use net-misc/ofono for telephony support.
@@ -5496,6 +5498,7 @@ net-misc/stargazer:stargazer - Enable build of Stargazer billing system.
 net-misc/stargazer:static-libs - Install static libraries.
 net-misc/streamtuner:shout - Enable shoutcast plug-in.
 net-misc/streamtuner:xiph - Enable xiph.org plug-in.
+net-misc/strongswan:constraints - Enable advanced X.509 constraint checking plugin.
 net-misc/strongswan:dhcp - Enable server support for querying virtual IP addresses for clients from a DHCP server. (IKEv2 only)
 net-misc/strongswan:eap - Enable support for the different EAP modules that is supported.
 net-misc/strongswan:farp - Enable faking of ARP responses for virtual IP addresses assigned to clients. (IKEv2 only)
@@ -6419,6 +6422,8 @@ sys-cluster/ceph:cryptopp - Use dev-libs/crypto++ for cryptography
 sys-cluster/ceph:fuse - Build fuse client
 sys-cluster/ceph:libaio - Use libaio as asynchronous input/output library
 sys-cluster/ceph:libatomic - Use libatomic instead of builtin atomic operations
+sys-cluster/ceph:libxfs - Add xfs support
+sys-cluster/ceph:libzfs - Add zfs support
 sys-cluster/ceph:nss - Use dev-libs/nss for cryptography
 sys-cluster/ceph:radosgw - Add radosgw support
 sys-cluster/charm:charmdebug - Enable the charm debugger
@@ -6680,6 +6685,7 @@ sys-infiniband/ofed:ibacm - Add support for userspace pre-connection services
 sys-infiniband/ofed:mstflint - Tools to burn Mellanox firmware
 sys-infiniband/ofed:opensm - Add OpenSM - Subnet manager for infiniband
 sys-infiniband/ofed:perftest - Add perftest utils
+sys-infiniband/ofed:qperf - Add rdma tests
 sys-infiniband/ofed:rds - Tools to manage rds sockets
 sys-infiniband/ofed:sdp - Add SDP tools
 sys-infiniband/ofed:srp - Suport for userspace part for srp initiator

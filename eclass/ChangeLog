@@ -1,6 +1,57 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1204 2014/04/11 08:30:44 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1219 2014/04/21 08:23:57 graaff Exp $
+
+  21 Apr 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Add a QA warning to multilib_is_native_abi.
+
+  21 Apr 2014; Hans de Graaff <graaff@gentoo.org> ruby-fakegem.eclass:
+  Read the YAML metadata with UTF-8 by default and make an exception for older
+  ruby targets, since all new targets will support (and need) the UTF-8 flag.
+  Fixes bug 504642.
+
+  21 Apr 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  ...and make multilib_build_binaries stand-alone.
+
+  21 Apr 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Make multilib_is_native_abi equivalent to multilib_build_binaries, until all
+  ebuilds are fixed.
+
+  21 Apr 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Introduce extra multilib_native_use* wrappers encapulsating
+  multilib_build_binaries & use* functions.
+
+  21 Apr 2014; Michael Pagano <mpagano@gentoo.org> kernel-2.eclass:
+  Update 3.15-rcX temporary fix. See bug #507656.
+
+  19 Apr 2014; Michał Górny <mgorny@gentoo.org> python-r1.eclass:
+  Support substituting ${PYTHON_USEDEP} in python_gen_cond_dep().
+
+  17 Apr 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Automatically switch to EGIT_CLONE_TYPE=single+tags for Google Code.
+
+  17 Apr 2014; Michael Palimaka <kensington@gentoo.org> kde4-meta.eclass:
+  Sync with overlay. Remove unused inherit. Switch to git-r3 eclass. Fix file
+  collisions wrt bug #499032 and bug #507860. Add more dep reduction. Cosmetic
+  improvements.
+
+  16 Apr 2014; Julian Ospald <hasufell@gentoo.org> waf-utils.eclass:
+  respect CFLAGS in linking command wrt #506956
+
+  16 Apr 2014; Alexey Shvetsov <alexxy@gentoo.org> openib.eclass:
+  Update openib eclass
+
+  16 Apr 2014; Alexey Shvetsov <alexxy@gentoo.org> openib.eclass:
+  Update openib eclass
+
+  15 Apr 2014; Michał Górny <mgorny@gentoo.org> multibuild.eclass:
+  multibuild_merge_root: re-introduce userland_BSD tar fallback, bug #507626.
+
+  14 Apr 2014; Tom Wijsman <TomWij@gentoo.org> kernel-2.eclass:
+  Temporarily fix up >=sys-kernel/git-sources-3.15_rc1.ebuild, bug #507656.
+
+  14 Apr 2014; Maxim Koltsov <maksbotan@gentoo.org> leechcraft.eclass:
+  Require at least gcc-4.8 for new LeechCraft packages
 
   11 Apr 2014; Michał Górny <mgorny@gentoo.org> multibuild.eclass:
   Enable reflinking in multibuild_copy_sources.
