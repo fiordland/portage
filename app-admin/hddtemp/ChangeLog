@@ -1,6 +1,24 @@
 # ChangeLog for app-admin/hddtemp
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/hddtemp/ChangeLog,v 1.151 2014/04/24 19:07:26 aidecoe Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/hddtemp/ChangeLog,v 1.154 2014/04/27 11:11:29 aidecoe Exp $
+
+*hddtemp-0.3_beta15-r25 (27 Apr 2014)
+
+  27 Apr 2014; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +hddtemp-0.3_beta15-r25.ebuild:
+  Merged r7 and r24 database update approach into a single ebuild.
+
+  Bumped to EAPI 5, btw.
+
+  27 Apr 2014; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  -hddtemp-0.3_beta15-r3.ebuild, -hddtemp-0.3_beta15-r5.ebuild,
+  -hddtemp-0.3_beta15-r6.ebuild, hddtemp-0.3_beta15-r7.ebuild,
+  -hddtemp-0.3_beta15-r22.ebuild, -hddtemp-0.3_beta15-r23.ebuild,
+  hddtemp-0.3_beta15-r24.ebuild:
+  Removed old revisions and fixed Gentoo headers.
+
+  27 Apr 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> files/hddgentoo.db:
+  Added new drives to hddgentoo.db. Rels bug #506444 and bug #506836.
 
   24 Apr 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> files/hddgentoo.db:
   Added new drives to hddgentoo.db.
