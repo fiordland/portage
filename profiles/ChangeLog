@@ -1,10 +1,81 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8868 2014/04/24 22:58:40 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8888 2014/04/28 07:07:46 eva Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  28 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> package.mask:
+  Add gnome-light to Gnome 3.12 mask.
+
+  28 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> package.mask:
+  Clean up overlay ebuilds from Gnome 3.12 mask. Fix gnome-terminal mask line.
+
+  27 Apr 2014; Manuel Rüger <mrueg@gentoo.org> package.mask:
+  Mask dev-python/python-gnutls. See bug #446016.
+
+  27 Apr 2014; Manuel Rüger <mrueg@gentoo.org> package.mask:
+  Cleanup pmask.
+
+  27 Apr 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  app-text/mate-document-viewer has renamed to app-text/atril in MATE 1.8.
+
+  27 Apr 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  app-editors/mate-text-editor has renamed to app-editors/pluma in MATE 1.8.
+
+  27 Apr 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  app-arch/mate-file-archiver has renamed to app-arch/engrampa in MATE 1.8.
+
+  27 Apr 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Mask poppler-0.26 for testing
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> package.mask:
+  Add mask for Gnome 3.12.
+
+  27 Apr 2014; Pacho Ramos <pacho@gentoo.org> arch/alpha/use.stable.mask,
+  arch/arm/use.stable.mask, arch/ia64/use.stable.mask,
+  arch/powerpc/use.stable.mask:
+  Update use.stable.mask
+
+  27 Apr 2014; Patrick Lauer <patrick@gentoo.org> package.mask:
+  Mask gnome-extra/evolution-kolab as gnome3.8 was removed
+
+  26 Apr 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask Python 2.6-only packages and prepare for masking Python 2.6 itself.
+
+  26 Apr 2014; Tim Harder <radhermit@gentoo.org> package.mask:
+  Mask dev-lang/fpc-ide for removal.
+
+  26 Apr 2014; Tim Harder <radhermit@gentoo.org> package.mask:
+  Use a specific qt5 use mask on >=media-video/mkvtoolnix-6.9.0 instead of a
+  package mask.
+
+  26 Apr 2014; Pacho Ramos <pacho@gentoo.org> base/package.use.mask:
+  Mask introspection on old version as it depends on long time obsolete goi,
+  bug #508742
+
+  26 Apr 2014; Pacho Ramos <pacho@gentoo.org> arch/alpha/use.stable.mask,
+  arch/arm/use.stable.mask, arch/ia64/use.stable.mask,
+  arch/powerpc/use.stable.mask, arch/sparc/use.stable.mask:
+  Update stable use mask
+
+  26 Apr 2014; Pacho Ramos <pacho@gentoo.org> arch/alpha/use.stable.mask,
+  arch/arm/use.stable.mask, arch/ia64/use.stable.mask,
+  arch/powerpc/use.stable.mask:
+  Update stable use mask
+
+  26 Apr 2014; Pacho Ramos <pacho@gentoo.org> arch/alpha/use.stable.mask,
+  arch/ia64/use.stable.mask, arch/powerpc/use.stable.mask,
+  arch/sparc/use.stable.mask:
+  Update stable use mask
+
+  26 Apr 2014; Joerg Bornkessel <hd_brummy@gentoo.org> package.mask:
+  removed mask for removal
+  media-plugins/vdr-eggtimer,vdr-ac3mode,vdr-bistreamout
+
+  25 Apr 2014; Tim Harder <radhermit@gentoo.org> package.mask:
+  Mask =dev-libs/protobuf-c-1.0.0* for testing.
 
   24 Apr 2014; Tim Harder <radhermit@gentoo.org> package.mask:
   Unmask =dev-java/jython-2.7*.
