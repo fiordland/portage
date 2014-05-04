@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-9999.ebuild,v 1.85 2014/04/14 21:01:56 ottxor Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-9999.ebuild,v 1.87 2014/05/01 15:09:30 mgorny Exp $
 
 EAPI=5
 
@@ -195,6 +195,8 @@ src_prepare() {
 
 	# User patches
 	epatch_user
+
+	python_setup
 }
 
 multilib_src_configure() {
@@ -212,7 +214,7 @@ multilib_src_configure() {
 	)
 
 	# well, it's used only by clang executable c-index-test
-	if multilib_build_binaries && use clang && use xml; then
+	if multilib_is_native_abi && use clang && use xml; then
 		conf_flags+=( XML2CONFIG="$(tc-getPKG_CONFIG) libxml-2.0" )
 	else
 		conf_flags+=( ac_cv_prog_XML2CONFIG="" )
@@ -227,7 +229,7 @@ multilib_src_configure() {
 	fi
 	conf_flags+=( --enable-targets=${targets} )
 
-	if multilib_build_binaries; then
+	if multilib_is_native_abi; then
 		use gold && conf_flags+=( --with-binutils-include="${EPREFIX}"/usr/include/ )
 		# extra commas don't hurt
 		use ocaml && bindings+=',ocaml'
@@ -244,9 +246,6 @@ multilib_src_configure() {
 		local CPPFLAGS=${CPPFLAGS}
 		append-cppflags "$(pkg-config --cflags libffi)"
 	fi
-
-	# build with a suitable Python version
-	python_export_best
 
 	# llvm prefers clang over gcc, so we may need to force that
 	tc-export CC CXX
@@ -268,7 +267,7 @@ set_makeargs() {
 		local tools=( llvm-config )
 		use clang && tools+=( clang )
 
-		if multilib_build_binaries; then
+		if multilib_is_native_abi; then
 			tools+=(
 				opt llvm-as llvm-dis llc llvm-ar llvm-nm llvm-link lli
 				llvm-extract llvm-mc llvm-bcanalyzer llvm-diff macho-dump
@@ -308,7 +307,7 @@ multilib_src_compile() {
 	set_makeargs -1
 	emake "${MAKEARGS[@]}"
 
-	if multilib_build_binaries; then
+	if multilib_is_native_abi; then
 		set_makeargs
 		emake -C tools "${MAKEARGS[@]}"
 
@@ -366,7 +365,7 @@ multilib_src_install() {
 	emake "${MAKEARGS[@]}" DESTDIR="${root}" install
 	multibuild_merge_root "${root}" "${D}"
 
-	if ! multilib_build_binaries; then
+	if ! multilib_is_native_abi; then
 		# Backwards compat, will be happily removed someday.
 		dosym "${CHOST}"-llvm-config /usr/bin/llvm-config.${ABI}
 	else

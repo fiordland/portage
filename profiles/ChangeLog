@@ -1,10 +1,121 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8888 2014/04/28 07:07:46 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8921 2014/05/03 18:21:57 hwoarang Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  03 May 2014; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  Mask app-emulation/lxc-1.X.X releases
+
+  03 May 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  JRuby 1.7.12 needs to be further tested and revised by both Java and Ruby
+  herds.
+
+  03 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Remove obsolete systemd mask.
+
+  03 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Add updated emul-linux-x86-sdl to multilib p.mask.
+
+  03 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Add SDL mixer library to multilib p.mask.
+
+  03 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib fluidsynth.
+
+  03 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib ladspa-cmt.
+
+  03 May 2014; Pacho Ramos <pacho@gentoo.org> package.mask:
+  Clean some mask entries
+
+  03 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib media-sound/lash before committing.
+
+  03 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask new libSM with proper dependency on multilib util-linux.
+
+  02 May 2014; Tom Wijsman <TomWij@gentoo.org> base/package.use.mask:
+  Update MATE bluetooth mask to include mate-base/mate[bluetooth].
+
+  02 May 2014; Tom Wijsman <TomWij@gentoo.org> package.mask,
+  base/package.use.mask:
+  Mask Bluetooth support in MATE due to BlueZ incompatibilities.
+
+  02 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib virtual/acl and sys-devel/libtool.
+
+  02 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib sys-apps/acl.
+
+  02 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib util-linux and future baselibs before committing.
+
+  01 May 2014; Sergei Trofimovich <slyfox@gentoo.org> package.mask:
+  Drop mask of '=net-im/openfire-3.9.2', restored 'security.xml' file.
+
+  30 Apr 2014; Anthony G. Basile <blueness@gentoo.org> base/use.mask,
+  +prefix/windows/cygwin/use.mask:
+  Mask elibc_Cygwin and elibc_Winnt in base, unmask in prefix/windows, bug
+  #509204
+
+  30 Apr 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> package.mask:
+  removed mask on new thunderbird; no issues with lightning distfiles
+
+  30 Apr 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> package.mask:
+  short term mask of new thunderbird so ppl don't upgrade to it; minor bug
+  related to distfiles to sort out
+
+  30 Apr 2014; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Add bf1942-lnxded license to EULA group.
+
+  30 Apr 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  default/bsd/fbsd/package.use.mask:
+  expanded wifi use mask on fbsd to cover all mozilla packages instead of just
+  firefox
+
+  30 Apr 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask exiv2 after fixing.
+
+  30 Apr 2014; Justin Lecher <jlec@gentoo.org> package.mask:
+  Mask sci-geosciences/gempak for removal
+
+  30 Apr 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Remove app-emacs/delicious mask, package removed.
+
+  29 Apr 2014; Mike Frysinger <vapier@gentoo.org> package.mask:
+  Drop bison-3 mask to get ~arch testing #479254.
+
+  29 Apr 2014; Anthony G. Basile <blueness@gentoo.org> desc/curl_ssl.desc:
+  Add winssl use expand for curl, bug #508808
+
+  29 Apr 2014; Anthony G. Basile <blueness@gentoo.org> base/make.defaults,
+  desc/elibc.desc:
+  Properly sync various ELIBCs between base/make.defaults and desc/elibc.desc
+
+  29 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> package.mask:
+  Adjusted mask for net-libs/ptlib and net-libs/opal so newer versions get
+  covered as well.
+
+  28 Apr 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  x11-wm/mate-window-manager has renamed to x11-wm/marco in MATE 1.8.
+
+  28 Apr 2014; Mike Frysinger <vapier@gentoo.org> package.mask:
+  Mask qemu-user #508098.
+
+  28 Apr 2014; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Drop temporary LeechCraft masks
+
+  28 Apr 2014; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Temporary mask old Leechcraft packages due to massive cleanup
+
+  28 Apr 2014; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Remove obsolete net-analyzer/ethstatus mask.
+
+  28 Apr 2014; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Mask ~net-analyzer/nmap-6.46.
 
   28 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org> package.mask:
   Add gnome-light to Gnome 3.12 mask.

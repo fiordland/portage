@@ -1,6 +1,48 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1226 2014/04/26 05:13:24 hd_brummy Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1238 2014/05/03 21:25:46 pinkbyte Exp $
+
+  03 May 2014; Sergey Popov <pinkbyte@gentoo.org> leechcraft.eclass:
+  Omit some obsolete version checks
+
+  02 May 2014; Michał Górny <mgorny@gentoo.org> autotools-multilib.eclass,
+  multilib-minimal.eclass:
+  Run multilib_src_configure() in parallel. Bug #485046.
+
+  01 May 2014; Christoph Junghans <ottxor@gentoo.org> unpacker.eclass:
+  add app-arch/plzip support (bug #509264)
+
+  01 May 2014; Justin Lecher <jlec@gentoo.org> python-utils-r1.eclass:
+  Add missing @DESCRIPTION
+
+  01 May 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Add MULTILIB_COMPAT to limit the supported ABIs for pre-built packages.
+
+  30 Apr 2014; Michał Górny <mgorny@gentoo.org> autotools-multilib.eclass:
+  Update the doc and make it simpler.
+
+  29 Apr 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Disable header wrapping on unsupported ABIs.
+
+  29 Apr 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Reorder the operations in multilib_prepare_wrappers for easier reading.
+
+  29 Apr 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Create ${CHOST}-prefixed tool symlinks for multilib portage, to gain better
+  compatibility with plain multilib.
+
+  29 Apr 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Disable wrappers for multilib portage only. Enable them in non-multilib
+  profiles for consistency.
+
+  29 Apr 2014; Michał Górny <mgorny@gentoo.org> cmake-multilib.eclass,
+  multilib-build.eclass, multilib-minimal.eclass:
+  Move conditionals for enabling wrappers into multilib_prepare_wrappers() and
+  multilib_install_wrappers().
+
+  28 Apr 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Deprecate multilib_build_binaries, and switch the code to use
+  multilib_is_native_abi.
 
   26 Apr 2014; Joerg Bornkessel <hd_brummy@gentoo.org> -vdr-plugin.eclass:
   vdr-plugin.eclass removed, see #497058, #489116
