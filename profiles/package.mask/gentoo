@@ -1,5 +1,5 @@
 ####################################################################
-# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15622 2014/04/28 07:07:46 eva Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15651 2014/05/03 18:21:57 hwoarang Exp $
 #
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked. Please be extremely
@@ -29,6 +29,30 @@
 ## app-misc/some-package
 
 #--- END OF EXAMPLES ---
+
+# Markos Chandras <hwoarang@gentoo.org> (03 May 2014)
+# Masked for further testing
+>=app-emulation/lxc-1.0.0
+
+# Tom Wijsman <TomWij@gentoo.org> (03 May 2014)
+# Needs to be further tested and revised by both Java and Ruby herds. 
+>=dev-java/jruby-1.7.12
+
+# Tom Wijsman <TomWij@gentoo.org> (02 May 2014)
+# Bluetooth support in MATE has incompatibilities with recent BlueZ versions.
+# If you want to try to get this working, unmask net-wireless/mate-bluetooth as 
+# well as the bluetooth USE flag on mate-extra/mate-user-share; I can't support 
+# this until the relevant upstreams have moved forward with their compatibility.
+#
+# https://bugs.gentoo.org/show_bug.cgi?id=508086
+# https://github.com/mate-desktop/mate-bluetooth/issues/22
+# http://mate-desktop.org/blog/2014-03-11-mate-desktop-singing-the-bluez
+net-wireless/mate-bluetooth
+
+# Mike Frysinger <vapier@gentoo.org> (28 Apr 2014)
+# Use app-emulation/qemu instead.  It has USE=static-user to support building
+# static user helpers.  See #508098 for more info. Removal in a month
+app-emulation/qemu-user
 
 # Manuel Rüger <mrueg@gentoo.org> (28 Apr 2014)
 # Fails to build with gnutls-3, on behalf of python herd
@@ -182,10 +206,6 @@ dev-python/python-gnutls
 >=x11-themes/gnome-icon-theme-symbolic-3.12.0
 >=x11-themes/gnome-themes-standard-3.12.0
 >=x11-wm/mutter-3.12.1
-
-# Patrick Lauer <patrick@gentoo.org> (27 Apr 2014)
-# No longer installable with gnome-3.8 removal
-gnome-extra/evolution-kolab
 
 # Eray Aslan <eras@gentoo.org> (26 Apr 2014)
 # Non-functional and no longer needed - bug #450116
@@ -412,24 +432,9 @@ www-apache/mod_chroot
 # removal in 30 days.
 dev-util/dissy
 
-# Hans de Graaff <graaff@gentoo.org> (22 Mar 2014) Dead upstream (no
-# releases since 2008, website no longer available). Can only support
-# a single ruby version. Has security issues with shared code between
-# processes. Use a rack-based alternative instead.
-# Removal in 30 days.
-www-apache/mod_ruby
-
 # Sergey Popov <pinkbyte@gentoo.org> (20 Mar 2014)
 # Security mask of vulnerable versions, wrt bug #424167
 <net-nds/openldap-2.4.35
-
-# Samuli Suominen <ssuominnen@gentoo.org> (19 Mar 2014)
-# The ebuild is appending CFLAGS -O0 to prevent segfaulting
-# on 64bit, a workaround that doesn't always work.
-# The ebuild fails to build wrt bug #500408, but it's no use
-# to fix the build if the end result is just constantly crashing.
-# Removal in 30 days, use alternative panels like x11-misc/fbpanel
-x11-misc/suxpanel
 
 # Lars Wendler <polynomial-c@gentoo.org> (14 Mar 2014)
 # Masked for security reasons.
@@ -471,10 +476,6 @@ dev-libs/clens
 <dev-lang/python-exec-0.3.1-r1:0
 <dev-lang/python-exec-2.0.1-r1:2
 
-# Michał Górny <mgorny@gentoo.org> (05 Mar 2014)
-# Seems to cause more trouble than it fixes. Bugs #503470, #503472.
-=sys-apps/systemd-208.277
-
 # Mike Gilbert <floppym@gentoo.org> (04 Mar 2014)
 # Dev channel releases are only for people who are developers or want more
 # experimental features and accept a more unstable release.
@@ -494,13 +495,6 @@ www-plugins/chrome-binary-plugins:unstable
 # Removal will happen at later date, but since there is no hurry, give it
 # until rest of the year.
 lxde-base/lxpolkit
-
-# Ulrich Müller <ulm@gentoo.org> (1 Mar 2014)
-# Version 0.3 does not work with Emacs 24; git master
-# also fails, because of changed Delicious API.
-# According to upstream, a new release is "unlikely".
-# Masked for removal in 60 days, bug 502168.
-app-emacs/delicious
 
 # Michał Górny <mgorny@gentoo.org> (28 Feb 2014)
 # New multilib conversions for testing, grouped with corresponding
@@ -529,6 +523,18 @@ app-emacs/delicious
 >=media-libs/sdl-sound-1.0.3-r1
 >=media-libs/sdl-gfx-2.0.24-r1
 >=app-emulation/emul-linux-x86-sdl-20140406-r1
+>=sys-apps/acl-2.2.52-r1
+>=sys-apps/util-linux-2.24.1-r3
+>=sys-devel/libtool-2.4.2-r1
+>=virtual/acl-0-r2
+>=app-emulation/emul-linux-x86-baselibs-20140406-r3
+>=media-libs/ladspa-cmt-1.16-r4
+>=media-sound/lash-0.5.4-r2
+>=x11-libs/libSM-1.2.2-r1
+>=media-sound/fluidsynth-1.1.6-r1
+>=media-libs/sdl-mixer-1.2.12-r4
+>=media-libs/sdl2-mixer-2.0.0-r1
+>=app-emulation/emul-linux-x86-sdl-20140406-r2
 
 # Tom Wijsman <TomWij@gentoo.org> (21 Feb 2014)
 # MATE Desktop Environment >=1.7 introduction mask:
@@ -582,7 +588,7 @@ app-emacs/delicious
 >=x11-themes/mate-icon-theme-1.7
 >=x11-themes/mate-icon-theme-faenza-1.7
 >=x11-themes/mate-themes-1.7
->=x11-wm/mate-window-manager-1.7
+>=x11-wm/marco-1.7
 
 # Luca Barbato <lu_zero@gentoo.org> (20 Feb 2014)
 # Beta ebuild, unmask to test the tree.
@@ -602,11 +608,6 @@ app-emacs/delicious
 =net-mail/dovecot-2.0*
 =net-mail/dovecot-2.1*
 <mail-filter/dovecot_deleted_to_trash-0.5-r1
-
-# Jeroen Roovers <jer@gentoo.org> (16 Feb 2014)
-# Unmaintained, has several problems on modern systems,
-# superseded by net-analyzer/ifstatus (bug #501432)
-net-analyzer/ethstatus
 
 # Tim Harder <radhermit@gentoo.org> (04 Feb 2014)
 # Masked for testing
@@ -653,13 +654,6 @@ www-client/google-chrome:unstable
 # Michael Sterrett <mr_bones_@gentoo.org> (16 Jan 2014)
 # testing mask for 3.5.x releases
 >=app-admin/syslog-ng-3.5
-
-# Michał Górny <mgorny@gentoo.org> (15 Jan 2014)
-# Multilib conversion and Python support code seriously broken.
-# Has dependencies that are not converted to multilib yet.
-# Do not unmask without prior review from multilib@g.o.
-# https://bugs.gentoo.org/show_bug.cgi?id=474654#c5
-=media-gfx/exiv2-0.23-r2
 
 # Tony Vroon <chainsaw@gentoo.org> (13 Jan 2014)
 # Asterisk 12 is a short term "standard" release
@@ -793,10 +787,7 @@ dev-java/itext:5
 # Jeroen Roovers <jer@gentoo.org> (31 Jul 2013)
 # Needs >=dev-lang/lua-5.2
 ~net-analyzer/nmap-6.40
-
-# Tim Harder <radhermit@gentoo.org> (26 Jul 2013)
-# Masked for testing
-=sys-devel/bison-3*
+~net-analyzer/nmap-6.46
 
 # Julian Ospald <hasufell@gentoo.org> (21 Jul 2013)
 # Mask all unfetchable versions and those with tons of random
@@ -855,8 +846,10 @@ dev-java/sun-jce-bin
 
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (25 Jun 2013)
 # Mask new ptlib/opal for breakage, tracked in bug #474742
-=net-libs/ptlib-2.12.4
-=net-libs/opal-3.12.4
+# Lars Wendler <polynomial-c@gentoo.org> (29 Apr 2014)
+# Adjusted mask so newer versions get covered as well.
+>=net-libs/ptlib-2.12.0
+>=net-libs/opal-3.12.0
 
 # Pacho Ramos <pacho@gentoo.org> (15 Jun 2013)
 # Upstream stalled, improper rendering (#470818),
@@ -1024,10 +1017,6 @@ dev-ml/ocamlduce
 # Robin H. Johnson <robbat2@gentoo.org> (09 Feb 2012)
 # Needs to be slotted better
 =dev-libs/yaz-4*
-
-# Maxim Koltsov <maksbotan@gentoo.org> (19 Apr 2012)
-# Broken, masking by maintainer's request
-app-leechcraft/lc-lcftp
 
 # Andreas K. Huettel <dilfridge@gentoo.org> (22 Mar 2012)
 # Even its author admits that it's an ugly hack. Crashes e.g.

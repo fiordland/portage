@@ -1,6 +1,15 @@
 # ChangeLog for media-sound/pulseaudio
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/pulseaudio/ChangeLog,v 1.332 2014/04/27 08:03:30 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/pulseaudio/ChangeLog,v 1.334 2014/05/02 13:09:12 jer Exp $
+
+  02 May 2014; Jeroen Roovers <jer@gentoo.org> pulseaudio-5.0-r1.ebuild:
+  Stable for HPPA (bug #508862).
+
+  28 Apr 2014; Michał Górny <mgorny@gentoo.org> pulseaudio-5.0-r1.ebuild,
+  pulseaudio-5.0.ebuild:
+  Replace multilib_build_binaries with multilib_is_native_abi, in order to put
+  an end to the confusion introduced by having two functions, the proper one
+  suggesting it is just for binaries.
 
 *pulseaudio-5.0-r1 (27 Apr 2014)
 
