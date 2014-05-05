@@ -2,3 +2,4 @@
 # #>=dev-lang/python-3.3
 # Masked for bug 1350 http://curl.haxx.se/mail/tracker-2014-03 fixed in git
 =net-misc/curl-7.36.0
+=net-misc/curl-7.36.0-r1
