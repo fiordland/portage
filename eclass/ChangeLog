@@ -1,6 +1,16 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1238 2014/05/03 21:25:46 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1241 2014/05/06 20:43:44 pacho Exp $
+
+  06 May 2014; Pacho Ramos <pacho@gentoo.org> emul-linux-x86.eclass:
+  Move headers to a separate directory, bug #509556
+
+  06 May 2014; Jeroen Roovers <jer@gentoo.org> cmake-utils.eclass:
+  optionaly => optionally
+
+  04 May 2014; Alexandre Rostovtsev <tetromino@gentoo.org> vala.eclass:
+  Update VALA_MAX_API_VERSION (bug #509222, thanks to Arfrever) and modernize
+  VALA_MIN_API_VERSION too.
 
   03 May 2014; Sergey Popov <pinkbyte@gentoo.org> leechcraft.eclass:
   Omit some obsolete version checks

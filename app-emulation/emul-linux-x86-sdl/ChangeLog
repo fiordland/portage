@@ -1,6 +1,18 @@
 # ChangeLog for app-emulation/emul-linux-x86-sdl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-sdl/ChangeLog,v 1.76 2014/05/03 10:49:38 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-sdl/ChangeLog,v 1.78 2014/05/06 20:57:29 pacho Exp $
+
+*emul-linux-x86-sdl-20140506 (06 May 2014)
+
+  06 May 2014; Pacho Ramos <pacho@gentoo.org>
+  +emul-linux-x86-sdl-20140506.ebuild, +files/remove-native-20140506,
+  -emul-linux-x86-sdl-20131008-r1.ebuild,
+  -emul-linux-x86-sdl-20140406-r1.ebuild:
+  Version bump, drop old
+
+  04 May 2014; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-sdl-20140406.ebuild:
+  amd64 stable, bug 508322
 
 *emul-linux-x86-sdl-20140406-r2 (03 May 2014)
 
