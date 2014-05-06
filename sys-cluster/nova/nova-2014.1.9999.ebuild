@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/nova/nova-2014.1.9999.ebuild,v 1.1 2014/04/28 03:03:58 prometheanfire Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/nova/nova-2014.1.9999.ebuild,v 1.2 2014/05/05 06:17:52 idella4 Exp $
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -82,6 +82,11 @@ PATCHES=(
 pkg_setup() {
 	enewgroup nova
 	enewuser nova -1 -1 /var/lib/nova nova
+}
+
+python_compile() {
+	distutils-r1_python_compile
+	./tools/config/generate_sample.sh -b ./ -p nova -o etc/nova
 }
 
 python_install() {

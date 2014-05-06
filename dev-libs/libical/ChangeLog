@@ -1,6 +1,27 @@
 # ChangeLog for dev-libs/libical
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libical/ChangeLog,v 1.74 2014/04/14 15:17:42 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libical/ChangeLog,v 1.80 2014/05/06 18:51:28 zlogene Exp $
+
+  06 May 2014; Mikle Kolyada <zlogene@gentoo.org> libical-0.48-r2.ebuild:
+  ppc64 stable wrt bug #509684
+
+  06 May 2014; Mikle Kolyada <zlogene@gentoo.org> libical-0.48-r2.ebuild:
+  ppc stable wrt bug #509684
+
+  06 May 2014; Mikle Kolyada <zlogene@gentoo.org> libical-0.48-r2.ebuild:
+  x86 stable wrt bug #509684
+
+  06 May 2014; Mikle Kolyada <zlogene@gentoo.org> libical-0.48-r2.ebuild:
+  amd64 stable wrt bug #509684
+
+  06 May 2014; Jeroen Roovers <jer@gentoo.org> libical-0.48-r2.ebuild:
+  Stable for HPPA (bug #509684).
+
+*libical-1.0-r2 (06 May 2014)
+
+  06 May 2014; Manuel Rüger <mrueg@gentoo.org> +libical-1.0-r2.ebuild,
+  -libical-1.0-r1.ebuild:
+  Remove static libraries when needed. Fixes bug #508726.
 
 *libical-1.0-r1 (14 Apr 2014)
 *libical-0.48-r2 (14 Apr 2014)
