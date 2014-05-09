@@ -178,6 +178,7 @@ app-admin/pass:X - Use x11-misc/xclip to copy passwords to the clipboard.
 app-admin/pass:dmenu - Add support for x11-misc/dmenu with the 'passmenu' program.
 app-admin/pass:fish-completion - Enable fish completion support.
 app-admin/pass:git - Use dev-vcs/git for password revisions.
+app-admin/pass:importers - Allow importing passwords from other password managers using various contributed scripts.
 app-admin/puppet:augeas - Enable augeas support
 app-admin/puppet:diff - Enable diff support
 app-admin/puppet:rrdtool - Enable rrdtool support
@@ -455,6 +456,7 @@ app-emulation/bochs:x86-64 - Enable support for emulation of 64-bit CPUs
 app-emulation/crossover-bin:capi - Enable ISDN support via CAPI
 app-emulation/docker:aufs - Enables dependencies for the "aufs" graph driver, including necessary kernel flags.
 app-emulation/docker:btrfs - Enables dependencies for the "btrfs" graph driver, including necessary kernel flags.
+app-emulation/docker:contrib - Install additional contrib scripts and components.
 app-emulation/docker:device-mapper - Enables dependencies for the "devicemapper" graph driver, including necessary kernel flags.
 app-emulation/docker:lxc - Enables dependencies for the "lxc" execution driver.
 app-emulation/dosemu:fluidsynth - use media-sound/fluidsynth for MIDI emulation
@@ -1958,6 +1960,7 @@ dev-python/django-tastypie:oauth - Adds OAuth authentication support
 dev-python/django-tastypie:yaml - An optional serialiser dev-python/yaml
 dev-python/docutils:glep - Install support for GLEPs
 dev-python/falcon:cython - Build cython-based python modules
+dev-python/flask-restful:paging - Enable resource paging support
 dev-python/geopy:yahoo - Enables use of YahooPlaceFinder
 dev-python/gmpy:mpir - Use sci-libs/mpir as gmp implementation
 dev-python/icalendar:doc - Generate examples and other extra documentation
@@ -2692,6 +2695,8 @@ gnome-base/orbit:pic - Force libname-server-2 to be built as PIC; needed on hard
 gnome-extra/avant-window-navigator:gconf - Enable GConf as configuration backend
 gnome-extra/avant-window-navigator:vala - Enable installation of dev-lang/vala binding
 gnome-extra/avant-window-navigator-extras:gconf - Enable GConf as configuration backend
+gnome-extra/cinnamon-control-center:colord - Support color management using x11-misc/colord
+gnome-extra/cinnamon-control-center:socialweb - Add support for desktop background images from Flickr using net-libs/libsocialweb
 gnome-extra/cinnamon-session:gconf - Support old autostart conditions which use gnome-base/gconf
 gnome-extra/cinnamon-settings-daemon:colord - Support color management using x11-misc/colord
 gnome-extra/evolution-data-server:api-doc-extras - Build documentation for private APIs

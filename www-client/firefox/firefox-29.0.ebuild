@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/firefox/firefox-29.0.ebuild,v 1.1 2014/05/01 13:27:03 anarchy Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/firefox/firefox-29.0.ebuild,v 1.4 2014/05/07 18:10:22 polynomial-c Exp $
 
 EAPI="5"
 VIRTUALX_REQUIRED="pgo"
