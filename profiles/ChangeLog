@@ -1,10 +1,135 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8936 2014/05/09 14:27:44 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.8977 2014/05/17 15:34:43 ulm Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  17 May 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Mask app-emacs/redo for removal.
+
+  17 May 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Mask games-emulation/boycott-advance-sdl and games-emulation/neopocott for
+  removal.
+
+  16 May 2014; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  Unmask lightdm-1.10. Mask 1.11
+
+  16 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Slide the PyPy mask to 2.3, unleashing 2.2 on our unexpecting users.
+
+  16 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Drop old python-exec versions.
+
+  16 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Remove old (slotted) PyPy.
+
+  16 May 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Remove masks for broken gentoo-sources revisions that were removed, as a new
+  revision has been added which uses a working stable queue patch.
+
+  16 May 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Mask gentoo-sources revisions that have a broken security mask.
+
+  16 May 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Mask gentoo-sources ebuilds that are affected with security bug
+  CVE-2014-0196.
+
+  16 May 2014; Andrey Grozin <grozin@gentoo.org> package.mask:
+  The masked version of gcl has been removed, removing the line in package.mask.
+
+  16 May 2014; Hans de Graaff <graaff@gentoo.org> updates/2Q-2014:
+  Add slotmove for dev-ruby/http-0.6.x packages.
+
+  16 May 2014; Alexandre Rostovtsev <tetromino@gentoo.org> desc/linguas.desc:
+  Add some more LINGUAS for gnome-extra/cinnamon-translations
+
+  15 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask new multilib packages.
+
+  15 May 2014; Alexis Ballier <aballier@gentoo.org> base/package.use.mask:
+  unmask ffmpeg:0.10 flags that have their multilib deps satisfied now
+
+  14 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask the mit-krb5 multilib conversion block.
+
+  14 May 2014; Alexis Ballier <aballier@gentoo.org> package.mask:
+  unmask ffmpeg-2 now that bug #476490 blockers are fixed
+
+  14 May 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.mask:
+  Mask packages which depend on libevdev, bug #492886.
+
+  14 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask new set of multilib additions.
+
+  14 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib cups.
+
+  14 May 2014; Hans de Graaff <graaff@gentoo.org> +updates/2Q-2014:
+  Add missing slotmove for dev-ruby/listen version, bug 510226.
+
+  13 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib gnutls.
+
+  13 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib libevent & unbound before committing.
+
+  13 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Update multilib OpenSSL mask, and move it to the top to facilatate early
+  unmasking if urgent update becomes necessary.
+
+  13 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask the previous batch of multilib conversions.
+
+  13 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Move ldns mask to proper block.
+
+  12 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib openssl before committing.
+
+  12 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib avahi for review/testing.
+
+  12 May 2014; Luca Barbato <lu_zero@gentoo.org> package.mask:
+  Update the libav10 mask
+
+  12 May 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Remove masks for dev-libs/clens and dev-java/randomguid, packages removed.
+
+  11 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib libdaemon.
+
+  11 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Remove old LLVM masks.
+
+  11 May 2014; Pacho Ramos <pacho@gentoo.org> package.mask:
+  Mask media-video/y4mscaler for removal
+
+  11 May 2014; Pacho Ramos <pacho@gentoo.org> package.mask:
+  Clean old mask entries
+
+  10 May 2014; Mike Gilbert <floppym@gentoo.org> package.mask:
+  Remove llvm mask for mgorny.
+
+  10 May 2014; Alexandre Rostovtsev <tetromino@gentoo.org> package.mask:
+  Unmask Cinnamon 2.2 (bug #487678).
+
+  10 May 2014; Alexandre Rostovtsev <tetromino@gentoo.org> package.mask:
+  Expand cinnamon mask
+
+  10 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask broken LLVM temporarily.
+
+  10 May 2014; Johannes Huber <johu@gentoo.org> package.mask:
+  Remove obsolete mask on games-puzzle/krosswordpuzzle.
+
+  09 May 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Unmask mistakenly masked non-multilib alsa-plugins to fix depgraph.
+
+  09 May 2014; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  Update mask for openocd-0.8.0
 
   09 May 2014; Michał Górny <mgorny@gentoo.org> package.mask:
   Mask multilib alsa-oss & alsa-plugins.

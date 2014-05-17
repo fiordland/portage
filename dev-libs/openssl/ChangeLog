@@ -1,6 +1,20 @@
 # ChangeLog for dev-libs/openssl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/openssl/ChangeLog,v 1.534 2014/04/29 21:24:21 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/openssl/ChangeLog,v 1.537 2014/05/13 18:07:06 mgorny Exp $
+
+  13 May 2014; Michał Górny <mgorny@gentoo.org> openssl-1.0.1g-r1.ebuild,
+  openssl-1.0.2_beta1-r3.ebuild:
+  Clean up commented out wrapped headers.
+
+*openssl-1.0.1g-r1 (13 May 2014)
+
+  13 May 2014; Michał Górny <mgorny@gentoo.org> +openssl-1.0.1g-r1.ebuild:
+  Backport multilib support to keyworded 1.0.1g.
+
+*openssl-1.0.2_beta1-r3 (12 May 2014)
+
+  12 May 2014; Michał Górny <mgorny@gentoo.org> +openssl-1.0.2_beta1-r3.ebuild:
+  Introduce multilib support, bug #488418.
 
   29 Apr 2014; Mike Frysinger <vapier@gentoo.org> openssl-0.9.8y.ebuild:
   Drop upgrade logic for avoiding collisions as these versions are very old at

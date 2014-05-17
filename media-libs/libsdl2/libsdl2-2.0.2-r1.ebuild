@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libsdl2/libsdl2-2.0.2-r1.ebuild,v 1.3 2014/04/21 07:56:51 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libsdl2/libsdl2-2.0.2-r1.ebuild,v 1.6 2014/05/15 12:34:42 ulm Exp $
 
 # TODO: convert FusionSound #484250
 
@@ -16,14 +16,14 @@ LICENSE="ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="3dnow alsa altivec +audio custom-cflags dbus fusionsound gles haptic +joystick mmx nas opengl oss pulseaudio sse sse2 static-libs +threads tslib udev +video X xinerama xscreensaver"
+IUSE="3dnow alsa altivec custom-cflags dbus fusionsound gles haptic +joystick mmx nas opengl oss pulseaudio +sound sse sse2 static-libs +threads tslib udev +video wayland X xinerama xscreensaver"
 REQUIRED_USE="
-	alsa? ( audio )
-	fusionsound? ( audio )
+	alsa? ( sound )
+	fusionsound? ( sound )
 	gles? ( video )
-	nas? ( audio )
+	nas? ( sound )
 	opengl? ( video )
-	pulseaudio? ( audio )
+	pulseaudio? ( sound )
 	xinerama? ( X )
 	xscreensaver? ( X )"
 
@@ -40,6 +40,11 @@ RDEPEND="
 	pulseaudio? ( media-sound/pulseaudio[${MULTILIB_USEDEP}] )
 	tslib? ( x11-libs/tslib[${MULTILIB_USEDEP}] )
 	udev? ( virtual/udev[${MULTILIB_USEDEP}] )
+	wayland? (
+		dev-libs/wayland[${MULTILIB_USEDEP}]
+		media-libs/mesa[${MULTILIB_USEDEP},wayland]
+		x11-libs/libxkbcommon[${MULTILIB_USEDEP}]
+	)
 	X? (
 		x11-libs/libX11[${MULTILIB_USEDEP}]
 		x11-libs/libXcursor[${MULTILIB_USEDEP}]
@@ -62,7 +67,8 @@ S=${WORKDIR}/${MY_P}
 
 src_prepare() {
 	# https://bugzilla.libsdl.org/show_bug.cgi?id=1431
-	epatch "${FILESDIR}"/${P}-static-libs.patch
+	epatch "${FILESDIR}"/${P}-static-libs.patch \
+		"${FILESDIR}"/${P}-gles-wayland.patch
 	AT_M4DIR="/usr/share/aclocal acinclude" eautoreconf
 }
 
@@ -72,7 +78,7 @@ multilib_src_configure() {
 	# sorted by `./configure --help`
 	ECONF_SOURCE="${S}" econf \
 		$(use_enable static-libs static) \
-		$(use_enable audio) \
+		$(use_enable sound audio) \
 		$(use_enable video) \
 		--enable-render \
 		--enable-events \
@@ -103,10 +109,12 @@ multilib_src_configure() {
 		--disable-nas-shared \
 		--disable-sndio \
 		--disable-sndio-shared \
-		$(use_enable audio diskaudio) \
-		$(use_enable audio dummyaudio) \
+		$(use_enable sound diskaudio) \
+		$(use_enable sound dummyaudio) \
 		$(use_enable X video-x11) \
 		--disable-x11-shared \
+		$(use_enable wayland video-wayland) \
+		--disable-wayland-shared \
 		$(use_enable X video-x11-xcursor) \
 		$(use_enable xinerama video-x11-xinerama) \
 		$(use_enable X video-x11-xinput) \
