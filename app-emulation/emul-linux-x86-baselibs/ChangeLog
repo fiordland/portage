@@ -1,6 +1,48 @@
 # ChangeLog for app-emulation/emul-linux-x86-baselibs
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-baselibs/ChangeLog,v 1.204 2014/05/09 06:57:30 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-baselibs/ChangeLog,v 1.211 2014/05/15 18:37:09 mgorny Exp $
+
+*emul-linux-x86-baselibs-20140508-r3 (15 May 2014)
+
+  15 May 2014; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-baselibs-20140508-r3.ebuild, +files/remove-native-20140508-r3:
+  Add multilib sys-libs/db, and use virtual/krb5 to support both Kerberos
+  implementations.
+
+*emul-linux-x86-baselibs-20140508-r2 (15 May 2014)
+
+  15 May 2014; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-baselibs-20140508-r2.ebuild, +files/remove-native-20140508-r2:
+  Include mit-krb5 and deps.
+
+*emul-linux-x86-baselibs-20140508-r1 (14 May 2014)
+
+  14 May 2014; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-baselibs-20140508-r1.ebuild, +files/remove-native-20140508-r1:
+  Update for multilib gnutls & cups.
+
+  13 May 2014; Michał Górny <mgorny@gentoo.org>
+  emul-linux-x86-baselibs-20140406-r4.ebuild,
+  emul-linux-x86-baselibs-20140508.ebuild:
+  Add missing OpenSSL dep.
+
+*emul-linux-x86-baselibs-20140406-r4 (13 May 2014)
+
+  13 May 2014; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-baselibs-20140406-r4.ebuild, +files/remove-native-20140406-r4,
+  -emul-linux-x86-baselibs-20140508-r1.ebuild, -files/remove-native-20140508-r1,
+  files/remove-native-20140508:
+  Backport OpenSSL to 20140406 since *0508 may be masked for a while. Move
+  20140508-r1 -> 20140508 since that version is hardmasked anyway.
+
+*emul-linux-x86-baselibs-20140508-r1 (12 May 2014)
+
+  12 May 2014; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-baselibs-20140508-r1.ebuild, +files/remove-native-20140508-r1:
+  Add new version with openssl.
+
+  11 May 2014; Michał Górny <mgorny@gentoo.org> files/remove-native-20140508:
+  Update remove-native for gmp, bug #509990.
 
   09 May 2014; Michał Górny <mgorny@gentoo.org> files/remove-native-20140508:
   Update remove-native wrt libpng version change.
