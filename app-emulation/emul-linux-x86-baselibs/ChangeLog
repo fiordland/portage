@@ -1,6 +1,53 @@
 # ChangeLog for app-emulation/emul-linux-x86-baselibs
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-baselibs/ChangeLog,v 1.212 2014/05/21 11:04:43 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-baselibs/ChangeLog,v 1.219 2014/05/30 14:37:35 mgorny Exp $
+
+*emul-linux-x86-baselibs-20140508-r8 (30 May 2014)
+
+  30 May 2014; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-baselibs-20140508-r8.ebuild, +files/remove-native-20140508-r8:
+  Add PAM set of libraries.
+
+  30 May 2014; Michał Górny <mgorny@gentoo.org> files/remove-native-20140406-r4:
+  Fix openssl removal, bug #511822.
+
+  29 May 2014; Michał Górny <mgorny@gentoo.org>
+  emul-linux-x86-baselibs-20140406-r4.ebuild:
+  Restore stable keyword from 20140406-r1, bug #511802.
+
+*emul-linux-x86-baselibs-20140508-r7 (29 May 2014)
+
+  29 May 2014; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-baselibs-20140508-r7.ebuild, +files/remove-native-20140508-r7:
+  Support multilib libart_lgpl & cracklib.
+
+  29 May 2014; Michał Górny <mgorny@gentoo.org>
+  -emul-linux-x86-baselibs-20140406-r1.ebuild,
+  -emul-linux-x86-baselibs-20140406-r3.ebuild,
+  -emul-linux-x86-baselibs-20140508-r1.ebuild,
+  -emul-linux-x86-baselibs-20140508-r2.ebuild,
+  -emul-linux-x86-baselibs-20140508-r3.ebuild,
+  -emul-linux-x86-baselibs-20140508-r4.ebuild,
+  -emul-linux-x86-baselibs-20140508-r5.ebuild,
+  -emul-linux-x86-baselibs-20140508.ebuild, -files/remove-native,
+  -files/remove-native-20140406, -files/remove-native-20140406-r1,
+  -files/remove-native-20140406-r2, -files/remove-native-20140406-r3,
+  -files/remove-native-20140508, -files/remove-native-20140508-r1,
+  -files/remove-native-20140508-r2, -files/remove-native-20140508-r3,
+  -files/remove-native-20140508-r4, -files/remove-native-20140508-r5:
+  Remove the old revisions.
+
+*emul-linux-x86-baselibs-20140508-r6 (25 May 2014)
+
+  25 May 2014; Michał Górny <mgorny@gentoo.org>
+  +emul-linux-x86-baselibs-20140508-r6.ebuild, +files/remove-native-20140508-r6:
+  Add multilib libidn & libnl.
+
+*emul-linux-x86-baselibs-20140508-r5 (23 May 2014)
+
+  23 May 2014; Jonathan Callen <jcallen@gentoo.org>
+  +emul-linux-x86-baselibs-20140508-r5.ebuild, +files/remove-native-20140508-r5:
+  Add multilib dev-libs/openssl:0.9.8 (bug 511078)
 
 *emul-linux-x86-baselibs-20140508-r4 (21 May 2014)
 

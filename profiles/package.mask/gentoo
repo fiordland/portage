@@ -1,5 +1,5 @@
 ####################################################################
-# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15711 2014/05/21 14:10:53 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15753 2014/05/31 19:39:05 ssuominen Exp $
 #
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked. Please be extremely
@@ -30,15 +30,81 @@
 
 #--- END OF EXAMPLES ---
 
-# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (21 May 2014)
-# Incompatible with <x11-libs/libXfont-1.5
->=x11-proto/fontsproto-2.1.3
+# Patrick Lauer <patrick@gentoo.org> (31 May 2014)
+# Broken dependencies #511676
+dev-python/rackspace-monitoring
+dev-python/rackspace-monitoring-cli
 
-# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (21 May 2014)
-# Mask until the necessary keywording for Xwayland is done, bug #510940
->=dev-libs/wayland-1.5.0
->=dev-libs/weston-1.5.0
->=x11-base/xorg-server-1.15.99
+# Markos Chandras <hwoarang@gentoo.org> (30 May 2014)
+# Mask beta release
+=app-i18n/transifex-client-0.11_beta
+
+# Tom Wijsman <TomWij@gentoo.org> (30 May 2014)
+# CVE-2012-1721 - Remote Code Execution Vulnerability
+#
+# Vulnerable: IBM Java SE 5.0 SR12-FP5
+# URL:        http://www.securityfocus.com/bid/53959/
+dev-java/ibm-jdk-bin:1.5
+
+# Michał Górny <mgorny@gentoo.org> (29 May 2014)
+# New multilib conversions. Unmask along with corresponding
+# emul-linux-x86 packages, and make sure they're committed first :).
+>=media-libs/libart_lgpl-2.3.21-r2
+>=sys-libs/cracklib-2.9.1-r1
+>=app-emulation/emul-linux-x86-baselibs-20140508-r7
+>=sys-process/audit-2.2.2-r2
+>=net-libs/libtirpc-0.2.4-r2
+>=sys-devel/flex-2.5.39-r1
+>=sys-libs/pam-1.1.8-r2
+>=virtual/pam-0-r1
+>=sys-auth/nss-mdns-0.10-r2
+>=sys-auth/nss_ldap-265-r5
+>=sys-auth/pam_ldap-186-r1
+>=app-emulation/emul-linux-x86-baselibs-20140508-r8
+>=dev-libs/cyrus-sasl-2.1.26-r6
+
+# Vladimir Smirnov <civil@gentoo.org> (27 May 2014)
+# Masked for testing, will defenitely cause major breakage
+=dev-lang/perl-5.20*
+
+# Joerg Bornkessel <hd_brummy@gentoo.org (24 May 2014)
+# masked for removal old, plz. upgrade to vdr-2
+# lazyness to update does not count ;)
+# removal ~ 15 Jun 2014
+=media-video/vdr-1.6*
+media-plugins/vdr-noepgmenu
+
+# Pawel Hajdan jr <phajdan.jr@gentoo.org> (24 May 2014)
+# Dev channel releases are only for people who are developers or want more
+# experimental features and accept a more unstable release.
+>=www-client/chromium-37
+
+# Manuel Rüger <mrueg@gentoo.org> (23 May 2014)
+# Fails to build with gnutls-3.
+# See bug #421777
+# Masked for removal in 30 days
+sci-biology/ncbi-tools++
+
+
+# Andrey Grozin <grozin@gentoo.org> (23 May 2014)
+# Google closed free usage of the translate api
+# Masked for removal in 30 days
+app-text/qgoogletranslator
+# openmcl has been renamed to clozurecl
+# Masked for removal in 30 days
+dev-lisp/openmcl
+dev-lisp/openmcl-build-tools
+
+# Ryan Hill <rhill@gentoo.org> (22 May 2014)
+# Big API break.  Masked until something needs it.
+>=dev-libs/isl-0.13
+
+# Ian Delaney <idella4@gentoo.org> (22 May 2014)
+# The bumped version has been given added py3.4 support.
+# Given testsuite failures, a period of masking allows for possible 
+# patching from upstream to be added to this version.
+# Masked until py3.4 support is added to media-gfx/cairosvg
+=dev-python/weasyprint-0.22
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (19 May 2014)
 # Masked until dev-libs/glib supports the new timezone format, bug #510422
@@ -153,10 +219,6 @@ app-emulation/qemu-user
 # Fails to build with gnutls-3, on behalf of python herd
 # See bug #446016
 dev-python/python-gnutls
-
-# Andreas K. Huettel <dilfridge@gentoo.org> (27 Apr 2014)
-# Mask for testing
-=app-text/poppler-0.26*
 
 # Gilles Dartiguelongue <eva@gentoo.org> (27 Apr 2014)
 # Gnome 3.12 mask. Also requires:
@@ -301,6 +363,11 @@ dev-python/python-gnutls
 >=x11-themes/gnome-icon-theme-symbolic-3.12.0
 >=x11-themes/gnome-themes-standard-3.12.0
 >=x11-wm/mutter-3.12.1
+>=gnome-extra/gnome-getting-started-docs-3.12
+>=x11-libs/libcryptui-3.12
+>=app-editors/latexila-2.12
+>=gnome-base/libgtop-2.30
+>=media-libs/clutter-gtk-1.5
 
 # Eray Aslan <eras@gentoo.org> (26 Apr 2014)
 # Non-functional and no longer needed - bug #450116
@@ -313,14 +380,9 @@ net-mail/fetchyahoo
 # are not provided anymore. Python 2.7 is almost drop-in replacement.
 # The Python itself will be masked in 30 days, and all packages will be
 # removed in 60 days.
-#dev-lang/python:2.6
+dev-lang/python:2.6
 dev-python/argparse
 dev-python/ordereddict
-
-# Tim Harder <radhermit@gentoo.org> (26 Apr 2014)
-# Deprecated by the ide use flag on recent versions of dev-lang/fpc.
-# Removal in 30 days.
-dev-lang/fpc-ide
 
 # Tim Harder <radhermit@gentoo.org> (25 Apr 2014)
 # Masked for testing
@@ -336,11 +398,6 @@ dev-python/manifestdestiny
 app-admin/eselect-lua
 =dev-lang/lua-5.1.5-r2
 =dev-lang/lua-5.2.3
-
-# Mike Gilbert <floppym@gentoo.org> (16 Apr 2014)
-# Dev channel releases are only for people who are developers or want more
-# experimental features and accept a more unstable release.
->=www-client/chromium-36
 
 # Samuli Suominen <ssuominen@gentoo.org> (12 Apr 2014)
 # Dead upstream, unused in gentoo-x86.
@@ -383,7 +440,8 @@ sys-fs/rdiff-backup-fs
 
 # Patrick Lauer <patrick@gentoo.org> (02 Apr 2014)
 # Broken release, see #506452
-=dev-python/sip-4.15.5
+>=dev-python/sip-4.15.5
+>=dev-python/PyQt4-4.11
 
 # Tom Wijsman <TomWij@gentoo.org> (31 Mar 2014)
 # Prevent users from switching JDK / JRE implementation.
@@ -416,24 +474,6 @@ sys-fs/rdiff-backup-fs
 >=dev-python/pypy-bin-2.3
 >=virtual/pypy-2.3
 
-# Samuli Suominen <ssuominen@gentoo.org> (11 Mar 2014)
-# Xfce 4.12 unannounced prerelease, use at your own risk
-=dev-util/xfce4-dev-tools-4.11*
-=xfce-base/garcon-0.3*
-=xfce-base/libxfce4ui-4.11*
-=xfce-base/libxfce4util-4.11*
-=xfce-base/xfce4-appfinder-4.11*
-=xfce-base/xfce4-panel-4.11*
-=xfce-base/xfce4-session-4.11*
-=xfce-base/xfce4-settings-4.11*
-=xfce-base/xfdesktop-4.11*
-=xfce-base/xfwm4-4.11*
-=media-video/parole-0.6*
-=xfce-extra/xfce4-xkb-plugin-0.7*
-=xfce-extra/xfce4-indicator-plugin-2*
-=media-sound/pragha-1.3*
-=xfce-extra/xfce4-mixer-4.11*
-
 # Mike Gilbert <floppym@gentoo.org> (04 Mar 2014)
 # Dev channel releases are only for people who are developers or want more
 # experimental features and accept a more unstable release.
@@ -453,43 +493,6 @@ www-plugins/chrome-binary-plugins:unstable
 # Removal will happen at later date, but since there is no hurry, give it
 # until rest of the year.
 lxde-base/lxpolkit
-
-# Michał Górny <mgorny@gentoo.org> (28 Feb 2014)
-# New multilib conversions for testing, grouped with corresponding
-# emul-linux bumps.
-#
-# Notes:
-# - always unmask in order, with emul-linux of choice and *all* packages
-# preceding it
-# - please update https://wiki.gentoo.org/wiki/Multilib_porting_status
-# (mark the packages as {{Yes|DONE}})
->=dev-libs/libdaemon-0.14-r2
->=net-dns/avahi-0.6.31-r5
->=net-libs/ldns-1.6.16-r1
->=dev-libs/libevent-2.0.21-r1
->=net-dns/unbound-1.4.21-r2
->=net-libs/gnutls-3.3.1-r1
->=net-print/cups-1.7.1-r2
->=app-emulation/emul-linux-x86-baselibs-20140508-r1
-=dev-libs/atk-2.10.0-r1
->=dev-libs/atk-2.12.0-r1
->=x11-libs/gtk+-2.24.23-r1:2
->=x11-themes/gtk-engines-2.20.2-r1
->=x11-themes/gtk-engines-murrine-0.98.2-r1
->=x11-themes/gtk-engines-xfce-3.0.1-r201:0
->=app-emulation/emul-linux-x86-gtklibs-20140508-r1
->=sys-libs/talloc-2.1.0-r1
->=sys-libs/tevent-0.9.21-r1
->=dev-libs/libverto-0.2.5-r1
->=sys-apps/keyutils-1.5.9-r1
->=app-crypt/mit-krb5-1.12.1-r1
->=app-emulation/emul-linux-x86-baselibs-20140508-r2
->=sys-libs/db-4.8.30-r1:4.8
->=app-crypt/heimdal-1.5.3-r2
->=virtual/krb5-0-r1
->=app-emulation/emul-linux-x86-baselibs-20140508-r3
->=net-nds/openldap-2.4.38-r2
->=app-emulation/emul-linux-x86-baselibs-20140508-r4
 
 # Luca Barbato <lu_zero@gentoo.org> (20 Feb 2014)
 # Beta ebuild, unmask to test the tree.
@@ -725,7 +728,7 @@ net-irc/xchat-otr
 # in early 2010; as per http://en.wikipedia.org/wiki/Sun_acquisition_by_Oracle
 #
 # Users are suggested to upgrade to one of the newer Oracle packages like
-# dev-java/oracle-jdk-bin or dev-java/oracle/jre-bin or choose another
+# dev-java/oracle-jdk-bin or dev-java/oracle-jre-bin or choose another
 # alternative we provide; eg. the IBM JDK/JRE or the open source IcedTea.
 #
 # Most of these packages provide a jce USE flag for those whom need the
@@ -755,10 +758,6 @@ dev-java/sun-jce-bin
 # Patrick Lauer <patrick@gentoo.org> (21 May 2013)
 # broken dependencies -> uninstallable #470712
 app-portage/g-ctan
-
-# Markos Chandras <hwoarang@gentoo.org> (28 Apr 2013)
-# Early release of pcmanfm Qt4 port
-x11-misc/pcmanfm-qt
 
 # Michael Weber <xmw@gentoo.org> (18 Apr 2013)
 # Masked due test failures

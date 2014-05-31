@@ -1,6 +1,12 @@
 # ChangeLog for dev-python/twisted-conch
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/twisted-conch/ChangeLog,v 1.100 2014/05/20 07:02:07 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/twisted-conch/ChangeLog,v 1.102 2014/05/29 08:36:53 idella4 Exp $
+
+  29 May 2014; Ian Delaney <idella4@gentoo.org> twisted-conch-14.0.0.ebuild:
+  re-keyword ~arm, tested on armv7, cubieboard2 wrt Bug #510832
+
+  26 May 2014; Patrick Lauer <patrick@gentoo.org> twisted-conch-14.0.0.ebuild:
+  Temporarily drop arm and hppa keywords until twisted-core catches up again
 
 *twisted-conch-14.0.0 (20 May 2014)
 

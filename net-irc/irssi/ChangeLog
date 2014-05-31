@@ -1,6 +1,14 @@
 # ChangeLog for net-irc/irssi
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/irssi/ChangeLog,v 1.188 2014/03/10 22:22:19 swegener Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/irssi/ChangeLog,v 1.190 2014/05/31 10:59:56 swegener Exp $
+
+  31 May 2014; Sven Wegener <swegener@gentoo.org> irssi-9999.ebuild:
+  Allow elinks in addition to lynx for text documentation generation.
+
+*irssi-0.8.16 (30 May 2014)
+
+  30 May 2014; Sven Wegener <swegener@gentoo.org> +irssi-0.8.16.ebuild:
+  Version bump.
 
   10 Mar 2014; Sven Wegener <swegener@gentoo.org> irssi-0.8.16_rc1.ebuild,
   irssi-9999.ebuild, metadata.xml:

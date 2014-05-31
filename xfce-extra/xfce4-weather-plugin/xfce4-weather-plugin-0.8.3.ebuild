@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/xfce-extra/xfce4-weather-plugin/xfce4-weather-plugin-0.8.3.ebuild,v 1.3 2013/04/11 18:08:16 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/xfce-extra/xfce4-weather-plugin/xfce4-weather-plugin-0.8.3.ebuild,v 1.5 2014/05/31 19:02:31 ssuominen Exp $
 
 EAPI=5
 inherit xfconf
@@ -21,7 +21,7 @@ RDEPEND=">=dev-libs/glib-2.20
 	>=xfce-base/libxfce4ui-4.10
 	>=xfce-base/libxfce4util-4.10
 	>=xfce-base/xfce4-panel-4.10
-	udev? ( >=sys-power/upower-0.9.19 )"
+	udev? ( || ( <sys-power/upower-0.99 sys-power/upower-pm-utils ) )"
 DEPEND="${RDEPEND}
 	dev-util/intltool
 	virtual/pkgconfig"
