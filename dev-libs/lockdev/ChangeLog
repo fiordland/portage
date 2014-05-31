@@ -1,6 +1,15 @@
 # ChangeLog for dev-libs/lockdev
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/lockdev/ChangeLog,v 1.13 2014/03/05 15:38:02 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/lockdev/ChangeLog,v 1.15 2014/05/30 07:44:30 mgorny Exp $
+
+  30 May 2014; Michał Górny <mgorny@gentoo.org> lockdev-1.0.3.1.2-r3.ebuild:
+  Fix Perl module build to use relative ${PERL_S}.
+
+*lockdev-1.0.3.1.2-r3 (21 May 2014)
+
+  21 May 2014; Michał Górny <mgorny@gentoo.org> +lockdev-1.0.3.1.2-r3.ebuild,
+  files/lockdev-1.0.3-add-autotools.patch:
+  Enable multilib support, as a dependency of libgphoto2.
 
   05 Mar 2014; Jeroen Roovers <jer@gentoo.org> lockdev-1.0.3.1.2-r2.ebuild:
   Stable for HPPA (bug #502206).

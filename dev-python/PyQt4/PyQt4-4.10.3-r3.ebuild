@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/PyQt4/PyQt4-4.10.3-r3.ebuild,v 1.1 2014/03/27 18:05:07 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/PyQt4/PyQt4-4.10.3-r3.ebuild,v 1.3 2014/05/30 20:55:20 pesa Exp $
 
 EAPI=5
 PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
 inherit eutils multibuild python-r1 qmake-utils toolchain-funcs
 
 DESCRIPTION="Python bindings for the Qt toolkit"
-HOMEPAGE="http://www.riverbankcomputing.co.uk/software/pyqt/intro/ http://pypi.python.org/pypi/PyQt"
+HOMEPAGE="http://www.riverbankcomputing.co.uk/software/pyqt/intro/ https://pypi.python.org/pypi/PyQt4"
 
 if [[ ${PV} == *_pre* ]]; then
 	MY_P="PyQt-x11-gpl-snapshot-${PV%_pre*}-${REVISION}"
@@ -42,7 +42,7 @@ QT_PV="4.8.0:4"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	>=dev-python/sip-4.15.0:=[${PYTHON_USEDEP}]
+	=dev-python/sip-4.15*:=[${PYTHON_USEDEP}]
 	>=dev-qt/qtcore-${QT_PV}
 	X? (
 		>=dev-qt/qtgui-${QT_PV}
@@ -185,6 +185,7 @@ src_compile() {
 src_install() {
 	installation() {
 		local tmp_root=${D%/}/tmp
+
 		# INSTALL_ROOT is used by designer/Makefile, other Makefiles use DESTDIR.
 		emake DESTDIR="${tmp_root}" INSTALL_ROOT="${tmp_root}" install
 
