@@ -1,6 +1,26 @@
 # ChangeLog for dev-java/icedtea-bin
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/icedtea-bin/ChangeLog,v 1.58 2014/05/17 15:19:09 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/icedtea-bin/ChangeLog,v 1.61 2014/06/03 06:30:12 caster Exp $
+
+*icedtea-bin-6.1.13.3-r1 (03 Jun 2014)
+
+  03 Jun 2014; Vlastimil Babka <caster@gentoo.org>
+  +icedtea-bin-6.1.13.3-r1.ebuild:
+  Revbump to use external dev-java/icedtea-web:0 for javaws and nsplugin,
+  instead of bundling vulnerable old version. Security bug #501472.
+
+*icedtea-bin-7.2.4.7 (02 Jun 2014)
+
+  02 Jun 2014; Vlastimil Babka <caster@gentoo.org> +icedtea-bin-7.2.4.7.ebuild,
+  metadata.xml:
+  Version bump, bug #508270. Add a webstart USE flag that enables creating a
+  javaws symlink to the respective binary from icedtea-web. Fixes bug #504678.
+
+*icedtea-bin-6.1.13.3 (31 May 2014)
+
+  31 May 2014; Vlastimil Babka <caster@gentoo.org>
+  +icedtea-bin-6.1.13.3.ebuild:
+  Version bump, security bug #508270. Now required libpng >=1.6.
 
   17 May 2014; Sven Vermeulen <swift@gentoo.org> icedtea-bin-6.1.12.7.ebuild,
   icedtea-bin-7.2.4.3.ebuild:
