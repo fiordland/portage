@@ -1,6 +1,17 @@
 # ChangeLog for app-admin/emacs-updater
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/emacs-updater/ChangeLog,v 1.80 2013/07/14 14:50:54 ulm Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/emacs-updater/ChangeLog,v 1.82 2014/06/05 17:24:51 ulm Exp $
+
+*emacs-updater-1.14 (05 Jun 2014)
+
+  05 Jun 2014; Ulrich Müller <ulm@gentoo.org> emacs-updater-1.13.ebuild,
+  -emacs-updater-1.13-r1.ebuild, +emacs-updater-1.14.ebuild:
+  Version bump. Update SRC_URI.
+
+*emacs-updater-1.13-r1 (04 Jun 2014)
+
+  04 Jun 2014; Ulrich Müller <ulm@gentoo.org> +emacs-updater-1.13-r1.ebuild:
+  Add missing dependency on app-misc/getopt for BSD.
 
   14 Jul 2013; Ulrich Müller <ulm@gentoo.org> emacs-updater-1.13.ebuild:
   Update HOMEPAGE.
