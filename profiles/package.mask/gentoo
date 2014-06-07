@@ -1,5 +1,5 @@
 ####################################################################
-# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15761 2014/06/05 08:37:00 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15767 2014/06/07 15:23:29 mgorny Exp $
 #
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked. Please be extremely
@@ -29,6 +29,25 @@
 ## app-misc/some-package
 
 #--- END OF EXAMPLES ---
+
+# Tom Wijsman <TomWij@gentoo.org> (6 Jun 2014)
+# Mask gentoo-sources ebuilds that are affected with security bug CVE-2014-3153.
+#
+# Pinkie Pie discovered an issue in the futex subsystem that allows a
+# local user to gain ring 0 control via the futex syscall. An
+# unprivileged user could use this flaw to crash the kernel (resulting
+# in denial of service) or for privilege escalation.
+#
+# https://bugs.gentoo.org/show_bug.cgi?id=CVE-2014-3153
+=sys-kernel/gentoo-sources-3.2.58-r2
+~sys-kernel/gentoo-sources-3.4.90
+=sys-kernel/gentoo-sources-3.4.91
+~sys-kernel/gentoo-sources-3.10.40
+=sys-kernel/gentoo-sources-3.10.41
+~sys-kernel/gentoo-sources-3.12.20
+=sys-kernel/gentoo-sources-3.12.21
+~sys-kernel/gentoo-sources-3.14.4
+=sys-kernel/gentoo-sources-3.14.5
 
 # Hans de Graaff <graaff@gentoo.org> (2 Jun 2014)
 # Mask old slots and packages for removal in 30 days since SRC_URI
@@ -74,6 +93,10 @@ dev-java/ibm-jdk-bin:1.5
 >=app-emulation/emul-linux-x86-baselibs-20140508-r8
 >=dev-libs/cyrus-sasl-2.1.26-r6
 >=sys-libs/libsemanage-2.3-r1
+>=dev-util/cppunit-1.13.2-r1
+>=media-libs/taglib-1.9.1-r1
+>=media-libs/libofa-0.9.3-r1
+>=app-emulation/emul-linux-x86-medialibs-20140508-r3
 
 # Vladimir Smirnov <civil@gentoo.org> (27 May 2014)
 # Masked for testing, will defenitely cause major breakage
@@ -146,27 +169,6 @@ games-emulation/boycott-advance-sdl
 # Masked for removal in 30 days, bug 505628.
 games-emulation/neopocott
 
-# Tom Wijsman <TomWij@gentoo.org> (16 May 2014)
-# Mask gentoo-sources ebuilds that are affected with security bug CVE-2014-0196.
-#
-# The n_tty_write function in drivers/tty/n_tty.c in the Linux kernel through 
-# 3.14.3 does not properly manage tty driver access in the "LECHO & !OPOST" 
-# case, which allows local users to cause a denial of service (memory corruption 
-# and system crash) or gain privileges by triggering a race condition involving 
-# read and write operations with long strings.
-#
-# https://bugs.gentoo.org/show_bug.cgi?id=CVE-2014-0196
-#
-# 3.2.58 and 3.4.90 have revision bumps, for the other there are newer versions.
-=sys-kernel/gentoo-sources-3.2.58
-~sys-kernel/gentoo-sources-3.4.89
-=sys-kernel/gentoo-sources-3.4.90
-~sys-kernel/gentoo-sources-3.10.39
-~sys-kernel/gentoo-sources-3.12.18
-~sys-kernel/gentoo-sources-3.12.19
-~sys-kernel/gentoo-sources-3.14.2
-~sys-kernel/gentoo-sources-3.14.3
-
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (14 May 2014)
 # Depends on libevdev which still needs keywording, bug #487944
 >=x11-drivers/xf86-input-evdev-2.8.99
@@ -176,19 +178,6 @@ games-emulation/neopocott
 # Dead for ages, now in mjpegtools, bug #492886
 # Removal in a month.
 media-video/y4mscaler
-
-# Ulrich Müller <ulm@gentoo.org> (08 May 2014)
-# SLOTs 21 and 22 of app-editors/emacs, corresponding to
-# GNU Emacs versions 21.4 and 22.3. These versions were
-# released in February 2005 and September 2008, respectively.
-# Please upgrade to >=app-editors/emacs-23 and update your
-# Emacs Lisp packages with emacs-updater.
-# Multiple security issues with temporary files, bug 509830.
-# Masked since 13 Dec 2011, removal at 07 Jun 2014. Bug 394589.
-=app-editors/emacs-21*
-=app-editors/emacs-22*
-~virtual/emacs-21
-~virtual/emacs-22
 
 # Manuel Rüger <mrueg@gentoo.org> (07 May 2014)
 # Useful for removed ruby18, no-op in ruby19 and later.
