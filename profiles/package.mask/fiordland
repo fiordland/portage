@@ -1,5 +1,8 @@
- 
-# #>=dev-lang/python-3.3
+# 07 June 2014
+# sys-devel/gettext-0.19 masked due to breaking app-text/iso-codes-3.51
+=sys-devel/gettext-0.19
+
+# #>=dev- lang/python-3.3
 # Masked for bug 1350 http://curl.haxx.se/mail/tracker-2014-03 fixed in git
 =net-misc/curl-7.36.0
 =net-misc/curl-7.36.0-r1
