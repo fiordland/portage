@@ -1,6 +1,48 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1282 2014/06/07 10:28:16 ulm Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1293 2014/06/19 12:54:47 mgorny Exp $
+
+  19 Jun 2014; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
+  Always set up CC, CXX and friends for distutils builds, bug #513664. Thanks
+  to Arfrever for the explanation.
+
+  19 Jun 2014; Michał Górny <mgorny@gentoo.org> gstreamer.eclass:
+  Bump gstreamer deps to satisfy multilib.
+
+  19 Jun 2014; Michał Górny <mgorny@gentoo.org> python-r1.eclass,
+  python-utils-r1.eclass, tests/python-utils-r1.sh:
+  Improve handling of corner cases in python_fix_shebang. Support --force and
+  --quiet options, bug #505354. Add tests.
+
+  14 Jun 2014; Michael Palimaka <kensington@gentoo.org> kde4-base.eclass, kde4-functions.eclass:
+  Sync with KDE overlay. Adapt to live ebuild versioning change. Remove
+  reference to long-removed package. Explicitly specify a slot. Update SRC_URI
+  for kde-workspace 4.11.10. Add new function to comment add_subdirectory
+  calls. Remove obsolete add_blocker function.
+
+  14 Jun 2014; Ryan Hill <rhill@gentoo.org> flag-o-matic.eclass:
+  Add -Og, -gdwarf-*, and -fabi-version=* to allowed flags (bug #512534,
+  #512754).  Use a glob for -fstack-protector and friends.
+
+  14 Jun 2014; Robin H. Johnson <robbat2@gentoo.org> flag-o-matic.eclass:
+  If you an empty argument to append-libs, you end up with a dangling -l
+  without a library. Catch this in QA. Caught infra with a broken ncurses in
+  net-dialup/xc with append-libs "$($(tc-getPKG_CONFIG) --libs ncurses)"
+
+  12 Jun 2014; Michael Haubenwallner <haubi@gentoo.org>
+  -ELT-patches/aix-noundef/1.4d, libtool.eclass:
+  Allow undefined symbols on AIX, needed by and work fine with module libs.
+
+  10 Jun 2014; Michał Górny <mgorny@gentoo.org> +gstreamer.eclass:
+  Add new, multilib-capable eclass for gstreamer plugins.
+
+  10 Jun 2014; Michael Haubenwallner <haubi@gentoo.org>
+  +ELT-patches/aixrtl/2.4.2.418-cmds.c, +ELT-patches/aixrtl/2.4.2.418-cmds.cxx,
+  +ELT-patches/aixrtl/2.4.2.418-soname:
+  bump aixrtl ELT-patches for libtool-2.4.2.418
+
+  08 Jun 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Work around lack of arch defines in swig, bug #509792.
 
   07 Jun 2014; Ulrich Müller <ulm@gentoo.org> elisp.eclass:
   Increase minimum Emacs version to 23, versions 21 and 22 have been removed.

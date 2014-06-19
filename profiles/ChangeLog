@@ -1,10 +1,158 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.9051 2014/06/07 15:23:29 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.9100 2014/06/19 03:12:47 tetromino Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  19 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org> package.mask:
+  Moved emul-linux-x86-baselibs-20140508-r{10,11} to -r{13,14} to allow
+  unmasked -r12 for fixing file collision with unmasked lcms:0[abi_x86_32].
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Remove p.masks of old (removed) media-video/libav versions.
+
+  17 Jun 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Remove masks for games-emulation/{boycott-advance-sdl,neopocott}, packages
+  have been removed.
+
+  17 Jun 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Remove mask for app-emacs/redo, package has been removed.
+
+  16 Jun 2014; Anthony G. Basile <blueness@gentoo.org> profiles.desc:
+  Drop hardened/linux/uclibc/amd64 and x86 to dev to avoid repoman warnings
+
+  16 Jun 2014; Anthony G. Basile <blueness@gentoo.org> base/use.mask,
+  prefix/windows/winnt/use.mask:
+  Mask CURL_SSL=winssl on all profiles, except prefix/windows/winnt
+
+  16 Jun 2014; Anthony G. Basile <blueness@gentoo.org> profiles.desc:
+  Add hardened musl profiles for mips to profiles.desc
+
+  16 Jun 2014; Ryan Hill <rhill@gentoo.org> package.mask:
+  Remove obsolete ver.
+
+  15 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib libquvi & respective libquvi-scripts.
+
+  15 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib curl.
+
+  15 Jun 2014; Joerg Bornkessel <hd_brummy@gentoo.org> package.mask:
+  rm pmask media-video/vdr-1.6, media-plugins/vdr-noepgmenu
+
+  15 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask multilib gstreamer.
+
+  14 Jun 2014; Anthony G. Basile <blueness@gentoo.org> package.mask:
+  Mask net-libs/cyassl for removal in 30 days, bug #495848
+
+  14 Jun 2014; Justin Lecher <jlec@gentoo.org> desc/linguas.desc:
+  Add some missing locales
+
+  14 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org> desc/linguas.desc:
+  Add new translations in app-text/iso-codes-3.54 to linguas.desc
+
+  14 Jun 2014; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  Mask sssd-1.11.6 for testing in production
+
+  14 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Move nspr to the common multilib mask, and mask nss & baselibs before
+  committing.
+
+  13 Jun 2014; Hanno Boeck <hanno@gentoo.org> package.mask:
+  Restrict pymsn-t mask to old version without pillow fix.
+
+  13 Jun 2014; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Add Transmission-OpenSSL-exception license exception to GPL-COMPATIBLE group.
+
+  13 Jun 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> package.mask:
+  added multilib-converted nspr to package.mask for testing
+
+  13 Jun 2014; Eray Aslan <eras@gentoo.org> package.mask:
+  net-mail/fetchyahoo punted from the tree - bug #450116
+
+  13 Jun 2014; Eray Aslan <eras@gentoo.org> package.mask:
+  net-mail/dovecot-2.{0,1} no longer in the tree
+
+  13 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Restore mask on gst-plugins-{gconf,gnomevfs}.
+
+  13 Jun 2014; Mike Gilbert <floppym@gentoo.org> package.mask:
+  Mask net-misc/openswan.
+
+  13 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask non-gstreamer multilib packages.
+
+  12 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Update slotted lua p.mask for multilib versions.
+
+  12 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask cppunit since it does not collide with emul-linux-x86 and is required
+  for dev-python/subunit which is needed to fix dev-libs/check (bug #510892).
+
+  12 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  +arch/x86/package.use.force, base/package.use.force:
+  Add profile entries for www-client/chromium's new pic USE flag.
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask multilib tdb since it carries fix for bug #511846.
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib media-video/ffmpeg.
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask respective gtklibs bump.
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib gconf & gnome-vfs, and respective gstreamer plugins.
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib tdb as well (for samba).
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib samba3.
+
+  10 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Fix gst-plugins-gl mask.
+
+  10 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib gstreamer packages before committing.
+
+  10 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib libquicktime as well.
+
+  10 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask new set of multilib packages before committing.
+
+  10 Jun 2014; Patrick Lauer <patrick@gentoo.org> package.mask:
+  Add docker to lxc mask
+
+  10 Jun 2014; Mike Gilbert <floppym@gentoo.org> package.mask:
+  Mask unused packages depending on dev-python/imaging.
+
+  08 Jun 2014; Brian Evans <grknight@gentoo.org> thirdpartymirrors:
+  Update mysql mirror list to remove old or broken mirrors.
+  Thanks to Ben Kohler, bug 494854.
+
+  08 Jun 2014; Ulrich Müller <ulm@gentoo.org> license_groups:
+  Comment DEPRECATED license group, its only member "as-is" is gone.
+
+  08 Jun 2014; Tom Wijsman <TomWij@gentoo.org> package.mask:
+  Mask VLC ebuilds that are affected with security bug CVE-2013-6934.
+
+  08 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib libsoup & neon.
+
+  08 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask the previous set of multilib conversions.
+
+  07 Jun 2014; Manuel Rüger <mrueg@gentoo.org> package.mask:
+  Cleanup p.mask
+
+  07 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask multilib libav & libpostproc.
 
   07 Jun 2014; Michał Górny <mgorny@gentoo.org> package.mask:
   Mask multilib libofa & respective medialibs bump.

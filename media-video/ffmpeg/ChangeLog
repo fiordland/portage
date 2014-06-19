@@ -1,6 +1,60 @@
 # ChangeLog for media-video/ffmpeg
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ChangeLog,v 1.739 2014/06/03 06:20:53 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ChangeLog,v 1.753 2014/06/19 13:14:49 mgorny Exp $
+
+  19 Jun 2014; Michał Górny <mgorny@gentoo.org> ffmpeg-0.10.12.ebuild,
+  ffmpeg-0.10.13.ebuild, ffmpeg-1.2.6-r1.ebuild, ffmpeg-2.2.3-r1.ebuild,
+  ffmpeg-9999.ebuild:
+  Fix multilib dependencies to use safe versions, bug #513718.
+
+  16 Jun 2014; Michał Górny <mgorny@gentoo.org> ffmpeg-1.2.6-r1.ebuild,
+  ffmpeg-2.2.3-r1.ebuild, ffmpeg-9999.ebuild:
+  Wrap libavutil/avconfig.h since in some cases it differs per-ABI, bug #513184.
+
+*ffmpeg-0.10.13 (14 Jun 2014)
+
+  14 Jun 2014; Alexis Ballier <aballier@gentoo.org> +ffmpeg-0.10.13.ebuild:
+  bump the 0.10 slot
+
+*ffmpeg-1.2.6-r1 (14 Jun 2014)
+
+  14 Jun 2014; Michał Górny <mgorny@gentoo.org> +ffmpeg-1.2.6-r1.ebuild:
+  Backport the multilib support to the version having wider keywords, pointed
+  out by Arfrever.
+
+  14 Jun 2014; Mike Gilbert <floppym@gentoo.org> ffmpeg-2.2.3-r1.ebuild:
+  Add ~x86 keyword, tested by Arfrever.
+
+  12 Jun 2014; Michał Górny <mgorny@gentoo.org> ffmpeg-2.2.3-r1.ebuild,
+  ffmpeg-9999.ebuild:
+  Add missing emul-linux-x86 blocker.
+
+*ffmpeg-2.2.3-r1 (11 Jun 2014)
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org> +ffmpeg-2.2.3-r1.ebuild,
+  ffmpeg-9999.ebuild:
+  Enable multilib support, bug #489816.
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.2.6.ebuild:
+  Stable for sparc, wrt bug #508372
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.2.6.ebuild:
+  Stable for alpha, wrt bug #508372
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.2.6.ebuild:
+  Stable for ia64, wrt bug #508372
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.2.6.ebuild:
+  Stable for ppc64, wrt bug #508372
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.2.6.ebuild:
+  Stable for ppc, wrt bug #508372
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.2.6.ebuild:
+  Stable for x86, wrt bug #508372
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.2.6.ebuild:
+  Stable for amd64, wrt bug #508372
 
   03 Jun 2014; Alexis Ballier <aballier@gentoo.org> ffmpeg-9999.ebuild:
   fix dodoc of renamed README

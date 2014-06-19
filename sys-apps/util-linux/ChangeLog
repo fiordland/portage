@@ -1,6 +1,23 @@
 # ChangeLog for sys-apps/util-linux
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/util-linux/ChangeLog,v 1.461 2014/05/28 18:01:28 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/util-linux/ChangeLog,v 1.465 2014/06/18 20:46:09 mgorny Exp $
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> util-linux-2.24.1-r3.ebuild,
+  util-linux-2.24.2.ebuild, util-linux-9999.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> util-linux-9999.ebuild:
+  Enable multilib on the live ebuild as well. Support new libsmartcols.
+
+  11 Jun 2014; Lars Wendler <polynomial-c@gentoo.org>
+  util-linux-2.24.1-r2.ebuild:
+  Fixed application of alpha patch (bug #512966).
+
+  11 Jun 2014; Tobias Klausmann <klausman@gentoo.org>
+  +files/util-linux-2.24-fix-fdisk-on-alpha.patch, util-linux-2.24.1-r2.ebuild,
+  util-linux-2.24.1-r3.ebuild, util-linux-2.24.2.ebuild:
+  Fix fdisk compile failure on Alpha
 
   28 May 2014; Markos Chandras <hwoarang@gentoo.org> util-linux-2.24.2.ebuild:
   Restore 2.24-last-tests.patch per bug #501408 thanks to eroen
