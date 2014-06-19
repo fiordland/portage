@@ -1,6 +1,29 @@
 # ChangeLog for x11-drivers/nvidia-drivers
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/ChangeLog,v 1.554 2014/06/05 18:47:48 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/nvidia-drivers/ChangeLog,v 1.559 2014/06/18 20:58:34 mgorny Exp $
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> nvidia-drivers-173.14.39.ebuild,
+  nvidia-drivers-304.121.ebuild, nvidia-drivers-331.79.ebuild,
+  nvidia-drivers-334.21-r3.ebuild, nvidia-drivers-337.25.ebuild,
+  nvidia-drivers-340.17.ebuild, nvidia-drivers-96.43.23.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  16 Jun 2014; Jeroen Roovers <jer@gentoo.org>
+  +nvidia-drivers-334.21-r3.ebuild:
+  Put back 334.21 for now (bug #513380).
+
+  15 Jun 2014; Jeroen Roovers <jer@gentoo.org>
+  -nvidia-drivers-334.21-r3.ebuild, nvidia-drivers-337.25.ebuild:
+  Stable for AMD64 x86 too.
+
+  09 Jun 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-340.17.ebuild:
+  Raise kernel version compatibility.
+
+*nvidia-drivers-340.17 (09 Jun 2014)
+
+  09 Jun 2014; Jeroen Roovers <jer@gentoo.org> +nvidia-drivers-340.17.ebuild:
+  Version bump.
 
   05 Jun 2014; Jeroen Roovers <jer@gentoo.org> nvidia-drivers-337.25.ebuild:
   Raise xorg-server compatibility (bug #512268).

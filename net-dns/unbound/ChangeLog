@@ -1,6 +1,19 @@
 # ChangeLog for net-dns/unbound
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/unbound/ChangeLog,v 1.66 2014/05/13 19:17:43 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/unbound/ChangeLog,v 1.69 2014/06/19 08:46:05 mgorny Exp $
+
+  19 Jun 2014; Michał Górny <mgorny@gentoo.org> unbound-1.4.21-r2.ebuild,
+  unbound-1.4.22.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  18 Jun 2014; Tobias Klausmann <klausman@gentoo.org> unbound-1.4.18.ebuild:
+  Keyworded on alpha, bug #441688
+
+*unbound-1.4.22 (09 Jun 2014)
+
+  09 Jun 2014; Patrick Lauer <patrick@gentoo.org> +unbound-1.4.22.ebuild:
+  Bump
 
 *unbound-1.4.21-r2 (13 May 2014)
 

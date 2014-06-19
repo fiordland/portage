@@ -1,6 +1,24 @@
 # ChangeLog for sys-devel/llvm
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/ChangeLog,v 1.197 2014/05/11 11:17:08 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/ChangeLog,v 1.200 2014/06/15 14:30:03 mgorny Exp $
+
+  15 Jun 2014; Michał Górny <mgorny@gentoo.org>
+  files/clang-3.3-gentoo-install.patch, llvm-3.3-r3.ebuild:
+  Restore the old clang patch as clang-3.3-gentoo-install.patch, and use it for
+  version 3.3-r3. Bug #513346.
+
+*llvm-3.4.1-r2 (14 Jun 2014)
+
+  14 Jun 2014; Michał Górny <mgorny@gentoo.org> +llvm-3.4.1-r2.ebuild,
+  -llvm-3.4-r2.ebuild, -llvm-3.4.1-r1.ebuild,
+  files/clang-3.4-gentoo-install.patch:
+  Fix fixing LLVMgold.so plugin path for GNU linker, bug #508838.
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org>
+  +files/llvm-3.4-cmake-configparser.patch, llvm-3.4-r2.ebuild,
+  llvm-3.4.1-r1.ebuild:
+  Always use built-in ConfigParser to work-around issues with configparser-3.2,
+  bug #500856.
 
   11 May 2014; Michał Górny <mgorny@gentoo.org> -llvm-3.3-r1.ebuild,
   -llvm-3.4-r1.ebuild, -llvm-3.4.ebuild:

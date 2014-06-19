@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libtasn1/libtasn1-3.6.ebuild,v 1.1 2014/06/07 18:40:15 alonbl Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libtasn1/libtasn1-3.6.ebuild,v 1.8 2014/06/17 10:48:02 klausman Exp $
 
 EAPI=5
 
@@ -12,10 +12,11 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3 LGPL-2.1"
 SLOT="0/6" # subslot = libtasn1 soname version
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~x64-macos"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~x64-macos"
 IUSE="doc static-libs"
 
 DEPEND=">=dev-lang/perl-5.6
+	sys-apps/help2man
 	virtual/yacc"
 RDEPEND="
 	abi_x86_32? (
@@ -27,6 +28,7 @@ DOCS=( AUTHORS ChangeLog NEWS README THANKS )
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-build.patch"
+	sed -i 's/AM_INIT_AUTOMAKE(\[\(.*\)\])/AM_INIT_AUTOMAKE([\1 -Wno-portability])/' configure.ac
 	eautoreconf
 }
 

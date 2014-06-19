@@ -1,6 +1,17 @@
 # ChangeLog for kde-base/marble
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/marble/ChangeLog,v 1.253 2014/05/13 17:43:24 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/marble/ChangeLog,v 1.256 2014/06/19 13:32:48 creffett Exp $
+
+  19 Jun 2014; Chris Reffett <creffett@gentoo.org> -marble-4.13.1.ebuild:
+  Remove KDE SC 4.13.1
+
+  19 Jun 2014; Chris Reffett <creffett@gentoo.org> -marble-4.13.0.ebuild:
+  Remove KDE SC 4.13.0
+
+*marble-4.13.2 (15 Jun 2014)
+
+  15 Jun 2014; Michael Palimaka <kensington@gentoo.org> +marble-4.13.2.ebuild:
+  Version bump KDE SC 4.13.2
 
 *marble-4.13.1 (13 May 2014)
 

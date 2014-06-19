@@ -1,6 +1,22 @@
 # ChangeLog for dev-libs/nss
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/nss/ChangeLog,v 1.361 2014/03/31 17:11:39 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/nss/ChangeLog,v 1.365 2014/06/19 03:17:50 tetromino Exp $
+
+  19 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org> nss-3.16-r1.ebuild:
+  Update emul-linux-x86-baselibs blocker revision.
+
+  18 Jun 2014; Michał Górny <mgorny@gentoo.org> nss-3.16-r1.ebuild:
+  Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug
+  #513718.
+
+  14 Jun 2014; Michał Górny <mgorny@gentoo.org> nss-3.16-r1.ebuild:
+  Add missing MULTILIB_USEDEP on nspr, noticed by _AxS_.
+
+*nss-3.16-r1 (14 Jun 2014)
+
+  14 Jun 2014; Michał Górny <mgorny@gentoo.org> +nss-3.16-r1.ebuild:
+  Import the multilib support from ::mozilla. Clean up a bit and copy the
+  simplified bit-ness check from dev-libs/nspr.
 
   31 Mar 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> nss-3.16.ebuild:
   upstream integration of x32 patch changed case on variable, fixed ebuild to

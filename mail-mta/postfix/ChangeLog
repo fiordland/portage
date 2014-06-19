@@ -1,6 +1,21 @@
 # ChangeLog for mail-mta/postfix
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/postfix/ChangeLog,v 1.504 2014/05/17 05:03:27 eras Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/postfix/ChangeLog,v 1.507 2014/06/19 14:06:03 eras Exp $
+
+*postfix-2.12_pre20140618 (19 Jun 2014)
+
+  19 Jun 2014; Eray Aslan <eras@gentoo.org> +postfix-2.12_pre20140618.ebuild,
+  -postfix-2.12_pre20140531.ebuild:
+  Version bump
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> postfix-2.10.3.ebuild:
+  x86 stable wrt bug #505014
+
+*postfix-2.12_pre20140531 (07 Jun 2014)
+
+  07 Jun 2014; Eray Aslan <eras@gentoo.org> +postfix-2.12_pre20140531.ebuild,
+  -postfix-2.12_pre20140516.ebuild:
+  Version bump
 
 *postfix-2.12_pre20140516 (17 May 2014)
 
