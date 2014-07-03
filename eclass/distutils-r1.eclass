@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/distutils-r1.eclass,v 1.97 2014/06/19 12:54:47 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/distutils-r1.eclass,v 1.100 2014/06/29 14:24:22 floppym Exp $
 
 # @ECLASS: distutils-r1
 # @MAINTAINER:
@@ -600,8 +600,14 @@ distutils-r1_run_phase() {
 	local -x AR=${AR} CC=${CC} CPP=${CPP} CXX=${CXX}
 	tc-export AR CC CPP CXX
 
-	# XXX: portability for -shared?
-	local -x LDSHARED="${CC} -shared" LDCXXSHARED="${CXX} -shared"
+	# How to build Python modules in different worlds...
+	local ldopts
+	case "${CHOST}" in
+		*-darwin*) ldopts='-bundle -undefined dynamic_lookup';;
+		*) ldopts='-shared';;
+	esac
+
+	local -x LDSHARED="${CC} ${ldopts}" LDCXXSHARED="${CXX} ${ldopts}"
 
 	"${@}"
 
@@ -684,6 +690,8 @@ distutils-r1_src_prepare() {
 }
 
 distutils-r1_src_configure() {
+	python_export_utf8_locale
+
 	if declare -f python_configure >/dev/null; then
 		_distutils-r1_run_foreach_impl python_configure
 	fi

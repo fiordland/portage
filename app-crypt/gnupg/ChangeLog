@@ -1,6 +1,40 @@
 # ChangeLog for app-crypt/gnupg
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/gnupg/ChangeLog,v 1.517 2014/06/06 05:57:26 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/gnupg/ChangeLog,v 1.525 2014/07/01 18:25:30 zlogene Exp $
+
+  01 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> gnupg-1.4.18.ebuild:
+  amd64 stable wrt bug #514718
+
+  01 Jul 2014; Richard Freeman <rich0@gentoo.org> gnupg-2.0.25.ebuild:
+  amd64 stable - 514718
+
+  01 Jul 2014; Jeroen Roovers <jer@gentoo.org> gnupg-2.0.25.ebuild:
+  Stable for HPPA (bug #514718).
+
+  01 Jul 2014; Jeroen Roovers <jer@gentoo.org> gnupg-1.4.18.ebuild:
+  Stable for HPPA (bug #514718).
+
+*gnupg-1.4.18 (30 Jun 2014)
+
+  30 Jun 2014; Alon Bar-Lev <alonbl@gentoo.org> +gnupg-1.4.18.ebuild,
+  -gnupg-1.4.17.ebuild:
+  Version bump, bug#514718
+
+*gnupg-2.0.25 (30 Jun 2014)
+
+  30 Jun 2014; Alon Bar-Lev <alonbl@gentoo.org> +gnupg-2.0.25.ebuild,
+  -gnupg-2.0.24.ebuild:
+  Version bump, bug#514718
+
+*gnupg-2.0.24 (24 Jun 2014)
+
+  24 Jun 2014; Alon Bar-Lev <alonbl@gentoo.org> +gnupg-2.0.24.ebuild:
+  Version bump, bug#514718
+
+*gnupg-1.4.17 (23 Jun 2014)
+
+  23 Jun 2014; Alon Bar-Lev <alonbl@gentoo.org> +gnupg-1.4.17.ebuild:
+  Version bump, bug#514718
 
 *gnupg-2.0.23 (06 Jun 2014)
 

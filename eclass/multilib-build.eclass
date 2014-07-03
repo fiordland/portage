@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/multilib-build.eclass,v 1.56 2014/06/08 13:57:02 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/multilib-build.eclass,v 1.59 2014/06/29 08:32:46 mgorny Exp $
 
 # @ECLASS: multilib-build.eclass
 # @MAINTAINER:
@@ -44,6 +44,8 @@ _MULTILIB_FLAGS=(
 	abi_mips_n32:n32
 	abi_mips_n64:n64
 	abi_mips_o32:o32
+	abi_ppc_32:ppc
+	abi_ppc_64:ppc64
 )
 
 # @ECLASS-VARIABLE: MULTILIB_COMPAT
@@ -151,7 +153,10 @@ multilib_get_enabled_abi_pairs() {
 			# paludis is broken (bug #486592), and switching it locally
 			# for the split is more complex than cheating like this
 			for m_abi in ${m_abis//,/ }; do
-				if [[ ${m_abi} == ${abi} ]] && use "${m_flag}"; then
+				if [[ ${m_abi} == ${abi} ]] \
+					&& { [[ ! "${MULTILIB_COMPAT[@]}" ]] || has "${m_flag}" "${MULTILIB_COMPAT[@]}"; } \
+					&& use "${m_flag}"
+				then
 					echo "${m_flag}.${abi}"
 					found=1
 					break 2

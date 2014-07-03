@@ -1,6 +1,28 @@
 # ChangeLog for media-libs/libsdl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libsdl/ChangeLog,v 1.217 2014/06/18 19:48:49 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libsdl/ChangeLog,v 1.221 2014/06/30 20:30:55 hasufell Exp $
+
+  30 Jun 2014; Julian Ospald <hasufell@gentoo.org> -libsdl-1.2.15-r5.ebuild,
+  -libsdl-1.2.15-r6.ebuild:
+  remove old
+
+*libsdl-1.2.15-r7 (30 Jun 2014)
+
+  30 Jun 2014; Julian Ospald <hasufell@gentoo.org> +libsdl-1.2.15-r7.ebuild,
+  +files/libsdl-1.2.15-caca.patch:
+  fix various multilib failures wrt #514486
+
+  25 Jun 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  -files/libsdl-1.2.13-sdl-config.patch, -files/libsdl-1.2.14-click.patch,
+  -files/libsdl-1.2.14-glibc213.patch, -files/libsdl-1.2.14-joystick.patch,
+  -libsdl-1.2.14-r6.ebuild, -libsdl-1.2.15-r2.ebuild, -libsdl-1.2.15-r3.ebuild:
+  Remove old versions that can no longer build due to bug #471300.
+
+*libsdl-1.2.15-r6 (22 Jun 2014)
+
+  22 Jun 2014; Julian Ospald <hasufell@gentoo.org> +libsdl-1.2.15-r6.ebuild:
+  disable wrapping of headers (also disables nasm for 32bit on amd64), wrt
+  #512430
 
   18 Jun 2014; Michał Górny <mgorny@gentoo.org> libsdl-1.2.15-r5.ebuild:
   Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug

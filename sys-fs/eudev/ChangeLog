@@ -1,6 +1,24 @@
 # ChangeLog for sys-fs/eudev
-# Copyright 1999- Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/eudev/ChangeLog,v 1.114 2014/06/18 20:48:41 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/eudev/ChangeLog,v 1.120 2014/06/27 20:39:40 blueness Exp $
+
+  27 Jun 2014; Anthony G. Basile <blueness@gentoo.org> eudev-1.8.ebuild,
+  eudev-9999.ebuild:
+  Promote kmod to +kmod, see bug #509624
+
+  24 Jun 2014; Michał Górny <mgorny@gentoo.org> eudev-1.5.3-r1.ebuild,
+  eudev-1.7.ebuild, eudev-1.8.ebuild, eudev-9999.ebuild:
+  Lower dev-libs/glib dep to first known EAPI=5 version, requested by Funtoo for
+  GNOME 3.6.
+
+  24 Jun 2014; Anthony G. Basile <blueness@gentoo.org> eudev-9999.ebuild:
+  Make use of the new rootlibexecdir option
+
+*eudev-1.8 (20 Jun 2014)
+
+  20 Jun 2014; Anthony G. Basile <blueness@gentoo.org> +eudev-1.8.ebuild,
+  eudev-9999.ebuild:
+  Version bump to 1.8 = upstream 214
 
   18 Jun 2014; Michał Górny <mgorny@gentoo.org> eudev-1.5.3-r1.ebuild,
   eudev-1.7.ebuild, eudev-9999.ebuild:

@@ -1,6 +1,19 @@
 # ChangeLog for net-misc/asterisk
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/asterisk/ChangeLog,v 1.486 2014/06/16 10:57:09 chainsaw Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/asterisk/ChangeLog,v 1.489 2014/06/23 10:15:25 chainsaw Exp $
+
+  23 Jun 2014; Tony Vroon <chainsaw@gentoo.org> -asterisk-1.8.26.1.ebuild,
+  -asterisk-11.8.1.ebuild, -asterisk-12.1.1.ebuild, -asterisk-12.2.0.ebuild:
+  Remove vulnerable ebuilds for security bug #513102, as requested by Agostino
+  "ago" Sarubbo.
+
+  21 Jun 2014; Agostino Sarubbo <ago@gentoo.org> asterisk-1.8.28.2.ebuild,
+  asterisk-11.10.2.ebuild:
+  Stable for x86, wrt bug #513102
+
+  21 Jun 2014; Agostino Sarubbo <ago@gentoo.org> asterisk-1.8.28.2.ebuild,
+  asterisk-11.10.2.ebuild:
+  Stable for amd64, wrt bug #513102
 
 *asterisk-12.3.2 (16 Jun 2014)
 
