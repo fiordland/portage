@@ -1,6 +1,55 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1293 2014/06/19 12:54:47 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1306 2014/06/29 14:24:22 floppym Exp $
+
+  29 Jun 2014; Mike Gilbert <floppym@gentoo.org> distutils-r1.eclass,
+  python-utils-r1.eclass:
+  Attempt to use a UTF-8 locale if one is available to avoid errors when
+  setup.py calls open() with no encoding.
+
+  29 Jun 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Fix handling empty MULTILIB_COMPAT.
+
+  29 Jun 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Check MULTILIB_COMPAT before querying USE flags. Bug #515642, thanks to Greg
+  Turner.
+
+  28 Jun 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Enable multilib flags for ppc. Since ppc profiles are not multilib at the
+  moment, this should not create any new issues.
+
+  27 Jun 2014; Sergei Trofimovich <slyfox@gentoo.org> haskell-cabal.eclass:
+  Disable QA warning on '--with-compiler' passed by 'dev-haskell/cabal' (bug
+  #515360 by Patrick Lauer).
+
+  27 Jun 2014; Sergei Trofimovich <slyfox@gentoo.org> haskell-cabal.eclass:
+  Disable QA warning on '--with-hc --with-hc-pkg --with-gcc' flags passed by
+  'dev-haskell/cabal' to every configure-based haskell package. Don't unset
+  LANG/LC_ALL/LC_MESSAGES anymore.
+
+  26 Jun 2014; Justin Lecher <jlec@gentoo.org> readme.gentoo.eclass,
+  waf-utils.eclass:
+  Rename FILE_SUFFIX to README_GENTOO_SUFFIX in order to avoid variable clashes
+
+  24 Jun 2014; Pacho Ramos <pacho@gentoo.org> readme.gentoo.eclass:
+  Allow to handle more README.gentoo files (#513190 by Justin Lecher)
+
+  23 Jun 2014; Sergey Popov <pinkbyte@gentoo.org> qt4-r2.eclass:
+  Simplify documentation files handling by utilizing einstalldocs from eutils
+  eclass
+
+  22 Jun 2014; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
+  Set LD{,CXX}SHARED properly for Darwin, reported by Fabian Groffen on bug
+  #513664.
+
+  20 Jun 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Fix typo in submodule fetching, reported by Hans Vercammen.
+
+  19 Jun 2014; Brian Evans <grknight@gentoo.org> mysql-v2.eclass, mysql-cmake.eclass:
+  Sync with mysql overlay.
+
+  19 Jun 2014; Michał Górny <mgorny@gentoo.org> python-utils-r1.eclass:
+  python_fix_shebang: properly unset local variables in loop iterations.
 
   19 Jun 2014; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
   Always set up CC, CXX and friends for distutils builds, bug #513664. Thanks

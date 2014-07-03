@@ -1,6 +1,18 @@
 # ChangeLog for sys-kernel/openvz-sources
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/openvz-sources/ChangeLog,v 1.227 2014/06/17 06:06:21 pva Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/openvz-sources/ChangeLog,v 1.229 2014/06/25 07:11:55 maksbotan Exp $
+
+*openvz-sources-2.6.32.90.5 (25 Jun 2014)
+
+  25 Jun 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  +openvz-sources-2.6.32.90.5.ebuild:
+  Bump to 2.6.32.90.5, fixes CVE-2014-3519, bug #515034. Thanks to slepnoga.
+
+*openvz-sources-2.6.32.90.4 (20 Jun 2014)
+
+  20 Jun 2014; Peter Volkov <pva@gentoo.org>
+  +openvz-sources-2.6.32.90.4.ebuild:
+  Version bump. Fix for futexes broken by 042stab090.3.
 
   17 Jun 2014; Peter Volkov <pva@gentoo.org>
   -openvz-sources-2.6.32.85.20.ebuild, -openvz-sources-2.6.32.88.4.ebuild,

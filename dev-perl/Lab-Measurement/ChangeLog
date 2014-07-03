@@ -1,6 +1,17 @@
 # ChangeLog for dev-perl/Lab-Measurement
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Lab-Measurement/ChangeLog,v 1.19 2014/04/23 21:39:10 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Lab-Measurement/ChangeLog,v 1.21 2014/06/29 15:15:25 dilfridge Exp $
+
+  29 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  Lab-Measurement-3.310.0.ebuild, Lab-Measurement-3.320.0.ebuild,
+  Lab-Measurement-9999.ebuild:
+  perl-core/Switch is the only Switch provider since perl-5.14
+
+*Lab-Measurement-3.320.0 (25 Jun 2014)
+
+  25 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  +Lab-Measurement-3.320.0.ebuild:
+  Version bump
 
   23 Apr 2014; Andreas K. Huettel <dilfridge@gentoo.org>
   -Lab-Measurement-3.200.0.ebuild:

@@ -635,6 +635,7 @@ app-emulation/wine:win32 - Build a 32bit version of Wine (won't run Win64 binari
 app-emulation/wine:win64 - Build a 64bit version of Wine (won't run Win32 binaries)
 app-emulation/winetricks:rar - Pull in app-arch/unrar for extraction of rar-compressed game files
 app-emulation/x48:readline - Enables support for libreadline
+app-emulation/xe-guest-utilities:xenstore - Use xenstore binaries bundled by Citrix instead of building app-emulation/xen-tools
 app-emulation/xen:efi - Adds efi boot support, requires LDFLAG -melf_x86_64 for amd64
 app-emulation/xen:flask - Enable the Flask XSM module from NSA
 app-emulation/xen:pae - Enable support for PAE kernels (usually x86-32 with >4GB memory)
@@ -779,13 +780,16 @@ app-leechcraft/lc-monocle:spectre - Enable PostScript backend for Monocle using 
 app-leechcraft/lc-musiczombie:acoustid - Use media-libs/chromaprint for acoustic fingerprinting
 app-leechcraft/lc-netstoremanager:googledrive - Support Google Drive storage backend
 app-leechcraft/lc-netstoremanager:yandexdisk - Support Yandex.Disk storage backend
+app-leechcraft/lc-poshuku:autosearch - Provide automatic search suggestions for Poshuku.
 app-leechcraft/lc-poshuku:cleanweb - Build CleanWeb for ad blocking compatible with Firefox's AdBlock+.
+app-leechcraft/lc-poshuku:dcac - Build color inverter module providing a night mode.
 app-leechcraft/lc-poshuku:fatape - Build FatApe, GreaseMonkey userscripts support layer.
 app-leechcraft/lc-poshuku:filescheme - Build FileScheme for accessing local URLs.
 app-leechcraft/lc-poshuku:fua - Build FUA for faking user agents for different hosts.
 app-leechcraft/lc-poshuku:keywords - Build Keywords for adjusting search shortcuts.
 app-leechcraft/lc-poshuku:onlinebookmarks - Build OnlineBookmarks for syncing bookmarks with social bookmarking services like Read It Later.
 app-leechcraft/lc-poshuku:pcre - Use dev-libs/libpcre for rules matching in CleanWeb instead of slower QRegExp.
+app-leechcraft/lc-poshuku:qrd - Build module for displaying the QR code of a web page.
 app-leechcraft/lc-poshuku:wyfv - Build WYFV for replacing Flash-based video players on some sites.
 app-leechcraft/lc-vrooby:udisks - Use sys-fs/udisks:0 for block device access (e.g., automounting)
 app-leechcraft/lc-vrooby:udisks2 - Use sys-fs/udisks:2 for block device access (e.g., automounting)
@@ -1324,6 +1328,7 @@ dev-haskell/ansi-wl-pprint:example - Build the example application.
 dev-haskell/cabal-install:noprefs - Ignore 'preferred-versions' file from hackage's tarball.
 dev-haskell/certificate:executable - Build the executable
 dev-haskell/cgi:extensible-exceptions-in-base - Required to be enabled for >=dev-lang/ghc-7.
+dev-haskell/chell:color-output - use colors in program output
 dev-haskell/citeproc-hs:bibutils - use Chris Putnam's app-text/bibutils
 dev-haskell/citeproc-hs:embed_data_files - Embed locale files into the library (needed for windows packaging)
 dev-haskell/citeproc-hs:hexpat - use dev-haskell/hexpat instead of dev-haskell/xml for XML parsing
@@ -1336,9 +1341,12 @@ dev-haskell/comonad:test-doctests - Run the doctests test suite
 dev-haskell/conduit:nohandles - experimental code to use raw system calls in place of handles. Not recommended for general use
 dev-haskell/cpu:executable - build 'cpuid' tool
 dev-haskell/crypto-api:all_cpolys - Build all the CMAC polynomes up to 10000 bits instead of just the usual ones
+dev-haskell/crypto-conduit:conduit11 - Use conduit >= 1.1.
 dev-haskell/crypto-pubkey:benchmark - Build benchmarks.
 dev-haskell/cryptohash:cryptoapi - Defines crypto-api instances
+dev-haskell/dataenc:tests - Build unit and quickcheck tests.
 dev-haskell/distributive:lib-werror - Compile with the ghc -Werror option
+dev-haskell/entropy:halvm - Build for the HaLVM.
 dev-haskell/filestore:maxcount - Make use of a recent (>= 2.3.0) Darcs feature which vastly improves the performance of 'latest'. You should disable this flag if you plan to use gitit with an older version of Darcs, or 'latest' will raise an error.
 dev-haskell/glib:closure_signals - Use the the GClosure-based signals implementation.
 dev-haskell/glut:usenativewindowslibraries - When compiling under Windows, use the native libraries instead of e.g. the ones coming with Cygwin.
@@ -1979,7 +1987,6 @@ dev-python/anyvc:bazaar - Add support for Bazaar
 dev-python/anyvc:mercurial - Add support for Mercurial
 dev-python/bpython:urwid - Backend based on dev-python/urwid
 dev-python/celery:redis - Enables redis support
-dev-python/celery:sql - Adds SQL support
 dev-python/cgkit:3ds - Enable support for importing 3D Studio models
 dev-python/cvxopt:dsdp - Use interior point library sci-libs/dsdp
 dev-python/cvxopt:glpk - Use GNU Linear Programming Kit sci-mathematics/glpk
@@ -3541,7 +3548,6 @@ media-libs/mlt:melt - Build the melt commandline tool
 media-libs/mlt:python - Build SWIG bindings for Python
 media-libs/mlt:rtaudio - Builds rtaudio consumer for native audio support on multiple platforms.
 media-libs/mlt:ruby - Build SWIG bindings for Ruby
-media-libs/mlt:swfdec - Use media-libs/swfdec for reading .swf files (Macromedia Flash) instead of libavformat.
 media-libs/netpbm:rle - Build converters for the RLE format (utah raster toolkit)
 media-libs/openal:alstream - Build and install the FFmpeg based alstream example utility
 media-libs/opencolorio:pdf - Install extra documentation in PDF format
@@ -3837,6 +3843,7 @@ media-sound/lame:mp3rtp - Build the mp3-to-RTP streaming utility. **UNSUPPORTED*
 media-sound/lmms:fluidsynth - Enables Fluidsynth MIDI software synthesis plugin.
 media-sound/lmms:stk - Enables STK Mallet plugin.
 media-sound/lmms:vst - Enables the VeSTige plugin to run VST plugins through Wine.
+media-sound/lyvi:mpris - Enable MPRIS support
 media-sound/mangler:espeak - Text to speech engine
 media-sound/mangler:g15 - Logitech g15 lcd support
 media-sound/mangler:opus - Codec specialized for speech over the internet
@@ -4023,6 +4030,10 @@ media-tv/mythtv:raop - Remote Audio Output Protocol (aka AirTunes/AirPlay)
 media-tv/mythtv:vaapi - Enables VAAPI (Video Acceleration API) for hardware decoding
 media-tv/mythtv:xmltv - Pulls in the media-tv/xmltv TV listing grabbers for users not using Schedules Direct.
 media-tv/tvbrowser:themes - Install extra theme packs
+media-tv/tvheadend:ccache - Use dev-util/ccache
+media-tv/tvheadend:dvbscan - Use media-tv/linuxtv-dvb-apps
+media-tv/tvheadend:imagecache - Enable support for image caching
+media-tv/tvheadend:uriparser - Use dev-libs/uriparser
 media-tv/tvheadend:xmltv - Use media-tv/xmltv
 media-tv/v4l-dvb-saa716x:firmware - Install firmware
 media-tv/xawtv:xext - Enable use of XFree extensions (DGA,VidMode,DPMS)
@@ -4848,7 +4859,6 @@ net-im/ktp-accounts-kcm:modemmanager - Enable support for mobile broadband devic
 net-im/licq:aosd - Build the advanced on screen display plugin.
 net-im/mcabber:aspell - Adds support for app-text/aspell spell checker.
 net-im/mcabber:otr - Enable encrypted conversations using Off-The-Records messaging
-net-im/minbif:video - Add video support
 net-im/pidgin:gadu - Enable Gadu Gadu protocol support
 net-im/pidgin:groupwise - Enable Novell Groupwise protocol support
 net-im/pidgin:gstreamer - Enables voice and video sessions
@@ -5133,6 +5143,7 @@ net-libs/ldns:gost - Enable GOST support
 net-libs/libbtbb:pcap - Add support for network packet capture via net-libs/libpcap
 net-libs/libbtbb:wireshark - Build the wireshark plugin for bluetooth baseband sniffing
 net-libs/libbtbb:wireshark-plugins - Build the wireshark plugins for bluetooth baseband sniffing
+net-libs/libcrafter:pcap - Use net-libs/libpcap for packet capturing
 net-libs/libeXosip:srv - enable support for SRV records DNS queries
 net-libs/libesmtp:ssl - Enable support for advanced SMTP authentication methods, like NTML and STARTTLS. Also use OpenSSL's MD5 implementation over internal version.
 net-libs/libetpan:liblockfile - Enable support for liblockfile library
@@ -5314,6 +5325,7 @@ net-mail/vpopmail:maildrop - Enables mail-filter/maildrop support in vdelivermai
 net-mail/vpopmail:spamassassin - Enables mail-filter/spamassassin support
 net-misc/apt-cacher-ng:fuse - Install the sys-fs/fuse based acngfs, to use a userspace filesystem for the apt cache.
 net-misc/aria2:bittorrent - Enable support for the bittorrent protocol.
+net-misc/aria2:jemalloc - Use dev-libs/jemalloc to replace the malloc() implementation with a possibly faster one
 net-misc/aria2:libuv - Use dev-libs/libuv backend.
 net-misc/aria2:libxml2 - Use dev-libs/libxml2 for XML parsing (preferred) instead of dev-libs/expat.
 net-misc/aria2:metalink - Enable support for metalink.
@@ -5398,6 +5410,7 @@ net-misc/bfgminer:sse2_4way - Enable support for CPU SSE2 4way mining algorithm
 net-misc/bfgminer:sse4 - Enable support for CPU SSE4 mining algorithm
 net-misc/bfgminer:twinfury - Enable support for mining with Twinfury USB sticks
 net-misc/bfgminer:x6500 - Enable support for mining with X6500 FPGAs
+net-misc/bfgminer:zeusminer - Enable support for mining with ZeusMiner units
 net-misc/bfgminer:ztex - Enable support for mining with Ztex FPGAs
 net-misc/cfengine:html - Install HTML documentation
 net-misc/cfengine:libvirt - Enable support for virtual machine management through app-emulation/libvirt
@@ -6013,13 +6026,19 @@ sci-chemistry/ghemical:openbabel - Use sci-chemistry/openbabel for file conversi
 sci-chemistry/ghemical:toolbar - Build the shortcuts toolbar
 sci-chemistry/gromacs:avx128fma - Enable 128bit avx with fma (e.g. AMD BullDozer)
 sci-chemistry/gromacs:avx256 - Enable 256bit avx (e.g. Intel Sandy Bridge)
+sci-chemistry/gromacs:avx2_256 - Enable 256bit avx2 (e.g. Intel Haswell)
+sci-chemistry/gromacs:avx_128_fma - Enable 128bit avx with fma (e.g. AMD BullDozer)
+sci-chemistry/gromacs:avx_256 - Enable 256bit avx (e.g. Intel Sandy Bridge)
+sci-chemistry/gromacs:boost - Enable external boost library
 sci-chemistry/gromacs:cuda - Enable cuda non-bonded kernels
 sci-chemistry/gromacs:double-precision - More precise calculations at the expense of speed
+sci-chemistry/gromacs:make-symlinks - Create symbolic links for pre-5.0 binary names
 sci-chemistry/gromacs:mkl - Use sci-libs/mkl for fft, blas, lapack routines
 sci-chemistry/gromacs:offensive - Enable gromacs partly offensive quotes
 sci-chemistry/gromacs:openmm - Add acceleration through sci-libs/openmm
 sci-chemistry/gromacs:single-precision - Single precision version of gromacs (default)
 sci-chemistry/gromacs:sse4_1 - Enable sse4.1 acceleration
+sci-chemistry/gromacs:tng - Enable new trajectory format - tng
 sci-chemistry/gsim:emf - Support for .emf export
 sci-chemistry/icm:32bit - Automatically generated description for 32bit
 sci-chemistry/icm:64bit - Automatically generated description for 64bit
@@ -6482,7 +6501,7 @@ sys-apps/pyrenamer:music - Enable support for renaming music
 sys-apps/qingy:consolekit - Enable native consolekit support
 sys-apps/qingy:opensslcrypt - Encrypt communications between qingy and its GUI using dev-libs/openssl
 sys-apps/razercfg:pm-utils - Installs the pm-utils hooks for suspend/resume and requires sys-power/pm-utils
-sys-apps/razercfg:qt4 - Installs a qt UI. Requires dev-python/pygtk
+sys-apps/razercfg:qt4 - Installs a qt UI. Requires dev-python/pyside
 sys-apps/rsbac-admin:rklogd - Enabled deprecated RSBAC kernel logger
 sys-apps/s390-tools:fuse - build cmsfs-fuse to read files stored on a z/VM CMS disk
 sys-apps/s390-tools:zfcpdump - build the kernel disk dumping utility
@@ -6563,6 +6582,8 @@ sys-block/gparted:xfs - Include XFS support (sys-fs/xfsprogs, sys-fs/xfsdump)
 sys-block/parted:debug - Enable debugging as encouraged by upstream: [The default configuration] includes --enable-debug (by default), which contains many assertions. Obviously, these "waste" space, but in the past, they have caught potentially dangerous bugs before they would have done damage, so we think it's worth it. Also, it means we get more bug reports ;)
 sys-block/parted:device-mapper - Enable device-mapper support from sys-fs/lvm2 in parted
 sys-block/partimage:nologin - Do not include login support when connecting partimaged
+sys-block/sas2ircu:efi - Install EFI variant as well
+sys-block/sas3ircu:efi - Install EFI variant as well
 sys-block/tgt:fcoe - Add support for FCoE protocol
 sys-block/tgt:fcp - Add support for new FC protocol
 sys-block/tgt:ibmvio - Add support for IBM Virtual I/O
@@ -6630,18 +6651,11 @@ sys-cluster/neutron:linuxbridge - Installs the initscripts for the neutron linux
 sys-cluster/neutron:metadata - Installs the initscripts for the neutron metadata agent service
 sys-cluster/neutron:openvswitch - Installs the initscripts for the neutron openvswitch agent service
 sys-cluster/neutron:server - Installs the initscripts for the neutron server service
-sys-cluster/nova:api - Installs the initscripts for the nova api service
-sys-cluster/nova:cert - Installs the initscripts for the nova scheduler service
 sys-cluster/nova:compute - Installs the initscripts for the nova volume service
-sys-cluster/nova:conductor - Installs the initscripts for the nova conductor service
-sys-cluster/nova:consoleauth - Installs the initscripts for the nova consoleauth service
 sys-cluster/nova:kvm - qemu-kvm hypervisor support
 sys-cluster/nova:network - Installs the initscripts for the nova network service
 sys-cluster/nova:novncproxy - Installs the initscripts for the nova novncproxy service
-sys-cluster/nova:scheduler - Installs the initscripts for the nova scheduler service
-sys-cluster/nova:spicehtml5proxy - Installs the initscripts for the nova spicehtml5proxy service
 sys-cluster/nova:xen - xen hypervisor support
-sys-cluster/nova:xvpvncproxy - Installs the initscripts for the nova xvpvncproxy service
 sys-cluster/ocfs:aio - Add aio support
 sys-cluster/openmpi:cma - Enable the CMA (Cross Memory Attach) MCA
 sys-cluster/openmpi:cuda - Add GPU direct support
@@ -6782,7 +6796,7 @@ sys-fs/cryptsetup:nettle - Use dev-libs/nettle crypto backend
 sys-fs/cryptsetup:openssl - Use dev-libs/openssl crypto backend
 sys-fs/cryptsetup:reencrypt - Build cryptsetup-reencrypt
 sys-fs/cryptsetup:urandom - Use /dev/urandom instead of /dev/random
-sys-fs/dd-rescue:sse4_2 - Use the SSE4.1 instruction set
+sys-fs/dd-rescue:sse4_2 - Use the SSE4.2 instruction set
 sys-fs/dmraid:dietlibc - Compile against dev-libs/dietlibc
 sys-fs/dmraid:intel_led - Enable Intel LED support
 sys-fs/dmraid:klibc - Compile against dev-libs/klibc
@@ -7071,6 +7085,7 @@ www-client/chromium:bindist - Disable patent-encumbered HTML5 video codecs
 www-client/chromium:pic - Disable optimized assembly code that is not PIC friendly
 www-client/chromium:tcmalloc - Use bundled tcmalloc instead of system malloc.
 www-client/dwb:gtk3 - Link against x11-libs/gtk+:3 instead of x11-libs/gtk+:2
+www-client/dwb:libsecret - Enable libsecret support to store login credentials
 www-client/elinks:bittorrent - Enable support for the BitTorrent protocol
 www-client/elinks:finger - Enable support for the finger protocol
 www-client/elinks:gopher - Enable support for the gopher protocol
@@ -7131,6 +7146,7 @@ www-client/uzbl:experimental - Enable experimental branch
 www-client/uzbl:gtk3 - Use x11-libs/gtk+:3 instead of x11-libs/gtk+:2
 www-client/uzbl:helpers - Optional tools used by uzbl scripts
 www-client/uzbl:tabbed - Install the uzbl-tabbed script
+www-client/vimb:gtk3 - Link against x11-libs/gtk+:3 instead of x11-libs/gtk+:2
 www-client/w3m:lynxkeymap - If you prefer Lynx-like key binding
 www-client/weboob:fast-libs - Enable fast libs
 www-client/weboob:secure-updates - Enable secure updates

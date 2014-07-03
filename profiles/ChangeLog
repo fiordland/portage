@@ -1,10 +1,97 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.9100 2014/06/19 03:12:47 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.9125 2014/07/01 12:16:46 dilfridge Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  01 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add message about Switch to perl-5.12 mask
+
+  01 Jul 2014; Tim Harder <radhermit@gentoo.org> package.mask:
+  Use more detailed mask explanations.
+
+  01 Jul 2014; Patrick Lauer <patrick@gentoo.org> package.mask:
+  Remove silly lxc mask that interferes with docker
+
+  30 Jun 2014; Manuel Rüger <mrueg@gentoo.org> package.mask:
+  Cleanup p.mask
+
+  29 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add dev-php/PEAR-MDB2_Driver_ibase to firebird mask entry
+
+  29 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Mask use-flag firebird and package dev-db/firebird for bug 460780
+
+  29 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Mask perl-5.12 and family for removal
+
+  29 Jun 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  perl-5.14 is gone
+
+  29 Jun 2014; Greg Kroah-Hartman <gregkh@gentoo.org>
+  remove docker masks due to security issues with old versions.
+  And a total lack of anyone telling me that they were masking them
+  in the first place...
+
+  29 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  targets/desktop/gnome/package.use:
+  Do not enable gstreamer in wine by default
+
+  28 Jun 2014; Hans de Graaff <graaff@gentoo.org> package.mask:
+  Mask dev-ruby/mail:2.4 slot.
+
+  27 Jun 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  hardened/linux/amd64/no-multilib/package.mask:
+  added games-arcade/thinktanks-demo to p.mask in
+  hardened/linux/amd64/no-multilib
+
+  27 Jun 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  arch/amd64/no-multilib/package.mask,
+  added games-arcade/thinktanks-demo to p.mask in amd64/no-multilib
+
+  27 Jun 2014; Sergei Trofimovich <slyfox@gentoo.org> package.mask:
+  Fix syntax of 'PortageXS' mask.
+
+  27 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> package.mask:
+  Mask dev-perl/PortageXS 0.2.12 for preoper testing.
+
+  26 Jun 2014; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Mask net-analyzer/mausezahn (bug #515210).
+
+  25 Jun 2014; Andrey Grozin <grozin@gentoo.org>
+  arch/alpha/use.mask, arch/amd64/use.mask, arch/amd64/use.stable.mask,
+  arch/arm/use.mask, arch/arm64/use.mask, arch/ia64/use.mask, arch/m68k/use.mask,
+  arch/powerpc/ppc32/use.mask, arch/powerpc/ppc32/use.stable.mask, arch/s390/use.mask, arch/sh/use.mask,
+  arch/sparc/use.mask, arch/sparc/use.stable.mask, arch/x86/use.mask, arch/x86/use.stable.mask,
+  base/use.mask:
+  USE flags clisp, clozurecl, cmucl, ecls, gcl, sbcl masked in base
+  and unmasked only on the relevant arches (stable.masked whenever necessary)
+
+  24 Jun 2014; Mike Gilbert <floppym@gentoo.org> thirdpartymirrors:
+  Add ftp://ftp.gnupg.org/gcrypt/ to gnupg mirrors.
+
+  22 Jun 2014; Pacho Ramos <pacho@gentoo.org> package.mask:
+  Mask keytouch* for removal (#371839)
+
+  22 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org> package.mask:
+  Mask >=dev-libs/libgit2-glib-0.0.14 until a compatible gitg version is
+  released (bug #514468).
+
+  22 Jun 2014; Pacho Ramos <pacho@gentoo.org>
+  targets/desktop/gnome/package.use:
+  Newer version is compatible
+
+  22 Jun 2014; Samuli Suominen <ssuominen@gentoo.org> desc/xfce_plugins.desc:
+  Introduce XFCE_PLUGINS="battery" for xfce4-power-manager
+
+  22 Jun 2014; Robin H. Johnson <robbat2@gentoo.org> package.mask:
+  openstack-guest-agents-unix and xe-guest-utilities coming because infra needs
+  them.
+
+  21 Jun 2014; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  unmask latest sssd
 
   19 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org> package.mask:
   Moved emul-linux-x86-baselibs-20140508-r{10,11} to -r{13,14} to allow
