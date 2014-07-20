@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyro/pyro-4.24.ebuild,v 1.5 2014/06/14 09:50:21 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyro/pyro-4.24.ebuild,v 1.7 2014/07/17 02:06:27 idella4 Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy pypy2_0 )
+PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} pypy )
 
 inherit distutils-r1
 
@@ -27,7 +27,6 @@ DEPEND="${RDEPEND}
 	test? (
 		dev-python/coverage[${PYTHON_USEDEP}]
 		dev-python/nose[${PYTHON_USEDEP}]
-		virtual/python-unittest2[${PYTHON_USEDEP}]
 	)"
 
 S="${WORKDIR}/${MY_P}"

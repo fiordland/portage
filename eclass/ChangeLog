@@ -1,6 +1,79 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1306 2014/06/29 14:24:22 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1323 2014/07/19 10:18:41 grobian Exp $
+
+  19 Jul 2014; Fabian Groffen <grobian@gentoo.org> mysql.eclass,
+  mysql-autotools.eclass, mysql-cmake.eclass, mysql-v2.eclass:
+  Fix misc issues for Prefix allowing install and config of mysql
+
+  17 Jul 2014; Michael Palimaka <kensington@gentoo.org> kde4-functions.eclass:
+  Fix missing handbooks when the default handbook language is en_US instead of
+  the usual en.
+
+  16 Jul 2014; Johannes Huber <johu@gentoo.org> kde4-base.eclass:
+  Add kde-workspace 4.11.11 SRC_URI, remove obsolete.
+
+  13 Jul 2014; Ulrich Müller <ulm@gentoo.org> gnatbuild.eclass:
+  Don't call eselect with obsolete --no-color option.
+
+  11 Jul 2014; Ulrich Müller <ulm@gentoo.org> autotools.eclass, base.eclass,
+  cdrom.eclass, cmake-utils.eclass, cvs.eclass, enlightenment.eclass,
+  eutils.eclass, fcaps.eclass, fixheadtails.eclass, flag-o-matic.eclass,
+  games.eclass, kde4-base.eclass, kde4-functions.eclass, kde4-meta.eclass,
+  kde4-meta-pkg.eclass, libtool.eclass, multilib.eclass,
+  multiprocessing.eclass, pam.eclass, pax-utils.eclass, portability.eclass,
+  qmake-utils.eclass, readme.gentoo.eclass, toolchain-funcs.eclass,
+  unpacker.eclass, user.eclass, versionator.eclass:
+  Avoid reserved names for functions and variables, bug 516092.
+
+  08 Jul 2014; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
+  Support linking Python modules on aix, thanks to haubi.
+
+  07 Jul 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
+  Stop forcing -m0755 on EGIT3_STORE_DIR and parents, bug #516508.
+
+  07 Jul 2014; Michael Haubenwallner <haubi@gentoo.org>
+  ELT-patches/aixrtl/1.5.0-cmds-c, ELT-patches/aixrtl/1.5.0-cmds-cxx,
+  ELT-patches/aixrtl/1.5.22-cmds-c, ELT-patches/aixrtl/1.5.22-cmds-cxx,
+  ELT-patches/aixrtl/2.2.0-cmds-c, ELT-patches/aixrtl/2.2.0-cmds-cxx,
+  ELT-patches/aixrtl/2.2.8-cmds-c, ELT-patches/aixrtl/2.2.8-cmds-cxx,
+  ELT-patches/aixrtl/2.4.2.418-cmds-c, ELT-patches/aixrtl/2.4.2.418-cmds-cxx:
+  need semicolon after noop command to get subsequent variable set
+
+  07 Jul 2014; Michael Haubenwallner <haubi@gentoo.org>
+  -ELT-patches/aixrtl/2.4.2.418-cmds.c, -ELT-patches/aixrtl/2.4.2.418-cmds.cxx,
+  +ELT-patches/aixrtl/2.4.2.418-cmds-c, +ELT-patches/aixrtl/2.4.2.418-cmds-cxx:
+  use similar filename even for 2.4.2.418 diffs
+
+  07 Jul 2014; Michael Haubenwallner <haubi@gentoo.org>
+  ELT-patches/aixrtl/1.5.0-cmds-c, ELT-patches/aixrtl/1.5.0-cmds-cxx,
+  ELT-patches/aixrtl/1.5.22-cmds-c, ELT-patches/aixrtl/1.5.22-cmds-cxx,
+  ELT-patches/aixrtl/2.2.0-cmds-c, ELT-patches/aixrtl/2.2.0-cmds-cxx,
+  ELT-patches/aixrtl/2.2.8-cmds-c, ELT-patches/aixrtl/2.2.8-cmds-cxx,
+  ELT-patches/aixrtl/2.4.2.418-cmds.c, ELT-patches/aixrtl/2.4.2.418-cmds.cxx:
+  Use $lib for the real filename, to support soname hackery in libXaw.
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> tests/python-utils-r1.sh:
+  Add tests for _python_impl_supported.
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> python-r1.eclass:
+  python_gen_cond_dep: delay PYTHON_USEDEP substitution until one of the
+  implementations is actually enabled. Fixes bug #516520.
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> python-utils-r1.eclass:
+  Disable python2.6 support and clean up the related code.
+
+  04 Jul 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Declare REQUIRED_USE inside MULTILIB_COMPAT conditional, reported by steev.
+
+  03 Jul 2014; Fabian Groffen <grobian@gentoo.org> multilib-build.eclass:
+  Add some Prefix hosts to _MULTILIB_FLAGS
+
+  03 Jul 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Explain MULTILIB_COMPAT a bit more verbosely, and add a REQUIRED_USE for it.
+
+  03 Jul 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
+  Re-enable multilib flags for s390.
 
   29 Jun 2014; Mike Gilbert <floppym@gentoo.org> distutils-r1.eclass,
   python-utils-r1.eclass:

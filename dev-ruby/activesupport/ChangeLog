@@ -1,6 +1,30 @@
 # ChangeLog for dev-ruby/activesupport
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activesupport/ChangeLog,v 1.259 2014/06/26 20:06:18 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activesupport/ChangeLog,v 1.264 2014/07/12 07:03:21 graaff Exp $
+
+  12 Jul 2014; Hans de Graaff <graaff@gentoo.org> -activesupport-3.2.18.ebuild,
+  -activesupport-4.0.5.ebuild, -activesupport-4.0.6.ebuild,
+  -activesupport-4.1.1.ebuild, -activesupport-4.1.2.ebuild:
+  Remove vulnerable versions.
+
+  05 Jul 2014; Manuel Rüger <mrueg@gentoo.org> activesupport-3.2.18.ebuild,
+  activesupport-3.2.19.ebuild:
+  Remove ruby18 cases.
+
+*activesupport-4.1.4 (03 Jul 2014)
+
+  03 Jul 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.1.4.ebuild:
+  Version bump to Rails 4.1.4 for security bug 516084.
+
+*activesupport-4.0.8 (03 Jul 2014)
+
+  03 Jul 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.0.8.ebuild:
+  Version bump to Rails 4.0.8 for security bug 516084.
+
+*activesupport-3.2.19 (03 Jul 2014)
+
+  03 Jul 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-3.2.19.ebuild:
+  Version bump to Rails 3.2.19 for security bug 516084.
 
 *activesupport-4.1.2 (26 Jun 2014)
 

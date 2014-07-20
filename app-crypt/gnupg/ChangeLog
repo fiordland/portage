@@ -1,6 +1,41 @@
 # ChangeLog for app-crypt/gnupg
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/gnupg/ChangeLog,v 1.525 2014/07/01 18:25:30 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/gnupg/ChangeLog,v 1.534 2014/07/16 13:57:16 alonbl Exp $
+
+  16 Jul 2014; Alon Bar-Lev <alonbl@gentoo.org> -gnupg-1.4.16.ebuild,
+  -gnupg-2.0.22.ebuild, -gnupg-2.0.23.ebuild:
+  Cleanup
+
+  12 Jul 2014;  <tgall@gentoo.org> gnupg-2.0.25.ebuild:
+  Stable for arm64 bug #514718
+
+  05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnupg-1.4.18.ebuild,
+  gnupg-2.0.25.ebuild:
+  Stable for sparc, wrt bug #514718
+
+  05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnupg-1.4.18.ebuild,
+  gnupg-2.0.25.ebuild:
+  Stable for arm, wrt bug #514718
+
+  05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnupg-1.4.18.ebuild,
+  gnupg-2.0.25.ebuild:
+  Stable for ia64, wrt bug #514718
+
+  05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnupg-1.4.18.ebuild,
+  gnupg-2.0.25.ebuild:
+  Stable for ppc64, wrt bug #514718
+
+  05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnupg-1.4.18.ebuild,
+  gnupg-2.0.25.ebuild:
+  Stable for ppc, wrt bug #514718
+
+  05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnupg-1.4.18.ebuild,
+  gnupg-2.0.25.ebuild:
+  Stable for alpha, wrt bug #514718
+
+  05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnupg-1.4.18.ebuild,
+  gnupg-2.0.25.ebuild:
+  Stable for x86, wrt bug #514718
 
   01 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> gnupg-1.4.18.ebuild:
   amd64 stable wrt bug #514718

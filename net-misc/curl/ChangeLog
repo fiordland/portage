@@ -1,6 +1,18 @@
 # ChangeLog for net-misc/curl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/curl/ChangeLog,v 1.366 2014/06/19 03:20:34 tetromino Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/curl/ChangeLog,v 1.371 2014/07/17 11:10:33 blueness Exp $
+
+*curl-7.37.1 (17 Jul 2014)
+
+  17 Jul 2014; Anthony G. Basile <blueness@gentoo.org> +curl-7.37.1.ebuild:
+  Version bump
+
+  15 Jul 2014; Anthony G. Basile <blueness@gentoo.org> curl-7.36.0-r1.ebuild,
+  curl-7.36.0.ebuild, curl-7.37.0.ebuild:
+  Remove cyassl use flag, bug #495848
+
+  04 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> curl-7.37.0-r1.ebuild:
+  adjusted exclusion dep on emul-linux-x86-baselibs as it was way too old
 
   19 Jun 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
   curl-7.37.0-r1.ebuild:

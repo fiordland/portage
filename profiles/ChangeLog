@@ -1,10 +1,364 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.9125 2014/07/01 12:16:46 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.9233 2014/07/20 13:55:54 dilfridge Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  20 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> updates/3Q-2014:
+  Rename perl-core/PodParser to perl-core/Pod-Parser to follow upstream
+
+  20 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of IO::Compress to perl-5.20 mask
+
+  20 Jul 2014; Lars Wendler <polynomial-c@gentoo.org> package.mask:
+  Masked latest e2fsprogs as it fails to build.
+
+  20 Jul 2014; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  sssd-1.12 works in my ldap based systems so unmask it
+
+  19 Jul 2014; Jeroen Roovers <jer@gentoo.org> updates/3Q-2014:
+  Move iperf3 to a new SLOT (bug #517488).
+
+  19 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Remove unneeded mask for ExtUtils-Manifest-1.630.0-r1
+
+  18 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Remove perl-core/B-Debug 5.20 version from mask after removing ebuild
+
+  18 Jul 2014; Michael Weber <xmw@gentoo.org> package.mask:
+  Masked for removal of affected versions in 30 days. Security issue bug 513560
+
+  18 Jul 2014; Hans de Graaff <graaff@gentoo.org> package.mask:
+  Remove masked ruby packages.
+
+  18 Jul 2014; Hans de Graaff <graaff@gentoo.org> package.mask:
+  Mask virtual/ruby-test-unit for removal for bug 380711.
+
+  17 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of threads::shared to perl-5.20 mask
+
+  17 Jul 2014; Michael Palimaka <kensington@gentoo.org> package.mask:
+  Unmask dev-python/sip and dev-python/PyQt4 wrt bug #506452.
+
+  17 Jul 2014; Pacho Ramos <pacho@gentoo.org>
+  arch/amd64/package.use.stable.mask:
+  Update stable mask for multilib
+
+  16 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> license_groups:
+  added FAH-EULA-2014 license to EULA group
+
+  16 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of threads to perl-5.20 mask
+
+  16 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Net::Ping to perl-5.20 mask
+
+  15 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Locale::Maketext to perl-5.20 mask
+
+  15 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of if to perl-5.20 mask
+
+  15 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of I18N::LangTags to perl-5.20 mask
+
+  15 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of autodie to perl-5.20 mask
+
+  15 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of XSLoader to perl-5.20 mask
+
+  15 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Time::Piece to perl-5.20 mask
+
+  15 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Thread::Queue to perl-5.20 mask
+
+  15 Jul 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Mask sys-libs/lib-compat and its reverse dependencies.
+
+  15 Jul 2014; Anthony G. Basile <blueness@gentoo.org> profiles.desc:
+  Add hardened/linux/uclibc/ppc to profiles.desc
+
+  15 Jul 2014; Anthony G. Basile <blueness@gentoo.org>
+  arch/amd64-fbsd/todo/package.use.mask, arch/amd64/package.use.mask,
+  arch/x86/package.use.mask, base/package.use.mask,
+  default/bsd/fbsd/amd64/9.1/clang/package.use.mask,
+  default/bsd/fbsd/amd64/9.2/clang/package.use.mask,
+  default/linux/alpha/13.0/use.mask, default/linux/ia64/13.0/use.mask,
+  default/linux/sparc/13.0/use.mask, desc/curl_ssl.desc, package.mask:
+  Remove cyassl package and use flag, bug #495848
+
+  14 Jul 2014; Maxim Koltsov <maksbotan@gentoo.org> package.mask:
+  Update mpv mask to 0.4.1
+
+  14 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> package.mask:
+  Mask ghc-7.8.3's '=dev-haskell/deepseq-1.3.0.2*' bundled lib.
+
+  13 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Test::Simple to perl-5.20 mask
+
+  13 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Test::Harness to perl-5.20 mask
+
+  13 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Storable to perl-5.20 mask
+
+  13 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Socket to perl-5.20 mask
+
+  13 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Scalar::List::Utils to perl-5.20 mask
+
+  13 Jul 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Mask app-emacs/sawfish for removal.
+
+  12 Jul 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask new PyPy.
+
+  12 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Safe to perl-5.20 mask
+
+  12 Jul 2014; Markos Chandras <hwoarang@gentoo.org> package.mask:
+  Mask new sssd-1.12.0 for production testing
+
+  12 Jul 2014; Mike Gilbert <floppym@gentoo.org> thirdpartymirrors:
+  Drop bitbucket. Sorry overlays, you're on your own.
+
+  12 Jul 2014; Brian Evans <grknight@gentoo.org> thirdpartymirrors:
+  Revert change to mirror://bitbucket as wget fails to download due
+  to mismatched certificate.
+
+  11 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Pod::Escapes to perl-5.20 mask
+
+  11 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Perl::OSType to perl-5.20 mask
+
+  11 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Parse::CPAN::Meta to perl-5.20 mask
+
+  10 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Package::Constants to perl-5.20 mask
+
+  10 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Module::Metadata to perl-5.20 mask
+
+  10 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Module::Load::Conditional to perl-5.20 mask
+
+  10 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Module::Load to perl-5.20 mask
+
+  10 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of bignum to perl-5.20 mask
+
+  10 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Math::BigRat to perl-5.20 mask
+
+  10 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> package.mask:
+  Mask fresh ghc-7.8.3.
+
+  10 Jul 2014; Michael Weber <xmw@gentoo.org> package.mask:
+  Mask buggy versions of dev-libs/libmodbus
+
+  09 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Module::CoreList to perl-5.20 mask
+
+  09 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Module::Build to perl-5.20 mask
+
+  09 Jul 2014; Maxim Koltsov <maksbotan@gentoo.org> package.mask:
+  Fix mpv mask to exclude 9999 version
+
+  09 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Math::BigInt::FastCalc to perl-5.20 mask
+
+  09 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Math::BigInt to perl-5.20 mask
+
+  09 Jul 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  arch/alpha/package.use.mask, arch/arm/package.use.mask,
+  arch/powerpc/package.use.mask, arch/sparc/package.use.mask, package.mask:
+  Mask mpv-0.4.0 due to libav-10 mask, mask >=mpv-0.4.0[doc-pdf] on
+  alpha,arm,powerpc,sparc due to dev-python/rst2pdf missing keywords.
+
+  09 Jul 2014; Andrey Grozin <grozin@gentoo.org> package.mask:
+  app-text/qgoogletranslator, dev-lisp/openmcl, dev-lisp/openmcl-build-tools removed from the tree
+
+  08 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of JSON::PP to perl-5.20 mask
+
+  08 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of IPC::Cmd to perl-5.20 mask
+
+  08 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> package.mask:
+  removed last-rites on postal2mp-demo
+
+  07 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> package.mask:
+  masked games-fps/postal2mp-demo for treecleaning
+
+  07 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of IO to perl-5.20 mask
+
+  07 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of HTTP::Tiny to perl-5.20 mask
+
+  07 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Filter::Simple to perl-5.20 mask
+
+  07 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Mask virtual/perl-Filter for removal
+
+  07 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> updates/3Q-2014:
+  Move perl-core/Filter to dev-perl/Filter
+
+  07 Jul 2014; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Mask sys-block/afacli as consumer of sys-libs/lib-compat, bug #515926
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Last rite virtual/python-argparse and virtual/python-unittest2.
+
+  06 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of File::Spec to perl-5.20 mask
+
+  06 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of ExtUtils::ParseXS to perl-5.20 mask
+
+  06 Jul 2014; Ulrich Müller <ulm@gentoo.org> updates/2Q-2014,
+  +updates/3Q-2014:
+  Move latest entry to correct quarter file.
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> thirdpartymirrors:
+  Use a little different FQDN for mirror://bitbucket to silence out the repoman
+  false positives.
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Python 2.6 has been removed.
+
+  06 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> package.mask:
+  Add 5.20 version of ExtUtils::Manifest to perl-5.20 mask
+
+  06 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of ExtUtils::MakeMaker to perl-5.20 mask
+
+  06 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of ExtUtils::Install to perl-5.20 mask
+
+  06 Jul 2014; Hans de Graaff <graaff@gentoo.org> package.mask:
+  Mask old dev-ruby/builder:0 slot for removal.
+
+  06 JUL 2014; Mikle Kolyada <zlogene@gentoo.org> prefix/linux/package.mask:
+  Cleanup.
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of ExtUtils::CBuilder to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Exporter to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Encode to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Digest::SHA to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Devel::PPPort to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Data::Dumper to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of DB_File to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Compress::Raw::Zlib to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Compress::Raw::Bzip2 to perl-5.20 mask
+
+  05 Jul 2014; Alexis Ballier <aballier@gentoo.org> base/package.use.mask:
+  unmask gnutls & rtmp on ffmpeg:0.10
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Last-rite virtual/perl-Class-ISA
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> updates/2Q-2014:
+  Move Class-ISA from perl-core to dev-perl
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Carp to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of CPAN::Meta::YAML to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of CPAN::Meta to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of CPAN to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of CGI to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of AutoLoader to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of Attribute::Handlers to perl-5.20 mask
+
+  05 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of perl-core/Archive-Tar to perl-5.20 mask
+
+  04 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Add 5.20 version of perl-core/B-Debug to perl-5.20 mask
+
+  04 Jul 2014; Pacho Ramos <pacho@gentoo.org> arch/alpha/use.stable.mask,
+  arch/ia64/use.stable.mask, arch/sparc/use.stable.mask:
+  More use.stable masks
+
+  04 Jul 2014; Pacho Ramos <pacho@gentoo.org> arch/arm/use.stable.mask,
+  arch/powerpc/use.stable.mask, package.mask:
+  Update gnome stable masks
+
+  04 Jul 2014; Pacho Ramos <pacho@gentoo.org> arch/arm/package.use.mask:
+  Update arm mask
+
+  03 Jul 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Unmask the last multilib fun-pack.
+
+  03 Jul 2014; Pacho Ramos <pacho@gentoo.org>
+  arch/alpha/package.use.stable.mask, arch/arm/package.use.stable.mask,
+  arch/ia64/package.use.stable.mask,
+  arch/powerpc/ppc32/package.use.stable.mask,
+  arch/powerpc/ppc64/package.use.stable.mask,
+  arch/sparc/package.use.stable.mask:
+  Update more stable masks
+
+  03 Jul 2014; Pacho Ramos <pacho@gentoo.org>
+  arch/alpha/package.use.stable.mask, arch/arm/package.use.stable.mask,
+  arch/ia64/package.use.stable.mask, arch/powerpc/ppc32/package.use.mask,
+  +arch/powerpc/ppc32/package.use.stable.mask,
+  arch/powerpc/ppc64/package.use.mask,
+  +arch/powerpc/ppc64/package.use.stable.mask, arch/sparc/package.use.mask,
+  +arch/sparc/package.use.stable.mask:
+  Update masks for gnome3
+
+  03 Jul 2014; Pacho Ramos <pacho@gentoo.org> arch/arm/package.use.mask:
+  Update due bug #516130
+
+  03 Jul 2014; Pacho Ramos <pacho@gentoo.org>
+  arch/amd64/package.use.stable.mask:
+  Update multilib stable mask
+
+  02 Jul 2014; Pacho Ramos <pacho@gentoo.org>
+  +arch/alpha/package.use.stable.mask, arch/arm/package.use.stable.mask,
+  +arch/ia64/package.use.stable.mask, arch/powerpc/ppc32/package.use.mask,
+  arch/powerpc/ppc64/package.use.mask, arch/sparc/package.use.mask:
+  Mask due Gnome3 not going to be stabilized on these arches
 
   01 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
   Add message about Switch to perl-5.12 mask
