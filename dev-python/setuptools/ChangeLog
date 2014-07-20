@@ -1,6 +1,18 @@
 # ChangeLog for dev-python/setuptools
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/setuptools/ChangeLog,v 1.234 2014/06/29 09:45:47 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/setuptools/ChangeLog,v 1.237 2014/07/20 11:10:28 klausman Exp $
+
+  20 Jul 2014; Tobias Klausmann <klausman@gentoo.org> setuptools-2.2.ebuild:
+  Stable on alpha, bug #508416
+
+*setuptools-5.4.1 (11 Jul 2014)
+
+  11 Jul 2014; Tim Harder <radhermit@gentoo.org> +setuptools-5.4.1.ebuild:
+  Version bump.
+
+  04 Jul 2014; Mike Gilbert <floppym@gentoo.org> setuptools-5.3.ebuild,
+  setuptools-9999.ebuild:
+  Depend on pytest.
 
   29 Jun 2014; Mikle Kolyada <zlogene@gentoo.org> setuptools-2.2.ebuild:
   ppc64 stable wrt bug #508416

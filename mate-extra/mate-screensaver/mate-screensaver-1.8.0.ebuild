@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mate-extra/mate-screensaver/mate-screensaver-1.8.0.ebuild,v 1.3 2014/06/18 18:56:39 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/mate-extra/mate-screensaver/mate-screensaver-1.8.0.ebuild,v 1.6 2014/07/07 23:18:35 tomwij Exp $
 
 EAPI="5"
 
@@ -16,13 +16,14 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE="X consolekit kernel_linux libnotify opengl pam systemd"
 
 RDEPEND="
 	>=dev-libs/dbus-glib-0.71:0
 	>=dev-libs/glib-2.26:2
+	gnome-base/dconf:0
 	>=mate-base/libmatekbd-1.8:0
 	>=mate-base/mate-desktop-1.8:0
 	>=mate-base/mate-menus-1.6:0

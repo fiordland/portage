@@ -42,8 +42,9 @@ diff -aurNw cyphertite-2.0.2/cyphertite/cyphertite/GNUmakefile cyphertite-2.0.2.
  
  # curl
 -CURL.LDLIBS = $(shell PATH=$(BINDIR):$$PATH curl-config --static-libs | \
+-    sed -e 's/-lssl//g' -e 's/-lcrypto//g' -e 's/-lz//g' -e 's/ \+/ /g')
 +CURL.LDLIBS = $(shell PATH=$(BINDIR):$$PATH curl-config --libs | \
-     sed -e 's/-lssl//g' -e 's/-lcrypto//g' -e 's/-lz//g' -e 's/ \+/ /g')
++    sed -e 's/-lssl //g' -e 's/-lcrypto //g' -e 's/-lz //g' -e 's/ \+/ /g')
  
  # Compiler and linker flags.
  CPPFLAGS += -DNEED_LIBCLENS
@@ -111,7 +112,7 @@ diff -aurNw cyphertite-2.0.2/shrink/shrink/GNUmakefile cyphertite-2.0.2.new/shri
 diff -aurNw cyphertite-2.0.2/xmlsd/GNUmakefile cyphertite-2.0.2.new/xmlsd/GNUmakefile
 --- cyphertite-2.0.2/xmlsd/GNUmakefile	2014-04-07 20:07:06.000000000 -0400
 +++ cyphertite-2.0.2.new/xmlsd/GNUmakefile	2014-06-24 21:51:42.518905907 -0400
-@@ -41,7 +41,7 @@
+@@ -41,10 +41,10 @@
  
  # Compiler and linker flags.
  CPPFLAGS += -DNEED_LIBCLENS
@@ -119,7 +120,11 @@ diff -aurNw cyphertite-2.0.2/xmlsd/GNUmakefile cyphertite-2.0.2.new/xmlsd/GNUmak
 +INCFLAGS += -I$(INCDIR)/clens/include/clens
  WARNFLAGS ?= -Wall -Werror
  DEBUG += -g
- CFLAGS += $(INCFLAGS) $(WARNFLAGS) $(DEBUG) -O2
+-CFLAGS += $(INCFLAGS) $(WARNFLAGS) $(DEBUG) -O2
++CFLAGS += $(INCFLAGS) $(WARNFLAGS) $(DEBUG)
+ LDFLAGS +=
+ SHARED_OBJ_EXT ?= o
+ 
 diff -aurwN cyphertite-2.0.2/cyphertite/examples/ct_archive/GNUmakefile cyphertite-2.0.2.new/cyphertite/examples/ct_archive/GNUmakefile
 --- cyphertite-2.0.2/cyphertite/examples/ct_archive/GNUmakefile	2014-04-07 20:07:03.000000000 -0400
 +++ cyphertite-2.0.2.new/cyphertite/examples/ct_archive/GNUmakefile	2014-06-24 22:45:13.136091682 -0400
@@ -128,8 +133,9 @@ diff -aurwN cyphertite-2.0.2/cyphertite/examples/ct_archive/GNUmakefile cypherti
  
  # curl
 -CURL.LDLIBS = $(shell PATH=$(BINDIR):$$PATH curl-config --static-libs | \
+-    sed -e 's/-lssl//g' -e 's/-lcrypto//g' -e 's/-lz//g' -e 's/ \+/ /g')
 +CURL.LDLIBS = $(shell PATH=$(BINDIR):$$PATH curl-config --libs | \
-     sed -e 's/-lssl//g' -e 's/-lcrypto//g' -e 's/-lz//g' -e 's/ \+/ /g')
++    sed -e 's/-lssl //g' -e 's/-lcrypto //g' -e 's/-lz //g' -e 's/ \+/ /g')
  
  # Compiler and linker flags.
  CPPFLAGS += -DNEED_LIBCLENS
@@ -150,8 +156,9 @@ diff -aurwN cyphertite-2.0.2/cyphertite/examples/ct_delete/GNUmakefile cyphertit
  
  # curl
 -CURL.LDLIBS = $(shell PATH=$(BINDIR):$$PATH curl-config --static-libs | \
+-    sed -e 's/-lssl//g' -e 's/-lcrypto//g' -e 's/-lz//g' -e 's/ \+/ /g')
 +CURL.LDLIBS = $(shell PATH=$(BINDIR):$$PATH curl-config --libs | \
-     sed -e 's/-lssl//g' -e 's/-lcrypto//g' -e 's/-lz//g' -e 's/ \+/ /g')
++    sed -e 's/-lssl //g' -e 's/-lcrypto //g' -e 's/-lz //g' -e 's/ \+/ /g')
  
  # Compiler and linker flags.
  CPPFLAGS += -DNEED_LIBCLENS
@@ -172,8 +179,9 @@ diff -aurwN cyphertite-2.0.2/cyphertite/examples/ct_exists/GNUmakefile cyphertit
  
  # curl
 -CURL.LDLIBS = $(shell PATH=$(BINDIR):$$PATH curl-config --static-libs | \
+-    sed -e 's/-lssl//g' -e 's/-lcrypto//g' -e 's/-lz//g' -e 's/ \+/ /g')
 +CURL.LDLIBS = $(shell PATH=$(BINDIR):$$PATH curl-config --libs | \
-     sed -e 's/-lssl//g' -e 's/-lcrypto//g' -e 's/-lz//g' -e 's/ \+/ /g')
++    sed -e 's/-lssl //g' -e 's/-lcrypto //g' -e 's/-lz //g' -e 's/ \+/ /g')
  
  # Compiler and linker flags.
  CPPFLAGS += -DNEED_LIBCLENS
@@ -194,8 +202,9 @@ diff -aurwN cyphertite-2.0.2/cyphertite/examples/ct_extract/GNUmakefile cypherti
  
  # curl
 -CURL.LDLIBS = $(shell PATH=$(BINDIR):$$PATH curl-config --static-libs | \
+-    sed -e 's/-lssl//g' -e 's/-lcrypto//g' -e 's/-lz//g' -e 's/ \+/ /g')
 +CURL.LDLIBS = $(shell PATH=$(BINDIR):$$PATH curl-config --libs | \
-     sed -e 's/-lssl//g' -e 's/-lcrypto//g' -e 's/-lz//g' -e 's/ \+/ /g')
++    sed -e 's/-lssl //g' -e 's/-lcrypto //g' -e 's/-lz //g' -e 's/ \+/ /g')
  
  # Compiler and linker flags.
  CPPFLAGS += -DNEED_LIBCLENS
@@ -216,8 +225,9 @@ diff -aurwN cyphertite-2.0.2/cyphertite/examples/ct_list/GNUmakefile cyphertite-
  
  # curl
 -CURL.LDLIBS = $(shell PATH=$(BINDIR):$$PATH curl-config --static-libs | \
+-    sed -e 's/-lssl//g' -e 's/-lcrypto//g' -e 's/-lz//g' -e 's/ \+/ /g')
 +CURL.LDLIBS = $(shell PATH=$(BINDIR):$$PATH curl-config --libs | \
-     sed -e 's/-lssl//g' -e 's/-lcrypto//g' -e 's/-lz//g' -e 's/ \+/ /g')
++    sed -e 's/-lssl //g' -e 's/-lcrypto //g' -e 's/-lz //g' -e 's/ \+/ /g')
  
  # Compiler and linker flags.
  CPPFLAGS += -DNEED_LIBCLENS

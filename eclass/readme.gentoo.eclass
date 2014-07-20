@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/readme.gentoo.eclass,v 1.10 2014/06/26 07:01:13 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/readme.gentoo.eclass,v 1.12 2014/07/11 08:21:58 ulm Exp $
 
 # @ECLASS: readme.gentoo
 # @MAINTAINER:
@@ -15,8 +15,8 @@
 # shown at first package installation and a file for later reviewing will be
 # installed under /usr/share/doc/${PF}
 
-if [[ ${___ECLASS_ONCE_README_GENTOO} != "recur -_+^+_- spank" ]] ; then
-___ECLASS_ONCE_README_GENTOO="recur -_+^+_- spank"
+if [[ -z ${_README_GENTOO_ECLASS} ]]; then
+_README_GENTOO_ECLASS=1
 
 inherit eutils
 
@@ -74,7 +74,7 @@ readme.gentoo_create_doc() {
 		eshopts_pop
 	elif [[ -f "${FILESDIR}/README.gentoo-${SLOT%/*}" ]]; then
 		cp "${FILESDIR}/README.gentoo-${SLOT%/*}" "${T}"/README.gentoo || die
-	elif [[ -f "${FILESDIR}/README.gentoo" ]]; then
+	elif [[ -f "${FILESDIR}/README.gentoo${README_GENTOO_SUFFIX}" ]]; then
 		cp "${FILESDIR}/README.gentoo${README_GENTOO_SUFFIX}" "${T}"/README.gentoo || die
 	else
 		die "You are not specifying README.gentoo contents!"

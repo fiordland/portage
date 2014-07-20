@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libtaginfo/libtaginfo-0.2.1.ebuild,v 1.2 2014/06/27 16:10:52 angelos Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libtaginfo/libtaginfo-0.2.1.ebuild,v 1.4 2014/07/08 16:11:32 nimiux Exp $
 
 EAPI=5
 AUTOTOOLS_IN_SOURCE_BUILD=1
@@ -9,11 +9,11 @@ inherit autotools-utils
 
 DESCRIPTION="a library for reading media metadata"
 HOMEPAGE="https://bitbucket.org/shuerhaaken/libtaginfo"
-SRC_URI="mirror://bitbucket/shuerhaaken/${PN}/downloads/${P}.tar.gz"
+SRC_URI="https://www.bitbucket.org/shuerhaaken/${PN}/downloads/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE=""
 
 RDEPEND="media-libs/taglib

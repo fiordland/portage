@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.68 2014/06/14 18:33:59 kensington Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.71 2014/07/17 13:02:11 kensington Exp $
 
 inherit versionator
 
@@ -12,8 +12,8 @@ inherit versionator
 # This eclass contains all functions shared by the different eclasses,
 # for KDE 4 ebuilds.
 
-if [[ ${___ECLASS_ONCE_KDE4_FUNCTIONS} != "recur -_+^+_- spank" ]] ; then
-___ECLASS_ONCE_KDE4_FUNCTIONS="recur -_+^+_- spank"
+if [[ -z ${_KDE4_FUNCTIONS_ECLASS} ]]; then
+_KDE4_FUNCTIONS_ECLASS=1
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
@@ -131,7 +131,7 @@ comment_add_subdirectory() {
 	fi
 
 	if [[ -a "CMakeLists.txt" ]]; then
-	        sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${1}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
+		sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${1}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
 			-i CMakeLists.txt || die "failed to comment add_subdirectory(${1})"
 	fi
 }
@@ -216,6 +216,14 @@ enable_selected_doc_linguas() {
 
 			# Disable subdirectories recursively
 			comment_all_add_subdirectory "${handbookdir}"
+
+			# In certain packages, the default handbook is en_US instead of the usual en. Since there is no en_US 'translation',
+			# it makes no sense to add to KDE_LINGUAS which causes this type of handbook to not be installed.
+			if [[ -d "${handbookdir}/en_US" && ! -d "${handbookdir}/en" ]]; then
+				mv "${handbookdir}/en_US" "${handbookdir}/en" || die
+				sed -e "s/en_US/en/" -i "${handbookdir}/CMakeLists.txt"
+			fi
+
 			# Add requested translations
 			local lingua
 			for lingua in en ${KDE_LINGUAS}; do

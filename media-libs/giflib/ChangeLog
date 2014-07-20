@@ -1,6 +1,32 @@
 # ChangeLog for media-libs/giflib
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/giflib/ChangeLog,v 1.77 2014/06/18 19:30:10 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/giflib/ChangeLog,v 1.85 2014/07/18 14:25:48 jer Exp $
+
+  18 Jul 2014; Jeroen Roovers <jer@gentoo.org> giflib-4.1.6-r3.ebuild:
+  Stable for HPPA (bug #516304).
+
+  18 Jul 2014; Tobias Klausmann <klausman@gentoo.org> giflib-4.1.6-r3.ebuild:
+  Stable on alpha, bug #516304
+
+  16 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> giflib-4.1.6-r3.ebuild:
+  x86 stable wrt bug #516304
+
+  15 Jul 2014; Markus Meier <maekke@gentoo.org> giflib-4.1.6-r3.ebuild:
+  arm stable, bug #516304
+
+  13 Jul 2014;  <tgall@gentoo.org> giflib-4.1.6-r3.ebuild:
+  arm64 stable, bug #516304
+
+  13 Jul 2014; Agostino Sarubbo <ago@gentoo.org> giflib-4.1.6-r3.ebuild:
+  Stable for ppc, wrt bug #516304
+
+  09 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> giflib-4.1.6-r3.ebuild:
+  amd64 stable wrt bug #516304
+
+*giflib-4.1.6-r3 (03 Jul 2014)
+
+  03 Jul 2014; Michał Górny <mgorny@gentoo.org> +giflib-4.1.6-r3.ebuild:
+  Backport the multilib support to giflib-4.1.6 to ease stabilization.
 
   18 Jun 2014; Michał Górny <mgorny@gentoo.org> giflib-4.2.3-r1.ebuild:
   Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug

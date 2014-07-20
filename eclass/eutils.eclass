@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/eutils.eclass,v 1.434 2014/04/27 19:01:30 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/eutils.eclass,v 1.436 2014/07/11 08:21:58 ulm Exp $
 
 # @ECLASS: eutils.eclass
 # @MAINTAINER:
@@ -15,8 +15,8 @@
 # Due to the nature of this eclass, some functions may have maintainers
 # different from the overall eclass!
 
-if [[ ${___ECLASS_ONCE_EUTILS} != "recur -_+^+_- spank" ]] ; then
-___ECLASS_ONCE_EUTILS="recur -_+^+_- spank"
+if [[ -z ${_EUTILS_ECLASS} ]]; then
+_EUTILS_ECLASS=1
 
 inherit multilib toolchain-funcs
 
@@ -114,7 +114,7 @@ esvn_clean() {
 # @CODE
 estack_push() {
 	[[ $# -eq 0 ]] && die "estack_push: incorrect # of arguments"
-	local stack_name="__ESTACK_$1__" ; shift
+	local stack_name="_ESTACK_$1_" ; shift
 	eval ${stack_name}+=\( \"\$@\" \)
 }
 
@@ -127,23 +127,23 @@ estack_push() {
 estack_pop() {
 	[[ $# -eq 0 || $# -gt 2 ]] && die "estack_pop: incorrect # of arguments"
 
-	# We use the fugly __estack_xxx var names to avoid collision with
+	# We use the fugly _estack_xxx var names to avoid collision with
 	# passing back the return value.  If we used "local i" and the
 	# caller ran `estack_pop ... i`, we'd end up setting the local
-	# copy of "i" rather than the caller's copy.  The __estack_xxx
+	# copy of "i" rather than the caller's copy.  The _estack_xxx
 	# garbage is preferable to using $1/$2 everywhere as that is a
 	# bit harder to read.
-	local __estack_name="__ESTACK_$1__" ; shift
-	local __estack_retvar=$1 ; shift
-	eval local __estack_i=\${#${__estack_name}\[@\]}
+	local _estack_name="_ESTACK_$1_" ; shift
+	local _estack_retvar=$1 ; shift
+	eval local _estack_i=\${#${_estack_name}\[@\]}
 	# Don't warn -- let the caller interpret this as a failure
 	# or as normal behavior (akin to `shift`)
-	[[ $(( --__estack_i )) -eq -1 ]] && return 1
+	[[ $(( --_estack_i )) -eq -1 ]] && return 1
 
-	if [[ -n ${__estack_retvar} ]] ; then
-		eval ${__estack_retvar}=\"\${${__estack_name}\[${__estack_i}\]}\"
+	if [[ -n ${_estack_retvar} ]] ; then
+		eval ${_estack_retvar}=\"\${${_estack_name}\[${_estack_i}\]}\"
 	fi
-	eval unset ${__estack_name}\[${__estack_i}\]
+	eval unset ${_estack_name}\[${_estack_i}\]
 }
 
 # @FUNCTION: evar_push
@@ -174,7 +174,7 @@ evar_push() {
 	for var ; do
 		[[ ${!var+set} == "set" ]] \
 			&& val=${!var} \
-			|| val="${___ECLASS_ONCE_EUTILS}"
+			|| val="unset_76fc3c462065bb4ca959f939e6793f94"
 		estack_push evar "${var}" "${val}"
 	done
 }
@@ -211,7 +211,7 @@ evar_pop() {
 	while (( cnt-- )) ; do
 		estack_pop evar val || die "${FUNCNAME}: unbalanced push"
 		estack_pop evar var || die "${FUNCNAME}: unbalanced push"
-		[[ ${val} == "${___ECLASS_ONCE_EUTILS}" ]] \
+		[[ ${val} == "unset_76fc3c462065bb4ca959f939e6793f94" ]] \
 			&& unset ${var} \
 			|| printf -v "${var}" '%s' "${val}"
 	done
@@ -951,7 +951,7 @@ make_desktop_entry() {
 # @FUNCTION: _eutils_eprefix_init
 # @INTERNAL
 # @DESCRIPTION:
-# Initialized prefix variables for EAPI<3. 
+# Initialized prefix variables for EAPI<3.
 _eutils_eprefix_init() {
 	has "${EAPI:-0}" 0 1 2 && : ${ED:=${D}} ${EPREFIX:=} ${EROOT:=${ROOT}}
 }
@@ -1169,7 +1169,7 @@ doicon() {
 # results in: insinto /usr/share/pixmaps
 #             newins foobar.png NEWNAME.png
 #
-# example 2: newicon -s 48 foobar.png NEWNAME.png 
+# example 2: newicon -s 48 foobar.png NEWNAME.png
 # results in: insinto /usr/share/icons/hicolor/48x48/apps
 #             newins foobar.png NEWNAME.png
 # @CODE
@@ -1270,7 +1270,7 @@ preserve_old_lib_notify() {
 	has preserve-libs ${FEATURES} && return 0
 
 	_eutils_eprefix_init
-	
+
 	local lib notice=0
 	for lib in "$@" ; do
 		[[ -e ${EROOT}/${lib} ]] || continue
