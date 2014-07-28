@@ -1,6 +1,17 @@
 # ChangeLog for virtual/perl-Safe
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Safe/ChangeLog,v 1.43 2014/07/12 17:01:13 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-Safe/ChangeLog,v 1.45 2014/07/24 09:33:31 klausman Exp $
+
+  24 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
+  perl-Safe-2.350.0-r2.ebuild:
+  Stable on alpha, bug #381424
+
+*perl-Safe-2.350.0-r2 (21 Jul 2014)
+
+  21 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -perl-Safe-2.350.0-r1.ebuild, +perl-Safe-2.350.0-r2.ebuild,
+  perl-Safe-2.370.0.ebuild:
+  Improve dependencies
 
 *perl-Safe-2.370.0 (12 Jul 2014)
 *perl-Safe-2.350.0-r1 (12 Jul 2014)

@@ -1,6 +1,38 @@
 # ChangeLog for sys-apps/systemd
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/ChangeLog,v 1.289 2014/07/15 18:30:40 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/ChangeLog,v 1.296 2014/07/28 16:20:35 pacho Exp $
+
+  28 Jul 2014; Pacho Ramos <pacho@gentoo.org> systemd-215-r3.ebuild:
+  x86 stable, bug #517120
+
+  28 Jul 2014; Mike Gilbert <floppym@gentoo.org> metadata.xml,
+  systemd-9999.ebuild:
+  Add python3_4 to PYTHON_COMPAT. Add optional dependencies on curl and lz4.
+
+  28 Jul 2014; Richard Freeman <rich0@gentoo.org> systemd-215-r3.ebuild:
+  amd64 stable - 517120
+
+  27 Jul 2014; Mike Gilbert <floppym@gentoo.org> systemd-215-r3.ebuild,
+  systemd-9999.ebuild:
+  Don't install /etc/systemd/system/network-online.target.wants, bug 518318 by
+  poncho.
+
+*systemd-215-r3 (25 Jul 2014)
+
+  25 Jul 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/215-0003-udev-exclude-MD-from-block-device-ownership-event-lo.patch,
+  +systemd-215-r3.ebuild, -systemd-215-r1.ebuild, -systemd-215-r2.ebuild:
+  Fix creation of inactive MD devices (#517986), drop old.
+
+*systemd-215-r2 (24 Jul 2014)
+
+  24 Jul 2014; Pacho Ramos <pacho@gentoo.org> +systemd-215-r2.ebuild,
+  systemd-215-r1.ebuild:
+  Revbump adding compat symlinks to allow stabilization
+
+  21 Jul 2014; Mike Gilbert <floppym@gentoo.org> systemd-212-r5.ebuild,
+  systemd-215-r1.ebuild, systemd-9999.ebuild:
+  Depend on >=sys-apps/coreutils-8.16 for ln --relative.
 
   15 Jul 2014; Pacho Ramos <pacho@gentoo.org>
   +files/215-0001-always-check-for-__BYTE_ORDER-__BIG_ENDIAN-when-chec.patch,

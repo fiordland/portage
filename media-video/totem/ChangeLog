@@ -1,6 +1,12 @@
 # ChangeLog for media-video/totem
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/totem/ChangeLog,v 1.377 2014/06/30 15:18:39 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/totem/ChangeLog,v 1.379 2014/07/23 15:23:27 ago Exp $
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> totem-3.12.1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> totem-3.12.1.ebuild:
+  Stable for amd64, wrt bug #512912
 
   30 Jun 2014; Pacho Ramos <pacho@gentoo.org> totem-3.12.1.ebuild:
   Drop unrecognized configure option, bug #515852 by Ilya Gordeev; drop old.

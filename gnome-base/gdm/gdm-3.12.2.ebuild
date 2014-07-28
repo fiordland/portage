@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gdm/gdm-3.12.2.ebuild,v 1.1 2014/05/30 19:38:02 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gdm/gdm-3.12.2.ebuild,v 1.4 2014/07/28 16:25:33 pacho Exp $
 
 EAPI="5"
 GCONF_DEBUG="yes"
@@ -23,7 +23,7 @@ LICENSE="
 SLOT="0"
 IUSE="accessibility audit branding fprint +introspection ipv6 plymouth selinux smartcard +systemd tcpd test wayland xinerama"
 REQUIRED_USE="wayland? ( systemd )"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sh ~sparc x86"
 
 # NOTE: x11-base/xorg-server dep is for X_SERVER_PATH etc, bug #295686
 # nspr used by smartcard extension
@@ -223,10 +223,4 @@ pkg_postinst() {
 	eend ${ret}
 
 	readme.gentoo_print_elog
-
-	if [[ -f "/etc/X11/gdm/gdm.conf" ]]; then
-		elog "You had /etc/X11/gdm/gdm.conf which is the old configuration"
-		elog "file.  It has been moved to /etc/X11/gdm/gdm-pre-gnome-2.16"
-		mv /etc/X11/gdm/gdm.conf /etc/X11/gdm/gdm-pre-gnome-2.16
-	fi
 }

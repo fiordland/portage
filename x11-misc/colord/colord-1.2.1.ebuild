@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/colord/colord-1.2.1.ebuild,v 1.1 2014/06/17 08:32:56 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/colord/colord-1.2.1.ebuild,v 1.4 2014/07/24 16:58:23 ssuominen Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -16,7 +16,7 @@ SRC_URI="http://www.freedesktop.org/software/colord/releases/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0/2" # subslot = libcolord soname version
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc x86 ~x86-fbsd"
 
 # We prefer policykit enabled by default, bug #448058
 IUSE="examples extra-print-profiles +gusb +introspection +policykit scanner systemd +udev vala"
@@ -35,7 +35,11 @@ COMMON_DEPEND="
 	policykit? ( >=sys-auth/polkit-0.103 )
 	scanner? ( media-gfx/sane-backends )
 	systemd? ( >=sys-apps/systemd-44:0= )
-	udev? ( virtual/udev:=[gudev] )
+	udev? (
+		virtual/udev
+		virtual/libgudev:=
+		virtual/libudev:=
+		)
 "
 RDEPEND="${COMMON_DEPEND}
 	!media-gfx/shared-color-profiles
