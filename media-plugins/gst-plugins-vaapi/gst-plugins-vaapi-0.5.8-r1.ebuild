@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-vaapi/gst-plugins-vaapi-0.5.8-r1.ebuild,v 1.3 2014/06/24 22:12:35 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/gst-plugins-vaapi/gst-plugins-vaapi-0.5.8-r1.ebuild,v 1.5 2014/07/26 09:00:41 ssuominen Exp $
 
 EAPI="5"
 inherit eutils multilib-minimal
@@ -12,7 +12,7 @@ SRC_URI="http://www.freedesktop.org/software/vaapi/releases/${MY_PN}/${MY_PN}-${
 
 LICENSE="LGPL-2.1"
 SLOT="1.0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="+X opengl wayland"
 
 RDEPEND="
@@ -25,7 +25,7 @@ RDEPEND="
 	>=x11-libs/libXrandr-1.4.2[${MULTILIB_USEDEP}]
 	>=x11-libs/libva-1.2.1-r1[X?,opengl?,wayland?,${MULTILIB_USEDEP}]
 	>=virtual/opengl-7.0-r1[${MULTILIB_USEDEP}]
-	>=virtual/udev-208-r2[${MULTILIB_USEDEP}]
+	>=virtual/libudev-208:=[${MULTILIB_USEDEP}]
 	wayland? ( >=dev-libs/wayland-1.0.6[${MULTILIB_USEDEP}] )
 "
 DEPEND="${RDEPEND}

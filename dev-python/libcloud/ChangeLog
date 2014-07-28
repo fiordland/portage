@@ -1,6 +1,14 @@
 # ChangeLog for dev-python/libcloud
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/libcloud/ChangeLog,v 1.17 2014/07/14 04:38:55 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/libcloud/ChangeLog,v 1.19 2014/07/22 04:21:45 idella4 Exp $
+
+  22 Jul 2014; Ian Delaney <idella4@gentoo.org> libcloud-0.15.1.ebuild:
+  drop py2.6 pypy2_0 add py3.4
+
+*libcloud-0.15.1 (21 Jul 2014)
+
+  21 Jul 2014; Patrick Lauer <patrick@gentoo.org> +libcloud-0.15.1.ebuild:
+  Bump
 
 *libcloud-0.15.0 (14 Jul 2014)
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/mplayer-1.2_pre20130729.ebuild,v 1.5 2014/05/17 14:52:06 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/mplayer-1.2_pre20130729.ebuild,v 1.10 2014/07/28 01:27:14 patrick Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ inherit toolchain-funcs eutils flag-o-matic multilib base ${SVN_ECLASS}
 
 IUSE="3dnow 3dnowext a52 aalib +alsa altivec aqua bidi bindist bl bluray
 bs2b cddb +cdio cdparanoia cpudetection debug dga
-directfb doc dts dv dvb +dvd +dvdnav dxr3 +enca +encode faac faad fbcon
+directfb doc dts dv dvb +dvd +dvdnav +enca +encode faac faad fbcon
 ftp gif ggi gsm +iconv ipv6 jack joystick jpeg jpeg2k kernel_linux ladspa
 +libass libcaca libmpeg2 lirc live lzo mad md5sum +mmx mmxext mng mp3 nas
 +network nut openal opengl +osdmenu oss png pnm pulseaudio pvr
@@ -94,14 +94,14 @@ RDEPEND+="
 	jpeg? ( virtual/jpeg:0 )
 	jpeg2k? ( media-libs/openjpeg:0 )
 	ladspa? ( media-libs/ladspa-sdk )
-	libass? ( >=media-libs/libass-0.9.10[enca?] )
+	libass? ( >=media-libs/libass-0.9.10:=[enca?] )
 	libcaca? ( media-libs/libcaca )
 	libmpeg2? ( media-libs/libmpeg2 )
 	lirc? ( app-misc/lirc )
 	live? ( media-plugins/live )
 	lzo? ( >=dev-libs/lzo-2 )
 	mad? ( media-libs/libmad )
-	mng? ( media-libs/libmng )
+	mng? ( media-libs/libmng:= )
 	mp3? ( media-sound/mpg123 )
 	nas? ( media-libs/nas )
 	nut? ( >=media-libs/libnut-661 )
@@ -142,7 +142,6 @@ ASM_DEP="dev-lang/yasm"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	dga? ( x11-proto/xf86dgaproto )
-	dxr3? ( media-video/em8300-libraries )
 	X? ( ${X_DEPS} )
 	xinerama? ( x11-proto/xineramaproto )
 	xscreensaver? ( x11-proto/scrnsaverproto )
@@ -174,7 +173,6 @@ REQUIRED_USE="
 	bindist? ( !faac )
 	dga? ( X )
 	dvdnav? ( dvd )
-	dxr3? ( X )
 	enca? ( iconv )
 	ggi? ( X )
 	libass? ( truetype )
@@ -270,6 +268,7 @@ src_configure() {
 
 	# set LINGUAS
 	[[ -n $LINGUAS ]] && LINGUAS="${LINGUAS/da/dk}"
+	[[ -n $LINGUAS ]] && LINGUAS="${LINGUAS/zh/zh_CN}" #482968
 
 	# mplayer ebuild uses "use foo || --disable-foo" to forcibly disable
 	# compilation in almost every situation. The reason for this is
@@ -486,7 +485,7 @@ src_configure() {
 	###########################
 	myconf+=" --disable-gui"
 	myconf+=" --disable-vesa"
-	uses="dxr3 ggi vdpau xinerama xv"
+	uses="ggi vdpau xinerama xv"
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
 	done
@@ -530,7 +529,6 @@ src_compile() {
 	# Build only user-requested docs if they're available.
 	if use doc ; then
 		# select available languages from $LINGUAS
-		LINGUAS=${LINGUAS/zh/zh_CN}
 		local ALLOWED_LINGUAS="cs de en es fr hu it pl ru zh_CN"
 		local BUILT_DOCS=""
 		for i in ${LINGUAS} ; do

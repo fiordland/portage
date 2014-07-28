@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libepoxy/libepoxy-1.2.ebuild,v 1.3 2014/06/06 13:28:40 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libepoxy/libepoxy-1.2.ebuild,v 1.5 2014/07/24 10:24:06 klausman Exp $
 
 EAPI=5
 
@@ -17,10 +17,10 @@ inherit autotools-multilib ${GIT_ECLASS}
 DESCRIPTION="Epoxy is a library for handling OpenGL function pointer management for you"
 HOMEPAGE="https://github.com/anholt/libepoxy"
 if [[ ${PV} = 9999* ]]; then
-	KEYWORDS="~hppa"
+	KEYWORDS=""
 	SRC_URI=""
 else
-	KEYWORDS="~amd64 ~arm ~hppa ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~x86"
 	SRC_URI="https://github.com/anholt/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
@@ -30,6 +30,7 @@ IUSE="test"
 RESTICT="test" # FIXME: tests fail when run from portage.
 
 DEPEND="dev-lang/python
+	media-libs/mesa[egl]
 	x11-misc/util-macros
 	x11-libs/libX11"
 RDEPEND=""

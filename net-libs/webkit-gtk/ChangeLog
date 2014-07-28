@@ -1,6 +1,28 @@
 # ChangeLog for net-libs/webkit-gtk
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/ChangeLog,v 1.268 2014/07/14 18:09:48 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/ChangeLog,v 1.273 2014/07/28 13:48:56 ago Exp $
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> webkit-gtk-2.4.4-r200.ebuild,
+  webkit-gtk-2.4.4.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  27 Jul 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/webkit-gtk-2.4.4-atomic-ppc.patch, webkit-gtk-2.4.4.ebuild:
+  Fix building on ppc (from OpenBSD, only needed on slot 3), bug #518288 by ago
+
+  23 Jul 2014; Pacho Ramos <pacho@gentoo.org> -webkit-gtk-2.4.3-r200.ebuild,
+  -webkit-gtk-2.4.3.ebuild, webkit-gtk-2.4.4-r200.ebuild,
+  webkit-gtk-2.4.4.ebuild:
+  Reintroduce the ugly hack for nvidia setups as it keeps hanging in some. Drop
+  old.
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> webkit-gtk-2.4.4-r200.ebuild,
+  webkit-gtk-2.4.4.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> webkit-gtk-2.4.4-r200.ebuild,
+  webkit-gtk-2.4.4.ebuild:
+  Stable for amd64, wrt bug #512912
 
 *webkit-gtk-2.4.4-r200 (14 Jul 2014)
 *webkit-gtk-2.4.4 (14 Jul 2014)

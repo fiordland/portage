@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager/networkmanager-0.9.8.10-r1.ebuild,v 1.1 2014/06/16 00:16:37 reavertm Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/networkmanager/networkmanager-0.9.8.10-r1.ebuild,v 1.5 2014/07/28 13:49:03 ago Exp $
 
 EAPI="5"
 GNOME_ORG_MODULE="NetworkManager"
@@ -16,7 +16,7 @@ LICENSE="GPL-2+"
 SLOT="0" # add subslot if libnm-util.so.2 or libnm-glib.so.4 bumps soname version
 IUSE="avahi bluetooth connection-sharing consolekit dhclient +dhcpcd gnutls +introspection kernel_linux +nss +modemmanager +ppp resolvconf systemd test vala +wext +wifi" # wimax
 
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ppc ~ppc64 ~sparc x86"
 
 REQUIRED_USE="
 	modemmanager? ( ppp )
@@ -34,7 +34,7 @@ COMMON_DEPEND="
 	>=dev-libs/libnl-3.2.7:3=
 	>=sys-auth/polkit-0.106
 	>=net-libs/libsoup-2.26:2.4=
-	>=virtual/udev-165[gudev]
+	virtual/libgudev:=
 	bluetooth? ( >=net-wireless/bluez-4.82 )
 	avahi? ( net-dns/avahi:=[autoipd] )
 	connection-sharing? (
@@ -54,6 +54,7 @@ COMMON_DEPEND="
 	|| ( sys-power/upower sys-power/upower-pm-utils >=sys-apps/systemd-183 )
 "
 RDEPEND="${COMMON_DEPEND}
+	virtual/udev
 	consolekit? ( sys-auth/consolekit )
 	wifi? ( >=net-wireless/wpa_supplicant-0.7.3-r3[dbus] )
 "
@@ -137,7 +138,7 @@ src_configure() {
 		$(usex systemd '--disable-ifnet' '--enable-ifnet') \
 		--without-netconfig \
 		--with-dbus-sys-dir=/etc/dbus-1/system.d \
-		--with-udev-dir="$(udev_get_udevdir)" \
+		--with-udev-dir="$(get_udevdir)" \
 		--with-iptables=/sbin/iptables \
 		--enable-concheck \
 		--with-crypto=$(usex nss nss gnutls) \

@@ -1,6 +1,15 @@
 # ChangeLog for dev-python/egg-python
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/egg-python/ChangeLog,v 1.25 2014/05/26 18:20:47 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/egg-python/ChangeLog,v 1.28 2014/07/28 13:43:18 ago Exp $
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> egg-python-2.25.3-r1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> egg-python-2.25.3-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> egg-python-2.25.3-r1.ebuild:
+  Stable for amd64, wrt bug #512912
 
 *egg-python-2.25.3-r1 (26 May 2014)
 
