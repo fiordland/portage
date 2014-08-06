@@ -1,6 +1,66 @@
 # ChangeLog for dev-lang/python
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/python/ChangeLog,v 1.764 2014/07/18 13:48:30 klausman Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/python/ChangeLog,v 1.779 2014/08/04 18:51:56 armin76 Exp $
+
+  04 Aug 2014; Raúl Porcel <armin76@gentoo.org> python-2.7.7.ebuild,
+  python-3.2.5-r6.ebuild, python-3.3.5-r1.ebuild:
+  arm64/ia64/sparc stable wrt #500518
+
+  03 Aug 2014; Markus Meier <maekke@gentoo.org> python-3.3.5-r1.ebuild:
+  arm stable, bug #500518
+
+  03 Aug 2014; Markus Meier <maekke@gentoo.org> python-3.2.5-r6.ebuild:
+  arm stable, bug #500518
+
+  03 Aug 2014; Markus Meier <maekke@gentoo.org> python-2.7.7.ebuild:
+  arm stable, bug #500518
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> python-2.7.7.ebuild,
+  python-3.2.5-r6.ebuild, python-3.3.5-r1.ebuild:
+  Stable for x86, wrt bug #500518
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> python-2.7.7.ebuild,
+  python-3.2.5-r6.ebuild, python-3.3.5-r1.ebuild:
+  Stable for amd64, wrt bug #500518
+
+  31 Jul 2014; Tobias Klausmann <klausman@gentoo.org> python-3.2.5-r6.ebuild:
+  Stable on alpha, bug #500518
+
+  31 Jul 2014; Tobias Klausmann <klausman@gentoo.org> python-2.7.7.ebuild:
+  Stable on alpha, bug #500518
+
+  31 Jul 2014; Tobias Klausmann <klausman@gentoo.org> python-3.3.5-r1.ebuild:
+  Stable on alpha, bug #500518
+
+  31 Jul 2014; Jeroen Roovers <jer@gentoo.org> python-3.2.5-r6.ebuild:
+  Stable for HPPA (bug #500518).
+
+  31 Jul 2014; Jeroen Roovers <jer@gentoo.org> python-3.3.5-r1.ebuild:
+  Stable for HPPA (bug #500518).
+
+  30 Jul 2014; Jeroen Roovers <jer@gentoo.org> python-2.7.7.ebuild:
+  Stable for HPPA (bug #500518).
+
+*python-2.7.8 (29 Jul 2014)
+
+  29 Jul 2014; Patrick McLean <chutzpah@gentoo.org> +python-2.7.8.ebuild:
+  Version bump.
+
+*python-3.2.5-r6 (29 Jul 2014)
+
+  29 Jul 2014; Sergey Popov <pinkbyte@gentoo.org> -python-3.2.5-r5.ebuild,
+  +python-3.2.5-r6.ebuild, +files/python-3.2-CVE-2014-1912.patch:
+  Revision bump: backport patch for CVE-2014-1912, bug #500518. Drop old
+  revision. Acked by Python team
+
+*python-3.3.5-r1 (29 Jul 2014)
+*python-3.2.5-r5 (29 Jul 2014)
+
+  29 Jul 2014; Sergey Popov <pinkbyte@gentoo.org> -python-3.2.5-r4.ebuild,
+  +python-3.2.5-r5.ebuild, -python-3.3.5.ebuild, +python-3.3.5-r1.ebuild,
+  +files/python-3.2-CVE-2014-4616.patch, +files/python-3.3-CVE-2014-4616.patch:
+  Revision bump: add patch for CVE-2014-4616, bug #514686. Drop old revisions.
+  Acked by Python team
 
   18 Jul 2014; Tobias Klausmann <klausman@gentoo.org> python-2.7.6.ebuild:
   Stable on alpha, bug #504742

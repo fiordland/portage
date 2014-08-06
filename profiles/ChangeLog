@@ -1,10 +1,81 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.9266 2014/07/28 08:04:30 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.9287 2014/08/05 18:00:29 williamh Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  05 Aug 2014; William Hubbs <williamh@gentoo.org> package.mask:
+  mask www-apps/joomla for removal, see bug #518886
+
+  05 Aug 2014; Mike Frysinger <vapier@gentoo.org> package.mask:
+  Drop e2fsprogs mask as it's fixed now #517214.
+
+  05 Aug 2014; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Mask =app-emulation/fuse-1.1.1
+
+  05 Aug 2014; William Hubbs <williamh@gentoo.org> package.mask:
+  Remove trac-mercurial mask since it is a live ebuild and should be
+  masked by dropping keywords.
+
+  04 Aug 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask dev-python/{Bcryptor,Yamlog} for removal, bug #518920.
+
+  04 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> package.mask:
+  New mask for upcoming db-6.1, that is not ready at upstream yet, still fails
+  some tests.
+
+  04 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> package.mask:
+  db-5.2 fails testsuites and there are no more releases from upstream, punt
+  it.
+
+  04 Aug 2014; Alexis Ballier <aballier@gentoo.org> package.mask:
+  mask ffmpeg-2.3+
+
+  04 Aug 2014; William Hubbs <williamh@gentoo.org> package.mask:
+  The removal of live ebuilds from package.mask has begun.
+  Live ebuilds should be masked by not having keywords instead of being
+  put in this file.
+
+  04 Aug 2014; Tim Harder <radhermit@gentoo.org> package.mask:
+  Unmask =media-libs/libsfml-2*.
+
+  04 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> package.mask:
+  Remove dev-vcs/gitosis and dev-vcs/gitosis-gentoo from the tree.
+
+  04 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> package.mask:
+  old mysql ebuilds now live in the overlay only. if you need them for
+  migrations, go look there.
+
+  04 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> package.mask:
+  Unmask app-crypt/hmaccalc.
+
+  04 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> package.mask:
+  unmask db-5.1. 5.0 leaves mask as well, but it failed testsuites, so is
+  removed from the tree.
+
+  03 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> package.mask:
+  The great unmasking of sys-libs/db has begun. Remaining slots to come if they
+  pass testsuite still (otherwise those slots will just be deleted).
+
+  02 Aug 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  virtual/perl-Filter is gone
+
+  02 Aug 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  virtual/perl-Class-ISA is gone
+
+  30 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> package.mask:
+  Mask =dev-perl/Alien-SDL-1.444.0
+
+  29 Jul 2014; Anthony G. Basile <blueness@gentoo.org> desc/linguas.desc:
+  Add some locales for bitcoin
+
+  29 Jul 2014; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Drop obsolete security mask on dev-libs/openssl
+
+  29 Jul 2014; Patrick Lauer <patrick@gentoo.org> package.mask:
+  Remove util-vserver mask as it builds again
 
   28 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
   Mask also media-video/em8300-modules because media-video/em8300-libraries was

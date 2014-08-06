@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/e2fsprogs/e2fsprogs-1.42.10.ebuild,v 1.11 2014/07/23 15:37:55 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/e2fsprogs/e2fsprogs-1.42.10.ebuild,v 1.15 2014/08/05 09:32:43 vapier Exp $
 
 EAPI=4
 
@@ -13,12 +13,11 @@ inherit autotools eutils flag-o-matic multilib toolchain-funcs
 
 DESCRIPTION="Standard EXT2/EXT3/EXT4 filesystem utilities"
 HOMEPAGE="http://e2fsprogs.sourceforge.net/"
-SRC_URI="mirror://sourceforge/e2fsprogs/${PN}-${UP_PV}.tar.gz
-	elibc_mintlib? ( https://498412.bugs.gentoo.org/attachment.cgi?id=368058 -> ${PN}-1.42.9-mint-r1.patch )"
+SRC_URI="mirror://sourceforge/e2fsprogs/${PN}-${UP_PV}.tar.gz"
 
 LICENSE="GPL-2 BSD"
 SLOT="0"
-KEYWORDS="alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ~ppc64 ~s390 ~sh ~sparc x86 -x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~m68k-mint"
+KEYWORDS="alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ~ppc64 ~s390 ~sh ~sparc x86 -x86-fbsd ~amd64-linux ~arm-linux ~x86-linux"
 IUSE="nls static-libs elibc_FreeBSD"
 
 RDEPEND="~sys-libs/${PN}-libs-${PV}
@@ -31,35 +30,26 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/${P%_pre*}
 
-pkg_setup() {
-	if [[ ! -e ${EROOT}/etc/mtab ]] ; then
-		# add some crap to deal with missing /etc/mtab #217719
-		ewarn "No /etc/mtab file, creating one temporarily"
-		echo "${PN} crap for src_test" > "${EROOT}"/etc/mtab
-	fi
-}
-
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-1.41.8-makefile.patch
 	epatch "${FILESDIR}"/${PN}-1.40-fbsd.patch
 	epatch "${FILESDIR}"/${P}-e2fsck-fix-makefile-dependency.patch
-	if [[ ${CHOST} == *-mint* ]] ; then
-		epatch "${DISTDIR}"/${PN}-1.42.9-mint-r1.patch
-	fi
 	epatch "${FILESDIR}"/${P}-fix-build-cflags.patch
+
 	# blargh ... trick e2fsprogs into using e2fsprogs-libs
 	rm -rf doc
 	sed -i -r \
 		-e 's:@LIBINTL@:@LTLIBINTL@:' \
-		-e '/^LIB(COM_ERR|SS)/s:[$][(]LIB[)]/lib([^@]*)@LIB_EXT@:-l\1:' \
-		-e '/^DEPLIB(COM_ERR|SS)/s:=.*:=:' \
+		-e '/^(STATIC_)?LIB(COM_ERR|SS)/s:[$][(]LIB[)]/lib([^@]*)@(STATIC_)?LIB_EXT@:-l\1:' \
+		-e '/^DEP(STATIC_)?LIB(COM_ERR|SS)/s:=.*:=:' \
 		MCONFIG.in || die "muck libs" #122368
 	sed -i -r \
 		-e '/^LIB_SUBDIRS/s:lib/(et|ss)::g' \
 		Makefile.in || die "remove subdirs"
+	ln -s $(which mk_cmds) lib/ss/ || die
 
 	# Avoid rebuild
-	touch lib/ss/ss_err.h
+	echo '#include_next <ss/ss_err.h>' > lib/ss/ss_err.h
 	eautoreconf
 }
 

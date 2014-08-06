@@ -1,6 +1,19 @@
 # ChangeLog for app-admin/ansible
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.46 2014/07/23 12:06:48 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.49 2014/08/04 09:07:20 pinkbyte Exp $
+
+*ansible-1.6.10 (04 Aug 2014)
+
+  04 Aug 2014; Sergey Popov <pinkbyte@gentoo.org> +ansible-1.6.10.ebuild:
+  Version bump
+
+  31 Jul 2014; Sergey Popov <pinkbyte@gentoo.org> -ansible-1.5.5.ebuild,
+  ansible-1.6.8.ebuild:
+  Stable on amd64 and x86, wrt bug #517770. Drop old and vulnerable version
+
+  30 Jul 2014; Justin Lecher <jlec@gentoo.org> ansible-1.5.5.ebuild,
+  ansible-1.6.8.ebuild, ansible-9999.ebuild:
+  Fix maintainer introduced ugly line breakings
 
   23 Jul 2014; Sergey Popov <pinkbyte@gentoo.org> ansible-1.6.8.ebuild,
   -files/README.gentoo:

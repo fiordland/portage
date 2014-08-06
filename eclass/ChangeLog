@@ -1,6 +1,62 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1327 2014/07/28 14:13:50 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1342 2014/08/05 22:59:44 johu Exp $
+
+  05 Aug 2014; Johannes Huber <johu@gentoo.org> cmake-utils.eclass:
+  Raise CMAKE_MIN_VERSION to 2.8.12 by Ben Kohler <bkohler@gmail.com>, bug
+  #519158.
+
+  05 Aug 2014; Christoph Junghans <ottxor@gentoo.org> apache-2.eclass:
+  added prefix support (bug #433736)
+
+  05 Aug 2014; Mike Gilbert <floppym@gentoo.org> toolchain.eclass:
+  Another typo.
+
+  05 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> toolchain.eclass:
+  Fix typo.
+
+  05 Aug 2014; Magnus Granberg <zorry@gentoo.org> toolchain.eclass:
+  Fix bug #513706 only use ssp on gnu CTARGETS
+
+  03 Aug 2014; Maxim Koltsov <maksbotan@gentoo.org> leechcraft.eclass:
+  Remove sourceforge SRC_URI for leechcraft packages, only leechcraft.org is
+  used now
+
+  01 Aug 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> mozconfig-v4.eclass:
+  Updated mozconfig-v4.eclass to properly support optional IUSE=wifi
+
+  31 Jul 2014; Brian Evans <grknight@gentoo.org> mysql-cmake.eclass,
+  mysql-multilib.eclass:
+  Update CMake variables to prevent MySQL from setting default CFLAGS
+  and features
+
+  31 Jul 2014; Brian Evans <grknight@gentoo.org> mysql-multilib.eclass:
+  Update the multilib eclass to match the work done by grobian for mysql-v2
+  for prefix.
+
+  30 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> udev.eclass:
+  Deprecate the longer udev_get_udevdir() function in favour of the shorter
+  get_udevdir(), notably gentoo-x86 has been fully converted
+
+  30 Jul 2014; Robin H. Johnson <robbat2@gentoo.org> apache-2.eclass:
+  Handle grsec TPE to ensure apache can compile. $T is group-writable, owned by
+  portage, and TPE blocks that.
+
+  29 Jul 2014; Robin H. Johnson <robbat2@gentoo.org> mysql.eclass,
+  mysql-multilib.eclass, mysql-v2.eclass:
+  Convert mysql eclasses to git-r3 eclass, so we can remove RESTRICT=userpriv
+  for live copies of the patches.
+
+  29 Jul 2014; Robin H. Johnson <robbat2@gentoo.org> +mysql-multilib.eclass,
+  mysql.eclass, mysql-autotools.eclass, mysql-cmake.eclass, mysql-v2.eclass,
+  mysql_fx.eclass:
+  Sync mysql eclass from overlay.
+
+  28 Jul 2014; Davide Pesavento <pesa@gentoo.org> qmake-utils.eclass:
+  Set also QMAKE_LINK_{C_,}SHLIB
+
+  28 Jul 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> +mozconfig-v4.eclass:
+  committed new mozconfig eclass for mozilla31 and later
 
   28 Jul 2014; Michał Górny <mgorny@gentoo.org> git-r3.eclass:
   Mention git-clone man page for URI syntax, bug #511636.
@@ -103,6 +159,11 @@
   28 Jun 2014; Michał Górny <mgorny@gentoo.org> multilib-build.eclass:
   Enable multilib flags for ppc. Since ppc profiles are not multilib at the
   moment, this should not create any new issues.
+
+  28 Jun 2014; Robin H. Johnson <robbat2@gentoo.org> linux-info.eclass:
+  linux-info: Bug #469210: during pkg_info|pkg_nofetch|pkg_pretend phases, $S
+  does not exist yet. This triggers sandbox violations in some cases, use $T
+  instead.
 
   27 Jun 2014; Sergei Trofimovich <slyfox@gentoo.org> haskell-cabal.eclass:
   Disable QA warning on '--with-compiler' passed by 'dev-haskell/cabal' (bug

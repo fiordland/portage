@@ -1,5 +1,5 @@
 ####################################################################
-# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15934 2014/07/28 08:04:30 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15954 2014/08/05 18:00:30 williamh Exp $
 #
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked. Please be extremely
@@ -30,6 +30,43 @@
 
 #--- END OF EXAMPLES ---
 
+# William Hubbs <williamh@gentoo.org> (5 Aug 2014)
+# Masked by QA for removal in 30 days.
+# The unmasked version is very old, there are multiple open security
+# bugs and several version bumps. The package appears to be abandoned.
+# This will be removed on 5 Sep 2014 unless someone takes over
+# maintenance and brings it up to date.
+# See bug #518886
+www-apps/joomla
+
+# Sergey Popov <pinkbyte@gentoo.org> (05 Aug 2014)
+# Lacks patch in FILESDIR => fails to build
+# Masked by QA until maintainer will sort things out
+=app-emulation/fuse-1.1.1
+
+# Michał Górny <mgorny@gentoo.org> (05 Aug 2014)
+# Abandoned upstream with no in-tree consumers. Likely added by mistake
+# when evaluating the dependencies of dev-python/passlib. Additionally,
+# Yamlog's public source code repository has been removed.
+# Removal in 30 days, bug #518920.
+dev-python/Bcryptor
+dev-python/Yamlog
+
+# Robin H. Johnson <robbat2@gentoo.org> (04 Aug 2014)
+# Masked for testing, presently fails upstream testsuite:
+# FAIL:07:02:35 (00:00:00) db_dump/db_load(./TESTDIR.3/recd001.db:child killed: kill signal): expected 0, got 1
+# FAIL:07:02:35 (00:00:00) Dump/load of ./TESTDIR.3/recd001.db failed.
+# FAIL:07:02:35 (00:00:00) db_verify_preop: expected 0, got 1
+=sys-libs/db-6.1*
+
+# Alexis Ballier <aballier@gentoo.org> (4 Aug 2014)
+# <vlc-2.2 will not work with this ffmpeg version; others to be investigated.
+>=media-video/ffmpeg-2.3
+
+# Mikle Kolyada <zlogene@gentoo.org>
+# Masked due to upstream QA issues.
+=dev-perl/Alien-SDL-1.444.0
+
 # Johannes Huber <johu@gentoo.org> (27 Jul 2014)
 # Masked for testing.
 >=dev-util/cmake-3.0.0
@@ -51,11 +88,6 @@ media-plugins/vdr-dxr3
 media-video/dxr3config
 media-video/em8300-libraries
 media-video/em8300-modules
-
-# Pacho Ramos <pacho@gentoo.org> (27 Jul 2014)
-# Not building since 2012 (#423799). Removal in a
-# month.
-sys-cluster/util-vserver
 
 # Pacho Ramos <pacho@gentoo.org> (27 Jul 2014)
 # Fails to build, tries to access /proc, nothing
@@ -130,13 +162,6 @@ dev-lang/libcilkrts
 # notifying gnome team.
 =dev-python/pygobject-3.13.3
 
-# Lars Wendler <polynomial-c@gentoo.org> (20 Jul 2014)
-# e2fsprogs-1.42.11 fails to build (no parallel build problem):
-# make[2]: *** No rule to make target '../../lib/libss.a', needed by
-# 'tst_libext2fs'.  Stop.
-=sys-fs/e2fsprogs-1.42.11
-=sys-libs/e2fsprogs-libs-1.42.11
-
 # Pawel Hajdan jr <phajdan.jr@gentoo.org> (19 Jul 2014)
 # Dev channel releases are only for people who are developers or want more
 # experimental features and accept a more unstable release.
@@ -198,12 +223,6 @@ app-emacs/sawfish
 # If you use ffmpeg instead of libav, sorry!
 =media-video/mpv-0.4*
 
-# Andreas K. Huettel <dilfridge@gentoo.org> (7 Jul 2014)
-# Filter never was part of core Perl, no idea why we have a virtual.
-# It was moved from perl-core to dev-perl and the virtual will be
-# removed. Please depend on dev-perl/Filter directly.
-virtual/perl-Filter
-
 # Michał Górny <mgorny@gentoo.org> (6 Jul 2014)
 # (on behalf of python@gentoo.org)
 # The modules provided by those virtuals are built-in in all currently
@@ -216,12 +235,6 @@ virtual/python-unittest2
 # Mask old slot for removal in 30 days since there are no longer
 # dependencies on it.
 dev-ruby/builder:0
-
-# Andreas K. Huettel <dilfridge@gentoo.org> (05 Jul 2014)
-# Class::ISA is long gone from core Perl, thus the package
-# was moved from perl-core to dev-perl and the virtual will be
-# removed. Please depend on dev-perl/Class-ISA directly.
-virtual/perl-Class-ISA
 
 # Michael Sterrett <mr_bones_@gentoo.org> (02 Jul 2014)
 # No longer maintained upstream.
@@ -457,10 +470,6 @@ sys-fs/rdiff-backup-fs
 # Masked for futher testing with various pam setups
 =x11-misc/lightdm-1.11*
 
-# Sergey Popov <pinkbyte@gentoo.org> (08 Apr 2014)
-# Security mask of vulnerable versions, wrt bug #505278
-<dev-libs/openssl-1.0.0l:0
-
 # Markos Chandras <hwoarang@gentoo.org> (07 Apr 2014)
 # Mask 0.8.0 release for testing
 =dev-embedded/openocd-0.8.0
@@ -619,10 +628,6 @@ games-emulation/m64py
 # Some features require Qt 5.2, which is not in tree yet.
 =dev-qt/qt-creator-3*
 
-# Stanislav Ochotnicky <sochotnicky@gentoo.org (14 Oct 2013)
-# Mask live ebuild of sys-fs/simple-mtpfs (#488038)
-=sys-fs/simple-mtpfs-9999
-
 # Justin Lecher <jlec@gentoo.org> (14 Oct 2013)
 # Seems to break all deps - API change?
 >=sci-libs/metis-5
@@ -657,10 +662,6 @@ www-apache/mod_spdy
 # Mask 5.1 series because the backport of the CVE-2012-5627
 # has not be done. bug #446240 comment 2
 =dev-db/mariadb-5.1.67
-
-# Patrick Lauer <patrick@gentoo.org> (19 Aug 2013)
-# Masking live ebuilds
-=www-apps/trac-mercurial-1.0.0.3_pre20130206
 
 # Tom Wijsman <TomWij@gentoo.org> (15 Aug 2013)
 # Dependencies are unable to satisfy current version,
@@ -796,16 +797,6 @@ app-text/cuneiform
 #net-wireless/madwifi-ng-tools
 net-wireless/madwifi-ng
 
-# Tim Harder <radhermit@gentoo.org> (27 Nov 2012)
-# Masked for testing, all revdeps currently in the tree
-# don't work with it.
-=media-libs/libsfml-2*
-
-# Robin H. Johnson <robbat2@gentoo.org> (18 Nov 2012)
-# Dead upstream, replaced by gitolite
-dev-vcs/gitosis
-dev-vcs/gitosis-gentoo
-
 # Markos Chandras <hwoarang@gentoo.org> (03 Nov 2012)
 # Masked for testing
 app-benchmarks/ltp
@@ -831,14 +822,6 @@ dev-ml/ocamlduce
 # Masked until each package can update its dependencies.
 >=net-libs/libotr-4.0.0
 >=x11-plugins/pidgin-otr-4.0.0
-
-# Robin H. Johnson <robbat2@gentoo.org> (08 Oct 2012)
-# Masked for testing
-=sys-libs/db-6.0*
-=sys-libs/db-5.3*
-=sys-libs/db-5.2*
-=sys-libs/db-5.1*
-=sys-libs/db-5.0*
 
 # Ralph Sennhauser <sera@gentoo.org> (18 Jul 2012)
 # Unmaintained, multiple vulnarabilities. #351626
@@ -947,10 +930,6 @@ sci-chemistry/webmo
 # - no SLOTting yet!
 =dev-scheme/guile-2.0.0
 
-# Christian Faulhammer <fauli@gentoo.org> (12 Mar 2011)
-# Mask for testing
->=www-apps/joomla-1.6.0
-
 # Ryan Hill <dirtyepic@gentoo.org> (30 Mar 2011)
 # Masked indefinitely (until 0.40 is released).
 # http://bugs.gentoo.org/354423
@@ -991,11 +970,6 @@ net-misc/asterisk-spandsp_codec_g726
 # No actual Gentoo support yet. If you're interested, please see bug #295993
 net-misc/netcf
 
-# Robin H. Johnson <robbat2@gentoo.org> (09 Jun 2010)
-# Fails to self-verify/sign in FIPS mode, pending upstream response before
-# usage for GSoC project.
-app-crypt/hmaccalc
-
 # Patrick Lauer <patrick@gentoo.org> (07 Apr 2010)
 # Lars Wendler <polynomial-c@gentoo.org> (14 Oct 2013)
 # Keeping samba-4.0 masked until bug #447022 is fixed. 4.1 masked for testing.
@@ -1030,16 +1004,11 @@ sys-auth/pam_keystore
 # live ebuilds, nor the availability of the server hosting them. As
 # per QA team policy, all these need to be kept masked by default, if
 # available in the tree.
-~app-doc/devmanual-9999
-=app-forensics/openscap-9999
 ~app-i18n/skk-jisyo-9999
-=app-misc/mc-9999
-~app-misc/screenfetch-9999
 =app-misc/sleepyhead-9999
 =app-pda/libsyncml-9999
 =app-pda/libopensync-9999
 =app-pda/osynctool-9999
-=app-pda/libopensync-plugin-evolution2-9999
 =app-pda/libopensync-plugin-file-9999
 =app-pda/libopensync-plugin-gnokii-9999
 =app-pda/libopensync-plugin-gpe-9999
@@ -1049,29 +1018,7 @@ sys-auth/pam_keystore
 =app-pda/libopensync-plugin-syncml-9999
 =app-pda/libopensync-plugin-vformat-9999
 app-portage/layman-dbtools
-=dev-embedded/openocd-9999
-~dev-lang/jimtcl-9999
-~dev-libs/libg15-9999
-=net-print/cups-9999
-~dev-util/buildbot-9999
-~dev-util/buildbot-slave-9999
-=net-im/kmess-9999
-net-misc/netcomics-cvs
-=media-plugins/vdr-xineliboutput-9999
-=media-plugins/vdr-xvdr-9999
-=sci-astronomy/casa-data-99999
-=sys-fs/redirfs-9999
-sys-kernel/zen-sources
 =www-plugins/google-talkplugin-9999
-~x11-wm/openbox-9999
-
-# Jeremy Olexa <darkside@gentoo.org> (28 Jul 2009)
-# On behalf of Robin H. Johnson <robbat2@gentoo.org>.
-# These versions are vulnerable to GLSA's and should not be used. They will stay
-# in the tree because they are useful to tracking down bugs. You have been
-# warned. bug 271686
-<dev-db/mysql-5.1.56
-<virtual/mysql-5.1
 
 # Tiziano Müller <dev-zero@gentoo.org> (08 Apr 2009)
 # pre-releases

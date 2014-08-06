@@ -1,6 +1,28 @@
 # ChangeLog for dev-db/mariadb
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mariadb/ChangeLog,v 1.39 2014/06/20 00:06:40 grknight Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/mariadb/ChangeLog,v 1.43 2014/08/05 17:40:30 grknight Exp $
+
+*mariadb-5.5.39 (05 Aug 2014)
+
+  05 Aug 2014;  <grknight@gentoo.org> +mariadb-5.5.39.ebuild,
+  -mariadb-5.5.38-r1.ebuild:
+  Version update for security bug 518718. Drop old.
+
+  01 Aug 2014; Markus Meier <maekke@gentoo.org> mariadb-10.0.12.ebuild:
+  add ~arm, bug #518506
+
+*mariadb-10.0.12 (29 Jul 2014)
+
+  29 Jul 2014; Robin H. Johnson <robbat2@gentoo.org> +mariadb-10.0.12.ebuild:
+  Bring MySQL 5.6/MariaDB 10.0 from the overlay into the tree. Thanks to the
+  great work of Brian Evans <grknight@gentoo.org>. ~arm temporarily dropped
+  pending bug #518506.
+
+*mariadb-5.5.38-r1 (29 Jul 2014)
+
+  29 Jul 2014; Brian Evans <grknight@gentoo.org> +mariadb-5.5.38-r1.ebuild,
+  -mariadb-5.5.37-r1.ebuild, -mariadb-5.5.38.ebuild:
+  Revision bump to fix symbols needed by dev-db/myodbc:5.2. Drop old
 
 *mariadb-5.5.38 (20 Jun 2014)
 
