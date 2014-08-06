@@ -1,6 +1,13 @@
 # ChangeLog for dev-python/pyasn1
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyasn1/ChangeLog,v 1.73 2014/05/10 05:12:07 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyasn1/ChangeLog,v 1.75 2014/07/31 20:38:48 ottxor Exp $
+
+  31 Jul 2014; Christoph Junghans <ottxor@gentoo.org> pyasn1-0.1.7.ebuild:
+  added ~x86-macos (tested by me)
+
+  29 Jul 2014; Anthony G. Basile <blueness@gentoo.org> pyasn1-0.1.6.ebuild,
+  pyasn1-0.1.7.ebuild:
+  Keyword ~mips
 
   10 May 2014; Ian Delaney <idella4@gentoo.org> pyasn1-0.1.7.ebuild:
   drop py2.6 pypy2_0 add py3.4 support

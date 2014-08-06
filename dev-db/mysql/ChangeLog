@@ -1,6 +1,37 @@
 # ChangeLog for dev-db/mysql
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mysql/ChangeLog,v 1.672 2014/07/19 10:27:34 grobian Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/mysql/ChangeLog,v 1.678 2014/08/04 04:01:01 robbat2 Exp $
+
+  04 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> -files/my.cnf,
+  -files/my.cnf-4.0, -files/my.cnf-4.1, -files/mysql.init,
+  -mysql-4.0.27-r1.ebuild, -mysql-4.1.22-r1.ebuild, -mysql-5.0.96.ebuild,
+  metadata.xml:
+  Cleanup finally, will live on in the overlay.
+
+  03 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> mysql-5.6.20.ebuild:
+  Missed merging a test.
+
+  03 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> mysql-5.6.20.ebuild:
+  Update testcases.
+
+*mysql-5.5.39 (02 Aug 2014)
+*mysql-5.6.20 (02 Aug 2014)
+
+  02 Aug 2014; Brian Evans <grknight@gentoo.org> +mysql-5.5.39.ebuild,
+  +mysql-5.6.20.ebuild, -mysql-5.5.38-r1.ebuild, -mysql-5.6.19.ebuild:
+  Version bump for security bug 518718. Drop old
+
+*mysql-5.6.19 (29 Jul 2014)
+
+  29 Jul 2014; Robin H. Johnson <robbat2@gentoo.org> +mysql-5.6.19.ebuild:
+  Bring MySQL 5.6 from the overlay into the tree. Thanks to the great work of
+  Brian Evans <grknight@gentoo.org>.
+
+*mysql-5.5.38-r1 (29 Jul 2014)
+
+  29 Jul 2014; Brian Evans <grknight@gentoo.org> +mysql-5.5.38-r1.ebuild,
+  -mysql-5.5.37-r1.ebuild, -mysql-5.5.38.ebuild:
+  Revision bump to fix symbols needed by dev-db/myodbc:5.2
 
   19 Jul 2014; Fabian Groffen <grobian@gentoo.org> mysql-5.5.38.ebuild:
   Add Prefix keywords from virtual

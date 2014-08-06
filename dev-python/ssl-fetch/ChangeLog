@@ -1,6 +1,20 @@
 # ChangeLog for dev-python/ssl-fetch
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ssl-fetch/ChangeLog,v 1.14 2014/07/25 17:31:09 dastergon Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ssl-fetch/ChangeLog,v 1.18 2014/08/02 18:15:38 armin76 Exp $
+
+  02 Aug 2014; Raúl Porcel <armin76@gentoo.org> ssl-fetch-0.2.ebuild,
+  ssl-fetch-0.2.1.ebuild:
+  alpha/ia64/sparc stable wrt #513278
+
+  31 Jul 2014; Christoph Junghans <ottxor@gentoo.org> ssl-fetch-0.2.1.ebuild:
+  added ~amd64-linux (tested by me)
+
+  31 Jul 2014; Christoph Junghans <ottxor@gentoo.org> ssl-fetch-0.2.1.ebuild:
+  added ~x86-macos (tested by me)
+
+  29 Jul 2014; Anthony G. Basile <blueness@gentoo.org> ssl-fetch-0.2.1.ebuild,
+  ssl-fetch-0.2.ebuild:
+  Keyword ~mips
 
   25 Jul 2014; Pavlos Ratis <dastergon@gentoo.org> metadata.xml:
   add myself as co-maintainer

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-apps/intel-gpu-tools/intel-gpu-tools-1.7.ebuild,v 1.1 2014/07/28 05:07:08 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-apps/intel-gpu-tools/intel-gpu-tools-1.7.ebuild,v 1.3 2014/08/01 22:00:34 remi Exp $
 
 EAPI=5
 
@@ -11,6 +11,7 @@ inherit python-single-r1 xorg-2
 DESCRIPTION="Intel GPU userland tools"
 KEYWORDS="~amd64 ~x86"
 IUSE="python video_cards_nouveau"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT="test"
 
 DEPEND="dev-libs/glib:2
@@ -19,6 +20,10 @@ DEPEND="dev-libs/glib:2
 	>=x11-libs/libpciaccess-0.10
 	python? ( ${PYTHON_DEPS} )"
 RDEPEND="${DEPEND}"
+
+pkg_setup() {
+	use python && python-single-r1_pkg_setup
+}
 
 src_configure() {
 	XORG_CONFIGURE_OPTIONS=(

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-2.0.0-r1.ebuild,v 1.5 2014/06/06 01:42:41 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-2.0.0-r1.ebuild,v 1.13 2014/08/05 08:38:15 vapier Exp $
 
 EAPI=5
 
@@ -30,9 +30,9 @@ HOMEPAGE="http://www.qemu.org http://www.linux-kvm.org"
 LICENSE="GPL-2 LGPL-2 BSD-2"
 SLOT="0"
 IUSE="accessibility +aio alsa bluetooth +caps +curl debug +fdt glusterfs \
-gtk iscsi +jpeg \
-kernel_linux kernel_FreeBSD ncurses opengl +png pulseaudio python \
-rbd sasl +seccomp sdl selinux smartcard spice ssh static static-softmmu \
+gtk infiniband iscsi +jpeg \
+kernel_linux kernel_FreeBSD lzo ncurses nfs nls opengl +png pulseaudio python \
+rbd sasl +seccomp sdl selinux smartcard snappy spice ssh static static-softmmu \
 static-user systemtap tci test +threads tls usb usbredir +uuid vde +vhost-net \
 virtfs +vnc xattr xen xfs"
 
@@ -70,13 +70,17 @@ SOFTMMU_LIB_DEPEND="${COMMON_LIB_DEPEND}
 	curl? ( >=net-misc/curl-7.15.4[static-libs(+)] )
 	fdt? ( >=sys-apps/dtc-1.4.0[static-libs(+)] )
 	glusterfs? ( >=sys-cluster/glusterfs-3.4.0[static-libs(+)] )
+	infiniband? ( sys-infiniband/librdmacm[static-libs(+)] )
 	jpeg? ( virtual/jpeg[static-libs(+)] )
+	lzo? ( dev-libs/lzo:2[static-libs(+)] )
 	ncurses? ( sys-libs/ncurses[static-libs(+)] )
+	nfs? ( net-fs/libnfs[static-libs(+)] )
 	png? ( media-libs/libpng[static-libs(+)] )
 	rbd? ( sys-cluster/ceph[static-libs(+)] )
 	sasl? ( dev-libs/cyrus-sasl[static-libs(+)] )
 	sdl? ( >=media-libs/libsdl-1.2.11[static-libs(+)] )
 	seccomp? ( >=sys-libs/libseccomp-2.1.0[static-libs(+)] )
+	snappy? ( app-arch/snappy[static-libs(+)] )
 	spice? ( >=app-emulation/spice-0.12.0[static-libs(+)] )
 	ssh? ( >=net-libs/libssh2-1.2.8[static-libs(+)] )
 	tls? ( net-libs/gnutls[static-libs(+)] )
@@ -125,6 +129,7 @@ DEPEND="${RDEPEND}
 	sys-apps/texinfo
 	virtual/pkgconfig
 	kernel_linux? ( >=sys-kernel/linux-headers-2.6.35 )
+	gtk? ( nls? ( sys-devel/gettext ) )
 	static-softmmu? ( ${SOFTMMU_LIB_DEPEND} )
 	static-user? ( ${USER_LIB_DEPEND} )
 	test? (
@@ -236,6 +241,9 @@ src_prepare() {
 		-e 's/^(C|OP_C|HELPER_C)FLAGS=/\1FLAGS+=/' \
 		Makefile Makefile.target || die
 
+	# Cheap hack to disable gettext .mo generation.
+	use nls || rm -f po/*.po
+
 	epatch "${FILESDIR}"/qemu-1.7.0-cflags.patch
 	epatch "${FILESDIR}"/qemu-9999-virtfs-proxy-helper-accept.patch #486714
 	epatch "${FILESDIR}"/${P}-CVE-2013-4541.patch #510208
@@ -328,18 +336,23 @@ qemu_src_configure() {
 			$(use_enable curl)
 			$(use_enable fdt)
 			$(use_enable glusterfs)
+			$(use_enable infiniband rdma)
 			$(use_enable iscsi libiscsi)
 			$(use_enable jpeg vnc-jpeg)
 			$(use_enable kernel_linux kvm)
+			$(use_enable lzo)
 			$(use_enable ncurses curses)
+			$(use_enable nfs libnfs)
 			$(use_enable opengl glx)
 			$(use_enable png vnc-png)
 			$(use_enable rbd)
 			$(use_enable sasl vnc-sasl)
 			$(use_enable seccomp)
 			$(use_enable smartcard smartcard-nss)
+			$(use_enable snappy)
 			$(use_enable spice)
 			$(use_enable ssh libssh2)
+			$(use_enable tls quorum)
 			$(use_enable tls vnc-tls)
 			$(use_enable tls vnc-ws)
 			$(use_enable usb libusb)
@@ -435,6 +448,7 @@ src_compile() {
 src_test() {
 	if [[ -n ${softmmu_targets} ]]; then
 		cd "${S}/softmmu-build"
+		pax-mark m */qemu-system-* #515550
 		emake -j1 check
 		emake -j1 check-report.html
 	fi
@@ -498,42 +512,42 @@ src_install() {
 	fi
 
 	# Remove vgabios since we're using the vgabios packaged one
-	rm "${ED}/usr/share/qemu/vgabios.bin"
-	rm "${ED}/usr/share/qemu/vgabios-cirrus.bin"
-	rm "${ED}/usr/share/qemu/vgabios-qxl.bin"
-	rm "${ED}/usr/share/qemu/vgabios-stdvga.bin"
-	rm "${ED}/usr/share/qemu/vgabios-vmware.bin"
-	if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386; then
-		dosym ../vgabios/vgabios.bin /usr/share/qemu/vgabios.bin
-		dosym ../vgabios/vgabios-cirrus.bin /usr/share/qemu/vgabios-cirrus.bin
-		dosym ../vgabios/vgabios-qxl.bin /usr/share/qemu/vgabios-qxl.bin
-		dosym ../vgabios/vgabios-stdvga.bin /usr/share/qemu/vgabios-stdvga.bin
-		dosym ../vgabios/vgabios-vmware.bin /usr/share/qemu/vgabios-vmware.bin
-	fi
+	if [[ -n ${softmmu_targets} ]]; then
+		rm "${ED}/usr/share/qemu/vgabios.bin"
+		rm "${ED}/usr/share/qemu/vgabios-cirrus.bin"
+		rm "${ED}/usr/share/qemu/vgabios-qxl.bin"
+		rm "${ED}/usr/share/qemu/vgabios-stdvga.bin"
+		rm "${ED}/usr/share/qemu/vgabios-vmware.bin"
+		if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386; then
+			dosym ../vgabios/vgabios.bin /usr/share/qemu/vgabios.bin
+			dosym ../vgabios/vgabios-cirrus.bin /usr/share/qemu/vgabios-cirrus.bin
+			dosym ../vgabios/vgabios-qxl.bin /usr/share/qemu/vgabios-qxl.bin
+			dosym ../vgabios/vgabios-stdvga.bin /usr/share/qemu/vgabios-stdvga.bin
+			dosym ../vgabios/vgabios-vmware.bin /usr/share/qemu/vgabios-vmware.bin
+		fi
 
-	# Remove sgabios since we're using the sgabios packaged one
-	rm "${ED}/usr/share/qemu/sgabios.bin"
-	if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386; then
-		dosym ../sgabios/sgabios.bin /usr/share/qemu/sgabios.bin
-	fi
+		# Remove sgabios since we're using the sgabios packaged one
+		rm "${ED}/usr/share/qemu/sgabios.bin"
+		if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386; then
+			dosym ../sgabios/sgabios.bin /usr/share/qemu/sgabios.bin
+		fi
 
-	# Remove iPXE since we're using the iPXE packaged one
-	rm "${ED}"/usr/share/qemu/pxe-*.rom
-	if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386; then
-		dosym ../ipxe/8086100e.rom /usr/share/qemu/pxe-e1000.rom
-		dosym ../ipxe/80861209.rom /usr/share/qemu/pxe-eepro100.rom
-		dosym ../ipxe/10500940.rom /usr/share/qemu/pxe-ne2k_pci.rom
-		dosym ../ipxe/10222000.rom /usr/share/qemu/pxe-pcnet.rom
-		dosym ../ipxe/10ec8139.rom /usr/share/qemu/pxe-rtl8139.rom
-		dosym ../ipxe/1af41000.rom /usr/share/qemu/pxe-virtio.rom
+		# Remove iPXE since we're using the iPXE packaged one
+		rm "${ED}"/usr/share/qemu/pxe-*.rom
+		if use qemu_softmmu_targets_x86_64 || use qemu_softmmu_targets_i386; then
+			dosym ../ipxe/8086100e.rom /usr/share/qemu/pxe-e1000.rom
+			dosym ../ipxe/80861209.rom /usr/share/qemu/pxe-eepro100.rom
+			dosym ../ipxe/10500940.rom /usr/share/qemu/pxe-ne2k_pci.rom
+			dosym ../ipxe/10222000.rom /usr/share/qemu/pxe-pcnet.rom
+			dosym ../ipxe/10ec8139.rom /usr/share/qemu/pxe-rtl8139.rom
+			dosym ../ipxe/1af41000.rom /usr/share/qemu/pxe-virtio.rom
+		fi
 	fi
 
 	qemu_support_kvm && readme.gentoo_create_doc
 }
 
 pkg_postinst() {
-	local virtfs_caps=
-
 	if qemu_support_kvm; then
 		readme.gentoo_print_elog
 		ewarn "Migration from qemu-kvm instances and loading qemu-kvm created"
@@ -553,11 +567,11 @@ pkg_postinst() {
 		fi
 	fi
 
-	virtfs_caps+="cap_chown,cap_dac_override,cap_fowner,cap_fsetid,"
-	virtfs_caps+="cap_setgid,cap_mknod,cap_setuid"
-
 	fcaps cap_net_admin /usr/libexec/qemu-bridge-helper
-	use virtfs && fcaps ${virtfs_caps} /usr/bin/virtfs-proxy-helper
+	if use virtfs && [ -n "${softmmu_targets}" ]; then
+		local virtfs_caps="cap_chown,cap_dac_override,cap_fowner,cap_fsetid,cap_setgid,cap_mknod,cap_setuid"
+		fcaps ${virtfs_caps} /usr/bin/virtfs-proxy-helper
+	fi
 }
 
 pkg_info() {

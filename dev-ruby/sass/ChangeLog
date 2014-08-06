@@ -1,6 +1,25 @@
 # ChangeLog for dev-ruby/sass
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/sass/ChangeLog,v 1.57 2014/07/26 05:35:14 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/sass/ChangeLog,v 1.61 2014/08/05 16:00:26 mrueg Exp $
+
+  05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> sass-3.1.21.ebuild,
+  sass-3.2.18.ebuild, sass-3.2.19-r1.ebuild, sass-3.2.19.ebuild,
+  sass-3.2.9.ebuild, sass-3.3.11.ebuild, sass-3.3.12.ebuild, sass-3.3.14.ebuild:
+  Remove trailing '.' from DESCRIPTION.
+
+  03 Aug 2014; Hans de Graaff <graaff@gentoo.org> -sass-3.3.7.ebuild,
+  -sass-3.3.8.ebuild, -sass-3.3.9.ebuild, -sass-3.3.10.ebuild:
+  Cleanup.
+
+*sass-3.3.14 (03 Aug 2014)
+
+  03 Aug 2014; Hans de Graaff <graaff@gentoo.org> +sass-3.3.14.ebuild:
+  Version bump. Drop jruby due to 1.9 ruby syntax.
+
+*sass-3.3.12 (31 Jul 2014)
+
+  31 Jul 2014; Hans de Graaff <graaff@gentoo.org> +sass-3.3.12.ebuild:
+  Version bump.
 
 *sass-3.3.11 (26 Jul 2014)
 

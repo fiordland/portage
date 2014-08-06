@@ -1,6 +1,13 @@
 # ChangeLog for app-dicts/myspell-de-alt
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-dicts/myspell-de-alt/ChangeLog,v 1.23 2014/07/20 08:47:37 klausman Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-dicts/myspell-de-alt/ChangeLog,v 1.25 2014/08/02 18:18:47 ago Exp $
+
+  02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> myspell-de-alt-20120929.ebuild:
+  Stable for ppc64, wrt bug #507252
+
+  01 Aug 2014; Raúl Porcel <armin76@gentoo.org>
+  myspell-de-alt-20120929.ebuild:
+  sparc stable wrt #507252
 
   20 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
   myspell-de-alt-20120929.ebuild:

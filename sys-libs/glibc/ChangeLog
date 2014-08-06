@@ -1,6 +1,24 @@
 # ChangeLog for sys-libs/glibc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/glibc/ChangeLog,v 1.998 2014/07/28 05:46:16 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/glibc/ChangeLog,v 1.1004 2014/08/04 09:27:00 klausman Exp $
+
+  04 Aug 2014; Tobias Klausmann <klausman@gentoo.org> glibc-2.19-r1.ebuild:
+  Stable on alpha, bug 518364
+
+  04 Aug 2014; Mike Frysinger <vapier@gentoo.org> glibc-9999.ebuild:
+  Update required kernel version to 2.6.32 to reflect upstream.
+
+  31 Jul 2014; Sergey Popov <pinkbyte@gentoo.org> glibc-2.19-r1.ebuild:
+  arm stable, wrt bug #518364
+
+  31 Jul 2014; Mike Frysinger <vapier@gentoo.org> glibc-2.19-r1.ebuild:
+  Mark arm64/ia64/m68k/sh stable.
+
+  29 Jul 2014; Anthony G. Basile <blueness@gentoo.org> glibc-2.19-r1.ebuild:
+  Stable on ppc and ppc64, bug #518364
+
+  29 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> glibc-2.19-r1.ebuild:
+  amd64 stable wrt bug #518364
 
   28 Jul 2014; Mike Frysinger <vapier@gentoo.org> files/eblits/common.eblit:
   Drop arch nptl logic as it only applies to really old versions of glibc now

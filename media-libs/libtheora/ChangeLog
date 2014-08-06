@@ -1,6 +1,12 @@
 # ChangeLog for media-libs/libtheora
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libtheora/ChangeLog,v 1.121 2014/07/27 10:30:57 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libtheora/ChangeLog,v 1.123 2014/08/03 18:35:27 ago Exp $
+
+  03 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libtheora-1.1.1-r1.ebuild:
+  Stable for ppc, wrt bug #510476
+
+  02 Aug 2014; Raúl Porcel <armin76@gentoo.org> libtheora-1.1.1-r1.ebuild:
+  ia64/sparc stable wrt #510476
 
   26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
   libtheora-1.1.1-r1.ebuild:

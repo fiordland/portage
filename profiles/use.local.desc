@@ -149,6 +149,7 @@ app-admin/diradm:automount - Support for automount data in LDAP
 app-admin/diradm:irixpasswd - Support for storing separate IRIX passwords
 app-admin/elektra:gcov - Enable coverage support
 app-admin/elektra:simpleini - Enable simpleini support
+app-admin/elektra:uname - Enable uname information for the key database
 app-admin/elektra:yajl - Enable yajl support
 app-admin/eselect-php:fpm - Enable the FastCGI Process Manager SAPI
 app-admin/gkrellm:X - Build both the X11 gui (gkrellm) and the server (gkrellmd). Disabling this flag builds the server only.
@@ -260,6 +261,7 @@ app-arch/libarchive:e2fsprogs - Use file flags from sys-fs/e2fsprogs headers ins
 app-arch/libarchive:nettle - Use dev-libs/nettle as crypto backend
 app-arch/libarchive:zlib - Allow accessing gzip-compressed archives through sys-libs/zlib. This only affects libarchive's native support: bsdtar will keep using gunzip as a filter if that's not built-in. It's also needed for supporting extraction of ZIP files.
 app-arch/libzpaq:jit - Enable just-in-time compilation for faster compression (requires SSE2)
+app-arch/lz4:valgrind - Enable usage of dev-util/valgrind in tests
 app-arch/mate-file-archiver:caja - Enable engrampa to integrate with mate-base/mate-file-manager by providing entries in its context menu
 app-arch/p7zip:rar - Enable support for non-free rar decoder
 app-arch/pbzip2:symlink - Install symlinks which override app-arch/bzip2 implementation
@@ -344,6 +346,7 @@ app-crypt/hashcat-gui:opencl - Install oclhashcat-{plus,lite}-bin to take advant
 app-crypt/heimdal:hdb-ldap - Adds support for LDAP as a database backend
 app-crypt/heimdal:otp - Adds support for one-time passwords
 app-crypt/heimdal:pkinit - Adds support for PKINIT for the initial ticket
+app-crypt/hmaccalc:fips - Enable NSS FIPS mode and support only the FIPS-compliant functions
 app-crypt/johntheripper:cuda - Use nvidia cuda toolkit for speeding up cracking on capable devices
 app-crypt/johntheripper:mozilla - Support mozilla password cracking
 app-crypt/johntheripper:opencl - Enable opencl support for speeding up cracking on capable devices
@@ -453,6 +456,7 @@ app-editors/zile:valgrind - Enable usage of dev-util/valgrind in tests
 app-emacs/anything:extensions - Install optional extensions
 app-emacs/auctex:preview-latex - Use bundled preview-latex
 app-emacs/bbdb:tex - Install plain TeX support files
+app-emacs/bbdb:vm - Add support for app-emacs/vm
 app-emacs/calfw:howm - Add support for the app-emacs/howm note-taking tool
 app-emacs/company-mode:ropemacs - Install backend for dev-python/ropemacs
 app-emacs/emacs-common-gentoo:games - Support shared score files for games
@@ -560,11 +564,15 @@ app-emulation/qemu:iscsi - Enable direct iSCSI support via net-libs/libiscsi ins
 app-emulation/qemu:jpeg - Enable jpeg image support for the VNC console server
 app-emulation/qemu:mixemu - Enable audio mixer emulation. On Fedora, known to cause performance problems when using SDL output and ALSA. For OSS, locks the sound device from other applications.
 app-emulation/qemu:ncurses - Enable the ncurses-based console
+app-emulation/qemu:nfs - Enable NFS support
+app-emulation/qemu:numa - Enable NUMA support
+app-emulation/qemu:pin-upstream-blobs - Pin the versions of BIOS firmware to the version included in the upstream release. This is needed to sanely support migration/suspend/resume/snapshotting/etc... of instances. When the blobs are different, random corruption/bugs/crashes/etc... may be observed.
 app-emulation/qemu:png - Enable png image support for the VNC console server
 app-emulation/qemu:pulseaudio - Enable pulseaudio output for sound emulation
 app-emulation/qemu:rbd - Enable rados block device backend support, see http://ceph.newdream.net/wiki/QEMU-RBD
 app-emulation/qemu:sdl - Enable the SDL-based console
 app-emulation/qemu:seccomp - Utilize sys-libs/libseccomp to enable kernel filtering of system calls to prevent malicious guests from doing damage.
+app-emulation/qemu:snappy - Enable support for snappy compression
 app-emulation/qemu:spice - Enable Spice protocol support via app-emulation/spice
 app-emulation/qemu:ssh - Enable SSH based block device support via net-libs/libssh2
 app-emulation/qemu:static - Enables both 'static-softmmu' and 'static-user'
@@ -572,7 +580,7 @@ app-emulation/qemu:static-softmmu - Builds the Software MMU (system) targets as 
 app-emulation/qemu:static-user - Build the User targets as static binaries
 app-emulation/qemu:systemtap - Enable SystemTAP/DTrace tracing
 app-emulation/qemu:tci - Enable the TCG Interpreter which can speed up or slowdown workloads depending on the host and guest CPUs being emulated. In the future it will be a runtime option but for now its compile time.
-app-emulation/qemu:tls - Enable TLS support for the VNC console server. For 1.4 and newer this also enables WebSocket support.
+app-emulation/qemu:tls - Enable TLS support for the VNC console server. For 1.4 and newer this also enables WebSocket support. For 2.0 and newer this also enables disk quorum support.
 app-emulation/qemu:usb - Enable USB passthrough via dev-libs/libusb
 app-emulation/qemu:usbredir - Use sys-apps/usbredir to redirect USB devices to another machine over TCP
 app-emulation/qemu:uuid - Enable UUID support in the vdi block driver
@@ -756,6 +764,7 @@ app-leechcraft/lc-azoth:murm - Build Murm, the VKontakte messaging support via t
 app-leechcraft/lc-azoth:nativeemoticons - Build support for native Azoth's emoticons packs
 app-leechcraft/lc-azoth:otroid - Build OTRoid, plugin for the Off-the-Record deniable encryption system
 app-leechcraft/lc-azoth:p100q - Build p100q, plugin for psto.net microblogging service
+app-leechcraft/lc-azoth:sarin - Build Sarin, Tox protocol support module. Please add mva overlay to use net-libs/tox
 app-leechcraft/lc-azoth:shx - Build shell command executor plugin
 app-leechcraft/lc-azoth:standardstyles - Build support for standard Azoth styles engine
 app-leechcraft/lc-azoth:vader - Bulid Vader, the MRIM (Mail.Ru Agent) protocol support plugin
@@ -1200,6 +1209,20 @@ dev-db/mariadb:sphinx - Add suport for the sphinx full-text search engine
 dev-db/mariadb:systemtap - Build support for profiling and tracing using dev-util/systemtap
 dev-db/mariadb:test - Install upstream testsuites for end use.
 dev-db/mariadb:tokudb - Add support for TokuDB storage engine
+dev-db/mariadb-galera:cluster - Add support for NDB clustering (deprecated)
+dev-db/mariadb-galera:community - Enables the community features from upstream.
+dev-db/mariadb-galera:embedded - Build embedded server (libmysqld)
+dev-db/mariadb-galera:extraengine - Add support for alternative storage engines (Archive, CSV, Blackhole, Federated(X), Partition)
+dev-db/mariadb-galera:jemalloc - Use dev-libs/jemalloc for allocations.
+dev-db/mariadb-galera:latin1 - Use LATIN1 encoding instead of UTF8
+dev-db/mariadb-galera:max-idx-128 - Raise the max index per table limit from 64 to 128
+dev-db/mariadb-galera:minimal - Install client programs only, no server
+dev-db/mariadb-galera:oqgraph - Add support for the Open Query GRAPH engine
+dev-db/mariadb-galera:profiling - Add support for statement profiling (requires USE=community).
+dev-db/mariadb-galera:sphinx - Add suport for the sphinx full-text search engine
+dev-db/mariadb-galera:systemtap - Build support for profiling and tracing using dev-util/systemtap
+dev-db/mariadb-galera:test - Install upstream testsuites for end use.
+dev-db/mariadb-galera:tokudb - Add support for TokuDB storage engine
 dev-db/mongodb:mms-agent - Install the MongoDB Monitoring Service agent
 dev-db/mongodb:sharedclient - build client shared library libmongoclient.so
 dev-db/mongodb:spidermonkey - Use embedded SpiderMonkey engine (dev-lang/spidermonkey) instead of v8
@@ -1214,12 +1237,33 @@ dev-db/mysql:max-idx-128 - Raise the max index per table limit from 64 to 128
 dev-db/mysql:minimal - Install client programs only, no server
 dev-db/mysql:pbxt - Add experimental support for PBXT storage engine
 dev-db/mysql:profiling - Add support for statement profiling (requires USE=community).
-dev-db/mysql:raid - Deprecated option, removed in the 5.0 series
 dev-db/mysql:systemtap - Build support for profiling and tracing using dev-util/systemtap
 dev-db/mysql:test - Install upstream testsuites for end use.
 dev-db/mysql:xtradb - Add experimental support for Percona's InnoDB replacement: XtraDB
+dev-db/mysql-cluster:cluster - Add support for NDB clustering
+dev-db/mysql-cluster:community - Enables the community features from upstream.
+dev-db/mysql-cluster:embedded - Build embedded server (libmysqld)
+dev-db/mysql-cluster:extraengine - Add support for alternative storage engines (Archive, CSV, Blackhole, Federated(X), Partition)
+dev-db/mysql-cluster:jemalloc - Use dev-libs/jemalloc for allocations.
+dev-db/mysql-cluster:latin1 - Use LATIN1 encoding instead of UTF8
+dev-db/mysql-cluster:max-idx-128 - Raise the max index per table limit from 64 to 128
+dev-db/mysql-cluster:minimal - Install client programs only, no server
+dev-db/mysql-cluster:profiling - Add support for statement profiling (requires USE=community).
+dev-db/mysql-cluster:systemtap - Build support for profiling and tracing using dev-util/systemtap
+dev-db/mysql-cluster:test - Install upstream testsuites for end use.
 dev-db/mysql-connector-c++:gcov - Build coverage support
 dev-db/opendbx:bindist - Disable support for dev-db/firebird database which is not GPL compatible.
+dev-db/percona-server:cluster - Add support for NDB clustering (deprecated)
+dev-db/percona-server:community - Enables the community features from upstream.
+dev-db/percona-server:embedded - Build embedded server (libmysqld)
+dev-db/percona-server:extraengine - Add support for alternative storage engines (Archive, CSV, Blackhole, Federated(X), Partition)
+dev-db/percona-server:jemalloc - Use dev-libs/jemalloc for allocations.
+dev-db/percona-server:latin1 - Use LATIN1 encoding instead of UTF8
+dev-db/percona-server:max-idx-128 - Raise the max index per table limit from 64 to 128
+dev-db/percona-server:minimal - Install client programs only, no server
+dev-db/percona-server:profiling - Add support for statement profiling (requires USE=community).
+dev-db/percona-server:systemtap - Build support for profiling and tracing using dev-util/systemtap
+dev-db/percona-server:test - Install upstream testsuites for end use.
 dev-db/pgadmin3:databasedesigner - Enable the Database Designer component
 dev-db/pgbouncer:libevent - Use libevent 2.0+ and evdns as the DNS backend
 dev-db/pgbouncer:udns - Use udns as the DNS backend. Supports IPv4 only.
@@ -1627,6 +1671,7 @@ dev-lang/ruby:rubytests - Install ruby tests that can only be run after ruby is 
 dev-lang/ruby:yaml - Use the dev-libs/libyaml library to build the psych extension, available since Ruby 1.9.2_rc2, in alternative to the bundled syck-based parser.
 dev-lang/rust:binary-bootstrap - Download precompiled rust for compilator bootstrap
 dev-lang/rust:clang - Use sys-devel/clang for building
+dev-lang/rust:libcxx - Use sys-libs/libcxx as standard library when building with sys-devel/clang
 dev-lang/scala:binary - Install from (Gentoo-compiled) binary instead of building from sources. Set this when you run out of memory during build.
 dev-lang/spidermonkey:debug - Enable assertions to allow for easier debugging of programs that link to spidermonkey -- note this will often crash software on regular end-user systems
 dev-lang/spidermonkey:system-icu - Use the system-wide dev-libs/icu instead of bundled -- note, only takes effect when icu flag is enabled
@@ -2143,6 +2188,7 @@ dev-qt/qt-creator:android - Build plugin for Android devices
 dev-qt/qt-creator:autotools - Enable autotools project manager plugin
 dev-qt/qt-creator:baremetal - Build plugin for bare metal devices
 dev-qt/qt-creator:bazaar - Add support for dev-vcs/bzr version control system
+dev-qt/qt-creator:clang - Build clang-based code model plugin
 dev-qt/qt-creator:clearcase - Add support for IBM ClearCase version control system (requires manual installation of ClearCase client)
 dev-qt/qt-creator:cmake - Enable cmake project manager plugin
 dev-qt/qt-creator:fakevim - Enable support for vim-like key bindings
@@ -2380,7 +2426,6 @@ dev-util/pkgconf:pkg-config - Install as a replacement for dev-util/pkgconfig
 dev-util/pkgconf:strict - Adhere to POSIX pkg-config specification. Useful for finding uses of non-standard pkg-config invocations.
 dev-util/pkgconfig:internal-glib - Use internal copy of dev-libs/glib
 dev-util/pkgconfig-openbsd:pkg-config - Install as a replacement for dev-util/pkgconfig
-dev-util/qbs:gui - Build QBS graphical configuration tool
 dev-util/qdevelop:plugins - Build and install additional plugins
 dev-util/reviewboard:codebase - Enables a build of the docs/codebase folder
 dev-util/reviewboard:manual - Enables a build of the docs/manual folder
@@ -3613,6 +3658,7 @@ media-libs/sdl2-mixer:wav - support WAVE files
 media-libs/sge:image - enable sdl-image support
 media-libs/silgraphite:pango - Enables the pango-graphite pango module.
 media-libs/spandsp:fixed-point - Enable fixed point support
+media-libs/spandsp:sse4a - Enable AMD Barcelona (SSE4a) instruction set support
 media-libs/svgalib:kernel-helper - Build the helper kernel module
 media-libs/swfdec:alsa - Use ALSA for audio output
 media-libs/swfdec:doc - Build documentation
@@ -4130,7 +4176,6 @@ media-video/dvd-slideshow:themes - Install theme pack
 media-video/dvdauthor:graphicsmagick - Use media-gfx/graphicsmagick instead of media-gfx/imagemagick
 media-video/dvdrip:fping - Enables fping support for cluster rendering
 media-video/dvdrip:subtitles - Enables support for subtitle ripping
-media-video/dvdstyler:deprecated - Use the old libgnomeui-2 library
 media-video/ffdiaporama:openclipart - Support openslipart database
 media-video/ffdiaporama:texturemate - Install extra backgrounds
 media-video/ffmpeg:3dnowext - Enable manually-optimised routines using the AMD 3DNow!Ex SIMD instruction set, present in modern AMD CPUs. (Check for 3dnowext in /proc/cpuinfo to know whether your CPU supports it).
@@ -4852,6 +4897,7 @@ net-im/centerim:irc - Enable support for the IRC protocol
 net-im/centerim:lj - Enable support for the LiveJournal weblog system
 net-im/centerim:otr - Enable encrypted conversations
 net-im/climm:otr - Enable encrypted conversations
+net-im/corebird:glade - Install glade catalogs for corebird
 net-im/ejabberd:captcha - Support for CAPTCHA Forms (XEP-158)
 net-im/ejabberd:mod_irc - Build irc gateway
 net-im/ejabberd:mod_muc - Build Multi User Chat module
@@ -5354,7 +5400,8 @@ net-misc/batman-adv:mcast - B.A.T.M.A.N. multicast optimizations
 net-misc/batman-adv:nc - B.A.T.M.A.N. network coding
 net-misc/bfgminer:adl - Enable support for controlling fans and overclocking on AMD cards with AMD Display Library
 net-misc/bfgminer:antminer - Enable support for mining with AntMiner U1 sticks
-net-misc/bfgminer:avalon - Enable support for mining with Avalon ASIC modules
+net-misc/bfgminer:avalon - Enable support for mining with Avalon 1 ASIC modules
+net-misc/bfgminer:avalonmm - Enable support for mining with Avalon 2/3 ASIC modules
 net-misc/bfgminer:bfsb - Enable support for mining on BFSB host Raspberry Pi
 net-misc/bfgminer:bfx - Enable support for mining with BFx2 USB sticks
 net-misc/bfgminer:bifury - Enable support for mining with Bi*fury USB sticks
@@ -5396,7 +5443,6 @@ net-misc/cfengine:libvirt - Enable support for virtual machine management throug
 net-misc/cfengine:qdbm - Use dev-db/qdbm as database backend
 net-misc/cfengine:tests - Install test files
 net-misc/cfengine:tokyocabinet - Use dev-db/tokyocabinet as database backend
-net-misc/cgminer:adl - Enable support for controlling fans and overclocking on AMD cards with AMD Display Library
 net-misc/cgminer:ants1 - Enable support for Antminer S1 Bitmain
 net-misc/cgminer:ants2 - Enable support for Antminer S2 Bitmain
 net-misc/cgminer:avalon - Enable support for Avalon ASICs
@@ -5409,13 +5455,12 @@ net-misc/cgminer:bitmine_A1 - Enable support for mining with Bitmine.ch A1 ASICs
 net-misc/cgminer:cointerra - Enable support for mining with Cointerra ASICs
 net-misc/cgminer:drillbit - Enable support for mining with Drillbit BitFury ASICs
 net-misc/cgminer:hashfast - Enable support for mining with Hashfast
+net-misc/cgminer:hashratio - Enable support for mining with Hashratio
 net-misc/cgminer:icarus - Enable support for mining with Icarus FPGAs
 net-misc/cgminer:klondike - Enable support for mining with Klondik ASICs
 net-misc/cgminer:knc - Enable support for mining with KnC miners
 net-misc/cgminer:minion - Enable support for mining with BlackArrow Bitfury
 net-misc/cgminer:modminer - Enable support for mining with ModMiner FPGAs
-net-misc/cgminer:opencl - Enable support for mining with OpenCL-capable devices (GPUs)
-net-misc/cgminer:scrypt - Enable support for scrypt mining algorithm
 net-misc/cgminer:spondoolies - Enable support for Spondoolies
 net-misc/chrony:rtc - Include support for the Linux Real Time Clock interface
 net-misc/connman:ethernet - Enable ethernet support.
@@ -5719,6 +5764,8 @@ net-p2p/amule:stats - Enable statistic reporting
 net-p2p/bitcoin-qt:1stclassmsg - Enable first-class Bitcoin message tools
 net-p2p/bitcoin-qt:qrcode - Enable generation of QR Codes for receiving payments
 net-p2p/bitcoind:logrotate - Use app-admin/logrotate for rotating logs
+net-p2p/bitcoind:upnp - Enable Universal Plug and Play
+net-p2p/bitcoind:wallet - Enable wallet support
 net-p2p/datacoin-hp:logrotate - Use app-admin/logrotate for rotating logs
 net-p2p/dbhub:switch_user - Enable support for switching user
 net-p2p/deluge:setproctitle - Install dependencies needed for beautifying the process name
@@ -6484,7 +6531,6 @@ sys-apps/pcsc-lite:udev - Use sys-fs/udev rules to handle devices' permissions a
 sys-apps/pcsc-tools:network-cron - Monthly cronjob the update-smartcard_list script
 sys-apps/pkgcore:doc - Build and install API docs.
 sys-apps/policycoreutils:audit - Enable support for sys-process/audit and use the audit_* functions (like audit_getuid instead of getuid())
-sys-apps/policycoreutils:sesandbox - Enable support for SELinux sandbox application
 sys-apps/portage:epydoc - Build html API documentation with epydoc.
 sys-apps/portage:ipc - Use inter-process communication between portage and running ebuilds.
 sys-apps/portage:less - Pull in sys-apps/less as default pager for etc-update.
@@ -6626,6 +6672,7 @@ sys-cluster/corosync:infiniband - Enable Infiniband RDMA transport support
 sys-cluster/drbd:heartbeat - Enable Heartbeat integration
 sys-cluster/drbd:pacemaker - Enable Pacemaker integration
 sys-cluster/drbd:xen - Enable Xen integration
+sys-cluster/galera:garbd - Install Galera Arbitrator - a stateless daemon which acts as a lightweight group member
 sys-cluster/gearmand:drizzle - Support dev-db/libdrizzle for the queue storage. This also adds support for MySQL storage.
 sys-cluster/gearmand:memcache - Support memcache daemon (via dev-libs/libmemcached) for the queue storage.
 sys-cluster/gearmand:tokyocabinet - Support dev-db/tokyocabinet for the queue storage.
@@ -6639,6 +6686,10 @@ sys-cluster/glusterfs:infiniband - Add support for Infiniband ibverbs transport.
 sys-cluster/glusterfs:qemu-block - Transparently create files as QCow2/QED images in the backend, including the possibility to snapshot.
 sys-cluster/glusterfs:rsyslog - Install configuration snippet for app-admin/rsyslog
 sys-cluster/glusterfs:systemtap - Enable support for dev-util/systemtap
+sys-cluster/hpx:jemalloc - Use dev-libs/jemalloc for memory allocation
+sys-cluster/hpx:papi - Use dev-libs/papi for NaCl
+sys-cluster/hpx:perftools - Use dev-util/google-perftools for memory allocation
+sys-cluster/hpx:tbb - Use dev-cpp/tbb for memory allocation
 sys-cluster/maui:pbs - Enable pbs integration
 sys-cluster/maui:slurm - Enable slurm integration
 sys-cluster/moosefs:cgi - Install CGI server and scripts.
