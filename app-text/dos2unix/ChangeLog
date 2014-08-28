@@ -1,6 +1,24 @@
 # ChangeLog for app-text/dos2unix
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/dos2unix/ChangeLog,v 1.138 2014/08/04 19:28:43 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/dos2unix/ChangeLog,v 1.144 2014/08/27 12:24:22 ago Exp $
+
+  27 Aug 2014; Agostino Sarubbo <ago@gentoo.org> dos2unix-6.0.5.ebuild:
+  Stable for ppc, wrt bug #519022
+
+  22 Aug 2014; Agostino Sarubbo <ago@gentoo.org> dos2unix-6.0.5.ebuild:
+  Stable for ppc64, wrt bug #519022
+
+  19 Aug 2014; Agostino Sarubbo <ago@gentoo.org> dos2unix-6.0.5.ebuild:
+  Stable for ia64, wrt bug #519022
+
+  15 Aug 2014; Johannes Huber <johu@gentoo.org> dos2unix-6.0.5.ebuild:
+  amd64 stable, bug #519022
+
+  14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> dos2unix-6.0.5.ebuild:
+  x86 stable wrt bug #519022
+
+  06 Aug 2014; Jeroen Roovers <jer@gentoo.org> dos2unix-6.0.5.ebuild:
+  Stable for HPPA (bug #519022).
 
 *dos2unix-6.0.6 (04 Aug 2014)
 

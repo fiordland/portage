@@ -1,6 +1,23 @@
 # ChangeLog for app-arch/lz4
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/lz4/ChangeLog,v 1.26 2014/08/05 08:43:26 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-arch/lz4/ChangeLog,v 1.31 2014/08/26 11:31:50 armin76 Exp $
+
+  26 Aug 2014; Raúl Porcel <armin76@gentoo.org> lz4-0_p106-r1.ebuild,
+  lz4-0_p120.ebuild, lz4-9999.ebuild:
+  Add ~m68k/~sh/~sparc wrt bug #499468
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> lz4-0_p106-r1.ebuild:
+  Stable for alpha, wrt bug #509954
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> lz4-0_p106-r1.ebuild:
+  Stable for ppc64, wrt bug #509954
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> lz4-0_p106-r1.ebuild:
+  Stable for ppc, wrt bug #509954
+
+  13 Aug 2014; Anthony G. Basile <blueness@gentoo.org> lz4-0_p106-r1.ebuild,
+  lz4-0_p120.ebuild, lz4-9999.ebuild:
+  Keyword ~ppc and ~ppc64, bug #501600
 
   05 Aug 2014; Jeroen Roovers <jer@gentoo.org> lz4-0_p120.ebuild, metadata.xml:
   Add USE=valgrind, bring back ~alpha ~hppa ~ia64 (bug #519084).

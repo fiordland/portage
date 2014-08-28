@@ -1,6 +1,24 @@
 # ChangeLog for dev-ruby/actionpack
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/actionpack/ChangeLog,v 1.286 2014/08/05 16:00:25 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/actionpack/ChangeLog,v 1.290 2014/08/23 07:07:06 graaff Exp $
+
+  23 Aug 2014; Hans de Graaff <graaff@gentoo.org> -actionpack-4.0.8.ebuild,
+  -actionpack-4.1.4.ebuild:
+  Cleanup.
+
+*actionpack-4.1.5 (18 Aug 2014)
+*actionpack-4.0.9 (18 Aug 2014)
+
+  18 Aug 2014; Hans de Graaff <graaff@gentoo.org> +actionpack-4.0.9.ebuild,
+  +actionpack-4.1.5.ebuild:
+  Version bump for security bug 520212.
+
+  16 Aug 2014; Anthony G. Basile <blueness@gentoo.org> actionpack-3.2.19.ebuild,
+  actionpack-4.0.8.ebuild:
+  Keyword on ~ppc and ~ppc64, request by mrueg
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> actionpack-4.1.4.ebuild:
+  Keyword ~ppc and ~ppc64, bug #519170
 
   05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> actionpack-3.2.19.ebuild,
   actionpack-4.0.8.ebuild, actionpack-4.1.4.ebuild:

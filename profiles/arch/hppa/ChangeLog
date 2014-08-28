@@ -1,6 +1,18 @@
 # ChangeLog for Gentoo/hppa profile
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/ChangeLog,v 1.218 2014/07/29 10:19:57 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/ChangeLog,v 1.222 2014/08/17 09:04:47 jer Exp $
+
+  17 Aug 2014; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Remove USE=javascript mask for www-client/elinks.
+
+  17 Aug 2014; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Unmask USE=gtk for sys-auth/polkit (bug #517804).
+
+  13 Aug 2014; Jeroen Roovers <jer@gentoo.org> use.mask:
+  Remove USE flag masks which require CONFIG_AUDITSYSCALL (bug #517804).
+
+  13 Aug 2014; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Mask USE=gg11 for net-libs/libgadu (bug #519772).
 
   29 Jul 2014; Jeroen Roovers <jer@gentoo.org> package.use.mask:
   Mask dev-libs/mongo-c-driver USE=test (bug #517880).

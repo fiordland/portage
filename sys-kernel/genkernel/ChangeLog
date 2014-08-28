@@ -1,6 +1,27 @@
 # ChangeLog for sys-kernel/genkernel
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/genkernel/ChangeLog,v 1.393 2014/07/24 16:20:46 klausman Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/genkernel/ChangeLog,v 1.397 2014/08/20 12:39:36 armin76 Exp $
+
+  20 Aug 2014; Raúl Porcel <armin76@gentoo.org> genkernel-3.4.49.ebuild,
+  genkernel-3.4.49.2.ebuild:
+  ia64/sparc stable wrt bug #511992
+
+*genkernel-3.4.51.2 (17 Aug 2014)
+
+  17 Aug 2014; Richard Yao <ryao@gentoo.org> +genkernel-3.4.51.2.ebuild,
+  -genkernel-3.4.51.1-r1.ebuild:
+  Bump to 3.4.51.2 for #508362, #519298
+
+*genkernel-3.4.51.1-r1 (14 Aug 2014)
+
+  14 Aug 2014; Patrick Lauer <patrick@gentoo.org> +genkernel-3.4.51.1-r1.ebuild:
+  Bump with new kernel configs for x86,amd64. Adds fhandle etc. for udev and
+  some other useful things.
+
+*genkernel-3.4.51.1 (12 Aug 2014)
+
+  12 Aug 2014; Richard Yao <ryao@gentoo.org> +genkernel-3.4.51.1.ebuild:
+  Bump for bug #468760.
 
   24 Jul 2014; Tobias Klausmann <klausman@gentoo.org>
   genkernel-3.4.49.2.ebuild:

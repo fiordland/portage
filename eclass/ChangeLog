@@ -1,6 +1,59 @@
 # ChangeLog for eclass directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1342 2014/08/05 22:59:44 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/ChangeLog,v 1.1358 2014/08/28 18:20:49 swift Exp $
+
+  28 Aug 2014; Sven Vermeulen <swift@gentoo.org> selinux-policy-2.eclass:
+  Simplify rlpkg call and optimize package relabeling thanks to Jason Perfinion
+
+  27 Aug 2014; Michał Górny <mgorny@gentoo.org> bash-completion-r1.eclass:
+  Make completionsdir default to the new location (for new installs). Eselect
+  support is provided in app-shells/bash-completion-2.1-r1.
+
+  24 Aug 2014; Michał Górny <mgorny@gentoo.org> distutils-r1.eclass:
+  Pass install paths to distutils via setup.cfg.
+
+  23 Aug 2014; Sven Vermeulen <swift@gentoo.org> selinux-policy-2.eclass:
+  Adding relabeling support for SELinux depending packages
+
+  18 Aug 2014; Michał Górny <mgorny@gentoo.org> python-r1.eclass:
+  Add extra quoting to prevent accidental globbing.
+
+  18 Aug 2014; Brian Evans <grknight@gentoo.org> mysql-multilib.eclass:
+  Move ENABLE_DTRACE check to the multilib_src_configure wrt bug 520028
+
+  17 Aug 2014; Jonathan Callen <jcallen@gentoo.org> multilib-build.eclass:
+  Add new multilib_native_enable and multilib_native_with functions; fix
+  documentation
+
+  12 Aug 2014; Michael Palimaka <kensington@gentoo.org> cmake-utils.eclass:
+  Sync with KDE overlay, including a large number of cosmetic changes and
+  simplification and removal of old code.
+
+  11 Aug 2014; Joshua Kinard <kumba@gentoo.org> flag-o-matic.eclass:
+  Added -mfix-r10000/-mno-fix-r10000 to ALLOWED_FLAGS for MIPS.
+
+  10 Aug 2014; Johannes Huber <johu@gentoo.org> kde4-base.eclass:
+  Raise gcc minimum version to 4.7, bugs #462550, #471770, #508324.
+
+  10 Aug 2014; Jeroen Roovers <jer@gentoo.org> nvidia-driver.eclass:
+  Check for earlier version, not different version (bug #519558 by kavol).
+
+  10 Aug 2014; Robin H. Johnson <robbat2@gentoo.org> mysql-v2.eclass:
+  Add extra download URL from overlay.
+
+  08 Aug 2014; Sven Vermeulen <swift@gentoo.org> selinux-policy-2.eclass:
+  The BASEPOL variable can be deduced from the ebuild version as we no longer
+  support mixing versions
+
+  08 Aug 2014; Christoph Junghans <ottxor@gentoo.org> db-use.eclass:
+  added prefix support
+
+  07 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> apache-2.eclass:
+  Fixed numerous misquotings by introducing arrays. Removed some useless "die"
+  statements. Thanks to Arfrever for sorting out these issues.
+
+  06 Aug 2014; Sven Vermeulen <swift@gentoo.org> selinux-policy-2.eclass:
+  Add support for different GIT repositories with SELinux policy ebuilds
 
   05 Aug 2014; Johannes Huber <johu@gentoo.org> cmake-utils.eclass:
   Raise CMAKE_MIN_VERSION to 2.8.12 by Ben Kohler <bkohler@gmail.com>, bug

@@ -1,6 +1,22 @@
 # ChangeLog for sys-apps/gentoo-functions
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/gentoo-functions/ChangeLog,v 1.18 2014/07/23 14:37:39 williamh Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/gentoo-functions/ChangeLog,v 1.23 2014/08/20 11:38:07 armin76 Exp $
+
+  20 Aug 2014; Raúl Porcel <armin76@gentoo.org> gentoo-functions-0.7.ebuild:
+  alpha/arm64/sparc/x86 stable wrt #519734
+
+  19 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gentoo-functions-0.7.ebuild:
+  Stable for ia64, wrt bug #519734
+
+  16 Aug 2014; Johannes Huber <johu@gentoo.org> gentoo-functions-0.7.ebuild:
+  amd64 stable, bug #519734
+
+  15 Aug 2014; Jeroen Roovers <jer@gentoo.org> gentoo-functions-0.7.ebuild:
+  Stable for HPPA (bug #519734).
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org>
+  gentoo-functions-0.7.ebuild:
+  Stable on arm, ppc and ppc64.  Bug #519734.
 
   23 Jul 2014; William Hubbs <williamh@gentoo.org>
   -files/gentoo-functions-0.3.sh, -gentoo-functions-0.3.ebuild,

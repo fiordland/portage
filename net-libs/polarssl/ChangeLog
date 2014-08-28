@@ -1,6 +1,22 @@
 # ChangeLog for net-libs/polarssl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/polarssl/ChangeLog,v 1.88 2014/08/02 15:40:52 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/polarssl/ChangeLog,v 1.92 2014/08/20 12:14:46 armin76 Exp $
+
+  20 Aug 2014; Raúl Porcel <armin76@gentoo.org> polarssl-1.3.8.ebuild:
+  Add ~ia64 wrt #468362 and mark alpha stable
+
+  09 Aug 2014; Julian Ospald <hasufell@gentoo.org> -polarssl-1.3.4.ebuild,
+  -polarssl-1.3.5.ebuild, -polarssl-1.3.6.ebuild, -polarssl-1.3.7.ebuild,
+  -polarssl-1.3.7-r1.ebuild, -files/polarssl-1.3.4-cflags.patch,
+  -files/polarssl-1.3.4-out-of-source.patch,
+  -files/polarssl-1.3.4-static.patch, -files/polarssl-1.3.4-zlib.patch:
+  cleanup vulnerable versions wrt #516904
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> polarssl-1.3.8.ebuild:
+  Stable for ppc64, wrt bug #516904
+
+  08 Aug 2014; Agostino Sarubbo <ago@gentoo.org> polarssl-1.3.8.ebuild:
+  Stable for ppc, wrt bug #516904
 
   02 Aug 2014; Raúl Porcel <armin76@gentoo.org> polarssl-1.3.8.ebuild:
   sparc stable wrt #516904

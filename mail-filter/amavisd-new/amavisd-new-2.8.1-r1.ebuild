@@ -1,18 +1,18 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/amavisd-new/amavisd-new-2.8.1-r1.ebuild,v 1.7 2014/07/20 09:20:10 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/amavisd-new/amavisd-new-2.8.1-r1.ebuild,v 1.9 2014/08/25 12:32:29 armin76 Exp $
 
 EAPI=4
 inherit eutils systemd user
 
 MY_P="${P/_/-}"
-DESCRIPTION="High-performance interface between the MTA and content checkers."
+DESCRIPTION="High-performance interface between the MTA and content checkers"
 HOMEPAGE="http://www.ijs.si/software/amavisd/"
 SRC_URI="http://www.ijs.si/software/amavisd/${MY_P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 hppa ~ppc ~ppc64 x86"
+KEYWORDS="amd64 hppa ~ppc ~ppc64 ~sparc x86"
 IUSE="clamav courier dkim ldap mysql postgres qmail razor snmp spamassassin zmq"
 
 DEPEND=">=sys-apps/sed-4

@@ -1,6 +1,18 @@
 # ChangeLog for Gentoo/ia64 profile
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/ia64/ChangeLog,v 1.207 2014/07/29 23:15:42 robbat2 Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/ia64/ChangeLog,v 1.211 2014/08/20 12:32:13 armin76 Exp $
+
+  20 Aug 2014; Raúl Porcel <armin76@gentoo.org> use.mask:
+  Use.mask redis
+
+  20 Aug 2014; Raúl Porcel <armin76@gentoo.org> package.use.mask, use.mask:
+  Move ocamlopt from p.use.mask to use.mask as instructed in bug #430352
+
+  13 Aug 2014; Maciej Mrozowski <reavertm@gentoo.org> package.use.mask:
+  Mask gg11 flag due to missing keywords (bug 519772)
+
+  12 Aug 2014; Mike Frysinger <vapier@gentoo.org> use.mask:
+  Mask untested mumble. #509216 by Émeric Maschino.
 
   29 Jul 2014; Robin H. Johnson <robbat2@gentoo.org> package.use.mask:
   Update MySQL tcmalloc mask for percona-server.

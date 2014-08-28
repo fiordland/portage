@@ -1,6 +1,16 @@
 # ChangeLog for app-emulation/libvirt
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/ChangeLog,v 1.366 2014/07/31 17:06:11 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/libvirt/ChangeLog,v 1.369 2014/08/12 15:25:28 ago Exp $
+
+  12 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libvirt-1.2.5.ebuild:
+  Stable for x86, wrt bug #509858
+
+  12 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libvirt-1.2.5.ebuild:
+  Stable for amd64, wrt bug #509858
+
+  06 Aug 2014; Patrick Lauer <patrick@gentoo.org>
+  +files/libvirt-1.2.6-numa.patch, libvirt-1.2.6.ebuild:
+  Add upstream patch to fix USE=-numa #518568
 
   31 Jul 2014; Michał Górny <mgorny@gentoo.org> libvirt-1.2.3.ebuild,
   libvirt-1.2.5.ebuild, libvirt-1.2.6.ebuild, libvirt-9999.ebuild:

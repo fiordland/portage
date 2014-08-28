@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/blueman/blueman-9999.ebuild,v 1.4 2014/08/04 16:23:27 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/blueman/blueman-9999.ebuild,v 1.6 2014/08/14 21:43:49 zerochaos Exp $
 
 EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
 inherit eutils python-single-r1 gnome2-utils autotools
 
-DESCRIPTION="GTK+ Bluetooth Manager, designed to be simple and intuitive for everyday bluetooth tasks."
+DESCRIPTION="GTK+ Bluetooth Manager, designed to be simple and intuitive for everyday bluetooth tasks"
 HOMEPAGE="http://blueman-project.org/"
 
 if [[ ${PV} == "9999" ]] ; then
@@ -47,8 +47,7 @@ RDEPEND="${CDEPEND}
 		=net-misc/dhcp-3*
 		>=net-misc/networkmanager-0.8 ) )
 	policykit? ( sys-auth/polkit )
-	pulseaudio? ( media-sound/pulseaudio )
-	!net-wireless/gnome-bluetooth"
+	pulseaudio? ( media-sound/pulseaudio )"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 

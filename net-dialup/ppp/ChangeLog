@@ -1,6 +1,32 @@
 # ChangeLog for net-dialup/ppp
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/ppp/ChangeLog,v 1.293 2014/06/18 18:51:54 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dialup/ppp/ChangeLog,v 1.301 2014/08/21 09:46:11 ago Exp $
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ppp-2.4.7.ebuild:
+  Stable for ppc, wrt bug #519650
+
+  20 Aug 2014; Raúl Porcel <armin76@gentoo.org> ppp-2.4.7.ebuild:
+  alpha/arm/sparc stable wrt #519650
+
+  19 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ppp-2.4.7.ebuild:
+  Stable for ppc64, wrt bug #519650
+
+  19 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ppp-2.4.7.ebuild:
+  Stable for ia64, wrt bug #519650
+
+  13 Aug 2014; Jeroen Roovers <jer@gentoo.org> ppp-2.4.7.ebuild:
+  Stable for HPPA (bug #519650).
+
+  12 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ppp-2.4.7.ebuild:
+  Stable for x86, wrt bug #519650
+
+  12 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ppp-2.4.7.ebuild:
+  Stable for amd64, wrt bug #519650
+
+*ppp-2.4.7 (12 Aug 2014)
+
+  12 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> +ppp-2.4.7.ebuild:
+  Security bump (bug #519650).
 
 *ppp-2.4.6-r3 (18 Jun 2014)
 

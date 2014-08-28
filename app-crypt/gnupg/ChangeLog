@@ -1,6 +1,23 @@
 # ChangeLog for app-crypt/gnupg
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/gnupg/ChangeLog,v 1.537 2014/07/30 15:54:34 k_f Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/gnupg/ChangeLog,v 1.540 2014/08/28 13:51:15 jer Exp $
+
+  28 Aug 2014; Jeroen Roovers <jer@gentoo.org> gnupg-2.0.26.ebuild:
+  Stable for HPPA (bug #521174).
+
+*gnupg-2.1.0_beta783 (18 Aug 2014)
+
+  18 Aug 2014; Kristian Fiskerstrand <k_f@gentoo.org>
+  +gnupg-2.1.0_beta783.ebuild, -gnupg-2.1.0_beta751.ebuild:
+  Bump 2.1 version to beta783. Fix bug #519200
+
+*gnupg-2.0.26 (13 Aug 2014)
+
+  13 Aug 2014; Kristian Fiskerstrand <k_f@gentoo.org>
+  +files/gnupg-2.0.26-Need-to-init-the-trustdb-for-import.patch,
+  +gnupg-2.0.26.ebuild:
+  Version bump to 2.0.26. Add patch to fix an import issue for trust-
+  model=always (bug #519760)
 
   30 Jul 2014; Kristian Fiskerstrand <k_f@gentoo.org> metadata.xml:
   Update metadata longdesc to reflect IDEA is now also part of GnuPG and the

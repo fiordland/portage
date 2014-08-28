@@ -1,6 +1,18 @@
 # ChangeLog for dev-python/requests
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/requests/ChangeLog,v 1.66 2014/08/02 18:09:56 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/requests/ChangeLog,v 1.69 2014/08/28 08:29:47 naota Exp $
+
+  28 Aug 2014; Naohiro Aota <naota@gentoo.org> requests-2.3.0.ebuild:
+  Add ~x86-fbsd. #509628
+
+  25 Aug 2014; Manuel Rüger <mrueg@gentoo.org> requests-2.3.0.ebuild:
+  Mark amd64 stable. Bug #513278.
+
+  11 Aug 2014; Anthony G. Basile <blueness@gentoo.org> requests-0.13.1.ebuild,
+  requests-0.14.2-r1.ebuild, requests-1.2.2.ebuild, requests-1.2.3.ebuild,
+  requests-2.0.0.ebuild, requests-2.0.1.ebuild, requests-2.1.0.ebuild,
+  requests-2.2.0.ebuild, requests-2.2.1.ebuild, requests-2.3.0.ebuild:
+  Keyword ~ppc, ~ppc64 for bug #519618
 
   02 Aug 2014; Raúl Porcel <armin76@gentoo.org> requests-2.3.0.ebuild:
   alpha/ia64/sparc stable wrt #513278

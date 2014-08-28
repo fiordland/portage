@@ -1,6 +1,50 @@
 # ChangeLog for Gentoo/PPC profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ChangeLog,v 1.272 2014/07/31 22:13:03 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/powerpc/ChangeLog,v 1.284 2014/08/17 23:46:58 blueness Exp $
+
+  17 Aug 2014; Anthony G. Basile <blueness@gentoo.org> package.use.mask:
+  Mask USE=smartcard for =net-misc/spice-gtk-0.25-r1 since it pulls in
+  qemu[smartcard] which is masked
+
+  16 Aug 2014; Anthony G. Basile <blueness@gentoo.org> package.use.mask:
+  Mask FEATURES=test on dev-ruby/sprockets since it pulls in execjs and
+  coffee-script, and so nodejs which is broken on ppc/ppc64
+
+  15 Aug 2014; Anthony G. Basile <blueness@gentoo.org> package.use.mask:
+  Mask FEATURES=test on dev-ruby/haml since it pulls in rails, and so nodejs
+  which is broken on ppc/ppc64
+
+  15 Aug 2014; Anthony G. Basile <blueness@gentoo.org> package.use.mask:
+  Mask USE='doc examples test' on =dev-python/networkx-1.9 to avoid matplotlib
+
+  14 Aug 2014; Anthony G. Basile <blueness@gentoo.org> package.use.mask:
+  Also mask USE=matplotlib on dev-python/ipython since too many deps are not
+  keyworded
+
+  14 Aug 2014; Anthony G. Basile <blueness@gentoo.org> package.use.mask:
+  Mask USE='doc mongodb nbconvert notebook qt4' on dev-python/ipython since
+  mongodb is broken
+
+  13 Aug 2014; Christoph Junghans <ottxor@gentoo.org> package.use.mask:
+  unmask libcerf useflag (bug 517726)
+
+  13 Aug 2014; Maciej Mrozowski <reavertm@gentoo.org> package.use.mask:
+  Mask gg11 flag due to missing keywords (bug 519772)
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> ChangeLog:
+  Mask FEATURES=test on dev-ruby/actionpack since it eventually pulls in nodejs
+  which is broken on ppc/ppc64
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> package.use.mask:
+  Mask FEATURES=test on dev-ruby/tilt since it eventually pulls in nodejs which
+  is broken on ppc/ppc64
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> package.use.mask:
+  Mask USE=rbd on sys-block/fio since it pulls in ceph which is broken
+
+  08 Aug 2014; Anthony G. Basile <blueness@gentoo.org> package.mask:
+  Remove mask on dev-texlive/texlive-* tested okay on ppc and ppc64, bug
+  #475124
 
   31 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> +package.use.stable.mask:
   Temporarily mask USE="test" for sys-block/thin-provisioning-tools because of

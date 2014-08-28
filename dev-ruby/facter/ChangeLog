@@ -1,6 +1,22 @@
 # ChangeLog for dev-ruby/facter
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/facter/ChangeLog,v 1.99 2014/07/05 12:59:23 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/facter/ChangeLog,v 1.104 2014/08/19 11:18:06 armin76 Exp $
+
+  19 Aug 2014; Raúl Porcel <armin76@gentoo.org> facter-2.0.2.ebuild,
+  facter-2.1.0.ebuild:
+  Add ~sparc wrt #513322
+
+  13 Aug 2014; Raúl Porcel <armin76@gentoo.org> facter-1.7.6.ebuild:
+  sparc stable wrt #514476
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> facter-1.7.6.ebuild:
+  Stable for ppc64, wrt bug #514476
+
+  09 Aug 2014; Jeroen Roovers <jer@gentoo.org> facter-1.7.6.ebuild:
+  Stable for HPPA (bug #514476).
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> facter-1.7.6.ebuild:
+  Stable for ppc, wrt bug #514476
 
   05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> facter-1.7.6.ebuild:
   Stable for x86, wrt bug #514476

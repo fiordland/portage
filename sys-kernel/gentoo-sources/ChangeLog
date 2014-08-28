@@ -1,6 +1,75 @@
 # ChangeLog for sys-kernel/gentoo-sources
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1386 2014/08/04 00:00:13 mpagano Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1399 2014/08/15 15:07:39 mpagano Exp $
+
+  15 Aug 2014; Mike Pagano <mpagano@gentoo.org> -gentoo-sources-3.2.60.ebuild:
+  Remove 3.2 series.
+
+  14 Aug 2014; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.4.95.ebuild, -gentoo-sources-3.4.99.ebuild,
+  -gentoo-sources-3.4.100.ebuild, -gentoo-sources-3.4.101.ebuild,
+  -gentoo-sources-3.4.102.ebuild, -gentoo-sources-3.10.32.ebuild,
+  -gentoo-sources-3.10.49.ebuild, -gentoo-sources-3.10.50.ebuild,
+  -gentoo-sources-3.10.51.ebuild, -gentoo-sources-3.10.52.ebuild,
+  -gentoo-sources-3.12.13.ebuild, -gentoo-sources-3.12.25.ebuild,
+  -gentoo-sources-3.14.13.ebuild, -gentoo-sources-3.14.15.ebuild,
+  -gentoo-sources-3.15.6.ebuild, -gentoo-sources-3.15.7.ebuild,
+  -gentoo-sources-3.15.8.ebuild, -gentoo-sources-3.15.9.ebuild,
+  -gentoo-sources-3.16.0.ebuild:
+  Remove old versions
+
+*gentoo-sources-3.14.17 (14 Aug 2014)
+
+  14 Aug 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.17.ebuild:
+  Linux patch 3.14.17
+
+*gentoo-sources-3.10.53 (14 Aug 2014)
+
+  14 Aug 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.53.ebuild:
+  Linux patch 3.10.53
+
+*gentoo-sources-3.15.10 (14 Aug 2014)
+
+  14 Aug 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.15.10.ebuild:
+  Linux patch 3.15.10
+
+*gentoo-sources-3.4.103 (14 Aug 2014)
+
+  14 Aug 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.4.103.ebuild:
+  Linux patch 3.4.103
+
+*gentoo-sources-3.16.1 (14 Aug 2014)
+
+  14 Aug 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.16.1.ebuild:
+  Linux patch 3.16.1
+
+  13 Aug 2014; Andreas Schuerch <nativemad@gentoo.org>
+  gentoo-sources-3.14.16.ebuild:
+  x86 stable, see bug 518600. Thanks Myckel Habets
+
+  08 Aug 2014; Michael Pagano <mpagano@gentoo.org>
+  gentoo-sources-3.16.0.ebuild:
+  Add deblob to 3.16.0
+
+*gentoo-sources-3.14.16 (08 Aug 2014)
+
+  08 Aug 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.16.ebuild:
+  Linux patch 3.14.16
+
+*gentoo-sources-3.10.52 (08 Aug 2014)
+
+  08 Aug 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.52.ebuild:
+  Linux patch 3.10.52
+
+*gentoo-sources-3.15.9 (08 Aug 2014)
+
+  08 Aug 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.15.9.ebuild:
+  Linux patch 3.15.9
+
+*gentoo-sources-3.4.102 (08 Aug 2014)
+
+  08 Aug 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.4.102.ebuild:
+  Linux patch 3.4.102
 
 *gentoo-sources-3.16.0 (03 Aug 2014)
 

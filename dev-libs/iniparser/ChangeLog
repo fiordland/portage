@@ -1,6 +1,22 @@
 # ChangeLog for dev-libs/iniparser
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/iniparser/ChangeLog,v 1.36 2014/07/28 13:42:53 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/iniparser/ChangeLog,v 1.41 2014/08/25 10:57:05 ago Exp $
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> iniparser-3.1-r1.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> iniparser-3.1-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> iniparser-3.1-r1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> iniparser-3.1-r1.ebuild,
+  iniparser-3.1.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> iniparser-3.1-r1.ebuild:
+  Stable for HPPA (bug #512012).
 
   28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> iniparser-3.1-r1.ebuild:
   Stable for ppc, wrt bug #512012

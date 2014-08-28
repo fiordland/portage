@@ -1,6 +1,18 @@
 # ChangeLog for net-libs/libtirpc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libtirpc/ChangeLog,v 1.39 2014/08/01 11:24:53 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libtirpc/ChangeLog,v 1.42 2014/08/12 07:14:49 vapier Exp $
+
+  12 Aug 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/libtirpc-0.2.5-stdarg.patch, libtirpc-0.2.5.ebuild:
+  Add missing include of stdarg.h.
+
+  11 Aug 2014; Mike Frysinger <vapier@gentoo.org> libtirpc-0.2.4-r1.ebuild:
+  Mark arm64/ppc/ppc64/s390/sh stable #514912.
+
+*libtirpc-0.2.5 (09 Aug 2014)
+
+  09 Aug 2014; Mike Frysinger <vapier@gentoo.org> +libtirpc-0.2.5.ebuild:
+  Version bump.
 
   01 Aug 2014; Raúl Porcel <armin76@gentoo.org> libtirpc-0.2.4-r1.ebuild:
   ia64/sparc stable wrt #514912

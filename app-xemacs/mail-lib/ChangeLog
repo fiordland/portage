@@ -1,6 +1,20 @@
 # ChangeLog for app-xemacs/mail-lib
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-xemacs/mail-lib/ChangeLog,v 1.33 2014/08/04 18:36:02 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-xemacs/mail-lib/ChangeLog,v 1.37 2014/08/13 15:23:50 matsl Exp $
+
+  13 Aug 2014; Mats Lidell <matsl@gentoo.org> -mail-lib-1.79.ebuild,
+  -mail-lib-1.80.ebuild:
+  Maintainer cleanup. Remove old ebuilds.
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> mail-lib-1.79.ebuild,
+  mail-lib-1.80.ebuild, mail-lib-1.83.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mail-lib-1.83.ebuild:
+  Stable for ppc64, wrt bug #509830
+
+  08 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mail-lib-1.83.ebuild:
+  Stable for ppc, wrt bug #509830
 
   04 Aug 2014; Raúl Porcel <armin76@gentoo.org> mail-lib-1.83.ebuild:
   sparc stable wrt #509830
