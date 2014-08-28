@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-9999.ebuild,v 1.130 2014/07/28 03:36:10 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-9999.ebuild,v 1.137 2014/08/23 09:43:33 mgorny Exp $
 
 EAPI=5
 
@@ -14,7 +14,7 @@ inherit git-r3
 
 AUTOTOOLS_PRUNE_LIBTOOL_FILES=all
 PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} )
-inherit autotools-utils bash-completion-r1 fcaps linux-info multilib \
+inherit autotools-utils bash-completion-r1 linux-info multilib \
 	multilib-minimal pam python-single-r1 systemd toolchain-funcs udev \
 	user
 
@@ -26,7 +26,7 @@ LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0/2"
 KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="acl audit cryptsetup curl doc elfutils +firmware-loader gcrypt gudev http
-	introspection kdbus +kmod lz4 lzma pam policykit python qrcode +seccomp
+	idn introspection kdbus +kmod lz4 lzma pam policykit python qrcode +seccomp
 	selinux ssl test vanilla"
 
 MINKV="3.8"
@@ -44,6 +44,7 @@ COMMON_DEPEND=">=sys-apps/util-linux-2.20:0=
 		>=net-libs/libmicrohttpd-0.9.33:0=
 		ssl? ( >=net-libs/gnutls-3.1.4:0= )
 	)
+	idn? ( net-dns/libidn:0= )
 	introspection? ( >=dev-libs/gobject-introspection-1.31.1:0= )
 	kmod? ( >=sys-apps/kmod-15:0= )
 	lz4? ( >=app-arch/lz4-0_p119:0=[${MULTILIB_USEDEP}] )
@@ -67,10 +68,9 @@ RDEPEND="${COMMON_DEPEND}
 	!<sys-libs/glibc-2.14
 	!sys-fs/udev"
 
-# sys-apps/daemon: the daemon only (+ build-time lib dep for tests)
-PDEPEND=">=sys-apps/dbus-1.6.8-r1:0
+# sys-apps/dbus: the daemon only (+ build-time lib dep for tests)
+PDEPEND=">=sys-apps/dbus-1.6.8-r1:0[systemd]
 	>=sys-apps/hwids-20130717-r1[udev]
-	>=sys-fs/udev-init-scripts-25
 	policykit? ( sys-auth/polkit )
 	!vanilla? ( sys-apps/gentoo-systemd-integration )"
 
@@ -219,6 +219,7 @@ multilib_src_configure() {
 		$(use_enable gudev)
 		$(multilib_native_use_enable http microhttpd)
 		$(usex http $(multilib_native_use_enable ssl gnutls) --disable-gnutls)
+		$(multilib_native_use_enable idn libidn)
 		$(multilib_native_use_enable introspection)
 		$(use_enable kdbus)
 		$(multilib_native_use_enable kmod)
@@ -456,6 +457,9 @@ pkg_postinst() {
 	enewgroup input
 	enewgroup systemd-journal
 	newusergroup systemd-bus-proxy
+	newusergroup systemd-journal-gateway
+	newusergroup systemd-journal-remote
+	newusergroup systemd-journal-upload
 	newusergroup systemd-network
 	newusergroup systemd-resolve
 	newusergroup systemd-timesync
@@ -470,9 +474,6 @@ pkg_postinst() {
 	fi
 
 	udev_reload || FAIL=1
-
-	# Bug 468876
-	fcaps cap_dac_override,cap_sys_ptrace=ep usr/bin/systemd-detect-virt
 
 	# Bug 465468, make sure locales are respect, and ensure consistency
 	# between OpenRC & systemd
@@ -507,6 +508,12 @@ pkg_postinst() {
 		elog "To get additional features, a number of optional runtime dependencies may"
 		elog "be installed:"
 		elog "- sys-apps/systemd-ui: for GTK+ systemadm UI and gnome-ask-password-agent"
+	fi
+
+	if has_version sys-apps/openrc &&
+		! has_version sys-fs/udev-init-scripts; then
+		elog "If you plan to boot using OpenRC and udev or eudev, you"
+		elog "need to install the udev-init-scripts package."
 	fi
 }
 

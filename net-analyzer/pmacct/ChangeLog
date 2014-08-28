@@ -1,6 +1,21 @@
 # ChangeLog for net-analyzer/pmacct
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/pmacct/ChangeLog,v 1.96 2014/08/05 16:36:59 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/pmacct/ChangeLog,v 1.101 2014/08/27 13:37:52 jer Exp $
+
+  27 Aug 2014; Jeroen Roovers <jer@gentoo.org> -pmacct-0.14.1.ebuild:
+  Old.
+
+  27 Aug 2014; Agostino Sarubbo <ago@gentoo.org> pmacct-0.14.3.ebuild:
+  Stable for ppc, wrt bug #499966
+
+  21 Aug 2014; Chema Alonso <nimiux@gentoo.org> pmacct-0.14.3.ebuild:
+  Stable for amd64 wrt bug #499966
+
+  09 Aug 2014; Andreas Schuerch <nativemad@gentoo.org> pmacct-0.14.3.ebuild:
+  x86 stable, see bug 499966
+
+  06 Aug 2014; Jeroen Roovers <jer@gentoo.org> pmacct-1.5.0_rc3.ebuild:
+  Add virtual/pkgconfig to DEPEND.
 
   05 Aug 2014; Jeroen Roovers <jer@gentoo.org> pmacct-1.5.0_rc3.ebuild,
   +files/pmacct-1.5.0_rc3-mongodb.patch:

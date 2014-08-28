@@ -1,6 +1,16 @@
 # ChangeLog for dev-python/paver
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/paver/ChangeLog,v 1.39 2014/06/19 11:24:20 klausman Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/paver/ChangeLog,v 1.41 2014/08/21 12:40:12 armin76 Exp $
+
+  21 Aug 2014; Raúl Porcel <armin76@gentoo.org> paver-1.1.1.ebuild,
+  paver-1.1.1-r1.ebuild, paver-1.2.0.ebuild, paver-1.2.1.ebuild,
+  paver-1.2.2.ebuild, paver-1.2.3.ebuild:
+  Add ~sparc wrt bug #454638
+
+*paver-1.2.3 (20 Aug 2014)
+
+  20 Aug 2014; Ian Delaney <idella4@gentoo.org> +paver-1.2.3.ebuild:
+  bump; drop py2.6 pypy2_0
 
   19 Jun 2014; Tobias Klausmann <klausman@gentoo.org> paver-1.2.2.ebuild:
   Keyworded on alpha, bug #454638

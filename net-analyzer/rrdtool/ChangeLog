@@ -1,6 +1,20 @@
 # ChangeLog for net-analyzer/rrdtool
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/rrdtool/ChangeLog,v 1.270 2014/07/27 19:09:31 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/rrdtool/ChangeLog,v 1.274 2014/08/15 18:00:06 armin76 Exp $
+
+  15 Aug 2014; Raúl Porcel <armin76@gentoo.org> rrdtool-1.4.8-r1.ebuild:
+  ia64/sparc stable, bug #517234
+
+  15 Aug 2014; Jeroen Roovers <jer@gentoo.org> rrdtool-1.4.8-r1.ebuild,
+  rrdtool-1.4.8-r3.ebuild:
+  Shift dev-ruby/rrdtool-bindings to PDEPEND.
+
+  14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> rrdtool-1.4.8-r1.ebuild:
+  x86 stable wrt bug #517234
+
+  14 Aug 2014; Jeroen Roovers <jer@gentoo.org> rrdtool-1.4.8-r1.ebuild,
+  rrdtool-1.4.8-r3.ebuild:
+  Readd USE=ruby for now.
 
   27 Jul 2014; Markus Meier <maekke@gentoo.org> rrdtool-1.4.8-r1.ebuild:
   arm stable, bug #517234

@@ -1,6 +1,35 @@
 # ChangeLog for dev-db/mariadb
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mariadb/ChangeLog,v 1.43 2014/08/05 17:40:30 grknight Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/mariadb/ChangeLog,v 1.51 2014/08/21 12:52:54 grknight Exp $
+
+  21 Aug 2014;  <grknight@gentoo.org> -mariadb-5.1.67.ebuild:
+  Remove old 5.1 that has been masked for a long time
+
+  17 Aug 2014; Jeroen Roovers <jer@gentoo.org> mariadb-5.5.39.ebuild,
+  mariadb-10.0.13.ebuild:
+  Bump patchset by grknight (bug #520092). Stable for HPPA.
+
+  17 Aug 2014; Jeroen Roovers <jer@gentoo.org> mariadb-5.5.39.ebuild,
+  mariadb-10.0.12.ebuild, mariadb-10.0.13.ebuild:
+  Drop HPPA keywording until bug #520092 is fixed.
+
+  16 Aug 2014; Jeroen Roovers <jer@gentoo.org> mariadb-5.5.39.ebuild,
+  mariadb-10.0.12.ebuild, mariadb-10.0.13.ebuild:
+  Stable for HPPA too.
+
+*mariadb-10.0.13 (12 Aug 2014)
+
+  12 Aug 2014;  <grknight@gentoo.org> +mariadb-10.0.13.ebuild:
+  Version bump
+
+  08 Aug 2014; Agostino Sarubbo <ago@gentoo.org> mariadb-5.5.39.ebuild:
+  Stable for x86, wrt bug #474800
+
+  08 Aug 2014; Tobias Klausmann <klausman@gentoo.org> mariadb-5.5.39.ebuild:
+  Stable on alpha, bug 518718
+
+  08 Aug 2014;  <grknight@gentoo.org> mariadb-5.5.39.ebuild:
+  Stable for amd64 wrt bug 474800
 
 *mariadb-5.5.39 (05 Aug 2014)
 

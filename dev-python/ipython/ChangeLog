@@ -1,6 +1,37 @@
 # ChangeLog for dev-python/ipython
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ipython/ChangeLog,v 1.139 2014/08/01 03:25:26 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ipython/ChangeLog,v 1.147 2014/08/27 12:19:41 blueness Exp $
+
+  27 Aug 2014; Anthony G. Basile <blueness@gentoo.org> ipython-1.0.0.ebuild,
+  ipython-1.1.0-r1.ebuild, ipython-1.1.0-r2.ebuild, ipython-1.1.0.ebuild,
+  ipython-1.2.0.ebuild, ipython-1.2.1.ebuild:
+  Keyword ~ppc ~ppc64, bug #495116
+
+  24 Aug 2014; Ian Delaney <idella4@gentoo.org> metadata.xml:
+  add remote-ids to metadata.xml
+
+  14 Aug 2014; Anthony G. Basile <blueness@gentoo.org> ipython-2.1.0.ebuild:
+  Keyword ~ppc and ~ppc64, bug #481462
+
+  14 Aug 2014; Anthony G. Basile <blueness@gentoo.org> ipython-2.2.0.ebuild:
+  Keyword ~ppc and ~ppc64, bug #481462
+
+  13 Aug 2014; Ian Delaney <idella4@gentoo.org> ipython-2.1.0.ebuild,
+  ipython-2.2.0.ebuild:
+  add missing doc dep tornado, cross testing by cel1, fixes bug #519774
+
+*ipython-2.2.0 (12 Aug 2014)
+
+  12 Aug 2014; Ian Delaney <idella4@gentoo.org> +ipython-2.2.0.ebuild,
+  ipython-2.1.0.ebuild:
+  bump; add install of examples
+
+  07 Aug 2014; Ian Delaney <idella4@gentoo.org>
+  +files/2.1.0-substitute-files.patch, ipython-2.1.0.ebuild:
+  add doc deps, upgrade deps, shed redundant sed statements of prior versions,
+  add patch to fix test phase, patch by cel1 now merged upstram, update install
+  phase, add msgs in postinst relating to optional features, thanks to cel1 for
+  cross testing and patches
 
 *ipython-2.1.0 (01 Aug 2014)
 

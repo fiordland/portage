@@ -1,6 +1,14 @@
 # ChangeLog for dev-ruby/addressable
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/addressable/ChangeLog,v 1.42 2014/08/05 16:00:44 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/addressable/ChangeLog,v 1.44 2014/08/20 13:32:02 mrueg Exp $
+
+  20 Aug 2014; Manuel Rüger <mrueg@gentoo.org> addressable-2.3.5.ebuild,
+  addressable-2.3.6.ebuild:
+  Rubyforge is dead. Update HOMEPAGE.
+
+  15 Aug 2014; Anthony G. Basile <blueness@gentoo.org> addressable-2.3.5.ebuild,
+  addressable-2.3.6.ebuild:
+  Keyword ~ppc, bug #511424
 
   05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> addressable-2.3.5.ebuild,
   addressable-2.3.6.ebuild:

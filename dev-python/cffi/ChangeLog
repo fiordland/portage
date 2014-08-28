@@ -1,6 +1,14 @@
 # ChangeLog for dev-python/cffi
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/cffi/ChangeLog,v 1.36 2014/07/08 03:20:58 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/cffi/ChangeLog,v 1.38 2014/08/13 17:19:08 blueness Exp $
+
+  13 Aug 2014; Anthony G. Basile <blueness@gentoo.org> cffi-0.8.1.ebuild,
+  cffi-0.8.2.ebuild, cffi-0.8.6.ebuild:
+  Keyword ~ppc and ~ppc64, bug #503094
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> cffi-0.8.1.ebuild,
+  cffi-0.8.2.ebuild, cffi-0.8.6.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
 
 *cffi-0.8.6 (08 Jul 2014)
 

@@ -1,6 +1,22 @@
 # ChangeLog for dev-python/jinja
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/jinja/ChangeLog,v 1.118 2014/08/02 15:40:03 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/jinja/ChangeLog,v 1.123 2014/08/19 23:31:16 floppym Exp $
+
+  19 Aug 2014; Mike Gilbert <floppym@gentoo.org> jinja-2.7.3.ebuild:
+  Add blocker on compat slot.
+
+  19 Aug 2014; Dirkjan Ochtman <djc@gentoo.org> jinja-2.7.3.ebuild:
+  Hack python 3.2 compatibility into Jinja 2.7
+
+  19 Aug 2014; Dirkjan Ochtman <djc@gentoo.org> -jinja-2.6-r100.ebuild,
+  -jinja-2.7.ebuild:
+  Cleanup vulnerable Jinja versions for bug 497690
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> jinja-2.7.3.ebuild:
+  Stable for ppc64, wrt bug #497690
+
+  08 Aug 2014; Agostino Sarubbo <ago@gentoo.org> jinja-2.7.3.ebuild:
+  Stable for ppc, wrt bug #497690
 
   02 Aug 2014; Raúl Porcel <armin76@gentoo.org> jinja-2.7.3.ebuild:
   sparc stable wrt #497690

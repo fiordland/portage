@@ -1,6 +1,37 @@
 # ChangeLog for sys-libs/gdbm
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/gdbm/ChangeLog,v 1.70 2014/04/28 17:55:59 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/gdbm/ChangeLog,v 1.80 2014/08/26 11:02:23 mgorny Exp $
+
+  26 Aug 2014; Michał Górny <mgorny@gentoo.org> gdbm-1.10-r1.ebuild,
+  gdbm-1.11.ebuild:
+  Install documentation files, bug #520944.
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gdbm-1.11.ebuild:
+  Stable for sparc, wrt bug #518120
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gdbm-1.11.ebuild:
+  Stable for arm, wrt bug #518120
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gdbm-1.11.ebuild:
+  Stable for alpha, wrt bug #518120
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gdbm-1.11.ebuild:
+  Stable for ia64, wrt bug #518120
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gdbm-1.11.ebuild:
+  Stable for ppc64, wrt bug #518120
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gdbm-1.11.ebuild:
+  Stable for ppc, wrt bug #518120
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gdbm-1.11.ebuild:
+  Stable for x86, wrt bug #518120
+
+  19 Aug 2014; Chema Alonso <nimiux@gentoo.org> gdbm-1.11.ebuild:
+  Stable for amd64 wrt bug #518120
+
+  17 Aug 2014; Jeroen Roovers <jer@gentoo.org> gdbm-1.11.ebuild:
+  Stable for HPPA (bug #518120).
 
   28 Apr 2014; Michał Górny <mgorny@gentoo.org> gdbm-1.10-r1.ebuild,
   gdbm-1.11.ebuild:

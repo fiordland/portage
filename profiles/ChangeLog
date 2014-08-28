@@ -1,10 +1,143 @@
 # ChangeLog for profile directory
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.9287 2014/08/05 18:00:29 williamh Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/ChangeLog,v 1.9329 2014/08/28 16:29:19 ssuominen Exp $
 #
 # This ChangeLog should include records for all changes in profiles directory.
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
+
+  28 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Remove mask for removed version of the libopenraw git snapshot.
+
+  28 Aug 2014; Jeroen Roovers <jer@gentoo.org> package.mask:
+  Update net-analyzer/nmap mask.
+
+  28 Aug 2014; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Mask old vulnerable versions of net-dialup/ppp
+
+  27 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> thirdpartymirrors:
+  Added another download location for gimp.
+
+  27 Aug 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask new bash-completion for testing, documentation work and bugfixing.
+
+  27 Aug 2014; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Mask games-server/halflife-steam, wrt bug #520858
+
+  26 Aug 2014; Kristian Fiskerstrand <k_f@gentoo.org> package.mask:
+  Add mask for media-sound/cowbell for removal in 30 days
+
+  26 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> package.mask:
+  Removed git mask.
+
+  26 Aug 2014; Christoph Junghans <ottxor@gentoo.org> package.mask:
+  dev-lang/libcilkrts got removed (bug #514644)
+
+  26 Aug 2014; Hans de Graaff <graaff@gentoo.org> package.mask:
+  Update rubinius mask message.
+
+  26 Aug 2014; Hans de Graaff <graaff@gentoo.org> package.mask:
+  Obsolete slots have been removed from the tree, removing masks.
+
+  25 Aug 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Mask util-linux because of cfdisk breakage, bug #520838.
+
+  24 Aug 2014; Andreas K. Huettel <dilfridge@gentoo.org> package.mask:
+  Mask www-apps/swish-e for removal
+
+  24 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> package.mask:
+  Unmask dev-vcs/cvsps-3 (bug #518868).
+
+  22 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Temporarily mask new OpenEXR while solving build errors.
+
+  22 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> package.mask:
+  Unmask '>=dev-util/re2c-0.13.7.2' as upstream fixed PHP lexer bug.
+
+  22 Aug 22 2014; Ian Delaney <idella4@gentoo.org> package.mask:
+  Unmask old reviewboard-1.7.12
+
+  21 Aug 2014; Brian Evans <grknight@gentoo.org> package.mask:
+  Remove old mask on =dev-db/mariadb-5.1.67. Add masks for virtual/mysql-5{2,3}
+  and dev-db/mariadb-5.{2,3}* for 30 day removal to allow migration time
+
+  21 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Unmask media-libs/jpeg >= 9a wrt Tracker #479818 because it doesn't have any
+  bugs left open.
+
+  20 Aug 2014; Hans de Graaff <graaff@gentoo.org> package.mask:
+  Remove mask now that virtual/ruby-test-unit has been removed.
+
+  19 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> package.mask:
+  Masked git-2.1.0 because it segfaults portage's sandbox during run of the
+  testsuite (bug #520270).
+
+  19 Aug 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Remove redundant entry.
+
+  19 Aug 2014; Ulrich Müller <ulm@gentoo.org> package.mask:
+  Remove mask for app-emacs/sawfish, package has been removed.
+
+  19 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> package.mask:
+  Mask >=dev-util/re2c-0.13.7.2 (bug #518904).
+
+  17 Aug 2014; Maxim Koltsov <maksbotan@gentoo.org> package.mask:
+  Mask mpv-0.5 series too
+
+  17 Aug 2014; Patrick Lauer <patrick@gentoo.org> package.mask:
+  QA: Remove erroneous genkernel package.mask entry that breaks genkernel
+  default config with newer udev
+
+  16 Aug 2014; Anthony G. Basile <blueness@gentoo.org> profiles.desc:
+  Add default/linux/uclibc profiles to profiles.desc
+
+  15 Aug 2014; Eray Aslan <eras@gentoo.org> package.mask:
+  Unmask net-mail/dovecot-2.2.9 - bug #519952
+
+  14 Aug 2014; Eray Aslan <eras@gentoo.org> package.mask:
+  net-mail/dovecot-2.2.9 Security mask - bug #509954 until keywording is sorted
+  out
+
+  14 Aug 2014; Sergey Popov <pinkbyte@gentoo.org> package.mask:
+  Mask upcoming new version of Boost
+
+  13 Aug 2014; Tim Harder <radhermit@gentoo.org> package.mask:
+  Unmask >=dev-libs/protobuf-c-1.0.0.
+
+  12 Aug 2014; Mike Frysinger <vapier@gentoo.org> package.mask:
+  Drop gcc-4.9 mask as we already have KEYWORDS="". Drop old timezone-data
+  mask as we've stabilized newer versions.
+
+  11 Aug 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Tree-clean virtual/python-{argparse,unittest2}.
+
+  11 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> package.mask:
+  Unmask dev-lang/ghc-7.8.
+
+  10 Aug 2014; Tiziano Müller <dev-zero@gentoo.org> package.mask:
+  Lastrite dev-python/amara
+
+  10 Aug 2014; Johannes Huber <johu@gentoo.org> thirdpartymirrors:
+  Add download.kde.org to kde mirrors.
+
+  09 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> package.mask:
+  Lastrite sys-apps/usleep wrt #467212
+
+  08 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> package.mask:
+  Added mask for >=media-sound/umurmur-0.2.15 until =dev-libs/protobuf-c-1*
+  mask is gone.
+
+  08 Aug 2014; Tim Harder <radhermit@gentoo.org> package.mask:
+  Update dev-libs/protobuf-c mask.
+
+  07 Aug 2014; Michał Górny <mgorny@gentoo.org> package.mask:
+  Restore libav-10 mask due to blockers and a lot of unported packages.
+
+  06 Aug 2014; Luca Barbato <lu_zero@gentoo.org> package.mask:
+  Drop the libav p.mask
+
+  05 Aug 2014; Mike Frysinger <vapier@gentoo.org> package.mask:
+  Drop openocd mask so people can use it now.
 
   05 Aug 2014; William Hubbs <williamh@gentoo.org> package.mask:
   mask www-apps/joomla for removal, see bug #518886

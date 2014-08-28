@@ -1,5 +1,5 @@
 ####################################################################
-# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15954 2014/08/05 18:00:30 williamh Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/package.mask,v 1.15995 2014/08/28 16:29:19 ssuominen Exp $
 #
 # When you add an entry to the top of this file, add your name, the date, and
 # an explanation of why something is getting masked. Please be extremely
@@ -30,7 +30,77 @@
 
 #--- END OF EXAMPLES ---
 
-# William Hubbs <williamh@gentoo.org> (5 Aug 2014)
+# Sergey Popov <pinkbyte@gentoo.org> (28 Aug 2014)
+# Security mask, wrt bug #519650
+# If your application is broken due to this mask,
+# please file a separate bug report
+<net-dialup/ppp-2.4.7
+
+# Michał Górny <mgorny@gentoo.org> (27 Aug 2014)
+# Work-in-progress. Mask for some more testing and documentation,
+# a news item and till at least some of the blockers are fixed.
+# Bug #521146 for a tracker.
+>=app-shells/bash-completion-2.1-r90
+
+# Sergey Popov <pinkbyte@gentoo.org> (27 Aug 2014)
+# Does not work since late 2013, due to update servers shutdown
+# See bug #520858, removal in a month
+games-server/halflife-steam
+
+# Kristian Fiskerstrand <k_f@gentoo.org> (26 Aug 2014)
+# Open security bug #386221 (CVE-2010-3353)
+# Does not seem actively maintained
+# Masked for removal in 30 days
+media-sound/cowbell
+
+# Michał Górny <mgorny@gentoo.org> (25 Aug 2014)
+# cfdisk wipes out partition table when removing partitions. Masking
+# so that our users won't run into it. Bug #520838.
+>=sys-apps/util-linux-2.25
+
+# Andreas K. Huettel <dilfridge@gentoo.org> (24 Aug 2014)
+# Lack of maintainer, webapp with potential security problems
+# (bundles expat, bug 299104), other qa issues (bug 299103)
+# Masked for removal in 30 days
+www-apps/swish-e
+
+# Samuli Suominen <ssuominen@gentoo.org> (23 Aug 2014)
+# Some compile problems with media-libs/openexr >= 2.2.0
+# See http://bugs.gentoo.org/520240 for more information
+>=media-libs/ilmbase-2.2.0
+>=media-libs/openexr-2.2.0
+>=media-gfx/openexr_viewers-2.2.0
+
+# Brian Evans <grknight@gentoo.org> (21 Aug 2014)
+# Old versions of dev-db/mariadb masked for removal in 30 days
+# Please upgrade to the 5.5 series
+=virtual/mysql-5.2
+=virtual/mysql-5.3
+=dev-db/mariadb-5.2.14
+=dev-db/mariadb-5.3.12
+
+# Sergey Popov <pinkbyte@gentoo.org> (14 Aug 2014)
+# Mask new version of Boost - it's known to cause breakages,
+# according to it's ChangeLog
+~dev-util/boost-build-1.56.0
+~dev-libs/boost-1.56.0
+
+# Tiziano Müller <dev-zero@gentoo.org> (10 Aug 2014)
+# Bundles an old (2.0.0) and vulnerable, but modified version of expat.
+# Testsuite is completely broken and upstream seems to be working on the
+# next rewrite instead of fixing this one. Nothing in the tree depends on it.
+# Removal in a month.
+dev-python/amara
+
+# Samuli Suominen <ssuominen@gentoo.org> (09 Aug 2014)
+# usleep command is part of the app-admin/killproc package,
+# and adding this separate usleep package was a mistake
+# emerge -C sys-apps/usleep
+# emerge app-admin/killproc
+# removal in about 30 days wrt bug #467212
+sys-apps/usleep
+
+# William Hubbs <williamh@gentoo.org> (05 Aug 2014)
 # Masked by QA for removal in 30 days.
 # The unmasked version is very old, there are multiple open security
 # bugs and several version bumps. The package appears to be abandoned.
@@ -144,12 +214,6 @@ app-misc/discomatic
 # Removal in a month.
 x11-misc/uf-view
 
-# Christoph Junghans <ottxor@gentoo.org> (25 Jul 2014)
-# does not build anymore, bug #514644
-# nothing depends on it
-# Masked for removal in 30 days
-dev-lang/libcilkrts
-
 # Patrick Lauer <patrick@gentoo.org> (25 Jul 2014)
 # Upstream has declared it EOL, please migrate to
 # newer versions
@@ -172,12 +236,6 @@ dev-lang/libcilkrts
 # Security issue bug 513560
 <net-misc/iodine-0.7.0
 
-# Hans de Graaff <graaff@gentoo.org> (18 Jul 2014)
-# Mask for removal in 30 days for bug 380711.
-# This virtual always was a no-op and can be removed from
-# ebuilds without consequences.
-virtual/ruby-test-unit
-
 # Yixun Lan <dlan@gentoo.org> (17 Jul 2014)
 # Masked for proper testing. (Major updates in the code).
 =net-misc/tinc-1.1_pre*
@@ -195,22 +253,10 @@ games-emulation/handy
 games-fps/rtcw
 games-fps/unreal
 games-server/mtavc
-games-sports/racer-bin
 games-strategy/heroes3
 games-strategy/heroes3-demo
 games-strategy/smac
 sys-block/afacli
-
-# Ulrich Müller <ulm@gentoo.org> (13 Jul 2014)
-# Development of stand-alone package stopped in 2004.
-# sawfish.el is now provided by x11-wm/sawfish with USE=emacs.
-# Masked for removal in 30 days, bug #493114.
-app-emacs/sawfish
-
-# Sergei Trofimovich <slyfox@gentoo.org> (10 Jul 2014)
-# Masked as experimental major ghc release.
-=dev-lang/ghc-7.8.3*
-=dev-haskell/deepseq-1.3.0.2*
 
 # Michael Weber <xmw@gentoo.org> (10 Jul 2014)
 # Masked for removal in 30 days.
@@ -222,30 +268,7 @@ app-emacs/sawfish
 # Requires >=libav-10, which is masked, or >=ffmpeg-2.1.4
 # If you use ffmpeg instead of libav, sorry!
 =media-video/mpv-0.4*
-
-# Michał Górny <mgorny@gentoo.org> (6 Jul 2014)
-# (on behalf of python@gentoo.org)
-# The modules provided by those virtuals are built-in in all currently
-# supported Python implementations. If your ebuild depends on either
-# of them, please just remove the dependency. Removal in 30 days.
-virtual/python-argparse
-virtual/python-unittest2
-
-# Hans de Graaff <graaff@gentoo.org> (6 Jul 2014)
-# Mask old slot for removal in 30 days since there are no longer
-# dependencies on it.
-dev-ruby/builder:0
-
-# Michael Sterrett <mr_bones_@gentoo.org> (02 Jul 2014)
-# No longer maintained upstream.
-# Masked for removal on 20140801.
-# Use games-action/d2x-rebirth instead which is actively maintained.
-games-action/d2x
-
-# Michael Sterrett <mr_bones_@gentoo.org> (02 Jul 2014)
-# No longer maintained upstream and segfaults on
-# modern systems.  Masked for removal on 20140801.
-games-arcade/koules
+=media-video/mpv-0.5*
 
 # Andreas K. Huettel <dilfridge@gentoo.org> (29 Jun 2014)
 # Severe security issue (bug 460780), unhandled for over a year.
@@ -255,11 +278,6 @@ dev-db/flamerobin
 dev-libs/ibpp
 dev-python/kinterbasdb
 dev-php/PEAR-MDB2_Driver_ibase
-
-# Hans de Graaff <graaff@gentoo.org> (28 Jun 2014)
-# Mask old slot for removal in 30 days since there are no longer
-# dependencies on it.
-dev-ruby/mail:2.4
 
 # Mikle Kolyada <zlogene@gentoo.org> (27 Jun 2014)
 # Masked for proper testing. (Major updates in the code).
@@ -294,7 +312,7 @@ sci-physics/camfr
 
 # Tom Wijsman <TomWij@gentoo.org> (8 Jun 2014)
 # Mask VLC ebuilds that are affected with security bug CVE-2013-6934:
-# 
+#
 #     A vulnerability has been discovered in VLC Media Player, which can be
 #     exploited by malicious people to compromise a user's system.
 #
@@ -324,7 +342,9 @@ sci-physics/camfr
 =sys-kernel/gentoo-sources-3.14.5
 
 # Hans de Graaff <graaff@gentoo.org> (1 Jun 2014)
-# Mask new rubinius version for testing
+# Mask new rubinius version for testing. Current versions have some
+# issues that should be solved in the forthcoming rubinius 2.3
+# release.
 =dev-lang/rubinius-2*
 
 # Markos Chandras <hwoarang@gentoo.org> (30 May 2014)
@@ -409,19 +429,10 @@ dev-java/ibm-jdk-bin:1.5
 
 # Ian Delaney <idella4@gentoo.org> (22 May 2014)
 # The bumped version has been given added py3.4 support.
-# Given testsuite failures, a period of masking allows for possible 
+# Given testsuite failures, a period of masking allows for possible
 # patching from upstream to be added to this version.
 # Masked until py3.4 support is added to media-gfx/cairosvg
 =dev-python/weasyprint-0.22
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (19 May 2014)
-# Masked until dev-libs/glib supports the new timezone format, bug #510422
-=sys-libs/timezone-data-2014c
-
-# Ryan Hill <rhill@gentoo.org> (18 May 2014)
-# Masked for testing.
-# Tracker: https://bugs.gentoo.org/495124
->=sys-devel/gcc-4.9.0
 
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (14 May 2014)
 # Depends on libevdev which still needs keywording, bug #487944
@@ -447,10 +458,6 @@ dev-java/ibm-jdk-bin:1.5
 # http://mate-desktop.org/blog/2014-03-11-mate-desktop-singing-the-bluez
 net-wireless/mate-bluetooth
 
-# Tim Harder <radhermit@gentoo.org> (25 Apr 2014)
-# Mask development releases
-=dev-libs/protobuf-c-1.0.0*
-
 # Matti Bickel <mabi@gentoo.org> (22 Apr 2014)
 # Masked slotted lua for testing
 app-admin/eselect-lua
@@ -469,10 +476,6 @@ sys-fs/rdiff-backup-fs
 # Markos Chandras <hwoarang@gentoo.org> (08 Apr 2014)
 # Masked for futher testing with various pam setups
 =x11-misc/lightdm-1.11*
-
-# Markos Chandras <hwoarang@gentoo.org> (07 Apr 2014)
-# Mask 0.8.0 release for testing
-=dev-embedded/openocd-0.8.0
 
 # Gilles Dartiguelongue <eva@gentoo.org> (06 Apr 2014)
 # Old release, never stable, not working anymore
@@ -498,6 +501,7 @@ sys-fs/rdiff-backup-fs
 
 # Luca Barbato <lu_zero@gentoo.org> (30 Mar 2014)
 # Current stable for upstream, pending a tinderbox run.
+# Note: mask restored because of #509294, #519258.
 =media-video/libav-10*
 
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (26 Mar 2014)
@@ -542,11 +546,6 @@ lxde-base/lxpolkit
 # PHP 5.6 still in early development
 >=dev-lang/php-5.6
 
-# Samuli Suominen <ssuominen@gentoo.org> (24 Jan 2014)
-# Roll ~arch version back from .so.9 to .so.8 due to too many unresolved issues.
-# See http://bugs.gentoo.org/479818 for progress.
->=media-libs/jpeg-9
-
 # Christian Ruppert <idl0r@gentoo.org> (19 Jan 2014)
 # Experimental, for now
 =dev-vcs/gitolite-gentoo-3*
@@ -586,11 +585,6 @@ www-client/google-chrome:unstable
 # Monolithic dev-dotnet/{gnome,gtk}-sharp introduction mask, see bug #382491.
 >=dev-dotnet/gnome-sharp-2.24.2-r1
 >=dev-dotnet/gtk-sharp-2.12.21
-
-# Pacho Ramos <pacho@gentoo.org> (02 Jan 2014)
-# Breaks reverse dependencies and upstream don't want us
-# to use it (#483562)
-=media-libs/libopenraw-0.1.0_pre20130826
 
 # Julian Ospald <hasufell@gentoo.org> (30 Dec 2013)
 # breaks every consumer
@@ -658,24 +652,14 @@ www-apache/mod_spdy
 # - requires at least gcc 4.7(and possibly even 4.8 for some features)
 >=dev-libs/botan-1.11.0
 
-# Agostino Sarubbo <ago@gentoo.org> (29 Aug 2013)
-# Mask 5.1 series because the backport of the CVE-2012-5627
-# has not be done. bug #446240 comment 2
-=dev-db/mariadb-5.1.67
-
 # Tom Wijsman <TomWij@gentoo.org> (15 Aug 2013)
 # Dependencies are unable to satisfy current version,
 # broken; needs a version bump from bug #475552.
 dev-java/itext:5
 
-# Ian Delaney <idella4@gentoo.org> (01 Aug 2013)
-# Mask while awaiting bump to dep Djblets-0.7.16
-=dev-util/reviewboard-1.7.12
-
 # Jeroen Roovers <jer@gentoo.org> (31 Jul 2013)
 # Needs >=dev-lang/lua-5.2
-~net-analyzer/nmap-6.40
-~net-analyzer/nmap-6.46
+>net-analyzer/nmap-6.40
 
 # Julian Ospald <hasufell@gentoo.org> (21 Jul 2013)
 # Mask all unfetchable versions and those with tons of random
@@ -780,11 +764,6 @@ app-text/cuneiform
 # Doug Goldstein <cardoe@gentoo.org> (22 Jan 2013)
 # Masked for development
 =sys-block/open-iscsi-2.0.873
-
-# Sergei Trofimovich <slyfox@gentoo.org> (05 Jan 2013)
-# Masked for testing. Is not compatible with cvsps-2 (bug #450424).
-# But can be used on it's own! Try 'cvsps --fast-export'.
->=dev-vcs/cvsps-3
 
 # Sven Wegener <swegener@gentoo.org> (21 Dec 2012)
 # temporary mask for socket location change

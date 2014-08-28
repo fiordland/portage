@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/screen/screen-4.2.1-r2.ebuild,v 1.1 2014/04/30 15:21:13 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/screen/screen-4.2.1-r2.ebuild,v 1.3 2014/08/26 16:07:14 jer Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS=" ~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~sparc-fbsd ~x86-fbsd ~hppa-hpux ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="debug nethack pam selinux multiuser"
 
 RDEPEND=">=sys-libs/ncurses-5.2
@@ -44,7 +44,7 @@ src_prepare() {
 		-e "s:/etc/utmp:${EPREFIX}/var/run/utmp:g" \
 		-e "s:/local/screens/S-:${EPREFIX}/tmp/screen/S-:g" \
 		doc/screen.1 \
-		|| die "sed doc/screen.1 failed"
+		|| die
 
 	# reconfigure
 	eautoreconf
@@ -67,11 +67,14 @@ src_configure() {
 		--enable-telnet \
 		--enable-colors256 \
 		$(use_enable pam)
+}
 
-	LC_ALL=POSIX emake term.h
+src_compile() {
+	LC_ALL=POSIX emake comm.h term.h
 	emake osdef.h
 
 	emake -C doc screen.info
+	default
 }
 
 src_install() {

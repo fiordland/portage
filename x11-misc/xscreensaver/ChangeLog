@@ -1,6 +1,29 @@
 # ChangeLog for x11-misc/xscreensaver
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xscreensaver/ChangeLog,v 1.362 2014/08/02 11:46:28 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xscreensaver/ChangeLog,v 1.369 2014/08/22 18:59:07 jer Exp $
+
+  22 Aug 2014; Jeroen Roovers <jer@gentoo.org> -xscreensaver-5.26.ebuild:
+  Old.
+
+  22 Aug 2014; Agostino Sarubbo <ago@gentoo.org> xscreensaver-5.29.ebuild:
+  Stable for ppc64, wrt bug #517054
+
+  22 Aug 2014; Jeroen Roovers <jer@gentoo.org> xscreensaver-5.29.ebuild,
+  +files/xscreensaver-5.29-pragma.patch:
+  Fix building with sys-devel/gcc-4.5.4 (bug #519856 by Ulrich Fieseler). Add
+  epatch_user.
+
+  20 Aug 2014; Jeroen Roovers <jer@gentoo.org> xscreensaver-5.29.ebuild:
+  Really remove append-libs -lpthread.
+
+  20 Aug 2014; Jeroen Roovers <jer@gentoo.org> xscreensaver-5.29.ebuild:
+  Remove append-libs -lpthread.
+
+  13 Aug 2014; Agostino Sarubbo <ago@gentoo.org> xscreensaver-5.29.ebuild:
+  Stable for ppc, wrt bug #517054
+
+  11 Aug 2014; Chema Alonso <nimiux@gentoo.org> xscreensaver-5.29.ebuild:
+  Stable for amd64 wrt bug #517054
 
   02 Aug 2014; Raúl Porcel <armin76@gentoo.org> xscreensaver-5.29.ebuild:
   alpha/ia64/sparc stable wrt #517054

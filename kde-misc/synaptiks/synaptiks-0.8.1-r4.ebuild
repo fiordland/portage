@@ -1,11 +1,11 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/synaptiks/synaptiks-0.8.1-r4.ebuild,v 1.5 2014/07/06 12:53:30 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-misc/synaptiks/synaptiks-0.8.1-r4.ebuild,v 1.7 2014/08/25 15:05:22 mrueg Exp $
 
 EAPI=5
 
 KDE_HANDBOOK="optional"
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 inherit kde4-base distutils-r1
 
 DESCRIPTION="Touchpad configuration and management tool for KDE"
@@ -14,7 +14,7 @@ SRC_URI="mirror://pypi/s/${PN}/${P}.tar.bz2"
 
 LICENSE="BSD-2"
 SLOT="4"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="debug doc +upower"
 
 RDEPEND="

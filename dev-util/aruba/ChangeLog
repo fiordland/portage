@@ -1,6 +1,26 @@
 # ChangeLog for dev-util/aruba
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/aruba/ChangeLog,v 1.40 2014/07/22 15:58:09 klausman Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/aruba/ChangeLog,v 1.45 2014/08/20 18:32:21 graaff Exp $
+
+*aruba-0.6.1 (20 Aug 2014)
+
+  20 Aug 2014; Hans de Graaff <graaff@gentoo.org> +aruba-0.6.1.ebuild:
+  Version bump.
+
+*aruba-0.6.0 (16 Aug 2014)
+
+  16 Aug 2014; Hans de Graaff <graaff@gentoo.org> +aruba-0.6.0.ebuild:
+  Version bump. Add ruby21.
+
+  15 Aug 2014; Raúl Porcel <armin76@gentoo.org> aruba-0.5.3.ebuild:
+  sparc stable, bug #493780
+
+  15 Aug 2014; Raúl Porcel <armin76@gentoo.org> aruba-0.5.4-r1.ebuild:
+  Add ~sparc wrt #471306
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> aruba-0.5.3.ebuild,
+  aruba-0.5.4-r1.ebuild, aruba-0.5.4.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
 
   22 Jul 2014; Tobias Klausmann <klausman@gentoo.org> aruba-0.5.4-r1.ebuild:
   Keyworded on alpha, bug #465948

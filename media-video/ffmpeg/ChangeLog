@@ -1,6 +1,40 @@
 # ChangeLog for media-video/ffmpeg
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ChangeLog,v 1.775 2014/07/31 20:46:13 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ChangeLog,v 1.783 2014/08/25 11:02:41 ago Exp $
+
+  25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.2.6-r1.ebuild:
+  Stable for alpha, wrt bug #512012
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.2.6-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> ffmpeg-1.2.6-r1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+*ffmpeg-0.10.15 (13 Aug 2014)
+
+  13 Aug 2014; Alexis Ballier <aballier@gentoo.org> +ffmpeg-0.10.15.ebuild:
+  version bump
+
+*ffmpeg-2.2.7 (13 Aug 2014)
+
+  13 Aug 2014; Alexis Ballier <aballier@gentoo.org> +ffmpeg-2.2.7.ebuild:
+  version bump
+
+*ffmpeg-2.3.2 (13 Aug 2014)
+
+  13 Aug 2014; Alexis Ballier <aballier@gentoo.org> +ffmpeg-2.3.2.ebuild:
+  version bump
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> ffmpeg-0.10.14.ebuild,
+  ffmpeg-1.0.10.ebuild, ffmpeg-1.0.8.ebuild, ffmpeg-1.0.9.ebuild,
+  ffmpeg-1.2.6-r1.ebuild, ffmpeg-1.2.6.ebuild, ffmpeg-1.2.7.ebuild,
+  ffmpeg-2.2.5.ebuild, ffmpeg-2.3.1.ebuild, ffmpeg-2.3.ebuild,
+  ffmpeg-9999.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> ffmpeg-1.2.6-r1.ebuild:
+  Stable for HPPA (bug #512012).
 
 *ffmpeg-2.3.1 (31 Jul 2014)
 

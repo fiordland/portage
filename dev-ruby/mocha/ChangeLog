@@ -1,6 +1,23 @@
 # ChangeLog for dev-ruby/mocha
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/mocha/ChangeLog,v 1.117 2014/07/22 16:54:25 klausman Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/mocha/ChangeLog,v 1.121 2014/08/25 16:13:53 mrueg Exp $
+
+  25 Aug 2014; Manuel Rüger <mrueg@gentoo.org> mocha-0.10.5-r1.ebuild,
+  mocha-0.12.10.ebuild, mocha-0.13.3-r1.ebuild:
+  Mark amd64 stable. Bug #513430.
+
+  13 Aug 2014; Raúl Porcel <armin76@gentoo.org> mocha-0.10.5-r2.ebuild,
+  mocha-0.11.4-r1.ebuild, mocha-0.12.10.ebuild, mocha-0.12.10-r1.ebuild,
+  mocha-0.13.3-r1.ebuild, mocha-0.13.3-r2.ebuild:
+  Add ~sparc wrt #468536
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> mocha-0.14.0.ebuild,
+  mocha-1.0.0.ebuild, mocha-1.1.0.ebuild:
+  Keyword ~ppc and ~ppc64, bug #519170
+
+  09 Aug 2014; Jeroen Roovers <jer@gentoo.org> mocha-0.10.5-r1.ebuild,
+  mocha-0.12.10.ebuild, mocha-0.13.3-r1.ebuild:
+  Stable for HPPA (bug #513430).
 
   22 Jul 2014; Tobias Klausmann <klausman@gentoo.org> mocha-0.14.0.ebuild:
   Keyworded on alpha, bug #501152

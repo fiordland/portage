@@ -1,6 +1,18 @@
 # ChangeLog for dev-ruby/kramdown
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/kramdown/ChangeLog,v 1.34 2014/08/05 16:00:28 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/kramdown/ChangeLog,v 1.37 2014/08/19 12:17:11 armin76 Exp $
+
+  19 Aug 2014; Raúl Porcel <armin76@gentoo.org> kramdown-1.4.1.ebuild:
+  add ~arm/~x86, bug #519170
+
+  12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> kramdown-0.14.2.ebuild,
+  kramdown-1.2.0-r1.ebuild, kramdown-1.4.1.ebuild:
+  Keyword ~ppc and ~ppc64, bug #519170
+
+*kramdown-1.4.1 (06 Aug 2014)
+
+  06 Aug 2014; Manuel Rüger <mrueg@gentoo.org> +kramdown-1.4.1.ebuild:
+  Version bump. Rekeywording in bug #519170.
 
   05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> kramdown-0.14.2.ebuild:
   Remove trailing '.' from DESCRIPTION.
