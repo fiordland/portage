@@ -1,6 +1,44 @@
 # ChangeLog for media-libs/libquicktime
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libquicktime/ChangeLog,v 1.195 2014/06/18 19:46:43 mgorny Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libquicktime/ChangeLog,v 1.207 2015/02/28 13:32:19 ago Exp $
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libquicktime-1.2.4-r1.ebuild:
+  Stable for ia64, wrt bug #526014
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libquicktime-1.2.4-r1.ebuild:
+  Stable for sparc, wrt bug #526014
+
+  25 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libquicktime-1.2.4-r1.ebuild:
+  Stable for x86, wrt bug #526014
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libquicktime-1.2.4-r1.ebuild:
+  Stable for alpha, wrt bug #526014
+
+  23 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libquicktime-1.2.4-r1.ebuild:
+  Stable for ppc64, wrt bug #526014
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libquicktime-1.2.4-r1.ebuild:
+  Stable for ppc, wrt bug #526014
+
+  12 Feb 2015; Pacho Ramos <pacho@gentoo.org> libquicktime-1.2.4-r1.ebuild:
+  amd64 stable, bug #526014
+
+  29 Jan 2015; Michał Górny <mgorny@gentoo.org> libquicktime-1.2.4-r1.ebuild,
+  libquicktime-1.2.4.ebuild:
+  Convert to CPU_FLAGS_X86.
+
+  18 Jan 2015; Ian Whyman <thev00d00@gentoo.org> libquicktime-1.2.4-r1.ebuild:
+  Extend ffmpeg sed to a couple more files, fixes #509300
+
+  09 Dec 2014; Jeroen Roovers <jer@gentoo.org> libquicktime-1.2.4-r1.ebuild:
+  Stable for HPPA (bug #526014).
+
+  17 Sep 2014; Luca Barbato <lu_zero@gentoo.org> libquicktime-1.2.4-r1.ebuild:
+  Amend previous commit
+
+  17 Sep 2014; Luca Barbato <lu_zero@gentoo.org> libquicktime-1.2.4-r1.ebuild:
+  Fix bug #509300, use a sed expression to spare 24k, thanks to Simone Scanzoni
+  for the help.
 
   18 Jun 2014; Michał Górny <mgorny@gentoo.org> libquicktime-1.2.4-r1.ebuild:
   Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug

@@ -1,6 +1,14 @@
 # ChangeLog for dev-haskell/cprng-aes
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cprng-aes/ChangeLog,v 1.6 2014/07/25 09:16:38 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cprng-aes/ChangeLog,v 1.8 2015/01/28 20:36:19 qnikst Exp $
+
+  28 Jan 2015; Alexander Vershilov <qnikst@gentoo.org> -cprng-aes-0.3.4.ebuild:
+  cprng-aes: drop old
+
+*cprng-aes-0.6.1 (13 Dec 2014)
+
+  13 Dec 2014; Mark Wright <gienah@gentoo.org> +cprng-aes-0.6.1.ebuild:
+  Bump cprng-aes to 0.6.1
 
   25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> cprng-aes-0.3.4.ebuild,
   cprng-aes-0.5.2.ebuild:

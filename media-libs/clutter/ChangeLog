@@ -1,6 +1,28 @@
 # ChangeLog for media-libs/clutter
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter/ChangeLog,v 1.87 2014/07/23 15:19:07 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter/ChangeLog,v 1.92 2015/02/04 16:09:34 chithanh Exp $
+
+  04 Feb 2015; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  clutter-1.18.4.ebuild, clutter-1.20.0.ebuild:
+  Adjust dependency on libinput, bug #536868
+
+*clutter-1.20.0 (23 Dec 2014)
+
+  23 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org> -clutter-1.18.2.ebuild,
+  +clutter-1.20.0.ebuild, -files/clutter-1.16.4-buffer-age.patch, metadata.xml:
+  Version bump for Gnome 3.14. Clean up old revision.
+
+  19 Dec 2014; Pacho Ramos <pacho@gentoo.org> clutter-1.18.4.ebuild:
+  amd64 stable, bug 529964
+
+  18 Dec 2014; Pacho Ramos <pacho@gentoo.org> clutter-1.18.4.ebuild:
+  x86 stable, bug 529964
+
+*clutter-1.18.4 (02 Sep 2014)
+
+  02 Sep 2014; Pacho Ramos <pacho@gentoo.org> +clutter-1.18.4.ebuild,
+  -clutter-1.16.4-r1.ebuild:
+  Version bump, drop old, stop using clutter.eclass (#486362)
 
   23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> clutter-1.18.2.ebuild:
   Stable for x86, wrt bug #512012

@@ -1,6 +1,107 @@
 # ChangeLog for x11-libs/cairo
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/cairo/ChangeLog,v 1.384 2014/08/19 21:01:35 mattst88 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/cairo/ChangeLog,v 1.408 2015/03/02 09:20:51 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.18-r1.ebuild:
+  Stable for ppc, wrt bug #540676
+
+  28 Feb 2015; Markus Meier <maekke@gentoo.org> cairo-1.12.18-r1.ebuild:
+  arm stable, bug #540676
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.18-r1.ebuild:
+  Stable for ia64, wrt bug #540676
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.18-r1.ebuild:
+  Stable for sparc, wrt bug #540676
+
+  25 Feb 2015; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.18-r1.ebuild:
+  Stable for x86, wrt bug #540676
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.18-r1.ebuild:
+  Stable for amd64, wrt bug #540676
+
+  23 Feb 2015; Matt Turner <mattst88@gentoo.org> cairo-9999.ebuild:
+  Drop the qt4 USE flag, like the previous commit.
+
+  22 Feb 2015; Matt Turner <mattst88@gentoo.org> cairo-9999.ebuild:
+  Drop openvg, drm, and gallium USE flags, bug 504230.
+
+  21 Feb 2015; Alexandre Rostovtsev <tetromino@gentoo.org> cairo-9999.ebuild:
+  Also don't wrap cairo-features.h in live ebuild
+
+*cairo-1.14.0-r1 (21 Feb 2015)
+*cairo-1.12.18-r1 (21 Feb 2015)
+
+  21 Feb 2015; Michał Górny <mgorny@gentoo.org> +cairo-1.12.18-r1.ebuild,
+  +cairo-1.14.0-r1.ebuild, -cairo-1.12.18.ebuild, -cairo-1.14.0.ebuild:
+  Re-disable cairo-features.h wrapping which has been re-enabled accidentally.
+
+*cairo-1.14.0 (18 Feb 2015)
+
+  18 Feb 2015; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -cairo-1.12.14-r4.ebuild, -cairo-1.12.16-r2.ebuild, -cairo-1.12.16-r3.ebuild,
+  +cairo-1.14.0.ebuild, -files/cairo-1.12.10-xlib-corruption.patch,
+  -files/cairo-1.12.10-xshm-corruption.patch,
+  -files/cairo-1.12.12-disable-test-suite.patch,
+  -files/cairo-1.12.14-libpng16.patch,
+  +files/cairo-1.14.0-align-64bit-types.patch:
+  Version bump, now with high-dpi support, better downscaling, and support for
+  jbig2 in pdf (bug #531668, thanks to Manuel Rüger). Punt old.
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org> cairo-1.12.16-r4.ebuild:
+  Stable for amd64, wrt bug #525300
+
+  09 Jan 2015; Jeroen Roovers <jer@gentoo.org> cairo-1.12.16-r4.ebuild:
+  Stable for HPPA (bug #525300).
+
+  08 Jan 2015; Markus Meier <maekke@gentoo.org> cairo-1.12.16-r4.ebuild:
+  arm stable, bug #525300
+
+  24 Dec 2014; Mike Gilbert <floppym@gentoo.org> metadata.xml:
+  Remove description of 'lto' flag.
+
+  23 Dec 2014; Michał Górny <mgorny@gentoo.org> cairo-1.12.16-r3.ebuild,
+  cairo-1.12.16-r4.ebuild:
+  Disable LTO unconditionally on 1.12.16* since it does not work properly (bug
+  #510782) and was removed in 1.12.18.
+
+  12 Dec 2014; Matt Turner <mattst88@gentoo.org> cairo-1.12.18.ebuild,
+  files/cairo-1.12.18-disable-test-suite.patch:
+  Disable the test suite better, bug 532338.
+
+  09 Dec 2014; Matt Turner <mattst88@gentoo.org> cairo-1.12.18.ebuild,
+  cairo-9999.ebuild:
+  Drop now unnecessary eautoreconf.
+
+  09 Dec 2014; Matt Turner <mattst88@gentoo.org> cairo-1.12.18.ebuild,
+  cairo-9999.ebuild:
+  Stop applying Interix patch. ChangeLog claims incorrectly that patch was
+  upstreamed. No documentation or bug references, and patch references libpng12.
+
+  09 Dec 2014; Matt Turner <mattst88@gentoo.org>
+  +files/cairo-1.12.18-disable-test-suite.patch, cairo-1.12.18.ebuild,
+  cairo-9999.ebuild:
+  Readd patch to avoid building the test suite. Was silently dropped in the
+  1.12.16 bump.
+
+*cairo-1.12.18 (08 Dec 2014)
+
+  08 Dec 2014; Matt Turner <mattst88@gentoo.org> +cairo-1.12.18.ebuild:
+  Version bump to 1.12.18.
+
+  08 Dec 2014; Matt Turner <mattst88@gentoo.org> cairo-9999.ebuild:
+  Reenable parallel make, and drop legacy-drivers USE.
+
+*cairo-1.12.16-r4 (29 Nov 2014)
+
+  29 Nov 2014; Michał Górny <mgorny@gentoo.org> +cairo-1.12.16-r4.ebuild:
+  Stop wrapping cairo-features.h. Now that we pass consistent configure options,
+  it should be the same on all ABIs. Fixes compatibility with dev-haskell/cairo
+  hackery, bug #531120.
+
+  20 Nov 2014; Michał Górny <mgorny@gentoo.org> cairo-1.12.16-r3.ebuild,
+  cairo-9999.ebuild:
+  Add proper deps for multilib qt4. No revbump since it is masked anyway.
 
   19 Aug 2014; Matt Turner <mattst88@gentoo.org> cairo-9999.ebuild:
   Drop LTO, bugs 517258 and 517884.

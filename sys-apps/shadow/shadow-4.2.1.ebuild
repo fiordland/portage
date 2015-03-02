@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/shadow/shadow-4.2.1.ebuild,v 1.1 2014/06/16 05:52:43 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/shadow/shadow-4.2.1.ebuild,v 1.3 2015/02/09 20:34:28 vapier Exp $
 
 EAPI=4
 
@@ -62,8 +62,8 @@ set_login_opt() {
 	[[ -z ${val} ]] && comment="#"
 	sed -i -r \
 		-e "/^#?${opt}/s:.*:${comment}${opt} ${val}:" \
-		"${D}"/etc/login.defs
-	local res=$(grep "^${comment}${opt}" "${D}"/etc/login.defs)
+		"${ED}"/etc/login.defs
+	local res=$(grep "^${comment}${opt}" "${ED}"/etc/login.defs)
 	einfo ${res:-Unable to find ${opt} in /etc/login.defs}
 }
 
@@ -75,7 +75,7 @@ src_install() {
 	#   Currently, libshadow.a is for internal use only, so if you see
 	#   -lshadow in a Makefile of some other package, it is safe to
 	#   remove it.
-	rm -f "${D}"/{,usr/}$(get_libdir)/lib{misc,shadow}.{a,la}
+	rm -f "${ED}"/{,usr/}$(get_libdir)/lib{misc,shadow}.{a,la}
 
 	insinto /etc
 	# Using a securetty with devfs device names added
@@ -93,7 +93,7 @@ src_install() {
 		arm)   devs="ttyFB0 ttySAC0 ttySAC1 ttySAC2 ttySAC3 ttymxc0 ttymxc1 ttymxc2 ttymxc3 ttyO0 ttyO1 ttyO2";;
 		sh)    devs="ttySC0 ttySC1";;
 	esac
-	[[ -n ${devs} ]] && printf '%s\n' ${devs} >> "${D}"/etc/securetty
+	[[ -n ${devs} ]] && printf '%s\n' ${devs} >> "${ED}"/etc/securetty
 
 	# needed for 'useradd -D'
 	insinto /etc/default
@@ -101,7 +101,7 @@ src_install() {
 	doins "${FILESDIR}"/default/useradd
 
 	# move passwd to / to help recover broke systems #64441
-	mv "${D}"/usr/bin/passwd "${D}"/bin/
+	mv "${ED}"/usr/bin/passwd "${ED}"/bin/ || die
 	dosym /bin/passwd /usr/bin/passwd
 
 	cd "${S}"
@@ -152,22 +152,22 @@ src_install() {
 		done
 
 		sed -i -f "${FILESDIR}"/login_defs_pam.sed \
-			"${D}"/etc/login.defs
+			"${ED}"/etc/login.defs
 
 		# remove manpages that pam will install for us
 		# and/or don't apply when using pam
-		find "${D}"/usr/share/man \
+		find "${ED}"/usr/share/man \
 			'(' -name 'limits.5*' -o -name 'suauth.5*' ')' \
-			-exec rm {} +
+			-delete
 
 		# Remove pam.d files provided by pambase.
-		rm "${D}"/etc/pam.d/{login,passwd,su} || die
+		rm "${ED}"/etc/pam.d/{login,passwd,su} || die
 	fi
 
 	# Remove manpages that are handled by other packages
-	find "${D}"/usr/share/man \
+	find "${ED}"/usr/share/man \
 		'(' -name id.1 -o -name passwd.5 -o -name getspnam.3 ')' \
-		-exec rm {} +
+		-delete
 
 	cd "${S}"
 	dodoc ChangeLog NEWS TODO
@@ -177,15 +177,15 @@ src_install() {
 }
 
 pkg_preinst() {
-	rm -f "${ROOT}"/etc/pam.d/system-auth.new \
-		"${ROOT}/etc/login.defs.new"
+	rm -f "${EROOT}"/etc/pam.d/system-auth.new \
+		"${EROOT}/etc/login.defs.new"
 }
 
 pkg_postinst() {
 	# Enable shadow groups.
-	if [ ! -f "${ROOT}"/etc/gshadow ] ; then
-		if grpck -r -R "${ROOT}" 2>/dev/null ; then
-			grpconv -R "${ROOT}"
+	if [ ! -f "${EROOT}"/etc/gshadow ] ; then
+		if grpck -r -R "${EROOT}" 2>/dev/null ; then
+			grpconv -R "${EROOT}"
 		else
 			ewarn "Running 'grpck' returned errors.  Please run it by hand, and then"
 			ewarn "run 'grpconv' afterwards!"

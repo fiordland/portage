@@ -1,6 +1,203 @@
 # ChangeLog for Gentoo base-profile
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/ChangeLog,v 1.714 2014/08/27 07:14:50 ssuominen Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/ChangeLog,v 1.775 2015/03/01 13:20:06 mgorny Exp $
+
+  01 Mar 2015; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Mask telepathy-connection-managers[steam] on unsupported arches.
+
+  27 Feb 2015; Andreas K. Huettel <dilfridge@gentoo.org> package.use.mask:
+  Mask atlas support in newer armadillo versions since atlas is not in the main
+  tree yet
+
+  23 Feb 2015; Alexis Ballier <aballier@gentoo.org> package.use.mask:
+  drop use mask on long gone x264-encoder versions
+
+  20 Feb 2015; Zac Medico <zmedico@gentoo.org> make.defaults:
+  Use UNINSTALL_IGNORE to protect /var/{run,lock} symlinks for bug 519620.
+
+  18 Feb 2015; Alexandre Rostovtsev <tetromino@gentoo.org> package.use.mask:
+  Mask cairo[openvg], experimental backend, no longer supported with
+  >=mesa-10.4 (bug #536434)
+
+  12 Feb 2015; Andreas K. Huettel <dilfridge@gentoo.org>
+  package.use.stable.mask:
+  Stablemask coinmp feature of LibreOffice
+
+  11 Feb 2015; Andrew Savchenko <bircoph@gentoo.org> package.use.mask:
+  Mask cluster code for evaluation and testing.
+
+  10 Feb 2015; Jauhien Piatlicki <jauhien@gentoo.org> package.use.mask:
+  mask system-llvm for dev-lang/rust
+
+  08 Feb 2015; Michael Palimaka <kensington@gentoo.org> package.use.stable.mask:
+  Unmask kde-base/kopete[otr] since libotr-4 is now stable.
+
+  04 Feb 2015; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask input_devices_libinput flag for bug #538828.
+
+  03 Feb 2015; Michael Palimaka <kensington@gentoo.org> package.use.mask:
+  Mask app-office/akonadi-server[qt5] due to unsatisfied dependencies.
+
+  01 Feb 2015; Michał Górny <mgorny@gentoo.org> make.defaults:
+  Set USE=libav to default to libav.
+
+  30 Jan 2015; Michał Górny <mgorny@gentoo.org> make.defaults:
+  Hide CPU_FLAGS_X86 everywhere but on amd64 & x86.
+
+  29 Jan 2015; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> use.mask:
+  Mask video_cards_tegra flag.
+
+  28 Jan 2015; Michał Górny <mgorny@gentoo.org> use.mask:
+  Mask CPU_FLAGS_X86 for non-x86 arches.
+
+  28 Jan 2015; Michał Górny <mgorny@gentoo.org> make.defaults:
+  Add CPU_FLAGS_X86 to USE_EXPAND.
+
+  22 Jan 2015; Brian Evans <grknight@gentoo.org> package.use.mask:
+  Change media-libs/ming USE=php mask to allow for new dev-php/ming-php package
+
+  25 Dec 2014; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Mask USE=ssl on www-servers/pshs for it requires non-keyworded libevent-2.1.
+
+  24 Dec 2014; Christoph Junghans <ottxor@gentoo.org> package.use.mask:
+  dropped hpx[doc] mask as bug #529066 got fixed
+
+  16 Dec 2014; Ruud Koolen <redlizard@gentoo.org> make.defaults:
+  Add prefix-guest to IUSE_IMPLICIT.
+
+  30 Nov 2014; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Temporarily mask x11-libs/cairo[directfb] until we figure out what to do
+  about it.
+
+  29 Nov 2014; Brian Evans <grknight@gentoo.org> package.use.mask:
+  Add mask on app-text/groonga[lzo,zlib] for known memory leak issues
+
+  24 Nov 2014; Christoph Junghans <ottxor@gentoo.org> package.use.mask:
+  mask hpx[doc] (bug #529066)
+
+  24 Nov 2014; Mike Gilbert <floppym@gentoo.org> make.defaults:
+  Revert to python3_3 by default. There are still many packages which need
+  testing/stabilization for python3_4.
+
+  23 Nov 2014; Mike Gilbert <floppym@gentoo.org> use.mask:
+  Remove python3_2 mask.
+
+  23 Nov 2014; Mike Gilbert <floppym@gentoo.org> make.defaults:
+  Switch from python3_3 to python3_4.
+
+  17 Nov 2014; Patrick Lauer <patrick@gentoo.org> package.use.mask:
+  Temporarily mask fbcon useflag on netsurf until libnsfb is fixed #529594
+
+  15 Nov 2014; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask,
+  use.stable.mask:
+  Move python3_4 mask to arch profiles. Move pyudev[python3_4] mask to base
+  profile.
+
+  09 Nov 2014; Michał Górny <mgorny@gentoo.org> package.use.force,
+  package.use.mask:
+  Remove stale masks on dev-python/python-exec.
+
+  08 Nov 2014; Patrick Lauer <patrick@gentoo.org> package.use.mask:
+  Mask razor useflag for lightdm as razorqt is masked
+
+  06 Nov 2014; Michał Górny <mgorny@gentoo.org> package.use.force,
+  package.use.mask, use.mask:
+  Update the USE masks, forces and defaults for PyPy3.
+
+  05 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> package.use.mask:
+  sci-libs/gdal|sci-libs/ogdi visibility issue fixed. Removing mask.
+
+  04 Nov 2014; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask:
+  Revert last change.
+
+  04 Nov 2014; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask:
+  Stable mask python3_4 on dev-python/pyudev.
+
+  02 Nov 2014; Mike Frysinger <vapier@gentoo.org> packages:
+  Drop texinfo @system #471192 by Alexis Ballier.
+
+  30 Oct 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  package.use.stable.mask:
+  Stable mask vtk support of media-libs/opencv, so bug 527518 can go ahead
+
+  26 Oct 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.mask:
+  Move xinit mask to base/ in order to be able to properly unmask in systemd
+  target.
+
+  22 Oct 2014; Brian Evans <grknight@gentoo.org> use.stable.mask:
+  Mask php_targets_php5-6 until it is stable.
+
+  21 Oct 2014; Mike Frysinger <vapier@gentoo.org> package.use.mask:
+  Mask sys-devel/gcc[sanitize] #504200.
+
+  19 Oct 2014; Mike Gilbert <floppym@gentoo.org> use.mask:
+  Mask apparmor.
+
+  19 Oct 2014; Mike Frysinger <vapier@gentoo.org> package.use.force:
+  Restrict bash USE=readline mask to SLOT=0.
+
+  18 Oct 2014; Mike Frysinger <vapier@gentoo.org> package.use.mask:
+  Drop systemd-specific seccomp mask since the USE flag itself is handled
+  properly #524148 by Christian Ruppert.
+
+  11 Oct 2014; Tim Harder <radhermit@gentoo.org> package.use.mask,
+  package.use.stable.mask:
+  Move net-im/bitlbee skype use flag mask back to package.use.mask and unmask
+  in specific profiles (bug #525006).
+
+  10 Oct 2014; Tim Harder <radhermit@gentoo.org> package.use.mask,
+  package.use.stable.mask:
+  Move net-im/bitlbee skype use flag mask to package.use.stable.mask (bug
+  #523708).
+
+  09 Oct 2014; Michael Palimaka <kensington@gentoo.org> package.use.stable.mask:
+  Move kde-base/kopete[otr] from regular mask to stable mask.
+
+  01 Oct 2014; Sergey Popov <pinkbyte@gentoo.org> package.use.mask:
+  Mask USE='multislot' in sys-devel/binutils as well, bug #507808
+
+  30 Sep 2014; Bernard Cafarelli <voyageur@gentoo.org> package.use.mask:
+  Add dev-python/pyocr to the cuneiform USE flag mask
+
+  16 Sep 2014; Brian Evans <grknight@gentoo.org> package.use.mask:
+  Remove old mysql-5.1.5{1,2,3} entries that are long gone from the tree.
+
+  16 Sep 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Unmask xorg-server glamor flag
+
+  16 Sep 2014; Mike Gilbert <floppym@gentoo.org> package.use.mask, use.mask:
+  Move mgorny's last mask from use.mask to package.use.mask.
+
+  15 Sep 2014; Michał Górny <mgorny@gentoo.org> use.mask:
+  Mask USE=zrtp on net-libs/ortp since it is screwed up.
+
+  14 Sep 2014; Johannes Huber <johu@gentoo.org> package.use.mask:
+  Mask dev-libs/libattica[qt5].
+
+  13 Sep 2014; Markos Chandras <hwoarang@gentoo.org> package.use.mask:
+  Mask midori[jit] everywhere
+
+  12 Sep 2014; Johannes Huber <johu@gentoo.org> package.use.mask:
+  Mask media-sound/tomahawk[qt5].
+
+  06 Sep 2014; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Add missing py2.6 mask for portage.
+
+  06 Sep 2014; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Mask removed flags on sys-apps/portage since it does not use python-r1.
+
+  06 Sep 2014; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Wipe out references to removed Python targets.
+
+  06 Sep 2014; Michał Górny <mgorny@gentoo.org> package.use.force,
+  package.use.mask, use.mask:
+  Mask python3_2 target for removal. Clean up stale python2_6 and pypy2_0
+  targets.
+
+  02 Sep 2014; Ole Markus With <olemarkus@gentoo.org> use.mask:
+  Unmask php_targets_php5-6 USE flag
 
   27 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> package.use.stable.mask:
   Drop USE="static" mask of sys-fs/cryptsetup in favour of REQUIRED_USE

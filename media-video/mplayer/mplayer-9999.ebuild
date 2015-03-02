@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/mplayer-9999.ebuild,v 1.161 2014/07/27 11:12:49 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/mplayer-9999.ebuild,v 1.167 2015/02/14 20:44:56 aballier Exp $
 
 EAPI=5
 
@@ -10,13 +10,13 @@ ESVN_REPO_URI="svn://svn.mplayerhq.hu/mplayer/trunk"
 
 inherit toolchain-funcs eutils flag-o-matic multilib base ${SVN_ECLASS}
 
-IUSE="3dnow 3dnowext a52 aalib +alsa altivec aqua bidi bindist bl bluray
+IUSE="cpu_flags_x86_3dnow cpu_flags_x86_3dnowext a52 aalib +alsa altivec aqua bidi bindist bl bluray
 bs2b cddb +cdio cdparanoia cpudetection debug dga
 directfb doc dts dv dvb +dvd +dvdnav +enca +encode faac faad fbcon
 ftp gif ggi gsm +iconv ipv6 jack joystick jpeg jpeg2k kernel_linux ladspa
-+libass libcaca libmpeg2 lirc live lzo mad md5sum +mmx mmxext mng mp3 nas
++libass libcaca libmpeg2 lirc live lzo mad md5sum +cpu_flags_x86_mmx cpu_flags_x86_mmxext mng mp3 nas
 +network nut openal opengl +osdmenu oss png pnm pulseaudio pvr
-radio rar rtc rtmp samba selinux +shm sdl speex sse sse2 ssse3
+radio rar rtc rtmp samba selinux +shm sdl speex cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_ssse3
 tga theora tremor +truetype toolame twolame +unicode v4l vdpau vidix
 vorbis +X x264 xanim xinerama +xscreensaver +xv xvid xvmc zoran"
 
@@ -60,7 +60,7 @@ RDEPEND+="
 	sys-libs/ncurses
 	app-arch/bzip2
 	sys-libs/zlib
-	|| ( >=media-video/ffmpeg-2.0:0= >=media-video/libav-9:= )
+	>=media-video/ffmpeg-2.0:0
 	a52? ( media-libs/a52dec )
 	aalib? ( media-libs/aalib )
 	alsa? ( media-libs/alsa-lib )
@@ -107,7 +107,7 @@ RDEPEND+="
 	nut? ( >=media-libs/libnut-661 )
 	openal? ( media-libs/openal )
 	opengl? ( virtual/opengl )
-	png? ( media-libs/libpng )
+	png? ( media-libs/libpng:0= )
 	pnm? ( media-libs/netpbm )
 	pulseaudio? ( media-sound/pulseaudio )
 	rar? (
@@ -118,7 +118,6 @@ RDEPEND+="
 	)
 	rtmp? ( media-video/rtmpdump )
 	samba? ( net-fs/samba )
-	selinux? ( sec-policy/selinux-mplayer )
 	sdl? ( media-libs/libsdl )
 	speex? ( media-libs/speex )
 	theora? ( media-libs/libtheora[encode?] )
@@ -152,6 +151,9 @@ DEPEND="${RDEPEND}
 	)
 	x86? ( ${ASM_DEP} )
 	x86-fbsd? ( ${ASM_DEP} )
+"
+RDEPEND+="
+	selinux? ( sec-policy/selinux-mplayer )
 "
 
 SLOT="0"
@@ -320,9 +322,6 @@ src_configure() {
 	#
 	# dvdread - accessing a DVD
 	# dvdnav - navigation of menus
-	#
-	# use external libdvdcss, dvdread and dvdnav
-	myconf+=" --disable-dvdread-internal --disable-libdvdcss-internal"
 	use dvd || myconf+=" --disable-dvdread"
 	use dvdnav || myconf+=" --disable-dvdnav"
 
@@ -466,7 +465,12 @@ src_configure() {
 	# Platform specific flags, hardcoded on amd64 (see below)
 	use cpudetection && myconf+=" --enable-runtime-cpudetection"
 
-	uses="3dnow 3dnowext altivec mmx mmxext shm sse sse2 ssse3"
+	uses="3dnow 3dnowext mmx mmxext sse sse2 ssse3"
+	for i in ${uses}; do
+		myconf+=" $(use_enable cpu_flags_x86_${i} ${i})"
+	done
+
+	uses="altivec shm"
 	for i in ${uses}; do
 		myconf+=" $(use_enable ${i})"
 	done

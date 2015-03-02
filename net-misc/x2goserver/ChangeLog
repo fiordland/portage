@@ -1,6 +1,56 @@
 # ChangeLog for net-misc/x2goserver
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/x2goserver/ChangeLog,v 1.45 2014/08/22 09:26:25 voyageur Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/x2goserver/ChangeLog,v 1.53 2015/02/26 16:47:30 voyageur Exp $
+
+  26 Feb 2015; Bernard Cafarelli <voyageur@gentoo.org>
+  x2goserver-4.0.1.19.ebuild:
+  New version introduced dev-perl/File-Which rdep, thanks polynomial-c
+
+*x2goserver-4.0.1.19 (26 Feb 2015)
+
+  26 Feb 2015; Bernard Cafarelli <voyageur@gentoo.org>
+  +x2goserver-4.0.1.19.ebuild:
+  Version bump
+
+*x2goserver-4.0.1.18-r2 (16 Jan 2015)
+
+  16 Jan 2015; Bernard Cafarelli <voyageur@gentoo.org>
+  +x2goserver-4.0.1.18-r2.ebuild,
+  +files/x2goserver-4.0.1.18-fix_local_desktop_sharing.patch,
+  +files/x2goserver-4.0.1.18-use_printf.patch:
+  Fix invalid 'echo -n' usage (#528452), remove dangling symlink (#521126),
+  both by polynomial-c. Also fix local desktop sharing
+
+*x2goserver-4.0.1.18-r1 (23 Oct 2014)
+
+  23 Oct 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +x2goserver-4.0.1.18-r1.ebuild,
+  +files/x2goserver-4.0.1.18-prevent_bash_failures_xsession.patch:
+  Prevent bash failures when sourcing external bash scripts, thanks Bernd Feige
+  <Bernd.Feige@gmx.net> in bug #524350
+
+*x2goserver-4.0.1.18 (07 Oct 2014)
+
+  07 Oct 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +x2goserver-4.0.1.18.ebuild:
+  Version bump
+
+*x2goserver-4.0.1.17 (04 Oct 2014)
+
+  04 Oct 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +x2goserver-4.0.1.17.ebuild:
+  Version bump
+
+  29 Sep 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  x2goserver-4.0.1.16.ebuild:
+  Rise minimum nx version dependency as reported by Leho Kraav <leho@kraav.com>
+  in bug #523998
+
+*x2goserver-4.0.1.16 (29 Sep 2014)
+
+  29 Sep 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +x2goserver-4.0.1.16.ebuild:
+  Version bump
 
   22 Aug 2014; Bernard Cafarelli <voyageur@gentoo.org>
   x2goserver-4.0.1.12.ebuild, -x2goserver-4.0.1.13.ebuild,

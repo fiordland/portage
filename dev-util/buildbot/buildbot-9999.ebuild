@@ -1,17 +1,15 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot/buildbot-9999.ebuild,v 1.6 2014/01/21 22:29:52 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot/buildbot-9999.ebuild,v 1.10 2014/12/18 20:48:07 hwoarang Exp $
 
 EAPI="5"
-PYTHON_DEPEND="2"
-SUPPORT_PYTHON_ABIS="1"
-RESTRICT_PYTHON_ABIS="3.* *-jython"
-DISTUTILS_SRC_TEST="trial"
-DISTUTILS_DISABLE_TEST_DEPENDENCY="1"
+PYTHON_COMPAT=( python2_7 )
+PYTHON_REQ_USE="sqlite"
+
 EGIT_REPO_URI="https://github.com/buildbot/${PN}.git"
 
 [[ ${PV} = 9999 ]] && inherit git-2
-inherit distutils readme.gentoo user systemd
+inherit distutils-r1 readme.gentoo systemd user
 
 MY_PV="${PV/_p/p}"
 MY_P="${PN}-${MY_PV}"
@@ -29,31 +27,27 @@ else
 fi
 IUSE="doc examples irc mail manhole test"
 
-# sqlite3 module of Python 2.5 is not supported.
-RDEPEND=">=dev-python/jinja-2.1
-	|| ( dev-lang/python:2.7 dev-lang/python:2.6 dev-python/simplejson )
-	|| ( dev-lang/python:2.7[sqlite] dev-lang/python:2.6[sqlite] dev-python/pysqlite:2 )
-	>=dev-python/twisted-core-8.0.0
-	dev-python/twisted-web
-	<dev-python/sqlalchemy-migrate-0.8
-	irc? ( dev-python/twisted-words )
-	mail? ( dev-python/twisted-mail )
-	manhole? ( dev-python/twisted-conch )"
+RDEPEND=">=dev-python/jinja-2.1[${PYTHON_USEDEP}]
+	dev-python/twisted-core[${PYTHON_USEDEP}]
+	dev-python/twisted-web[${PYTHON_USEDEP}]
+	dev-python/sqlalchemy-migrate[${PYTHON_USEDEP}]
+	irc? ( dev-python/twisted-words[${PYTHON_USEDEP}] )
+	mail? ( dev-python/twisted-mail[${PYTHON_USEDEP}] )
+	manhole? ( dev-python/twisted-conch[${PYTHON_USEDEP}] )"
 DEPEND="${DEPEND}
-	dev-python/setuptools
-	doc? ( dev-python/sphinx )
+	dev-python/setuptools[${PYTHON_USEDEP}]
+	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
 	test? (
-		dev-python/python-dateutil
-		dev-python/mock
-		dev-python/twisted-mail
-		dev-python/twisted-web
-		dev-python/twisted-words
+		dev-python/python-dateutil[${PYTHON_USEDEP}]
+		dev-python/mock[${PYTHON_USEDEP}]
+		dev-python/twisted-mail[${PYTHON_USEDEP}]
+		dev-python/twisted-web[${PYTHON_USEDEP}]
+		dev-python/twisted-words[${PYTHON_USEDEP}]
 	)"
 
 S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
-	python_pkg_setup
 	enewuser buildbot
 
 	DOC_CONTENTS="The \"buildbot\" user and the \"buildmaster\" init script has been added
@@ -67,7 +61,7 @@ pkg_setup() {
 
 src_compile() {
 	[[ ${PV} = 9999 ]] && cd master/
-	distutils_src_compile
+	distutils-r1_src_compile
 
 	if use doc; then
 		einfo "Generation of documentation"
@@ -80,7 +74,7 @@ src_compile() {
 
 src_install() {
 	[[ ${PV} = 9999 ]] && cd master/
-	distutils_src_install
+	distutils-r1_src_install
 
 	doman docs/buildbot.1
 
@@ -98,25 +92,10 @@ src_install() {
 	newinitd "${FILESDIR}/buildmaster.initd" buildmaster
 	systemd_dounit "${FILESDIR}"/${PN}.service
 
-	# In case of multiple masters, it's possible to edit web files
-	# so all master can share the changes. So protect them!
-	# If something else need to be protected, please open a bug
-	# on http://bugs.gentoo.org
-	local cp
-	add_config_protect() {
-		cp+=" $(python_get_sitedir)/${PN}/status/web"
-	}
-	python_execute_function -q add_config_protect
-	echo "CONFIG_PROTECT=\"${cp}\"" \
-		> 85${PN} || die
-	doenvd 85${PN}
-
 	readme.gentoo_create_doc
 }
 
 pkg_postinst() {
-	[[ ${PV} = 9999 ]] && cd master/
-	distutils_pkg_postinst
 	readme.gentoo_print_elog
 	elog
 	elog "Upstream recommends the following when upgrading:"

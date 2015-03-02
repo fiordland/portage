@@ -1,6 +1,79 @@
 # ChangeLog for app-editors/emacs
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs/ChangeLog,v 1.640 2014/07/02 07:21:53 ulm Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs/ChangeLog,v 1.659 2015/03/02 09:21:35 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> emacs-24.4-r1.ebuild:
+  Stable for ppc, wrt bug #531806
+
+  28 Feb 2015; Ulrich Müller <ulm@gentoo.org> emacs-23.4-r12.ebuild,
+  emacs-24.4-r3.ebuild:
+  Update version of emacs-common-gentoo dependency.
+
+  27 Feb 2015; Ulrich Müller <ulm@gentoo.org> emacs-24.4-r3.ebuild:
+  Call eautoreconf after patching.
+
+*emacs-24.4-r3 (21 Feb 2015)
+*emacs-23.4-r12 (21 Feb 2015)
+
+  21 Feb 2015; Ulrich Müller <ulm@gentoo.org> +emacs-23.4-r12.ebuild,
+  -emacs-24.4-r2.ebuild, +emacs-24.4-r3.ebuild:
+  Follow QA policy for game state directory, bug 537580.
+
+  17 Feb 2015; Ulrich Müller <ulm@gentoo.org> emacs-23.4-r11.ebuild,
+  emacs-24.3-r6.ebuild, emacs-24.4-r1.ebuild, emacs-24.4-r2.ebuild:
+  Depend on slot 0 of media-libs/tiff.
+
+  25 Jan 2015; Ulrich Müller <ulm@gentoo.org> metadata.xml:
+  Update flag description.
+
+*emacs-24.4-r2 (23 Jan 2015)
+
+  23 Jan 2015; Ulrich Müller <ulm@gentoo.org> +emacs-24.4-r2.ebuild:
+  Don't shadow load-path in gnus, bug 537156.
+
+  02 Jan 2015; Mikle Kolyada <zlogene@gentoo.org> emacs-24.4-r1.ebuild:
+  x86 stable wrt bug #531806
+
+  26 Dec 2014; Markus Meier <maekke@gentoo.org> emacs-24.4-r1.ebuild:
+  arm stable, bug #531806
+
+  09 Dec 2014; Jeroen Roovers <jer@gentoo.org> emacs-24.4-r1.ebuild:
+  Stable for HPPA (bug #531806).
+
+  07 Dec 2014; Chema Alonso <nimiux@gentoo.org> emacs-24.4-r1.ebuild:
+  Stable for amd64 wrt bug #531806
+
+  06 Dec 2014; Ulrich Müller <ulm@gentoo.org> -emacs-24.4.ebuild:
+  Remove old.
+
+  10 Nov 2014; Ulrich Müller <ulm@gentoo.org> emacs-23.4-r11.ebuild:
+  Remove redundant _BSD_SOURCE macro causing warnings with glibc 2.20.
+
+  10 Nov 2014; Ulrich Müller <ulm@gentoo.org> emacs-23.4-r11.ebuild,
+  emacs-24.3-r6.ebuild, emacs-24.4-r1.ebuild:
+  Don't install spurious COPYING files.
+
+*emacs-24.4-r1 (10 Nov 2014)
+
+  10 Nov 2014; Ulrich Müller <ulm@gentoo.org> +emacs-24.4-r1.ebuild:
+  Fix runtime failure when load-path contains a nil element, bug 528664.
+
+  28 Oct 2014; Ulrich Müller <ulm@gentoo.org> emacs-23.4-r11.ebuild,
+  emacs-24.4.ebuild:
+  Filter -pie from CFLAGS. Make sure that PT_PAX and XATTR_PAX flags for
+  temacs are identical. Fixes build failure on hardened Linux, bug 526948.
+
+*emacs-24.4 (20 Oct 2014)
+
+  20 Oct 2014; Ulrich Müller <ulm@gentoo.org> -emacs-24.4_rc1.ebuild,
+  +emacs-24.4.ebuild:
+  Version bump. Remove release candidate.
+
+*emacs-24.4_rc1 (18 Oct 2014)
+
+  18 Oct 2014; Ulrich Müller <ulm@gentoo.org> +emacs-24.4_rc1.ebuild,
+  metadata.xml:
+  Version bump, release candidate for Emacs 24.4.
 
   02 Jul 2014; Ulrich Müller <ulm@gentoo.org> emacs-18.59-r10.ebuild:
   Get rid of the abi_x86_32 USE flag, it is redundant. Remove REQUIRED_USE.

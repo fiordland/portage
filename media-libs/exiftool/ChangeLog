@@ -1,6 +1,105 @@
 # ChangeLog for media-libs/exiftool
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/exiftool/ChangeLog,v 1.144 2014/07/26 15:52:51 radhermit Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/exiftool/ChangeLog,v 1.164 2015/02/28 21:31:35 radhermit Exp $
+
+*exiftool-9.88 (28 Feb 2015)
+
+  28 Feb 2015; Tim Harder <radhermit@gentoo.org> +exiftool-9.88.ebuild:
+  Version bump.
+
+*exiftool-9.87 (27 Feb 2015)
+
+  27 Feb 2015; Tim Harder <radhermit@gentoo.org> +exiftool-9.87.ebuild:
+  Version bump.
+
+  23 Feb 2015; Tim Harder <radhermit@gentoo.org> -exiftool-9.79.ebuild,
+  -exiftool-9.80.ebuild, -exiftool-9.81.ebuild:
+  Remove old.
+
+*exiftool-9.86 (23 Feb 2015)
+
+  23 Feb 2015; Tim Harder <radhermit@gentoo.org> +exiftool-9.86.ebuild:
+  Version bump.
+
+*exiftool-9.85 (17 Feb 2015)
+
+  17 Feb 2015; Tim Harder <radhermit@gentoo.org> +exiftool-9.85.ebuild:
+  Version bump.
+
+*exiftool-9.82 (17 Jan 2015)
+
+  17 Jan 2015; Tim Harder <radhermit@gentoo.org> +exiftool-9.82.ebuild:
+  Version bump.
+
+*exiftool-9.81 (15 Jan 2015)
+
+  15 Jan 2015; Tim Harder <radhermit@gentoo.org> +exiftool-9.81.ebuild:
+  Version bump.
+
+  08 Jan 2015; Tim Harder <radhermit@gentoo.org> -exiftool-9.12.ebuild,
+  -exiftool-9.68.ebuild, -exiftool-9.69.ebuild, -exiftool-9.70.ebuild,
+  -exiftool-9.72.ebuild, -exiftool-9.74.ebuild, -exiftool-9.75.ebuild,
+  -exiftool-9.76.ebuild, -exiftool-9.77.ebuild:
+  Remove old.
+
+  08 Jan 2015; Tim Harder <radhermit@gentoo.org> exiftool-9.78.ebuild:
+  Stabilize for amd64, ppc, ppc64, and x86.
+
+*exiftool-9.80 (08 Jan 2015)
+
+  08 Jan 2015; Tim Harder <radhermit@gentoo.org> +exiftool-9.80.ebuild:
+  Version bump.
+
+*exiftool-9.79 (06 Jan 2015)
+
+  06 Jan 2015; Tim Harder <radhermit@gentoo.org> +exiftool-9.79.ebuild:
+  Version bump.
+
+*exiftool-9.78 (14 Dec 2014)
+
+  14 Dec 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.78.ebuild:
+  Version bump.
+
+*exiftool-9.77 (28 Nov 2014)
+
+  28 Nov 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.77.ebuild:
+  Version bump.
+
+*exiftool-9.76 (22 Nov 2014)
+
+  22 Nov 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.76.ebuild:
+  Version bump.
+
+*exiftool-9.75 (05 Nov 2014)
+
+  05 Nov 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.75.ebuild:
+  Version bump.
+
+*exiftool-9.74 (18 Oct 2014)
+
+  18 Oct 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.74.ebuild:
+  Version bump.
+
+*exiftool-9.72 (03 Oct 2014)
+
+  03 Oct 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.72.ebuild:
+  Version bump.
+
+  04 Sep 2014; Tim Harder <radhermit@gentoo.org> -exiftool-9.55.ebuild,
+  -exiftool-9.58.ebuild, -exiftool-9.59.ebuild, -exiftool-9.61.ebuild,
+  -exiftool-9.62.ebuild, -exiftool-9.64.ebuild, -exiftool-9.65.ebuild,
+  -exiftool-9.66.ebuild, -exiftool-9.67.ebuild:
+  Remove old.
+
+*exiftool-9.70 (04 Sep 2014)
+
+  04 Sep 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.70.ebuild:
+  Version bump.
+
+*exiftool-9.69 (31 Aug 2014)
+
+  31 Aug 2014; Tim Harder <radhermit@gentoo.org> +exiftool-9.69.ebuild:
+  Version bump.
 
 *exiftool-9.68 (26 Jul 2014)
 

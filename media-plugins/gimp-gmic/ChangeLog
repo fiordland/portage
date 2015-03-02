@@ -1,6 +1,40 @@
 # ChangeLog for media-plugins/gimp-gmic
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/gimp-gmic/ChangeLog,v 1.46 2014/06/16 07:53:07 radhermit Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/gimp-gmic/ChangeLog,v 1.53 2015/02/21 23:29:47 radhermit Exp $
+
+  21 Feb 2015; Tim Harder <radhermit@gentoo.org> gimp-gmic-1.6.0.4.ebuild:
+  Update HOMEPAGE.
+
+*gimp-gmic-1.6.0.4 (07 Feb 2015)
+
+  07 Feb 2015; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.6.0.4.ebuild:
+  Version bump.
+
+  04 Feb 2015; Tim Harder <radhermit@gentoo.org> metadata.xml:
+  Drop myself from metadata.
+
+*gimp-gmic-1.6.0.3 (08 Jan 2015)
+
+  08 Jan 2015; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.6.0.3.ebuild:
+  Version bump.
+
+  08 Jan 2015; Tim Harder <radhermit@gentoo.org> -gimp-gmic-1.5.8.6.ebuild,
+  -gimp-gmic-1.5.9.1.ebuild, -gimp-gmic-1.5.9.2-r1.ebuild,
+  -files/gmic-1.5.8.4-makefile.patch, -files/gmic-1.5.9.1-makefile.patch,
+  -files/gmic-1.5.9.2-makefile.patch:
+  Remove old.
+
+*gimp-gmic-1.6.0.2-r1 (08 Dec 2014)
+
+  08 Dec 2014; Tim Harder <radhermit@gentoo.org> -gimp-gmic-1.6.0.2.ebuild,
+  +gimp-gmic-1.6.0.2-r1.ebuild:
+  Add openmp use flag.
+
+*gimp-gmic-1.6.0.2 (03 Dec 2014)
+
+  03 Dec 2014; Tim Harder <radhermit@gentoo.org> +gimp-gmic-1.6.0.2.ebuild,
+  +files/gmic-1.6.0.2-makefile.patch:
+  Version bump (bug #516012).
 
   16 Jun 2014; Tim Harder <radhermit@gentoo.org> -gimp-gmic-1.5.8.0.ebuild,
   -gimp-gmic-1.5.8.1.ebuild, -gimp-gmic-1.5.8.2.ebuild,

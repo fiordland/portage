@@ -1,6 +1,20 @@
 # ChangeLog for sys-process/atop
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/atop/ChangeLog,v 1.47 2014/01/07 10:28:13 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-process/atop/ChangeLog,v 1.50 2014/12/01 12:34:41 jer Exp $
+
+  01 Dec 2014; Jeroen Roovers <jer@gentoo.org> files/atop-2.1-build.patch:
+  Fix building against sys-libs/ncurses[tinfo] (bug #531326).
+
+*atop-2.1 (30 Nov 2014)
+
+  30 Nov 2014; Lars Wendler <polynomial-c@gentoo.org> -atop-1.23.ebuild,
+  +atop-2.1.ebuild, +files/atop-2.1-build.patch:
+  Version bump (bug #531212). Removed old.
+
+  28 Oct 2014; Jeroen Roovers <jer@gentoo.org> atop-2.0.2.ebuild,
+  files/atop-2.0.2-build.patch:
+  Add sys-libs/ncurses dependency. Fix building against sys-libs/ncurses[tinfo]
+  (bug #505112).
 
   07 Jan 2014; Lars Wendler <polynomial-c@gentoo.org> -atop-1.25-r1.ebuild,
   -atop-1.26.ebuild, -atop-1.26-r1.ebuild,

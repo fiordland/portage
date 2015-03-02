@@ -1,6 +1,37 @@
 # ChangeLog for dev-ruby/rouge
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rouge/ChangeLog,v 1.2 2014/08/20 12:59:19 mrueg Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rouge/ChangeLog,v 1.8 2015/02/03 21:56:09 mrueg Exp $
+
+*rouge-1.8.0 (03 Feb 2015)
+
+  03 Feb 2015; Manuel Rüger <mrueg@gentoo.org> +rouge-1.8.0.ebuild,
+  -rouge-1.7.4.ebuild:
+  Version bump.
+
+*rouge-1.7.7 (27 Dec 2014)
+
+  27 Dec 2014; Manuel Rüger <mrueg@gentoo.org> +rouge-1.7.7.ebuild:
+  Version bump.
+
+  06 Dec 2014; Manuel Rüger <mrueg@gentoo.org> -rouge-1.6.2.ebuild:
+  Cleanup old.
+
+*rouge-1.7.4 (24 Nov 2014)
+
+  24 Nov 2014; Manuel Rüger <mrueg@gentoo.org> +rouge-1.7.4.ebuild,
+  -rouge-1.7.2.ebuild, -rouge-1.7.3.ebuild:
+  Version bump. Cleanup old.
+
+*rouge-1.7.3 (20 Nov 2014)
+
+  20 Nov 2014; Manuel Rüger <mrueg@gentoo.org> +rouge-1.7.3.ebuild:
+  Version bump.
+
+*rouge-1.7.2 (06 Nov 2014)
+
+  06 Nov 2014; Manuel Rüger <mrueg@gentoo.org> +rouge-1.7.2.ebuild,
+  -rouge-1.6.1.ebuild:
+  Version bump.
 
 *rouge-1.6.2 (20 Aug 2014)
 

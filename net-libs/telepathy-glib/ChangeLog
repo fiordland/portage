@@ -1,6 +1,36 @@
 # ChangeLog for net-libs/telepathy-glib
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/telepathy-glib/ChangeLog,v 1.159 2014/08/10 20:50:26 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/telepathy-glib/ChangeLog,v 1.168 2015/01/02 12:10:35 ago Exp $
+
+  02 Jan 2015; Agostino Sarubbo <ago@gentoo.org> telepathy-glib-0.24.1.ebuild:
+  Stable for alpha, wrt bug #529964
+
+  01 Jan 2015; Markus Meier <maekke@gentoo.org> telepathy-glib-0.24.1.ebuild:
+  arm stable, bug #529964
+
+  01 Jan 2015; Agostino Sarubbo <ago@gentoo.org> telepathy-glib-0.24.1.ebuild:
+  Stable for sparc, wrt bug #529964
+
+  31 Dec 2014; Agostino Sarubbo <ago@gentoo.org> telepathy-glib-0.24.1.ebuild:
+  Stable for ia64, wrt bug #529964
+
+  30 Dec 2014; Agostino Sarubbo <ago@gentoo.org> telepathy-glib-0.24.1.ebuild:
+  Stable for ppc64, wrt bug #529964
+
+  28 Dec 2014; Agostino Sarubbo <ago@gentoo.org> telepathy-glib-0.24.1.ebuild:
+  Stable for ppc, wrt bug #529964
+
+  19 Dec 2014; Pacho Ramos <pacho@gentoo.org> telepathy-glib-0.24.1.ebuild:
+  amd64 stable, bug 529964
+
+  18 Dec 2014; Pacho Ramos <pacho@gentoo.org> telepathy-glib-0.24.1.ebuild:
+  x86 stable, bug 529964
+
+*telepathy-glib-0.24.1 (01 Sep 2014)
+
+  01 Sep 2014; Pacho Ramos <pacho@gentoo.org> +telepathy-glib-0.24.1.ebuild,
+  -telepathy-glib-0.20.1-r1.ebuild, -telepathy-glib-0.22.1.ebuild:
+  Version bump, drop old
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
   telepathy-glib-0.20.1-r1.ebuild, telepathy-glib-0.22.1.ebuild,

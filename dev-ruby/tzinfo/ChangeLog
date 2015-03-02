@@ -1,6 +1,18 @@
 # ChangeLog for dev-ruby/tzinfo
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/tzinfo/ChangeLog,v 1.137 2014/08/12 21:28:40 blueness Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/tzinfo/ChangeLog,v 1.140 2015/02/27 10:28:57 graaff Exp $
+
+*tzinfo-0.3.43 (27 Feb 2015)
+
+  27 Feb 2015; Hans de Graaff <graaff@gentoo.org> +tzinfo-0.3.43.ebuild:
+  Version bump.
+
+  25 Feb 2015; Hans de Graaff <graaff@gentoo.org> tzinfo-1.2.2.ebuild:
+  Add ruby22.
+
+  10 Nov 2014; Manuel Rüger <mrueg@gentoo.org> tzinfo-0.3.37-r1.ebuild,
+  tzinfo-0.3.37.ebuild, tzinfo-0.3.38.ebuild:
+  Drop jruby target.
 
   12 Aug 2014; Anthony G. Basile <blueness@gentoo.org> tzinfo-1.2.1.ebuild,
   tzinfo-1.2.2.ebuild:

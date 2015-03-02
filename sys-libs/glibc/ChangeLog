@@ -1,6 +1,124 @@
 # ChangeLog for sys-libs/glibc
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/glibc/ChangeLog,v 1.1012 2014/08/21 14:41:39 vapier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/glibc/ChangeLog,v 1.1040 2015/02/17 08:13:13 vapier Exp $
+
+*glibc-2.20-r2 (17 Feb 2015)
+
+  17 Feb 2015; Mike Frysinger <vapier@gentoo.org> +glibc-2.20-r2.ebuild:
+  Pull in various fixes from upstream (mostly security).
+
+  15 Feb 2015; Mike Frysinger <vapier@gentoo.org> glibc-2.21.ebuild:
+  Add fix from upstream for memcpy on x86 systems #539820 by Matt Turner.
+
+  09 Feb 2015; Mike Frysinger <vapier@gentoo.org>
+  files/eblits/src_configure.eblit:
+  Drop unused ports variable #532760#2 by Arfrever Frehtes Taifersar Arahesis.
+
+*glibc-2.21 (09 Feb 2015)
+
+  09 Feb 2015; Mike Frysinger <vapier@gentoo.org> +glibc-2.21.ebuild:
+  Version bump.
+
+  09 Feb 2015; Mike Frysinger <vapier@gentoo.org>
+  files/eblits/src_configure.eblit:
+  Disable -Werror when building.
+
+  05 Jan 2015; Anthony G. Basile <blueness@gentoo.org> glibc-9999.ebuild:
+  Depend on sys-apps/gentoo-functions, bug #504116#c1
+
+  31 Dec 2014; Mike Frysinger <vapier@gentoo.org> glibc-2.20-r1.ebuild:
+  Fix cross-compiler bootstrapping for arm targets.
+
+  31 Dec 2014; Mike Frysinger <vapier@gentoo.org>
+  files/eblits/src_configure.eblit:
+  Fix glibc headers builds with newer EAPIs and newer glibc versions #532760 by
+  Ruud Koolen.
+
+*glibc-2.20-r1 (28 Dec 2014)
+
+  28 Dec 2014; Anthony G. Basile <blueness@gentoo.org> +glibc-2.20-r1.ebuild:
+  Address bug #478764 in 2.20-r1
+
+  11 Nov 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/2.20/glibc-2.20-hardened-inittls-nosysenter.patch, glibc-2.20.ebuild,
+  glibc-9999.ebuild:
+  Fix by Francisco Blas Izquierdo Riera for crash on hardened in early TLS init
+  code #528558 by Toralf Förster.
+
+  11 Nov 2014; Mike Frysinger <vapier@gentoo.org> glibc-2.20.ebuild,
+  glibc-9999.ebuild:
+  Sync 2.20 & 9999 versions.
+
+  07 Nov 2014; Mike Frysinger <vapier@gentoo.org> glibc-2.20.ebuild:
+  Move into unstable for all but hppa.  Require binutils-2.24 as some arches
+  (like s390) need it.
+
+  26 Oct 2014; Mike Frysinger <vapier@gentoo.org> glibc-2.19-r1.ebuild:
+  Mark s390 stable.
+
+  18 Oct 2014; Mike Frysinger <vapier@gentoo.org> files/eblits/common.eblit:
+  Tweak nonfatal wrapping #523332#9 by Alexander Tsoy.
+
+  17 Oct 2014; Mike Frysinger <vapier@gentoo.org> files/eblits/common.eblit,
+  files/eblits/pkg_setup.eblit, glibc-2.19-r1.ebuild:
+  Tweak nonfatal indirection for EAPI=0 to fix binpkg handling #523332 by Alex
+  Efros.
+
+  18 Sep 2014; Mike Frysinger <vapier@gentoo.org> files/eblits/common.eblit,
+  files/eblits/src_configure.eblit:
+  Move away from has_multilib_profile and rely on USE=multilib now that the flag
+  should be sane across profiles #522900 by Xavier Miller.
+
+  17 Sep 2014; Mike Frysinger <vapier@gentoo.org> files/eblits/common.eblit,
+  files/eblits/pkg_setup.eblit, files/eblits/src_test.eblit:
+  Use `nonfatal` with emake when we check the return value ourselves #522962 by
+  Manuel Lauss.
+
+  16 Sep 2014; Mike Frysinger <vapier@gentoo.org> glibc-2.20.ebuild:
+  Move timezone-data dep to PDEPEND as it only loosely needs it at runtime
+  #517694 by Joakim Tjernlund.
+
+  10 Sep 2014; Mike Frysinger <vapier@gentoo.org> files/eblits/common.eblit:
+  Use SYSROOT when looking for source rather than ROOT #473728 by Benda Xu.
+
+  10 Sep 2014; Mike Frysinger <vapier@gentoo.org> glibc-2.20.ebuild:
+  Upgrade EAPI to 4 #473728 by Benda Xu.
+
+  10 Sep 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/eblits/src_configure.eblit, files/eblits/src_compile.eblit:
+  Split src_configure out of src_compile #473728 by Benda Xu.
+
+  10 Sep 2014; Mike Frysinger <vapier@gentoo.org> files/eblits/common.eblit,
+  files/eblits/src_compile.eblit, files/eblits/src_install.eblit,
+  files/eblits/src_test.eblit:
+  Combine ABI for loops into one helper.
+
+  10 Sep 2014; Mike Frysinger <vapier@gentoo.org>
+  files/eblits/src_install.eblit, files/eblits/src_test.eblit:
+  Convert src_{install,test} fully over to `builddir`.
+
+  10 Sep 2014; Mike Frysinger <vapier@gentoo.org>
+  files/eblits/src_compile.eblit:
+  Refactor header compile logic a bit to make it a bit more standalone.
+
+  10 Sep 2014; Mike Frysinger <vapier@gentoo.org>
+  files/eblits/src_compile.eblit:
+  Move the toolchain dump message to the configure stage.
+
+  10 Sep 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/eblits/src_prepare.eblit, files/eblits/src_unpack.eblit:
+  Split src_prepare out of src_unpack #473728 by Benda Xu.
+
+*glibc-2.20 (10 Sep 2014)
+
+  10 Sep 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/2.20/glibc-2.20-gentoo-chk_fail.c,
+  +files/2.20/glibc-2.20-gentoo-stack_chk_fail.c, +glibc-2.20.ebuild,
+  files/eblits/src_compile.eblit, metadata.xml:
+  Version bump.
+
+  10 Sep 2014; Mike Frysinger <vapier@gentoo.org> glibc-2.19-r1.ebuild:
+  Mark sparc stable.
 
   21 Aug 2014; Mike Frysinger <vapier@gentoo.org> files/eblits/common.eblit,
   files/eblits/src_compile.eblit, files/eblits/src_install.eblit:

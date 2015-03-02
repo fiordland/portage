@@ -1,6 +1,26 @@
 # ChangeLog for sys-apps/pciutils
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/pciutils/ChangeLog,v 1.232 2014/01/18 04:55:35 vapier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/pciutils/ChangeLog,v 1.236 2015/02/17 00:00:19 tetromino Exp $
+
+  16 Feb 2015; Alexandre Rostovtsev <tetromino@gentoo.org>
+  pciutils-3.3.0-r2.ebuild:
+  Prevent file collision with emul-linux-x86-baselibs
+
+*pciutils-3.3.0-r2 (16 Feb 2015)
+
+  16 Feb 2015; Christoph Junghans <ottxor@gentoo.org> +pciutils-3.3.0-r2.ebuild:
+  added multilib support (bug #540030)
+
+*pciutils-3.3.0-r1 (29 Dec 2014)
+
+  29 Dec 2014; Lars Wendler <polynomial-c@gentoo.org> -pciutils-3.3.0.ebuild,
+  +pciutils-3.3.0-r1.ebuild:
+  Added dependency on libudev (bug #533728).
+
+*pciutils-3.3.0 (04 Dec 2014)
+
+  04 Dec 2014; Tim Harder <radhermit@gentoo.org> +pciutils-3.3.0.ebuild:
+  Version bump.
 
   18 Jan 2014; Mike Frysinger <vapier@gentoo.org> pciutils-3.2.0.ebuild,
   pciutils-3.2.1.ebuild:

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-plugins/google-talkplugin/google-talkplugin-9999.ebuild,v 1.21 2014/05/23 02:36:47 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-plugins/google-talkplugin/google-talkplugin-9999.ebuild,v 1.24 2015/03/01 21:25:49 ottxor Exp $
 
 EAPI=5
 
@@ -13,6 +13,7 @@ if [ "${PV}" != "9999" ]; then
 	MY_PKG="${PN}_${PV}-${DEB_PATCH}_i386.deb"
 	SRC_URI="x86? ( ${MY_URL}/${MY_PKG} )
 		amd64? ( ${MY_URL}/${MY_PKG/i386/amd64} )"
+	KEYWORDS="-* ~amd64 ~x86"
 else
 	inherit cvs #hack to make it part of @live-rebuild
 	MY_URL="http://dl.google.com/linux/direct"
@@ -26,7 +27,6 @@ HOMEPAGE="http://www.google.com/chat/video"
 IUSE="libnotify selinux"
 SLOT="0"
 
-KEYWORDS="-* ~amd64 ~x86"
 #GoogleTalkPlugin binary contains openssl and celt
 LICENSE="Google-TOS openssl BSD"
 
@@ -34,6 +34,7 @@ OBSOLETE="no"
 [[ $OBSOLETE = yes ]] && RESTRICT="fetch strip" || RESTRICT="strip mirror"
 
 RDEPEND="|| ( media-sound/pulseaudio media-libs/alsa-lib )
+	dev-libs/expat
 	dev-libs/glib:2
 	sys-libs/glibc
 	x11-libs/cairo
@@ -41,6 +42,7 @@ RDEPEND="|| ( media-sound/pulseaudio media-libs/alsa-lib )
 	x11-libs/gtk+:2
 	x11-libs/libX11
 	x11-libs/libXcomposite
+	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libXrandr
 	x11-libs/libXrender
@@ -49,7 +51,7 @@ RDEPEND="|| ( media-sound/pulseaudio media-libs/alsa-lib )
 	selinux? ( sec-policy/selinux-googletalk )
 	libnotify? ( x11-libs/libnotify )"
 
-DEPEND="selinux? ( sec-policy/selinux-googletalk )"
+DEPEND=""
 
 INSTALL_BASE="opt/google/talkplugin"
 

@@ -1,6 +1,19 @@
 # ChangeLog for app-doc/devmanual
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-doc/devmanual/ChangeLog,v 1.11 2013/11/12 18:36:02 hwoarang Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-doc/devmanual/ChangeLog,v 1.14 2014/12/21 10:11:45 hwoarang Exp $
+
+  21 Dec 2014; Markos Chandras <hwoarang@gentoo.org> devmanual-9999.ebuild:
+  Drop keywords from live ebuild now that the mask has been lifted
+
+  16 Nov 2014; Markos Chandras <hwoarang@gentoo.org>
+  -devmanual-0_pre20130309.ebuild, -devmanual-0_pre20131109.ebuild:
+  remove old
+
+*devmanual-0_pre20141116 (16 Nov 2014)
+
+  16 Nov 2014; Markos Chandras <hwoarang@gentoo.org>
+  +devmanual-0_pre20141116.ebuild:
+  Version bump
 
   12 Nov 2013; Markos Chandras <hwoarang@gentoo.org>
   devmanual-0_pre20130309.ebuild, devmanual-0_pre20131109.ebuild,

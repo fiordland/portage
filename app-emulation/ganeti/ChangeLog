@@ -1,6 +1,36 @@
 # ChangeLog for app-emulation/ganeti
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/ganeti/ChangeLog,v 1.92 2014/07/02 23:57:25 chutzpah Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/ganeti/ChangeLog,v 1.96 2014/11/17 09:56:40 pinkbyte Exp $
+
+*ganeti-2.11.6-r1 (17 Nov 2014)
+
+  17 Nov 2014; Sergey Popov <pinkbyte@gentoo.org> -ganeti-2.11.6.ebuild,
+  +ganeti-2.11.6-r1.ebuild, files/ganeti-2.11-start-stop-daemon-args.patch:
+  QA: revision bump, fix warning during logs rotating by not sending --stop
+  through start-stop-daemon. Drop old revision
+
+*ganeti-2.11.6 (10 Nov 2014)
+
+  10 Nov 2014; Patrick McLean <chutzpah@gentoo.org> +ganeti-2.11.6.ebuild:
+  Version bump.
+
+*ganeti-2.11.5-r1 (27 Oct 2014)
+
+  27 Oct 2014; Sergey Popov <pinkbyte@gentoo.org> -ganeti-2.11.5.ebuild,
+  +ganeti-2.11.5-r1.ebuild, files/ganeti-2.11-start-stop-daemon-args.patch:
+  QA: fix OpenRC deprecation warning by removing last --oknodo in daemons-util,
+  revision bump, drop old revision
+
+*ganeti-2.11.5 (29 Aug 2014)
+
+  29 Aug 2014; Patrick McLean <chutzpah@gentoo.org> +ganeti-2.11.5.ebuild,
+  +files/ganeti-2.11-daemon-util-tests.patch,
+  +files/ganeti-2.11-dont-nest-libdir.patch,
+  +files/ganeti-2.11-dont-print-man-help.patch,
+  +files/ganeti-2.11-useradd.patch, metadata.xml:
+  Version bump. Add multiple-users USE flag that enables ganeti's multiuser
+  support (contributed by Guido Serra). Add monitoring USE flag to enable
+  ganeti's monitoring daemon.
 
 *ganeti-2.11.2-r3 (02 Jul 2014)
 *ganeti-2.10.5-r3 (02 Jul 2014)

@@ -1,13 +1,13 @@
-DEFINED_PHASES=configure install
-DEPEND=sys-libs/ncurses X? ( x11-libs/libICE x11-libs/libX11 x11-libs/libSM ) X? ( x11-proto/xproto )
+DEFINED_PHASES=configure prepare
+DEPEND=sys-libs/ncurses X? ( x11-libs/libICE x11-libs/libX11 x11-libs/libSM ) X? ( x11-proto/xproto ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DESCRIPTION=classic Basic interpreter
 EAPI=5
 HOMEPAGE=http://blassic.org
 IUSE=X
-KEYWORDS=~amd64 hppa ppc x86 ~x86-linux ~ppc-macos ~x86-macos
+KEYWORDS=amd64 hppa ppc x86 ~x86-linux ~ppc-macos ~x86-macos
 LICENSE=GPL-2
 RDEPEND=sys-libs/ncurses X? ( x11-libs/libICE x11-libs/libX11 x11-libs/libSM )
 SLOT=0
 SRC_URI=http://blassic.org/bin/blassic-0.10.2.tgz
-_eclasses_=eutils	06133990e861be0fe60c2b428fd025d9	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
-_md5_=00defc3e41bd0b0b1b1619050f425d81
+_eclasses_=autotools	8fc2dd333ef9346c906ffd9a523d8211	eutils	998e5931fb95b10a6a11ec796ada2759	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
+_md5_=ee157985ab3ee97e7d82e3867a408fa4

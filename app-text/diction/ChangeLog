@@ -1,6 +1,27 @@
 # ChangeLog for app-text/diction
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/diction/ChangeLog,v 1.41 2013/03/17 15:46:57 hwoarang Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/diction/ChangeLog,v 1.47 2015/02/27 11:04:29 ago Exp $
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> diction-1.13.ebuild:
+  Stable for sparc, wrt bug #534900
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> diction-1.13.ebuild:
+  Stable for x86, wrt bug #534900
+
+  17 Jan 2015; Agostino Sarubbo <ago@gentoo.org> diction-1.13.ebuild:
+  Stable for ppc, wrt bug #534900
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> diction-1.13.ebuild:
+  Stable for amd64, wrt bug #534900
+
+  08 Jan 2015; Jeroen Roovers <jer@gentoo.org> diction-1.13.ebuild:
+  Stable for HPPA (bug #534900).
+
+*diction-1.13 (22 Nov 2014)
+
+  22 Nov 2014; Jeroen Roovers <jer@gentoo.org> +diction-1.13.ebuild,
+  +files/diction-1.13-make.patch, metadata.xml:
+  Version bump.
 
   17 Mar 2013; Markos Chandras <hwoarang@gentoo.org> metadata.xml:
   Add proxy-maintainers to metadata.xml

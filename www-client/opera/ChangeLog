@@ -1,6 +1,34 @@
 # ChangeLog for www-client/opera
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/opera/ChangeLog,v 1.820 2014/04/23 14:11:59 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/opera/ChangeLog,v 1.825 2015/02/11 17:08:03 jer Exp $
+
+*opera-27.0.1689.69 (11 Feb 2015)
+
+  11 Feb 2015; Jeroen Roovers <jer@gentoo.org> -opera-27.0.1689.54.ebuild,
+  +opera-27.0.1689.69.ebuild:
+  Version bump.
+
+*opera-27.0.1689.66 (08 Feb 2015)
+
+  08 Feb 2015; Jeroen Roovers <jer@gentoo.org> -opera-26.0.1656.60.ebuild,
+  +opera-27.0.1689.66.ebuild:
+  Version bump.
+
+*opera-27.0.1689.54 (27 Jan 2015)
+
+  27 Jan 2015; Jeroen Roovers <jer@gentoo.org> -opera-26.0.1656.32.ebuild,
+  +opera-27.0.1689.54.ebuild:
+  Version bump.
+
+*opera-26.0.1656.60 (17 Dec 2014)
+
+  17 Dec 2014; Jeroen Roovers <jer@gentoo.org> +opera-26.0.1656.60.ebuild:
+  Version bump.
+
+*opera-26.0.1656.32 (03 Dec 2014)
+
+  03 Dec 2014; Jeroen Roovers <jer@gentoo.org> +opera-26.0.1656.32.ebuild:
+  Version bump.
 
   23 Apr 2014; Jeroen Roovers <jer@gentoo.org> -opera-12.16_p1860.ebuild,
   opera-12.16_p1860-r1.ebuild:

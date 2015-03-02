@@ -1,6 +1,48 @@
 # ChangeLog for dev-util/re2c
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/re2c/ChangeLog,v 1.76 2014/08/22 21:08:54 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/re2c/ChangeLog,v 1.88 2015/02/28 13:56:52 ago Exp $
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org> re2c-0.13.7.5.ebuild:
+  Stable for ia64, wrt bug #535406
+
+*re2c-0.14.1 (28 Feb 2015)
+
+  28 Feb 2015; Sergei Trofimovich <slyfox@gentoo.org> +re2c-0.14.1.ebuild,
+  -re2c-0.14.ebuild:
+  Version bump. Fixes 're2c -V' output for trailing zero versions. bug #541430
+  by Phil Tooley and Slava Gorbunov, fix by Mike Gilbert.
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> re2c-0.13.7.5.ebuild:
+  Stable for sparc, wrt bug #535406
+
+*re2c-0.14 (25 Feb 2015)
+
+  25 Feb 2015; Sergei Trofimovich <slyfox@gentoo.org> +re2c-0.14.ebuild:
+  Version bump.
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> re2c-0.13.7.5.ebuild:
+  Stable for alpha, wrt bug #535406
+
+  23 Feb 2015; Agostino Sarubbo <ago@gentoo.org> re2c-0.13.7.5.ebuild:
+  Stable for ppc64, wrt bug #535406
+
+  28 Jan 2015; Agostino Sarubbo <ago@gentoo.org> re2c-0.13.7.5.ebuild:
+  Stable for ppc, wrt bug #535406
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> re2c-0.13.7.5.ebuild:
+  Stable for x86, wrt bug #535406
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org> re2c-0.13.7.5.ebuild:
+  Stable for amd64, wrt bug #535406
+
+  18 Jan 2015; Markus Meier <maekke@gentoo.org> re2c-0.13.7.5.ebuild:
+  arm stable, bug #535406
+
+  15 Jan 2015; Jeroen Roovers <jer@gentoo.org> re2c-0.13.7.5.ebuild:
+  Stable for HPPA (bug #535406).
+
+  03 Sep 2014; Christoph Junghans <ottxor@gentoo.org> re2c-0.13.7.5.ebuild:
+  added ~x64-macos (tested by me)
 
 *re2c-0.13.7.5 (22 Aug 2014)
 

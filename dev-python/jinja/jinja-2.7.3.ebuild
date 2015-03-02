@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/jinja/jinja-2.7.3.ebuild,v 1.12 2014/08/19 23:31:16 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/jinja/jinja-2.7.3.ebuild,v 1.14 2014/11/19 15:05:38 idella4 Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} pypy )
+PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} pypy pypy3 )
 
 inherit eutils distutils-r1
 
@@ -24,7 +24,7 @@ RDEPEND="dev-python/markupsafe[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	!dev-python/jinja:compat"
 DEPEND="${RDEPEND}
-	doc? ( >=dev-python/sphinx-0.6 )"
+	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )"
 
 # XXX: handle Babel better?
 

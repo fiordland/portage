@@ -1,6 +1,34 @@
 # ChangeLog for app-text/pandoc
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/pandoc/ChangeLog,v 1.32 2014/07/02 14:59:14 gienah Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/pandoc/ChangeLog,v 1.37 2015/02/18 21:20:05 slyfox Exp $
+
+  18 Feb 2015; Sergei Trofimovich <slyfox@gentoo.org> pandoc-1.12.1.ebuild,
+  pandoc-1.12.2.1.ebuild, pandoc-1.12.3.1.ebuild, pandoc-1.12.3.3.ebuild,
+  pandoc-1.12.4.2-r1.ebuild, pandoc-1.12.4.ebuild, pandoc-1.12.ebuild,
+  pandoc-1.13.1-r3.ebuild, pandoc-1.13.2-r1.ebuild, pandoc-1.13.2.ebuild:
+  Add missing dev-haskell/hsb2hs depend for USE=embed_data_files (bug #540432 by
+  Paul Osmialowski).
+
+  16 Feb 2015; Pacho Ramos <pacho@gentoo.org> pandoc-1.12.1.ebuild:
+  amd64/x86 stable, bug #490692
+
+*pandoc-1.13.2-r1 (05 Jan 2015)
+
+  05 Jan 2015; Mark Wright <gienah@gentoo.org>
+  +files/pandoc-1.13.2-ghc-7.10.patch, +pandoc-1.13.2-r1.ebuild:
+  Patch pandoc 1.13.2 for ghc 7.10.1 RC1 and haddock-libary 1.2
+  https://github.com/jgm/pandoc/pull/1856
+
+*pandoc-1.13.2 (20 Dec 2014)
+
+  20 Dec 2014; Mark Wright <gienah@gentoo.org> +pandoc-1.13.2.ebuild:
+  Bump pandoc to 1.13.2.
+
+*pandoc-1.13.1-r3 (13 Dec 2014)
+
+  13 Dec 2014; Mark Wright <gienah@gentoo.org> +pandoc-1.13.1-r3.ebuild,
+  metadata.xml:
+  Bump pandoc to pandoc-1.13.1-r3
 
 *pandoc-1.12.4.2-r1 (02 Jul 2014)
 

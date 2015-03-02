@@ -1,6 +1,57 @@
 # ChangeLog for Gentoo/sparc profile
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/ChangeLog,v 1.228 2014/08/25 12:25:46 armin76 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/sparc/ChangeLog,v 1.245 2015/02/11 13:44:01 aballier Exp $
+
+  11 Feb 2015; Alexis Ballier <aballier@gentoo.org> package.use.mask:
+  Mask ffmpeg useflags with unkeyworded deps, bug #510340
+
+  10 Feb 2015; Patrick Lauer <patrick@gentoo.org> package.use.mask:
+  Mask media-libs/libav[x265] until keywords catch up
+
+  01 Feb 2015; Michael Palimakma <kensington@gentoo.org> package.mask:
+  Fix invalid atom.
+
+  01 Feb 2015; Ben de Groot <yngwin@gentoo.org> package.mask, use.mask:
+  Add Qt5 mask until keyworded
+
+  19 Jan 2015; Mike Gilbert <floppym@gentoo.org> use.stable.mask:
+  Remove python3_4 mask.
+
+  23 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org> package.use.mask:
+  Add package.use.mask entry for clutter, bug #533420.
+
+  14 Dec 2014; Mike Gilbert <floppym@gentoo.org> package.use.mask:
+  Mask sys-apps/systemd[xkb].
+
+  14 Dec 2014; Mark Wright <gienah@gentoo.org> package.use.mask:
+  Mask test for dev-haskell/{binary, haskell-src-exts, text, vector}
+  as test dependencies need keywording.
+
+  23 Nov 2014; Mike Gilbert <floppym@gentoo.org> make.defaults:
+  Disable python3_4 default for this arch.
+
+  20 Nov 2014; Davide Pesavento <pesa@gentoo.org> package.mask:
+  Move Qt 4.8.6 mask from global package.mask to arch profiles.
+
+  17 Nov 2014; Raúl Porcel <armin76@gentoo.org> package.mask:
+  Mask sys-devel/kgcc64 since >=gcc-4.4 can compile 64bit kernels
+
+  15 Nov 2014; Mike Gilbert <floppym@gentoo.org> use.stable.mask:
+  Move python3_4 mask to arch profiles.
+
+  30 Oct 2014; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Temporarily mask sys-apps/systemd[terminal] due to non-keyworded deps.
+
+  18 Oct 2014; Mike Frysinger <vapier@gentoo.org> use.mask:
+  Mask USE=seccomp until the kernel/library gets support #524148 by Christian
+  Ruppert.
+
+  16 Sep 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  package.use.mask:
+  Mask xorg-server glamor/wayland flags
+
+  01 Sep 2014; Julian Ospald <hasufell@gentoo.org> package.mask:
+  mask >=media-video/mpv-0.4.2 explicitly wrt #521808
 
   25 Aug 2014; Raúl Porcel <armin76@gentoo.org> use.mask:
   Use.mask zmq, bug #442188

@@ -1,6 +1,32 @@
 # ChangeLog for media-gfx/gqview
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/gqview/ChangeLog,v 1.101 2013/09/06 17:40:43 mr_bones_ Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/gqview/ChangeLog,v 1.109 2014/12/05 16:59:17 mr_bones_ Exp $
+
+  05 Dec 2014; Michael Sterrett <mr_bones_@gentoo.org> -gqview-2.1.5.ebuild:
+  clean old
+
+  05 Dec 2014; Agostino Sarubbo <ago@gentoo.org> gqview-2.1.5-r1.ebuild:
+  Stable for x86, wrt bug #529166
+
+  04 Dec 2014; Agostino Sarubbo <ago@gentoo.org> gqview-2.1.5-r1.ebuild:
+  Stable for ppc64, wrt bug #529166
+
+  03 Dec 2014; Agostino Sarubbo <ago@gentoo.org> gqview-2.1.5-r1.ebuild:
+  Stable for ppc, wrt bug #529166
+
+  27 Nov 2014; Michael Sterrett <mr_bones_@gentoo.org> gqview-2.1.5-r1.ebuild:
+  avoid warning from autotools.eclass re: configure.in
+
+  26 Nov 2014; Agostino Sarubbo <ago@gentoo.org> gqview-2.1.5-r1.ebuild:
+  Stable for amd64, wrt bug #529166
+
+*gqview-2.1.5-r1 (27 Oct 2014)
+
+  27 Oct 2014; Michael Sterrett <mr_bones_@gentoo.org> +gqview-2.1.5-r1.ebuild:
+  drop lcms:0 support (bug #526822)
+
+  25 Sep 2014; Michael Sterrett <mr_bones_@gentoo.org> gqview-2.1.5.ebuild:
+  tidy
 
   06 Sep 2013; Michael Sterrett <mr_bones_@gentoo.org>
   +files/gqview-2.1.5-glibc.patch, gqview-2.1.5.ebuild:

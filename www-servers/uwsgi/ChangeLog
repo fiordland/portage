@@ -1,6 +1,68 @@
 # ChangeLog for www-servers/uwsgi
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/uwsgi/ChangeLog,v 1.59 2014/08/08 18:08:01 dev-zero Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/uwsgi/ChangeLog,v 1.70 2014/12/31 14:32:28 ultrabug Exp $
+
+*uwsgi-2.0.9 (31 Dec 2014)
+
+  31 Dec 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-2.0.7-r1.ebuild,
+  -uwsgi-2.0.8.ebuild, -uwsgi-2.0.8-r2.ebuild, +uwsgi-2.0.9.ebuild:
+  version bump, drop old
+
+  28 Dec 2014; Aaron W. Swenson <titanofold@gentoo.org> uwsgi-1.4.10-r1.ebuild,
+  uwsgi-2.0.7-r1.ebuild, uwsgi-2.0.8.ebuild, uwsgi-2.0.8-r1.ebuild,
+  uwsgi-2.0.8-r2.ebuild, uwsgi-2.0.8-r3.ebuild:
+  Rename virtual/postgresql to dev-db/postgresql
+
+*uwsgi-2.0.8-r3 (17 Dec 2014)
+
+  17 Dec 2014; Ultrabug <ultrabug@gentoo.org> +uwsgi-2.0.8-r3.ebuild,
+  +files/uwsgi.initd-r5:
+  respect UWSGI_EMPEROR_GROUP setting on PIDPATH creation
+
+*uwsgi-2.0.8-r2 (10 Dec 2014)
+
+  10 Dec 2014; Ultrabug <ultrabug@gentoo.org> uwsgi-2.0.8-r1.ebuild,
+  +uwsgi-2.0.8-r2.ebuild:
+  drop ruby21 to allow stabilization wrt #529140
+
+*uwsgi-2.0.8-r1 (05 Nov 2014)
+
+  05 Nov 2014; Ultrabug <ultrabug@gentoo.org> +uwsgi-2.0.8-r1.ebuild,
+  +files/uwsgi.initd-r4:
+  init script enable emperor in app mode thx to Stefan Talpalaru fix #528136,
+  remove bashism thx to Philipp Riegger fix #527566
+
+  03 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> uwsgi-1.4.10-r1.ebuild,
+  uwsgi-2.0.7-r1.ebuild, uwsgi-2.0.8.ebuild:
+  Update PostgreSQL dependencies and/or checks to virtual/postgresql.
+
+  29 Oct 2014; Ultrabug <ultrabug@gentoo.org> uwsgi-2.0.8.ebuild:
+  fix SRC_URI thx to @grknight
+
+  28 Oct 2014; Ultrabug <ultrabug@gentoo.org> uwsgi-2.0.8.ebuild,
+  -files/2.0.8-threaded-php.patch:
+  fix upstream archive mismatch, use github as SRC_URI
+
+*uwsgi-2.0.8 (27 Oct 2014)
+
+  27 Oct 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-2.0.6-r2.ebuild,
+  +uwsgi-2.0.8.ebuild, +files/2.0.8-threaded-php.patch:
+  version bump, drop old
+
+*uwsgi-2.0.7-r1 (08 Oct 2014)
+*uwsgi-2.0.6-r2 (08 Oct 2014)
+*uwsgi-1.4.10-r1 (08 Oct 2014)
+
+  08 Oct 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-1.4.10.ebuild,
+  +uwsgi-1.4.10-r1.ebuild, -uwsgi-2.0.6-r1.ebuild, +uwsgi-2.0.6-r2.ebuild,
+  -uwsgi-2.0.7.ebuild, +uwsgi-2.0.7-r1.ebuild:
+  drop php 5.3 target fix #524232, add rados plugin fix #521826 thx to babykart
+
+*uwsgi-2.0.7 (07 Oct 2014)
+
+  07 Oct 2014; Ultrabug <ultrabug@gentoo.org> -uwsgi-2.0.5.1.ebuild,
+  -uwsgi-2.0.6.ebuild, +uwsgi-2.0.7.ebuild:
+  version bump, drop old
 
 *uwsgi-2.0.6-r1 (08 Aug 2014)
 

@@ -1,6 +1,40 @@
 # ChangeLog for x11-terms/guake
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/guake/ChangeLog,v 1.29 2013/06/10 12:50:58 ssuominen Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-terms/guake/ChangeLog,v 1.37 2014/12/29 08:20:19 jer Exp $
+
+  29 Dec 2014; Jeroen Roovers <jer@gentoo.org> -guake-0.4.4.ebuild:
+  Old.
+
+  28 Dec 2014; Agostino Sarubbo <ago@gentoo.org> guake-0.5.0.ebuild:
+  Stable for x86, wrt bug #529552
+
+  27 Dec 2014; Agostino Sarubbo <ago@gentoo.org> guake-0.5.0.ebuild:
+  Stable for amd64, wrt bug #529552
+
+  29 Nov 2014; Markus Meier <maekke@gentoo.org> guake-0.5.0.ebuild:
+  arm stable, bug #529552
+
+*guake-0.5.2 (25 Nov 2014)
+
+  25 Nov 2014; Jeroen Roovers <jer@gentoo.org> +guake-0.5.2.ebuild:
+  Version bump.
+
+*guake-0.5.1 (17 Nov 2014)
+
+  17 Nov 2014; Jeroen Roovers <jer@gentoo.org> +guake-0.5.1.ebuild,
+  guake-9999.ebuild:
+  Version bump.
+
+*guake-9999 (13 Sep 2014)
+
+  13 Sep 2014; Jeroen Roovers <jer@gentoo.org> guake-0.5.0.ebuild,
+  +guake-9999.ebuild:
+  Add live ebuild (bug #512164 by Anna Zubenko).
+
+*guake-0.5.0 (13 Sep 2014)
+
+  13 Sep 2014; Jeroen Roovers <jer@gentoo.org> +guake-0.5.0.ebuild:
+  Version bump.
 
   10 Jun 2013; Samuli Suominen <ssuominen@gentoo.org>
   -files/guake-0.4.2-glib2.32.patch, -files/guake-0.4.2-int-ssl-port.patch,

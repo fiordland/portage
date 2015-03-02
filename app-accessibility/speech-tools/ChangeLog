@@ -1,6 +1,34 @@
 # ChangeLog for app-accessibility/speech-tools
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/speech-tools/ChangeLog,v 1.85 2013/08/07 22:46:11 neurogeek Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-accessibility/speech-tools/ChangeLog,v 1.91 2015/03/02 09:26:48 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> speech-tools-2.1-r2.ebuild:
+  Stable for ppc, wrt bug #510600
+
+  23 Jan 2015; Jeroen Roovers <jer@gentoo.org> speech-tools-2.1-r2.ebuild:
+  Stable for HPPA (bug #510600).
+
+  20 Jan 2015; Christopher Brannon <teiresias@gentoo.org>
+  speech-tools-2.1-r3.ebuild:
+  Fix use of deprecated `find` syntax, which was breaking the build for some.
+
+*speech-tools-2.1-r3 (20 Jan 2015)
+
+  20 Jan 2015; Christopher Brannon <teiresias@gentoo.org>
+  +speech-tools-2.1-r3.ebuild:
+  Remove unnecessary bcat tool (see bug #418301).
+
+  11 Jan 2015; Chema Alonso <nimiux@gentoo.org> speech-tools-2.1-r2.ebuild:
+  Stable for amd64 wrt bug #510600
+
+  07 Jan 2015; Pacho Ramos <pacho@gentoo.org>
+  +files/speech-tools-2.1-underlinking.patch,
+  -files/speech-tools-1.2.96_beta-gcc42.patch,
+  -files/speech-tools-1.2.96_beta-gcc43-include.patch,
+  -files/speech-tools-1.2.96_beta-gcc44.patch,
+  -speech-tools-1.2.96_beta-r2.ebuild, -speech-tools-1.2.96_beta.ebuild,
+  -speech-tools-2.0.95_beta.ebuild, speech-tools-2.1-r2.ebuild:
+  Fix underlinking, bug #493204 by Jaakko Perttilä; drop old
 
   07 Aug 2013; <neurogeek@gentoo.org> speech-tools-2.1-r2.ebuild:
   Bumped rev on patchset and added a patch to fix ncurses[tinfo]. Closes

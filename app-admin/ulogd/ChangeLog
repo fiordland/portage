@@ -1,6 +1,31 @@
 # ChangeLog for app-admin/ulogd
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/ulogd/ChangeLog,v 1.90 2014/08/26 08:46:13 pinkbyte Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/ulogd/ChangeLog,v 1.97 2015/01/28 10:26:01 ago Exp $
+
+  28 Jan 2015; Agostino Sarubbo <ago@gentoo.org> ulogd-2.0.4.ebuild:
+  Stable for ppc, wrt bug #534240
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> ulogd-2.0.4.ebuild:
+  Stable for x86, wrt bug #534240
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org> ulogd-2.0.4.ebuild:
+  Stable for amd64, wrt bug #534240
+
+  28 Dec 2014; Aaron W. Swenson <titanofold@gentoo.org> ulogd-2.0.3.ebuild,
+  ulogd-2.0.4.ebuild:
+  Rename virtual/postgresql to dev-db/postgresql
+
+  18 Nov 2014; Yixun Lan <dlan@gentoo.org> ulogd-2.0.4.ebuild,
+  +files/ulogd-2.0.4-linux-headers-3.17-ipt_ulog.patch:
+  fix compile err with >=linux-headers-3.17, bug 528310
+
+  08 Nov 2014; Markos Chandras <hwoarang@gentoo.org> ulogd-2.0.4.ebuild:
+  Add dependency to <linux-headers-3.17. Print warnings >for kernel-3.17. Patch
+  by Coacher <itumaykin@gmail.com>. Bug #528310
+
+  03 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> ulogd-2.0.3.ebuild,
+  ulogd-2.0.4.ebuild:
+  Update PostgreSQL dependencies and/or checks to virtual/postgresql.
 
   26 Aug 2014; Sergey Popov <pinkbyte@gentoo.org> -ulogd-2.0.2.ebuild,
   -files/ulogd-2.0.2-automagic.patch, -files/ulogd-2.init:

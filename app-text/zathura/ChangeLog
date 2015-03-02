@@ -1,6 +1,19 @@
 # ChangeLog for app-text/zathura
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/zathura/ChangeLog,v 1.62 2014/07/26 08:36:11 ssuominen Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/zathura/ChangeLog,v 1.64 2015/02/26 15:01:58 xmw Exp $
+
+*zathura-0.3.2 (26 Feb 2015)
+
+  26 Feb 2015; Michael Weber <xmw@gentoo.org>
+  +files/zathura-0.3.2-no-sqlite.patch, +zathura-0.3.2.ebuild:
+  Version bump (bug 532576, thanks Chris Torske). Add a patch for USE=-sqlite
+  with installed sqlite:3.
+
+*zathura-0.3.1 (24 Oct 2014)
+
+  24 Oct 2014; Samuli Suominen <ssuominen@gentoo.org> +zathura-0.3.1.ebuild,
+  zathura-9999.ebuild:
+  Version bump.
 
   26 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> -zathura-0.2.7.ebuild:
   old

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/tahoe-lafs/tahoe-lafs-1.10.0-r2.ebuild,v 1.5 2014/08/14 16:37:40 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-fs/tahoe-lafs/tahoe-lafs-1.10.0-r2.ebuild,v 1.7 2014/12/13 08:21:57 mgorny Exp $
 
 EAPI=5
 
@@ -18,7 +18,7 @@ SRC_URI="http://tahoe-lafs.org/source/tahoe-lafs/releases/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 x86"
+KEYWORDS="amd64 x86"
 IUSE="doc"
 
 RDEPEND="
@@ -34,7 +34,7 @@ RDEPEND="
 	>=dev-python/twisted-core-9.0.0-r1[${PYTHON_USEDEP}]
 	dev-python/zbase32[${PYTHON_USEDEP}]
 	dev-python/zfec[${PYTHON_USEDEP}]
-	net-zope/zope-interface[${PYTHON_USEDEP}]"
+	dev-python/zope-interface[${PYTHON_USEDEP}]"
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
 S=${WORKDIR}/${MY_P}

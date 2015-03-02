@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/mirrorselect/mirrorselect-2.2.2.ebuild,v 1.10 2014/08/28 09:11:34 kumba Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/mirrorselect/mirrorselect-2.2.2.ebuild,v 1.14 2015/01/27 04:24:32 dolsen Exp $
 
 EAPI="5"
 
@@ -19,12 +19,13 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ~ppc ~ppc64 sparc ~x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd"
 
 RDEPEND="
 	dev-util/dialog
 	net-analyzer/netselect
 	>=dev-python/ssl-fetch-0.2[${PYTHON_USEDEP}]
+	<dev-python/ssl-fetch-0.3[${PYTHON_USEDEP}]
 	"
 
 python_prepare_all()  {

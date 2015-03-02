@@ -1,6 +1,31 @@
 # ChangeLog for x11-drivers/xf86-video-intel
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-intel/ChangeLog,v 1.163 2014/07/24 06:55:10 remi Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-intel/ChangeLog,v 1.168 2015/02/19 08:52:43 ago Exp $
+
+  19 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-intel-2.99.917.ebuild:
+  Stable for x86, wrt bug #530652
+
+  18 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-intel-2.99.917.ebuild:
+  Stable for amd64, wrt bug #530652
+
+  12 Jan 2015; Rémi Cardona <remi@gentoo.org>
+  -xf86-video-intel-2.99.911-r1.ebuild, -xf86-video-intel-2.99.912.ebuild,
+  -xf86-video-intel-2.99.912-r1.ebuild:
+  Remove versions vulnerable to CVE-2014-4910, see bug #536356.
+
+*xf86-video-intel-2.99.917 (26 Dec 2014)
+
+  26 Dec 2014; Rémi Cardona <remi@gentoo.org>
+  +xf86-video-intel-2.99.917.ebuild:
+  Bump to 2.99.917, remove glamor support (removed upstream).
+
+*xf86-video-intel-2.99.916 (08 Sep 2014)
+
+  08 Sep 2014; Rémi Cardona <remi@gentoo.org>
+  +xf86-video-intel-2.99.916.ebuild:
+  Bump to 2.99.916.
 
 *xf86-video-intel-2.99.914 (24 Jul 2014)
 

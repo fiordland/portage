@@ -1,6 +1,52 @@
 # ChangeLog for dev-libs/libsodium
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libsodium/ChangeLog,v 1.16 2014/08/27 13:47:03 mrueg Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libsodium/ChangeLog,v 1.27 2015/02/28 19:55:56 maekke Exp $
+
+  28 Feb 2015; Markus Meier <maekke@gentoo.org> libsodium-1.0.2.ebuild:
+  arm stable, bug #539750
+
+  26 Feb 2015; Manuel Rüger <mrueg@gentoo.org> -libsodium-1.0.1.ebuild:
+  Remove old.
+
+  22 Feb 2015; Pacho Ramos <pacho@gentoo.org> libsodium-1.0.2.ebuild:
+  amd64/x86 stable, bug #540526
+
+  19 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libsodium-1.0.2.ebuild:
+  Stable for amd64, wrt bug #539750
+
+  18 Feb 2015; Pacho Ramos <pacho@gentoo.org> libsodium-1.0.2.ebuild:
+  --disable-pie needed on x86 (#512734)
+
+  15 Feb 2015; Jeroen Roovers <jer@gentoo.org> libsodium-1.0.2.ebuild:
+  Stable for HPPA (bug #539750).
+
+  09 Feb 2015; Anthony G. Basile <blueness@gentoo.org> libsodium-1.0.1.ebuild,
+  libsodium-1.0.2.ebuild:
+  Keyword ~ppc ~ppc64, bug #489452.
+
+*libsodium-1.0.2 (17 Jan 2015)
+
+  17 Jan 2015; Manuel Rüger <mrueg@gentoo.org> +libsodium-1.0.2.ebuild,
+  -libsodium-0.6.1.ebuild, -libsodium-1.0.0.ebuild:
+  Version bump. Remove old.
+
+*libsodium-1.0.1 (22 Nov 2014)
+
+  22 Nov 2014; Manuel Rüger <mrueg@gentoo.org> +libsodium-1.0.1.ebuild,
+  -libsodium-0.7.0.ebuild, -libsodium-0.7.1.ebuild:
+  Version bump. Cleanup old.
+
+*libsodium-1.0.0 (24 Sep 2014)
+
+  24 Sep 2014; Manuel Rüger <mrueg@gentoo.org> +libsodium-1.0.0.ebuild:
+  Version bump.
+
+*libsodium-0.7.1 (23 Sep 2014)
+
+  23 Sep 2014; Manuel Rüger <mrueg@gentoo.org> +libsodium-0.7.1.ebuild,
+  -libsodium-0.4.5.ebuild, -libsodium-0.5.0-r1.ebuild,
+  -libsodium-0.6.0-r1.ebuild:
+  Version bump. Cleanup old.
 
 *libsodium-0.7.0 (27 Aug 2014)
 

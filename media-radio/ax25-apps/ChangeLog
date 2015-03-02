@@ -1,6 +1,17 @@
 # ChangeLog for media-radio/ax25-apps
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-radio/ax25-apps/ChangeLog,v 1.26 2013/12/25 13:33:32 tomjbe Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-radio/ax25-apps/ChangeLog,v 1.29 2015/01/26 20:06:53 tomjbe Exp $
+
+  26 Jan 2015; Thomas Beierlein <tomjbe@gentoo.org> ax25-apps-0.0.8_rc4.ebuild:
+  Add blocker for dev-ruby/listen (bug #537888)
+
+  19 Dec 2014; Jeroen Roovers <jer@gentoo.org> ax25-apps-0.0.8_rc4.ebuild,
+  files/ax25-apps-0.8.4-tinfo.patch:
+  Run eautoreconf after patching configure.ac (bug #532988 by Toralf Förster).
+
+  23 Nov 2014; Thomas Beierlein <tomjbe@gentoo.org> ax25-apps-0.0.8_rc4.ebuild,
+  +files/ax25-apps-0.8.4-tinfo.patch:
+  Fix missing dep on tinfo (bug #529776). Thanks Diego
 
   25 Dec 2013; Thomas Beierlein <tomjbe@gentoo.org> -ax25-apps-0.0.6-r1.ebuild,
   -ax25-apps-0.0.8_rc2.ebuild, -ax25-apps-0.0.8_rc3.ebuild,

@@ -1,6 +1,14 @@
 # ChangeLog for media-libs/openal
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/openal/ChangeLog,v 1.183 2014/05/17 13:57:16 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/openal/ChangeLog,v 1.185 2015/01/29 17:54:16 mgorny Exp $
+
+  29 Jan 2015; Michał Górny <mgorny@gentoo.org> openal-1.15.1-r1.ebuild,
+  openal-1.15.1-r2.ebuild, openal-1.15.1.ebuild:
+  Convert to CPU_FLAGS_X86.
+
+  13 Oct 2014; Michał Górny <mgorny@gentoo.org> openal-1.15.1-r1.ebuild,
+  openal-1.15.1-r2.ebuild:
+  Set safe minimal versions of multilib dependencies, bug #513788.
 
   17 May 2014; Agostino Sarubbo <ago@gentoo.org> openal-1.15.1-r2.ebuild:
   Stable for alpha, wrt bug #501496

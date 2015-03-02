@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/blueman/blueman-1.23_p20140717-r1.ebuild,v 1.3 2014/08/10 20:34:24 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/blueman/blueman-1.23_p20140717-r1.ebuild,v 1.6 2015/01/05 19:56:01 zerochaos Exp $
 
 EAPI="5"
 
@@ -28,10 +28,7 @@ CDEPEND="dev-libs/glib:2=
 	x11-libs/gtk+:3=
 	x11-libs/startup-notification:=
 	dev-python/dbus-python[${PYTHON_USEDEP}]
-	|| (
-		dev-python/pygobject:2
-		dev-python/pygobject:3
-	)
+	dev-python/pygobject:3
 	>=net-wireless/bluez-4.61:=
 	${PYTHON_DEPS}"
 DEPEND="${CDEPEND}
@@ -45,11 +42,14 @@ RDEPEND="${CDEPEND}
 	gconf? ( dev-python/gconf-python[${PYTHON_USEDEP}] )
 	sendto? ( gnome-base/nautilus )
 	network? ( || ( net-dns/dnsmasq
-		=net-misc/dhcp-3*
+		net-misc/dhcp
 		>=net-misc/networkmanager-0.8 ) )
 	policykit? ( sys-auth/polkit )
 	pulseaudio? ( media-sound/pulseaudio )
-	!net-wireless/gnome-bluetooth"
+	!net-wireless/gnome-bluetooth
+	x11-themes/gnome-icon-theme
+"
+# See bug 455320 and https://github.com/blueman-project/blueman/issues/112 for reason for gnome-icon-theme dep
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -60,7 +60,7 @@ src_prepare() {
 
 	epatch \
 		"${FILESDIR}/${PN}-9999-plugins-conf-file.patch" \
-		"${FILESDIR}/${PN}-9999-set-codeset-for-gettext-to-UTF-8-always.patch"
+		"${FILESDIR}/${P}-set-codeset-for-gettext-to-UTF-8-always.patch"
 	eautoreconf
 }
 

@@ -1,6 +1,43 @@
 # ChangeLog for app-admin/monit
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/monit/ChangeLog,v 1.87 2014/08/10 01:37:40 patrick Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/monit/ChangeLog,v 1.94 2015/02/28 06:05:10 patrick Exp $
+
+*monit-5.12 (28 Feb 2015)
+
+  28 Feb 2015; Patrick Lauer <patrick@gentoo.org> +monit-5.12.ebuild:
+  Bump
+
+  11 Feb 2015; Anthony G. Basile <blueness@gentoo.org> monit-5.10.ebuild,
+  monit-5.11-r1.ebuild, monit-5.11.ebuild, monit-5.8.1-r1.ebuild,
+  monit-5.8.ebuild, monit-5.9.ebuild:
+  Keyword ~ppc64, bug #459190.
+
+*monit-5.11-r1 (03 Jan 2015)
+
+  03 Jan 2015; Lars Wendler <polynomial-c@gentoo.org> +monit-5.11-r1.ebuild,
+  +files/monit.pamd:
+  Revbump to make ebuild EAPI-5 compliant. Added pam.d file. Permission kindly
+  granted by Patrick.
+
+*monit-5.11 (25 Dec 2014)
+
+  25 Dec 2014; Patrick Lauer <patrick@gentoo.org> +monit-5.11.ebuild:
+  Bump
+
+*monit-5.10 (04 Nov 2014)
+
+  04 Nov 2014; Patrick Lauer <patrick@gentoo.org> +monit-5.10.ebuild,
+  -monit-5.3.2.ebuild, -monit-5.4-r1.ebuild, -monit-5.5.1.ebuild,
+  -monit-5.5.ebuild, -monit-5.6.ebuild, -monit-5.7-r1.ebuild, -monit-5.7.ebuild:
+  Bump
+
+  25 Oct 2014; Patrick Lauer <patrick@gentoo.org> monit-5.9.ebuild:
+  Stable 5.9 for x86 and amd64, fixes #521820
+
+*monit-5.9 (30 Sep 2014)
+
+  30 Sep 2014; Patrick Lauer <patrick@gentoo.org> +monit-5.9.ebuild:
+  Bump
 
   10 Aug 2014; Patrick Lauer <patrick@gentoo.org> monit-5.3.2.ebuild,
   monit-5.4-r1.ebuild, monit-5.5.1.ebuild, monit-5.5.ebuild, monit-5.6.ebuild,

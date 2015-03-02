@@ -1,6 +1,38 @@
 # ChangeLog for dev-java/jflex
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jflex/ChangeLog,v 1.15 2014/04/30 15:27:11 tomwij Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/jflex/ChangeLog,v 1.21 2015/02/26 16:07:12 fordfrog Exp $
+
+*jflex-1.4.3-r2 (26 Feb 2015)
+
+  26 Feb 2015; Miroslav Šulc <fordfrog@gentoo.org> -jflex-1.4.3.ebuild,
+  +jflex-1.4.3-r2.ebuild:
+  due to some changes in stable 1.4.3 ebuild that broke qdox, we need to force
+  users to recompile jflex with the previous fixed stable version, that's why i
+  commit stable straight to the tree
+
+*jflex-1.4.3-r1 (23 Feb 2015)
+
+  23 Feb 2015; Patrice Clement <monsieurp@gentoo.org> +jflex-1.4.3-r1.ebuild,
+  jflex-1.4.3.ebuild:
+  Revert previous change (EAPI + SLOT) and revbump the package instead.
+
+  22 Feb 2015; Patrice Clement <monsieurp@gentoo.org> jflex-1.4.3.ebuild,
+  jflex-1.5.0.ebuild, jflex-1.5.1.ebuild, jflex-1.6.0.ebuild:
+  Fix package collisions and bug #504774.
+
+  31 Jan 2015; Patrice Clement <monsieurp@gentoo.org>
+  files/jflex-1.5.0-build.xml, jflex-1.5.0.ebuild:
+  Patch to fix jflex-1.5.0 (bug 505498) courtesy of Martin Walch
+  <walch.martin@web.de>.
+
+  31 Jan 2015; Patrice Clement <monsieurp@gentoo.org> jflex-1.5.1.ebuild:
+  Patch to fix jflex-1.5.1 (bug 505498) courtesy of Martin Walch
+  <walch.martin@web.de>.
+
+*jflex-1.6.0 (18 Jan 2015)
+
+  18 Jan 2015; Patrice Clement <monsieurp@gentoo.org> +jflex-1.6.0.ebuild:
+  Version bump to 1.6 courtesy of Martin Walch. Fix bug 532006.
 
   30 Apr 2014; Tom Wijsman <TomWij@gentoo.org> jflex-1.5.1.ebuild:
   Fix up dodoc line; reported in bug #498874 by James Cloos, patch provided by

@@ -1,16 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/go/go-9999.ebuild,v 1.19 2014/08/15 00:33:15 williamh Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/go/go-9999.ebuild,v 1.25 2015/01/20 04:02:26 williamh Exp $
 
 EAPI=5
 
 export CTARGET=${CTARGET:-${CHOST}}
 
-inherit eutils
+inherit eutils toolchain-funcs
 
 if [[ ${PV} = 9999 ]]; then
-	EHG_REPO_URI="https://go.googlecode.com/hg"
-	inherit mercurial
+	EGIT_REPO_URI="git://github.com/golang/go.git"
+	inherit git-r3
 else
 	SRC_URI="https://storage.googleapis.com/golang/go${PV}.src.tar.gz"
 	# Upstream only supports go on amd64, arm and x86 architectures.
@@ -24,7 +24,7 @@ LICENSE="BSD"
 SLOT="0"
 IUSE=""
 
-DEPEND=""
+DEPEND=">=dev-lang/go-bootstrap-1.4.1"
 RDEPEND=""
 
 # The tools in /usr/lib/go should not cause the multilib-strict check to fail.
@@ -32,7 +32,7 @@ QA_MULTILIB_PATHS="usr/lib/go/pkg/tool/.*/.*"
 
 # The go language uses *.a files which are _NOT_ libraries and should not be
 # stripped.
-STRIP_MASK="/usr/lib/go/pkg/linux*/*.a /usr/lib/go/pkg/freebsd*/*.a"
+STRIP_MASK="/usr/lib/go/pkg/linux*/*.a /usr/lib/go/pkg/freebsd*/*.a /usr/lib/go/pkg/darwin*/*.a"
 
 if [[ ${PV} != 9999 ]]; then
 	S="${WORKDIR}"/go
@@ -41,13 +41,15 @@ fi
 src_prepare()
 {
 	if [[ ${PV} != 9999 ]]; then
-		epatch "${FILESDIR}"/${P}-no-Werror.patch
+		sed -i -e 's/"-Werror",//g' src/cmd/dist/build.go ||
+			die 'sed failed'
 	fi
 	epatch_user
 }
 
 src_compile()
 {
+	export GOROOT_BOOTSTRAP="${EPREFIX}"/usr/lib/go1.4
 	export GOROOT_FINAL="${EPREFIX}"/usr/lib/go
 	export GOROOT="$(pwd)"
 	export GOBIN="${GOROOT}/bin"
@@ -55,6 +57,7 @@ src_compile()
 	then
 		export GOARM=5
 	fi
+	tc-export CC
 
 	cd src
 	./make.bash || die "build failed"
@@ -70,7 +73,7 @@ src_test()
 src_install()
 {
 	dobin bin/*
-	dodoc AUTHORS CONTRIBUTORS PATENTS README misc/editors
+	dodoc AUTHORS CONTRIBUTORS PATENTS README.md
 
 	dodir /usr/lib/go
 	insinto /usr/lib/go
@@ -78,9 +81,16 @@ src_install()
 	# There is a known issue which requires the source tree to be installed [1].
 	# Once this is fixed, we can consider using the doc use flag to control
 	# installing the doc and src directories.
-	# [1] http://code.google.com/p/go/issues/detail?id=2775
+	# [1] https://golang.org/issue/2775
 	doins -r doc include lib pkg src
 	fperms -R +x /usr/lib/go/pkg/tool
+}
+
+pkg_preinst()
+{
+	has_version '<dev-lang/go-1.4' &&
+		export had_support_files=true ||
+		export had_support_files=false
 }
 
 pkg_postinst()
@@ -98,5 +108,15 @@ pkg_postinst()
 	if [[ ${PV} != 9999 && -n ${REPLACING_VERSIONS} &&
 		${REPLACING_VERSIONS} != ${PV} ]]; then
 		elog "Release notes are located at http://golang.org/doc/go${PV}"
+	fi
+
+	if $had_support_files; then
+		ewarn
+		ewarn "All editor support, IDE support, shell completion"
+		ewarn "support, etc has been removed from the go package"
+		ewarn "upstream."
+		ewarn "For more information on which support is available, see"
+		ewarn "the following URL:"
+		ewarn "https://github.com/golang/go/wiki/IDEsAndTextEditorPlugins"
 	fi
 }

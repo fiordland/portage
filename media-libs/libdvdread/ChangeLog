@@ -1,6 +1,23 @@
 # ChangeLog for media-libs/libdvdread
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libdvdread/ChangeLog,v 1.101 2014/08/04 16:52:01 polynomial-c Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libdvdread/ChangeLog,v 1.104 2015/01/28 16:40:47 lu_zero Exp $
+
+*libdvdread-5.0.2 (28 Jan 2015)
+
+  28 Jan 2015; Luca Barbato <lu_zero@gentoo.org> +libdvdread-5.0.2.ebuild:
+  New version
+
+*libdvdread-5.0.0-r2 (02 Sep 2014)
+
+  02 Sep 2014; Steve Dibb <beandog@gentoo.org> -libdvdread-5.0.0-r1.ebuild,
+  +libdvdread-5.0.0-r2.ebuild:
+  Fix circular dependency, bug 521794
+
+*libdvdread-5.0.0-r1 (29 Aug 2014)
+
+  29 Aug 2014; Steve Dibb <beandog@gentoo.org> -libdvdread-4.9.9.ebuild,
+  -libdvdread-5.0.0.ebuild, +libdvdread-5.0.0-r1.ebuild:
+  Remove old; Fix dependencies
 
 *libdvdread-5.0.0 (04 Aug 2014)
 

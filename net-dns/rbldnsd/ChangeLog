@@ -1,6 +1,16 @@
 # ChangeLog for net-dns/rbldnsd
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/rbldnsd/ChangeLog,v 1.28 2013/12/12 14:12:35 mjo Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-dns/rbldnsd/ChangeLog,v 1.30 2015/02/20 06:41:36 patrick Exp $
+
+  20 Feb 2015; Patrick Lauer <patrick@gentoo.org> rbldnsd-0.997a-r1.ebuild:
+  Stable for amd64 #533610
+
+*rbldnsd-0.997a-r1 (04 Oct 2014)
+
+  04 Oct 2014; Michael Orlitzky <mjo@gentoo.org>
+  +files/rbldnsd-0.997a-format-security-compile-fix.patch,
+  +rbldnsd-0.997a-r1.ebuild:
+  Revbump to fix bug #520602.
 
   12 Dec 2013; Michael Orlitzky <mjo@gentoo.org> rbldnsd-0.997a.ebuild:
   Add missing PYTHON_REQUIRED_USE when tests are enabled.

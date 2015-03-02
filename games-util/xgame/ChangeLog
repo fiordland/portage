@@ -1,6 +1,12 @@
 # ChangeLog for games-util/xgame
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-util/xgame/ChangeLog,v 1.7 2007/02/08 22:47:38 wolf31o2 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-util/xgame/ChangeLog,v 1.9 2015/02/06 11:12:34 mr_bones_ Exp $
+
+  06 Feb 2015; Michael Sterrett <mr_bones_@gentoo.org> xgame-1.7.1.ebuild:
+  stable for amd64
+
+  16 Dec 2014; Michael Sterrett <mr_bones_@gentoo.org> xgame-1.7.1.ebuild:
+  EAPI=5
 
   08 Feb 2007; Chris Gianelloni <wolf31o2@gentoo.org> ChangeLog:
   Regenerate digest in Manifest2 format.
@@ -25,4 +31,3 @@
   03 Dec 2004; Michael Kohl <citizen428@gentoo.org> +metadata.xml,
   +xgame-1.7.1.ebuild:
   Initial commit; ebuild submitted by Nexu <nexu@pingzero.com> in bug #66714
-

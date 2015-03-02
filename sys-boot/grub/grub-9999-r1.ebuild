@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/grub/grub-9999-r1.ebuild,v 1.17 2014/06/22 18:02:08 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/grub/grub-9999-r1.ebuild,v 1.29 2015/02/07 20:38:02 floppym Exp $
 
 EAPI=5
 
@@ -37,25 +37,23 @@ else
 fi
 
 DEJAVU=dejavu-sans-ttf-2.34
-UNIFONT=unifont-7.0.01
-SRC_URI+=" truetype? (
-	mirror://sourceforge/dejavu/${DEJAVU}.zip
-	mirror://gnu/unifont/${UNIFONT}/${UNIFONT}.pcf.gz
-)"
+UNIFONT=unifont-7.0.06
+SRC_URI+=" fonts? ( mirror://gnu/unifont/${UNIFONT}/${UNIFONT}.pcf.gz )
+	themes? ( mirror://sourceforge/dejavu/${DEJAVU}.zip )"
 
 DESCRIPTION="GNU GRUB boot loader"
 HOMEPAGE="http://www.gnu.org/software/grub/"
 
 # Includes licenses for dejavu and unifont
-LICENSE="GPL-3 truetype? ( BitstreamVera GPL-2-with-font-exception )"
+LICENSE="GPL-3 fonts? ( GPL-2-with-font-exception ) themes? ( BitstreamVera )"
 SLOT="2"
-IUSE="debug device-mapper doc efiemu mount +multislot nls static sdl test truetype libzfs"
+IUSE="debug device-mapper doc efiemu +fonts mount +multislot nls static sdl test +themes truetype libzfs"
 
 GRUB_ALL_PLATFORMS=(
 	# everywhere:
 	emu
 	# mips only:
-	qemu-mips yeeloong
+	qemu-mips loongson
 	# amd64, x86, ppc, ppc64:
 	ieee1275
 	# amd64, x86:
@@ -65,8 +63,12 @@ GRUB_ALL_PLATFORMS=(
 )
 IUSE+=" ${GRUB_ALL_PLATFORMS[@]/#/grub_platforms_}"
 
-REQUIRED_USE="grub_platforms_qemu? ( truetype )
-	grub_platforms_yeeloong? ( truetype )"
+REQUIRED_USE="
+	grub_platforms_coreboot? ( fonts )
+	grub_platforms_qemu? ( fonts )
+	grub_platforms_ieee1275? ( fonts )
+	grub_platforms_loongson? ( fonts )
+"
 
 # os-prober: Used on runtime to detect other OSes
 # xorriso (dev-libs/libisoburn): Used on runtime for mkrescue
@@ -79,7 +81,7 @@ RDEPEND="
 	device-mapper? ( >=sys-fs/lvm2-2.02.45 )
 	libzfs? ( sys-fs/zfs )
 	mount? ( sys-fs/fuse )
-	truetype? ( media-libs/freetype )
+	truetype? ( media-libs/freetype:2= )
 	ppc? ( sys-apps/ibm-powerpc-utils sys-apps/powerpc-utils )
 	ppc64? ( sys-apps/ibm-powerpc-utils sys-apps/powerpc-utils )
 "
@@ -90,6 +92,7 @@ DEPEND="${RDEPEND}
 	sys-devel/bison
 	sys-apps/help2man
 	sys-apps/texinfo
+	fonts? ( media-libs/freetype:2 )
 	grub_platforms_xen? ( app-emulation/xen-tools )
 	static? (
 		app-arch/xz-utils[static-libs(+)]
@@ -103,7 +106,10 @@ DEPEND="${RDEPEND}
 		dev-libs/libisoburn
 		app-emulation/qemu
 	)
-	truetype? ( app-arch/unzip )
+	themes? (
+		app-arch/unzip
+		media-libs/freetype:2
+	)
 "
 RDEPEND+="
 	kernel_linux? (
@@ -113,6 +119,8 @@ RDEPEND+="
 	!multislot? ( !sys-boot/grub:0 )
 	nls? ( sys-devel/gettext )
 "
+
+DEPEND+=" !!=media-libs/freetype-2.5.4"
 
 STRIP_MASK="*/grub/*/*.{mod,img}"
 RESTRICT="test"
@@ -138,7 +146,7 @@ QA_PRESTRIPPED="
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		# Bug 439082
-		if ! version_is_at_least 4.8 "$(gcc-version)" &&
+		if ! test-flags-CC -fuse-ld=bfd > /dev/null &&
 			$(tc-getLD) --version | grep -q "GNU gold"; then
 			eerror "GRUB does not function correctly when built with the gold linker."
 			eerror "Please select the bfd linker with binutils-config."
@@ -156,16 +164,21 @@ src_unpack() {
 
 src_prepare() {
 	[[ ${PATCHES} ]] && epatch "${PATCHES[@]}"
+
 	sed -i -e /autoreconf/d autogen.sh || die
+
 	if use multislot; then
 		# fix texinfo file name, bug 416035
 		sed -i -e 's/^\* GRUB:/* GRUB2:/' -e 's/(grub)/(grub2)/' docs/grub.texi || die
 	fi
+
 	epatch_user
+
 	if [[ -n ${GRUB_AUTOGEN} ]]; then
 		python_setup
 		bash autogen.sh || die
 	fi
+
 	if [[ -n ${AUTOTOOLS_AUTORECONF} ]]; then
 		autopoint() { return 0; }
 		eautoreconf
@@ -173,8 +186,10 @@ src_prepare() {
 }
 
 setup_fonts() {
-	ln -s "${WORKDIR}/${DEJAVU}/ttf/DejaVuSans.ttf" DejaVuSans.ttf || die
 	ln -s "${WORKDIR}/${UNIFONT}.pcf" unifont.pcf || die
+	if use themes; then
+		ln -s "${WORKDIR}/${DEJAVU}/ttf/DejaVuSans.ttf" DejaVuSans.ttf || die
+	fi
 }
 
 grub_configure() {
@@ -208,6 +223,7 @@ grub_configure() {
 		$(use_enable device-mapper)
 		$(use_enable mount grub-mount)
 		$(use_enable nls)
+		$(use_enable themes grub-themes)
 		$(use_enable truetype grub-mkfont)
 		$(use_enable libzfs)
 		$(use sdl && use_enable debug grub-emu-sdl)
@@ -221,10 +237,8 @@ grub_configure() {
 		myeconfargs+=( --program-transform-name="s,grub,grub2," )
 	fi
 
-	if use truetype; then
-		mkdir -p "${BUILD_DIR}" || die
-		run_in_build_dir setup_fonts
-	fi
+	mkdir -p "${BUILD_DIR}" || die
+	run_in_build_dir setup_fonts
 
 	autotools-utils_src_configure
 }
@@ -242,9 +256,7 @@ src_configure() {
 
 	use static && HOST_LDFLAGS+=" -static"
 
-	if version_is_at_least 4.8 "$(gcc-version)"; then
-		export TARGET_LDFLAGS+=" -fuse-ld=bfd"
-	fi
+	export TARGET_LDFLAGS+=" $(test-flags-CC -fuse-ld=bfd)"
 
 	tc-export CC NM OBJCOPY STRIP
 	export TARGET_CC=${TARGET_CC:-${CC}}
@@ -306,7 +318,7 @@ pkg_postinst() {
 
 	if has_version 'sys-boot/grub:0'; then
 		elog "A migration guide for GRUB Legacy users is available:"
-		elog "    http://www.gentoo.org/doc/en/grub2-migration.xml"
+		elog "    https://wiki.gentoo.org/wiki/GRUB2_Migration"
 	fi
 
 	if [[ -z ${REPLACING_VERSIONS} ]]; then

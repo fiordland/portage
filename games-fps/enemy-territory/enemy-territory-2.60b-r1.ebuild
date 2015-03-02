@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/enemy-territory/enemy-territory-2.60b-r1.ebuild,v 1.2 2014/07/09 20:17:14 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-fps/enemy-territory/enemy-territory-2.60b-r1.ebuild,v 1.5 2015/02/01 11:50:08 zlogene Exp $
 
 EAPI=5
 inherit eutils unpacker games
@@ -18,7 +18,7 @@ SRC_URI="mirror://3dgamers/wolfensteinet/et-linux-2.60.x86.run
 
 LICENSE="RTCW-ETEULA"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE="dedicated"
 RESTRICT="mirror strip"
 
@@ -43,17 +43,16 @@ S=${WORKDIR}
 dir=${GAMES_PREFIX_OPT}/${PN}
 Ddir=${D}/${dir}
 
-QA_TEXTRELS="${dir:1}/pb/pbags.so
-	${dir:1}/pb/pbcls.so
-	${dir:1}/pb/pbag.so
-	${dir:1}/pb/pbcl.so
-	${dir:1}/pb/pbsv.so"
-QA_EXECSTACK="${dir:1}/et.x86
+QA_PREBUILT="
+	${dir:1}/et.x86
 	${dir:1}/etmain/cgame.mp.i386.so
 	${dir:1}/etmain/qagame.mp.i386.so
-	${dir:1}/etmain/ui.mp.i386.so"
-QA_FLAGS_IGNORED="${QA_TEXTRELS}
-	${QA_EXECSTACK}
+	${dir:1}/etmain/ui.mp.i386.so
+	${dir:1}/pb/pbag.so
+	${dir:1}/pb/pbags.so
+	${dir:1}/pb/pbcl.so
+	${dir:1}/pb/pbcls.so
+	${dir:1}/pb/pbsv.so
 	${dir:1}/pb/pbweb.x86"
 
 src_unpack() {
@@ -71,24 +70,23 @@ src_install() {
 	insinto "${dir}"
 	dodoc CHANGES README
 
-	cp -r Docs pb etmain "${Ddir}" || die "cp failed"
-	chmod og+x "${Ddir}"/pb/pbweb.x86 || die "chmod failed"
+	cp -r Docs pb etmain "${Ddir}" || die
+	chmod og+x "${Ddir}"/pb/pbweb.x86 || die
 
 	if ! use dedicated ; then
 		doicon ET.xpm
-		doexe "Enemy Territory 2.60b"/linux/et.x86 || die "doexe et"
+		doexe "Enemy Territory 2.60b"/linux/et.x86
 		games_make_wrapper et ./et.x86 "${dir}" "${dir}"
 		make_desktop_entry et "Enemy Territory" ET
 	else
-		doexe "Enemy Territory 2.60b"/linux/etded.x86 || die "doexe failed"
+		doexe "Enemy Territory 2.60b"/linux/etded.x86
 		games_make_wrapper et-ded ./etded.x86 "${dir}"
-		newinitd "${S}"/et-ded.rc et-ded || die "newinitd failed"
+		newinitd "${S}"/et-ded.rc et-ded
 		sed -i \
 			-e "s:GAMES_USER_DED:${GAMES_USER_DED}:" \
 			-e "s:GENTOO_DIR:${GAMES_BINDIR}:" \
-			"${D}"/etc/init.d/et-ded \
-			|| die "sed failed"
-		newconfd "${S}"/et-ded.conf.d et-ded || die "newconfd failed"
+			"${D}"/etc/init.d/et-ded || die
+		newconfd "${S}"/et-ded.conf.d et-ded
 		# TODO: move this to /var/ perhaps ?
 		keepdir "${dir}/etwolf-homedir"
 		chmod g+rw "${Ddir}/etwolf-homedir"

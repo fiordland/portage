@@ -1,6 +1,29 @@
 # ChangeLog for dev-util/catfish
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/catfish/ChangeLog,v 1.21 2014/08/24 07:52:11 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/catfish/ChangeLog,v 1.27 2014/12/29 08:21:03 jer Exp $
+
+  29 Dec 2014; Jeroen Roovers <jer@gentoo.org> -catfish-1.0.2.ebuild,
+  -catfish-1.2.1.ebuild:
+  Old.
+
+  28 Dec 2014; Agostino Sarubbo <ago@gentoo.org> catfish-1.2.2.ebuild:
+  Stable for x86, wrt bug #530986
+
+  27 Dec 2014; Agostino Sarubbo <ago@gentoo.org> catfish-1.2.2.ebuild:
+  Stable for amd64, wrt bug #530986
+
+  28 Nov 2014; Pacho Ramos <pacho@gentoo.org> catfish-1.2.2.ebuild:
+  Support python 3.4
+
+  18 Nov 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> catfish-1.0.2.ebuild,
+  catfish-1.2.1.ebuild, catfish-1.2.2.ebuild:
+  added missing PYTHON_REQUIRED_USE as is necessary for proper python-single-r1
+  implementation
+
+*catfish-1.2.2 (25 Sep 2014)
+
+  25 Sep 2014; Jeroen Roovers <jer@gentoo.org> +catfish-1.2.2.ebuild:
+  Version bump.
 
   24 Aug 2014; Jeroen Roovers <jer@gentoo.org> catfish-1.0.2.ebuild,
   catfish-1.2.1.ebuild:

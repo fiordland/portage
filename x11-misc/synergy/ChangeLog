@@ -1,6 +1,28 @@
 # ChangeLog for x11-misc/synergy
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/synergy/ChangeLog,v 1.117 2014/08/09 09:23:42 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/synergy/ChangeLog,v 1.122 2014/12/04 07:53:39 jer Exp $
+
+*synergy-1.6.2 (04 Dec 2014)
+
+  04 Dec 2014; Jeroen Roovers <jer@gentoo.org> +synergy-1.6.2.ebuild:
+  Version bump (bug #531608).
+
+  11 Nov 2014; Jeroen Roovers <jer@gentoo.org> synergy-1.6.1.ebuild:
+  net-dns/avahi is only required with USE=qt4 (bug #528818 by Martin
+  Kletzander).
+
+  08 Nov 2014; Jeroen Roovers <jer@gentoo.org> synergy-1.6.1.ebuild:
+  Add extra HOMEPAGE.
+
+*synergy-1.6.1 (08 Nov 2014)
+
+  08 Nov 2014; Jeroen Roovers <jer@gentoo.org> +synergy-1.6.1.ebuild:
+  Version bump.
+
+*synergy-1.5.1_p2398 (06 Oct 2014)
+
+  06 Oct 2014; Jeroen Roovers <jer@gentoo.org> +synergy-1.5.1_p2398.ebuild:
+  Version bump (bug #524566 by Thanh Ha).
 
   09 Aug 2014; Jeroen Roovers <jer@gentoo.org> -synergy-1.4.15.ebuild,
   synergy-1.4.16_p1969.ebuild, synergy-1.5.0_p2278.ebuild,

@@ -1,6 +1,31 @@
 # ChangeLog for dev-python/pyenchant
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyenchant/ChangeLog,v 1.47 2014/06/30 15:33:16 idella4 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyenchant/ChangeLog,v 1.55 2015/02/01 21:28:21 mrueg Exp $
+
+  01 Feb 2015; Manuel Rüger <mrueg@gentoo.org> -pyenchant-1.6.5-r1.ebuild,
+  -pyenchant-1.6.5.ebuild:
+  Remove old.
+
+  02 Jan 2015; Agostino Sarubbo <ago@gentoo.org> pyenchant-1.6.6.ebuild:
+  Stable for sparc, wrt bug #530302
+
+  26 Dec 2014; Agostino Sarubbo <ago@gentoo.org> pyenchant-1.6.6.ebuild:
+  Stable for x86, wrt bug #530302
+
+  09 Dec 2014; Jeroen Roovers <jer@gentoo.org> pyenchant-1.6.6.ebuild:
+  Stable for HPPA (bug #530302).
+
+  08 Dec 2014; Agostino Sarubbo <ago@gentoo.org> pyenchant-1.6.6.ebuild:
+  Stable for ppc64, wrt bug #530302
+
+  07 Dec 2014; Agostino Sarubbo <ago@gentoo.org> pyenchant-1.6.6.ebuild:
+  Stable for ppc, wrt bug #530302
+
+  04 Dec 2014; Agostino Sarubbo <ago@gentoo.org> pyenchant-1.6.6.ebuild:
+  Stable for amd64, wrt bug #530302
+
+  29 Nov 2014; Ian Delaney <idella4@gentoo.org> pyenchant-1.6.6.ebuild:
+  clean old python impl
 
 *pyenchant-1.6.6 (30 Jun 2014)
 

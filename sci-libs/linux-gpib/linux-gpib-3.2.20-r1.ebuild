@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/linux-gpib/linux-gpib-3.2.20-r1.ebuild,v 1.5 2014/03/12 05:29:17 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/linux-gpib/linux-gpib-3.2.20-r1.ebuild,v 1.8 2014/11/28 22:21:31 dilfridge Exp $
 
 EAPI=5
 
@@ -42,7 +42,7 @@ PATCHES=(
 )
 
 pkg_setup () {
-	use perl && perl-module_pkg_setup
+	use perl && perl_set_version
 	use python && python_setup
 	linux-mod_pkg_setup
 
@@ -136,13 +136,12 @@ src_install() {
 
 pkg_preinst () {
 	linux-mod_pkg_preinst
-	use perl && perl-module_pkg_preinst
+	use perl && perl_set_version
 	enewgroup gpib
 }
 
 pkg_postinst () {
 	linux-mod_pkg_postinst
-	use perl && perl-module_pkg_postinst
 
 	einfo "You need to run the 'gpib_config' utility to setup the driver before"
 	einfo "you can use it. In order to do it automatically you can add to your"

@@ -1,6 +1,38 @@
 # ChangeLog for dev-python/greenlet
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/greenlet/ChangeLog,v 1.29 2014/08/08 17:07:42 radhermit Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/greenlet/ChangeLog,v 1.38 2015/02/23 10:59:37 ago Exp $
+
+  23 Feb 2015; Agostino Sarubbo <ago@gentoo.org> greenlet-0.4.5.ebuild:
+  Stable for ppc64, wrt bug #535330
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> greenlet-0.4.5.ebuild:
+  Stable for ppc, wrt bug #535326
+
+  02 Feb 2015; Jeroen Roovers <jer@gentoo.org> greenlet-0.4.2.ebuild,
+  greenlet-0.4.3.ebuild, greenlet-0.4.4.ebuild, greenlet-0.4.5.ebuild:
+  Not ported to HPPA (bug #538510).
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> greenlet-0.4.5.ebuild:
+  Stable for x86, wrt bug #535330
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org> greenlet-0.4.5.ebuild:
+  Stable for amd64, wrt bug #535330
+
+  17 Jan 2015; Markus Meier <maekke@gentoo.org> greenlet-0.4.5.ebuild:
+  arm stable, bug #535330
+
+  08 Dec 2014; Agostino Sarubbo <ago@gentoo.org> greenlet-0.4.2.ebuild:
+  Stable for ppc64, wrt bug #530592
+
+*greenlet-0.4.5 (18 Oct 2014)
+
+  18 Oct 2014; Tim Harder <radhermit@gentoo.org> +greenlet-0.4.5.ebuild:
+  Version bump, drop python3_2 support.
+
+*greenlet-0.4.4 (30 Sep 2014)
+
+  30 Sep 2014; Patrick Lauer <patrick@gentoo.org> +greenlet-0.4.4.ebuild:
+  Bump
 
 *greenlet-0.4.3 (08 Aug 2014)
 

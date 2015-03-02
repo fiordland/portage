@@ -1,6 +1,22 @@
 # ChangeLog for net-ftp/vsftpd
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-ftp/vsftpd/ChangeLog,v 1.179 2014/04/23 20:21:20 hwoarang Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-ftp/vsftpd/ChangeLog,v 1.182 2015/03/01 15:55:51 hwoarang Exp $
+
+  01 Mar 2015; Markos Chandras <hwoarang@gentoo.org> files/vsftpd.logrotate:
+  Amend logrotate file to handle multiple servers. Bug #537286 by tom reinertson
+
+*vsftpd-3.0.2-r4 (31 Jan 2015)
+
+  31 Jan 2015; Markos Chandras <hwoarang@gentoo.org> +vsftpd-3.0.2-r4.ebuild,
+  files/vsftpd.init:
+  Make sure child processes are killed properly. Bug #537290 by rhumbliner
+
+*vsftpd-3.0.2-r3 (14 Sep 2014)
+
+  14 Sep 2014; Markos Chandras <hwoarang@gentoo.org>
+  +files/vsftpd-3.0.2-aslim.patch, +vsftpd-3.0.2-r3.ebuild:
+  Increase VSFTP_AS_LIMIT macro to fix logins with pam_mysql. Bug #522412. Patch
+  by Harald Glatt (hachre) <bugzilla-gentoo@mail.hachre.de>
 
   23 Apr 2014; Markos Chandras <hwoarang@gentoo.org> vsftpd-3.0.2-r2.ebuild:
   Add epatch_user and override LIBS variable thanks to Mike Gilbert

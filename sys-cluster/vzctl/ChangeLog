@@ -1,6 +1,21 @@
 # ChangeLog for sys-cluster/vzctl
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/vzctl/ChangeLog,v 1.129 2014/08/14 17:07:31 phajdan.jr Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/vzctl/ChangeLog,v 1.133 2015/01/31 14:46:31 zlogene Exp $
+
+  31 Jan 2015; Mikle Kolyada <zlogene@gentoo.org> vzctl-4.8.ebuild:
+  x86 stable wrt bug #535722
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org> vzctl-4.8.ebuild:
+  Stable for amd64, wrt bug #535722
+
+  08 Dec 2014; Mikle Kolyada <zlogene@gentoo.org> vzctl-4.7.2.ebuild:
+  amd64 stable wrt bug #515872
+
+*vzctl-4.8 (17 Oct 2014)
+
+  17 Oct 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  +files/vzctl-initscript-typo-patch-4.8.patch, +vzctl-4.8.ebuild:
+  Bump to 4.8, thanks to slepnoga
 
   14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> vzctl-4.7.2.ebuild:
   x86 stable wrt bug #515872

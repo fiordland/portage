@@ -1,6 +1,40 @@
 # ChangeLog for net-misc/x2goclient
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/x2goclient/ChangeLog,v 1.32 2014/08/05 09:17:04 voyageur Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/x2goclient/ChangeLog,v 1.38 2015/02/20 12:57:37 voyageur Exp $
+
+  20 Feb 2015; Bernard Cafarelli <voyageur@gentoo.org>
+  x2goclient-4.0.2.0.ebuild, x2goclient-4.0.3.1.ebuild,
+  x2goclient-4.0.3.2.ebuild:
+  Add missing x11-libs/libXpm dep, thanks Stefan Junker <code@stefanjunker.de>
+  in bug #538114
+
+*x2goclient-4.0.3.2 (19 Feb 2015)
+
+  19 Feb 2015; Bernard Cafarelli <voyageur@gentoo.org>
+  -x2goclient-4.0.2.1.ebuild, -x2goclient-4.0.3.0.ebuild,
+  +x2goclient-4.0.3.2.ebuild:
+  Version bump, remove some ~arch versions
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> x2goclient-4.0.3.1.ebuild:
+  Stable for x86, wrt bug #535618
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> x2goclient-4.0.3.1.ebuild:
+  Stable for amd64, wrt bug #535618
+
+*x2goclient-4.0.3.1 (27 Nov 2014)
+
+  27 Nov 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +x2goclient-4.0.3.1.ebuild:
+  Version bump, fixes desktop sharing
+
+*x2goclient-4.0.3.0 (22 Oct 2014)
+
+  22 Oct 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  -x2goclient-4.0.1.0.ebuild, -x2goclient-4.0.1.3-r1.ebuild,
+  -x2goclient-4.0.1.3-r2.ebuild, +x2goclient-4.0.3.0.ebuild,
+  -files/x2goclient-4.0.1.3-password_connection.patch,
+  -files/x2goclient-4.0.1.3-timeout.patch:
+  Version bump, drop old 4.0.1 versions
 
 *x2goclient-4.0.2.1 (05 Aug 2014)
 

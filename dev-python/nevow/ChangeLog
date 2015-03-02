@@ -1,6 +1,18 @@
 # ChangeLog for dev-python/nevow
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/nevow/ChangeLog,v 1.54 2014/08/14 16:36:59 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/nevow/ChangeLog,v 1.58 2014/12/13 08:22:05 mgorny Exp $
+
+  13 Dec 2014; Michał Górny <mgorny@gentoo.org> nevow-0.11.1.ebuild:
+  Rename net-zope/zope-interface to dev-python/zope-interface.
+
+  21 Nov 2014; Mike Gilbert <floppym@gentoo.org> nevow-0.11.1.ebuild:
+  Stablize on minor arches to fix the depgraph.
+
+  21 Nov 2014; Mike Gilbert <floppym@gentoo.org> -nevow-0.10.0.ebuild:
+  Remove ebuilds using twisted.eclass.
+
+  01 Nov 2014; Chema Alonso <nimiux@gentoo.org> nevow-0.11.1.ebuild:
+  Stable for amd64 wrt bug #518242
 
   14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> nevow-0.11.1.ebuild:
   x86 stable wrt bug #518242

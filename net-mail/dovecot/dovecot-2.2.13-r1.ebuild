@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/dovecot/dovecot-2.2.13-r1.ebuild,v 1.9 2014/08/21 09:54:06 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/dovecot/dovecot-2.2.13-r1.ebuild,v 1.13 2014/12/28 16:33:27 titanofold Exp $
 
 EAPI=5
 inherit eutils multilib ssl-cert systemd user versionator
@@ -25,7 +25,7 @@ HOMEPAGE="http://www.dovecot.org/"
 
 SLOT="0"
 LICENSE="LGPL-2.1 MIT"
-KEYWORDS="alpha amd64 arm hppa ~ia64 ppc ppc64 x86"
+KEYWORDS="~alpha amd64 arm hppa ~ia64 ppc ppc64 x86"
 
 IUSE_DOVECOT_AUTH="kerberos ldap mysql pam postgres sqlite vpopmail"
 IUSE_DOVECOT_STORAGE="cydir imapc +maildir mbox mdbox pop3c sdbox"
@@ -43,7 +43,7 @@ DEPEND="bzip2? ( app-arch/bzip2 )
 	lz4? ( app-arch/lz4 )
 	mysql? ( virtual/mysql )
 	pam? ( virtual/pam )
-	postgres? ( dev-db/postgresql-base !dev-db/postgresql-base[ldap,threads] )
+	postgres? ( dev-db/postgresql !dev-db/postgresql[ldap,threads] )
 	selinux? ( sec-policy/selinux-dovecot )
 	solr? ( net-misc/curl dev-libs/expat )
 	sqlite? ( dev-db/sqlite )

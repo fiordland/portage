@@ -1,6 +1,27 @@
 # ChangeLog for x11-wm/muffin
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/muffin/ChangeLog,v 1.22 2014/07/23 15:39:08 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/muffin/ChangeLog,v 1.26 2015/02/24 10:08:57 pacho Exp $
+
+*muffin-2.4.4 (24 Feb 2015)
+
+  24 Feb 2015; Pacho Ramos <pacho@gentoo.org> +muffin-2.4.4.ebuild,
+  -muffin-2.4.2.ebuild:
+  Version bump, drop old
+
+*muffin-2.4.3 (12 Feb 2015)
+
+  12 Feb 2015; Pacho Ramos <pacho@gentoo.org> +muffin-2.4.3.ebuild,
+  metadata.xml:
+  Version bump
+
+*muffin-2.4.2 (11 Jan 2015)
+
+  11 Jan 2015; Gilles Dartiguelongue <eva@gentoo.org> +muffin-2.4.2.ebuild:
+  Version bump. Clean up old revision, bug #529808.
+
+  30 Sep 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  -muffin-1.8.2-r1.ebuild, -files/muffin-1.8.2-maximized-jump.patch:
+  Old.
 
   23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> muffin-2.2.6.ebuild:
   Stable for x86, wrt bug #512012

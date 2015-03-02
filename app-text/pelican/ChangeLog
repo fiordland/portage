@@ -1,6 +1,21 @@
 # ChangeLog for app-text/pelican
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/pelican/ChangeLog,v 1.18 2014/08/10 18:28:34 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/pelican/ChangeLog,v 1.22 2014/11/26 11:03:21 pacho Exp $
+
+  26 Nov 2014; Pacho Ramos <pacho@gentoo.org> pelican-3.5.0.ebuild:
+  Support python 3.4
+
+  16 Nov 2014; Dirkjan Ochtman <djc@gentoo.org> -pelican-3.2.2.ebuild,
+  -pelican-3.3.ebuild:
+  Remove old versions of pelican
+
+*pelican-3.5.0 (16 Nov 2014)
+
+  16 Nov 2014; Dirkjan Ochtman <djc@gentoo.org> +pelican-3.5.0.ebuild:
+  Version bump pelican to 3.5.0
+
+  23 Sep 2014; Dirkjan Ochtman <djc@gentoo.org> metadata.xml:
+  Remove python, not a python library
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> pelican-3.2.2.ebuild,
   pelican-3.3.ebuild, pelican-3.4.0.ebuild:

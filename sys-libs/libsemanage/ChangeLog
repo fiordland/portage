@@ -1,6 +1,72 @@
 # ChangeLog for sys-libs/libsemanage
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libsemanage/ChangeLog,v 1.75 2014/08/23 11:35:24 swift Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libsemanage/ChangeLog,v 1.88 2015/02/04 17:51:57 perfinion Exp $
+
+*libsemanage-2.4 (04 Feb 2015)
+
+  04 Feb 2015; Jason Zaman <perfinion@gentoo.org> +libsemanage-2.4.ebuild:
+  Version bump
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> libsemanage-2.3-r4.ebuild:
+  Stable for x86, wrt bug #535684
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org> libsemanage-2.3-r4.ebuild:
+  Stable for amd64, wrt bug #535684
+
+*libsemanage-2.4_rc7 (06 Dec 2014)
+
+  06 Dec 2014; Jason Zaman <perfinion@gentoo.org> +libsemanage-2.4_rc7.ebuild,
+  -libsemanage-2.3-r2.ebuild, -libsemanage-2.4_rc2.ebuild,
+  -libsemanage-2.4_rc5.ebuild, -libsemanage-2.4_rc6-r1.ebuild,
+  -libsemanage-2.4_rc6.ebuild:
+  version bump and ebuild clean up, drop old RC
+
+*libsemanage-2.3-r4 (04 Dec 2014)
+
+  04 Dec 2014; Jason Zaman <perfinion@gentoo.org> +libsemanage-2.3-r4.ebuild,
+  libsemanage-2.4_rc6-r2.ebuild:
+  Call python_optimize, bug 531638
+
+*libsemanage-2.4_rc6-r2 (27 Nov 2014)
+
+  27 Nov 2014; Sven Vermeulen <swift@gentoo.org> +libsemanage-2.4_rc6-r2.ebuild:
+  Migrate store as soon as possible, but do not reload policy (bug 530864)
+
+*libsemanage-2.4_rc6-r1 (22 Nov 2014)
+
+  22 Nov 2014; Jason Zaman <perfinion@gentoo.org>
+  +files/0002-semanage_migrate_store-Python3-support.patch,
+  +libsemanage-2.4_rc6-r1.ebuild:
+  python3 support for semanage_migrate_store. bug 529252
+
+*libsemanage-2.4_rc6 (14 Nov 2014)
+
+  14 Nov 2014; Sven Vermeulen <swift@gentoo.org> +libsemanage-2.4_rc6.ebuild:
+  Bump to rc6, add python3_4 to PYTHON_COMPAT (fixes bug 529176); rc6 also fixes
+  unconfined issue when USE=-unconfined is set
+
+  01 Nov 2014; Sven Vermeulen <swift@gentoo.org> libsemanage-2.3-r3.ebuild:
+  Stabilize libsemanage-2.3-r3 (fix for bug #520608)
+
+*libsemanage-2.4_rc5 (29 Oct 2014)
+
+  29 Oct 2014; Sven Vermeulen <swift@gentoo.org> +libsemanage-2.4_rc5.ebuild,
+  -libsemanage-2.4_rc4.ebuild:
+  Bump to 2.4_rc5
+
+*libsemanage-2.4_rc4 (07 Oct 2014)
+
+  07 Oct 2014; Sven Vermeulen <swift@gentoo.org> +libsemanage-2.4_rc4.ebuild:
+  Bump to 2.4-rc4
+
+*libsemanage-2.4_rc2 (21 Sep 2014)
+
+  21 Sep 2014; Sven Vermeulen <swift@gentoo.org> +libsemanage-2.4_rc2.ebuild,
+  libsemanage-2.3-r2.ebuild, libsemanage-2.3-r3.ebuild:
+  Noved to github; also add in masked 2.4 series
+
+  16 Sep 2014; Brian Dolbec <dolsen@gentoo.org> libsemanage-2.3-r3.ebuild:
+  Add python-3.4 target. Tested and confirmed working by perfinion.
 
 *libsemanage-2.3-r3 (23 Aug 2014)
 

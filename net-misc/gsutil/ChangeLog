@@ -1,6 +1,27 @@
 # ChangeLog for net-misc/gsutil
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/gsutil/ChangeLog,v 1.17 2014/08/20 04:21:36 vapier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/gsutil/ChangeLog,v 1.21 2015/01/27 22:07:21 vapier Exp $
+
+*gsutil-4.8 (27 Jan 2015)
+
+  27 Jan 2015; Mike Frysinger <vapier@gentoo.org> +gsutil-4.8.ebuild:
+  Version bump.
+
+*gsutil-4.7 (31 Dec 2014)
+
+  31 Dec 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/gsutil-4.7-drop-http_proxy-clearing.patch,
+  +files/gsutil-4.7-use-friendy-version-checks.patch, +gsutil-4.7.ebuild:
+  Version bump.
+
+  30 Nov 2014; Michał Górny <mgorny@gentoo.org> gsutil-4.4.ebuild,
+  gsutil-4.5.ebuild, gsutil-4.6.ebuild:
+  Add missing PYTHON_USEDEPs.
+
+*gsutil-4.6 (09 Sep 2014)
+
+  09 Sep 2014; Mike Frysinger <vapier@gentoo.org> +gsutil-4.6.ebuild:
+  Version bump.
 
 *gsutil-4.5 (20 Aug 2014)
 

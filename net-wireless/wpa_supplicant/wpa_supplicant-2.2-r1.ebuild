@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/wpa_supplicant/wpa_supplicant-2.2-r1.ebuild,v 1.1 2014/06/13 14:56:17 gurligebis Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/wpa_supplicant/wpa_supplicant-2.2-r1.ebuild,v 1.6 2015/03/02 09:22:42 ago Exp $
 
 EAPI=4
 
@@ -12,11 +12,11 @@ SRC_URI="http://hostap.epitest.fi/releases/${P}.tar.gz"
 LICENSE="|| ( GPL-2 BSD )"
 
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="~alpha amd64 arm ~ia64 ~mips ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
 IUSE="ap dbus gnutls eap-sim fasteap p2p ps3 qt4 readline selinux smartcard ssl wimax wps kernel_linux kernel_FreeBSD"
 REQUIRED_USE="fasteap? ( !gnutls !ssl ) smartcard? ( ssl )"
 
-RDEPEND="dbus? ( sys-apps/dbus )
+CDEPEND="dbus? ( sys-apps/dbus )
 	kernel_linux? (
 		eap-sim? ( sys-apps/pcsc-lite )
 		dev-libs/libnl:3
@@ -24,6 +24,7 @@ RDEPEND="dbus? ( sys-apps/dbus )
 	)
 	!kernel_linux? ( net-libs/libpcap )
 	qt4? (
+		dev-qt/qtcore:4
 		dev-qt/qtgui:4
 		dev-qt/qtsvg:4
 	)
@@ -34,9 +35,13 @@ RDEPEND="dbus? ( sys-apps/dbus )
 	ssl? ( dev-libs/openssl )
 	!ssl? ( gnutls? ( net-libs/gnutls ) )
 	!ssl? ( !gnutls? ( dev-libs/libtommath ) )
-	selinux? ( sec-policy/selinux-networkmanager )"
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+"
+DEPEND="${CDEPEND}
+	virtual/pkgconfig
+"
+RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-networkmanager )
+"
 
 S="${WORKDIR}/${P}/${PN}"
 

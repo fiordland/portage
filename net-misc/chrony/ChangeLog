@@ -1,6 +1,58 @@
 # ChangeLog for net-misc/chrony
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/chrony/ChangeLog,v 1.138 2014/08/06 09:44:31 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/chrony/ChangeLog,v 1.151 2015/01/30 12:26:03 jer Exp $
+
+  30 Jan 2015; Jeroen Roovers <jer@gentoo.org> chrony-2.0_pre1.ebuild:
+  Drop keywords on pre-release for now.
+
+*chrony-2.0_pre1 (30 Jan 2015)
+
+  30 Jan 2015; Jeroen Roovers <jer@gentoo.org> +chrony-2.0_pre1.ebuild:
+  Version bump.
+
+*chrony-1.31-r1 (30 Jan 2015)
+
+  30 Jan 2015; Jeroen Roovers <jer@gentoo.org> +chrony-1.31-r1.ebuild:
+  Fix configure logic with regard to readline/libedit (bug #538190 by Brian
+  Evans).
+
+  05 Nov 2014; Jeroen Roovers <jer@gentoo.org> -chrony-1.30-r1.ebuild,
+  -files/chronyd.service, -files/chronyd.service-r1:
+  Old.
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> chrony-1.31.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+  01 Nov 2014; Agostino Sarubbo <ago@gentoo.org> chrony-1.31.ebuild:
+  Stable for ppc, wrt bug #525114
+
+  30 Oct 2014; Agostino Sarubbo <ago@gentoo.org> chrony-1.31.ebuild:
+  Stable for x86, wrt bug #525114
+
+  29 Oct 2014; Agostino Sarubbo <ago@gentoo.org> chrony-1.31.ebuild:
+  Stable for sparc, wrt bug #525114
+
+  19 Oct 2014; Chema Alonso <nimiux@gentoo.org> chrony-1.31.ebuild:
+  Stable for amd64 wrt bug #525114
+
+  13 Oct 2014; Jeroen Roovers <jer@gentoo.org> chrony-1.31.ebuild:
+  Stable for HPPA (bug #525114).
+
+  12 Sep 2014; Mike Gilbert <floppym@gentoo.org> +files/chronyd.service-r2,
+  chrony-1.31.ebuild:
+  systemd unit improvements, bug 483456.
+
+*chrony-1.31 (11 Sep 2014)
+
+  11 Sep 2014; Jeroen Roovers <jer@gentoo.org> -chrony-1.31_pre1.ebuild,
+  +chrony-1.31.ebuild:
+  Version bump.
+
+*chrony-1.31_pre1 (03 Sep 2014)
+
+  03 Sep 2014; Jeroen Roovers <jer@gentoo.org> +chrony-1.31_pre1.ebuild:
+  Version bump.
 
 *chrony-1.30-r1 (06 Aug 2014)
 

@@ -1,6 +1,23 @@
 # ChangeLog for sci-libs/colamd
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/colamd/ChangeLog,v 1.35 2014/03/04 19:48:32 vincent Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/colamd/ChangeLog,v 1.40 2015/03/02 09:22:54 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> colamd-2.8.0.ebuild:
+  Stable for ppc, wrt bug #534636
+
+  22 Feb 2015; Matt Turner <mattst88@gentoo.org> colamd-2.7.1.ebuild,
+  colamd-2.7.3.ebuild, colamd-2.8.0.ebuild:
+  Drop alpha keyword.
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org> colamd-2.8.0.ebuild:
+  Stable for amd64, wrt bug #534636
+
+  13 Jan 2015; Jeroen Roovers <jer@gentoo.org> colamd-2.8.0.ebuild:
+  Stable for HPPA (bug #534636).
+
+  04 Jan 2015; Justin Lecher <jlec@gentoo.org> -colamd-2.7.4.ebuild,
+  metadata.xml:
+  Drop old
 
   04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org> colamd-2.8.0.ebuild:
   Add ~mips keyword.

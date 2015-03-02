@@ -1,6 +1,27 @@
 # ChangeLog for dev-libs/intel-common
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/intel-common/ChangeLog,v 1.15 2014/06/02 10:32:05 jlec Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/intel-common/ChangeLog,v 1.19 2015/02/12 07:43:47 jlec Exp $
+
+*intel-common-15.0.2.164 (12 Feb 2015)
+
+  12 Feb 2015; Justin Lecher <jlec@gentoo.org> +intel-common-15.0.2.164.ebuild:
+  Version Bump
+
+*intel-common-15.0.1.133 (30 Nov 2014)
+
+  30 Nov 2014; Justin Lecher <jlec@gentoo.org> +intel-common-15.0.1.133.ebuild:
+  Version Bump
+
+*intel-common-15.0.0.090-r1 (15 Sep 2014)
+
+  15 Sep 2014; Justin Lecher <jlec@gentoo.org> -intel-common-15.0.0.090.ebuild,
+  +intel-common-15.0.0.090-r1.ebuild:
+  Add missing rpms in installation
+
+*intel-common-15.0.0.090 (15 Sep 2014)
+
+  15 Sep 2014; Justin Lecher <jlec@gentoo.org> +intel-common-15.0.0.090.ebuild:
+  Version Bump
 
 *intel-common-14.0.3.174 (02 Jun 2014)
 

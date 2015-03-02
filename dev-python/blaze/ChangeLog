@@ -1,6 +1,61 @@
 # ChangeLog for dev-python/blaze
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/blaze/ChangeLog,v 1.5 2014/07/06 12:40:22 mgorny Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/blaze/ChangeLog,v 1.15 2015/03/01 14:55:36 idella4 Exp $
+
+*blaze-0.7.2-r1 (01 Mar 2015)
+
+  01 Mar 2015; Ian Delaney <idella4@gentoo.org> +blaze-0.7.2-r1.ebuild,
+  -blaze-0.4.1.ebuild, -blaze-0.4.2.ebuild, -blaze-0.5.0.ebuild,
+  -blaze-0.6.0.ebuild, -blaze-0.6.5.ebuild, -blaze-0.6.6.ebuild,
+  -blaze-0.6.7.ebuild, -blaze-0.6.8.ebuild, -blaze-0.7.0.ebuild,
+  -blaze-0.7.2.ebuild:
+  revbump; add new rdep, rm old
+
+*blaze-0.7.2 (27 Feb 2015)
+
+  27 Feb 2015; Patrick Lauer <patrick@gentoo.org> +blaze-0.7.2.ebuild:
+  Bump
+
+*blaze-0.7.1 (26 Jan 2015)
+
+  26 Jan 2015; Patrick Lauer <patrick@gentoo.org> +blaze-0.7.1.ebuild:
+  Bump
+
+*blaze-0.7.0 (25 Dec 2014)
+
+  25 Dec 2014; Patrick Lauer <patrick@gentoo.org> +blaze-0.7.0.ebuild:
+  Bump
+
+*blaze-0.6.8 (19 Dec 2014)
+
+  19 Dec 2014; Patrick Lauer <patrick@gentoo.org> +blaze-0.6.8.ebuild:
+  Bump, add some new deps
+
+*blaze-0.6.7 (28 Nov 2014)
+
+  28 Nov 2014; Patrick Lauer <patrick@gentoo.org> +blaze-0.6.7.ebuild:
+  Bump
+
+*blaze-0.6.6 (25 Nov 2014)
+
+  25 Nov 2014; Patrick Lauer <patrick@gentoo.org> +blaze-0.6.6.ebuild:
+  Bump
+
+  19 Nov 2014; Patrick Lauer <patrick@gentoo.org> blaze-0.6.5.ebuild:
+  Fix datashape dependencies a bit
+
+*blaze-0.6.5 (29 Oct 2014)
+
+  29 Oct 2014; Ian Delaney <idella4@gentoo.org> +blaze-0.6.5.ebuild,
+  blaze-0.6.0.ebuild:
+  bump; update deps, currently doc build also fails and my need purging, tidy
+  test & install phase, pmasked until dynd-python and the libs are bumped to
+  0.6.5 and a plan decided for the doc build
+
+*blaze-0.6.0 (02 Sep 2014)
+
+  02 Sep 2014; Patrick Lauer <patrick@gentoo.org> +blaze-0.6.0.ebuild:
+  Bump
 
   06 Jul 2014; Michał Górny <mgorny@gentoo.org> blaze-0.4.1.ebuild,
   blaze-0.4.2.ebuild, blaze-0.5.0.ebuild:

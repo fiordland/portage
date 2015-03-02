@@ -1,6 +1,74 @@
 # ChangeLog for dev-python/pyzmq
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyzmq/ChangeLog,v 1.50 2014/08/26 10:10:05 kumba Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyzmq/ChangeLog,v 1.67 2015/02/17 12:04:29 jlec Exp $
+
+  17 Feb 2015; Justin Lecher <jlec@gentoo.org> pyzmq-14.5.0.ebuild:
+  Use subslot for dependencies
+
+*pyzmq-2.2.0.1-r1 (12 Feb 2015)
+
+  12 Feb 2015; Patrick Lauer <patrick@gentoo.org> +pyzmq-2.2.0.1-r1.ebuild:
+  Restore old for dev-python/gevent-zeromq
+
+  11 Feb 2015; Justin Lecher <jlec@gentoo.org> -pyzmq-2.2.0.1-r1.ebuild,
+  metadata.xml, pyzmq-14.5.0.ebuild:
+  Drop old, fix dependency on zeromq, #539442
+
+*pyzmq-14.5.0 (08 Feb 2015)
+
+  08 Feb 2015; Ian Delaney <idella4@gentoo.org> +pyzmq-14.5.0.ebuild,
+  -pyzmq-13.1.0.ebuild, pyzmq-14.4.1.ebuild:
+  14.4.1; correction to deps, test phase bump; re-expose py3 to test phase (see
+  comment), remove 1 old
+
+  30 Dec 2014; Mike Gilbert <floppym@gentoo.org> pyzmq-14.3.1.ebuild,
+  pyzmq-14.4.0.ebuild, pyzmq-14.4.1.ebuild:
+  Remove workaround for bug 532708; issue is resolved in setuptools-9.1.
+
+  20 Dec 2014; Mike Gilbert <floppym@gentoo.org> pyzmq-14.3.1.ebuild,
+  pyzmq-14.4.0.ebuild, pyzmq-14.4.1.ebuild:
+  Force early import of setuptools to work around bug 532708.
+
+  16 Dec 2014; Markus Meier <maekke@gentoo.org> pyzmq-14.4.0.ebuild:
+  arm stable, bug #530592
+
+  08 Dec 2014; Agostino Sarubbo <ago@gentoo.org> pyzmq-14.4.0.ebuild:
+  Stable for ppc64, wrt bug #530592
+
+*pyzmq-14.3.1 (08 Dec 2014)
+*pyzmq-13.1.0 (08 Dec 2014)
+
+  08 Dec 2014; Ian Delaney <idella4@gentoo.org> +pyzmq-13.1.0.ebuild,
+  +pyzmq-14.3.1.ebuild:
+  re-add to appease old ipythons and an even older revdep needing a stabled arm
+
+  08 Dec 2014; Ian Delaney <idella4@gentoo.org> pyzmq-14.4.1.ebuild:
+  set REQUIRED_USE for test, rm old
+
+  05 Dec 2014; Agostino Sarubbo <ago@gentoo.org> pyzmq-14.4.0.ebuild:
+  Stable for x86, wrt bug #530592
+
+  04 Dec 2014; Agostino Sarubbo <ago@gentoo.org> pyzmq-14.4.0.ebuild:
+  Stable for amd64, wrt bug #530592
+
+  27 Nov 2014; Ian Delaney <idella4@gentoo.org> pyzmq-14.4.0.ebuild,
+  pyzmq-14.4.1.ebuild:
+  14.4.0; set REQUIRED_USE for test, 14.4.1; tidy
+
+*pyzmq-14.4.1 (19 Nov 2014)
+
+  19 Nov 2014; Patrick McLean <chutzpah@gentoo.org> +pyzmq-14.4.1.ebuild:
+  Version bump.
+
+  30 Oct 2014; Ian Delaney <idella4@gentoo.org> pyzmq-14.4.0.ebuild:
+  add dep for doc build, drop keywords ia64 mips accordingly, fixes Bug #527282
+
+*pyzmq-14.4.0 (26 Oct 2014)
+
+  26 Oct 2014; Ian Delaney <idella4@gentoo.org> +pyzmq-14.4.0.ebuild,
+  -pyzmq-14.0.1.ebuild, -pyzmq-14.1.1.ebuild, -pyzmq-14.3.0.ebuild,
+  -pyzmq-2.1.11.ebuild, pyzmq-14.3.1.ebuild:
+  correction to deps, bump, rm old
 
   26 Aug 2014; Joshua Kinard <kumba@gentoo.org> pyzmq-14.3.1.ebuild:
   Added ~mips to KEYWORDS, per Bug #520744.

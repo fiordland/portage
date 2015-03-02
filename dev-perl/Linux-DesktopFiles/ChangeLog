@@ -1,6 +1,23 @@
 # ChangeLog for dev-perl/Linux-DesktopFiles
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Linux-DesktopFiles/ChangeLog,v 1.6 2014/08/14 16:18:15 phajdan.jr Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Linux-DesktopFiles/ChangeLog,v 1.10 2015/02/22 07:31:05 jer Exp $
+
+*Linux-DesktopFiles-0.90.0 (22 Feb 2015)
+
+  22 Feb 2015; Jeroen Roovers <jer@gentoo.org>
+  +Linux-DesktopFiles-0.90.0.ebuild:
+  Version bump (bug #540936 by Ramon Dantas).
+
+  25 Nov 2014; Julian Ospald <hasufell@gentoo.org> metadata.xml:
+  drop maintainership
+
+  19 Oct 2014; Mikle Kolyada <zlogene@gentoo.org>
+  -Linux-DesktopFiles-0.60.0.ebuild:
+  Drop old.
+
+  08 Sep 2014; Chema Alonso <nimiux@gentoo.org>
+  Linux-DesktopFiles-0.80.0.ebuild:
+  Stable for amd64 wrt bug #518186
 
   14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
   Linux-DesktopFiles-0.80.0.ebuild:

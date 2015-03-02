@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-9999.ebuild,v 1.87 2014/08/08 14:22:42 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu/qemu-9999.ebuild,v 1.92 2014/12/11 14:17:09 mgorny Exp $
 
 EAPI=5
 
@@ -52,7 +52,7 @@ IUSE+=" ${use_targets}"
 # Require at least one softmmu or user target.
 # Block USE flag configurations known to not work.
 REQUIRED_USE="|| ( ${use_targets} )
-	python? ( ${PYTHON_REQUIRED_USE} )
+	${PYTHON_REQUIRED_USE}
 	qemu_softmmu_targets_arm? ( fdt )
 	qemu_softmmu_targets_microblaze? ( fdt )
 	qemu_softmmu_targets_ppc? ( fdt )
@@ -62,8 +62,13 @@ REQUIRED_USE="|| ( ${use_targets} )
 	virtfs? ( xattr )"
 
 # Yep, you need both libcap and libcap-ng since virtfs only uses libcap.
+#
+# The attr lib isn't always linked in (although the USE flag is always
+# respected).  This is because qemu supports using the C library's API
+# when available rather than always using the extranl library.
 COMMON_LIB_DEPEND=">=dev-libs/glib-2.0[static-libs(+)]
-	sys-libs/zlib[static-libs(+)]"
+	sys-libs/zlib[static-libs(+)]
+	xattr? ( sys-apps/attr[static-libs(+)] )"
 SOFTMMU_LIB_DEPEND="${COMMON_LIB_DEPEND}
 	>=x11-libs/pixman-0.28.0[static-libs(+)]
 	aio? ( dev-libs/libaio[static-libs(+)] )
@@ -89,7 +94,6 @@ SOFTMMU_LIB_DEPEND="${COMMON_LIB_DEPEND}
 	usb? ( >=dev-libs/libusb-1.0.18[static-libs(+)] )
 	uuid? ( >=sys-apps/util-linux-2.16.0[static-libs(+)] )
 	vde? ( net-misc/vde[static-libs(+)] )
-	xattr? ( sys-apps/attr[static-libs(+)] )
 	xfs? ( sys-fs/xfsprogs[static-libs(+)] )"
 USER_LIB_DEPEND="${COMMON_LIB_DEPEND}"
 X86_FIRMWARE_DEPEND="
@@ -104,7 +108,7 @@ X86_FIRMWARE_DEPEND="
 		sys-firmware/sgabios
 		sys-firmware/vgabios
 	)"
-RDEPEND="!static-softmmu? ( ${SOFTMMU_LIB_DEPEND//\[static-libs(+)]} )
+CDEPEND="!static-softmmu? ( ${SOFTMMU_LIB_DEPEND//\[static-libs(+)]} )
 	!static-user? ( ${USER_LIB_DEPEND//\[static-libs(+)]} )
 	qemu_softmmu_targets_i386? ( ${X86_FIRMWARE_DEPEND} )
 	qemu_softmmu_targets_x86_64? ( ${X86_FIRMWARE_DEPEND} )
@@ -120,14 +124,13 @@ RDEPEND="!static-softmmu? ( ${SOFTMMU_LIB_DEPEND//\[static-libs(+)]} )
 	pulseaudio? ( media-sound/pulseaudio )
 	python? ( ${PYTHON_DEPS} )
 	sdl? ( media-libs/libsdl[X] )
-	selinux? ( sec-policy/selinux-qemu )
 	smartcard? ( dev-libs/nss !app-emulation/libcacard )
 	spice? ( >=app-emulation/spice-protocol-0.12.3 )
 	systemtap? ( dev-util/systemtap )
 	usbredir? ( >=sys-apps/usbredir-0.6 )
 	virtfs? ( sys-libs/libcap )
 	xen? ( app-emulation/xen-tools )"
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	dev-lang/perl
 	=dev-lang/python-2*
 	sys-apps/texinfo
@@ -140,6 +143,9 @@ DEPEND="${RDEPEND}
 		dev-libs/glib[utils]
 		sys-devel/bc
 	)"
+RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-qemu )
+"
 
 STRIP_MASK="/usr/share/qemu/palcode-clipper"
 
@@ -148,7 +154,9 @@ QA_PREBUILT="
 	usr/share/qemu/openbios-sparc64
 	usr/share/qemu/openbios-sparc32
 	usr/share/qemu/palcode-clipper
-	usr/share/qemu/s390-ccw.img"
+	usr/share/qemu/s390-ccw.img
+	usr/share/qemu/u-boot.e500
+"
 
 QA_WX_LOAD="usr/bin/qemu-i386
 	usr/bin/qemu-x86_64
@@ -296,6 +304,7 @@ qemu_src_configure() {
 		$(use_enable debug debug-tcg)
 		--enable-docs
 		$(use_enable tci tcg-interpreter)
+		$(use_enable xattr attr)
 	)
 
 	# Disable options not used by user targets as the default configure
@@ -344,7 +353,6 @@ qemu_src_configure() {
 		$(conf_softmmu vhost-net)
 		$(conf_softmmu virtfs)
 		$(conf_softmmu vnc)
-		$(conf_softmmu xattr attr)
 		$(conf_softmmu xen)
 		$(conf_softmmu xen xen-pci-passthrough)
 		$(conf_softmmu xfs xfsctl)
@@ -565,6 +573,10 @@ pkg_postinst() {
 			ewarn "installed.  In order to use kvm acceleration, pass the flag"
 			ewarn "-enable-kvm when running your system target."
 		fi
+	fi
+
+	if [[ -n ${softmmu_targets} ]] && use kernel_linux; then
+		udev_reload
 	fi
 
 	fcaps cap_net_admin /usr/libexec/qemu-bridge-helper

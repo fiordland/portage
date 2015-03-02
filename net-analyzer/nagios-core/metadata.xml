@@ -11,6 +11,10 @@
       <name>Chris Reffett</name>
       <description>Proxy maintainer. CC him on bugs.</description>
   </maintainer>
+  <maintainer>
+      <email>mjo@gentoo.org</email>
+      <name>Michael Orlitzky</name>
+  </maintainer>
   <herd>proxy-maintainers</herd>
   <herd>sysadmin</herd>
   <longdescription>
@@ -27,6 +31,7 @@
     browser.
   </longdescription>
   <use>
+    <flag name='classicui'>use the classic web theme</flag>
     <flag name='lighttpd'>install <pkg>www-servers/lighttpd</pkg> config</flag>
     <flag name='web'>enable web interface</flag>
   </use>

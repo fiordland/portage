@@ -1,6 +1,37 @@
 # ChangeLog for games-strategy/scorched3d
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/scorched3d/ChangeLog,v 1.91 2014/06/13 21:52:24 mr_bones_ Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/scorched3d/ChangeLog,v 1.99 2015/02/23 11:17:59 ago Exp $
+
+  23 Feb 2015; Agostino Sarubbo <ago@gentoo.org> scorched3d-44.ebuild:
+  Stable for ppc64, wrt bug #538986
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> scorched3d-44.ebuild:
+  Stable for ppc, wrt bug #538986
+
+  10 Feb 2015; Agostino Sarubbo <ago@gentoo.org> scorched3d-44.ebuild:
+  Stable for x86, wrt bug #538986
+
+  06 Feb 2015; Michael Sterrett <mr_bones_@gentoo.org> scorched3d-44.ebuild:
+  add media-libs/glew dep (bug #539158)
+
+  06 Feb 2015; Agostino Sarubbo <ago@gentoo.org> scorched3d-44.ebuild:
+  Stable for amd64, wrt bug #538986
+
+  03 Jan 2015; Michael Sterrett <mr_bones_@gentoo.org> scorched3d-44.ebuild:
+  whitespace
+
+*scorched3d-44 (09 Dec 2014)
+
+  09 Dec 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/scorched3d-44-fixups.patch, +files/scorched3d-44-freetype.patch,
+  +files/scorched3d-44-gcc43.patch, +files/scorched3d-44-jpeg9.patch,
+  +files/scorched3d-44-odbc.patch, +files/scorched3d-44-win32.patch,
+  +scorched3d-44.ebuild:
+  version bump
+
+  04 Dec 2014; Alfredo Tupone <tupone@gentoo.org> scorched3d-43.3d.ebuild,
+  +files/scorched3d-43.3d-jpeg9.patch:
+  Fix build with jpeg-9 Bug #527508 by flameeyes@gentoo.org
 
   13 Jun 2014; Michael Sterrett <mr_bones_@gentoo.org>
   +files/scorched3d-43.3d-freetype.patch, files/scorched3d-43.3d-fixups.patch,

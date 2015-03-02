@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/listen/listen-0.7.3-r1.ebuild,v 1.2 2014/08/05 16:00:49 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/listen/listen-0.7.3-r1.ebuild,v 1.6 2014/12/31 11:28:08 ago Exp $
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby19 ruby20"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
@@ -21,7 +21,7 @@ SRC_URI="https://github.com/guard/listen/archive/v${PV}.tar.gz -> ${P}-git.tgz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~x64-macos"
+KEYWORDS="amd64 ~arm ~ppc ~ppc64 x86 ~x64-macos"
 IUSE=""
 
 ruby_add_rdepend ">=dev-ruby/rb-inotify-0.9.0"

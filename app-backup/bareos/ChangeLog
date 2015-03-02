@@ -1,6 +1,31 @@
 # ChangeLog for app-backup/bareos
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/bareos/ChangeLog,v 1.10 2014/05/20 23:18:41 mschiff Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-backup/bareos/ChangeLog,v 1.14 2014/12/28 14:43:07 titanofold Exp $
+
+  28 Dec 2014; Aaron W. Swenson <titanofold@gentoo.org>
+  bareos-12.4.5-r1.ebuild, bareos-13.2.3-r1.ebuild, bareos-13.2.4.ebuild,
+  bareos-14.2.1.ebuild:
+  Rename virtual/postgresql to dev-db/postgresql
+
+*bareos-14.2.1 (19 Nov 2014)
+*bareos-13.2.4 (19 Nov 2014)
+
+  19 Nov 2014; Marc Schiffbauer <mschiff@gentoo.org> -bareos-13.2.2.ebuild,
+  -bareos-13.2.3.ebuild, +bareos-13.2.4.ebuild, +bareos-14.2.1.ebuild,
+  metadata.xml:
+  Bumped stable (13.2.4), added beta ebuild (14.2.1), removed old version.
+  Fixes #528800.
+
+  03 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org>
+  bareos-12.4.5-r1.ebuild, bareos-13.2.2.ebuild, bareos-13.2.3.ebuild,
+  bareos-13.2.3-r1.ebuild:
+  Update PostgreSQL dependencies and/or checks to virtual/postgresql.
+
+*bareos-13.2.3-r1 (16 Sep 2014)
+
+  16 Sep 2014; Marc Schiffbauer <mschiff@gentoo.org> +bareos-13.2.3-r1.ebuild,
+  metadata.xml:
+  Add new faslz USE flag and revbump with fastlz support. Fixes #522620.
 
   20 May 2014; Marc Schiffbauer <mschiff@gentoo.org> files/bareos-fd.initd:
   Do not set owner for pid direrctory in bareos-fd init script

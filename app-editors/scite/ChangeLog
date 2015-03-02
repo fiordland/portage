@@ -1,6 +1,37 @@
 # ChangeLog for app-editors/scite
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/scite/ChangeLog,v 1.171 2014/05/01 20:24:54 swift Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-editors/scite/ChangeLog,v 1.179 2015/02/17 10:38:48 ago Exp $
+
+  17 Feb 2015; Agostino Sarubbo <ago@gentoo.org> scite-3.5.2.ebuild:
+  Stable for amd64/ppc/x86, wrt bug #540346
+
+*scite-3.5.3 (16 Feb 2015)
+
+  16 Feb 2015; Yixun Lan <dlan@gentoo.org> +scite-3.5.3.ebuild:
+  version bump, proxy for maintainer, thanks Ervin Peters
+
+  09 Dec 2014; Yixun Lan <dlan@gentoo.org> -scite-3.3.5.ebuild,
+  -scite-3.3.9.ebuild, -scite-3.4.1.ebuild:
+  drop old, proxy for maintainer
+
+*scite-3.5.2 (08 Dec 2014)
+
+  08 Dec 2014; Agostino Sarubbo <ago@gentoo.org> +scite-3.5.2.ebuild:
+  version bump to 3.5.2 wrt bug #531966
+
+  18 Oct 2014; Agostino Sarubbo <ago@gentoo.org> scite-3.5.0.ebuild:
+  Stable for ppc, wrt bug #523638
+
+  12 Oct 2014; Agostino Sarubbo <ago@gentoo.org> scite-3.5.0.ebuild:
+  Stable for x86, wrt bug #523638
+
+  10 Oct 2014; Agostino Sarubbo <ago@gentoo.org> scite-3.5.0.ebuild:
+  Stable for amd64, wrt bug #523638
+
+*scite-3.5.0 (18 Sep 2014)
+
+  18 Sep 2014; Yixun Lan <dlan@gentoo.org> +scite-3.5.0.ebuild:
+  version bump per maintainer request, bug 523068, thanks Ervin Peters
 
 *scite-3.4.1 (01 May 2014)
 

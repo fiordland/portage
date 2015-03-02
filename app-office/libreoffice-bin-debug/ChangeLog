@@ -1,6 +1,85 @@
 # ChangeLog for app-office/libreoffice-bin-debug
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice-bin-debug/ChangeLog,v 1.60 2014/08/10 18:15:46 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice-bin-debug/ChangeLog,v 1.77 2015/02/15 17:47:43 dilfridge Exp $
+
+  15 Feb 2015; Andreas K. Huettel <dilfridge@gentoo.org>
+  -libreoffice-bin-debug-4.2.8.2.ebuild:
+  Drop LibreOffice 4.2 branch
+
+  15 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  libreoffice-bin-debug-4.3.5.2.ebuild:
+  Stable for x86, wrt bug #534684
+
+  15 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  libreoffice-bin-debug-4.3.5.2.ebuild:
+  Stable for amd64, wrt bug #534684
+
+*libreoffice-bin-debug-4.3.5.2 (14 Feb 2015)
+
+  14 Feb 2015; Andreas K. Huettel <dilfridge@gentoo.org>
+  +libreoffice-bin-debug-4.3.5.2.ebuild:
+  Version bump
+
+  03 Jan 2015; Andreas K. Huettel <dilfridge@gentoo.org>
+  -libreoffice-bin-debug-4.2.6.3.ebuild,
+  -libreoffice-bin-debug-4.2.6.3-r2.ebuild:
+  Remove old
+
+  02 Jan 2015; Agostino Sarubbo <ago@gentoo.org>
+  libreoffice-bin-debug-4.2.8.2.ebuild:
+  Stable for x86, wrt bug #528438
+
+  02 Jan 2015; Agostino Sarubbo <ago@gentoo.org>
+  libreoffice-bin-debug-4.2.8.2.ebuild:
+  Stable for amd64, wrt bug #528438
+
+*libreoffice-bin-debug-4.2.8.2 (29 Dec 2014)
+
+  29 Dec 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  +libreoffice-bin-debug-4.2.8.2.ebuild:
+  Version bump for bug 528438
+
+  12 Nov 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -libreoffice-bin-debug-4.2.6.3-r1.ebuild:
+  Drop unneeded version
+
+  12 Nov 2014; Sergey Popov <pinkbyte@gentoo.org>
+  libreoffice-bin-debug-4.2.6.3-r2.ebuild:
+  Stable on amd64, wrt bug #525286
+
+*libreoffice-bin-debug-4.2.6.3-r2 (08 Nov 2014)
+
+  08 Nov 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  +libreoffice-bin-debug-4.2.6.3-r2.ebuild:
+  Add binary version for boost-1.55
+
+  04 Nov 2014; Mikle Kolyada <zlogene@gentoo.org>
+  libreoffice-bin-debug-4.2.6.3-r1.ebuild:
+  amd64 stable wrt bug #523164
+
+  19 Sep 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -libreoffice-bin-debug-4.2.5.2.ebuild:
+  Remove old
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  libreoffice-bin-debug-4.2.6.3.ebuild:
+  Stable for x86, wrt bug #522060
+
+*libreoffice-bin-debug-4.2.6.3-r1 (18 Sep 2014)
+
+  18 Sep 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  +libreoffice-bin-debug-4.2.6.3-r1.ebuild:
+  Add binary version for poppler-0.26 and icu-53
+
+  18 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  libreoffice-bin-debug-4.2.6.3.ebuild:
+  Stable for amd64, wrt bug #522060
+
+*libreoffice-bin-debug-4.2.6.3 (11 Sep 2014)
+
+  11 Sep 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  +libreoffice-bin-debug-4.2.6.3.ebuild:
+  Version bump for bug 522060
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
   libreoffice-bin-debug-4.2.5.2.ebuild:

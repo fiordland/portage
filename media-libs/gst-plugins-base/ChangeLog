@@ -1,6 +1,41 @@
 # ChangeLog for media-libs/gst-plugins-base
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/gst-plugins-base/ChangeLog,v 1.255 2014/08/25 10:59:29 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/gst-plugins-base/ChangeLog,v 1.261 2015/01/19 11:17:34 pacho Exp $
+
+*gst-plugins-base-0.10.36-r2 (19 Jan 2015)
+
+  19 Jan 2015; Pacho Ramos <pacho@gentoo.org>
+  +gst-plugins-base-0.10.36-r2.ebuild, gst-plugins-base-0.10.36-r1.ebuild:
+  Revbump with the fix for the hang
+
+  19 Jan 2015; Pacho Ramos <pacho@gentoo.org>
+  +files/gst-plugins-base-0.10.36-gcc-4.9.patch,
+  +files/gst-plugins-base-0.10.36-resync-ringbuffer.patch,
+  -gst-plugins-base-0.10.36.ebuild, gst-plugins-base-0.10.36-r1.ebuild,
+  gst-plugins-base-1.2.4-r1.ebuild:
+  Fix compilation with gcc-4.9 (#529962 by Martin Väth and Stephan Hartmann),
+  fix hang during gapless transition (#520090 by Georg Rudoy), drop old
+
+*gst-plugins-base-1.4.5 (24 Dec 2014)
+
+  24 Dec 2014; Mart Raudsepp <leio@gentoo.org> -gst-plugins-base-1.2.3.ebuild,
+  -gst-plugins-base-1.2.4.ebuild, +gst-plugins-base-1.4.5.ebuild,
+  -files/gst-plugins-base-0.10.31-fix-tag-test-linking.patch,
+  -files/gst-plugins-base-0.10.32-fix-tests-encodebin.patch:
+  Version bump. Remove old. Many updates since 1.2.x series as this is
+  a many months overdue next stable cycle upgrade.
+
+  11 Oct 2014; Markus Meier <maekke@gentoo.org>
+  gst-plugins-base-0.10.36-r1.ebuild:
+  arm stable, bug #512012
+
+  11 Oct 2014; Markus Meier <maekke@gentoo.org>
+  gst-plugins-base-1.2.4-r1.ebuild:
+  arm stable, bug #512012
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org>
+  gst-plugins-base-0.10.36-r1.ebuild, gst-plugins-base-1.2.4-r1.ebuild:
+  Stable for sparc, wrt bug #512012
 
   25 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
   gst-plugins-base-0.10.36-r1.ebuild, gst-plugins-base-1.2.4-r1.ebuild:

@@ -1,6 +1,42 @@
 # ChangeLog for net-wireless/blueman
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/blueman/ChangeLog,v 1.24 2014/08/14 21:43:49 zerochaos Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/blueman/ChangeLog,v 1.32 2015/03/01 22:18:20 mgorny Exp $
+
+  01 Mar 2015; Michał Górny <mgorny@gentoo.org>
+  files/blueman-9999-set-codeset-for-gettext-to-UTF-8-always.patch:
+  Update the codeset patch for -9999.
+
+  05 Jan 2015;  Rick Farina<zerochaos@gentoo.org> 
+  -blueman-1.21-r1.ebuild, blueman-1.23-r1.ebuild,
+  blueman-1.23-r2.ebuild, blueman-1.23.ebuild,
+  blueman-1.23_p20140717-r1.ebuild, blueman-9999.ebuild:
+  remove some repoman warnings and an old version
+
+*blueman-1.98_p20150105 (05 Jan 2015)
+
+  05 Jan 2015;  Rick Farina <zerochaos@gentoo.org> 
+  +blueman-1.98_p20150105.ebuild,
+  +files/blueman-1.98_p20150105-set-codeset-for-gettext-to-UTF-8-always.patch,
+  metadata.xml:
+  new snapshot
+
+  07 Dec 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  blueman-1.23_p20140717-r1.ebuild:
+  Depend on pygobject slot 3 unconditionally, bug #523482. Depend on gnome-icon-
+  theme until release with fix, bug #455320 and duplicates.
+
+  24 Nov 2014; Rick Farina <zerochaos@gentoo.org>
+  +files/blueman-1.23_p20140717-set-codeset-for-gettext-to-UTF-8-always.patch,
+  blueman-1.23_p20140717-r1.ebuild:
+  reintroduce old patch for blueman 20140717 snapshot
+
+  20 Nov 2014; Michał Górny <mgorny@gentoo.org>
+  files/blueman-9999-set-codeset-for-gettext-to-UTF-8-always.patch:
+  Fix the patch to use space- or tab-indentation matching particular input file.
+
+  20 Nov 2014; Michał Górny <mgorny@gentoo.org>
+  files/blueman-9999-set-codeset-for-gettext-to-UTF-8-always.patch:
+  Update the -9999 patch.
 
   14 Aug 2014; Rick Farina <zerochaos@gentoo.org> blueman-9999.ebuild:
   remove blocker, upstream doesn't use their own icons anymore

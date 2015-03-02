@@ -1,6 +1,89 @@
 # ChangeLog for www-apps/mediawiki
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/ChangeLog,v 1.276 2014/08/25 22:43:06 creffett Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apps/mediawiki/ChangeLog,v 1.289 2015/01/09 18:58:08 radhermit Exp $
+
+  09 Jan 2015; Tim Harder <radhermit@gentoo.org> -mediawiki-1.19.20.ebuild,
+  -mediawiki-1.19.21.ebuild, -mediawiki-1.19.22.ebuild,
+  -mediawiki-1.22.12.ebuild, -mediawiki-1.22.13.ebuild,
+  -mediawiki-1.22.14.ebuild, -mediawiki-1.23.5.ebuild,
+  -mediawiki-1.23.6.ebuild, -mediawiki-1.23.7.ebuild, -mediawiki-1.24.0.ebuild:
+  Remove old.
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.23.ebuild,
+  mediawiki-1.22.15.ebuild, mediawiki-1.23.8.ebuild:
+  Stable for ppc, wrt bug #532920
+
+  02 Jan 2015; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.23.ebuild,
+  mediawiki-1.22.15.ebuild, mediawiki-1.23.8.ebuild:
+  Stable for x86, wrt bug #532920
+
+  02 Jan 2015; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.23.ebuild,
+  mediawiki-1.22.15.ebuild, mediawiki-1.23.8.ebuild:
+  Stable for amd64, wrt bug #532920
+
+*mediawiki-1.24.1 (19 Dec 2014)
+*mediawiki-1.23.8 (19 Dec 2014)
+*mediawiki-1.22.15 (19 Dec 2014)
+*mediawiki-1.19.23 (19 Dec 2014)
+
+  19 Dec 2014; Tim Harder <radhermit@gentoo.org> +mediawiki-1.19.23.ebuild,
+  +mediawiki-1.22.15.ebuild, +mediawiki-1.23.8.ebuild,
+  +mediawiki-1.24.1.ebuild:
+  Security bumps (bug #532920).
+
+*mediawiki-1.24.0 (27 Nov 2014)
+*mediawiki-1.23.7 (27 Nov 2014)
+*mediawiki-1.22.14 (27 Nov 2014)
+*mediawiki-1.19.22 (27 Nov 2014)
+
+  27 Nov 2014; Tim Harder <radhermit@gentoo.org> +mediawiki-1.19.22.ebuild,
+  +mediawiki-1.22.14.ebuild, +mediawiki-1.23.7.ebuild,
+  +mediawiki-1.24.0.ebuild:
+  Security bumps and new stable release series bump.
+
+*mediawiki-1.23.6 (22 Nov 2014)
+*mediawiki-1.22.13 (22 Nov 2014)
+*mediawiki-1.19.21 (22 Nov 2014)
+
+  22 Nov 2014; Tim Harder <radhermit@gentoo.org> +mediawiki-1.19.21.ebuild,
+  +mediawiki-1.22.13.ebuild, +mediawiki-1.23.6.ebuild:
+  Version bumps.
+
+  14 Oct 2014; Tim Harder <radhermit@gentoo.org> -mediawiki-1.19.16.ebuild,
+  -mediawiki-1.19.18.ebuild, -mediawiki-1.21.10.ebuild,
+  -mediawiki-1.22.10.ebuild, -mediawiki-1.23.3.ebuild:
+  Remove old.
+
+  05 Oct 2014; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.20.ebuild,
+  mediawiki-1.22.12.ebuild, mediawiki-1.23.5.ebuild:
+  Stable for ppc, wrt bug #523852
+
+  05 Oct 2014; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.20.ebuild,
+  mediawiki-1.22.12.ebuild, mediawiki-1.23.5.ebuild:
+  Stable for x86, wrt bug #523852
+
+  05 Oct 2014; Agostino Sarubbo <ago@gentoo.org> mediawiki-1.19.20.ebuild,
+  mediawiki-1.22.12.ebuild, mediawiki-1.23.5.ebuild:
+  Stable for amd64, wrt bug #523852
+
+*mediawiki-1.23.5 (02 Oct 2014)
+*mediawiki-1.22.12 (02 Oct 2014)
+*mediawiki-1.19.20 (02 Oct 2014)
+
+  02 Oct 2014; Tim Harder <radhermit@gentoo.org> +mediawiki-1.19.20.ebuild,
+  +mediawiki-1.22.12.ebuild, +mediawiki-1.23.5.ebuild:
+  Security bumps (bug #523852).
+
+*mediawiki-1.19.18 (30 Aug 2014)
+*mediawiki-1.22.10 (30 Aug 2014)
+*mediawiki-1.23.3 (30 Aug 2014)
+
+  30 Aug 2014; Tiziano Müller <dev-zero@gentoo.org> +mediawiki-1.19.18.ebuild,
+  +mediawiki-1.22.10.ebuild, +mediawiki-1.23.3.ebuild,
+  -mediawiki-1.19.17.ebuild, -mediawiki-1.21.11.ebuild,
+  -mediawiki-1.22.7.ebuild, -mediawiki-1.22.8.ebuild, -mediawiki-1.23.1.ebuild:
+  Version bump for 1.19.x, 1.22.x and 1.23.x (security bug #518608). Drop
+  vulnerable versions (bug #515138).
 
   25 Aug 2014; Christopher Reffett <2011creffett@gentoo.org>
   -mediawiki-1.19.15.ebuild, -mediawiki-1.21.8.ebuild, -mediawiki-1.21.9.ebuild,

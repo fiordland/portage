@@ -1,6 +1,32 @@
 # ChangeLog for media-gfx/graphite2
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphite2/ChangeLog,v 1.73 2014/08/25 10:59:18 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphite2/ChangeLog,v 1.80 2014/12/13 21:01:33 dilfridge Exp $
+
+  13 Dec 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  graphite2-1.2.1.ebuild, graphite2-1.2.4.ebuild, graphite2-1.2.4-r1.ebuild:
+  Replace perl-module_src_prep with perl-module_src_configure
+
+  22 Nov 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  graphite2-1.2.4-r1.ebuild:
+  Add missing dependency, bug 529236
+
+  18 Nov 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  graphite2-1.2.1.ebuild, graphite2-1.2.4.ebuild, graphite2-1.2.4-r1.ebuild:
+  Replace perl-module_pkg_setup with perl_set_version
+
+  16 Nov 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  graphite2-1.2.1.ebuild, graphite2-1.2.4.ebuild, graphite2-1.2.4-r1.ebuild:
+  Replace fixlocalpod with perl_delete_localpod
+
+  19 Oct 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  graphite2-1.2.1.ebuild, graphite2-1.2.4.ebuild, graphite2-1.2.4-r1.ebuild:
+  Add slot operator on perl dependency
+
+  11 Oct 2014; Markus Meier <maekke@gentoo.org> graphite2-1.2.4-r1.ebuild:
+  arm stable, bug #512012
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> graphite2-1.2.4-r1.ebuild:
+  Stable for sparc, wrt bug #512012
 
   25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> graphite2-1.2.4-r1.ebuild:
   Stable for alpha, wrt bug #512012

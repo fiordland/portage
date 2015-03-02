@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/spl-0.6.3.ebuild,v 1.2 2014/08/07 18:23:04 ryao Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/spl-0.6.3.ebuild,v 1.6 2014/12/12 07:51:56 ryao Exp $
 
 EAPI="4"
 AUTOTOOLS_AUTORECONF="1"
@@ -9,7 +9,7 @@ inherit flag-o-matic linux-info linux-mod autotools-utils
 
 if [[ ${PV} == "9999" ]] ; then
 	inherit git-2
-	EGIT_REPO_URI="git://github.com/zfsonlinux/${PN}.git"
+	EGIT_REPO_URI="https://github.com/zfsonlinux/${PN}.git"
 else
 	inherit eutils versionator
 	MY_PV=$(replace_version_separator 3 '-')
@@ -45,11 +45,17 @@ pkg_setup() {
 		MODULES
 		KALLSYMS
 		!PAX_KERNEXEC_PLUGIN_METHOD_OR
+		!PAX_SIZE_OVERFLOW
+		!PAX_RANDKSTACK
 		ZLIB_DEFLATE
 		ZLIB_INFLATE
 	"
-	use debug && CONFIG_CHECK="FRAME_POINTER
-	DEBUG_INFO"
+
+	use debug && CONFIG_CHECK="${CONFIG_CHECK}
+		FRAME_POINTER
+		DEBUG_INFO
+		!DEBUG_INFO_REDUCED
+	"
 
 	kernel_is ge 2 6 26 || die "Linux 2.6.26 or newer required"
 
@@ -61,13 +67,15 @@ pkg_setup() {
 
 src_prepare() {
 	# Workaround for hard coded path
-	sed -i "s|/sbin/lsmod|/bin/lsmod|" "${S}/scripts/check.sh" || die
+	sed -i "s|/sbin/lsmod|/bin/lsmod|" "${S}/scripts/check.sh" || \
+		die "Cannot patch check.sh"
 
 	# splat is unnecessary unless we are debugging
 	use debug || sed -e 's/^subdir-m += splat$//' -i "${S}/module/Makefile.in"
 
 	# Set module revision number
-	sed -i "s/\(Release:\)\(.*\)1/\1\2${PR}-gentoo/" "${S}/META" || die
+	[ ${PV} != "9999" ] && \
+		{ sed -i "s/\(Release:\)\(.*\)1/\1\2${PR}-gentoo/" "${S}/META" || die "Could not set Gentoo release"; }
 
 	autotools-utils_src_prepare
 }
@@ -90,7 +98,7 @@ src_configure() {
 }
 
 src_install() {
-	autotools-utils_src_install
+	autotools-utils_src_install INSTALL_MOD_PATH="${INSTALL_MOD_PATH:-$EROOT}"
 	dodoc AUTHORS DISCLAIMER README.markdown
 }
 

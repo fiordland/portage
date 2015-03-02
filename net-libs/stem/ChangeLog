@@ -1,6 +1,25 @@
 # ChangeLog for net-libs/stem
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/stem/ChangeLog,v 1.5 2014/07/24 02:20:01 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/stem/ChangeLog,v 1.9 2014/12/22 22:43:08 mrueg Exp $
+
+*stem-1.3.0 (22 Dec 2014)
+
+  22 Dec 2014; Manuel Rüger <mrueg@gentoo.org> +stem-1.3.0.ebuild,
+  -stem-1.2.2.ebuild, -stem-1.2.2_p20141018.ebuild:
+  Version bump. Remove old.
+
+  07 Dec 2014; Anthony G. Basile <blueness@gentoo.org> stem-1.2.2.ebuild,
+  stem-1.2.2_p20140718.ebuild, stem-1.2.2_p20141018.ebuild:
+  Fix licences
+
+  15 Nov 2014; Anthony G. Basile <blueness@gentoo.org> stem-1.2.2.ebuild,
+  stem-1.2.2_p20140718.ebuild, stem-1.2.2_p20141018.ebuild:
+  Keyword ~x86, bug #517838
+
+*stem-1.2.2_p20141018 (22 Oct 2014)
+
+  22 Oct 2014; Manuel Rüger <mrueg@gentoo.org> +stem-1.2.2_p20141018.ebuild:
+  Add new snapshot.
 
   24 Jul 2014; Naohiro Aota <naota@gentoo.org> stem-1.2.2_p20140718.ebuild:
   Add ~x86-fbsd. #517838

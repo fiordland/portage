@@ -1,6 +1,32 @@
 # ChangeLog for media-libs/smpeg
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/smpeg/ChangeLog,v 1.63 2014/06/18 19:58:14 mgorny Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/smpeg/ChangeLog,v 1.71 2015/03/02 09:34:17 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> smpeg-0.4.4-r10.ebuild:
+  Stable for ppc, wrt bug #525766
+
+  22 Feb 2015; Michael Sterrett <mr_bones_@gentoo.org> smpeg-0.4.4-r10.ebuild:
+  use prune_libtool_files
+
+  29 Jan 2015; Michał Górny <mgorny@gentoo.org> smpeg-0.4.4-r10.ebuild,
+  smpeg-0.4.4-r9.ebuild:
+  Switch to CPU_FLAGS_X86.
+
+  15 Jan 2015; Raúl Porcel <armin76@gentoo.org> smpeg-0.4.4-r10.ebuild:
+  alpha/ia64/sh/sparc stable wrt #525766
+
+  23 Oct 2014; Markus Meier <maekke@gentoo.org> smpeg-0.4.4-r10.ebuild:
+  arm stable, bug #525766
+
+  21 Oct 2014; Pacho Ramos <pacho@gentoo.org> smpeg-0.4.4-r10.ebuild:
+  amd64/x86 stable, bug #525766
+
+  21 Oct 2014; Jeroen Roovers <jer@gentoo.org> smpeg-0.4.4-r10.ebuild:
+  Stable for HPPA (bug #525766).
+
+  04 Sep 2014; Tupone Alfredo <tupone@gentoo.org> smpeg-0.4.4-r10.ebuild,
+  +files/smpeg-0.4.4-format.patch:
+  Make it compile with format-security. Bug #521110 by Agostino Sarubbo
 
   18 Jun 2014; Michał Górny <mgorny@gentoo.org> smpeg-0.4.4-r10.ebuild:
   Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug

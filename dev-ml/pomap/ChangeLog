@@ -1,6 +1,23 @@
 # ChangeLog for dev-ml/pomap
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/pomap/ChangeLog,v 1.37 2014/04/13 16:20:59 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/pomap/ChangeLog,v 1.42 2015/02/25 15:35:56 ago Exp $
+
+  25 Feb 2015; Agostino Sarubbo <ago@gentoo.org> pomap-3.0.5.ebuild:
+  Stable for x86, wrt bug #535134
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> pomap-3.0.5.ebuild:
+  Stable for ppc, wrt bug #535134
+
+  19 Feb 2015; Agostino Sarubbo <ago@gentoo.org> pomap-3.0.5.ebuild:
+  Stable for amd64, wrt bug #535134
+
+*pomap-3.0.5 (01 Dec 2014)
+
+  01 Dec 2014; Alexis Ballier <aballier@gentoo.org> +pomap-3.0.5.ebuild:
+  version bump, update homepage/src_uri
+
+  28 Nov 2014; Alexis Ballier <aballier@gentoo.org> pomap-3.0.3.ebuild:
+  update deps for ocaml 4.02
 
   13 Apr 2014; Agostino Sarubbo <ago@gentoo.org> pomap-3.0.3.ebuild:
   Stable for ppc, wrt bug #502732

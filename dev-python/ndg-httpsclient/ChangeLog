@@ -1,6 +1,23 @@
 # ChangeLog for dev-python/ndg-httpsclient
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ndg-httpsclient/ChangeLog,v 1.15 2014/08/28 08:25:59 naota Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ndg-httpsclient/ChangeLog,v 1.20 2015/02/04 16:13:47 haubi Exp $
+
+  04 Feb 2015; Michael Haubenwallner <haubi@gentoo.org>
+  ndg-httpsclient-0.3.2.ebuild:
+  keyword ~x86-linux
+
+  24 Sep 2014; Agostino Sarubbo <ago@gentoo.org> ndg-httpsclient-0.3.2.ebuild:
+  Stable for x86, wrt bug #513278
+
+  24 Sep 2014; Agostino Sarubbo <ago@gentoo.org> ndg-httpsclient-0.3.2.ebuild:
+  Stable for ppc64, wrt bug #513278
+
+  24 Sep 2014; Agostino Sarubbo <ago@gentoo.org> ndg-httpsclient-0.3.2.ebuild:
+  Stable for ppc, wrt bug #513278
+
+  03 Sep 2014; Christoph Junghans <ottxor@gentoo.org>
+  ndg-httpsclient-0.3.2.ebuild:
+  Added ~x64-macos (tested by me)
 
   28 Aug 2014; Naohiro Aota <naota@gentoo.org> ndg-httpsclient-0.3.2.ebuild:
   Add ~x86-fbsd. #509628

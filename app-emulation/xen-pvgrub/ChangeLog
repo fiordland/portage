@@ -1,6 +1,40 @@
 # ChangeLog for app-emulation/xen-pvgrub
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen-pvgrub/ChangeLog,v 1.55 2014/07/09 07:46:17 dlan Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen-pvgrub/ChangeLog,v 1.62 2015/02/27 06:51:51 idella4 Exp $
+
+*xen-pvgrub-4.5.0-r1 (27 Feb 2015)
+
+  27 Feb 2015; Ian Delaney <idella4@gentoo.org> +xen-pvgrub-4.5.0-r1.ebuild:
+  revbump; adjust libexecdir to match other obuilds of xen in version 4.5.0,
+  fixes Bug #537258 by S. Ghost
+
+*xen-pvgrub-4.5.0 (21 Jan 2015)
+
+  21 Jan 2015; Yixun Lan <dlan@gentoo.org> +xen-pvgrub-4.5.0.ebuild:
+  version bump
+
+  15 Oct 2014; Yixun Lan <dlan@gentoo.org> -xen-pvgrub-4.2.4.ebuild,
+  -xen-pvgrub-4.3.2.ebuild:
+  drop old after stable
+
+  14 Oct 2014; Agostino Sarubbo <ago@gentoo.org> xen-pvgrub-4.2.5.ebuild:
+  Stable for x86, wrt bug #524200
+
+  14 Oct 2014; Agostino Sarubbo <ago@gentoo.org> xen-pvgrub-4.2.5.ebuild,
+  xen-pvgrub-4.3.3.ebuild:
+  Stable for amd64, wrt bug #524200
+
+  12 Sep 2014; Yixun Lan <dlan@gentoo.org> -xen-pvgrub-4.4.0.ebuild:
+  cleanup due bug 522576
+
+*xen-pvgrub-4.4.1 (11 Sep 2014)
+*xen-pvgrub-4.3.3 (11 Sep 2014)
+*xen-pvgrub-4.2.5 (11 Sep 2014)
+
+  11 Sep 2014; Yixun Lan <dlan@gentoo.org> +xen-pvgrub-4.2.5.ebuild,
+  xen-pvgrub-4.3.2.ebuild, +xen-pvgrub-4.3.3.ebuild, xen-pvgrub-4.4.0.ebuild,
+  +xen-pvgrub-4.4.1.ebuild:
+  version bump, drop x86 keywords for 4.3.x 4.4.x
 
   09 Jul 2014; Yixun Lan <dlan@gentoo.org> xen-pvgrub-4.2.4.ebuild,
   xen-pvgrub-4.3.2.ebuild, xen-pvgrub-4.4.0.ebuild:

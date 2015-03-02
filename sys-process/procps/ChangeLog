@@ -1,6 +1,57 @@
 # ChangeLog for sys-process/procps
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/procps/ChangeLog,v 1.123 2014/08/20 14:39:44 ssuominen Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-process/procps/ChangeLog,v 1.137 2015/03/02 09:32:39 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> procps-3.3.9.ebuild:
+  Stable for ppc, wrt bug #510316
+
+  24 Feb 2015; Mike Frysinger <vapier@gentoo.org> procps-3.3.9-r2.ebuild:
+  Mark arm64/m68k/ia64/s390/sh stable.
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> procps-3.3.9-r2.ebuild:
+  Stable for alpha, wrt bug #525060
+
+  19 Jan 2015; Anthony G. Basile <blueness@gentoo.org> procps-3.3.9-r2.ebuild:
+  Stable for x86, bug #525060
+
+  02 Jan 2015; Agostino Sarubbo <ago@gentoo.org> procps-3.3.9-r2.ebuild:
+  Stable for sparc, wrt bug #525060
+
+  01 Jan 2015; Markus Meier <maekke@gentoo.org> procps-3.3.9-r2.ebuild:
+  arm stable, bug #525060
+
+  01 Jan 2015; Agostino Sarubbo <ago@gentoo.org> procps-3.3.9-r2.ebuild:
+  Stable for ppc64, wrt bug #525060
+
+  31 Dec 2014; Agostino Sarubbo <ago@gentoo.org> procps-3.3.9-r2.ebuild:
+  Stable for ppc, wrt bug #525060
+
+  30 Dec 2014; Jeroen Roovers <jer@gentoo.org> procps-3.3.9-r2.ebuild:
+  Stable for HPPA (bug #525060).
+
+  30 Dec 2014; Mikle Kolyada <zlogene@gentoo.org> procps-3.3.9-r2.ebuild:
+  amd64 stable wrt bug #525060
+
+  03 Nov 2014; Mike Frysinger <vapier@gentoo.org> procps-3.3.9.ebuild:
+  Mark arm64/m68k/s390/sh stable.
+
+*procps-3.3.10-r1 (24 Sep 2014)
+
+  24 Sep 2014; Lars Wendler <polynomial-c@gentoo.org> -procps-3.3.10.ebuild,
+  +procps-3.3.10-r1.ebuild, metadata.xml:
+  Added a USE flag to toggle new and old default settings for top (bug
+  #523520).
+
+  23 Sep 2014; Lars Wendler <polynomial-c@gentoo.org> Manifest:
+  Recreated source tarball without symlinks to auto* tools. Thanks to Mikael
+  Magnusson who reported this issue in bug #523496.
+
+*procps-3.3.10 (22 Sep 2014)
+
+  22 Sep 2014; Lars Wendler <polynomial-c@gentoo.org> -procps-3.3.6.ebuild,
+  -procps-3.3.9-r1.ebuild, +procps-3.3.10.ebuild,
+  -files/procps-3.3.6-error_at_line.patch:
+  Version bump. Removed old.
 
 *procps-3.3.9-r2 (20 Aug 2014)
 

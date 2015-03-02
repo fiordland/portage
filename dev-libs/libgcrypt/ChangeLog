@@ -1,6 +1,41 @@
 # ChangeLog for dev-libs/libgcrypt
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgcrypt/ChangeLog,v 1.221 2014/08/24 10:44:39 k_f Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgcrypt/ChangeLog,v 1.231 2015/03/02 09:20:38 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> libgcrypt-1.5.4-r1.ebuild:
+  Stable for ppc, wrt bug #524308
+
+  01 Mar 2015; Kristian Fiskerstrand <k_f@gentoo.org> libgcrypt-1.6.3.ebuild:
+  Add an explicit WANT_AUTOMAKE to ensure a match with upstream requirements
+
+*libgcrypt-1.6.3 (27 Feb 2015)
+
+  27 Feb 2015; Kristian Fiskerstrand <k_f@gentoo.org> +libgcrypt-1.6.3.ebuild:
+  New upstream release, security fix for two side channel attacks:
+  CVE-2014-3591,CVE-2015-0837
+
+  15 Jan 2015; Raúl Porcel <armin76@gentoo.org> libgcrypt-1.5.4-r1.ebuild:
+  alpha/ia64/sparc stable wrt #524308
+
+  27 Oct 2014; Mike Frysinger <vapier@gentoo.org> libgcrypt-1.5.4-r1.ebuild:
+  Mark arm64/m68k/s390/sh stable.
+
+  23 Oct 2014; Markus Meier <maekke@gentoo.org> libgcrypt-1.5.4-r1.ebuild:
+  arm stable, bug #524308
+
+  23 Oct 2014; Pacho Ramos <pacho@gentoo.org> libgcrypt-1.5.4-r1.ebuild:
+  amd64/x86 stable, bug #524308
+
+  20 Oct 2014; Jeroen Roovers <jer@gentoo.org> libgcrypt-1.5.4-r1.ebuild:
+  Stable for HPPA (bug #524308).
+
+*libgcrypt-1.5.4-r1 (17 Oct 2014)
+
+  17 Oct 2014; Michał Górny <mgorny@gentoo.org> +libgcrypt-1.5.4-r1.ebuild:
+  Backport multilib support into 1.5.4:0, for stabilization bug #524308.
+
+  06 Oct 2014; Raúl Porcel <armin76@gentoo.org> libgcrypt-1.5.4.ebuild:
+  arm64/m68k/s390/sh stable
 
   24 Aug 2014; Kristian Fiskerstrand <k_f@gentoo.org> -libgcrypt-1.5.3.ebuild:
   Cleanup vulnerable versions for security bug #519396

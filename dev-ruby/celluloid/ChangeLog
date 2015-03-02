@@ -1,6 +1,29 @@
 # ChangeLog for dev-ruby/celluloid
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/celluloid/ChangeLog,v 1.10 2014/08/27 23:06:40 mrueg Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/celluloid/ChangeLog,v 1.15 2015/02/03 22:04:41 mrueg Exp $
+
+  03 Feb 2015; Manuel Rüger <mrueg@gentoo.org> -celluloid-0.15.2-r3.ebuild:
+  Remove old.
+
+*celluloid-0.16.0 (02 Nov 2014)
+
+  02 Nov 2014; Hans de Graaff <graaff@gentoo.org> +celluloid-0.16.0.ebuild,
+  +files/celluloid-0.16.0-call-private-methods.patch:
+  Version bump. Backport upstream patch to let specs pass, fixing bug 527500.
+
+  02 Nov 2014; Hans de Graaff <graaff@gentoo.org> celluloid-0.15.2-r3.ebuild:
+  Install proper gemspec file and match dependencies to the gemspec, bug
+  524782.
+
+*celluloid-0.15.2-r3 (02 Nov 2014)
+
+  02 Nov 2014; Hans de Graaff <graaff@gentoo.org> -celluloid-0.15.2-r2.ebuild,
+  +celluloid-0.15.2-r3.ebuild:
+  Fix timers slot to match the gemspec file and make sure we use this slot
+  during testing.
+
+  08 Oct 2014; Manuel Rüger <mrueg@gentoo.org> celluloid-0.15.2-r2.ebuild:
+  Fix dependency on dev-ruby/timers. Fixes bug #524782.
 
   27 Aug 2014; Manuel Rüger <mrueg@gentoo.org> celluloid-0.15.2-r2.ebuild:
   Add ruby21 target.

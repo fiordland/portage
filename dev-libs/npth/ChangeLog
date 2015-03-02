@@ -1,6 +1,17 @@
 # ChangeLog for dev-libs/npth
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/npth/ChangeLog,v 1.1 2014/07/25 03:11:15 zx2c4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/npth/ChangeLog,v 1.3 2014/11/15 10:28:42 radhermit Exp $
+
+*npth-1.1 (15 Nov 2014)
+
+  15 Nov 2014; Tim Harder <radhermit@gentoo.org> +npth-1.1.ebuild:
+  Version bump.
+
+*npth-1.0 (10 Oct 2014)
+
+  10 Oct 2014; Tim Harder <radhermit@gentoo.org> npth-0.91.ebuild,
+  +npth-1.0.ebuild:
+  Version bump. Add static-libs use flag and use gnupg mirror.
 
 *npth-0.91 (25 Jul 2014)
 

@@ -1,6 +1,587 @@
 # ChangeLog for sys-kernel/gentoo-sources
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1399 2014/08/15 15:07:39 mpagano Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/ChangeLog,v 1.1512 2015/02/27 19:15:42 mpagano Exp $
+
+*gentoo-sources-3.10.70 (27 Feb 2015)
+
+  27 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.70.ebuild:
+  Linux patch 3.10.70. Enable link security restrictions by default.
+
+  27 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.34.ebuild:
+  Linux patch 3.14.34. Enable link security restrictions by default.
+
+*gentoo-sources-3.14.34 (27 Feb 2015)
+
+  27 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.34.ebuild:
+  Linux patch 3.14.34. Enable link security restrictions by default.
+
+*gentoo-sources-3.18.8 (27 Feb 2015)
+
+  27 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.18.8.ebuild:
+  Linux patch 3.18.8. Enable link security restrictions by default. Kernel
+  patch enables gcc >= v4.9 optimizations for additional CPUs.
+
+  26 Feb 2015; Jeroen Roovers <jer@gentoo.org> gentoo-sources-3.18.7.ebuild:
+  Stable for HPPA (bug #540866).
+
+  24 Feb 2015; Mike Pagano <mpagano@gentoo.org> -gentoo-sources-3.12.35.ebuild,
+  -gentoo-sources-3.12.37.ebuild, gentoo-sources-3.12.38.ebuild:
+  Auto stabilize 3.12.38. Remove old, unsupported versions.
+
+  24 Feb 2015; Mike Pagano <mpagano@gentoo.org> -gentoo-sources-3.10.67.ebuild,
+  -gentoo-sources-3.10.68.ebuild, -gentoo-sources-3.14.31.ebuild,
+  -gentoo-sources-3.14.32.ebuild, -gentoo-sources-3.18.5.ebuild,
+  -gentoo-sources-3.18.6.ebuild:
+  Cleanup old, unsupported versions.
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.18.7.ebuild:
+  Stable for alpha, wrt bug #540866
+
+  23 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  gentoo-sources-3.17.8-r1.ebuild:
+  Stable for ppc64, wrt bug #532934
+
+  21 Feb 2015; Mikle Kolyada <zlogene@gentoo.org> gentoo-sources-3.18.7.ebuild:
+  x86 stable wrt bug #540866
+
+  21 Feb 2015; Mikle Kolyada <zlogene@gentoo.org> gentoo-sources-3.18.7.ebuild:
+  amd64 stable wrt bug #540866
+
+  21 Feb 2015; Mike Pagano <mpagano@gentoo.org> gentoo-sources-3.14.33.ebuild:
+  Auto stabilize 3.14 branch.
+
+  21 Feb 2015; Mike Pagano <mpagano@gentoo.org> gentoo-sources-3.10.69.ebuild:
+  Auto stabilization of the 3.10 branch.
+
+*gentoo-sources-3.12.38 (21 Feb 2015)
+
+  21 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.12.38.ebuild:
+  Linux patch 3.12.38
+
+  11 Feb 2015; Mike Pagano <mpagano@gentoo.org> gentoo-sources-3.10.69.ebuild:
+  Fix genpatches version for 3.10.69
+
+*gentoo-sources-3.10.69 (11 Feb 2015)
+
+  11 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.69.ebuild:
+  Linux patch 3.10.69
+
+*gentoo-sources-3.14.33 (11 Feb 2015)
+
+  11 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.33.ebuild:
+  Linux patch 3.14.33
+
+*gentoo-sources-3.18.7 (11 Feb 2015)
+
+  11 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.18.7.ebuild:
+  Linux patch 3.18.7
+
+*gentoo-sources-3.12.37 (09 Feb 2015)
+
+  09 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.12.37.ebuild:
+  Linux patches 3.12.36 and 3.12.37. Add DEVPTS_MULTIPLE_INSTANCES when
+  GENTOO_LINUX_INIT_SYSTEMD is selected. See bug #534216.
+
+*gentoo-sources-3.19.0 (09 Feb 2015)
+
+  09 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.19.0.ebuild:
+  Patch to support for namespace user.pax.* on tmpfs. Patch to disable Windows
+  8 compatibility for some Lenovo ThinkPads. Patch to ensure that /dev/root
+  doesn't appear in /proc/mounts when bootint without an initramfs. Patch: Do
+  not lock when UMH is waiting on current thread spawned by linuxrc. (bug
+  #481344). Add Gentoo Linux support config settings and defaults. Kernel patch
+  enables gcc optimizations for additional CPUs.
+
+*gentoo-sources-3.10.68 (07 Feb 2015)
+
+  07 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.68.ebuild:
+  Linux patch 3.10.68
+
+*gentoo-sources-3.14.32 (07 Feb 2015)
+
+  07 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.32.ebuild:
+  Linux patch 3.14.32
+
+*gentoo-sources-3.18.6 (07 Feb 2015)
+
+  07 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.18.6.ebuild:
+  Linux patch 3.18.6
+
+  05 Feb 2015; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.17.8.ebuild:
+  Drop old, unsupported version
+
+  05 Feb 2015; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.10.63.ebuild, -gentoo-sources-3.10.64.ebuild,
+  -gentoo-sources-3.10.65.ebuild, -gentoo-sources-3.10.66.ebuild,
+  gentoo-sources-3.10.67.ebuild:
+  Auto stabilization 3.10 branch. Drop old, unsupported versions
+
+  05 Feb 2015; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.18.0.ebuild, -gentoo-sources-3.18.1.ebuild,
+  -gentoo-sources-3.18.2.ebuild, -gentoo-sources-3.18.3.ebuild,
+  -gentoo-sources-3.18.4.ebuild:
+  Drop old.
+
+  04 Feb 2015; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.14.27.ebuild, -gentoo-sources-3.14.28.ebuild,
+  -gentoo-sources-3.14.29.ebuild, -gentoo-sources-3.14.30.ebuild,
+  gentoo-sources-3.14.31.ebuild:
+  Auto stabilize 3.14 branch. Remove old
+
+*gentoo-sources-3.4.106 (03 Feb 2015)
+
+  03 Feb 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.4.106.ebuild:
+  Linux patch 3.4.106
+
+  31 Jan 2015; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.17.7.ebuild, gentoo-sources-3.17.8-r1.ebuild:
+  Auto stabilize last version of 3.17.X. Remove old
+
+  31 Jan 2015; Markos Chandras <hwoarang@gentoo.org>
+  gentoo-sources-3.10.63.ebuild, gentoo-sources-3.12.35.ebuild,
+  gentoo-sources-3.14.27.ebuild:
+  Drop MIPS back to ~testing
+
+*gentoo-sources-3.10.67 (30 Jan 2015)
+
+  30 Jan 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.67.ebuild:
+  Linux patch 3.10.67
+
+*gentoo-sources-3.14.31 (30 Jan 2015)
+
+  30 Jan 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.31.ebuild:
+  Linux patch 3.14.31
+
+*gentoo-sources-3.18.5 (30 Jan 2015)
+
+  30 Jan 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.18.5.ebuild:
+  Linux patch 3.18.5
+
+*gentoo-sources-3.18.4 (29 Jan 2015)
+
+  29 Jan 2015; Anthony G. Basile <blueness@gentoo.org>
+  +gentoo-sources-3.18.4.ebuild:
+  Linux patch 3.18.4
+
+*gentoo-sources-3.14.30 (29 Jan 2015)
+
+  29 Jan 2015; Anthony G. Basile <blueness@gentoo.org>
+  +gentoo-sources-3.14.30.ebuild:
+  Linux patch 3.14.30
+
+*gentoo-sources-3.10.66 (28 Jan 2015)
+
+  28 Jan 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.66.ebuild:
+  Linux patch 3.10.66
+
+  28 Jan 2015; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.17.7.ebuild:
+  Stable for ppc, wrt bug #532934
+
+  17 Jan 2015; Mike Pagano <mpagano@gentoo.org> gentoo-sources-3.10.65.ebuild:
+  Correct genpatches version.
+
+*gentoo-sources-3.10.65 (17 Jan 2015)
+
+  17 Jan 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.65.ebuild:
+  Linux patch 3.10.65
+
+*gentoo-sources-3.14.29 (17 Jan 2015)
+
+  17 Jan 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.29.ebuild:
+  Linux patch 3.14.29
+
+*gentoo-sources-3.18.3 (16 Jan 2015)
+
+  16 Jan 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.18.3.ebuild:
+  Linux patch 3.18.3
+
+*gentoo-sources-3.17.8-r1 (16 Jan 2015)
+
+  16 Jan 2015; Mike Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.17.8-r1.ebuild:
+  nouveau spin_is_locked fix. See bug #528990
+
+  14 Jan 2015; Mike Pagano <mpagano@gentoo.org> gentoo-sources-3.4.105.ebuild,
+  gentoo-sources-3.4.9999.ebuild, gentoo-sources-3.10.63.ebuild,
+  gentoo-sources-3.10.64.ebuild, gentoo-sources-3.10.9999.ebuild,
+  gentoo-sources-3.12.35.ebuild, gentoo-sources-3.12.9999.ebuild,
+  gentoo-sources-3.14.27.ebuild, gentoo-sources-3.14.28.ebuild,
+  gentoo-sources-3.17.7.ebuild, gentoo-sources-3.17.8.ebuild,
+  gentoo-sources-3.18.0.ebuild, gentoo-sources-3.18.1.ebuild,
+  gentoo-sources-3.18.2.ebuild:
+  Remove deblob support as it is broken.
+
+*gentoo-sources-3.10.64 (09 Jan 2015)
+
+  09 Jan 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.64.ebuild:
+  BFQ upgrade to v7r7. Linux patch 3.10.64. Patch to add
+  DEVPTS_MULTIPLE_INSTANCES when GENTOO_LINUX_INIT_SYSTEMD is selected. See bug
+  #534216.
+
+*gentoo-sources-3.14.28 (09 Jan 2015)
+
+  09 Jan 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.28.ebuild:
+  Linux patch 3.14.28. BFQ upgrade to v7r7. Patch to add
+  DEVPTS_MULTIPLE_INSTANCES when GENTOO_LINUX_INIT_SYSTEMD is selected. See bug
+  #534216.
+
+*gentoo-sources-3.17.8 (09 Jan 2015)
+
+  09 Jan 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.17.8.ebuild:
+  Linux patch 3.17.8. Patch to add DEVPTS_MULTIPLE_INSTANCES when
+  GENTOO_LINUX_INIT_SYSTEMD is selected. See bug #534216. BFQ patchset bumped
+  to v7r7
+
+*gentoo-sources-3.18.2 (09 Jan 2015)
+
+  09 Jan 2015; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.18.2.ebuild:
+  Linux patch 3.18.2. Patch to add support for Pogoplug E02. Patch to disallow
+  pin ioctl completely for kms drivers. See bug #532926.Patch to add
+  DEVPTS_MULTIPLE_INSTANCES when GENTOO_LINUX_INIT_SYSTEMD is selected. See bug
+  #534216.Bump BFQ to v7r6.
+
+  04 Jan 2015; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.4.104.ebuild, -gentoo-sources-3.10.41-r1.ebuild,
+  -gentoo-sources-3.10.61.ebuild, -gentoo-sources-3.10.62.ebuild,
+  gentoo-sources-3.10.63.ebuild, -gentoo-sources-3.12.21-r1.ebuild,
+  -gentoo-sources-3.12.30.ebuild, -gentoo-sources-3.12.34.ebuild,
+  gentoo-sources-3.12.35.ebuild, -gentoo-sources-3.14.14.ebuild,
+  -gentoo-sources-3.14.21.ebuild, -gentoo-sources-3.14.26.ebuild,
+  gentoo-sources-3.14.27.ebuild, -gentoo-sources-3.16.5.ebuild,
+  -gentoo-sources-3.16.7.ebuild, -gentoo-sources-3.17.4.ebuild,
+  -gentoo-sources-3.17.6.ebuild:
+  Remove old, unsupported versions. Stablize LTS kernels for archs with
+  previous arch team stabilized version.
+
+  28 Dec 2014; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.17.7.ebuild:
+  Stable for x86, wrt bug #532934
+
+  23 Dec 2014; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.17.7.ebuild:
+  Stable for alpha, wrt bug #532934
+
+  23 Dec 2014; Mike Pagano <mpagano@gentoo.org> Manifest:
+  Fix manifest
+
+*gentoo-sources-3.4.105 (21 Dec 2014)
+
+  21 Dec 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.4.105.ebuild:
+  Linux patch 3.4.105
+
+  20 Dec 2014; Jeroen Roovers <jer@gentoo.org> gentoo-sources-3.17.7.ebuild:
+  Stable for HPPA (bug #532934).
+
+*gentoo-sources-3.12.35 (20 Dec 2014)
+
+  20 Dec 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.12.35.ebuild:
+  Linux patch 3.12.35
+
+  18 Dec 2014; Mikle Kolyada <zlogene@gentoo.org> gentoo-sources-3.17.7.ebuild:
+  amd64 stable wrt bug #532934
+
+*gentoo-sources-3.10.63 (17 Dec 2014)
+
+  17 Dec 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.63.ebuild:
+  Linux patch 3.10.63
+
+*gentoo-sources-3.14.27 (16 Dec 2014)
+
+  16 Dec 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.27.ebuild:
+  Linux patch 3.14.27
+
+*gentoo-sources-3.17.7 (16 Dec 2014)
+
+  16 Dec 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.17.7.ebuild:
+  Linux patch 3.17.7. ALSA: hda - Add ultra dock support for Thinkpad X240. See
+  bug #532176.
+
+*gentoo-sources-3.18.1 (16 Dec 2014)
+
+  16 Dec 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.18.1.ebuild:
+  Linux patch 3.18.1
+
+  11 Dec 2014; Michael Pagano <mpagano@gentoo.org>
+  -gentoo-sources-3.10.58.ebuild, -gentoo-sources-3.10.59.ebuild,
+  -gentoo-sources-3.10.60.ebuild, -gentoo-sources-3.12.31.ebuild,
+  -gentoo-sources-3.12.32.ebuild, -gentoo-sources-3.14.23.ebuild,
+  -gentoo-sources-3.14.24.ebuild, -gentoo-sources-3.17.3.ebuild:
+  Cleanup old, unsupported versions
+
+*gentoo-sources-3.10.62 (10 Dec 2014)
+
+  10 Dec 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.62.ebuild:
+  Linux patch 3.10.62
+
+*gentoo-sources-3.14.26 (09 Dec 2014)
+
+  09 Dec 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.26.ebuild:
+  Linux patch 3.14.26
+
+  09 Dec 2014; Michael Pagano <mpagano@gentoo.org>
+  gentoo-sources-3.18.0.ebuild:
+  Added BFQ to 3.18.0
+
+*gentoo-sources-3.17.6 (09 Dec 2014)
+
+  09 Dec 2014; Mike Pagano <mpagano@gentoo.org> -gentoo-sources-3.17.5.ebuild,
+  +gentoo-sources-3.17.6.ebuild:
+  Linux patch 3.17.6. Drop 3.17.5.
+
+*gentoo-sources-3.18.0 (09 Dec 2014)
+
+  09 Dec 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.18.0.ebuild:
+  Patch to support for namespace user.pax.* on tmpfs. Patch to disable Windows
+  8 compatibility for some Lenovo ThinkPads. Patch to ensure that /dev/root
+  doesn't appear in /proc/mounts when bootint without an initramfs. Patch: Do
+  not lock when UMH is waiting on current thread spawned by linuxrc. (bug
+  #481344). Bootsplash ported by Uladzimir Bely (bug #513334). Add Gentoo Linux
+  support config settings and defaults. Kernel patch enables gcc optimizations
+  for additional CPUs.
+
+*gentoo-sources-3.17.5 (07 Dec 2014)
+
+  07 Dec 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.17.5.ebuild:
+  Linux patch 3.17.5
+
+*gentoo-sources-3.12.34 (08 Dec 2014)
+
+  08 Dec 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.12.34.ebuild:
+  Linux patch 3.12.33 and 3.12.34
+
+  03 Dec 2014; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.10.61.ebuild:
+  Stable for x86, wrt bug #530886
+
+  03 Dec 2014; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.10.61.ebuild:
+  Stable for amd64, wrt bug #530886
+
+  28 Nov 2014; Jeroen Roovers <jer@gentoo.org> gentoo-sources-3.10.61.ebuild:
+  Stable for HPPA (bug #530886).
+
+*gentoo-sources-3.17.4 (22 Nov 2014)
+
+  22 Nov 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.17.4.ebuild:
+  Linux patch 3.17.4
+
+*gentoo-sources-3.10.61 (23 Nov 2014)
+
+  23 Nov 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.61.ebuild:
+  Linux patch 3.10.61
+
+  19 Nov 2014; Mike Pagano <mpagano@gentoo.org> -gentoo-sources-3.17.2.ebuild:
+  Removal of old version
+
+*gentoo-sources-3.17.3 (15 Nov 2014)
+
+  15 Nov 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.17.3.ebuild:
+  Linux patch 3.17.3. Removal of redundant patch.
+
+*gentoo-sources-3.14.24 (15 Nov 2014)
+
+  15 Nov 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.24.ebuild:
+  Linux patch 3.14.24
+
+*gentoo-sources-3.10.60 (14 Nov 2014)
+
+  14 Nov 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.60.ebuild:
+  Linux patch 3.10.60
+
+*gentoo-sources-3.12.32 (06 Nov 2014)
+
+  06 Nov 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.12.32.ebuild:
+  Linux patch 3.12.32
+
+  31 Oct 2014; Mike Pagano <mpagano@gentoo.org> -gentoo-sources-3.10.57.ebuild,
+  -gentoo-sources-3.12.29.ebuild, -gentoo-sources-3.14.16.ebuild,
+  -gentoo-sources-3.14.20.ebuild, -gentoo-sources-3.14.22.ebuild,
+  -gentoo-sources-3.16.4.ebuild, -gentoo-sources-3.16.6.ebuild,
+  -gentoo-sources-3.17.1.ebuild, -gentoo-sources-3.17.1-r1.ebuild,
+  gentoo-sources-3.17.2.ebuild:
+  Remove old, unsupported versions
+
+*gentoo-sources-3.10.59 (31 Oct 2014)
+
+  31 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.59.ebuild:
+  Linux patch 3.10.59
+
+  30 Oct 2014; Mike Pagano <mpagano@gentoo.org> gentoo-sources-3.17.2.ebuild:
+  Fix BFQ IO patch for use=experimental. Bug #527534
+
+*gentoo-sources-3.14.23 (30 Oct 2014)
+
+  30 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.23.ebuild:
+  Linux patch 3.14.23
+
+*gentoo-sources-3.16.7 (30 Oct 2014)
+
+  30 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.16.7.ebuild:
+  Linux patch 3.16.7
+
+*gentoo-sources-3.17.2 (30 Oct 2014)
+
+  30 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.17.2.ebuild:
+  Linux patch 3.17.2. Removal of redundant patch. Budget Fair Queueing (BFQ)
+  Storage-I/O Scheduler patch.
+
+  29 Oct 2014; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.12.30.ebuild:
+  Stable for x86, wrt bug #525310
+
+  29 Oct 2014; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.14.21.ebuild:
+  Stable for x86, wrt bug #525312
+
+  29 Oct 2014; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.12.30.ebuild:
+  Stable for amd64, wrt bug #525310
+
+  29 Oct 2014; Agostino Sarubbo <ago@gentoo.org> gentoo-sources-3.14.21.ebuild:
+  Stable for amd64, wrt bug #525312
+
+*gentoo-sources-3.12.31 (24 Oct 2014)
+
+  24 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.12.31.ebuild:
+  Linux patch 3.12.31
+
+  23 Oct 2014; Pacho Ramos <pacho@gentoo.org> gentoo-sources-3.16.5.ebuild:
+  amd64/x86 stable, bug #525314
+
+*gentoo-sources-3.17.1-r1 (17 Oct 2014)
+
+  17 Oct 2014; Mike Pagano <mpagano@gentoo.org>
+  +gentoo-sources-3.17.1-r1.ebuild:
+  Fix loading of special inodes. See bug #525476. Prevent a leak of unreachable
+  mounts. See bug #524848.
+
+  16 Oct 2014; Mike Pagano <mpagano@gentoo.org> -gentoo-sources-3.17.0.ebuild:
+  Removing for potential file system corruption. See bug #525548
+
+*gentoo-sources-3.10.58 (15 Oct 2014)
+
+  15 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.58.ebuild:
+  Linux patch 3.10.58
+
+*gentoo-sources-3.14.22 (15 Oct 2014)
+
+  15 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.22.ebuild:
+  Linux patch 3.14.22
+
+*gentoo-sources-3.16.6 (15 Oct 2014)
+
+  15 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.16.6.ebuild:
+  Linux patch 3.16.6
+
+*gentoo-sources-3.17.1 (15 Oct 2014)
+
+  15 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.17.1.ebuild:
+  Linux patch 3.17.1. Patch to support namespace user.pax.* on tmpfs, bug
+  #470644.
+
+  14 Oct 2014; Jeroen Roovers <jer@gentoo.org> gentoo-sources-3.12.30.ebuild:
+  Stable for HPPA (bug #525310).
+
+  14 Oct 2014; Jeroen Roovers <jer@gentoo.org> gentoo-sources-3.14.21.ebuild:
+  Stable for HPPA (bug #525312).
+
+  13 Oct 2014; Jeroen Roovers <jer@gentoo.org> gentoo-sources-3.16.5.ebuild:
+  Stable for HPPA (bug #525314).
+
+  11 Oct 2014; Mike Pagano <mpagano@gentoo.org> gentoo-sources-3.14.16.ebuild:
+  Adding back 3.14.16 as it is latest stable for x86
+
+  11 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.16.ebuild:
+  Adding back 3.14.16 as it is latest stable for x86
+
+*gentoo-sources-3.12.30 (10 Oct 2014)
+
+  10 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.12.30.ebuild:
+  Linux patch 3.12.30
+
+  10 Oct 2014; Mike Pagano <mpagano@gentoo.org> -gentoo-sources-3.4.103.ebuild,
+  -gentoo-sources-3.10.53.ebuild, -gentoo-sources-3.10.55.ebuild,
+  -gentoo-sources-3.10.56.ebuild, -gentoo-sources-3.12.26.ebuild,
+  -gentoo-sources-3.12.28.ebuild, -gentoo-sources-3.14.16.ebuild,
+  -gentoo-sources-3.14.17.ebuild, -gentoo-sources-3.14.18.ebuild,
+  -gentoo-sources-3.14.19.ebuild, -gentoo-sources-3.15.10.ebuild,
+  -gentoo-sources-3.16.1.ebuild, -gentoo-sources-3.16.2.ebuild,
+  -gentoo-sources-3.16.3.ebuild:
+  Cleanup of old, unsupported versions.
+
+*gentoo-sources-3.10.57 (09 Oct 2014)
+
+  09 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.57.ebuild:
+  Linux patch 3.10.57
+
+*gentoo-sources-3.14.21 (09 Oct 2014)
+
+  09 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.21.ebuild:
+  Linux patch 3.14.21
+
+*gentoo-sources-3.16.5 (09 Oct 2014)
+
+  09 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.16.5.ebuild:
+  Linux patch 3.16.5. Patch to support namespace user.pax.* on tmpfs, bug
+  #470644
+
+*gentoo-sources-3.10.56 (06 Oct 2014)
+
+  06 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.10.56.ebuild:
+  Linux patch 3.10.56
+
+*gentoo-sources-3.14.20 (06 Oct 2014)
+
+  06 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.14.20.ebuild:
+  Linux patch 3.14.20
+
+*gentoo-sources-3.16.4 (06 Oct 2014)
+
+  06 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.16.4.ebuild:
+  Linux patch 3.16.4. Patch to fix UDEV auto selection to add FHANDLE and
+  remove from systemd. Multipath-tcp patch in experimental tarball.
+
+*gentoo-sources-3.17.0 (05 Oct 2014)
+
+  05 Oct 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.17.0.ebuild:
+  Zero copy for infiniband psm userspace driver. ACPI: Disable Windows 8
+  compatibility for some Lenovo ThinkPads. Ensure that /dev/root doesn't appear
+  in /proc/mounts when bootint without an initramfs. Do not lock when UMH is
+  waiting on current thread spawned by linuxrc. (bug #481344). Bootsplash
+  ported by Uladzimir Bely (bug #513334). Add Gentoo Linux support config
+  settings and defaults. Kernel patch enables gcc optimizations for additional
+  CPUs. Fix UDEV auto selection to add FHANDLE. Remove from systemd.
+
+*gentoo-sources-3.12.29 (30 Sep 2014)
+
+  30 Sep 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.12.29.ebuild:
+  Linux patch 3.12.29
+
+*gentoo-sources-3.4.104 (26 Sep 2014)
+
+  26 Sep 2014; Mike Pagano <mpagano@gentoo.org> +gentoo-sources-3.4.104.ebuild:
+  Linux patch 3.4.104
+
+*gentoo-sources-3.12.28 (21 Sep 2014)
+
+  21 Sep 2014; Anthony G. Basile <blueness@gentoo.org>
+  +gentoo-sources-3.12.28.ebuild:
+  Linux patch 3.12.28
+
+*gentoo-sources-3.16.3 (18 Sep 2014)
+*gentoo-sources-3.14.19 (18 Sep 2014)
+*gentoo-sources-3.10.55 (18 Sep 2014)
+
+  18 Sep 2014; Anthony G. Basile <blueness@gentoo.org>
+  +gentoo-sources-3.10.55.ebuild, +gentoo-sources-3.14.19.ebuild,
+  +gentoo-sources-3.16.3.ebuild:
+  Linux patches 3.10.55 3.14.19 3.16.3
+
+*gentoo-sources-3.14.18 (09 Sep 2014)
+
+  09 Sep 2014; Vlastimil Babka <caster@gentoo.org>
+  +gentoo-sources-3.14.18.ebuild:
+  Linux patch 3.14.18
+
+*gentoo-sources-3.16.2 (09 Sep 2014)
+
+  09 Sep 2014; Vlastimil Babka <caster@gentoo.org>
+  +gentoo-sources-3.16.2.ebuild:
+  Linux patch 3.16.2
 
   15 Aug 2014; Mike Pagano <mpagano@gentoo.org> -gentoo-sources-3.2.60.ebuild:
   Remove 3.2 series.

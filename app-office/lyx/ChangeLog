@@ -1,6 +1,63 @@
 # ChangeLog for app-office/lyx
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/lyx/ChangeLog,v 1.312 2014/08/20 15:44:56 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-office/lyx/ChangeLog,v 1.329 2015/02/28 14:59:13 dlan Exp $
+
+*lyx-2.1.3 (28 Feb 2015)
+
+  28 Feb 2015; Yixun Lan <dlan@gentoo.org> -lyx-2.0.6.ebuild,
+  -lyx-2.0.7.1-r2.ebuild, -lyx-2.1.1.ebuild, +lyx-2.1.3.ebuild:
+  bump & drop old, fix bug 530726, 541532, thanks pavel
+
+  06 Dec 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.1.2.ebuild:
+  Stable for ia64, wrt bug #529102
+
+  04 Dec 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.1.2.ebuild:
+  Stable for ppc64, wrt bug #529102
+
+  03 Dec 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.1.2.ebuild:
+  Stable for ppc, wrt bug #529102
+
+  02 Dec 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.1.2.ebuild:
+  Stable for alpha, wrt bug #529102
+
+  01 Dec 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.1.2.ebuild:
+  Stable for sparc, wrt bug #529102
+
+  25 Nov 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.1.2.ebuild:
+  Stable for x86, wrt bug #529102
+
+  14 Nov 2014; Jeroen Roovers <jer@gentoo.org> lyx-2.1.2.ebuild:
+  Stable for HPPA (bug #529102).
+
+  13 Nov 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.1.2.ebuild:
+  Stable for amd64, wrt bug #529102
+
+  02 Nov 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.0.8.1.ebuild:
+  Stable for alpha, wrt bug #520258
+
+  29 Oct 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.0.8.1.ebuild:
+  Stable for sparc, wrt bug #520258
+
+  28 Oct 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.0.8.1.ebuild:
+  Stable for ia64, wrt bug #520258
+
+  27 Oct 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.0.8.1.ebuild:
+  Stable for ppc64, wrt bug #520258
+
+  10 Oct 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.0.8.1.ebuild:
+  Stable for x86, wrt bug #520258
+
+  05 Oct 2014; Agostino Sarubbo <ago@gentoo.org> lyx-2.0.8.1.ebuild:
+  Stable for ppc, wrt bug #520258
+
+*lyx-2.1.2 (25 Sep 2014)
+
+  25 Sep 2014; Yixun Lan <dlan@gentoo.org> -lyx-2.0.8.ebuild,
+  -lyx-2.1.0.ebuild, +lyx-2.1.2.ebuild:
+  version bump, drop old, per maintainer request
+
+  23 Sep 2014; Chema Alonso <nimiux@gentoo.org> lyx-2.0.8.1.ebuild:
+  Stable for amd64 wrt bug #520258
 
   20 Aug 2014; Jeroen Roovers <jer@gentoo.org> lyx-2.0.8.1.ebuild:
   Stable for HPPA (bug #520258).

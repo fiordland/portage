@@ -1,6 +1,50 @@
 # ChangeLog for sys-apps/accountsservice
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/accountsservice/ChangeLog,v 1.45 2014/06/20 14:45:28 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/accountsservice/ChangeLog,v 1.55 2015/01/26 12:51:50 pacho Exp $
+
+*accountsservice-0.6.40 (26 Jan 2015)
+
+  26 Jan 2015; Pacho Ramos <pacho@gentoo.org> +accountsservice-0.6.40.ebuild,
+  -accountsservice-0.6.37.ebuild:
+  Version bump, drop old
+
+  01 Jan 2015; Markus Meier <maekke@gentoo.org> accountsservice-0.6.39.ebuild:
+  arm stable, bug #529964
+
+  30 Dec 2014; Agostino Sarubbo <ago@gentoo.org> accountsservice-0.6.39.ebuild:
+  Stable for ppc64, wrt bug #529964
+
+  28 Dec 2014; Agostino Sarubbo <ago@gentoo.org> accountsservice-0.6.39.ebuild:
+  Stable for ppc, wrt bug #529964
+
+  19 Dec 2014; Pacho Ramos <pacho@gentoo.org> accountsservice-0.6.39.ebuild:
+  amd64 stable, bug 529964
+
+  18 Dec 2014; Pacho Ramos <pacho@gentoo.org> accountsservice-0.6.39.ebuild:
+  x86 stable, bug 529964
+
+*accountsservice-0.6.39 (02 Nov 2014)
+
+  02 Nov 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +accountsservice-0.6.39.ebuild:
+  Version bump.
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> accountsservice-0.6.37.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+  01 Nov 2014; Pacho Ramos <pacho@gentoo.org> -accountsservice-0.6.29-r1.ebuild,
+  -accountsservice-0.6.35.ebuild,
+  -files/accountsservice-0.6.21-gentoo-system-users.patch,
+  -files/accountsservice-0.6.29-32bit-crash.patch,
+  -files/accountsservice-0.6.34-gentoo-system-users.patch,
+  -files/accountsservice-0.6.35-nondelete-root.patch,
+  -files/accountsservice-0.6.35-older-glib.patch,
+  -files/accountsservice-0.6.35-user-logic.patch, metadata.xml:
+  Drop old
+
+  05 Sep 2014; Mikle Kolyada <zlogene@gentoo.org> accountsservice-0.6.37.ebuild:
+  ppc/ppc64 stable wrt bug #518014
 
   20 Jun 2014; Agostino Sarubbo <ago@gentoo.org> accountsservice-0.6.37.ebuild:
   Stable for arm, wrt bug #508862

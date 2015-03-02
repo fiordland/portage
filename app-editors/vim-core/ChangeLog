@@ -1,6 +1,78 @@
 # ChangeLog for app-editors/vim-core
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/vim-core/ChangeLog,v 1.446 2014/08/27 12:25:29 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-editors/vim-core/ChangeLog,v 1.461 2015/02/28 22:26:04 tgall Exp $
+
+  28 Feb 2015;  <tgall@gentoo.org> vim-core-7.4.591.ebuild:
+  stable on arm64
+
+*vim-core-7.4.622 (07 Feb 2015)
+
+  07 Feb 2015; Tim Harder <radhermit@gentoo.org> +vim-core-7.4.622.ebuild:
+  Version bump.
+
+*vim-core-7.4.591 (26 Jan 2015)
+
+  26 Jan 2015; Tim Harder <radhermit@gentoo.org> +vim-core-7.4.591.ebuild,
+  vim-core-9999.ebuild:
+  Version bump.
+
+  05 Jan 2015; Yixun Lan <dlan@gentoo.org> vim-core-7.4.560.ebuild:
+  keyword ~arm64, test on board
+
+*vim-core-7.4.560 (04 Jan 2015)
+
+  04 Jan 2015; Tim Harder <radhermit@gentoo.org> +vim-core-7.4.560.ebuild,
+  vim-core-9999.ebuild:
+  Version bump.
+
+  08 Dec 2014; Tim Harder <radhermit@gentoo.org> -vim-core-7.3.762.ebuild,
+  -vim-core-7.3.1214.ebuild, -vim-core-7.4.430.ebuild,
+  -vim-core-7.4.475.ebuild:
+  Remove old.
+
+*vim-core-7.4.542 (08 Dec 2014)
+
+  08 Dec 2014; Tim Harder <radhermit@gentoo.org> +vim-core-7.4.542.ebuild:
+  Version bump.
+
+  24 Nov 2014; Tim Harder <radhermit@gentoo.org> -vim-core-7.4.52.ebuild,
+  -vim-core-7.4.155.ebuild, -vim-core-7.4.169.ebuild, -vim-core-7.4.193.ebuild,
+  -vim-core-7.4.326.ebuild, -vim-core-7.4.417.ebuild:
+  Remove old.
+
+*vim-core-7.4.527 (24 Nov 2014)
+
+  24 Nov 2014; Tim Harder <radhermit@gentoo.org> +vim-core-7.4.527.ebuild,
+  vim-core-9999.ebuild:
+  Version bump, fix locale installs (bug #527128).
+
+*vim-core-7.4.488 (26 Oct 2014)
+
+  26 Oct 2014; Tim Harder <radhermit@gentoo.org> +vim-core-7.4.488.ebuild,
+  vim-core-9999.ebuild:
+  Version bump, make sed regex stricter (fixes bug #526682).
+
+*vim-core-7.4.475 (13 Oct 2014)
+
+  13 Oct 2014; Tim Harder <radhermit@gentoo.org> +vim-core-7.4.475.ebuild:
+  Version bump.
+
+  12 Oct 2014; Agostino Sarubbo <ago@gentoo.org> vim-core-7.4.273.ebuild:
+  Stable for x86, wrt bug #511190
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org> vim-core-7.4.273.ebuild:
+  Stable for ppc64, wrt bug #511190
+
+  06 Sep 2014; Tim Harder <radhermit@gentoo.org> vim-core-7.4.430.ebuild,
+  vim-core-9999.ebuild:
+  Revert to using a single, compressed patch file.
+
+*vim-core-7.4.430 (05 Sep 2014)
+
+  05 Sep 2014; Tim Harder <radhermit@gentoo.org> +vim-core-7.4.430.ebuild,
+  vim-core-9999.ebuild:
+  Version bump. Use upstream patches instead of rolling our own (thanks to
+  exherbo for the code) and fix cross-compile issues (bug #473372).
 
   27 Aug 2014; Agostino Sarubbo <ago@gentoo.org> vim-core-7.4.273.ebuild:
   Stable for ppc, wrt bug #511190

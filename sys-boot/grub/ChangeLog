@@ -1,6 +1,175 @@
 # ChangeLog for sys-boot/grub
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/grub/ChangeLog,v 1.312 2014/06/22 18:02:08 floppym Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/grub/ChangeLog,v 1.347 2015/02/16 18:06:05 zlogene Exp $
+
+  16 Feb 2015; Mikle Kolyada <zlogene@gentoo.org> grub-0.97-r14.ebuild:
+  x86 stable wrt bug #525566
+
+  07 Feb 2015; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r7.ebuild,
+  grub-9999-r1.ebuild, metadata.xml:
+  DEPEND on freetype for themes. Add local use description for truetype.
+
+  05 Feb 2015; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r7.ebuild,
+  grub-9999-r1.ebuild, metadata.xml:
+  Add 'fonts' use flag to toggle freetype DEPEND. Bug 538926.
+
+  04 Feb 2015; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r7.ebuild,
+  grub-9999-r1.ebuild, metadata.xml:
+  Add themes use flag to control starfield generation.
+
+  04 Feb 2015; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r7.ebuild,
+  grub-9999-r1.ebuild:
+  Bump to unifont-7.0.06.
+
+  04 Feb 2015; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r7.ebuild,
+  grub-9999-r1.ebuild:
+  DEPEND on freetype unconditionally so that we always build fonts for gfxterm.
+
+*grub-2.02_beta2-r7 (01 Feb 2015)
+
+  01 Feb 2015; Mike Gilbert <floppym@gentoo.org> +grub-2.02_beta2-r7.ebuild:
+  Add patches for XFS v5 superblocks, bug 525682. Fix build on musl, bug 529356.
+
+  04 Jan 2015; Mike Gilbert <floppym@gentoo.org> grub-2.00_p5107-r2.ebuild,
+  grub-2.02_beta2-r3.ebuild, grub-2.02_beta2-r6.ebuild, grub-9999-r1.ebuild:
+  Replace grub2 migration guide URL, bug 534500.
+
+  27 Dec 2014; Agostino Sarubbo <ago@gentoo.org> grub-0.97-r14.ebuild:
+  Stable for amd64, wrt bug #525566
+
+  16 Dec 2014; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r3.ebuild,
+  grub-2.02_beta2-r6.ebuild, grub-9999-r1.ebuild:
+  Add blocker on broken freetype, bug 532506.
+
+*grub-2.02_beta2-r6 (11 Dec 2014)
+
+  11 Dec 2014; Mike Gilbert <floppym@gentoo.org> +grub-2.02_beta2-r6.ebuild,
+  -grub-2.02_beta2-r5.ebuild:
+  Backport patch to remove bashisms in grub-mkconfig, bug 532200 by Rémi
+  Cardona.
+
+  07 Dec 2014; Mike Gilbert <floppym@gentoo.org>
+  -files/grub-2.02_beta2-bash-completions.patch, grub-2.02_beta2-r5.ebuild:
+  Drop bash-completion patch until uptream approves of something.
+
+  06 Dec 2014; Patrick Lauer <patrick@gentoo.org> grub-2.02_beta2-r5.ebuild:
+  Remove unneeded blank line
+
+  06 Dec 2014; Mike Gilbert <floppym@gentoo.org>
+  files/grub-2.02_beta2-bash-completions.patch:
+  Replace grub-completion patch with the version I sent upstream.
+
+  06 Dec 2014; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r5.ebuild:
+  Fix bash completion symlinks.
+
+*grub-2.02_beta2-r5 (05 Dec 2014)
+
+  05 Dec 2014; Justin Lecher <jlec@gentoo.org> -grub-2.02_beta2-r4.ebuild,
+  +grub-2.02_beta2-r5.ebuild:
+  Fix name of bash-completion grub -> grub2
+
+  05 Dec 2014; Mike Gilbert <floppym@gentoo.org> -files/2.02_beta2/0001-Makefile
+  .util.def-Link-grub-ofpathname-with-zfs-libs.patch, -files/2.02_beta2/0002-gru
+  b-install-support-for-partitioned-partx-loop-devi.patch,
+  -files/2.02_beta2/0003-Fix-grub-probe-0-option.patch, -files/2.02_beta2/0004-F
+  ix-partmap-cryptodisk-and-abstraction-handling-in-g.patch,
+  -files/2.02_beta2/0005-Fix-typo-gettext_print-instead-of-gettext_printf.patch,
+  -files/2.02_beta2/0006-change-stop-condition-to-avoid-infinite-loops.patch,
+  -files/2.02_beta2/0007-Improve-LVM-logical_volumes-string-matching.patch,
+  -files/2.02_beta2/0008-Fix-an-infinite-loop-in-grub-mkconfig.patch,
+  -files/2.02_beta2/0009-Fix-incorrect-address-reference-in-btrfs.patch,
+  -grub-2.02_beta2-r2.ebuild, -grub-2.02_beta2.ebuild:
+  Remove obsolete ebuilds.
+
+*grub-2.02_beta2-r4 (04 Dec 2014)
+
+  04 Dec 2014; Justin Lecher <jlec@gentoo.org> +grub-2.02_beta2-r4.ebuild,
+  +files/grub-2.02_beta2-bash-completions.patch, metadata.xml:
+  Fix QA issues with bash-completions, #526138
+
+  03 Dec 2014; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r3.ebuild:
+  Stable on x86, bug 522314. Thanks to Poly-C for testing.
+
+  03 Dec 2014; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r3.ebuild:
+  Move stable keyword forward for minor change.
+
+*grub-2.02_beta2-r3 (03 Dec 2014)
+
+  03 Dec 2014; Mike Gilbert <floppym@gentoo.org> +grub-2.02_beta2-r3.ebuild:
+  Convert patchset to a tarball. Don't set gfxpayload by default if not booting
+  with efi, bug 528826.
+
+  22 Oct 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  -files/grub-0.97-force-ld.bfd.patch, grub-0.97-r14.ebuild:
+  grub:0 - undid the ugly patch-based hacks for forcing ld.bfd, thanks to vapier
+  and floppym
+
+  22 Oct 2014; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r2.ebuild,
+  grub-9999-r1.ebuild:
+  Use test-flags-CC instead of gcc-version check, thanks to vapier.
+
+  22 Oct 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> grub-0.97-r14.ebuild:
+  grub:0 - Only apply -fuse-ld=bfd when gcc is new enough to support it, bug
+  526348
+
+  20 Oct 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> grub-0.97-r14.ebuild:
+  A quick fix regarding amd64 static building without ncurses
+
+*grub-0.97-r14 (20 Oct 2014)
+
+  20 Oct 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +files/grub-0.97-force-ld.bfd.patch, +grub-0.97-r14.ebuild,
+  files/grub.conf.gentoo:
+  revbump of grub:0 , supporting gx86-multilib (bug 510758) and addressing bugs
+  479296, 466536 and 418287
+
+  19 Oct 2014; Mike Gilbert <floppym@gentoo.org> grub-9999-r1.ebuild:
+  Update to latest unifont.
+
+  16 Oct 2014; Mike Gilbert <floppym@gentoo.org> files/grub.default-3:
+  Copy/paste description of GRUB_GFXPAYLOAD_LINUX from grub.info.
+
+  24 Sep 2014; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r2.ebuild:
+  Stable on amd64, bug 522314.
+
+  16 Sep 2014; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r2.ebuild,
+  grub-9999-r1.ebuild:
+  Always download/symlink unifont, bug 522956.
+
+*grub-2.02_beta2-r2 (10 Sep 2014)
+
+  10 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  +files/2.02_beta2/0006-change-stop-condition-to-avoid-infinite-loops.patch,
+  +files/2.02_beta2/0007-Improve-LVM-logical_volumes-string-matching.patch,
+  +files/2.02_beta2/0008-Fix-an-infinite-loop-in-grub-mkconfig.patch,
+  +files/2.02_beta2/0009-Fix-incorrect-address-reference-in-btrfs.patch,
+  +grub-2.02_beta2-r2.ebuild, -grub-2.02_beta2-r1.ebuild:
+  More backports, bug 522428.
+
+  10 Sep 2014; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2-r1.ebuild,
+  grub-2.02_beta2.ebuild, grub-9999-r1.ebuild:
+  Add build-time dep on freetype for coreboot, qemu, ieee1275 and loongson. Bug
+  522464 by Stuart Shelton.
+
+*grub-2.02_beta2-r1 (09 Sep 2014)
+
+  09 Sep 2014; Mike Gilbert <floppym@gentoo.org> +files/2.02_beta2/0001-Makefile
+  .util.def-Link-grub-ofpathname-with-zfs-libs.patch, +files/2.02_beta2/0002-gru
+  b-install-support-for-partitioned-partx-loop-devi.patch,
+  +files/2.02_beta2/0003-Fix-grub-probe-0-option.patch, +files/2.02_beta2/0004-F
+  ix-partmap-cryptodisk-and-abstraction-handling-in-g.patch,
+  +files/2.02_beta2/0005-Fix-typo-gettext_print-instead-of-gettext_printf.patch,
+  +grub-2.02_beta2-r1.ebuild:
+  Backport several patches to resolve issues with grub-probe and grub-mkconfig.
+  Bug 522428, thanks to Coacher.
+
+  09 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  +files/grub-2.02_beta2-libzfs.patch, grub-2.02_beta2.ebuild:
+  Backport build fix for when both device-mapper and libzfs are enabled. Bug
+  496608.
+
+  07 Sep 2014; Richard Freeman <rich0@gentoo.org> grub-2.02_beta2.ebuild:
+  amd64 stable - 522314
 
   22 Jun 2014; Mike Gilbert <floppym@gentoo.org> grub-2.02_beta2.ebuild,
   grub-9999-r1.ebuild:

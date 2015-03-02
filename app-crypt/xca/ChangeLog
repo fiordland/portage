@@ -1,6 +1,31 @@
 # ChangeLog for app-crypt/xca
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/xca/ChangeLog,v 1.42 2013/07/04 12:18:48 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/xca/ChangeLog,v 1.47 2015/01/09 21:28:43 alonbl Exp $
+
+  09 Jan 2015; Alon Bar-Lev <alonbl@gentoo.org> +files/xca-1.1.0-ec.patch,
+  xca-1.1.0.ebuild:
+  Fix bindist issues, bug#534770
+
+*xca-1.1.0 (21 Dec 2014)
+
+  21 Dec 2014; Alon Bar-Lev <alonbl@gentoo.org> +xca-1.1.0.ebuild:
+  Version bump, bug#531290
+
+  07 Nov 2014; Alon Bar-Lev <alonbl@gentoo.org> -xca-0.9.0.ebuild,
+  -xca-0.9.1.ebuild, -xca-0.9.3.ebuild:
+  Cleanup
+
+*xca-1.0.0 (07 Nov 2014)
+
+  07 Nov 2014; Alon Bar-Lev <alonbl@gentoo.org> +files/xca-1.0.0-desktop.patch,
+  +xca-1.0.0.ebuild:
+  Version bump, bug#528462, thanks to bgo
+
+*xca-0.9.3-r2 (29 Aug 2014)
+
+  29 Aug 2014; Alon Bar-Lev <alonbl@gentoo.org> +files/xca-0.9.3-openssl.patch,
+  +xca-0.9.3-r2.ebuild:
+  Fix openssl issue, bug#520948, thanks to wmatusiak@gmail.com
 
   04 Jul 2013; Agostino Sarubbo <ago@gentoo.org> xca-0.9.3-r1.ebuild:
   Stable for x86, wrt bug #470302

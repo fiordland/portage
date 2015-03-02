@@ -1,6 +1,24 @@
 # ChangeLog for dev-java/tomcat-native
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/tomcat-native/ChangeLog,v 1.48 2014/04/18 14:54:53 fordfrog Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/tomcat-native/ChangeLog,v 1.52 2015/02/25 15:34:47 ago Exp $
+
+  25 Feb 2015; Agostino Sarubbo <ago@gentoo.org> tomcat-native-1.1.32.ebuild:
+  Stable for x86, wrt bug #535096
+
+  19 Feb 2015; Agostino Sarubbo <ago@gentoo.org> tomcat-native-1.1.32.ebuild:
+  Stable for amd64, wrt bug #535096
+
+*tomcat-native-1.1.32 (14 Nov 2014)
+
+  14 Nov 2014; Miroslav Šulc <fordfrog@gentoo.org>
+  +tomcat-native-1.1.32.ebuild:
+  version bump
+
+*tomcat-native-1.1.31 (24 Sep 2014)
+
+  24 Sep 2014; Miroslav Šulc <fordfrog@gentoo.org>
+  +tomcat-native-1.1.31.ebuild:
+  Version bump
 
   18 Apr 2014; Miroslav Šulc <fordfrog@gentoo.org>
   -tomcat-native-1.1.23.ebuild, -tomcat-native-1.1.24.ebuild,

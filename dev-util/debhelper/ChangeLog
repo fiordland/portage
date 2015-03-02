@@ -1,6 +1,69 @@
 # ChangeLog for dev-util/debhelper
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/debhelper/ChangeLog,v 1.109 2014/08/17 22:50:09 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/debhelper/ChangeLog,v 1.125 2015/02/28 13:23:47 ago Exp $
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org> debhelper-9.20150101.ebuild:
+  Stable for ia64, wrt bug #539646
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> debhelper-9.20150101.ebuild:
+  Stable for sparc, wrt bug #539646
+
+  26 Feb 2015; Markus Meier <maekke@gentoo.org> debhelper-9.20150101.ebuild:
+  arm stable, bug #539646
+
+  25 Feb 2015; Agostino Sarubbo <ago@gentoo.org> debhelper-9.20150101.ebuild:
+  Stable for x86, wrt bug #539646
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> debhelper-9.20150101.ebuild:
+  Stable for alpha, wrt bug #539646
+
+  23 Feb 2015; Agostino Sarubbo <ago@gentoo.org> debhelper-9.20150101.ebuild:
+  Stable for ppc64, wrt bug #539646
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> debhelper-9.20150101.ebuild:
+  Stable for ppc, wrt bug #539646
+
+  19 Feb 2015; Agostino Sarubbo <ago@gentoo.org> debhelper-9.20150101.ebuild:
+  Stable for amd64, wrt bug #539646
+
+  13 Feb 2015; Jeroen Roovers <jer@gentoo.org> debhelper-9.20150101.ebuild:
+  Stable for HPPA (bug #539646).
+
+  13 Feb 2015; Jeroen Roovers <jer@gentoo.org> debhelper-9.20150101.ebuild:
+  Set sub-SLOT dependency on dev-lang/perl.
+
+*debhelper-9.20150101 (04 Jan 2015)
+
+  04 Jan 2015; Jeroen Roovers <jer@gentoo.org> +debhelper-9.20150101.ebuild:
+  Version bump.
+
+*debhelper-9.20141222 (22 Dec 2014)
+
+  22 Dec 2014; Jeroen Roovers <jer@gentoo.org> +debhelper-9.20141222.ebuild:
+  Version bump.
+
+*debhelper-9.20141107 (08 Nov 2014)
+
+  08 Nov 2014; Jeroen Roovers <jer@gentoo.org> -debhelper-9.20141010.ebuild,
+  -debhelper-9.20141022.ebuild, +debhelper-9.20141107.ebuild:
+  Version bump.
+
+*debhelper-9.20141022 (23 Oct 2014)
+
+  23 Oct 2014; Jeroen Roovers <jer@gentoo.org> -debhelper-9.20140817.ebuild,
+  -debhelper-9.20141003.ebuild, +debhelper-9.20141022.ebuild:
+  Version bump.
+
+*debhelper-9.20141010 (11 Oct 2014)
+
+  11 Oct 2014; Jeroen Roovers <jer@gentoo.org> +debhelper-9.20141010.ebuild:
+  Version bump.
+
+*debhelper-9.20141003 (04 Oct 2014)
+
+  04 Oct 2014; Jeroen Roovers <jer@gentoo.org> -debhelper-9.20140613.ebuild,
+  +debhelper-9.20141003.ebuild:
+  Version bump.
 
 *debhelper-9.20140817 (17 Aug 2014)
 

@@ -1,6 +1,53 @@
 # ChangeLog for net-p2p/qbittorrent
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/qbittorrent/ChangeLog,v 1.230 2014/05/24 22:53:34 pesa Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/qbittorrent/ChangeLog,v 1.241 2015/03/01 15:49:39 hwoarang Exp $
+
+  01 Mar 2015; Markos Chandras <hwoarang@gentoo.org> qbittorrent-3.1.12.ebuild,
+  qbittorrent-9999.ebuild:
+  Add epatch_user. Bug #541690
+
+*qbittorrent-3.1.12 (27 Feb 2015)
+
+  27 Feb 2015; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.1.12.ebuild:
+  Version bump. Bug #541386
+
+  23 Feb 2015; Markos Chandras <hwoarang@gentoo.org> qbittorrent-9999.ebuild:
+  Fix qtgui slot for Qt5
+
+  17 Feb 2015; Ben de Groot <yngwin@gentoo.org> metadata.xml,
+  qbittorrent-9999.ebuild:
+  Update live ebuild. Implement Qt5 support (bug #515692).
+
+*qbittorrent-3.0.11-r2 (05 Dec 2014)
+
+  05 Dec 2014; Markos Chandras <hwoarang@gentoo.org>
+  +qbittorrent-3.0.11-r2.ebuild:
+  Add 3.0.11 ebuild since it has features which have been removed in later
+  versions. Do not remove it before you talk to me please
+
+*qbittorrent-3.1.11 (06 Nov 2014)
+
+  06 Nov 2014; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.1.11.ebuild:
+  Version bump. Bug #528226
+
+  19 Oct 2014; Davide Pesavento <pesa@gentoo.org> qbittorrent-3.1.10.ebuild,
+  qbittorrent-3.1.9.2-r1.ebuild, qbittorrent-9999.ebuild:
+  Raise rb_libtorrent dep wrt bug #522640
+
+  10 Oct 2014; Davide Pesavento <pesa@gentoo.org> -qbittorrent-3.0.11.ebuild:
+  old
+
+  10 Oct 2014; Agostino Sarubbo <ago@gentoo.org> qbittorrent-3.1.9.2-r1.ebuild:
+  Stable for x86, wrt bug #522764
+
+  09 Oct 2014; Agostino Sarubbo <ago@gentoo.org> qbittorrent-3.1.9.2-r1.ebuild:
+  Stable for amd64, wrt bug #522764
+
+*qbittorrent-3.1.10 (02 Oct 2014)
+
+  02 Oct 2014; Markos Chandras <hwoarang@gentoo.org> +qbittorrent-3.1.10.ebuild,
+  qbittorrent-9999.ebuild:
+  Version bump
 
 *qbittorrent-3.1.9.2-r1 (24 May 2014)
 

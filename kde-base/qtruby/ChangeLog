@@ -1,6 +1,66 @@
 # ChangeLog for kde-base/qtruby
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/qtruby/ChangeLog,v 1.219 2014/08/20 16:02:47 johu Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/qtruby/ChangeLog,v 1.234 2015/02/19 01:53:18 kensington Exp $
+
+  19 Feb 2015; Michael Palimaka <kensington@gentoo.org>
+  -qtruby-4.14.3-r1.ebuild, -qtruby-4.14.3.ebuild:
+  Remove old.
+
+  18 Feb 2015; Michał Górny <mgorny@gentoo.org> -qtruby-4.12.5.ebuild:
+  Remove KDE SC 4.12
+
+  17 Feb 2015; Agostino Sarubbo <ago@gentoo.org> qtruby-4.14.3-r2.ebuild:
+  Stable for ppc64 wrt bug #517344
+
+  16 Feb 2015; Agostino Sarubbo <ago@gentoo.org> qtruby-4.14.3-r2.ebuild:
+  Stable for ppc wrt bug #517344
+
+  14 Feb 2015; Agostino Sarubbo <ago@gentoo.org> qtruby-4.14.3-r2.ebuild:
+  Stable for x86 wrt bug #517344
+
+  14 Feb 2015; Agostino Sarubbo <ago@gentoo.org> qtruby-4.14.3-r2.ebuild:
+  Stable for amd64, wrt bug #517344
+
+*qtruby-4.14.3-r2 (18 Jan 2015)
+
+  18 Jan 2015; Johannes Huber <johu@gentoo.org>
+  +files/qtruby-4.14.3-ruby20.patch, +qtruby-4.14.3-r2.ebuild,
+  qtruby-4.14.3.ebuild:
+  Revision bump adds patch to fix signals in ruby20 spotted by Stefano Crocco
+  <stefano.crocco@alice.it>, bug #532120.
+
+  11 Dec 2014; Manuel Rüger <mrueg@gentoo.org> -qtruby-4.14.2.ebuild:
+  Remove KDE SC 4.14.2
+
+  11 Dec 2014; Mikle Kolyada <zlogene@gentoo.org> qtruby-4.14.3.ebuild:
+  amd64 stable wrt bug #517344
+
+*qtruby-4.14.3-r1 (02 Dec 2014)
+
+  02 Dec 2014; Manuel Rüger <mrueg@gentoo.org> +qtruby-4.14.3-r1.ebuild:
+  Revision bump to default to ruby20.
+
+*qtruby-4.14.3 (16 Nov 2014)
+
+  16 Nov 2014; Alexey Shvetsov <alexxy@gentoo.org> +qtruby-4.14.3.ebuild:
+  Version bump KDE SC 4.14.3
+
+  14 Nov 2014; Manuel Rüger <mrueg@gentoo.org> -qtruby-4.13.3.ebuild,
+  -qtruby-4.14.1.ebuild:
+  Cleanup old.
+
+  25 Oct 2014; Manuel Rüger <mrueg@gentoo.org> -qtruby-4.14.0.ebuild:
+  Cleanup KDE SC 4.14.0
+
+*qtruby-4.14.2 (25 Oct 2014)
+
+  25 Oct 2014; Michael Palimaka <kensington@gentoo.org> +qtruby-4.14.2.ebuild:
+  Version bump KDE SC 4.14.2
+
+*qtruby-4.14.1 (16 Sep 2014)
+
+  16 Sep 2014; Johannes Huber <johu@gentoo.org> +qtruby-4.14.1.ebuild:
+  Version bump KDE SC 4.14.1
 
 *qtruby-4.14.0 (20 Aug 2014)
 

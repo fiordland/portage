@@ -1,6 +1,54 @@
 # ChangeLog for www-apps/moodle
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/moodle/ChangeLog,v 1.59 2014/07/13 11:36:33 blueness Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apps/moodle/ChangeLog,v 1.66 2015/02/01 22:09:43 blueness Exp $
+
+*moodle-2.6.8 (01 Feb 2015)
+*moodle-2.7.5 (01 Feb 2015)
+*moodle-2.8.3 (01 Feb 2015)
+
+  01 Feb 2015; Anthony G. Basile <blueness@gentoo.org> +moodle-2.6.8.ebuild,
+  +moodle-2.7.5.ebuild, +moodle-2.8.3.ebuild, -moodle-2.6.7.ebuild,
+  -moodle-2.7.4.ebuild, -moodle-2.8.2.ebuild:
+  Version bumps
+
+*moodle-2.8.2 (11 Jan 2015)
+*moodle-2.7.4 (11 Jan 2015)
+*moodle-2.6.7 (11 Jan 2015)
+
+  11 Jan 2015; Anthony G. Basile <blueness@gentoo.org> +moodle-2.6.7.ebuild,
+  +moodle-2.7.4.ebuild, +moodle-2.8.2.ebuild, -moodle-2.5.9.ebuild,
+  -moodle-2.6.6.ebuild, -moodle-2.7.3.ebuild, -moodle-2.8.ebuild:
+  Version bumps, remove older unsupported upstream
+
+*moodle-2.8 (10 Nov 2014)
+
+  10 Nov 2014; Anthony G. Basile <blueness@gentoo.org> +files/config-r1.php,
+  +moodle-2.8.ebuild:
+  Version bump to 2.8 branch
+
+  10 Nov 2014; Anthony G. Basile <blueness@gentoo.org> -moodle-2.5.8.ebuild,
+  -moodle-2.6.5.ebuild, -moodle-2.7.2.ebuild:
+  Remove older versions
+
+*moodle-2.6.6 (09 Nov 2014)
+*moodle-2.5.9 (09 Nov 2014)
+*moodle-2.7.3 (09 Nov 2014)
+
+  09 Nov 2014; Anthony G. Basile <blueness@gentoo.org> +moodle-2.5.9.ebuild,
+  +moodle-2.6.6.ebuild, +moodle-2.7.3.ebuild:
+  Version bumps
+
+*moodle-2.7.2 (07 Sep 2014)
+*moodle-2.5.8 (07 Sep 2014)
+*moodle-2.6.5 (07 Sep 2014)
+
+  07 Sep 2014; Anthony G. Basile <blueness@gentoo.org> +moodle-2.5.8.ebuild,
+  +moodle-2.6.5.ebuild, +moodle-2.7.2.ebuild, -moodle-2.5.7.ebuild,
+  -moodle-2.6.4.ebuild, -moodle-2.7.1.ebuild:
+  Version bumps
+
+  07 Sep 2014; Anthony G. Basile <blueness@gentoo.org> -moodle-2.4.11.ebuild:
+  Remove legacy version
 
 *moodle-2.7.1 (13 Jul 2014)
 *moodle-2.5.7 (13 Jul 2014)

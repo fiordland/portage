@@ -1,6 +1,20 @@
 # ChangeLog for dev-haskell/dataenc
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/dataenc/ChangeLog,v 1.42 2014/07/25 08:58:51 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/dataenc/ChangeLog,v 1.45 2015/02/01 22:55:34 qnikst Exp $
+
+  01 Feb 2015; Alexander Vershilov <qnikst@gentoo.org>
+  dataenc-0.14.0.5-r1.ebuild:
+  dev-haskell/dataenc: drop old
+
+  01 Feb 2015; Alexander Vershilov <qnikst@gentoo.org> -dataenc-0.14.0.4.ebuild:
+  dev-haskell/dataenc: drop old
+
+  02 Jan 2015; Mark Wright <gienah@gentoo.org> dataenc-0.14.0.5.ebuild,
+  dataenc-0.14.0.7.ebuild, metadata.xml:
+  Fix Bug 534180 - dev-haskell/dataenc-0.14.0.5 - setup: At least the following
+  dependencies are missing: array >=0.1.0 && <0.5, base >=3.0.0 && <4.7. Change
+  IUSE tests to test in dataenc-0.14.0.7, move test stuff from RDEPEND to
+  DEPEND, restore the missing KEYWORDS.
 
   25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> metadata.xml:
   Drop redundant '<maintainer>' field, leave only '<herd>'.

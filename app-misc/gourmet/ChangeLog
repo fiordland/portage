@@ -1,6 +1,19 @@
 # ChangeLog for app-misc/gourmet
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/gourmet/ChangeLog,v 1.46 2014/06/23 15:01:19 pacho Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/gourmet/ChangeLog,v 1.50 2015/01/26 10:17:09 ago Exp $
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> gourmet-0.17.4.ebuild:
+  Stable for x86, wrt bug #534874
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> gourmet-0.17.4.ebuild:
+  Stable for amd64, wrt bug #534874
+
+  07 Sep 2014; Joe Sapp <nixphoeni@gentoo.org> gourmet-0.17.4.ebuild:
+  Modify gtkspell-python dependency to use PYTHON_USEDEP
+
+  07 Sep 2014; Joe Sapp <nixphoeni@gentoo.org> -gourmet-0.15.9.ebuild,
+  -gourmet-0.16.1-r3.ebuild, -gourmet-0.17.0.ebuild, metadata.xml:
+  Remove old versions
 
   23 Jun 2014; Pacho Ramos <pacho@gentoo.org> gourmet-0.17.2.ebuild:
   x86 stable, bug #512696

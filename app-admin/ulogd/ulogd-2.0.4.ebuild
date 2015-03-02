@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/ulogd/ulogd-2.0.4.ebuild,v 1.2 2014/04/26 11:34:06 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/ulogd/ulogd-2.0.4.ebuild,v 1.9 2015/01/28 10:26:01 ago Exp $
 
 EAPI="5"
 
@@ -10,11 +10,12 @@ inherit autotools-utils eutils linux-info readme.gentoo user
 
 DESCRIPTION="A userspace logging daemon for netfilter/iptables related logging"
 HOMEPAGE="http://netfilter.org/projects/ulogd/index.html"
-SRC_URI="http://www.netfilter.org/projects/${PN}/files/${P}.tar.bz2"
+SRC_URI="ftp://ftp.netfilter.org/pub/${PN}/${P}.tar.bz2
+		http://www.netfilter.org/projects/${PN}/files/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ia64 ~ppc ~x86"
+KEYWORDS="amd64 ~ia64 ppc x86"
 IUSE="dbi doc json mysql nfacct +nfct +nflog pcap postgres sqlite"
 
 RDEPEND="net-firewall/iptables
@@ -29,7 +30,7 @@ RDEPEND="net-firewall/iptables
 	nflog? ( >=net-libs/libnetfilter_log-1.0.0 )
 	mysql? ( virtual/mysql )
 	pcap? ( net-libs/libpcap )
-	postgres? ( dev-db/postgresql-base )
+	postgres? ( dev-db/postgresql )
 	sqlite? ( dev-db/sqlite:3 )"
 
 DEPEND="${RDEPEND}
@@ -63,9 +64,16 @@ pkg_setup() {
 	if use nfacct && kernel_is lt 3 3 0; then
 		ewarn "NFACCT input plugin requires kernel newer than 3.3.0"
 	fi
+
+	if ! use nfacct && ! use nfct && ! use nflog && kernel_is gt 3 17 0; then
+		ewarn "ULOG target was removed since 3.17.0 kernel release"
+		ewarn "Consider enabling NFACCT, NFCT or NFLOG support"
+	fi
 }
 
 src_prepare() {
+	epatch "${FILESDIR}/${P}-linux-headers-3.17-ipt_ulog.patch"
+
 	# - make all logs to be kept in a single dir /var/log/ulogd
 	# - place sockets in /run instead of /tmp
 	sed -i \

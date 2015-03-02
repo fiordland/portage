@@ -1,6 +1,82 @@
 # ChangeLog for sci-biology/rebase
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/rebase/ChangeLog,v 1.126 2014/08/03 18:37:36 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/rebase/ChangeLog,v 1.146 2015/03/02 09:33:54 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> rebase-1502.ebuild:
+  Stable for ppc, wrt bug #541512
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org> rebase-1502.ebuild:
+  Stable for amd64, wrt bug #541512
+
+*rebase-1503 (27 Feb 2015)
+
+  27 Feb 2015; Justin Lecher <jlec@gentoo.org> +rebase-1503.ebuild:
+  Version Bump
+
+*rebase-1502 (02 Feb 2015)
+
+  02 Feb 2015; Justin Lecher <jlec@gentoo.org> +rebase-1502.ebuild:
+  Version Bump
+
+  26 Jan 2015; Justin Lecher <jlec@gentoo.org> -rebase-1411.ebuild:
+  Drop old
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> rebase-1412.ebuild:
+  Stable for x86, wrt bug #534598
+
+  17 Jan 2015; Agostino Sarubbo <ago@gentoo.org> rebase-1412.ebuild:
+  Stable for ppc, wrt bug #534598
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> rebase-1412.ebuild:
+  Stable for amd64, wrt bug #534598
+
+*rebase-1501 (04 Jan 2015)
+
+  04 Jan 2015; Justin Lecher <jlec@gentoo.org> -rebase-1403.ebuild,
+  -rebase-1406.ebuild, -rebase-1408.ebuild, -rebase-1409.ebuild,
+  -rebase-1410.ebuild, +rebase-1501.ebuild:
+  Version BUmp; Drop old
+
+  31 Dec 2014; Agostino Sarubbo <ago@gentoo.org> rebase-1411.ebuild:
+  Stable for ppc, wrt bug #531422
+
+  31 Dec 2014; Agostino Sarubbo <ago@gentoo.org> rebase-1410.ebuild:
+  Stable for ppc, wrt bug #527402
+
+  28 Dec 2014; Agostino Sarubbo <ago@gentoo.org> rebase-1411.ebuild:
+  Stable for x86, wrt bug #531422
+
+  27 Dec 2014; Agostino Sarubbo <ago@gentoo.org> rebase-1411.ebuild:
+  Stable for amd64, wrt bug #531422
+
+  26 Dec 2014; Agostino Sarubbo <ago@gentoo.org> rebase-1410.ebuild:
+  Stable for x86, wrt bug #527402
+
+  22 Dec 2014; Chema Alonso <nimiux@gentoo.org> rebase-1410.ebuild:
+  Stable for amd64 wrt bug #527402
+
+*rebase-1412 (02 Dec 2014)
+
+  02 Dec 2014; Justin Lecher <jlec@gentoo.org> +rebase-1412.ebuild:
+  Version Bump
+
+*rebase-1411 (30 Oct 2014)
+
+  30 Oct 2014; Justin Lecher <jlec@gentoo.org> +rebase-1411.ebuild:
+  Version Bump
+
+*rebase-1410 (30 Sep 2014)
+
+  30 Sep 2014; Justin Lecher <jlec@gentoo.org> +rebase-1410.ebuild:
+  Version BUmp
+
+  15 Sep 2014; Justin Lecher <jlec@gentoo.org> -rebase-1111.ebuild:
+  Drop ebuild with deprecated EAPI
+
+*rebase-1409 (15 Sep 2014)
+
+  15 Sep 2014; Justin Lecher <jlec@gentoo.org> +rebase-1409.ebuild:
+  Version Bump
 
   03 Aug 2014; Agostino Sarubbo <ago@gentoo.org> rebase-1403.ebuild:
   Stable for ppc, wrt bug #512118

@@ -1,6 +1,35 @@
 # ChangeLog for dev-python/bottle
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/bottle/ChangeLog,v 1.38 2014/08/25 22:45:53 creffett Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/bottle/ChangeLog,v 1.46 2015/03/02 09:34:53 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> bottle-0.12.7.ebuild:
+  Stable for ppc, wrt bug #530406
+
+*bottle-0.11.7 (03 Feb 2015)
+
+  03 Feb 2015; Ian Delaney <idella4@gentoo.org> +bottle-0.11.7.ebuild:
+  re-add 0.11.7 stop gap for sake of stable ppc keywords not yet done in #530406
+
+*bottle-0.12.8 (03 Feb 2015)
+
+  03 Feb 2015; Ian Delaney <idella4@gentoo.org> +bottle-0.12.8.ebuild,
+  -bottle-0.11.7.ebuild, -bottle-0.12.6.ebuild:
+  bump; add test phase with removal of 1 rogue test file, rm old
+
+  16 Jan 2015; Raúl Porcel <armin76@gentoo.org> bottle-0.12.7.ebuild:
+  alpha/ia64/sparc stable wrt #530406
+
+  09 Dec 2014; Jeroen Roovers <jer@gentoo.org> bottle-0.12.7.ebuild:
+  Stable for HPPA (bug #530406).
+
+  02 Dec 2014; Markus Meier <maekke@gentoo.org> bottle-0.12.7.ebuild:
+  arm stable, bug #530406
+
+  02 Dec 2014; Pacho Ramos <pacho@gentoo.org> bottle-0.12.7.ebuild:
+  amd64/x86 stable, bug #530406
+
+  01 Dec 2014; Ian Delaney <idella4@gentoo.org> bottle-0.12.7.ebuild:
+  clean py3.2 add pypy3 support
 
   25 Aug 2014; Christopher Reffett <2011creffett@gentoo.org>
   -bottle-0.11.6-r1.ebuild, -bottle-0.12.5.ebuild:

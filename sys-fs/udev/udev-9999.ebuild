@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-9999.ebuild,v 1.317 2014/08/20 08:29:30 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-9999.ebuild,v 1.324 2014/12/17 17:22:22 williamh Exp $
 
 EAPI=5
 
@@ -26,7 +26,7 @@ HOMEPAGE="http://www.freedesktop.org/wiki/Software/systemd"
 
 LICENSE="LGPL-2.1 MIT GPL-2"
 SLOT="0"
-IUSE="acl doc +firmware-loader gudev introspection +kmod selinux static-libs"
+IUSE="acl doc gudev introspection +kmod selinux static-libs"
 
 RESTRICT="test"
 
@@ -51,7 +51,7 @@ DEPEND="${COMMON_DEPEND}
 	virtual/os-headers
 	virtual/pkgconfig
 	>=sys-devel/make-3.82-r4
-	>=sys-kernel/linux-headers-2.6.39
+	>=sys-kernel/linux-headers-3.7
 	doc? ( >=dev-util/gtk-doc-1.18 )"
 # Try with `emerge -C docbook-xml-dtd` to see the build failure without DTDs
 if [[ ${PV} = 9999* ]]; then
@@ -88,22 +88,30 @@ check_default_rules() {
 }
 
 pkg_setup() {
-	CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD ~EPOLL ~FHANDLE ~NET"
-	linux-info_pkg_setup
+	if [[ ${MERGE_TYPE} != buildonly ]]; then
+		CONFIG_CHECK="~BLK_DEV_BSG ~DEVTMPFS ~!IDE ~INOTIFY_USER ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2 ~SIGNALFD ~EPOLL ~FHANDLE ~NET ~!FW_LOADER_USER_HELPER"
+		linux-info_pkg_setup
 
-	# CONFIG_FHANDLE was introduced by 2.6.39
-	local MINKV=2.6.39
+		# CONFIG_FHANDLE was introduced by 2.6.39
+		local MINKV=2.6.39
 
-	if kernel_is -lt ${MINKV//./ }; then
-		eerror "Your running kernel is too old to run this version of ${P}"
-		eerror "You need to upgrade kernel at least to ${MINKV}"
+		if kernel_is -lt ${MINKV//./ }; then
+			eerror "Your running kernel is too old to run this version of ${P}"
+			eerror "You need to upgrade kernel at least to ${MINKV}"
+		fi
+
+		if kernel_is -lt 3 7; then
+			ewarn "Your running kernel is too old to have firmware loader and"
+			ewarn "this version of ${P} doesn't have userspace firmware loader"
+			ewarn "If you need firmware support, you need to upgrade kernel at least to 3.7"
+		fi
 	fi
 }
 
 src_prepare() {
 	if ! [[ ${PV} = 9999* ]]; then
 		# secure_getenv() disable for non-glibc systems wrt bug #443030
-		if ! [[ $(grep -r secure_getenv * | wc -l) -eq 28 ]]; then
+		if ! [[ $(grep -r secure_getenv * | wc -l) -eq 27 ]]; then
 			eerror "The line count for secure_getenv() failed, see bug #443030"
 			die
 		fi
@@ -167,6 +175,7 @@ multilib_src_configure() {
 		--disable-python-devel
 		--disable-dbus
 		$(multilib_native_use_enable kmod)
+		--disable-xkbcommon
 		--disable-seccomp
 		$(multilib_native_use_enable selinux)
 		--disable-xz
@@ -181,10 +190,10 @@ multilib_src_configure() {
 		--disable-gnutls
 		--disable-libcurl
 		--disable-libidn
-		--disable-readahead
 		--disable-quotacheck
 		--disable-logind
 		--disable-polkit
+		--disable-terminal
 		--disable-myhostname
 		$(use_enable gudev)
 		$(multilib_is_native_abi || echo "--disable-manpages")
@@ -192,7 +201,6 @@ multilib_src_configure() {
 		--with-html-dir=/usr/share/doc/${PF}/html
 		--without-python
 		--with-bashcompletiondir="$(get_bashcompdir)"
-		$(use firmware-loader && echo "--with-firmware-path=/lib/firmware/updates:/lib/firmware")
 		--with-rootprefix=
 		$(multilib_is_native_abi && echo "--with-rootlibdir=/$(get_libdir)")
 	)

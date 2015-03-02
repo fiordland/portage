@@ -1,6 +1,149 @@
 # ChangeLog for sys-kernel/dracut
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/ChangeLog,v 1.175 2014/08/05 18:02:57 aidecoe Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/dracut/ChangeLog,v 1.186 2015/02/18 17:02:17 aidecoe Exp $
+
+*dracut-041 (17 Feb 2015)
+
+  17 Feb 2015; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-041.ebuild,
+  +files/041-0001-dracut-functions.sh-support-for-altern.patch,
+  +files/041-0002-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  +files/041-0003-Use-the-same-paths-in-dracut.sh-as-tho.patch,
+  +files/041-0004-Install-dracut-install-into-libexec-di.patch,
+  +files/041-0005-Take-into-account-lib64-dirs-when-dete.patch:
+  Version bump.
+
+  NEWS
+  ~~~~
+  - fixed the shutdown loop
+  - fixed gzip compression for versions, which do not have --rsyncable
+  - fixed ifcfg generation for persistent interface names
+  - multipath:
+    * new option to turn off multipath "rd.multipath=0" completly
+    * preload scsi dh modules
+    * start multipathd via systemd service
+  - do not fail, if user pressed ESC during media check
+  - fixed systemd-journal by symlinking /var/log to /run/initramfs/log
+  - initrd-release moved to /usr/lib
+  - lots of iSCSI fixes
+  - new "rd.timeout" to specify the systemd JobTimeoutSec for devices
+  - if $initrd/etc/cmdline.d/* has a "root=" and the kernel cmdline does not,
+    generate a mount unit for it
+  - increased the initqueue timeout for non systemd initramfs to 180s
+  - $initrd/etc/cmdline.d/ hostonly files are now generated for NFS
+  - make use of systemd-hibernate-resume, if available
+  - fixed ldconfig parsing for hwcap output
+  - network: add support for comma separated autoconf options like
+    ip=eth0:auto6,dhcp
+  - new parameter "rd.live.overlay.size" to specify the overlay for live images
+  - added cache tools for dm-cache setups
+
+  11 Jan 2015; Amadeusz Żołnowski <aidecoe@gentoo.org> -dracut-040.ebuild,
+  -dracut-040-r1.ebuild:
+  Remove old revisions of 040.
+
+  11 Jan 2015; Amadeusz Żołnowski <aidecoe@gentoo.org> -dracut-036-r4.ebuild,
+  -dracut-037-r3.ebuild, -dracut-038-r2.ebuild,
+  -files/036-0001-NEWS-update-for-version-036.patch,
+  -files/037-0001-dracut-functions.sh-support-for-altern.patch,
+  -files/038-0001-dracut-functions.sh-support-for-altern.patch,
+  -files/036-0002-dracut-functions.sh-support-for-altern.patch,
+  -files/037-0002-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  -files/038-0002-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  -files/037-0003-Use-the-same-paths-in-dracut.sh-as-tho.patch,
+  -files/038-0003-Use-the-same-paths-in-dracut.sh-as-tho.patch,
+  -files/036-0003-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  -files/037-0004-Install-dracut-install-into-libexec-di.patch,
+  -files/038-0004-Install-dracut-install-into-libexec-di.patch,
+  -files/036-0004-Use-the-same-paths-in-dracut.sh-as-tho.patch,
+  -files/036-0005-Install-dracut-install-into-libexec-di.patch,
+  -files/037-0005-modsign-do-not-hardcode-path-to-keyctl.patch,
+  -files/038-0005-modsign-do-not-hardcode-path-to-keyctl.patch,
+  -files/037-0006-98systemd-fixup-rootfs-generator-insta.patch,
+  -files/036-0006-dracut.sh-Fix-variable-name-typo.patch,
+  -files/036-0007-Added-missing-quotes.patch,
+  -files/037-0007-udev-rules-add-uaccess-rules.patch,
+  -files/036-0008-Add-legacy-flag-l-to-lz4-and-update-ma.patch,
+  -files/038-0008-dracut-functions.sh-fix-inst-functions.patch:
+  Remove old versions.
+
+*dracut-040-r3 (11 Jan 2015)
+
+  11 Jan 2015; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-040-r3.ebuild,
+  +files/040-0007-Take-into-account-lib64-dirs-when-dete.patch:
+  Fix lsinitrd failure to detect version and modules - bug #533112.
+
+  Thanks to poncho <poncho@spahan.ch> and Jeroen Roovers <jer@gentoo.org> for
+  patch.
+
+  19 Dec 2014; Pacho Ramos <pacho@gentoo.org> dracut-034-r4.ebuild,
+  dracut-036-r4.ebuild, dracut-037-r3.ebuild, dracut-038-r2.ebuild,
+  dracut-040-r1.ebuild, dracut-040-r2.ebuild, dracut-040.ebuild:
+  sys-apps/systemd[sysv-utils] is another option now
+
+  18 Nov 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-040-r2.ebuild:
+  Fix repoman warning about whitespaces.
+
+*dracut-040-r2 (18 Nov 2014)
+
+  18 Nov 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-040-r2.ebuild:
+  Drop patch "Install dracut-install into libexec dir instead of lib"
+  and install skipcpio and dracut-install into /usr/lib/dracut/. Set
+  QA_MULTILIB_PATHS accordingly for these binaries.
+
+  Fix bug #528998.  Commit on behalf of Alexander Tsoy <alexander@tsoy.me>.
+
+*dracut-040-r1 (13 Nov 2014)
+
+  13 Nov 2014; Maxim Koltsov <maksbotan@gentoo.org> +dracut-040-r1.ebuild:
+  Install skipcpio binary, bug #528998.
+
+  09 Nov 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-034-r4.ebuild,
+  dracut-036-r4.ebuild, dracut-037-r3.ebuild, dracut-038-r2.ebuild,
+  dracut-040.ebuild:
+  Replace incorrect dev-libs/openssl with net-misc/openssh dependency.
+  Fixes bug #528056.
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> dracut-040.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+*dracut-040 (01 Nov 2014)
+
+  01 Nov 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> +dracut-040.ebuild,
+  +files/040-0001-dracut-functions.sh-support-for-altern.patch,
+  +files/040-0002-gentoo.conf-let-udevdir-be-handled-by-.patch,
+  +files/040-0003-Use-the-same-paths-in-dracut.sh-as-tho.patch,
+  +files/040-0004-Install-dracut-install-into-libexec-di.patch,
+  +files/040-0005-NEWS-add-040-entry.patch,
+  +files/040-0006-Don-t-pass-rsyncable-option-to-gzip-Ge.patch:
+  Version bump.
+
+  NEWS
+  ~~~~
+  (since 038)
+
+  - DRACUT_PATH can now be used to specify the PATH used by dracut
+    to search for binaries instead of the default
+      /usr/sbin:/sbin:/usr/bin:/bin
+    This should be set in the distribution config file
+      /usr/lib/dracut/dracut.conf.d/01-dist.conf
+  - add "--loginstall <DIR>" and loginstall="<DIR>" options
+    to record all files, which are installed from the host fs
+  - "rd.writable.fsimg" - support for read/write filesystem images
+  - "rd.route" kernel command line parameter added
+  - "--install-optional" and install_optional_items added
+  - torrent support for live images
+      root=live:torrent://example.com/liveboot.img.torrent
+    and generally added as a download handler
+  - disable microcode, if the kernel does not support it
+  - speed up ldconfig_paths()
+  - more ARM modules
+  - fixed inst*() functions and "-H" handling
+  - fixed bridge setup
+  - added --force-drivers parameter and force_drivers=+ config option
+    to enforce driver loading at early boot time
+  - documented "iso-scan/filename" usage in grub
+  - various bugfixes
 
   05 Aug 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> dracut-034-r4.ebuild,
   dracut-036-r4.ebuild, dracut-037-r3.ebuild, dracut-038-r2.ebuild:

@@ -1,6 +1,29 @@
 # ChangeLog for x11-libs/gnome-pty-helper
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/gnome-pty-helper/ChangeLog,v 1.66 2014/08/25 11:03:49 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/gnome-pty-helper/ChangeLog,v 1.71 2015/01/26 13:16:20 pacho Exp $
+
+*gnome-pty-helper-0.34.9 (26 Jan 2015)
+
+  26 Jan 2015; Pacho Ramos <pacho@gentoo.org> +gnome-pty-helper-0.34.9.ebuild:
+  For some reason arm skipped last vte stabilization
+
+*gnome-pty-helper-0.38.3 (26 Jan 2015)
+
+  26 Jan 2015; Pacho Ramos <pacho@gentoo.org> +gnome-pty-helper-0.38.3.ebuild,
+  -gnome-pty-helper-0.34.9.ebuild, -gnome-pty-helper-0.36.2.ebuild:
+  Version bump, drop old
+
+*gnome-pty-helper-0.38.2 (15 Dec 2014)
+
+  15 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-pty-helper-0.38.2.ebuild:
+  Version bump for Gnome 3.14.
+
+  11 Oct 2014; Markus Meier <maekke@gentoo.org> gnome-pty-helper-0.36.3.ebuild:
+  arm stable, bug #512012
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> gnome-pty-helper-0.36.3.ebuild:
+  Stable for sparc, wrt bug #512012
 
   25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gnome-pty-helper-0.36.3.ebuild:
   Stable for alpha, wrt bug #512012

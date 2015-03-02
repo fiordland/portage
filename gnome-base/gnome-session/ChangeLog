@@ -1,6 +1,46 @@
 # ChangeLog for gnome-base/gnome-session
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-session/ChangeLog,v 1.340 2014/07/27 08:44:05 pacho Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-session/ChangeLog,v 1.346 2015/01/18 13:41:37 pacho Exp $
+
+*gnome-session-3.14.0-r1 (18 Jan 2015)
+
+  18 Jan 2015; Pacho Ramos <pacho@gentoo.org> +files/defaults.list-r3,
+  +files/gnome-session-3.14.0-validate-autostart.patch,
+  +gnome-session-3.14.0-r1.ebuild:
+  Patch from 3.14 branch to fix crash when autostart conditions are wrong, use
+  new location for defaults list (#534790), update that list to fit new names
+  for .desktop files in 3.14 cycle.
+
+*gnome-session-3.14.0 (22 Dec 2014)
+
+  22 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-session-3.12.1.ebuild, +gnome-session-3.14.0.ebuild:
+  Version bump for Gnome 3.14. Clean up old revision.
+
+  19 Dec 2014; Pacho Ramos <pacho@gentoo.org> gnome-session-3.12.1-r1.ebuild:
+  amd64 stable, bug 529964
+
+  18 Dec 2014; Pacho Ramos <pacho@gentoo.org> gnome-session-3.12.1-r1.ebuild:
+  x86 stable, bug 529964
+
+  13 Nov 2014; Pacho Ramos <pacho@gentoo.org> -files/10-user-dirs-update-gnome,
+  -files/15-xdg-data-gnome, -files/defaults.list,
+  -files/gnome-session-2.32.0-session-saving-button.patch,
+  -files/gnome-session-2.32.1-dialog-size.patch,
+  -files/gnome-session-2.32.1-dialog-size2.patch,
+  -files/gnome-session-2.32.1-gnome3-conditions.patch,
+  -files/gnome-session-2.32.1-gsettings-conditions.patch,
+  -files/gnome-session-2.32.1-idle-transition.patch,
+  -files/gnome-session-3.8.4-blacklist-nv25.patch,
+  -files/gnome-session-3.8.4-presence-crash.patch,
+  -gnome-session-2.32.1-r3.ebuild:
+  Drop old (#508854)
+
+*gnome-session-3.12.1-r1 (22 Sep 2014)
+
+  22 Sep 2014; Pacho Ramos <pacho@gentoo.org> +files/defaults.list-r2,
+  +gnome-session-3.12.1-r1.ebuild, -gnome-session-3.10.1.ebuild:
+  file-roller desktop file was renamed at this cycle, drop old
 
   27 Jul 2014; Pacho Ramos <pacho@gentoo.org> gnome-session-3.12.1.ebuild:
   Newer glib is needed per bug #518074 by Hans de Graff

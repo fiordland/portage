@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/pdns/pdns-3.3.1.ebuild,v 1.4 2014/03/12 05:12:06 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/pdns/pdns-3.3.1.ebuild,v 1.8 2014/12/28 16:19:25 titanofold Exp $
 
 EAPI=5
 
-inherit autotools eutils multilib systemd user toolchain-funcs
+inherit autotools eutils multilib systemd user toolchain-funcs versionator
 
 DESCRIPTION="The PowerDNS Daemon"
 HOMEPAGE="http://www.powerdns.com/"
@@ -31,7 +31,7 @@ RDEPEND="!static? (
 		cryptopp? ( dev-libs/crypto++ )
 		lua? ( dev-lang/lua )
 		mysql? ( virtual/mysql )
-		postgres? ( dev-db/postgresql-base:= )
+		postgres? ( dev-db/postgresql:= )
 		ldap? ( >=net-nds/openldap-2.0.27-r4 )
 		sqlite? ( dev-db/sqlite:3 )
 		odbc? ( dev-db/unixODBC )
@@ -47,7 +47,7 @@ DEPEND="${RDEPEND}
 		cryptopp? ( dev-libs/crypto++[static-libs(+)] )
 		lua? ( dev-lang/lua[static-libs(+)] )
 		mysql? ( virtual/mysql[static-libs(+)] )
-		postgres? ( dev-db/postgresql-base[static-libs(+)] )
+		postgres? ( dev-db/postgresql[static-libs(+)] )
 		ldap? ( >=net-nds/openldap-2.0.27-r4[static-libs(+)] )
 		sqlite? ( dev-db/sqlite:3[static-libs(+)] )
 		odbc? ( dev-db/unixODBC[static-libs(+)] )
@@ -60,6 +60,9 @@ src_prepare() {
 	epatch \
 		"${FILESDIR}/${P}-fix-curl-link.patch"
 	eautoreconf
+
+	# fix for automake now generating .hh instead of .h, bug #504244 and #504246
+	cp -a pdns/backends/bind/{bindparser.h,bindparser.hh}
 }
 
 src_configure() {

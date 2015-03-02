@@ -1,6 +1,105 @@
 # ChangeLog for dev-python/django
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/django/ChangeLog,v 1.137 2014/08/26 08:33:36 idella4 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/django/ChangeLog,v 1.157 2015/03/01 17:19:31 jlec Exp $
+
+  01 Mar 2015; Justin Lecher <jlec@gentoo.org> django-1.6.10.ebuild:
+  Readd python support
+
+  01 Mar 2015; Agostino Sarubbo <ago@gentoo.org> django-1.4.19.ebuild,
+  django-1.6.10.ebuild:
+  Stable for x86, wrt bug #536586
+
+  01 Mar 2015; Agostino Sarubbo <ago@gentoo.org> django-1.4.19.ebuild,
+  django-1.6.10.ebuild:
+  Stable for amd64, wrt bug #536586
+
+  28 Feb 2015; Justin Lecher <jlec@gentoo.org> django-1.4.19.ebuild:
+  Fix typo, #541704
+
+  28 Feb 2015; Justin Lecher <jlec@gentoo.org> django-1.6.10.ebuild:
+  Fix typo, #541704
+
+*django-1.4.19 (28 Feb 2015)
+*django-1.6.10 (28 Feb 2015)
+
+  28 Feb 2015; Justin Lecher <jlec@gentoo.org> +django-1.4.19.ebuild,
+  +django-1.6.10.ebuild, +files/django-1.4.19-bashcomp.patch,
+  +files/django-1.4.19-test.patch, +files/django-1.6.10-bashcomp.patch,
+  +files/django-1.6.10-test.patch, -django-1.7.4.ebuild, -django-1.7.ebuild,
+  django-1.7.5.ebuild, django-9999.ebuild:
+  Version BUmp and drop old for CVE-2015-{0219,0220,0221,0222}, #536586; add
+  correct dependencies for tests, Use optfeature instead of harddepened on
+  imaging, #473228
+
+*django-1.7.5 (28 Feb 2015)
+
+  28 Feb 2015; Justin Lecher <jlec@gentoo.org> +django-1.7.5.ebuild,
+  +files/django-1.7.5-bashcomp.patch, metadata.xml:
+  Version Bump; fix bashcompletions, #526272
+
+*django-1.7.4 (06 Feb 2015)
+
+  06 Feb 2015; Patrick Lauer <patrick@gentoo.org> +django-1.7.4.ebuild:
+  Bump #538692
+
+  22 Dec 2014; Ian Delaney <idella4@gentoo.org> django-1.7.ebuild:
+  postgres IUSE flag dropped and treated in the same as the dropped flag 'mysql'
+  and the msg to use via the readme.gentoo extended
+
+  21 Dec 2014; Ian Delaney <idella4@gentoo.org> django-1.7.ebuild:
+  drop IUSE mysql and dep dev-python/mysql-python in RDEPEND, substitute with
+  msg via readme.gentoo eclass (suggested by floppym) informing of backend
+  support for mysql now supported in all Cpython impls, fixes bug #532956 by
+  zorry
+
+  17 Sep 2014; Ian Delaney <idella4@gentoo.org> -django-1.4.14.ebuild,
+  -django-1.5.9.ebuild, -django-1.6.6.ebuild, django-1.6.7.ebuild,
+  django-1.7.ebuild:
+  syntax fix, drop vulnerable versions wrt Bug #521324
+
+  14 Sep 2014; Ian Delaney <idella4@gentoo.org> -files/1.7-test_serialize.patch:
+  remove redundant upstream patch
+
+*django-1.7 (14 Sep 2014)
+
+  14 Sep 2014; Ian Delaney <idella4@gentoo.org> +django-1.7.ebuild,
+  +files/1.7-test_serialize.patch:
+  bump; upgrade deps, tidy test phase
+
+  13 Sep 2014; Agostino Sarubbo <ago@gentoo.org> django-1.4.15.ebuild,
+  django-1.5.10.ebuild, django-1.6.7.ebuild:
+  Stable for x86, wrt bug #521324
+
+  13 Sep 2014; Agostino Sarubbo <ago@gentoo.org> django-1.4.15.ebuild,
+  django-1.5.10.ebuild, django-1.6.7.ebuild:
+  Stable for amd64, wrt bug #521324
+
+*django-1.6.7 (09 Sep 2014)
+*django-1.4.15 (09 Sep 2014)
+*django-1.5.10 (09 Sep 2014)
+
+  09 Sep 2014; Ian Delaney <idella4@gentoo.org> +django-1.4.15.ebuild,
+  +django-1.5.10.ebuild, +django-1.6.7.ebuild, django-9999.ebuild:
+  bumps
+
+  04 Sep 2014; Ian Delaney <idella4@gentoo.org> -django-1.4.13.ebuild,
+  -django-1.5.8.ebuild, -django-1.6.5.ebuild:
+  drop vulnerable versions wrt Bug #521324
+
+  02 Sep 2014; Agostino Sarubbo <ago@gentoo.org> django-1.4.14.ebuild,
+  django-1.5.9.ebuild, django-1.6.6.ebuild:
+  Stable for x86, wrt bug #521324
+
+  02 Sep 2014; Agostino Sarubbo <ago@gentoo.org> django-1.4.14.ebuild,
+  django-1.5.9.ebuild, django-1.6.6.ebuild:
+  Stable for amd64, wrt bug #521324
+
+*django-1.5.9 (01 Sep 2014)
+*django-1.4.14 (01 Sep 2014)
+
+  01 Sep 2014; Ian Delaney <idella4@gentoo.org> +django-1.4.14.ebuild,
+  +django-1.5.9.ebuild:
+  bumps
 
 *django-1.6.6 (26 Aug 2014)
 

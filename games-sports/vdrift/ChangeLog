@@ -1,6 +1,32 @@
 # ChangeLog for games-sports/vdrift
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-sports/vdrift/ChangeLog,v 1.22 2014/05/15 11:46:29 tupone Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-sports/vdrift/ChangeLog,v 1.28 2015/02/19 01:28:22 mr_bones_ Exp $
+
+  19 Feb 2015; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/vdrift-20111022-build.patch, -files/vdrift-20111022-bullet282.patch,
+  -vdrift-20111022.ebuild:
+  old
+
+  10 Feb 2015; Agostino Sarubbo <ago@gentoo.org> vdrift-20120722.ebuild:
+  Stable for x86, wrt bug #539192
+
+  07 Feb 2015; Agostino Sarubbo <ago@gentoo.org> vdrift-20120722.ebuild:
+  Stable for amd64, wrt bug #539192
+
+  01 Sep 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/vdrift-20090615-ldflags.patch, -vdrift-20090615.ebuild:
+  old
+
+  01 Sep 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/vdrift-20120722-bullet.patch, vdrift-20120722.ebuild:
+  add patch from Peter Asplund to allow building against newer versions of sci-
+  physics/bullet
+
+*vdrift-20120722 (01 Sep 2014)
+
+  01 Sep 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/vdrift-20120722-build.patch, +vdrift-20120722.ebuild:
+  version bump (bug #434148)
 
   15 May 2014; Tupone Alfredo <tupone@gentoo.org> vdrift-20111022.ebuild,
   +files/vdrift-20111022-bullet282.patch:
@@ -92,4 +118,3 @@
   +files/vdrift-20070323-gcc42.patch, +metadata.xml,
   +vdrift-20070323.ebuild:
   Initial commit, bug #98094
-

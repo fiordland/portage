@@ -1,6 +1,39 @@
 # ChangeLog for dev-ruby/ruby-gettext
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-gettext/ChangeLog,v 1.145 2014/08/27 23:40:11 mrueg Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-gettext/ChangeLog,v 1.153 2015/01/25 12:12:49 mrueg Exp $
+
+*ruby-gettext-3.1.6 (25 Jan 2015)
+
+  25 Jan 2015; Manuel Rüger <mrueg@gentoo.org> +ruby-gettext-3.1.6.ebuild:
+  Version bump.
+
+*ruby-gettext-3.1.5 (20 Jan 2015)
+
+  20 Jan 2015; Hans de Graaff <graaff@gentoo.org> +ruby-gettext-3.1.5.ebuild:
+  Version bump.
+
+  18 Nov 2014; Manuel Rüger <mrueg@gentoo.org>
+  -files/ruby-gettext-rubygems-load-path.patch:
+  Cleanup patches.
+
+  18 Nov 2014; Manuel Rüger <mrueg@gentoo.org> -ruby-gettext-2.3.3.ebuild,
+  -ruby-gettext-2.3.8.ebuild, -ruby-gettext-3.1.3.ebuild:
+  Cleanup old.
+
+  18 Nov 2014; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-3.1.1.ebuild:
+  Stable for sparc, wrt bug #505920
+
+  18 Nov 2014; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-3.1.1.ebuild:
+  Stable for ppc64, wrt bug #505920
+
+  18 Nov 2014; Agostino Sarubbo <ago@gentoo.org> ruby-gettext-3.1.1.ebuild:
+  Stable for ppc, wrt bug #505920
+
+  11 Nov 2014; Manuel Rüger <mrueg@gentoo.org> ruby-gettext-2.3.3.ebuild,
+  ruby-gettext-2.3.8.ebuild, ruby-gettext-3.1.1.ebuild,
+  ruby-gettext-3.1.2.ebuild, ruby-gettext-3.1.3.ebuild,
+  ruby-gettext-3.1.4.ebuild:
+  Drop jruby target.
 
 *ruby-gettext-3.1.4 (27 Aug 2014)
 

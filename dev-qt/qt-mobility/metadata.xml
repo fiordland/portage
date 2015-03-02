@@ -3,7 +3,6 @@
 <pkgmetadata>
 <herd>qt</herd>
 <use>
-	<flag name="bearer">Build the QtBearer module</flag>
 	<flag name="bluetooth">Enable Bluetooth support in QtConnectivity and QtSystemInfo modules</flag>
 	<flag name="connectivity">Build the QtConnectivity module</flag>
 	<flag name="contacts">Build the QtContacts module</flag>
@@ -24,7 +23,7 @@
 	<flag name="versit">Build the QtVersit module</flag>
 </use>
 <upstream>
-	<bugs-to>https://bugreports.qt-project.org/</bugs-to>
-	<doc>http://doc.qt.nokia.com/qtmobility/index.html</doc>
+	<bugs-to>https://bugreports.qt.io/</bugs-to>
+	<doc>http://doc.qt.digia.com/qtmobility/</doc>
 </upstream>
 </pkgmetadata>

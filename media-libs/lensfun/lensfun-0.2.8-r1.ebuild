@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/lensfun/lensfun-0.2.8-r1.ebuild,v 1.1 2014/07/20 18:17:10 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/lensfun/lensfun-0.2.8-r1.ebuild,v 1.8 2015/03/02 09:27:13 ago Exp $
 
 EAPI=5
 
@@ -14,8 +14,8 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="LGPL-3 CC-BY-SA-3.0" # See README for reasoning.
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~amd64-linux ~x86-linux"
-IUSE="doc sse sse2"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ~ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~amd64-linux ~x86-linux"
+IUSE="doc cpu_flags_x86_sse cpu_flags_x86_sse2"
 
 RDEPEND=">=dev-libs/glib-2.28
 	media-libs/libpng:0=
@@ -28,6 +28,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 PATCHES=(
 	"${FILESDIR}"/${PF}-build.patch
 	"${FILESDIR}"/${P}-x32.patch
+	"${FILESDIR}"/${P}-support-clang-visibility-as-gcc.patch
 )
 
 DOCS=( README docs/mounts.txt )
@@ -38,8 +39,8 @@ src_configure() {
 		-DLIBDIR=$(get_libdir)
 		-DBUILD_AUXFUN=ON
 		$(cmake-utils_use_build doc)
-		$(cmake-utils_use_build sse FOR_SSE)
-		$(cmake-utils_use_build sse2 FOR_SSE2)
+		$(cmake-utils_use_build cpu_flags_x86_sse FOR_SSE)
+		$(cmake-utils_use_build cpu_flags_x86_sse2 FOR_SSE2)
 		-DBUILD_STATIC=OFF
 		-DBUILD_TESTS=OFF
 		)

@@ -1,6 +1,36 @@
 # ChangeLog for media-libs/libsdl2
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libsdl2/ChangeLog,v 1.23 2014/08/14 16:14:12 phajdan.jr Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libsdl2/ChangeLog,v 1.31 2015/01/29 17:42:14 mgorny Exp $
+
+  29 Jan 2015; Michał Górny <mgorny@gentoo.org> libsdl2-2.0.3-r200.ebuild:
+  Convert to CPU_FLAGS_X86.
+
+  22 Jan 2015; Michael Sterrett <mr_bones_@gentoo.org>
+  -libsdl2-2.0.3-r100.ebuild:
+  old
+
+  26 Dec 2014; Markus Meier <maekke@gentoo.org> libsdl2-2.0.3-r200.ebuild:
+  add ~arm, bug #508226
+
+  03 Nov 2014; Agostino Sarubbo <ago@gentoo.org> libsdl2-2.0.3-r200.ebuild:
+  Stable for x86, wrt bug #522272
+
+  30 Oct 2014; Agostino Sarubbo <ago@gentoo.org> libsdl2-2.0.3-r200.ebuild:
+  Stable for amd64, wrt bug #522272
+
+  11 Oct 2014; Tobias Klausmann <klausman@gentoo.org>
+  libsdl2-2.0.3-r200.ebuild:
+  Keyworded on alpha, bug 508226
+
+  04 Sep 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/libsdl2-2.0.1-static-libs.patch,
+  -files/libsdl2-2.0.2-gles-wayland.patch,
+  -files/libsdl2-2.0.2-static-libs.patch, -libsdl2-2.0.1-r1.ebuild,
+  -libsdl2-2.0.2-r1.ebuild, -libsdl2-2.0.2.ebuild:
+  old
+
+  29 Aug 2014; Chema Alonso <nimiux@gentoo.org> libsdl2-2.0.3-r100.ebuild:
+  Stable for amd64 wrt bug #514904
 
   14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
   libsdl2-2.0.3-r100.ebuild:

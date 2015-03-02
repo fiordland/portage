@@ -1,6 +1,15 @@
 # ChangeLog for games-mud/powwow
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-mud/powwow/ChangeLog,v 1.18 2013/02/18 17:10:59 hasufell Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-mud/powwow/ChangeLog,v 1.21 2015/02/21 12:22:28 ago Exp $
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> powwow-1.2.16.ebuild:
+  Stable for ppc, wrt bug #539030
+
+  06 Feb 2015; Agostino Sarubbo <ago@gentoo.org> powwow-1.2.16.ebuild:
+  Stable for amd64, wrt bug #539030
+
+  04 Jan 2015; Michael Sterrett <mr_bones_@gentoo.org> powwow-1.2.16.ebuild:
+  EAPI=5
 
   18 Feb 2013; Julian Ospald <hasufell@gentoo.org> powwow-1.2.16.ebuild,
   +files/powwow-1.2.16-underlinking.patch:
@@ -80,4 +89,3 @@
   +files/1.2.5-copyfile.patch, +powwow-1.2.5.ebuild:
   initial commit; ebuild based on the one submitted by Grzegorz Artur Daszuta
   via bug #57570.
-

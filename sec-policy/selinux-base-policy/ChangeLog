@@ -1,6 +1,78 @@
 # ChangeLog for sec-policy/selinux-base-policy
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sec-policy/selinux-base-policy/ChangeLog,v 1.153 2014/08/24 07:53:58 swift Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sec-policy/selinux-base-policy/ChangeLog,v 1.168 2015/01/29 09:52:10 perfinion Exp $
+
+*selinux-base-policy-2.20141203-r3 (29 Jan 2015)
+
+  29 Jan 2015; Jason Zaman <perfinion@gentoo.org>
+  +selinux-base-policy-2.20141203-r3.ebuild,
+  selinux-base-policy-2.20141203-r2.ebuild:
+  Release of 2.20141203-r3, stable 2.20141203-r2
+
+  21 Dec 2014; Sven Vermeulen <swift@gentoo.org>
+  -selinux-base-policy-2.20140311-r1.ebuild,
+  -selinux-base-policy-2.20140311-r2.ebuild,
+  -selinux-base-policy-2.20140311-r3.ebuild,
+  -selinux-base-policy-2.20140311-r4.ebuild:
+  Remove old ebuilds
+
+  21 Dec 2014; Sven Vermeulen <swift@gentoo.org>
+  selinux-base-policy-2.20141203-r1.ebuild:
+  Stabilize 2.20141203-r1
+
+*selinux-base-policy-2.20141203-r2 (21 Dec 2014)
+
+  21 Dec 2014; Sven Vermeulen <swift@gentoo.org>
+  +selinux-base-policy-2.20141203-r2.ebuild:
+  Release of 2.20141203-r2
+
+  07 Dec 2014; Jason Zaman <perfinion@gentoo.org>
+  selinux-base-policy-2.20140311-r7.ebuild, selinux-base-policy-9999.ebuild:
+  Stabilize 2.20140311-r7
+
+*selinux-base-policy-2.20141203-r1 (07 Dec 2014)
+
+  07 Dec 2014; Jason Zaman <perfinion@gentoo.org>
+  +selinux-base-policy-2.20141203-r1.ebuild:
+  Release of 2.20141203-r1
+
+  07 Dec 2014; Jason Zaman <perfinion@gentoo.org>
+  selinux-base-policy-9999.ebuild:
+  update SRC_URI
+
+  05 Dec 2014; Jason Zaman <perfinion@gentoo.org>
+  selinux-base-policy-9999.ebuild:
+  enable parallel build, bug 530178
+
+  29 Nov 2014; Jason Zaman <perfinon@gentoo.org>
+  selinux-base-policy-2.20140311-r7.ebuild, selinux-base-policy-9999.ebuild:
+  Must relabel RDEP not DEP
+
+  23 Nov 2014; Sven Vermeulen <swift@gentoo.org>
+  selinux-base-policy-9999.ebuild:
+  Add notice about bug 530178
+
+  23 Nov 2014; Sven Vermeulen <swift@gentoo.org>
+  selinux-base-policy-9999.ebuild:
+  Parallel builds are fixed since February 2014
+
+  01 Nov 2014; Sven Vermeulen <swift@gentoo.org>
+  selinux-base-policy-2.20140311-r6.ebuild:
+  Stabilize rev 6
+
+*selinux-base-policy-2.20140311-r7 (01 Nov 2014)
+
+  01 Nov 2014; Sven Vermeulen <swift@gentoo.org>
+  +selinux-base-policy-2.20140311-r7.ebuild:
+  Bump revision r7 of SELinux policies
+
+  01 Nov 2014; Sven Vermeulen <swift@gentoo.org>
+  selinux-base-policy-9999.ebuild:
+  Add KEYWORDS logic in -9999 ebuilds for ease of copying
+
+  30 Aug 2014; Sven Vermeulen <swift@gentoo.org>
+  selinux-base-policy-9999.ebuild:
+  Use single-line rlpkg call and do not label policy packages
 
   24 Aug 2014; Sven Vermeulen <swift@gentoo.org>
   selinux-base-policy-9999.ebuild:

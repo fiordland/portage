@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/rstudio/rstudio-0.98.932.ebuild,v 1.1 2014/07/04 13:53:22 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/rstudio/rstudio-0.98.932.ebuild,v 1.3 2015/02/28 04:39:43 gienah Exp $
 
 EAPI=5
 
-inherit eutils user cmake-utils gnome2-utils pam versionator fdo-mime java-pkg-2
+inherit eutils user cmake-utils gnome2-utils pam versionator fdo-mime java-pkg-2 pax-utils
 
 # TODO
 # * package gin and gwt
@@ -42,11 +42,11 @@ RDEPEND="
 	app-text/pandoc
 	dev-haskell/pandoc-citeproc
 	>=dev-lang/R-2.11.1
-	>=dev-libs/boost-1.50
+	>=dev-libs/boost-1.50:=
 	dev-libs/mathjax
-	dev-libs/openssl
+	dev-libs/openssl:0
 	sys-libs/zlib
-	>=virtual/jre-1.5
+	>=virtual/jre-1.5:=
 	x11-libs/pango
 	!dedicated? (
 		>=dev-qt/qtcore-${QTVER}:${QTSLOT}
@@ -115,6 +115,11 @@ src_prepare() {
 	sed -i \
 		-e "s:/usr:${EPREFIX}/usr:g" \
 		CMakeGlobals.txt src/cpp/desktop/CMakeLists.txt || die
+
+	# specify that namespace core the is in the global namespace and not
+	# relative to some other namespace (like its ::core not ::boost::core)
+	find . \( -name *.cpp -or -name *.hpp \) -exec sed \
+		-e 's@<core::@< ::core::@g' -e 's@\([^:]\)core::@\1::core::@g' -i {} \;
 }
 
 src_configure() {
@@ -137,9 +142,10 @@ src_compile() {
 
 src_install() {
 	cmake-utils_src_install
+	pax-mark m "${ED}usr/bin/rstudio"
 	if use dedicated || use server; then
 		dopamd src/cpp/server/extras/pam/rstudio
-		newinitd "${FILESDIR}"/rstudio-rserver.initd rstudio-rserver
+		newinitd "${FILESDIR}"/rstudio-server.initd rstudio-server
 	fi
 }
 

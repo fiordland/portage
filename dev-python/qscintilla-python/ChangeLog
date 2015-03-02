@@ -1,6 +1,37 @@
 # ChangeLog for dev-python/qscintilla-python
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/qscintilla-python/ChangeLog,v 1.110 2014/08/03 15:49:24 mgorny Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/qscintilla-python/ChangeLog,v 1.117 2015/03/02 09:28:19 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> qscintilla-python-2.8.4.ebuild:
+  Stable for ppc, wrt bug #524466
+
+  01 Mar 2015; Davide Pesavento <pesa@gentoo.org>
+  qscintilla-python-2.8.4.ebuild:
+  x86 stable wrt bug 524466
+
+  20 Dec 2014; Davide Pesavento <pesa@gentoo.org>
+  qscintilla-python-2.8.4.ebuild:
+  amd64 stable wrt #524466
+
+  20 Nov 2014; Davide Pesavento <pesa@gentoo.org>
+  qscintilla-python-2.7.2.ebuild, qscintilla-python-2.8.4-r1.ebuild:
+  Adjust PyQt4 deps wrt bug 529872.
+
+*qscintilla-python-2.8.4-r1 (19 Oct 2014)
+
+  19 Oct 2014; Davide Pesavento <pesa@gentoo.org>
+  +qscintilla-python-2.8.4-r1.ebuild:
+  Use default sipdir for compatibility with new PyQt4 buildsystem. Fixes bug
+  #525688.
+
+  04 Oct 2014; Davide Pesavento <pesa@gentoo.org> metadata.xml:
+  qt is the primary herd.
+
+*qscintilla-python-2.8.4 (13 Sep 2014)
+
+  13 Sep 2014; Davide Pesavento <pesa@gentoo.org>
+  +qscintilla-python-2.8.4.ebuild, -qscintilla-python-2.8.3.ebuild:
+  Version bump.
 
   03 Aug 2014; Michał Górny <mgorny@gentoo.org> qscintilla-python-2.8.3.ebuild:
   Enable Python 3.4.

@@ -1,6 +1,24 @@
 # ChangeLog for media-libs/alsa-oss
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/alsa-oss/ChangeLog,v 1.131 2014/08/10 21:07:26 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/alsa-oss/ChangeLog,v 1.137 2014/11/23 14:57:46 ago Exp $
+
+  23 Nov 2014; Agostino Sarubbo <ago@gentoo.org> alsa-oss-1.0.28.ebuild:
+  Stable for sparc, wrt bug #522038
+
+  23 Nov 2014; Agostino Sarubbo <ago@gentoo.org> alsa-oss-1.0.28.ebuild:
+  Stable for ia64, wrt bug #522038
+
+  21 Nov 2014; Tobias Klausmann <klausman@gentoo.org> alsa-oss-1.0.28.ebuild:
+  Stable on alpha, bug 522038
+
+  08 Nov 2014; Samuli Suominen <ssuominen@gentoo.org> alsa-oss-1.0.28.ebuild:
+  ppc/ppc64 stable wrt #522038
+
+  23 Oct 2014; Pacho Ramos <pacho@gentoo.org> alsa-oss-1.0.28.ebuild:
+  amd64/x86 stable, bug #522038
+
+  04 Sep 2014; Jeroen Roovers <jer@gentoo.org> alsa-oss-1.0.28.ebuild:
+  Stable for HPPA (bug #522038).
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> alsa-oss-1.0.25-r1.ebuild,
   alsa-oss-1.0.25.ebuild, alsa-oss-1.0.28.ebuild:

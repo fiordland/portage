@@ -1,6 +1,24 @@
 # ChangeLog for x11-libs/libdesktop-agnostic
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libdesktop-agnostic/ChangeLog,v 1.8 2014/06/27 16:41:55 angelos Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libdesktop-agnostic/ChangeLog,v 1.12 2015/01/26 09:39:51 ago Exp $
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org>
+  libdesktop-agnostic-0.3.92-r1.ebuild:
+  Stable for x86, wrt bug #534430
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org>
+  libdesktop-agnostic-0.3.92-r1.ebuild:
+  Stable for amd64, wrt bug #534430
+
+  03 Jan 2015; Michał Górny <mgorny@gentoo.org>
+  libdesktop-agnostic-0.3.92-r1.ebuild:
+  Add PYTHON_REQ_USE as necessary for waf.
+
+*libdesktop-agnostic-0.3.92-r1 (25 Dec 2014)
+
+  25 Dec 2014; Michał Górny <mgorny@gentoo.org>
+  +libdesktop-agnostic-0.3.92-r1.ebuild:
+  Convert to python-single-r1.
 
   27 Jun 2014; Christoph Mende <angelos@gentoo.org>
   libdesktop-agnostic-0.3.92.ebuild:

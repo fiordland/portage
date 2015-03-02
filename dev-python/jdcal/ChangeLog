@@ -1,6 +1,15 @@
 # ChangeLog for dev-python/jdcal
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/jdcal/ChangeLog,v 1.2 2014/06/26 11:34:53 idella4 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/jdcal/ChangeLog,v 1.5 2015/02/16 15:48:17 pacho Exp $
+
+  16 Feb 2015; Pacho Ramos <pacho@gentoo.org> jdcal-1.0.ebuild:
+  amd64/x86 stable, bug #530324
+
+  07 Dec 2014; Justin Lecher <jlec@gentoo.org> jdcal-1.0.ebuild, metadata.xml:
+  Add pypy3 support
+
+  28 Oct 2014; Alexis Ballier <aballier@gentoo.org> jdcal-1.0.ebuild:
+  keyword ~arm
 
   26 Jun 2014; Ian Delaney <idella4@gentoo.org> jdcal-1.0.ebuild:
   add keyword to match openpyxl

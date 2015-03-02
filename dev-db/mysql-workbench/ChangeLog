@@ -1,6 +1,38 @@
 # ChangeLog for dev-db/mysql-workbench
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mysql-workbench/ChangeLog,v 1.97 2014/08/25 19:34:11 graaff Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-db/mysql-workbench/ChangeLog,v 1.104 2015/03/02 09:27:45 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> mysql-workbench-6.0.9.ebuild:
+  Stable for ppc, wrt bug #505798
+
+*mysql-workbench-6.2.3-r1 (15 Feb 2015)
+
+  15 Feb 2015; Hans de Graaff <graaff@gentoo.org>
+  +mysql-workbench-6.2.3-r1.ebuild, +files/mysql-workbench-6.2.3-glib.patch,
+  +files/mysql-workbench-6.2.3-paramiko.patch:
+  Backport patches for bug 536024 (glibc 2.42 compatibility) and bug 530000
+  (paramiko compatability).
+
+  28 Dec 2014; Hans de Graaff <graaff@gentoo.org> mysql-workbench-6.2.3.ebuild:
+  Compilation fails when gdal is compiled with the mdb USE flag, bug 528868.
+
+  26 Dec 2014; Hans de Graaff <graaff@gentoo.org> mysql-workbench-6.2.3.ebuild,
+  +files/mysql-workbench-6.2.3-ctemplate.patch:
+  Fix compilation with ctemplate 2.3. Thanks to Marcel Pennewiß and others in
+  bug 533086.
+
+  26 Dec 2014; Hans de Graaff <graaff@gentoo.org>
+  -mysql-workbench-6.1.6.ebuild, -mysql-workbench-6.1.7.ebuild:
+  Cleanup.
+
+  20 Dec 2014; Chema Alonso <nimiux@gentoo.org> mysql-workbench-6.0.9.ebuild:
+  Stable for amd64 wrt bug #505798
+
+*mysql-workbench-6.2.3 (09 Nov 2014)
+
+  09 Nov 2014; Hans de Graaff <graaff@gentoo.org>
+  +mysql-workbench-6.2.3.ebuild, +files/mysql-workbench-6.2.3-CMakeLists.patch:
+  Version bump, fixing bug 528582.
 
   25 Aug 2014; Hans de Graaff <graaff@gentoo.org> mysql-workbench-6.1.7.ebuild,
   +files/mysql-workbench-6.1.7-mysql_options4.patch:

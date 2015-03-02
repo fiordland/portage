@@ -1,6 +1,15 @@
 # ChangeLog for sci-chemistry/molscript
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/molscript/ChangeLog,v 1.15 2011/08/09 08:25:28 ssuominen Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/molscript/ChangeLog,v 1.17 2015/02/17 12:02:53 jlec Exp $
+
+  17 Feb 2015; Justin Lecher <jlec@gentoo.org> molscript-2.1.2-r2.ebuild:
+  Use subslots for deps
+
+*molscript-2.1.2-r2 (14 Oct 2014)
+
+  14 Oct 2014; Justin Lecher <jlec@gentoo.org> +molscript-2.1.2-r2.ebuild,
+  metadata.xml:
+  Bump to EAPI=5
 
   09 Aug 2011; Samuli Suominen <ssuominen@gentoo.org>
   +files/2.1.2-libpng15.patch, molscript-2.1.2-r1.ebuild:
@@ -64,4 +73,3 @@
   +files/fix-makefile-shared.patch, +files/glutbitmap.h, +metadata.xml,
   +molscript-2.1.2.ebuild:
   New molecular graphics package. GLUT license is for files/glutbitmap.h.
-

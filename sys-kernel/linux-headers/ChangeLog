@@ -1,6 +1,45 @@
 # ChangeLog for sys-kernel/linux-headers
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-headers/ChangeLog,v 1.416 2014/08/04 09:39:49 vapier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/linux-headers/ChangeLog,v 1.426 2015/02/09 19:25:54 vapier Exp $
+
+*linux-headers-3.19 (09 Feb 2015)
+
+  09 Feb 2015; Mike Frysinger <vapier@gentoo.org> +linux-headers-3.19.ebuild:
+  Version bump.
+
+  31 Dec 2014; Mike Frysinger <vapier@gentoo.org> linux-headers-3.16.ebuild:
+  Mark arm64/m68k/s390/sh stable.
+
+*linux-headers-3.18 (31 Dec 2014)
+
+  31 Dec 2014; Mike Frysinger <vapier@gentoo.org> +linux-headers-3.18.ebuild:
+  Version bump.
+
+  16 Nov 2014; Mikle Kolyada <zlogene@gentoo.org> linux-headers-3.16.ebuild:
+  alpha/ia64/ppc/ppc64/sparc/x86 stable wrt bug #528902
+
+  15 Nov 2014; Mike Frysinger <vapier@gentoo.org> linux-headers-3.17-r1.ebuild:
+  Fix install on x86 of headers when headers were removed #527548 by Alex
+  Cannon.
+
+  14 Nov 2014; Markus Meier <maekke@gentoo.org> linux-headers-3.16.ebuild:
+  arm stable, bug #528902
+
+  13 Nov 2014; Agostino Sarubbo <ago@gentoo.org> linux-headers-3.16.ebuild:
+  Stable for amd64, wrt bug #528902
+
+  12 Nov 2014; Jeroen Roovers <jer@gentoo.org> linux-headers-3.16.ebuild:
+  Stable for HPPA (bug #528902).
+
+*linux-headers-3.17-r1 (01 Nov 2014)
+
+  01 Nov 2014; Mike Frysinger <vapier@gentoo.org> +linux-headers-3.17-r1.ebuild:
+  Fix mips asm/ptrace.h #527642 by Matt Turner.
+
+*linux-headers-3.17 (17 Oct 2014)
+
+  17 Oct 2014; Mike Frysinger <vapier@gentoo.org> +linux-headers-3.17.ebuild:
+  Version bump.
 
 *linux-headers-3.16 (04 Aug 2014)
 

@@ -1,10 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/use.mask,v 1.75 2014/06/30 15:34:54 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/mips/use.mask,v 1.82 2015/02/11 16:09:47 vapier Exp $
 
 # Unmask the flag which corresponds to ARCH.
 -mips
--abi_mips_o32
 
 # Markos Chandras <hwoarang@gentoo.org>
 # app-arch/lz4 does not seem to build on MIPS
@@ -76,10 +75,6 @@ clamav
 # Untested on mips, masking for now.
 cdb
 nextaw
-
-# Ilya A. Volynets-Evenbakh <iluxa@gentoo.org>
-# Not yet tested, and gets in the way for some KDE-related packages
-qt4
 
 # Until someone actually needs fuse, we'll mask it as
 # it holds up stablizing ntfsprogs
@@ -331,10 +326,6 @@ ladspa
 rpm
 
 # Matt Turner <mattst88@gentoo.org> (13 Dec 2010)
-# We don't care much about bluetooth
-bluetooth
-
-# Matt Turner <mattst88@gentoo.org> (13 Dec 2010)
 # We don't have net-libs/libsmi keyworded
 smi
 
@@ -386,3 +377,10 @@ opencl
 
 # Unmask once sys-libs/libunwind gets keyworded.
 unwind
+
+# sys-libs/libseccomp has not been ported to this arch yet #524148
+seccomp
+
+# Ben de Groot <yngwin@gentoo.org> (01 Feb 2015)
+# please remove when keyworded
+qt5

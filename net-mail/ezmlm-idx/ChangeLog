@@ -1,6 +1,18 @@
 # ChangeLog for net-mail/ezmlm-idx
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/ezmlm-idx/ChangeLog,v 1.34 2014/08/10 20:44:47 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/ezmlm-idx/ChangeLog,v 1.37 2014/12/28 16:34:45 titanofold Exp $
+
+  28 Dec 2014; Aaron W. Swenson <titanofold@gentoo.org> ezmlm-idx-6.0.0.ebuild,
+  ezmlm-idx-7.0.0.ebuild, ezmlm-idx-7.0.0-r1.ebuild, ezmlm-idx-7.0.0-r2.ebuild:
+  Rename virtual/postgresql to dev-db/postgresql
+
+  13 Nov 2014; Patrick Lauer <patrick@gentoo.org> -ezmlm-idx-0.40-r2.ebuild:
+  Really remove old for repoman happy
+
+  03 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org>
+  ezmlm-idx-0.40-r2.ebuild, ezmlm-idx-6.0.0.ebuild, ezmlm-idx-7.0.0.ebuild,
+  ezmlm-idx-7.0.0-r1.ebuild, ezmlm-idx-7.0.0-r2.ebuild:
+  Update PostgreSQL dependencies and/or checks to virtual/postgresql.
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> ezmlm-idx-0.40-r2.ebuild:
   QA: drop trailing '.' from DESCRIPTION

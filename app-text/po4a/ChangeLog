@@ -1,6 +1,54 @@
 # ChangeLog for app-text/po4a
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/po4a/ChangeLog,v 1.75 2014/08/28 15:52:13 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/po4a/ChangeLog,v 1.88 2014/12/19 19:13:48 dilfridge Exp $
+
+  19 Dec 2014; Andreas K. Huettel <dilfridge@gentoo.org> metadata.xml:
+  Drop to maintainer-needed
+
+  12 Dec 2014; Raúl Porcel <armin76@gentoo.org> po4a-0.45-r1.ebuild,
+  po4a-0.45-r2.ebuild:
+  arm64 stable
+
+*po4a-0.45-r2 (29 Nov 2014)
+
+  29 Nov 2014; Andreas K. Huettel <dilfridge@gentoo.org> po4a-0.45-r1.ebuild,
+  +po4a-0.45-r2.ebuild:
+  Revert changes to stable ebuild by monsieurp and put them in a revision bump
+  instead.
+
+  29 Nov 2014; Patrice Clement <monsieurp@gentoo.org> po4a-0.45-r1.ebuild:
+  Honour languages set by LINGUAS. Bug #402691.
+
+  26 Oct 2014; Mike Frysinger <vapier@gentoo.org> po4a-0.45-r1.ebuild:
+  Mark m68k/s390/sh stable.
+
+  19 Oct 2014; Andreas K. Huettel <dilfridge@gentoo.org> -po4a-0.42.ebuild:
+  Remove old
+
+*po4a-0.45-r1 (15 Oct 2014)
+
+  15 Oct 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> +po4a-0.45-r1.ebuild,
+  -po4a-0.45.ebuild:
+  bumped EAPI to 5; committed directly to stable as no other changes present and
+  revbump helps stable systems to keep from dieing on dev-lang/perl upgrades
+
+  23 Sep 2014; Agostino Sarubbo <ago@gentoo.org> po4a-0.45.ebuild:
+  Stable for alpha, wrt bug #520014
+
+  22 Sep 2014; Agostino Sarubbo <ago@gentoo.org> po4a-0.45.ebuild:
+  Stable for sparc, wrt bug #520014
+
+  22 Sep 2014; Agostino Sarubbo <ago@gentoo.org> po4a-0.45.ebuild:
+  Stable for ia64, wrt bug #520014
+
+  21 Sep 2014; Agostino Sarubbo <ago@gentoo.org> po4a-0.45.ebuild:
+  Stable for ppc64, wrt bug #520014
+
+  21 Sep 2014; Agostino Sarubbo <ago@gentoo.org> po4a-0.45.ebuild:
+  Stable for ppc, wrt bug #520014
+
+  13 Sep 2014; Markus Meier <maekke@gentoo.org> po4a-0.45.ebuild:
+  arm stable, bug #520014
 
   28 Aug 2014; Mikle Kolyada <zlogene@gentoo.org> po4a-0.45.ebuild:
   x86 stable wrt bug #520014

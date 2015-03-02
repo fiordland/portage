@@ -1,6 +1,39 @@
 # ChangeLog for sys-libs/uclibc
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/uclibc/ChangeLog,v 1.93 2014/08/12 06:47:41 vapier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/uclibc/ChangeLog,v 1.98 2015/02/27 08:05:56 vapier Exp $
+
+  27 Feb 2015; Mike Frysinger <vapier@gentoo.org> uclibc-0.9.33.2-r1.ebuild,
+  uclibc-0.9.33.2-r10.ebuild, uclibc-0.9.33.2-r11.ebuild,
+  uclibc-0.9.33.2-r12.ebuild, uclibc-0.9.33.2-r13.ebuild,
+  uclibc-0.9.33.2-r14.ebuild, uclibc-0.9.33.2-r2.ebuild,
+  uclibc-0.9.33.2-r3.ebuild, uclibc-0.9.33.2-r4.ebuild,
+  uclibc-0.9.33.2-r5.ebuild, uclibc-0.9.33.2-r6.ebuild,
+  uclibc-0.9.33.2-r7.ebuild, uclibc-0.9.33.2-r8.ebuild,
+  uclibc-0.9.33.2-r9.ebuild, uclibc-0.9.33.2.ebuild, uclibc-0.9.33.9999.ebuild,
+  uclibc-9999.ebuild:
+  Use more readable CTARGET setup logic.
+
+  07 Feb 2015; Anthony G. Basile <blueness@gentoo.org>
+  uclibc-0.9.33.2-r14.ebuild:
+  Stable on amd64 arm ppc x86, bug #539226
+
+*uclibc-0.9.33.2-r14 (01 Feb 2015)
+
+  01 Feb 2015; Anthony G. Basile <blueness@gentoo.org>
+  +uclibc-0.9.33.2-r14.ebuild, uclibc-0.9.33.2-r13.ebuild:
+  Backport fix to allow immediate values as 6th syscall arg in i386, bug #538396
+
+*uclibc-0.9.33.2-r13 (10 Jan 2015)
+
+  10 Jan 2015; Anthony G. Basile <blueness@gentoo.org>
+  +uclibc-0.9.33.2-r13.ebuild:
+  Adds patch for fallocate needed for >=sys-fs/e2fsprogs-1.42.10, bug #516988
+
+*uclibc-0.9.33.9999 (21 Oct 2014)
+
+  21 Oct 2014; Anthony G. Basile <blueness@gentoo.org>
+  +uclibc-0.9.33.9999.ebuild:
+  Add live ebuild for 0.9.33 branch, bug #510082
 
   12 Aug 2014; Mike Frysinger <vapier@gentoo.org> uclibc-0.9.33.2-r12.ebuild,
   uclibc-9999.ebuild:

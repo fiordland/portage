@@ -1,6 +1,19 @@
 # ChangeLog for app-benchmarks/ramspeed
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-benchmarks/ramspeed/ChangeLog,v 1.11 2013/06/02 11:23:45 jlec Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-benchmarks/ramspeed/ChangeLog,v 1.15 2015/01/28 19:02:25 mgorny Exp $
+
+  28 Jan 2015; Michał Górny <mgorny@gentoo.org> ramspeed-3.5.0-r2.ebuild:
+  Switch to CPU_FLAGS_X86.
+
+  10 Oct 2014; Justin Lecher <jlec@gentoo.org> -ramspeed-2.6.0.ebuild,
+  -ramspeed-3.5.0-r1.ebuild:
+  Drop old
+
+  10 Oct 2014; Agostino Sarubbo <ago@gentoo.org> ramspeed-3.5.0-r2.ebuild:
+  Stable for x86, wrt bug #522924
+
+  09 Oct 2014; Agostino Sarubbo <ago@gentoo.org> ramspeed-3.5.0-r2.ebuild:
+  Stable for amd64, wrt bug #522924
 
 *ramspeed-3.5.0-r2 (02 Jun 2013)
 

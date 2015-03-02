@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/mailman/mailman-2.1.18_p1.ebuild,v 1.1 2014/06/23 09:28:57 hanno Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/mailman/mailman-2.1.18_p1.ebuild,v 1.5 2014/12/31 16:07:02 ago Exp $
 
 EAPI="4"
 PYTHON_DEPEND="2"
@@ -14,15 +14,16 @@ S="${WORKDIR}/${P/_p/-}"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86"
 IUSE="selinux"
 
 DEPEND="virtual/mta
 	virtual/cron
 	virtual/httpd-cgi
-	selinux? ( sec-policy/selinux-mailman )
 	dev-python/dnspython"
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	selinux? ( sec-policy/selinux-mailman )
+"
 
 pkg_setup() {
 	python_set_active_version 2

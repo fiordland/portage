@@ -1,10 +1,12 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/4ti2/4ti2-1.6.2.ebuild,v 1.2 2014/07/18 12:27:10 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/4ti2/4ti2-1.6.2.ebuild,v 1.4 2014/11/21 09:26:09 vapier Exp $
 
 EAPI=5
 
 AUTOTOOLS_AUTORECONF=true
+# The swig subdir is not used, so we can skip running autotools in it. #518000
+AT_NO_RECURSIVE=1
 
 inherit autotools-utils
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/clanlib/clanlib-2.3.7.ebuild,v 1.1 2013/10/28 23:31:47 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-games/clanlib/clanlib-2.3.7.ebuild,v 1.4 2015/02/28 19:30:51 ago Exp $
 
 EAPI=4
 inherit flag-o-matic eutils autotools-utils
@@ -13,8 +13,8 @@ SRC_URI="http://clanlib.org/download/releases-2.0/${MY_P}.tgz"
 
 LICENSE="ZLIB"
 SLOT="2.3"
-KEYWORDS="~amd64 ~x86" #not big endian safe #82779
-IUSE="doc ipv6 mikmod opengl sound sqlite sse2 static-libs vorbis X"
+KEYWORDS="amd64 ~x86" #not big endian safe #82779
+IUSE="doc ipv6 mikmod opengl sound sqlite cpu_flags_x86_sse2 static-libs vorbis X"
 REQUIRED_USE="opengl? ( X )"
 
 RDEPEND="sys-libs/zlib
@@ -44,7 +44,10 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/${MY_P}
 
-PATCHES=( "${FILESDIR}"/${P}-autotools.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-autotools.patch
+	"${FILESDIR}"/${P}-doc.patch
+)
 AUTOTOOLS_AUTORECONF=1
 AUTOTOOLS_IN_SOURCE_BUILD=1
 DOCS=(
@@ -54,10 +57,15 @@ DOCS=(
 	README
 )
 
+src_prepare() {
+	autotools-utils_src_prepare
+	ln -sf ../../../Sources/API Documentation/Utilities/ReferenceDocs/ClanLib
+}
+
 src_configure() {
 	myeconfargs=(
 		$(use_enable doc docs)
-		$(use_enable sse2)
+		$(use_enable cpu_flags_x86_sse2 sse2)
 		$(use_enable opengl clanGL)
 		$(use_enable opengl clanGL1)
 		$(use_enable opengl clanGUI)

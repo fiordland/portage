@@ -1,6 +1,23 @@
 # ChangeLog for dev-libs/libixion
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libixion/ChangeLog,v 1.11 2014/05/26 10:48:01 dilfridge Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libixion/ChangeLog,v 1.16 2015/02/15 14:58:58 ago Exp $
+
+  15 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libixion-0.7.0.ebuild:
+  Stable for x86, wrt bug #534684
+
+  15 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libixion-0.7.0.ebuild:
+  Stable for amd64, wrt bug #534684
+
+  08 Feb 2015; Andreas K. Huettel <dilfridge@gentoo.org> libixion-0.5.0.ebuild,
+  libixion-0.7.0.ebuild, libixion-9999.ebuild:
+  Update live ebuild and improve dependencies, thanks to Andreas Sturmlechner
+
+  28 Dec 2014; Andreas K. Huettel <dilfridge@gentoo.org> libixion-9999.ebuild:
+  Minor updates to ebuild
+
+  14 Sep 2014; Andreas K. Huettel <dilfridge@gentoo.org> libixion-0.7.0.ebuild,
+  libixion-9999.ebuild:
+  Restore keywords on 0.7 for upcoming LO-4.3 bump; drop subslot
 
   26 May 2014; Andreas K. Huettel <dilfridge@gentoo.org> libixion-0.7.0.ebuild:
   Drop keywords of 0.7.0 temporarily since it is only needed by libreoffice live

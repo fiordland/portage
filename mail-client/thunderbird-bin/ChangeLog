@@ -1,6 +1,98 @@
 # ChangeLog for mail-client/thunderbird-bin
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/thunderbird-bin/ChangeLog,v 1.153 2014/08/10 14:29:24 swift Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/thunderbird-bin/ChangeLog,v 1.173 2015/02/27 13:25:43 ago Exp $
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-31.5.0.ebuild:
+  Stable for amd64, wrt bug #541316
+
+*thunderbird-bin-31.5.0 (26 Feb 2015)
+
+  26 Feb 2015; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-bin-31.5.0.ebuild:
+  Version bump
+
+  15 Feb 2015; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-31.4.0.ebuild:
+  Stable for x86, wrt bug #536564
+
+  07 Feb 2015; Mikle Kolyada <zlogene@gentoo.org> thunderbird-bin-31.4.0.ebuild:
+  amd64 stable wrt bug #536564
+
+*thunderbird-bin-31.4.0 (14 Jan 2015)
+
+  14 Jan 2015;  <anarchy@gentoo.org> +thunderbird-bin-31.4.0.ebuild,
+  files/icon/thunderbird-bin.desktop:
+  Security bump, misc bug fixes
+
+  10 Dec 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-31.3.0.ebuild:
+  Stable for x86, wrt bug #531408
+
+  10 Dec 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-31.3.0.ebuild:
+  Stable for amd64, wrt bug #531408
+
+*thunderbird-bin-31.3.0 (02 Dec 2014)
+
+  02 Dec 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-bin-31.3.0.ebuild:
+  version bump for security bug 531408
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org>
+  thunderbird-bin-31.2.0-r1.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+  18 Oct 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  -thunderbird-bin-24.8.1.ebuild:
+  cleanup old, security bug 525474
+
+  18 Oct 2014; Agostino Sarubbo <ago@gentoo.org>
+  thunderbird-bin-31.2.0-r1.ebuild:
+  Stable for x86, wrt bug #525474
+
+  18 Oct 2014; Agostino Sarubbo <ago@gentoo.org>
+  thunderbird-bin-31.2.0-r1.ebuild:
+  Stable for amd64, wrt bug #525474
+
+*thunderbird-bin-31.2.0-r1 (17 Oct 2014)
+
+  17 Oct 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-bin-31.2.0-r1.ebuild, -thunderbird-bin-31.2.0.ebuild:
+  added missing deps to 31esr and revbumped for stable candidate
+
+*thunderbird-bin-31.2.0 (14 Oct 2014)
+
+  14 Oct 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-bin-31.2.0.ebuild, -thunderbird-bin-17.0.10.ebuild,
+  -thunderbird-bin-17.0.9.ebuild, -thunderbird-bin-24.8.0.ebuild,
+  -thunderbird-bin-31.1.1.ebuild:
+  version bump, remove old (cleanup and for bug 523652)
+
+  06 Oct 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-24.8.1.ebuild:
+  Stable for x86, wrt bug #523652
+
+  06 Oct 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-24.8.1.ebuild:
+  Stable for amd64, wrt bug #523652
+
+*thunderbird-bin-24.8.1 (26 Sep 2014)
+*thunderbird-bin-31.1.1 (26 Sep 2014)
+
+  26 Sep 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-bin-24.8.1.ebuild, +thunderbird-bin-31.1.1.ebuild,
+  -thunderbird-bin-24.7.0.ebuild, -thunderbird-bin-31.1.0.ebuild:
+  security bump, bug 523652 ; removed old
+
+  05 Sep 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-24.8.0.ebuild:
+  Stable for x86, wrt bug #522020
+
+  05 Sep 2014; Agostino Sarubbo <ago@gentoo.org> thunderbird-bin-24.8.0.ebuild:
+  Stable for amd64, wrt bug #522020
+
+*thunderbird-bin-31.1.0 (03 Sep 2014)
+*thunderbird-bin-24.8.0 (03 Sep 2014)
+
+  03 Sep 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +thunderbird-bin-24.8.0.ebuild, +thunderbird-bin-31.1.0.ebuild,
+  -thunderbird-bin-24.6.0.ebuild, -thunderbird-bin-31.0.ebuild:
+  version bump, removed some old
 
   10 Aug 2014; Sven Vermeulen <swift@gentoo.org> thunderbird-bin-17.0.10.ebuild,
   thunderbird-bin-17.0.9.ebuild, thunderbird-bin-24.6.0.ebuild,

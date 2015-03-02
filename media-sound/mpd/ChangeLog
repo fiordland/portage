@@ -1,6 +1,85 @@
 # ChangeLog for media-sound/mpd
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/mpd/ChangeLog,v 1.353 2014/08/25 12:05:08 armin76 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/mpd/ChangeLog,v 1.371 2015/02/27 22:24:32 mgorny Exp $
+
+  27 Feb 2015; Michał Górny <mgorny@gentoo.org> mpd-0.18.16.ebuild,
+  mpd-0.18.20.ebuild, mpd-0.19.6.ebuild:
+  Use USE=libav to control ffmpeg/libav linking. Patch provided by Nikoli in
+  https://github.com/gentoo/gentoo-portage-rsync-mirror/pull/62.
+
+*mpd-0.19.6 (08 Dec 2014)
+*mpd-0.18.20 (08 Dec 2014)
+
+  08 Dec 2014; Christoph Mende <angelos@gentoo.org> +mpd-0.18.20.ebuild,
+  +mpd-0.19.6.ebuild, -mpd-0.18.10-r1.ebuild, -mpd-0.19.1.ebuild,
+  -mpd-0.19.3.ebuild, metadata.xml:
+  Version bump, remove old
+
+*mpd-0.19.3 (03 Dec 2014)
+
+  03 Dec 2014; Christoph Mende <angelos@gentoo.org> +mpd-0.19.3.ebuild:
+  Version bump
+
+  11 Nov 2014; Anthony G. Basile <blueness@gentoo.org> mpd-0.19.1.ebuild:
+  Keyword ~ppc ~ppc64, bug #525846
+
+  03 Nov 2014; Agostino Sarubbo <ago@gentoo.org> mpd-0.18.16.ebuild:
+  Stable for x86, wrt bug #525736
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> mpd-0.18.16.ebuild,
+  mpd-0.19.1.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+  01 Nov 2014; Agostino Sarubbo <ago@gentoo.org> mpd-0.18.16.ebuild:
+  Stable for ppc, wrt bug #525736
+
+  30 Oct 2014; Agostino Sarubbo <ago@gentoo.org> mpd-0.18.16.ebuild:
+  Stable for amd64, wrt bug #525736
+
+  29 Oct 2014; Rick Farina <zerochaos@gentoo.org> mpd-0.19.1.ebuild:
+  add missing dep on dev-libs/boost per report by angry_vincent (and personal
+  verification)
+
+  25 Oct 2014; Markus Meier <maekke@gentoo.org> mpd-0.18.16.ebuild:
+  arm stable, bug #525736
+
+  22 Oct 2014; Christoph Mende <angelos@gentoo.org> mpd-0.19.1.ebuild:
+  Remove unconditional glib dependency and add USE dependencies for flags
+  depending on glib (bug #526452)
+
+  21 Oct 2014; Christoph Mende <angelos@gentoo.org> mpd-0.19.1.ebuild:
+  USE=upnp depends on USE=expat (bug #526190)
+
+  20 Oct 2014; Jeroen Roovers <jer@gentoo.org> mpd-0.19.1.ebuild:
+  Marked ~hppa (bug #525846).
+
+  20 Oct 2014; Jeroen Roovers <jer@gentoo.org> mpd-0.18.16.ebuild:
+  Stable for HPPA (bug #525736).
+
+*mpd-0.19.1 (19 Oct 2014)
+
+  19 Oct 2014; Christoph Mende <angelos@gentoo.org> +mpd-0.19.1.ebuild,
+  metadata.xml:
+  Version bump
+
+*mpd-0.18.16 (26 Sep 2014)
+
+  26 Sep 2014; Christoph Mende <angelos@gentoo.org> +mpd-0.18.16.ebuild,
+  -mpd-0.18.14.ebuild:
+  Version bump, remove old
+
+*mpd-0.18.14 (18 Sep 2014)
+
+  18 Sep 2014; Christoph Mende <christoph@gentoo.org> +mpd-0.18.14.ebuild,
+  -mpd-0.18.13.ebuild:
+  Version bump, remove old
+
+*mpd-0.18.13 (05 Sep 2014)
+
+  05 Sep 2014; Christoph Mende <angelos@gentoo.org> +mpd-0.18.13.ebuild,
+  -mpd-0.18.11.ebuild:
+  Version bump, remove old
 
   25 Aug 2014; Raúl Porcel <armin76@gentoo.org> mpd-0.17.6.ebuild:
   Drop sparc

@@ -1,6 +1,156 @@
 # ChangeLog for media-video/vlc
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/ChangeLog,v 1.910 2014/06/08 12:25:50 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/ChangeLog,v 1.938 2015/03/01 09:31:47 ago Exp $
+
+  01 Mar 2015; Agostino Sarubbo <ago@gentoo.org> vlc-2.1.5-r1.ebuild:
+  Stable for ppc64, wrt bug #534532
+
+  01 Mar 2015; Agostino Sarubbo <ago@gentoo.org> vlc-2.1.5-r1.ebuild:
+  Stable for ppc, wrt bug #534532
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org> vlc-2.1.5-r1.ebuild:
+  Stable for x86, wrt bug #534532
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org> vlc-2.1.5-r1.ebuild:
+  Stable for amd64, wrt bug #534532
+
+  28 Feb 2015; Manuel Rüger <mrueg@gentoo.org> vlc-2.2.0.ebuild,
+  vlc-2.2.9999.ebuild, vlc-9999.ebuild:
+  Fix dependency on media-libs/libdvdnav.
+
+*vlc-2.2.0 (28 Feb 2015)
+
+  28 Feb 2015; Luca Barbato <lu_zero@gentoo.org> +vlc-2.2.0.ebuild:
+  New upstream version
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  +files/vlc-2.1-mem_undefined_functions.patch, vlc-2.1.2.ebuild,
+  vlc-2.1.5-r1.ebuild:
+  Fix bug #541654
+
+  16 Feb 2015; Yixun Lan <dlan@gentoo.org> vlc-2.1.9999.ebuild:
+  foward libavcodec patch to 2.1.9999, disable bogus version check
+
+  16 Feb 2015; Yixun Lan <dlan@gentoo.org> vlc-2.1.5-r1.ebuild,
+  vlc-2.1.9999.ebuild:
+  revert commit, remove <media-videp/ffmpeg-2.5, since it already handled
+
+  15 Feb 2015; Yixun Lan <dlan@gentoo.org> vlc-2.1.2.ebuild, vlc-2.1.4.ebuild,
+  vlc-2.1.5.ebuild, vlc-2.1.5-r1.ebuild, vlc-2.1.9999.ebuild,
+  vlc-2.2.9999.ebuild, vlc-9999.ebuild:
+  add epatch_user, fix deps, proxy for maintainer
+  1) corrected dependency on ffmpeg: avcodec interface from ffmpeg-2.5 is not
+  supported by vlc-2.1. Fixes bug 539856 reported by b1254633. 2) fix missng
+  on libva while enable USE=vaapi
+
+  02 Feb 2015; Michał Górny <mgorny@gentoo.org> vlc-2.1.5-r1.ebuild:
+  Re-add missing dep on libva, reported by Arfrever.
+
+*vlc-2.1.5-r1 (01 Feb 2015)
+
+  01 Feb 2015; Michał Górny <mgorny@gentoo.org> +vlc-2.1.5-r1.ebuild,
+  vlc-2.1.9999.ebuild, vlc-2.2.9999.ebuild, vlc-9999.ebuild:
+  Introduce USE=libav to control the preferred implementation. Fixes subslot &
+  implementation switch rebuilds as well.
+
+  30 Jan 2015; Michał Górny <mgorny@gentoo.org> vlc-2.1.2.ebuild,
+  vlc-2.1.4.ebuild, vlc-2.1.5.ebuild, vlc-2.1.9999.ebuild, vlc-2.2.9999.ebuild,
+  vlc-9999.ebuild:
+  Convert to CPU_FLAGS_X86.
+
+  26 Jan 2015; Yixun Lan <dlan@gentoo.org> vlc-2.1.2.ebuild, vlc-2.1.4.ebuild,
+  vlc-2.1.5.ebuild, vlc-2.1.9999.ebuild, vlc-2.2.9999.ebuild, vlc-9999.ebuild:
+   Unquoted Variable warning
+
+  26 Jan 2015; Yixun Lan <dlan@gentoo.org> vlc-2.1.2.ebuild, vlc-2.1.4.ebuild,
+  vlc-2.1.5.ebuild, vlc-2.1.9999.ebuild, vlc-2.2.9999.ebuild, vlc-9999.ebuild:
+  Fix possible lack of _FORTIFY_SOURCE definition, bug 523144. proxy for
+  maintainer
+
+  18 Dec 2014; Michael Palimaka <kensington@gentoo.org> vlc-2.1.9999.ebuild:
+  Don't try to reference USE flag that doesn't exist, again.
+
+  18 Dec 2014; Michael Palimaka <kensington@gentoo.org> vlc-2.1.2.ebuild,
+  vlc-2.1.4.ebuild, vlc-2.1.5.ebuild:
+  Don't try to reference USE flag that doesn't exist.
+
+  15 Dec 2014; Yixun Lan <dlan@gentoo.org> vlc-2.1.2.ebuild, vlc-2.1.4.ebuild,
+  vlc-2.1.5.ebuild, vlc-2.1.9999.ebuild, vlc-2.2.9999.ebuild, vlc-9999.ebuild:
+  1) drop keywords=amd64-fbsd from live ebuilds 2) vlc-2.1.*: Restricted
+  <net-misc/freerdp-1.2, bug 529640 3) Fixed qt* use flags when qtchooser and
+  both qt4 and qt5 are installed
+
+  12 Dec 2014; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  USE='vaapi' is now global, removing it's description from metadata
+
+  16 Nov 2014; Yixun Lan <dlan@gentoo.org> vlc-2.1.2.ebuild, vlc-2.1.4.ebuild,
+  vlc-2.1.5.ebuild, vlc-2.1.9999.ebuild, vlc-2.2.9999.ebuild, vlc-9999.ebuild,
+  metadata.xml:
+  proxy for maintainer, fix bug 525004, 506322, 489508, 499996
+  5) Add missing qtx11extras dependency for Qt5.
+  Fixes 525004 and unreported issue that VLC opens separate window for movie
+  when Qt5 X11 Extras are not found by configure script.
+  Although it is possible to use Qt5 with Wayland instead of X11, it is not
+  well supported by VLC, yet (WiP). Ebuild does not support wayland output, yet.
+  4) Removed workaround for avcodec use flag disabled.
+  It is not needed anymore starting with version 2.2
+  3) Corrected bugfix for bug 506322 - ebuild for version 2.1.5 was improperly fixed.
+  2) Drop support for Qt5 in VLC 2.1.x branch.
+  Fixes bug 489508. qt5 use flag was buggy, and this configuration was not very well
+  supported by upstream. Since Qt5 is still masked in portage tree, there is
+  a big chance that first VLC 2.2.x release will be before Qt5 is unmasked.
+  1) Disable fstack-check on x86 (enabled on hardened configurations by default)
+  because of registers shortage.
+  Fixes bug 499996 reported by Bertrand Jacquin and patch submitted by Anthony Basile.
+
+  15 Nov 2014; Markos Chandras <hwoarang@gentoo.org> vlc-2.1.2.ebuild,
+  vlc-2.1.4.ebuild, vlc-2.1.5.ebuild, vlc-2.1.9999.ebuild, vlc-2.2.9999.ebuild,
+  vlc-9999.ebuild:
+  Add X usedep to libva dependency. Bug #529270. Thanks to aambitny@gmail.com
+
+  14 Nov 2014; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  Remove myself.
+
+  10 Nov 2014; Yixun Lan <dlan@gentoo.org> vlc-2.2.9999.ebuild:
+  fix x265 deps typo
+
+*vlc-2.2.9999 (10 Nov 2014)
+
+  10 Nov 2014; Yixun Lan <dlan@gentoo.org> -vlc-2.0.5.ebuild,
+  -vlc-2.0.7.ebuild, -vlc-2.0.8.ebuild, -vlc-2.0.8a.ebuild, -vlc-2.0.9.ebuild,
+  -vlc-2.0.9999.ebuild, -vlc-2.1.0.ebuild, -vlc-2.1.1.ebuild, vlc-2.1.2.ebuild,
+  vlc-2.1.4.ebuild, vlc-2.1.5.ebuild, vlc-2.1.9999.ebuild,
+  +vlc-2.2.9999.ebuild, vlc-9999.ebuild,
+  -files/vlc-2.0.7-include-flac-1.3.x-support.patch,
+  -files/vlc-2.0.8-freetype-proper-default-font.patch,
+  -files/vlc-2.0.8-support-uclibc.patch,
+  -files/vlc-2.1.0-avcodec-check-update-buffered_time-earlier-so-we-sho.patch,
+  -files/vlc-2.1.0-transcode-don-t-check-drift-if-we-have-VLC_TS_INVALI.patch,
+  -files/vlc-2.1.1-freetype-2.5.1-support.patch, metadata.xml:
+  proxy commit for Paweł Stankowski, removed all <2.1.2 ebuilds affected by security bug 499806.
+  live ebuild for 2.2.0-git branch; fixes bug #513220, reported by Uwe L. Korn (uwelk).
+  gettext version bump, bug #524996; bump libdvdnav dependency, bug 519050
+  fix avcodec issue, hevc support, bug 506322; fix binpkgs support, bug 512650
+
+  09 Nov 2014; Yixun Lan <dlan@gentoo.org> metadata.xml:
+  add Paweł Stankowski as maintainer, granted by TomWij
+
+*vlc-2.1.5 (17 Sep 2014)
+
+  17 Sep 2014; Luca Barbato <lu_zero@gentoo.org> +vlc-2.1.5.ebuild:
+  Version bump
+
+  10 Sep 2014; Rick Farina <zerochaos@gentoo.org> vlc-2.1.2.ebuild,
+  vlc-2.1.4.ebuild, vlc-2.1.9999.ebuild, vlc-9999.ebuild:
+  adding missing subslot dep for libgcrypt to prevent preserved-libs from having
+  to save us
+
+  02 Sep 2014; Michał Górny <mgorny@gentoo.org> vlc-2.0.8.ebuild,
+  vlc-2.0.8a.ebuild, vlc-2.0.9.ebuild, vlc-2.0.9999.ebuild, vlc-2.1.0.ebuild,
+  vlc-2.1.1.ebuild, vlc-2.1.2.ebuild, vlc-2.1.4.ebuild, vlc-2.1.9999.ebuild,
+  vlc-9999.ebuild:
+  Remove := subslot operator from || () block since it is meaningless and
+  broken.
 
   08 Jun 2014; Agostino Sarubbo <ago@gentoo.org> vlc-2.1.2.ebuild:
   Stable for alpha, wrt bug #499806

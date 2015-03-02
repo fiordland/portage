@@ -1,6 +1,55 @@
 # ChangeLog for dev-util/eric
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/eric/ChangeLog,v 1.210 2014/08/20 18:38:29 pesa Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/eric/ChangeLog,v 1.221 2015/03/01 16:37:40 pesa Exp $
+
+  01 Mar 2015; Davide Pesavento <pesa@gentoo.org> -eric-4.5.14.ebuild,
+  -eric-5.3.2.ebuild, -eric-5.3.6.ebuild:
+  Remove old.
+
+  01 Mar 2015; Davide Pesavento <pesa@gentoo.org> eric-4.5.25-r1.ebuild,
+  eric-5.5.2.ebuild:
+  x86 stable wrt bug 523300
+
+  01 Mar 2015; Chema Alonso <nimiux@gentoo.org> eric-4.5.25-r1.ebuild,
+  eric-5.5.2.ebuild:
+  Stable for amd64 wrt bug #523300
+
+  28 Feb 2015; Davide Pesavento <pesa@gentoo.org> -eric-5.4.7.ebuild:
+  old
+
+*eric-4.5.25-r1 (28 Feb 2015)
+
+  28 Feb 2015; Davide Pesavento <pesa@gentoo.org> +eric-4.5.25-r1.ebuild,
+  -eric-4.5.25.ebuild:
+  Add missing USE deps, bug 541560.
+
+*eric-5.5.2 (09 Dec 2014)
+
+  09 Dec 2014; Davide Pesavento <pesa@gentoo.org> +eric-5.5.2.ebuild,
+  -eric-5.5.0.ebuild:
+  Version bump, remove old.
+
+*eric-5.5.0 (17 Nov 2014)
+
+  17 Nov 2014; Davide Pesavento <pesa@gentoo.org> +eric-5.5.0.ebuild:
+  Version bump.
+
+  17 Nov 2014; Davide Pesavento <pesa@gentoo.org> -eric-4.5.24.ebuild,
+  -eric-5.4.6.ebuild:
+  old
+
+*eric-5.4.7 (08 Oct 2014)
+*eric-4.5.25 (08 Oct 2014)
+
+  08 Oct 2014; Davide Pesavento <pesa@gentoo.org> +eric-4.5.25.ebuild,
+  +eric-5.4.7.ebuild:
+  Bump
+
+  23 Sep 2014; Dirkjan Ochtman <djc@gentoo.org> metadata.xml:
+  Remove python, not a python library
+
+  20 Sep 2014; Davide Pesavento <pesa@gentoo.org> eric-5.4.6.ebuild:
+  Drop deprecated python3_2 target.
 
 *eric-5.4.6 (20 Aug 2014)
 *eric-4.5.24 (20 Aug 2014)

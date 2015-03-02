@@ -1,6 +1,54 @@
 # ChangeLog for dev-util/meld
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/meld/ChangeLog,v 1.183 2014/07/23 15:16:02 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/meld/ChangeLog,v 1.194 2015/01/17 16:29:53 slyfox Exp $
+
+  17 Jan 2015; Sergei Trofimovich <slyfox@gentoo.org> metadata.xml:
+  Repoman says: unused local USE-description: 'highlight'
+
+  14 Jan 2015; Pacho Ramos <pacho@gentoo.org> -meld-1.8.5.ebuild,
+  -meld-3.12.1.ebuild:
+  Drop old
+
+*meld-3.12.3 (11 Jan 2015)
+
+  11 Jan 2015; Gilles Dartiguelongue <eva@gentoo.org> +meld-3.12.3.ebuild:
+  Version bump.
+
+  19 Dec 2014; Pacho Ramos <pacho@gentoo.org> meld-3.12.2.ebuild:
+  amd64 stable, bug 529964
+
+  18 Dec 2014; Pacho Ramos <pacho@gentoo.org> meld-3.12.2.ebuild:
+  x86 stable, bug 529964
+
+*meld-3.12.2 (25 Nov 2014)
+
+  25 Nov 2014; Pacho Ramos <pacho@gentoo.org> +meld-3.12.2.ebuild,
+  -files/meld-3.12.0-c-locale.patch, -meld-1.8.6.ebuild, -meld-3.12.0.ebuild:
+  Version bump, drop old
+
+*meld-3.12.1 (25 Oct 2014)
+
+  25 Oct 2014; Gilles Dartiguelongue <eva@gentoo.org> +meld-3.12.1.ebuild:
+  Version bump. Fixes highlighthing with gtk 3.14.
+
+  05 Oct 2014; Gilles Dartiguelongue <eva@gentoo.org> meld-3.12.0.ebuild:
+  Add PYTHON_REQ_USE, xml is used in svn support. Drop PYTHON_USEDEP on glib
+  dependency, it is only there for utilities that are not used here. Add
+  missing dependency on introspection USE flag and cairo.
+
+  04 Oct 2014; Pacho Ramos <pacho@gentoo.org> +files/meld-3.12.0-c-locale.patch:
+  Add forgotten patch (thanks to Gilles for noticing)
+
+*meld-3.12.0 (04 Oct 2014)
+
+  04 Oct 2014; Pacho Ramos <pacho@gentoo.org> +meld-3.12.0.ebuild:
+  Version bump (thanks to poncho for his help with ebuild)
+
+*meld-1.8.6 (04 Sep 2014)
+
+  04 Sep 2014; Pacho Ramos <pacho@gentoo.org> +meld-1.8.6.ebuild,
+  -meld-1.8.4.ebuild:
+  Version bump, drop old
 
   23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> meld-1.8.5.ebuild:
   Stable for x86, wrt bug #512012

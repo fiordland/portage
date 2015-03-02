@@ -1,6 +1,21 @@
 # ChangeLog for media-video/avidemux
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/avidemux/ChangeLog,v 1.229 2014/08/10 20:57:26 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/avidemux/ChangeLog,v 1.233 2015/01/29 19:13:34 mgorny Exp $
+
+  29 Jan 2015; Michał Górny <mgorny@gentoo.org> avidemux-2.6.2-r1.ebuild:
+  Switch to CPU_FLAGS_X86.
+
+  06 Jan 2015; Manuel Rüger <mrueg@gentoo.org> avidemux-2.6.5-r1.ebuild,
+  avidemux-2.6.5.ebuild, avidemux-2.6.7.ebuild, avidemux-2.6.8.ebuild,
+  avidemux-9999.ebuild:
+  Update xvba dependency to use bundled vaapi in x11-drivers/ati-drivers. See
+  bug #534710
+
+  12 Dec 2014; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  USE='vaapi' is now global, removing it's description from metadata
+
+  14 Nov 2014; Tom Wijsman <TomWij@gentoo.org> metadata.xml:
+  Remove myself.
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> avidemux-2.6.2-r1.ebuild,
   avidemux-2.6.3.ebuild, avidemux-2.6.4.ebuild, avidemux-2.6.5-r1.ebuild,

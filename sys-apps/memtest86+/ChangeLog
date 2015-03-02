@@ -1,6 +1,26 @@
 # ChangeLog for sys-apps/memtest86+
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/memtest86+/ChangeLog,v 1.67 2012/09/12 12:53:54 johu Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/memtest86+/ChangeLog,v 1.70 2015/01/31 23:10:02 bircoph Exp $
+
+  31 Jan 2015; Andrew Savchenko <bircoph@gentoo.org> memtest86+-4.20-r1.ebuild,
+  memtest86+-4.20-r2.ebuild, memtest86+-5.01.ebuild:
+  Fix bug 533224 (only elog message was wrong).
+
+*memtest86+-5.01 (31 Jan 2015)
+
+  31 Jan 2015; Andrew Savchenko <bircoph@gentoo.org> +memtest86+-5.01.ebuild,
+  +files/memtest86+-5.01-gcc-473.patch,
+  +files/memtest86+-5.01-hardcoded_cc.patch:
+  Version bump, wrt bug 486564.
+  Fix build with gcc 4.7.3 by Alexander (necheffa.misc@gmail.com),
+  add QA_CFLAGS_IGNORED, since we don't allow user to tamper with
+  CFLAGS here.
+
+*memtest86+-4.20-r2 (31 Aug 2014)
+
+  31 Aug 2014; Mike Gilbert <floppym@gentoo.org> +files/39_memtest86+,
+  +memtest86+-4.20-r2.ebuild:
+  Add a more robust grub config generator, bug 456308.
 
   12 Sep 2012; Johannes Huber <johu@gentoo.org> memtest86+-4.20-r1.ebuild:
   Stable for x86, wrt bug #423329

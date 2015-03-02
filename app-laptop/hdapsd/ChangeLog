@@ -1,6 +1,24 @@
 # ChangeLog for app-laptop/hdapsd
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-laptop/hdapsd/ChangeLog,v 1.28 2013/06/26 14:09:22 ottxor Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-laptop/hdapsd/ChangeLog,v 1.32 2015/01/26 10:11:27 ago Exp $
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> hdapsd-20141203.ebuild:
+  Stable for x86, wrt bug #536336
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org> hdapsd-20141203.ebuild:
+  Stable for amd64, wrt bug #536336
+
+*hdapsd-20141203 (08 Dec 2014)
+
+  08 Dec 2014; Michael Orlitzky <mjo@gentoo.org> +hdapsd-20141203.ebuild,
+  -hdapsd-20141024.ebuild:
+  Version bump.
+
+*hdapsd-20141024 (29 Oct 2014)
+
+  29 Oct 2014; Michael Orlitzky <mjo@gentoo.org> +files/hdapsd.conf-20141024,
+  +files/hdapsd.init-20141024, +hdapsd-20141024.ebuild, metadata.xml:
+  Add myself as co-maintainer and version bump.
 
   26 Jun 2013; Christoph Junghans <ottxor@gentoo.org> -files/hdapsd.conf,
   -files/hdapsd.init, -hdapsd-20090401.ebuild, files/hdapsd.init.3:

@@ -1,6 +1,37 @@
 # ChangeLog for games-strategy/freeciv
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/freeciv/ChangeLog,v 1.153 2014/06/04 05:03:42 mr_bones_ Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/freeciv/ChangeLog,v 1.161 2015/02/05 21:49:03 mr_bones_ Exp $
+
+*freeciv-2.4.4 (05 Feb 2015)
+
+  05 Feb 2015; Michael Sterrett <mr_bones_@gentoo.org> +freeciv-2.4.4.ebuild,
+  -freeciv-2.4.3.ebuild:
+  version bump; clean old
+
+  03 Jan 2015; Michael Sterrett <mr_bones_@gentoo.org> metadata.xml:
+  drop ggz from metadata.xml
+
+  03 Jan 2015; Michael Sterrett <mr_bones_@gentoo.org> freeciv-2.3.4.ebuild,
+  freeciv-2.4.3.ebuild:
+  drop ggz support
+
+  28 Dec 2014; Aaron W. Swenson <titanofold@gentoo.org> freeciv-2.4.3.ebuild:
+  Rename virtual/postgresql to dev-db/postgresql
+
+  06 Nov 2014; Mike Frysinger <vapier@gentoo.org> freeciv-2.4.3.ebuild:
+  Depend on libltdl rather than libtool #528294 by Pacho Ramos.
+
+  03 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> freeciv-2.4.3.ebuild:
+  Update PostgreSQL dependencies and/or checks to virtual/postgresql.
+
+  27 Oct 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/freeciv-2.4.2-as-needed.patch, -freeciv-2.4.2.ebuild:
+  old
+
+*freeciv-2.4.3 (06 Oct 2014)
+
+  06 Oct 2014; Michael Sterrett <mr_bones_@gentoo.org> +freeciv-2.4.3.ebuild:
+  version bump (bug #524464)
 
   04 Jun 2014; Michael Sterrett <mr_bones_@gentoo.org> freeciv-2.4.2.ebuild:
   remove the qt client as it is not ready to be used (per upstream)

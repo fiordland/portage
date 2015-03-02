@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/kismet/kismet-2013.03.1-r1.ebuild,v 1.7 2013/12/06 17:55:58 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/kismet/kismet-2013.03.1-r1.ebuild,v 1.9 2014/11/02 09:38:04 swift Exp $
 
 EAPI=5
 
-inherit eutils multilib user
+inherit autotools eutils multilib user
 
 MY_P=${P/\./-}
 MY_P=${MY_P/./-R}
@@ -27,7 +27,7 @@ LICENSE="GPL-2"
 SLOT="0/${PV}"
 IUSE="+client +pcre speech +plugin-autowep +plugin-btscan plugin-dot15d4 +plugin-ptw +plugin-spectools +plugin-syslog +ruby selinux +suid"
 
-RDEPEND="net-wireless/wireless-tools
+CDEPEND="net-wireless/wireless-tools
 	kernel_linux? ( sys-libs/libcap
 			dev-libs/libnl:3
 			|| (
@@ -42,18 +42,27 @@ RDEPEND="net-wireless/wireless-tools
 	plugin-btscan? ( net-wireless/bluez )
 	plugin-dot15d4? ( virtual/libusb:0 )
 	plugin-spectools? ( net-wireless/spectools )
-	selinux? ( sec-policy/selinux-kismet )"
+"
 
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+DEPEND="${CDEPEND}
+	virtual/pkgconfig
+"
+
+RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-kismet )
+"
 
 src_prepare() {
+	epatch "${FILESDIR}"/${P}-tinfo.patch
+
 	sed -i -e "s:^\(logtemplate\)=\(.*\):\1=/tmp/\2:" \
-		conf/kismet.conf.in
+		conf/kismet.conf.in || die
 
 	# Don't strip and set correct mangrp
 	sed -i -e 's| -s||g' \
-		-e 's|@mangrp@|root|g' Makefile.in
+		-e 's|@mangrp@|root|g' Makefile.in || die
+
+	eautoreconf
 }
 
 src_configure() {

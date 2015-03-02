@@ -1,6 +1,51 @@
 # ChangeLog for sys-apps/iproute2
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/iproute2/ChangeLog,v 1.234 2014/08/27 00:40:17 vapier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/iproute2/ChangeLog,v 1.247 2015/02/28 13:21:38 ago Exp $
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org> iproute2-3.17.0.ebuild:
+  Stable for ia64, wrt bug #535698
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> iproute2-3.17.0.ebuild:
+  Stable for sparc, wrt bug #535698
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> iproute2-3.17.0.ebuild:
+  Stable for alpha, wrt bug #535698
+
+  23 Feb 2015; Agostino Sarubbo <ago@gentoo.org> iproute2-3.17.0.ebuild:
+  Stable for ppc64, wrt bug #535698
+
+*iproute2-3.19.0 (15 Feb 2015)
+
+  15 Feb 2015; Tim Harder <radhermit@gentoo.org> +iproute2-3.19.0.ebuild:
+  Version bump.
+
+  09 Feb 2015; Sergey Popov <pinkbyte@gentoo.org> iproute2-3.17.0.ebuild:
+  s390 stable, wrt bug #535698
+
+  28 Jan 2015; Agostino Sarubbo <ago@gentoo.org> iproute2-3.17.0.ebuild:
+  Stable for ppc, wrt bug #535698
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> iproute2-3.17.0.ebuild:
+  Stable for x86, wrt bug #535698
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org> iproute2-3.17.0.ebuild:
+  Stable for amd64, wrt bug #535698
+
+  11 Jan 2015; Markus Meier <maekke@gentoo.org> iproute2-3.17.0.ebuild:
+  arm stable, bug #535698
+
+  08 Jan 2015; Jeroen Roovers <jer@gentoo.org> iproute2-3.17.0.ebuild:
+  Stable for HPPA (bug #535698).
+
+*iproute2-3.18.0 (29 Dec 2014)
+
+  29 Dec 2014; Tim Harder <radhermit@gentoo.org> +iproute2-3.18.0.ebuild:
+  Version bump.
+
+*iproute2-3.17.0 (01 Nov 2014)
+
+  01 Nov 2014; Tim Harder <radhermit@gentoo.org> +iproute2-3.17.0.ebuild:
+  Version bump.
 
 *iproute2-3.16.0-r1 (27 Aug 2014)
 

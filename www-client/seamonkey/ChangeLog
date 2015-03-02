@@ -1,6 +1,90 @@
 # ChangeLog for www-client/seamonkey
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/ChangeLog,v 1.493 2014/07/05 11:23:47 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey/ChangeLog,v 1.509 2015/02/07 23:52:04 polynomial-c Exp $
+
+*seamonkey-2.32.1 (07 Feb 2015)
+
+  07 Feb 2015; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.32.1.ebuild:
+  Version bump.
+
+  07 Feb 2015; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.32.ebuild:
+  Stable for x86/amd64, wrt bug #539242
+
+*seamonkey-2.32 (14 Jan 2015)
+
+  14 Jan 2015; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.31-r1.ebuild,
+  +seamonkey-2.32.ebuild, -files/icon/seamonkey.desktop,
+  +files/seamonkey.desktop:
+  Version bump.
+
+  02 Jan 2015; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.26.1.ebuild,
+  -seamonkey-2.30-r1.ebuild,
+  -files/seamonkey-2.30-webm-disallow-negative-samples.patch,
+  -files/pixman-supplement.patch:
+  Removed vulnerable versions.
+
+  10 Dec 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.31-r1.ebuild:
+  Stable for x86, wrt bug #531408
+
+  10 Dec 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.31-r1.ebuild:
+  Stable for amd64, wrt bug #531408
+
+*seamonkey-2.31-r1 (06 Dec 2014)
+
+  06 Dec 2014; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.31.ebuild,
+  +seamonkey-2.31-r1.ebuild:
+  Revbump to fix broken epatch line.
+
+*seamonkey-2.31 (05 Dec 2014)
+
+  05 Dec 2014; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.29.1.ebuild,
+  +seamonkey-2.31.ebuild, metadata.xml:
+  Security bump (bug #531408). Removed old.
+
+  06 Nov 2014; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.30-r1.ebuild,
+  -files/seamonkey-2.30-pulseaudio_configure_switch_fix.patch:
+  Minor ebuild fixes.
+
+*seamonkey-2.30-r1 (05 Nov 2014)
+
+  05 Nov 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +files/seamonkey-2.30-webm-disallow-negative-samples.patch,
+  +seamonkey-2.30-r1.ebuild, -seamonkey-2.30.ebuild:
+  fixed bugs 528062, 527010; moved IUSE=selinux to the eclass
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> seamonkey-2.26.1.ebuild,
+  seamonkey-2.29.1.ebuild, seamonkey-2.30.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+*seamonkey-2.30 (21 Oct 2014)
+
+  21 Oct 2014; Lars Wendler <polynomial-c@gentoo.org> +seamonkey-2.30.ebuild,
+  +files/seamonkey-2.30-jemalloc-configure.patch,
+  +files/seamonkey-2.30-pulseaudio_configure_switch_fix.patch:
+  Version bump.
+
+  05 Oct 2014; Lars Wendler <polynomial-c@gentoo.org> seamonkey-2.29.1.ebuild:
+  Removed QA warming (useless blank line).
+
+*seamonkey-2.29.1 (04 Oct 2014)
+
+  04 Oct 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -seamonkey-2.29-r1.ebuild, +seamonkey-2.29.1.ebuild:
+  Version bump. Removed old.
+
+*seamonkey-2.29-r1 (11 Sep 2014)
+
+  11 Sep 2014; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.29.ebuild,
+  +seamonkey-2.29-r1.ebuild:
+  Revbump to include latest enigmail version which fixes a severe bug where
+  mails in BCC would not get encrypted.
+
+*seamonkey-2.29 (08 Sep 2014)
+
+  08 Sep 2014; Lars Wendler <polynomial-c@gentoo.org> -seamonkey-2.25.ebuild,
+  -seamonkey-2.26.ebuild, +seamonkey-2.29.ebuild:
+  Version bump. Removed old.
 
   05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-2.26.1.ebuild:
   Stable for x86, wrt bug #512896

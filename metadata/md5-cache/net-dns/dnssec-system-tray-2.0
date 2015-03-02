@@ -1,12 +1,12 @@
 DEFINED_PHASES=compile configure install prepare unpack
-DEPEND=dev-qt/qtgui:4
+DEPEND=dev-qt/qtgui:4 dev-qt/qtsvg:4 dev-qt/qtcore:4
 DESCRIPTION=display DNSSEC resolver logs in system tray
 EAPI=4
 HOMEPAGE=http://www.dnssec-tools.org
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=dev-qt/qtgui:4
+RDEPEND=dev-qt/qtgui:4 dev-qt/qtsvg:4 dev-qt/qtcore:4
 SLOT=0
 SRC_URI=http://www.dnssec-tools.org/download/dnssec-system-tray-2.0.tar.gz
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	06133990e861be0fe60c2b428fd025d9	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	qmake-utils	40136c5fe0002a0d3937e869ae4ee0e2	qt4-r2	b40473dafd07d7c5fe4aef1c1b902f39	toolchain-funcs	0f1760274637a138b99bb649202ea402
-_md5_=ce2ebc04315ad624c7ccf275ecb4031f
+_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	qmake-utils	ea709b525d28e3087eddedb2f884dbbe	qt4-r2	7199e3db5b5908325487d379c6f67cf0	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
+_md5_=180680a4ab5e2d2804a68cee17a6a216

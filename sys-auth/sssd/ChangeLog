@@ -1,6 +1,49 @@
 # ChangeLog for sys-auth/sssd
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/sssd/ChangeLog,v 1.56 2014/07/12 13:11:00 hwoarang Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/sssd/ChangeLog,v 1.65 2015/02/22 16:31:07 hwoarang Exp $
+
+*sssd-1.12.4 (22 Feb 2015)
+
+  22 Feb 2015; Markos Chandras <hwoarang@gentoo.org> +sssd-1.12.4.ebuild:
+  Version bump. Install with -j1 so we can workaround build system issues
+
+*sssd-1.12.3 (09 Jan 2015)
+
+  09 Jan 2015; Markos Chandras <hwoarang@gentoo.org> +sssd-1.12.3.ebuild:
+  Version bump
+
+*sssd-1.9.7 (10 Dec 2014)
+
+  10 Dec 2014; Markos Chandras <hwoarang@gentoo.org> +sssd-1.9.7.ebuild:
+  Version bump for the LTM branch. 1.9.7 is going to be the last one
+
+*sssd-1.12.2-r1 (20 Nov 2014)
+
+  20 Nov 2014; Michał Górny <mgorny@gentoo.org> +sssd-1.12.2-r1.ebuild:
+  Enable multilib support, bug #409701.
+
+*sssd-1.12.2 (15 Nov 2014)
+
+  15 Nov 2014; Markos Chandras <hwoarang@gentoo.org> +sssd-1.12.2.ebuild,
+  -sssd-1.11.6.ebuild, -sssd-1.12.0.ebuild, -sssd-1.8.6-r1.ebuild,
+  -sssd-1.8.6.ebuild, -sssd-1.9.6-r2.ebuild:
+  Version bump. Remove some old ebuilds
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> sssd-1.12.1.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+  06 Oct 2014; Agostino Sarubbo <ago@gentoo.org> sssd-1.12.1.ebuild:
+  Stable for x86, wrt bug #511670
+
+  06 Oct 2014; Agostino Sarubbo <ago@gentoo.org> sssd-1.12.1.ebuild:
+  Stable for amd64, wrt bug #511670
+
+*sssd-1.12.1 (14 Sep 2014)
+
+  14 Sep 2014; Markos Chandras <hwoarang@gentoo.org> +sssd-1.12.1.ebuild,
+  metadata.xml:
+  Version bump
 
 *sssd-1.12.0 (12 Jul 2014)
 

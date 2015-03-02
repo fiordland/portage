@@ -1,6 +1,22 @@
 # ChangeLog for app-arch/pigz
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/pigz/ChangeLog,v 1.37 2014/01/23 00:16:23 radhermit Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-arch/pigz/ChangeLog,v 1.41 2015/01/27 04:33:36 radhermit Exp $
+
+*pigz-2.3.3 (27 Jan 2015)
+
+  27 Jan 2015; Tim Harder <radhermit@gentoo.org> +pigz-2.3.3.ebuild,
+  +files/pigz-2.3.3-ldflags.patch:
+  Version bump.
+
+  21 Oct 2014; Tim Harder <radhermit@gentoo.org> -pigz-2.2.5.ebuild,
+  -pigz-2.3.ebuild, -pigz-2.3.1.ebuild:
+  Remove old.
+
+  12 Oct 2014; Agostino Sarubbo <ago@gentoo.org> pigz-2.3.1-r1.ebuild:
+  Stable for x86, wrt bug #524858
+
+  10 Oct 2014; Agostino Sarubbo <ago@gentoo.org> pigz-2.3.1-r1.ebuild:
+  Stable for amd64, wrt bug #524858
 
 *pigz-2.3.1-r1 (23 Jan 2014)
 

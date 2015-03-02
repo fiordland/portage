@@ -1,6 +1,28 @@
 # ChangeLog for dev-perl/Devel-GlobalDestruction
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Devel-GlobalDestruction/ChangeLog,v 1.28 2014/08/26 18:07:11 axs Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Devel-GlobalDestruction/ChangeLog,v 1.33 2015/01/31 14:08:18 zlogene Exp $
+
+  31 Jan 2015; Mikle Kolyada <zlogene@gentoo.org>
+  Devel-GlobalDestruction-0.120.0.ebuild:
+  Add ~x86-fbsd keyword
+
+  25 Jan 2015; Mikle Kolyada <zlogene@gentoo.org>
+  Devel-GlobalDestruction-0.50.0-r1.ebuild:
+  Drop prefix
+
+  22 Nov 2014; Mikle Kolyada <zlogene@gentoo.org>
+  Devel-GlobalDestruction-0.120.0.ebuild:
+  amd64/ppc/x86 stable wrt bug #526674
+
+  11 Nov 2014; Anthony G. Basile <blueness@gentoo.org>
+  Devel-GlobalDestruction-0.120.0.ebuild,
+  Devel-GlobalDestruction-0.50.0-r1.ebuild:
+  Keyword ~ppc64 for bug #358465
+
+  24 Oct 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -Devel-GlobalDestruction-0.70.0-r1.ebuild,
+  -Devel-GlobalDestruction-0.90.0-r1.ebuild:
+  Remove old
 
 *Devel-GlobalDestruction-0.70.0-r1 (26 Aug 2014)
 *Devel-GlobalDestruction-0.90.0-r1 (26 Aug 2014)

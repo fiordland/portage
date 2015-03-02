@@ -1,6 +1,21 @@
 # ChangeLog for sys-auth/pam_mount
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/pam_mount/ChangeLog,v 1.77 2014/02/24 02:33:08 mattst88 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/pam_mount/ChangeLog,v 1.81 2015/02/25 15:28:38 ago Exp $
+
+  25 Feb 2015; Agostino Sarubbo <ago@gentoo.org> pam_mount-2.14.ebuild,
+  pam_mount-2.15.ebuild:
+  Stable for x86, wrt bug #519902
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> pam_mount-2.15.ebuild:
+  Stable for ppc, wrt bug #519902
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org> pam_mount-2.15.ebuild:
+  Stable for amd64, wrt bug #519902
+
+*pam_mount-2.15 (04 Jan 2015)
+
+  04 Jan 2015; <hanno@gentoo.org> +pam_mount-2.15.ebuild:
+  Bump, EAPI=5.
 
   24 Feb 2014; Matt Turner <mattst88@gentoo.org>
   -files/pam_mount-2.13-fix-build-without-cryptsetup.patch,

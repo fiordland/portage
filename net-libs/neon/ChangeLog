@@ -1,6 +1,62 @@
 # ChangeLog for net-libs/neon
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/neon/ChangeLog,v 1.75 2014/08/09 16:33:47 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/neon/ChangeLog,v 1.93 2014/12/06 16:41:07 ago Exp $
+
+  06 Dec 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.1.ebuild:
+  Stable for ia64, wrt bug #529718
+
+  04 Dec 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.1.ebuild:
+  Stable for ppc64, wrt bug #529718
+
+  03 Dec 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.1.ebuild:
+  Stable for ppc, wrt bug #529718
+
+  02 Dec 2014; Markus Meier <maekke@gentoo.org> neon-0.30.1.ebuild:
+  arm stable, bug #529718
+
+  02 Dec 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.1.ebuild:
+  Stable for alpha, wrt bug #529718
+
+  01 Dec 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.1.ebuild:
+  Stable for sparc, wrt bug #529718
+
+  25 Nov 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.1.ebuild:
+  Stable for x86, wrt bug #529718
+
+  22 Nov 2014; Mikle Kolyada <zlogene@gentoo.org> neon-0.30.1.ebuild:
+  amd64 stable wrt bug #529718
+
+  19 Nov 2014; Jeroen Roovers <jer@gentoo.org> neon-0.30.1.ebuild:
+  Stable for HPPA (bug #529718).
+
+  11 Nov 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.0-r1.ebuild:
+  Stable for ia64, wrt bug #518614
+
+  02 Nov 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.0-r1.ebuild:
+  Stable for alpha, wrt bug #518614
+
+  29 Oct 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.0-r1.ebuild:
+  Stable for sparc, wrt bug #518614
+
+  27 Oct 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.0-r1.ebuild:
+  Stable for ppc64, wrt bug #518614
+
+  18 Oct 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.0-r1.ebuild:
+  Stable for ppc, wrt bug #518614
+
+  12 Oct 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.0-r1.ebuild:
+  Stable for x86, wrt bug #518614
+
+  10 Oct 2014; Agostino Sarubbo <ago@gentoo.org> neon-0.30.0-r1.ebuild:
+  Stable for amd64, wrt bug #518614
+
+*neon-0.30.1 (01 Oct 2014)
+
+  01 Oct 2014; Mike Gilbert <floppym@gentoo.org> +neon-0.30.1.ebuild:
+  Version bump. Ebuild by Arfrever.
+
+  13 Sep 2014; Markus Meier <maekke@gentoo.org> neon-0.30.0-r1.ebuild:
+  arm stable, bug #518614
 
   09 Aug 2014; Jeroen Roovers <jer@gentoo.org> neon-0.30.0-r1.ebuild:
   Stable for HPPA (bug #518614).

@@ -1,6 +1,14 @@
 # ChangeLog for dev-ruby/fattr
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/fattr/ChangeLog,v 1.16 2014/08/05 16:00:34 mrueg Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/fattr/ChangeLog,v 1.18 2015/01/05 14:55:46 mrueg Exp $
+
+  05 Jan 2015; Manuel Rüger <mrueg@gentoo.org> -fattr-2.2.1-r1.ebuild,
+  fattr-2.2.2.ebuild:
+  Add ruby22 support. Remove old.
+
+  03 Nov 2014; Manuel Rüger <mrueg@gentoo.org> fattr-2.2.1-r1.ebuild,
+  fattr-2.2.2.ebuild:
+  Drop jruby.
 
   05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> fattr-2.2.1-r1.ebuild,
   fattr-2.2.2.ebuild:

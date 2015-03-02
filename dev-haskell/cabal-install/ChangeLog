@@ -1,6 +1,53 @@
 # ChangeLog for dev-haskell/cabal-install
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cabal-install/ChangeLog,v 1.20 2014/07/25 09:16:27 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cabal-install/ChangeLog,v 1.30 2015/02/28 13:27:53 ago Exp $
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  cabal-install-1.18.0.3-r1.ebuild:
+  Stable for ia64, wrt bug #536358
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  cabal-install-1.18.0.3-r1.ebuild:
+  Stable for sparc, wrt bug #536358
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  cabal-install-1.18.0.3-r1.ebuild:
+  Stable for alpha, wrt bug #536358
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org>
+  cabal-install-1.18.0.3-r1.ebuild:
+  Stable for x86, wrt bug #536358
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org>
+  cabal-install-1.18.0.3-r1.ebuild:
+  Stable for amd64, wrt bug #536358
+
+  17 Jan 2015; Sergei Trofimovich <slyfox@gentoo.org>
+  cabal-install-1.18.0.3-r1.ebuild:
+  stable on ppc/ppc64 (bug #536358 by Michael Orlitzky)
+
+  30 Dec 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  cabal-install-1.20.0.3-r2.ebuild:
+  Added missing dev-haskell/network-uri depend (found by aidecoe).
+
+*cabal-install-1.20.0.3-r2 (15 Nov 2014)
+
+  15 Nov 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  +cabal-install-1.20.0.3-r2.ebuild:
+  Version bump.
+
+  21 Oct 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  -cabal-install-0.10.2-r2.ebuild, -cabal-install-0.14.0.ebuild,
+  -cabal-install-1.16.0.2.ebuild, -files/cabal-install-0.10-ghc-7.2.patch,
+  -files/cabal-install-0.8-nopref.patch:
+  Drop old.
+
+*cabal-install-1.18.0.3-r1 (21 Oct 2014)
+
+  21 Oct 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  +cabal-install-1.18.0.3-r1.ebuild:
+  Update binary completion name to match 'cabal' tool name (bug #526266 by
+  Michał Górny).
 
   25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org>
   cabal-install-0.10.2-r2.ebuild, cabal-install-0.14.0.ebuild,

@@ -1,6 +1,60 @@
 # ChangeLog for app-text/calibre
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/calibre/ChangeLog,v 1.331 2014/08/12 05:17:02 yngwin Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/calibre/ChangeLog,v 1.342 2015/02/12 07:26:43 yngwin Exp $
+
+  12 Feb 2015; Ben de Groot <yngwin@gentoo.org> -calibre-1.2.ebuild,
+  -calibre-1.25.ebuild, -calibre-1.29.ebuild, -calibre-1.43.ebuild,
+  -calibre-1.48.ebuild, -calibre-2.12.0.ebuild, -calibre-2.7.0.ebuild,
+  -calibre-2.9.0.ebuild, calibre-1.48-r1.ebuild, calibre-2.18.0.ebuild,
+  calibre-2.19.0.ebuild:
+  Set correct qmake location (bug #539838). Make repoman happy by removing
+  unknown dependency. Clean up old versions.
+
+*calibre-2.19.0 (10 Feb 2015)
+
+  10 Feb 2015; Ben de Groot <yngwin@gentoo.org> +calibre-2.19.0.ebuild:
+  version bump
+
+  02 Feb 2015; Mikle Kolyada <zlogene@gentoo.org> calibre-2.18.0.ebuild:
+  Add ~arm keyword
+
+*calibre-2.18.0 (01 Feb 2015)
+
+  01 Feb 2015; Ben de Groot <yngwin@gentoo.org> +calibre-2.18.0.ebuild:
+  version bump
+
+*calibre-2.12.0 (09 Dec 2014)
+
+  09 Dec 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> +calibre-2.12.0.ebuild:
+  version bump
+
+  05 Dec 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> calibre-1.48-r1.ebuild:
+  added alternative PyQt4 dep, for Funtoo
+
+*calibre-1.48-r1 (23 Nov 2014)
+
+  23 Nov 2014; Justin Lecher <jlec@gentoo.org> +calibre-1.48-r1.ebuild:
+  Add workaround for newer PyQt4, #526524; use distutils-r1.eclass, fix
+  installation of bash-completions
+
+  09 Nov 2014; Ben de Groot <yngwin@gentoo.org> calibre-2.9.0.ebuild:
+  Fix failure of xdg tools to recognize vendor prefix (see bug #521484)
+
+*calibre-2.9.0 (09 Nov 2014)
+
+  09 Nov 2014; Ben de Groot <yngwin@gentoo.org> +calibre-2.9.0.ebuild,
+  +files/calibre-2.9.0-no_updates_dialog.patch:
+  version bump, with adjusted patch
+
+*calibre-2.7.0 (24 Oct 2014)
+
+  24 Oct 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> +calibre-2.7.0.ebuild:
+  version bump, p.masked until qt5 is unmasked in the tree
+
+  16 Oct 2014; Zac Medico <zmedico@gentoo.org> calibre-1.2.ebuild,
+  calibre-1.20.ebuild, calibre-1.25.ebuild, calibre-1.29.ebuild,
+  calibre-1.43.ebuild, calibre-1.47.ebuild, calibre-1.48.ebuild:
+  Add virtual/podofo-build to DEPEND for bug #503802.
 
 *calibre-1.48 (12 Aug 2014)
 

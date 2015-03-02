@@ -1,6 +1,29 @@
 # ChangeLog for dev-java/scala-bin
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/scala-bin/ChangeLog,v 1.11 2010/12/15 07:07:47 ali_bush Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/scala-bin/ChangeLog,v 1.17 2015/02/19 21:45:30 monsieurp Exp $
+
+*scala-bin-2.11.5 (19 Feb 2015)
+
+  19 Feb 2015; Patrice Clement <monsieurp@gentoo.org> +scala-bin-2.11.5.ebuild,
+  scala-bin-2.11.4.ebuild:
+  Bump to version 2.11.5. Fix bug #540704.
+
+  02 Feb 2015; Patrice Clement <monsieurp@gentoo.org> scala-bin-2.11.4.ebuild:
+  Add forgotten `doc' USE flag to IUSE flags. Fix bug 538480.
+
+  18 Jan 2015; Patrice Clement <monsieurp@gentoo.org> scala-bin-2.11.4.ebuild:
+  Use java_prepare() instead of src_prepare. Add `doc' USE flag.
+
+*scala-bin-2.11.4 (18 Jan 2015)
+
+  18 Jan 2015; Patrice Clement <monsieurp@gentoo.org> +scala-bin-2.11.4.ebuild:
+  Version bump to 2.11.4.
+
+  12 Jan 2015; Patrice Clement <monsieurp@gentoo.org> scala-bin-1.2.0.1.ebuild:
+  Make use of ${PV} variable instead of full version number.
+
+  11 Jan 2015; Patrice Clement <monsieurp@gentoo.org> scala-bin-1.2.0.1.ebuild:
+  Corrected sed warnings. Also corrected a bunch of QA warnings. Fix #533856.
 
   15 Dec 2010; Alistair Bush <ali_bush@gentoo.org> scala-bin-1.2.0.1.ebuild:
   Block dev-lang/scala

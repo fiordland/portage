@@ -1,6 +1,109 @@
 # ChangeLog for media-sound/ncmpcpp
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/ncmpcpp/ChangeLog,v 1.82 2014/04/30 14:14:51 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/ncmpcpp/ChangeLog,v 1.108 2015/02/27 11:06:09 ago Exp $
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> ncmpcpp-0.6.2.ebuild:
+  Stable for sparc, wrt bug #537110
+
+  28 Jan 2015; Agostino Sarubbo <ago@gentoo.org> ncmpcpp-0.6.2.ebuild:
+  Stable for ppc, wrt bug #537110
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> ncmpcpp-0.6.2.ebuild:
+  Stable for x86, wrt bug #537110
+
+  25 Jan 2015; Markus Meier <maekke@gentoo.org> ncmpcpp-0.6.2.ebuild:
+  arm stable, bug #537110
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org> ncmpcpp-0.6.2.ebuild:
+  Stable for amd64, wrt bug #537110
+
+  21 Jan 2015; Patrick Lauer <patrick@gentoo.org> metadata.xml:
+  Remove unneded useflag description from metadata.xml
+
+  20 Jan 2015; Jeroen Roovers <jer@gentoo.org> ncmpcpp-0.6.2.ebuild:
+  Stable for HPPA (bug #537110).
+
+  20 Jan 2015; Jeroen Roovers <jer@gentoo.org> -ncmpcpp-0.5.10.ebuild:
+  Old.
+
+  03 Jan 2015; Jeroen Roovers <jer@gentoo.org> ncmpcpp-0.6.2.ebuild,
+  ncmpcpp-9999.ebuild:
+  Depend on dev-libs/boost[threads].
+
+  03 Jan 2015; Jeroen Roovers <jer@gentoo.org> ncmpcpp-0.6.2.ebuild,
+  ncmpcpp-9999.ebuild:
+  Add sub-SLOT dependency on dev-libs/boost.
+
+  02 Jan 2015; Agostino Sarubbo <ago@gentoo.org> ncmpcpp-0.6.1-r1.ebuild:
+  Stable for sparc, wrt bug #531892
+
+  31 Dec 2014; Agostino Sarubbo <ago@gentoo.org> ncmpcpp-0.6.1-r1.ebuild:
+  Stable for ppc, wrt bug #531892
+
+  28 Dec 2014; Agostino Sarubbo <ago@gentoo.org> ncmpcpp-0.6.1-r1.ebuild:
+  Stable for x86, wrt bug #531892
+
+  27 Dec 2014; Agostino Sarubbo <ago@gentoo.org> ncmpcpp-0.6.1-r1.ebuild:
+  Stable for amd64, wrt bug #531892
+
+  26 Dec 2014; Markus Meier <maekke@gentoo.org> ncmpcpp-0.6.1-r1.ebuild:
+  arm stable, bug #531892
+
+*ncmpcpp-0.6.2 (15 Dec 2014)
+
+  15 Dec 2014; Jeroen Roovers <jer@gentoo.org> +ncmpcpp-0.6.2.ebuild:
+  Version bump.
+
+  08 Dec 2014; Jeroen Roovers <jer@gentoo.org> ncmpcpp-0.6.1-r1.ebuild:
+  Stable for HPPA (bug #531892).
+
+  24 Nov 2014; Jeroen Roovers <jer@gentoo.org> ncmpcpp-0.6.1-r1.ebuild:
+  Fix typo.
+
+*ncmpcpp-0.6.1-r1 (24 Nov 2014)
+
+  24 Nov 2014; Jeroen Roovers <jer@gentoo.org> -ncmpcpp-0.6.1.ebuild,
+  +ncmpcpp-0.6.1-r1.ebuild, ncmpcpp-9999.ebuild:
+  Install example configuration files (bug #527912).
+
+*ncmpcpp-0.6.1 (08 Nov 2014)
+
+  08 Nov 2014; Jeroen Roovers <jer@gentoo.org> -ncmpcpp-0.6.ebuild,
+  +ncmpcpp-0.6.1.ebuild:
+  Version bump.
+
+*ncmpcpp-0.6 (27 Oct 2014)
+
+  27 Oct 2014; Jeroen Roovers <jer@gentoo.org> -ncmpcpp-0.6_beta5.ebuild,
+  +ncmpcpp-0.6.ebuild:
+  Version bump.
+
+*ncmpcpp-0.6_beta5 (07 Oct 2014)
+
+  07 Oct 2014; Jeroen Roovers <jer@gentoo.org> -ncmpcpp-0.6_beta4.ebuild,
+  +ncmpcpp-0.6_beta5.ebuild:
+  Version bump.
+
+  20 Sep 2014; Jeroen Roovers <jer@gentoo.org> ncmpcpp-0.6_beta4.ebuild:
+  No need to run eautomake.
+
+*ncmpcpp-0.6_beta4 (20 Sep 2014)
+
+  20 Sep 2014; Jeroen Roovers <jer@gentoo.org> -ncmpcpp-0.6_beta3.ebuild,
+  +ncmpcpp-0.6_beta4.ebuild:
+  Version bump.
+
+*ncmpcpp-0.6_beta3 (16 Sep 2014)
+
+  16 Sep 2014; Jeroen Roovers <jer@gentoo.org> -ncmpcpp-0.6_beta2.ebuild,
+  +ncmpcpp-0.6_beta3.ebuild:
+  Version bump.
+
+*ncmpcpp-0.6_beta2 (04 Sep 2014)
+
+  04 Sep 2014; Jeroen Roovers <jer@gentoo.org> +ncmpcpp-0.6_beta2.ebuild,
+  ncmpcpp-9999.ebuild:
+  Version bump.
 
   30 Apr 2014; Jeroen Roovers <jer@gentoo.org> ncmpcpp-0.5.10.ebuild,
   ncmpcpp-9999.ebuild:

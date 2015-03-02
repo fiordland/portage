@@ -1,6 +1,28 @@
 # ChangeLog for dev-qt/qtlockedfile
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-qt/qtlockedfile/ChangeLog,v 1.10 2014/07/14 11:52:44 pesa Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-qt/qtlockedfile/ChangeLog,v 1.15 2015/03/02 09:04:19 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org>
+  qtlockedfile-2.4.1_p20130904-r1.ebuild, qtlockedfile-2.4.1_p20130904.ebuild:
+  Add ~ppc64, wrt bug #488996
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org>
+  qtlockedfile-2.4.1_p20130904-r1.ebuild, qtlockedfile-2.4.1_p20130904.ebuild:
+  Add ~ppc, wrt bug #488996
+
+  18 Feb 2015; Davide Pesavento <pesa@gentoo.org>
+  qtlockedfile-2.4.1_p20130904-r1.ebuild:
+  Simplify pkg_setup().
+
+  02 Jan 2015; Michael Palimaka <kensington@gentoo.org>
+  qtlockedfile-2.4.1_p20130904-r1.ebuild:
+  Remove unnecessary arguments to eqmake.
+
+*qtlockedfile-2.4.1_p20130904-r1 (02 Jan 2015)
+
+  02 Jan 2015; Michael Palimaka <kensington@gentoo.org>
+  +files/qtlockedfile5.prf, +qtlockedfile-2.4.1_p20130904-r1.ebuild:
+  Add Qt 5 support wrt bug #534304.
 
   14 Jul 2014; Davide Pesavento <pesa@gentoo.org>
   qtlockedfile-2.4.1_p20130904.ebuild:

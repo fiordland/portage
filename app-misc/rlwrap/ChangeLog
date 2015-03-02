@@ -1,6 +1,37 @@
 # ChangeLog for app-misc/rlwrap
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/rlwrap/ChangeLog,v 1.28 2012/03/07 04:07:57 darkside Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-misc/rlwrap/ChangeLog,v 1.37 2015/02/17 14:52:42 haubi Exp $
+
+  17 Feb 2015; Michael Haubenwallner <haubi@gentoo.org> rlwrap-0.42.ebuild:
+  Add ~ppc-aix keyword.
+
+  31 Dec 2014; Agostino Sarubbo <ago@gentoo.org> rlwrap-0.42.ebuild:
+  Stable for ppc, wrt bug #531424
+
+  28 Dec 2014; Agostino Sarubbo <ago@gentoo.org> rlwrap-0.42.ebuild:
+  Stable for x86, wrt bug #531424
+
+  27 Dec 2014; Chema Alonso <nimiux@gentoo.org> metadata.xml:
+  Update use flag in metadata
+
+  27 Dec 2014; Chema Alonso <nimiux@gentoo.org> -rlwrap-0.30.ebuild:
+  Drop old
+
+  27 Dec 2014; Chema Alonso <nimiux@gentoo.org> rlwrap-0.42.ebuild:
+  Stable for amd64 wrt bug #531424
+
+  27 Dec 2014; Agostino Sarubbo <ago@gentoo.org> rlwrap-0.41.ebuild:
+  Stable for amd64, wrt bug #531424
+
+*rlwrap-0.42 (26 Nov 2014)
+
+  26 Nov 2014; Chema Alonso <nimiux@gentoo.org> +rlwrap-0.42.ebuild:
+  Bump to version 0.42. Bug #529606 by Hans Lub
+
+*rlwrap-0.41 (02 Nov 2014)
+
+  02 Nov 2014; Chema Alonso <nimiux@gentoo.org> +rlwrap-0.41.ebuild:
+  Version bump. (bug #522410)
 
   07 Mar 2012; Jeremy Olexa <darkside@gentoo.org> rlwrap-0.37.ebuild:
   add ~x64-macos, bug 395011

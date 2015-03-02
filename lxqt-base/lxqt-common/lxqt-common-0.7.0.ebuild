@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/lxqt-base/lxqt-common/lxqt-common-0.7.0.ebuild,v 1.2 2014/05/29 13:18:21 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/lxqt-base/lxqt-common/lxqt-common-0.7.0.ebuild,v 1.5 2015/01/30 16:32:19 kensington Exp $
 
 EAPI=5
 inherit cmake-utils
 
 DESCRIPTION="LXQt common resources"
-HOMEPAGE="http://www.lxqt.org/"
+HOMEPAGE="http://lxqt.org/"
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="git://git.lxde.org/git/lxde/${PN}.git"
 else
-	SRC_URI="http://lxqt.org/downloads/lxqt/${PV}/${P}.tar.xz"
+	SRC_URI="http://downloads.lxqt.org/lxqt/lxqt/${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
@@ -21,12 +21,12 @@ SLOT="0"
 
 S=${WORKDIR}
 
-DEPEND="lxqt-base/liblxqt
+DEPEND="~lxqt-base/liblxqt-${PV}
 	dev-qt/qtcore:4
 	dev-qt/qtgui:4
 	dev-qt/qtsvg:4"
 RDEPEND="${DEPEND}"
-PDEPEND="lxqt-base/lxqt-session"
+PDEPEND="~lxqt-base/lxqt-session-${PV}"
 
 src_install() {
 	cmake-utils_src_install

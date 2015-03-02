@@ -1,6 +1,39 @@
 # ChangeLog for dev-java/icedtea-bin
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/icedtea-bin/ChangeLog,v 1.71 2014/07/06 15:32:09 sera Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/icedtea-bin/ChangeLog,v 1.77 2014/12/05 14:20:35 caster Exp $
+
+  05 Dec 2014; Vlastimil Babka <caster@gentoo.org>
+  -icedtea-bin-6.1.13.3-r3.ebuild, -icedtea-bin-6.1.13.3-r4.ebuild,
+  icedtea-bin-6.1.13.5.ebuild, -icedtea-bin-7.2.4.7.ebuild,
+  -icedtea-bin-7.2.4.7-r1.ebuild, icedtea-bin-7.2.5.3.ebuild:
+  Move lcms dep behind USE=X. Remove old.
+
+  17 Nov 2014; Agostino Sarubbo <ago@gentoo.org> icedtea-bin-6.1.13.5.ebuild:
+  Stable for x86, wrt bug #524560
+
+  17 Nov 2014; Agostino Sarubbo <ago@gentoo.org> icedtea-bin-6.1.13.5.ebuild:
+  Stable for amd64, wrt bug #524560
+
+*icedtea-bin-7.2.5.3 (16 Nov 2014)
+*icedtea-bin-6.1.13.5 (16 Nov 2014)
+
+  16 Nov 2014; Vlastimil Babka <caster@gentoo.org>
+  +icedtea-bin-6.1.13.5.ebuild, +icedtea-bin-7.2.5.3.ebuild:
+  Version bump, security bug #524560. Add missing deps in icedtea-bin:6, bug
+  #522296.
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> icedtea-bin-6.1.13.3-r4.ebuild,
+  icedtea-bin-7.2.4.7-r1.ebuild, icedtea-bin-7.2.4.7.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+*icedtea-bin-7.2.4.7-r1 (05 Oct 2014)
+*icedtea-bin-6.1.13.3-r4 (05 Oct 2014)
+
+  05 Oct 2014; Vlastimil Babka <caster@gentoo.org>
+  -icedtea-bin-6.1.13.3-r2.ebuild, +icedtea-bin-6.1.13.3-r4.ebuild,
+  +icedtea-bin-7.2.4.7-r1.ebuild:
+  Fix javaws symlinks, bug #504678.
 
   06 Jul 2014; Ralph Sennhauser <sera@gentoo.org>
   icedtea-bin-6.1.13.3-r3.ebuild:

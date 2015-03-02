@@ -1,6 +1,68 @@
 # ChangeLog for Gentoo/x86 profile directory
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86/ChangeLog,v 1.173 2014/08/04 02:13:16 vapier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/x86/ChangeLog,v 1.192 2015/03/01 13:20:06 mgorny Exp $
+
+  01 Mar 2015; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Mask telepathy-connection-managers[steam] on unsupported arches.
+
+  21 Feb 2015; Michał Górny <mgorny@gentoo.org> package.use.stable.mask:
+  Stable-mask non-stable qca plugin flags for old qca version.
+
+  31 Jan 2015; Jeroen Roovers <jer@gentoo.org> package.use.mask:
+  Mask USE=uvm for >x11-drivers/nvidia-drivers-346 on x86 (bug #534156).
+
+  30 Jan 2015; Michał Górny <mgorny@gentoo.org> make.defaults:
+  Hide CPU_FLAGS_X86 everywhere but on amd64 & x86.
+
+  28 Jan 2015; Michał Górny <mgorny@gentoo.org> package.use.mask:
+  Update package.use.* entries for CPU_FLAGS_X86. Keep duplicate with old flags
+  until conversion is complete.
+
+  28 Jan 2015; Mike Gilbert <floppym@gentoo.org> xbox/make.defaults:
+  Set CPU_FLAGS_X86 to a reasonable default.
+
+  28 Jan 2015; Michał Górny <mgorny@gentoo.org> use.mask:
+  Mask CPU_FLAGS_X86 for non-x86 arches.
+
+  23 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org> package.use.mask:
+  Add mask for USE=kms for x11-wm/mutter-3.14, bug #533420.
+
+  23 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org> package.use.mask:
+  Add package.use.mask entry for clutter, bug #533420.
+
+  16 Nov 2014; Mike Gilbert <floppym@gentoo.org> use.stable.mask:
+  Drop unneeded python3_4 (un)mask.
+
+  15 Nov 2014; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask:
+  Move pyudev[python3_4] mask to base profile.
+
+  09 Nov 2014; Michał Górny <mgorny@gentoo.org> package.use.stable.mask,
+  use.mask, use.stable.mask:
+  Unmask PyPy3.
+
+  09 Nov 2014; Michał Górny <mgorny@gentoo.org> package.use.stable.mask:
+  Remove stale masks on dev-python/python-exec.
+
+  04 Nov 2014; Mike Gilbert <floppym@gentoo.org> package.use.stable.mask,
+  use.stable.mask:
+  Negate python3_4 stable mask.
+
+  19 Oct 2014; Mike Gilbert <floppym@gentoo.org> use.mask, use.stable.mask:
+  Unmask/stable-mask apparmor.
+
+  18 Oct 2014; Mike Frysinger <vapier@gentoo.org> package.use.mask:
+  Drop systemd-specific seccomp mask since the USE flag itself is handled
+  properly #524148 by Christian Ruppert.
+
+  11 Oct 2014; Tim Harder <radhermit@gentoo.org> package.use.mask,
+  package.use.stable.mask:
+  Unmask skype use flag for net-im/bitlbee on unstable systems.
+
+  13 Sep 2014; Markos Chandras <hwoarang@gentoo.org> package.use.mask:
+  midori[jit] works on x86
+
+  02 Sep 2014; Hans de Graaff <graaff@gentoo.org> use.mask:
+  ruby_targets_jruby is now masked everywhere.
 
   04 Aug 2014; Mike Frysinger <vapier@gentoo.org> package.use.mask:
   Unmask x86-specific flashrom USE flags.

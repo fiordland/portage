@@ -1,6 +1,22 @@
 # ChangeLog for dev-java/netbeans-ergonomics
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/netbeans-ergonomics/ChangeLog,v 1.20 2014/03/23 18:49:24 fordfrog Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-java/netbeans-ergonomics/ChangeLog,v 1.23 2015/02/04 21:54:08 fordfrog Exp $
+
+  04 Feb 2015; Miroslav Šulc <fordfrog@gentoo.org>
+  -netbeans-ergonomics-7.0.1.ebuild, -netbeans-ergonomics-7.1.1.ebuild,
+  -netbeans-ergonomics-7.1.2.ebuild, -netbeans-ergonomics-7.3.ebuild,
+  -netbeans-ergonomics-7.4.ebuild, -netbeans-ergonomics-8.0.ebuild:
+  removed obsolete ebuilds
+
+  04 Feb 2015; Miroslav Šulc <fordfrog@gentoo.org>
+  netbeans-ergonomics-8.0.2.ebuild:
+  restricted compilation to jdk7
+
+*netbeans-ergonomics-8.0.2 (07 Dec 2014)
+
+  07 Dec 2014; Miroslav Šulc <fordfrog@gentoo.org>
+  +netbeans-ergonomics-8.0.2.ebuild:
+  bumped to version 8.0.2 in 8.0 slot
 
 *netbeans-ergonomics-8.0 (23 Mar 2014)
 

@@ -1,6 +1,23 @@
 # ChangeLog for dev-python/twisted-words
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/twisted-words/ChangeLog,v 1.104 2014/08/25 10:58:20 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/twisted-words/ChangeLog,v 1.108 2014/11/21 01:50:32 floppym Exp $
+
+  21 Nov 2014; Mike Gilbert <floppym@gentoo.org> -twisted-words-12.3.0.ebuild,
+  -twisted-words-13.0.0.ebuild:
+  Remove ebuilds using twisted.eclass.
+
+*twisted-words-14.0.2 (18 Nov 2014)
+
+  18 Nov 2014; Patrick Lauer <patrick@gentoo.org> +twisted-words-14.0.2.ebuild:
+  Bump
+
+*twisted-words-14.0.1 (12 Nov 2014)
+
+  12 Nov 2014; Ian Delaney <idella4@gentoo.org> +twisted-words-14.0.1.ebuild:
+  bump, drop py2.6
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> twisted-words-13.0.0-r1.ebuild:
+  Stable for sparc, wrt bug #512012
 
   25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> twisted-words-13.0.0-r1.ebuild:
   Stable for alpha, wrt bug #512012

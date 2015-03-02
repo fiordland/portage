@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/dvdrip/dvdrip-0.98.11-r2.ebuild,v 1.1 2014/08/27 17:21:14 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/dvdrip/dvdrip-0.98.11-r2.ebuild,v 1.3 2014/11/18 23:39:33 dilfridge Exp $
 
 EAPI=5
 inherit eutils flag-o-matic perl-module
@@ -19,7 +19,9 @@ DEPEND=">=dev-perl/Event-ExecFlow-0.64
 	>=dev-perl/gtk2-ex-formfactory-0.65
 	>=dev-perl/libintl-perl-1.16
 	|| ( media-gfx/graphicsmagick[imagemagick] media-gfx/imagemagick )
-	>=media-video/transcode-1.1.0[dvd,jpeg,mp3,ogg,vorbis]"
+	>=media-video/transcode-1.1.0[dvd,jpeg,mp3,ogg,vorbis]
+	>=virtual/perl-podlators-2.5.3
+"
 RDEPEND="${DEPEND}
 	x11-libs/gdk-pixbuf:2[jpeg]
 	x11-libs/gtk+:2
@@ -41,7 +43,7 @@ pkg_setup() {
 	filter-flags -ftracer
 	export SKIP_UNPACK_REQUIRED_MODULES=1 #255269
 
-	perl-module_pkg_setup
+	perl_set_version
 }
 
 src_prepare() {

@@ -1,6 +1,20 @@
 # ChangeLog for dev-libs/libwbxml
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libwbxml/ChangeLog,v 1.28 2014/08/10 20:38:01 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libwbxml/ChangeLog,v 1.32 2015/01/26 10:07:17 ago Exp $
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> libwbxml-0.11.2.ebuild:
+  Stable for x86, wrt bug #535120
+
+  17 Jan 2015; Agostino Sarubbo <ago@gentoo.org> libwbxml-0.11.2.ebuild:
+  Stable for ppc, wrt bug #535120
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> libwbxml-0.11.2.ebuild:
+  Stable for amd64, wrt bug #535120
+
+*libwbxml-0.11.2 (15 Oct 2014)
+
+  15 Oct 2014; Michael Palimaka <kensington@gentoo.org> +libwbxml-0.11.2.ebuild:
+  Version bump.
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> libwbxml-0.10.9.ebuild,
   libwbxml-0.11.0.ebuild:

@@ -1,6 +1,41 @@
 # ChangeLog for net-misc/mediatomb
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/mediatomb/ChangeLog,v 1.56 2014/08/14 16:55:33 phajdan.jr Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/mediatomb/ChangeLog,v 1.63 2015/02/01 23:27:52 mgorny Exp $
+
+*mediatomb-0.12.2_pre20150118-r1 (01 Feb 2015)
+
+  01 Feb 2015; Michał Górny <mgorny@gentoo.org>
+  +mediatomb-0.12.2_pre20150118-r1.ebuild:
+  Introduce USE=libav to control the preferred implementation. Add subslot op to
+  force rebuilds on ABI change.
+
+*mediatomb-0.12.2_pre20150118 (18 Jan 2015)
+
+  18 Jan 2015; Ian Whyman <thev00d00@gentoo.org>
+  +mediatomb-0.12.2_pre20150118.ebuild, -mediatomb-0.12.2_pre20141212.ebuild,
+  metadata.xml:
+  Version bump, fix metadata #534052, drop ppc
+
+  12 Dec 2014; Ian Whyman <thev00d00@gentoo.org>
+  mediatomb-0.12.2_pre20141212.ebuild:
+  Downgrade overzealous ffmpeg version dependency
+
+*mediatomb-0.12.2_pre20141212 (12 Dec 2014)
+
+  12 Dec 2014; Ian Whyman <thev00d00@gentoo.org>
+  +mediatomb-0.12.2_pre20141212.ebuild, -mediatomb-0.12.2_pre20140810.ebuild:
+  Install systemd units
+
+  12 Dec 2014; Ian Whyman <thev00d00@gentoo.org>
+  mediatomb-0.12.2_pre20140810.ebuild:
+  Bump libav/ffmpeg deps
+
+  30 Sep 2014; Ian Whyman <thev00d00@gentoo.org>
+  mediatomb-0.12.2_pre20140810.ebuild:
+  Add missing linux-info call, reported by BT in #522976
+
+  29 Aug 2014; Chema Alonso <nimiux@gentoo.org> mediatomb-0.12.1-r8.ebuild:
+  Stable for amd64 wrt bug #517850
 
   14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
   mediatomb-0.12.1-r8.ebuild:

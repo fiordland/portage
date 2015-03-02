@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/quassel/quassel-0.10.0-r1.ebuild,v 1.2 2014/08/25 17:00:24 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-irc/quassel/quassel-0.10.0-r1.ebuild,v 1.8 2015/03/02 09:29:54 ago Exp $
 
 EAPI=5
 
@@ -14,16 +14,13 @@ HOMEPAGE="http://quassel-irc.org/"
 [[ "${PV}" == "9999" ]] || SRC_URI="http://quassel-irc.org/pub/${P/_/-}.tar.bz2"
 
 LICENSE="GPL-3"
-KEYWORDS="amd64 ~arm ~ppc ~x86 ~amd64-linux ~sparc-solaris"
+KEYWORDS="amd64 ~arm ppc ~x86 ~amd64-linux ~sparc-solaris"
 SLOT="0"
 IUSE="ayatana crypt dbus debug kde monolithic phonon postgres +server +ssl syslog webkit X"
 
 SERVER_RDEPEND="
 	dev-qt/qtscript:4
-	crypt? (
-		app-crypt/qca:2
-		app-crypt/qca-ossl
-	)
+	crypt? ( app-crypt/qca:2[openssl,qt4(+)] )
 	!postgres? ( dev-qt/qtsql:4[sqlite] dev-db/sqlite:3[threadsafe(+),-secure-delete] )
 	postgres? ( dev-qt/qtsql:4[postgres] )
 	syslog? ( virtual/logger )
@@ -38,15 +35,16 @@ GUI_RDEPEND="
 	)
 	kde? (
 		kde-base/kdelibs:4
-		kde-base/oxygen-icons:4
+		|| ( kde-apps/oxygen-icons kde-base/oxygen-icons:4 )
 		ayatana? ( kde-misc/plasma-widget-message-indicator )
 	)
-	phonon? ( || ( media-libs/phonon dev-qt/qtphonon:4 ) )
+	phonon? ( || ( media-libs/phonon[qt4] dev-qt/qtphonon:4 ) )
 	webkit? ( dev-qt/qtwebkit:4 )
 "
 
 RDEPEND="
 	dev-qt/qtcore:4[ssl?]
+	sys-libs/zlib
 	monolithic? (
 		${SERVER_RDEPEND}
 		${GUI_RDEPEND}

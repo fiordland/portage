@@ -1,6 +1,31 @@
 # ChangeLog for net-wireless/wireless-regdb
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/wireless-regdb/ChangeLog,v 1.46 2014/05/30 16:36:58 zerochaos Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/wireless-regdb/ChangeLog,v 1.52 2015/03/02 09:22:24 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> wireless-regdb-20141118.ebuild:
+  Stable for ppc, wrt bug #535638
+
+  05 Jan 2015; Rick Farina <zerochaos@gentoo.org>
+  wireless-regdb-20141118.ebuild:
+  stabilize amd64, arm, arm64, x86
+
+*wireless-regdb-20141118 (19 Nov 2014)
+
+  19 Nov 2014; Rick Farina <zerochaos@gentoo.org>
+  +wireless-regdb-20141118.ebuild:
+  bump
+
+*wireless-regdb-20141107 (08 Nov 2014)
+
+  08 Nov 2014; Rick Farina <zerochaos@gentoo.org>
+  +wireless-regdb-20141107.ebuild:
+  bump
+
+*wireless-regdb-20141006 (08 Oct 2014)
+
+  08 Oct 2014; Rick Farina <zerochaos@gentoo.org>
+  +wireless-regdb-20141006.ebuild:
+  bump
 
 *wireless-regdb-20140529 (30 May 2014)
 

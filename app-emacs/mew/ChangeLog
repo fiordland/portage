@@ -1,6 +1,20 @@
 # ChangeLog for app-emacs/mew
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/mew/ChangeLog,v 1.88 2013/05/16 19:06:33 fauli Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/mew/ChangeLog,v 1.92 2014/10/18 14:37:08 ago Exp $
+
+  18 Oct 2014; Agostino Sarubbo <ago@gentoo.org> mew-6.6.ebuild:
+  Stable for ppc, wrt bug #522312
+
+  12 Oct 2014; Agostino Sarubbo <ago@gentoo.org> mew-6.6.ebuild:
+  Stable for x86, wrt bug #522312
+
+  10 Oct 2014; Agostino Sarubbo <ago@gentoo.org> mew-6.6.ebuild:
+  Stable for amd64, wrt bug #522312
+
+*mew-6.6 (06 Sep 2014)
+
+  06 Sep 2014; Ulrich Müller <ulm@gentoo.org> +mew-6.6.ebuild:
+  Version bump, bug 522236. Update ebuild to EAPI 5. Use readme.gentoo.eclass.
 
   16 May 2013; Christian Faulhammer <fauli@gentoo.org> -mew-6.4-r1.ebuild:
   clean up

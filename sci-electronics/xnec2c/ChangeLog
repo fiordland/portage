@@ -1,6 +1,36 @@
 # ChangeLog for sci-electronics/xnec2c
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-electronics/xnec2c/ChangeLog,v 1.16 2014/08/14 17:19:51 phajdan.jr Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-electronics/xnec2c/ChangeLog,v 1.23 2015/02/22 08:22:34 tomjbe Exp $
+
+*xnec2c-3.2 (22 Feb 2015)
+
+  22 Feb 2015; Thomas Beierlein <tomjbe@gentoo.org> +xnec2c-3.2.ebuild:
+  Minor maintenance release
+
+*xnec2c-3.1 (29 Dec 2014)
+
+  29 Dec 2014; Thomas Beierlein <tomjbe@gentoo.org> -xnec2c-2.9.ebuild,
+  +xnec2c-3.1.ebuild, -files/xnec2c-1.4-fortify.patch:
+  Version bump. Remove old
+
+  28 Dec 2014; Agostino Sarubbo <ago@gentoo.org> xnec2c-3.0.ebuild:
+  Stable for x86, wrt bug #531204
+
+  27 Dec 2014; Agostino Sarubbo <ago@gentoo.org> xnec2c-3.0.ebuild:
+  Stable for amd64, wrt bug #531204
+
+*xnec2c-3.0 (27 Sep 2014)
+
+  27 Sep 2014; Thomas Beierlein <tomjbe@gentoo.org> +xnec2c-3.0.ebuild:
+  Version bump
+
+  31 Aug 2014; Thomas Beierlein <tomjbe@gentoo.org> -xnec2c-1.4.ebuild,
+  -xnec2c-1.5.ebuild, -xnec2c-1.6.ebuild, -xnec2c-2.4.ebuild,
+  -xnec2c-2.5.ebuild:
+  Remove old
+
+  29 Aug 2014; Chema Alonso <nimiux@gentoo.org> xnec2c-2.8.ebuild:
+  Stable for amd64 wrt bug #518514
 
   14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> xnec2c-2.8.ebuild:
   x86 stable wrt bug #518514

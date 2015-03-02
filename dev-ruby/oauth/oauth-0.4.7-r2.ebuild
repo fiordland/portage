@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/oauth/oauth-0.4.7-r2.ebuild,v 1.2 2014/08/05 16:00:52 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/oauth/oauth-0.4.7-r2.ebuild,v 1.4 2014/12/19 13:27:33 ago Exp $
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 jruby"
+USE_RUBY="ruby19 ruby20"
 
 RUBY_FAKEGEM_TASK_DOC=""
 
@@ -16,7 +16,7 @@ HOMEPAGE="http://oauth.rubyforge.org/"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86-macos"
+KEYWORDS="~amd64 ~x86 ~x86-macos"
 IUSE=""
 
 ruby_add_bdepend "test? (

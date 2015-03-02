@@ -1,6 +1,60 @@
 # ChangeLog for media-video/mplayer
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/ChangeLog,v 1.923 2014/07/31 10:39:37 ssuominen Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/ChangeLog,v 1.935 2015/03/02 09:21:49 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> mplayer-1.2_pre20130729.ebuild:
+  Stable for ppc, wrt bug #517692
+
+  14 Feb 2015; Alexis Ballier <aballier@gentoo.org>
+  mplayer-1.2_pre20150214.ebuild, mplayer-9999.ebuild:
+  fix libpng dep
+
+*mplayer-1.2_pre20150214 (14 Feb 2015)
+
+  14 Feb 2015; Alexis Ballier <aballier@gentoo.org>
+  +mplayer-1.2_pre20150214.ebuild, files/dump_ffmpeg.sh:
+  bump a new snapshot that fixes bug #540062
+
+  30 Jan 2015; Michał Górny <mgorny@gentoo.org> metadata.xml,
+  mplayer-1.1.1-r1.ebuild, mplayer-1.2_pre20130729.ebuild,
+  mplayer-1.2_pre20141011.ebuild, mplayer-9999.ebuild:
+  Convert to CPU_FLAGS_X86.
+
+  15 Dec 2014; Alexis Ballier <aballier@gentoo.org> mplayer-9999.ebuild:
+  update for recent upstream changes on internal dvd libs, bug #528706 by Dan
+  Douglas
+
+  15 Dec 2014; Alexis Ballier <aballier@gentoo.org>
+  mplayer-1.2_pre20141011.ebuild:
+  drop keywords on arches that are 6+ months late in ffmpeg rekeywording, which
+  version is needed by this snapshot
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> mplayer-1.2_pre20130729.ebuild,
+  mplayer-1.2_pre20141011.ebuild, mplayer-9999.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+  17 Oct 2014; Tobias Klausmann <klausman@gentoo.org>
+  mplayer-1.2_pre20130729.ebuild:
+  Stable on alpha, bug 517692
+
+  12 Oct 2014; Alexis Ballier <aballier@gentoo.org>
+  mplayer-1.2_pre20141011.ebuild, mplayer-9999.ebuild:
+  require ffmpeg on latest versions as it doesnt build with libav, bug #525070
+
+*mplayer-1.2_pre20141011 (11 Oct 2014)
+
+  11 Oct 2014; Alexis Ballier <aballier@gentoo.org>
+  +mplayer-1.2_pre20141011.ebuild:
+  bump a new snapshot, bug #524570
+
+  11 Oct 2014; Alexis Ballier <aballier@gentoo.org> files/dump_ffmpeg.sh:
+  dump_ffmpeg.sh: no need for x86_cpu.h nor lavf/internal.h anymore
+
+  01 Sep 2014; Michał Górny <mgorny@gentoo.org> mplayer-1.2_pre20130729.ebuild,
+  mplayer-9999.ebuild:
+  Remove := subslot operator from || () block since it is meaningless and
+  broken.
 
   31 Jul 2014; Samuli Suominen <ssuominen@gentoo.org>
   mplayer-1.2_pre20130729.ebuild:

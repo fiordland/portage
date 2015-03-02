@@ -1,6 +1,52 @@
 # ChangeLog for app-portage/genlop
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/genlop/ChangeLog,v 1.83 2014/08/28 13:53:42 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-portage/genlop/ChangeLog,v 1.95 2015/02/25 21:12:42 fuzzyray Exp $
+
+*genlop-0.30.10-r1 (25 Feb 2015)
+
+  25 Feb 2015; Paul Varner <fuzzyray@gentoo.org> +genlop-0.30.10-r1.ebuild,
+  -files/genlop-0.30.8-compiling-category.patch,
+  -files/genlop-0.30.8-version.patch, +files/genlop-0.30.10-sync.patch:
+  Revision bump to fix genlop -r with new portage sync code (Bug 540050).
+  Remove uneeded patches.
+
+  02 Jan 2015; Michał Górny <mgorny@gentoo.org> -genlop-0.30.8-r2.ebuild,
+  -genlop-0.30.9.ebuild:
+  Remove old.
+
+*genlop-0.30.10 (14 Dec 2014)
+
+  14 Dec 2014; Andreas K. Huettel <dilfridge@gentoo.org> -genlop-0.30.5.ebuild,
+  -genlop-0.30.7.ebuild, -genlop-0.30.8.ebuild, -genlop-0.30.8-r1.ebuild,
+  +genlop-0.30.10.ebuild, genlop-9999.ebuild:
+  New release, also to fix bug 490602; remove some old versions
+
+  23 Nov 2014; Mikle Kolyada <zlogene@gentoo.org> genlop-0.30.9-r1.ebuild:
+  mark s390/sh/m68k stable
+
+  29 Oct 2014; Agostino Sarubbo <ago@gentoo.org> genlop-0.30.9-r1.ebuild:
+  Stable for sparc, wrt bug #521284
+
+  28 Oct 2014; Agostino Sarubbo <ago@gentoo.org> genlop-0.30.9-r1.ebuild:
+  Stable for ia64, wrt bug #521284
+
+  27 Oct 2014; Agostino Sarubbo <ago@gentoo.org> genlop-0.30.9-r1.ebuild:
+  Stable for ppc64, wrt bug #521284
+
+  10 Oct 2014; Mikle Kolyada <zlogene@gentoo.org> genlop-0.30.9-r1.ebuild:
+  alpha stable wrt bug #521284
+
+  10 Oct 2014; Agostino Sarubbo <ago@gentoo.org> genlop-0.30.9-r1.ebuild:
+  Stable for x86, wrt bug #521284
+
+  05 Oct 2014; Agostino Sarubbo <ago@gentoo.org> genlop-0.30.9-r1.ebuild:
+  Stable for ppc, wrt bug #521284
+
+  24 Sep 2014; Chema Alonso <nimiux@gentoo.org> genlop-0.30.9-r1.ebuild:
+  Stable for amd64 wrt bug #521284
+
+  14 Sep 2014; Markus Meier <maekke@gentoo.org> genlop-0.30.9-r1.ebuild:
+  arm stable, bug #521284
 
   28 Aug 2014; Jeroen Roovers <jer@gentoo.org> genlop-0.30.9-r1.ebuild:
   Stable for HPPA (bug #521284).
@@ -304,4 +350,3 @@
   14 Jul 2003; Michael Cummings <mcummings@gentoo.org> genlop-0.16.1.ebuild:
   Ebuild submitted in bug 21970 by Antonio Dolcetta (zagarna@yahoo.com), tool
   written by giorgio@pollycoke.org
-

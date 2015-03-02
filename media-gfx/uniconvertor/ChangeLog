@@ -1,6 +1,48 @@
 # ChangeLog for media-gfx/uniconvertor
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/uniconvertor/ChangeLog,v 1.19 2013/12/25 09:37:46 maekke Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/uniconvertor/ChangeLog,v 1.28 2015/03/02 09:28:42 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org>
+  uniconvertor-2.0_pre379-r1.ebuild:
+  Stable for ppc, wrt bug #534046
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org>
+  uniconvertor-2.0_pre379-r1.ebuild:
+  Stable for amd64, wrt bug #534046
+
+  09 Jan 2015; Jeroen Roovers <jer@gentoo.org>
+  uniconvertor-2.0_pre379-r1.ebuild:
+  Stable for HPPA (bug #534046).
+
+  04 Jan 2015; Justin Lecher <jlec@gentoo.org>
+  uniconvertor-2.0_pre379-r1.ebuild:
+  QA: RDEPEND.suspect -> virtual/pkgconfig
+
+  04 Jan 2015; Justin Lecher <jlec@gentoo.org>
+  uniconvertor-2.0_pre379-r1.ebuild:
+  Strip leading and trailing spaces from pkg-config call, #FL-1917
+
+*uniconvertor-2.0_pre379-r1 (04 Jan 2015)
+
+  04 Jan 2015; Justin Lecher <jlec@gentoo.org> -uniconvertor-2.0_pre379.ebuild,
+  +uniconvertor-2.0_pre379-r1.ebuild,
+  +files/uniconvertor-2.0_pre379-import.patch,
+  +files/uniconvertor-2.0_pre379-libimg.patch,
+  +files/uniconvertor-2.0_pre379-test.patch:
+  Fix broken PIL import, #534074; enable testsuite
+
+  05 Nov 2014; Justin Lecher <jlec@gentoo.org> uniconvertor-2.0_pre379.ebuild:
+  Add additional HOMEPAGE for version 2, thanks Arfrever pointing this out
+
+  27 Oct 2014; Sebastian Pipping <sping@gentoo.org>
+  uniconvertor-2.0_pre379.ebuild:
+  Add missing dependencies virtual/python-imaging and dev-python/pycairo (bug
+  #527026)
+
+*uniconvertor-2.0_pre379 (26 Oct 2014)
+
+  26 Oct 2014; Justin Lecher <jlec@gentoo.org> +uniconvertor-2.0_pre379.ebuild:
+  Version Bump
 
   25 Dec 2013; Markus Meier <maekke@gentoo.org> uniconvertor-1.1.5-r1.ebuild:
   add ~arm, bug #488590

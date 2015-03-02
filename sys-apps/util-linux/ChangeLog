@@ -1,6 +1,47 @@
 # ChangeLog for sys-apps/util-linux
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/util-linux/ChangeLog,v 1.483 2014/08/26 19:59:37 mgorny Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/util-linux/ChangeLog,v 1.490 2015/02/20 09:01:07 polynomial-c Exp $
+
+  20 Feb 2015; Lars Wendler <polynomial-c@gentoo.org> util-linux-2.26.ebuild,
+  util-linux-9999.ebuild:
+  Fix header files mismatch between ABIs (bug #540702).
+
+*util-linux-2.26 (19 Feb 2015)
+
+  19 Feb 2015; Mike Frysinger <vapier@gentoo.org> +util-linux-2.26.ebuild,
+  util-linux-9999.ebuild:
+  Version bump.
+
+*util-linux-2.25.2-r2 (17 Jan 2015)
+
+  17 Jan 2015; Mike Gilbert <floppym@gentoo.org> +util-linux-2.25.2-r2.ebuild:
+  Pass --docdir to configure, bug 519904.
+
+*util-linux-2.25.2-r1 (02 Jan 2015)
+
+  02 Jan 2015; Pacho Ramos <pacho@gentoo.org> +util-linux-2.25.2-r1.ebuild:
+  Prevent automagic dependency on systemd (#533726 by nzqr)
+
+*util-linux-2.25.2 (24 Oct 2014)
+
+  24 Oct 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/util-linux-2.25.2-runuser-bash-completion.patch,
+  +util-linux-2.25.2.ebuild:
+  Version bump. Fix runuser bash-completion install #522288 by William Throwe.
+
+*util-linux-2.25.1-r1 (16 Oct 2014)
+
+  16 Oct 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/util-linux-2.25.1-blkid-probe-fix.patch, +util-linux-2.25.1-r1.ebuild:
+  Add fix from upstream for libblkid probing.
+
+*util-linux-2.25.1 (05 Sep 2014)
+
+  05 Sep 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -util-linux-2.22.2.ebuild, -util-linux-2.25.ebuild,
+  +util-linux-2.25.1.ebuild, -files/util-linux-2.25-lscpu-pic.patch,
+  metadata.xml:
+  Version bump. Removed old.
 
   26 Aug 2014; Michał Górny <mgorny@gentoo.org> util-linux-2.24.2.ebuild,
   util-linux-2.25.ebuild, util-linux-9999.ebuild:

@@ -1,6 +1,19 @@
 # ChangeLog for sci-libs/cholmod
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/cholmod/ChangeLog,v 1.42 2014/03/04 19:52:00 vincent Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/cholmod/ChangeLog,v 1.46 2015/03/02 09:23:17 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> cholmod-2.1.2.ebuild:
+  Stable for ppc, wrt bug #534648
+
+  22 Feb 2015; Matt Turner <mattst88@gentoo.org> cholmod-1.6.0-r1.ebuild,
+  cholmod-2.1.2.ebuild:
+  Drop alpha keyword.
+
+  12 Feb 2015; Justin Lecher <jlec@gentoo.org> cholmod-1.6.0-r1.ebuild:
+  Add missing dependency, #539812
+
+  13 Jan 2015; Jeroen Roovers <jer@gentoo.org> cholmod-2.1.2.ebuild:
+  Stable for HPPA (bug #534648).
 
   04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org> cholmod-2.1.2.ebuild:
   Add ~mips keyword.

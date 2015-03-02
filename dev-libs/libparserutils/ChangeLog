@@ -1,6 +1,18 @@
 # ChangeLog for dev-libs/libparserutils
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libparserutils/ChangeLog,v 1.11 2014/01/05 19:05:16 grobian Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libparserutils/ChangeLog,v 1.13 2014/11/15 11:23:54 xmw Exp $
+
+*libparserutils-0.2.0-r1 (15 Nov 2014)
+
+  15 Nov 2014; Michael Weber <xmw@gentoo.org> +libparserutils-0.2.0-r1.ebuild,
+  libparserutils-0.2.0.ebuild:
+  Revbump to new build system
+
+*libparserutils-0.2.0 (06 Nov 2014)
+
+  06 Nov 2014; Michael Weber <xmw@gentoo.org>
+  +files/libparserutils-0.2.0-glibc-2.20.patch, +libparserutils-0.2.0.ebuild:
+  Version bump with glib-2.20 patch (bug 527358)
 
   05 Jan 2014; Fabian Groffen <grobian@gentoo.org> libparserutils-0.1.2.ebuild:
   Marked ~m68k-mint, bug #494512

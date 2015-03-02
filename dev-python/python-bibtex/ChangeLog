@@ -1,6 +1,18 @@
 # ChangeLog for dev-python/python-bibtex
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-bibtex/ChangeLog,v 1.28 2014/05/03 09:15:14 patrick Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/python-bibtex/ChangeLog,v 1.31 2015/01/29 10:57:55 pacho Exp $
+
+  29 Jan 2015; Pacho Ramos <pacho@gentoo.org> python-bibtex-1.2.7-r1.ebuild:
+  amd64/x86 stable, bug #531498
+
+  26 Jan 2015; Manuel Rüger <mrueg@gentoo.org> -python-bibtex-1.2.4.ebuild,
+  -python-bibtex-1.2.7.ebuild:
+  Remove old.
+
+*python-bibtex-1.2.7-r1 (25 Dec 2014)
+
+  25 Dec 2014; Michał Górny <mgorny@gentoo.org> +python-bibtex-1.2.7-r1.ebuild:
+  Convert to distutils-r1.
 
 *python-bibtex-1.2.7 (03 May 2014)
 

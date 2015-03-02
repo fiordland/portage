@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/drod-bin/drod-bin-1.6.7.ebuild,v 1.5 2013/11/14 22:02:47 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-puzzle/drod-bin/drod-bin-1.6.7.ebuild,v 1.7 2014/10/16 10:21:39 pacho Exp $
 
-EAPI=2
+EAPI=5
 
 inherit eutils unpacker games
 
@@ -19,18 +19,20 @@ RESTRICT="strip"
 
 DEPEND=""
 RDEPEND="
-	x86? (
-		x11-libs/libX11
-		media-libs/freetype
-		media-libs/libsdl
-		media-libs/sdl-ttf
-		sys-libs/libstdc++-v3
+	virtual/libstdc++:3.3
+	|| (
+		(
+			>=media-libs/freetype-2.5.0.1[abi_x86_32(-)]
+			>=media-libs/libsdl-1.2.15-r5[abi_x86_32(-)]
+			>=media-libs/sdl-ttf-2.0.11-r1[abi_x86_32(-)]
+			x11-libs/libX11[abi_x86_32(-)]
+		)
+		amd64? (
+			app-emulation/emul-linux-x86-sdl[-abi_x86_32(-)]
+			app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
+		)
 	)
-	amd64? (
-		app-emulation/emul-linux-x86-xlibs
-		app-emulation/emul-linux-x86-sdl
-		app-emulation/emul-linux-x86-compat
-	)"
+"
 
 GDIR=${GAMES_PREFIX_OPT}/drod
 QA_PREBUILT="${GDIR:1}/drod-ae.bin

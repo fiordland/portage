@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/hplip-3.14.1.ebuild,v 1.9 2014/08/10 20:36:06 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-print/hplip/hplip-3.14.1.ebuild,v 1.12 2015/01/30 12:48:55 billie Exp $
 
 EAPI=5
 
@@ -16,7 +16,7 @@ SRC_URI="mirror://sourceforge/hplip/${P}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ppc ppc64 x86"
+KEYWORDS="amd64 arm ppc ppc64 x86"
 
 # zeroconf does not work properly with >=cups-1.4.
 # Thus support for it is also disabled in hplip.
@@ -255,8 +255,13 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "For more information on setting up your printer please take"
 		elog "a look at the hplip section of the gentoo printing guide:"
-		elog "http://www.gentoo.org/doc/en/printing-howto.xml"
+		elog "https://wiki.gentoo.org/wiki/Printing"
 		elog
 		elog "Any user who wants to print must be in the lp group."
+		elog
+		elog "Please note: Printers requiring a binary plugin are currently"
+		elog "not supported. All bugs regarding the plugin are most likely"
+		elog "closed. A bug about including the plugin package to gentoo is"
+		elog "available here: https://bugs.gentoo.org/352439"
 	fi
 }

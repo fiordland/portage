@@ -1,6 +1,17 @@
 # ChangeLog for net-misc/s3cmd
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/s3cmd/ChangeLog,v 1.23 2014/06/30 18:21:08 robbat2 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/s3cmd/ChangeLog,v 1.26 2015/02/13 09:36:59 jer Exp $
+
+  13 Feb 2015; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Fix e-mail address.
+
+  31 Jan 2015; Jeremy Olexa <darkside@gentoo.org> s3cmd-1.5.0_rc1.ebuild:
+  Add Gentoo Prefix mods and keyword, bug 537050
+
+*s3cmd-1.5.0_rc1 (13 Oct 2014)
+
+  13 Oct 2014; Robin H. Johnson <robbat2@gentoo.org> +s3cmd-1.5.0_rc1.ebuild:
+  Bump.
 
 *s3cmd-1.5.0_beta1 (30 Jun 2014)
 

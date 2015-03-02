@@ -1,0 +1,26 @@
+# ChangeLog for app-text/paperwork
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/paperwork/ChangeLog,v 1.4 2015/02/10 16:38:58 voyageur Exp $
+
+  10 Feb 2015; Bernard Cafarelli <voyageur@gentoo.org> paperwork-0.2.ebuild,
+  paperwork-0.2.1.ebuild, paperwork-0.2.2.ebuild:
+  Remove unneeded dependency on dev-python/wxpython, spotted by René Neumann
+  <gentoo@necoro.eu> in bug #539620. Also tighten dependency on
+  dev-python/pygobject
+
+*paperwork-0.2.2 (20 Jan 2015)
+
+  20 Jan 2015; Bernard Cafarelli <voyageur@gentoo.org> +paperwork-0.2.2.ebuild:
+  Version bump
+
+*paperwork-0.2.1 (06 Jan 2015)
+
+  06 Jan 2015; Bernard Cafarelli <voyageur@gentoo.org> +paperwork-0.2.1.ebuild:
+  Version bump, thanks mrueg in bug #533718
+
+*paperwork-0.2 (30 Sep 2014)
+
+  30 Sep 2014; Bernard Cafarelli <voyageur@gentoo.org> +paperwork-0.2.ebuild,
+  +metadata.xml:
+  Initial commit, based on lorelei overlay version
+

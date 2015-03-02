@@ -1,6 +1,105 @@
 # ChangeLog for net-mail/notmuch
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/notmuch/ChangeLog,v 1.102 2014/08/28 14:14:21 aidecoe Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-mail/notmuch/ChangeLog,v 1.111 2015/01/29 13:37:49 aidecoe Exp $
+
+*notmuch-0.19-r1 (29 Jan 2015)
+
+  29 Jan 2015; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +notmuch-0.19-r1.ebuild,
+  +files/0.19-0001-doc-gzipped-notmuch.3-before-trying-to.patch,
+  +files/0.19-0002-Rename-rst2man-to-rst2man.py-for-Gento.patch,
+  +files/0.19-0003-build-eliminate-use-of-python-execfile.patch:
+  Apply rst2man related fixes. Fallback from sphinx to rst2man was ending up
+  with build failure. Rels bug #530522.
+
+  02 Dec 2014; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  notmuch-0.16-r1.ebuild, notmuch-0.17.ebuild, notmuch-0.18.2.ebuild,
+  notmuch-0.19.ebuild:
+  Put bash-completion file into correct location.
+
+*notmuch-0.19 (30 Nov 2014)
+
+  30 Nov 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> +notmuch-0.19.ebuild:
+  Version bump.
+
+  NEWS
+  ~~~~
+  Command-Line Interface
+  ----------------------
+
+  - Stopped `notmuch dump` failing if someone writes to the database
+  - `notmuch insert` requires succesful message indexing for success status
+  - `notmuch insert` has gained support for `post-insert` hook
+  - `notmuch deliver` is deprecated
+  - `notmuch search` now supports `--duplicate=N` option with
+    `--output=messages`
+  - Added `notmuch address` subcommand
+
+  Emacs Interface
+  ---------------
+
+  - Use the `j` key to access saved searches from anywhere in notmuch
+  - Improved handling of the unread tag
+  - Expanded default saved search settings
+  - Improved `q` binding in notmuch buffers
+  - `notmuch-show-stash-mlarchive-link-alist` now supports functions
+
+  Library changes
+  ---------------
+
+  - Introduced database version 3 with support for "database features."
+  - Library users are no longer required to call `notmuch_database_upgrade`
+  - Library users can now abort an atomic section by closing the database
+  - Add return status to notmuch_database_close and notmuch_database_destroy
+  - Bug fixes and performance improvements for thread linking
+
+  nmbug
+  -----
+
+  `nmbug help` is not `nmbug --help`, and the following nmbug commands have
+  slightly different interfaces: `archive`, `commit`, `fetch`, `log`, `pull`,
+  `push`, and `status`. For details on the new interface for a given command,
+  run `nmbug COMMAND --help`.
+
+  nmbug-status
+  ------------
+
+  `nmbug-status` can now optionally load header and footer templates
+  from the config file. Use something like:
+
+  Python Bindings
+  ---------------
+
+  Add support for `notmuch_query_add_tag_exclude`
+
+  28 Nov 2014; Pacho Ramos <pacho@gentoo.org> notmuch-0.18.2.ebuild:
+  Support python 3.4
+
+  23 Nov 2014; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  -notmuch-0.18.1.ebuild:
+  Remove 0.18.1 version.
+
+  11 Nov 2014; Chema Alonso <nimiux@gentoo.org> notmuch-0.18.2.ebuild:
+  Stable for amd64 wrt bug #516756
+
+*notmuch-0.18.2 (01 Nov 2014)
+
+  01 Nov 2014; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  +notmuch-0.18.2.ebuild:
+  Version bump.
+
+  NEWS
+  ~~~~
+  - Fix test suite to work with gdb 7.8
+  - Emacs 24.4 related bug fixes
+
+  18 Sep 2014; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  notmuch-0.16-r1.ebuild, notmuch-0.17.ebuild, notmuch-0.18.1.ebuild:
+  Block gdb-7.8 because it breaks atomicity tests.
+
+  01 Sep 2014; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  notmuch-0.16-r1.ebuild, notmuch-0.17.ebuild:
+  Install zsh and bash completion files unconditionally.
 
   28 Aug 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> notmuch-0.18.1.ebuild:
   src_prepare() doesn't have 'default'.

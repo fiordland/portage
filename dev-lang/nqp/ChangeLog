@@ -1,6 +1,57 @@
 # ChangeLog for dev-lang/nqp
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/nqp/ChangeLog,v 1.51 2014/08/25 05:51:51 patrick Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/nqp/ChangeLog,v 1.62 2015/02/22 02:50:49 patrick Exp $
+
+*nqp-2015.02 (22 Feb 2015)
+
+  22 Feb 2015; Patrick Lauer <patrick@gentoo.org> +nqp-2015.02.ebuild:
+  Bump
+
+  31 Jan 2015; Mikle Kolyada <zlogene@gentoo.org> -nqp-2014.07.ebuild,
+  -nqp-2014.08.ebuild, -nqp-2014.09.ebuild, -nqp-2014.10.ebuild,
+  -nqp-2014.11-r1.ebuild:
+  Drop old
+
+  26 Jan 2015; Patrick Lauer <patrick@gentoo.org> nqp-2014.12.ebuild,
+  nqp-2015.01.ebuild:
+  Remove libffi hackery, this was caused by stale parrot config
+
+*nqp-2015.01 (26 Jan 2015)
+
+  26 Jan 2015; Patrick Lauer <patrick@gentoo.org> +nqp-2015.01.ebuild:
+  Bump
+
+  23 Jan 2015; Patrick Lauer <patrick@gentoo.org> nqp-2014.12.ebuild:
+  Work around weird build system failure with libffi, add missing dep on libffi
+
+*nqp-2014.12 (20 Dec 2014)
+
+  20 Dec 2014; Patrick Lauer <patrick@gentoo.org> +nqp-2014.12.ebuild:
+  Bump
+
+*nqp-2014.11-r1 (25 Nov 2014)
+
+  25 Nov 2014; Patrick Lauer <patrick@gentoo.org> +nqp-2014.11-r1.ebuild,
+  -nqp-2014.11.ebuild:
+  Fixed build with newer gcc, re-enabling parrot backend
+
+*nqp-2014.11 (24 Nov 2014)
+
+  24 Nov 2014; Patrick Lauer <patrick@gentoo.org> +nqp-2014.11.ebuild:
+  Bump, parrot backend is disabled as it doesn't work
+
+*nqp-2014.10 (25 Oct 2014)
+
+  25 Oct 2014; Patrick Lauer <patrick@gentoo.org> +nqp-2014.10.ebuild:
+  Bump
+
+  16 Oct 2014; Patrick Lauer <patrick@gentoo.org> nqp-2014.07.ebuild:
+  Fix parrot dep
+
+*nqp-2014.09 (19 Sep 2014)
+
+  19 Sep 2014; Patrick Lauer <patrick@gentoo.org> +nqp-2014.09.ebuild:
+  Bump
 
 *nqp-2014.08 (25 Aug 2014)
 

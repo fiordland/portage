@@ -1,6 +1,26 @@
 # ChangeLog for dev-perl/perl-tk
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/perl-tk/ChangeLog,v 1.101 2014/08/10 17:44:12 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/perl-tk/ChangeLog,v 1.105 2015/01/17 18:16:17 zlogene Exp $
+
+  17 Jan 2015; Mikle Kolyada <zlogene@gentoo.org> perl-tk-804.32.0-r1.ebuild:
+  Stable for all wrt bug #536798
+
+  17 Jan 2015; Jeroen Roovers <jer@gentoo.org> perl-tk-804.32.0-r1.ebuild:
+  Stable for HPPA (bug #536798).
+
+*perl-tk-804.32.0-r1 (21 Oct 2014)
+
+  21 Oct 2014; Justin Lecher <jlec@gentoo.org> +perl-tk-804.32.0-r1.ebuild,
+  +files/freetype_location.patch, +files/mainwindow_segfaults.patch:
+  Add fix for build against perl-5.20, thanks Norman Yarvin for the patch,
+  #523982
+
+  11 Oct 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -perl-tk-804.29.0.ebuild, -perl-tk-804.30.0.ebuild, -perl-tk-804.31.0.ebuild,
+  -perl-tk-804.31.0-r1.ebuild, -files/804.028-path.patch,
+  -files/perl-tk-804.31.0-fix-libpng-option.patch,
+  -files/804.029-X11_XLIB_H.patch, -files/xorg.patch:
+  Remove old
 
   10 Aug 2014; Agostino Sarubbo <ago@gentoo.org> perl-tk-804.32.0.ebuild:
   Stable for ia64, wrt bug #518032

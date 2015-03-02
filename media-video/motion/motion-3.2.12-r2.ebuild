@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/motion/motion-3.2.12-r2.ebuild,v 1.6 2013/06/22 15:51:47 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/motion/motion-3.2.12-r2.ebuild,v 1.8 2014/12/28 16:00:19 titanofold Exp $
 
 EAPI=4
 inherit eutils user
@@ -18,7 +18,7 @@ RDEPEND="sys-libs/zlib
 	virtual/jpeg
 	ffmpeg? ( virtual/ffmpeg )
 	mysql? ( virtual/mysql )
-	postgres? ( dev-db/postgresql-base )"
+	postgres? ( dev-db/postgresql )"
 # note: libv4l is only in dependencies for the libv4l1-videodev.h header file
 # used by the -workaround-v4l1_deprecation.patch.
 DEPEND="${RDEPEND}

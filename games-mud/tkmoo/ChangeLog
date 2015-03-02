@@ -1,6 +1,12 @@
 # ChangeLog for games-mud/tkmoo
-# Copyright 2002-2007 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-mud/tkmoo/ChangeLog,v 1.14 2007/03/13 01:31:47 wolf31o2 Exp $
+# Copyright 2002-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-mud/tkmoo/ChangeLog,v 1.16 2015/02/07 13:30:38 ago Exp $
+
+  07 Feb 2015; Agostino Sarubbo <ago@gentoo.org> tkmoo-0.3.32.ebuild:
+  Stable for amd64, wrt bug #539132
+
+  02 Dec 2014; Michael Sterrett <mr_bones_@gentoo.org> tkmoo-0.3.32.ebuild:
+  EAPI=5
 
   13 Mar 2007; Chris Gianelloni <wolf31o2@gentoo.org> tkmoo-0.3.32.ebuild:
   Change which to type -P for QA.

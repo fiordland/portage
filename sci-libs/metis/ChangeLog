@@ -1,6 +1,28 @@
 # ChangeLog for sci-libs/metis
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/metis/ChangeLog,v 1.36 2014/07/09 03:33:02 patrick Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/metis/ChangeLog,v 1.43 2015/02/27 11:07:34 ago Exp $
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> metis-4.0.3.ebuild:
+  Stable for sparc, wrt bug #534644
+
+  22 Feb 2015; Matt Turner <mattst88@gentoo.org> metis-4.0.1-r1.ebuild,
+  metis-4.0.3.ebuild, metis-5.1.0-r1.ebuild:
+  Drop alpha keyword.
+
+  28 Jan 2015; Agostino Sarubbo <ago@gentoo.org> metis-4.0.3.ebuild:
+  Stable for ppc, wrt bug #534644
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> metis-4.0.3.ebuild:
+  Stable for x86, wrt bug #534644
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org> metis-4.0.3.ebuild:
+  Stable for amd64, wrt bug #534644
+
+  13 Jan 2015; Jeroen Roovers <jer@gentoo.org> metis-4.0.3.ebuild:
+  Stable for HPPA (bug #534644).
+
+  04 Jan 2015; Justin Lecher <jlec@gentoo.org> metis-4.0.3.ebuild:
+  Bump EAPI
 
   09 Jul 2014; Patrick Lauer <patrick@gentoo.org> metis-4.0.1-r1.ebuild:
   Fix 4.0.1-r1 to run all phases

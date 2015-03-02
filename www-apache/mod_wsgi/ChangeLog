@@ -1,6 +1,47 @@
 # ChangeLog for www-apache/mod_wsgi
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_wsgi/ChangeLog,v 1.50 2014/08/18 20:30:36 djc Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_wsgi/ChangeLog,v 1.60 2015/02/23 17:51:26 djc Exp $
+
+*mod_wsgi-4.4.9 (23 Feb 2015)
+
+  23 Feb 2015; Dirkjan Ochtman <djc@gentoo.org> +mod_wsgi-4.4.9.ebuild:
+  Version bump mod_wsgi to 4.4.9
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> mod_wsgi-4.3.0.ebuild:
+  Stable for ppc, wrt bug #533312
+
+  18 Jan 2015; Dirkjan Ochtman <djc@gentoo.org> -mod_wsgi-4.2.7.ebuild,
+  -mod_wsgi-4.4.2.ebuild, -mod_wsgi-4.4.5.ebuild:
+  Remove old versions of mod_wsgi
+
+*mod_wsgi-4.4.6 (18 Jan 2015)
+
+  18 Jan 2015; Dirkjan Ochtman <djc@gentoo.org> +mod_wsgi-4.4.6.ebuild:
+  Version bump mod_wsgi to 4.4.6
+
+  16 Jan 2015; Agostino Sarubbo <ago@gentoo.org> mod_wsgi-4.3.0.ebuild:
+  Stable for x86, wrt bug #533312
+
+  16 Jan 2015; Agostino Sarubbo <ago@gentoo.org> mod_wsgi-4.3.0.ebuild:
+  Stable for amd64, wrt bug #533312
+
+*mod_wsgi-4.4.5 (11 Jan 2015)
+
+  11 Jan 2015; Dirkjan Ochtman <djc@gentoo.org> +mod_wsgi-4.4.5.ebuild:
+  Version bump mod_wsgi to 4.4.5
+
+  11 Jan 2015; Dirkjan Ochtman <djc@gentoo.org> metadata.xml:
+  Update remote-id to look at PyPI
+
+*mod_wsgi-4.4.2 (22 Dec 2014)
+
+  22 Dec 2014; Dirkjan Ochtman <djc@gentoo.org> +mod_wsgi-4.4.2.ebuild:
+  Version bump mod_wsgi to 4.4.2
+
+*mod_wsgi-4.3.0 (23 Sep 2014)
+
+  23 Sep 2014; Dirkjan Ochtman <djc@gentoo.org> +mod_wsgi-4.3.0.ebuild:
+  Version bump mod_wsgi to 4.3.0
 
 *mod_wsgi-4.2.7 (18 Aug 2014)
 

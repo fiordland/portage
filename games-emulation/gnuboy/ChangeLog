@@ -1,6 +1,15 @@
 # ChangeLog for games-emulation/gnuboy
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/gnuboy/ChangeLog,v 1.13 2014/07/04 08:11:39 mr_bones_ Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-emulation/gnuboy/ChangeLog,v 1.16 2015/02/21 12:25:15 ago Exp $
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> gnuboy-1.0.3-r1.ebuild:
+  Stable for ppc, wrt bug #539394
+
+  10 Feb 2015; Agostino Sarubbo <ago@gentoo.org> gnuboy-1.0.3-r1.ebuild:
+  Stable for x86, wrt bug #539394
+
+  09 Feb 2015; Agostino Sarubbo <ago@gentoo.org> gnuboy-1.0.3-r1.ebuild:
+  Stable for amd64, wrt bug #539394
 
 *gnuboy-1.0.3-r1 (04 Jul 2014)
 

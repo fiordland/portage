@@ -1,6 +1,17 @@
 # ChangeLog for dev-haskell/cereal
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cereal/ChangeLog,v 1.19 2014/07/25 08:58:14 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/cereal/ChangeLog,v 1.21 2015/01/29 20:31:31 qnikst Exp $
+
+*cereal-0.4.1.1 (29 Jan 2015)
+
+  29 Jan 2015; Alexander Vershilov <qnikst@gentoo.org> +cereal-0.4.1.1.ebuild,
+  -cereal-0.4.1.0.ebuild:
+  dev-haskell/cereal: new version, drop old
+
+*cereal-0.4.1.0 (21 Oct 2014)
+
+  21 Oct 2014; Sergei Trofimovich <slyfox@gentoo.org> +cereal-0.4.1.0.ebuild:
+  Version bump.
 
   25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> metadata.xml:
   Drop redundant '<maintainer>' field, leave only '<herd>'.

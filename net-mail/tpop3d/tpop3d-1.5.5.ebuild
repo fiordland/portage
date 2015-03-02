@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/tpop3d/tpop3d-1.5.5.ebuild,v 1.3 2014/08/10 20:46:53 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/tpop3d/tpop3d-1.5.5.ebuild,v 1.5 2014/12/28 16:37:11 titanofold Exp $
 
 EAPI=4
 
@@ -20,7 +20,7 @@ RDEPEND="sha1?		( >=dev-libs/openssl-0.9.6 )
 	ssl?		( >=dev-libs/openssl-0.9.6 )
 	ldap? 		( >=net-nds/openldap-2.0.7 )
 	mysql? 		( virtual/mysql )
-	postgres?	( dev-db/postgresql-server )
+	postgres?	( dev-db/postgresql[server] )
 	perl?		( >=dev-lang/perl-5.6.1 )
 	pam? 		( virtual/pam
 				  >=net-mail/mailbase-0.00-r8 )

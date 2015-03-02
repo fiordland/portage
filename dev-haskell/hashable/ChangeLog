@@ -1,6 +1,28 @@
 # ChangeLog for dev-haskell/hashable
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hashable/ChangeLog,v 1.25 2014/07/25 08:58:11 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hashable/ChangeLog,v 1.30 2015/03/02 09:30:24 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> hashable-1.2.1.0.ebuild:
+  Stable for ppc, wrt bug #495380
+
+  30 Jan 2015; Michał Górny <mgorny@gentoo.org> hashable-1.2.1.0.ebuild,
+  hashable-1.2.3.1.ebuild, metadata.xml:
+  Convert to CPU_FLAGS_X86.
+
+  28 Jan 2015; Alexander Vershilov <qnikst@gentoo.org> -hashable-1.1.2.2.ebuild,
+  -hashable-1.1.2.3.ebuild, -hashable-1.2.0.10.ebuild, -hashable-1.2.0.5.ebuild,
+  -hashable-1.2.2.0.ebuild, -hashable-1.2.3.0.ebuild:
+  dev-haskell/hashable: drop old
+
+*hashable-1.2.3.1 (23 Dec 2014)
+
+  23 Dec 2014; Mark Wright <gienah@gentoo.org> +hashable-1.2.3.1.ebuild:
+  Bump hashable to 1.2.3.1
+
+*hashable-1.2.3.0 (13 Dec 2014)
+
+  13 Dec 2014; Mark Wright <gienah@gentoo.org> +hashable-1.2.3.0.ebuild:
+  Bump hashable to 1.2.3.0
 
   25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> metadata.xml:
   Drop redundant '<maintainer>' field, leave only '<herd>'.

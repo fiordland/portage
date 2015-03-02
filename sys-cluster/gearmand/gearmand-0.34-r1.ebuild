@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/gearmand/gearmand-0.34-r1.ebuild,v 1.2 2013/03/04 08:42:15 flameeyes Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/gearmand/gearmand-0.34-r1.ebuild,v 1.4 2014/12/28 16:57:22 titanofold Exp $
 
 EAPI=5
 
@@ -23,7 +23,7 @@ RDEPEND="dev-libs/libevent
 	drizzle? ( dev-db/drizzle )
 	sqlite? ( dev-db/sqlite:3 )
 	tokyocabinet? ( dev-db/tokyocabinet )
-	postgres? ( >=dev-db/postgresql-base-9.0 )"
+	postgres? ( >=dev-db/postgresql-9.0 )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
