@@ -1,6 +1,27 @@
 # ChangeLog for net-libs/libsoup
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libsoup/ChangeLog,v 1.342 2014/08/25 11:02:59 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libsoup/ChangeLog,v 1.347 2015/01/29 11:19:58 pacho Exp $
+
+  29 Jan 2015; Pacho Ramos <pacho@gentoo.org> -libsoup-2.44.2.ebuild,
+  libsoup-2.48.1.ebuild:
+  Restrict tests for now as they hang for some unknown reason, bug #537836, also
+  bug #326957 is pending; drop old
+
+*libsoup-2.48.1 (23 Dec 2014)
+
+  23 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org> libsoup-2.44.2.ebuild,
+  +libsoup-2.48.1.ebuild:
+  Version bump for Gnome 3.14. Clean up old revisions.
+
+  04 Nov 2014; Gilles Dartiguelongue <eva@gentoo.org> -libsoup-2.46.0.ebuild,
+  libsoup-2.46.0-r1.ebuild:
+  Fix unittest failure due to wrong glib requirement, bug #512240.
+
+  11 Oct 2014; Markus Meier <maekke@gentoo.org> libsoup-2.46.0-r1.ebuild:
+  arm stable, bug #512012
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.46.0-r1.ebuild:
+  Stable for sparc, wrt bug #512012
 
   25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-2.46.0-r1.ebuild:
   Stable for alpha, wrt bug #512012

@@ -1,6 +1,89 @@
 # ChangeLog for net-misc/openvpn
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/openvpn/ChangeLog,v 1.297 2014/08/27 12:40:28 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/openvpn/ChangeLog,v 1.320 2015/02/17 18:46:07 djc Exp $
+
+*openvpn-2.3.6-r2 (17 Feb 2015)
+
+  17 Feb 2015; Dirkjan Ochtman <djc@gentoo.org>
+  +files/2.3.6-disable-compression.patch, +openvpn-2.3.6-r2.ebuild:
+  Version bump openvpn to 2.3.6-r2 (fixes bug 537318)
+
+*openvpn-2.3.6-r1 (08 Feb 2015)
+
+  08 Feb 2015; Dirkjan Ochtman <djc@gentoo.org> +files/2.3.6-null-cipher.patch,
+  +openvpn-2.3.6-r1.ebuild:
+  Fix support for null ciphers (bug 531700; thanks to gentoo@nephros.org)
+
+  18 Jan 2015; Dirkjan Ochtman <djc@gentoo.org> openvpn-2.3.6.ebuild:
+  Fix minimum version of libpkcs11-helper dependency (fixes bug 536332)
+
+  28 Dec 2014; Dirkjan Ochtman <djc@gentoo.org> -openvpn-2.3.2.ebuild,
+  -openvpn-2.3.3.ebuild, -openvpn-2.3.4-r1.ebuild, -openvpn-2.3.5.ebuild:
+  Remove vulnerable versions of openvpn (bug 531308)
+
+  26 Dec 2014; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.6.ebuild:
+  Stable for sparc, wrt bug #531308
+
+  23 Dec 2014; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.6.ebuild:
+  Stable for alpha, wrt bug #531308
+
+  16 Dec 2014; Markus Meier <maekke@gentoo.org> openvpn-2.3.6.ebuild:
+  arm stable, bug #531308
+
+  06 Dec 2014; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.6.ebuild:
+  Stable for ia64, wrt bug #531308
+
+  04 Dec 2014; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.6.ebuild:
+  Stable for ppc64, wrt bug #531308
+
+  03 Dec 2014; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.6.ebuild:
+  Stable for ppc, wrt bug #531308
+
+  02 Dec 2014; Mike Gilbert <floppym@gentoo.org> files/openvpn.service:
+  Revert previous unit file change, bug 527614.
+
+  02 Dec 2014; Jeroen Roovers <jer@gentoo.org> openvpn-2.3.6.ebuild:
+  Stable for HPPA (bug #531308).
+
+  02 Dec 2014; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.6.ebuild:
+  Stable for x86, wrt bug #531308
+
+  02 Dec 2014; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.6.ebuild:
+  Stable for amd64, wrt bug #531308
+
+*openvpn-2.3.6 (01 Dec 2014)
+
+  01 Dec 2014; Dirkjan Ochtman <djc@gentoo.org> +openvpn-2.3.6.ebuild:
+  Version bump openvpn to 2.3.6 (fixes bug 531308)
+
+  21 Nov 2014; Tobias Klausmann <klausman@gentoo.org> openvpn-2.3.4-r1.ebuild:
+  Stable on alpha, bug 522168
+
+  16 Nov 2014; Dirkjan Ochtman <djc@gentoo.org> -openvpn-2.3.1.ebuild,
+  -openvpn-2.3.4.ebuild:
+  Remove old versions of openvpn
+
+*openvpn-2.3.5 (16 Nov 2014)
+
+  16 Nov 2014; Dirkjan Ochtman <djc@gentoo.org> +openvpn-2.3.5.ebuild:
+  Version bump openvpn to 2.3.5
+
+  05 Nov 2014; Mike Gilbert <floppym@gentoo.org> files/openvpn.service:
+  Use unescaped instance name for PIDFile and config file, bug 527614.
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> openvpn-2.3.4-r1.ebuild,
+  openvpn-9999.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+  05 Oct 2014; Manuel Rüger <mrueg@gentoo.org> openvpn-2.3.4-r1.ebuild:
+  Mark stable on amd64. Bug #522168
+
+  21 Sep 2014; Markus Meier <maekke@gentoo.org> openvpn-2.3.4-r1.ebuild:
+  arm stable, bug #522168
+
+  10 Sep 2014; Jeroen Roovers <jer@gentoo.org> openvpn-2.3.4-r1.ebuild:
+  Stable for HPPA (bug #522168).
 
   27 Aug 2014; Agostino Sarubbo <ago@gentoo.org> openvpn-2.3.3.ebuild:
   Stable for ppc, wrt bug #511668

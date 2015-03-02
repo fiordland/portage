@@ -1,6 +1,50 @@
 # ChangeLog for dev-util/buildbot
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot/ChangeLog,v 1.153 2014/06/30 18:10:33 hwoarang Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/buildbot/ChangeLog,v 1.165 2015/01/22 18:31:45 maekke Exp $
+
+  22 Jan 2015; Markus Meier <maekke@gentoo.org> buildbot-0.8.10.ebuild:
+  arm stable, bug #536174
+
+  16 Jan 2015; Jeroen Roovers <jer@gentoo.org> buildbot-0.8.10.ebuild:
+  Stable for HPPA (bug #536174).
+
+  18 Dec 2014; Markos Chandras <hwoarang@gentoo.org> buildbot-0.8.10.ebuild,
+  buildbot-9999.ebuild:
+  buildbot-0.8.8 is compatible with sqlalchemy-0.8 and higher
+
+  18 Dec 2014; Markos Chandras <hwoarang@gentoo.org> -buildbot-0.8.8-r2.ebuild:
+  Drop 0.8.8
+
+*buildbot-0.8.10 (18 Dec 2014)
+
+  18 Dec 2014; Markos Chandras <hwoarang@gentoo.org> +buildbot-0.8.10.ebuild:
+  Version bump
+
+  17 Nov 2014; Markos Chandras <hwoarang@gentoo.org> buildbot-9999.ebuild:
+  Do not try to enter the master directory on pkg_postinst.
+
+  09 Nov 2014; Markos Chandras <hwoarang@gentoo.org> buildbot-0.8.9-r1.ebuild,
+  buildbot-9999.ebuild:
+  Stop protecting files in /usr/lib/python. This is getting rather painful on
+  upgrades and administrators should be able to do it themselves if needed
+
+*buildbot-0.8.9-r1 (18 Oct 2014)
+
+  18 Oct 2014; Markos Chandras <hwoarang@gentoo.org> +buildbot-0.8.9-r1.ebuild,
+  buildbot-9999.ebuild:
+  Migrate to distutils-r1. Bug #522654 thanks to Ian Delaney
+
+  02 Oct 2014; Markos Chandras <hwoarang@gentoo.org> buildbot-0.8.9.ebuild:
+  amd64/x86 stable. Bug #521732
+
+  23 Sep 2014; Dirkjan Ochtman <djc@gentoo.org> metadata.xml:
+  Remove python, not a python library
+
+  14 Sep 2014; Markus Meier <maekke@gentoo.org> buildbot-0.8.9.ebuild:
+  arm stable, bug #521732
+
+  13 Sep 2014; Jeroen Roovers <jer@gentoo.org> buildbot-0.8.9.ebuild:
+  Stable for HPPA (bug #521732).
 
 *buildbot-0.8.9 (30 Jun 2014)
 

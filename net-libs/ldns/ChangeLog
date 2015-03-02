@@ -1,6 +1,21 @@
 # ChangeLog for net-libs/ldns
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/ldns/ChangeLog,v 1.60 2014/07/09 17:03:04 mgorny Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/ldns/ChangeLog,v 1.65 2015/03/02 09:34:29 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> ldns-1.6.17.ebuild:
+  Stable for ppc, wrt bug #525270
+
+  15 Jan 2015; Raúl Porcel <armin76@gentoo.org> ldns-1.6.17.ebuild:
+  alpha/ia64/sparc stable wrt #525270
+
+  02 Dec 2014; Pacho Ramos <pacho@gentoo.org> ldns-1.6.17.ebuild:
+  amd64/x86 stable, bug #525270
+
+  04 Nov 2014; Markus Meier <maekke@gentoo.org> ldns-1.6.17.ebuild:
+  arm stable, bug #525270
+
+  23 Oct 2014; Jeroen Roovers <jer@gentoo.org> ldns-1.6.17.ebuild:
+  Stable for HPPA (bug #525270).
 
   09 Jul 2014; Michał Górny <mgorny@gentoo.org> ldns-1.6.16-r1.ebuild,
   ldns-1.6.17.ebuild:

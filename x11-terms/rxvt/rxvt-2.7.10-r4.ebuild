@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/rxvt/rxvt-2.7.10-r4.ebuild,v 1.10 2013/05/15 12:45:49 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-terms/rxvt/rxvt-2.7.10-r4.ebuild,v 1.12 2015/02/20 14:41:26 mrueg Exp $
 
-EAPI=1
+EAPI=5
 
 inherit eutils flag-o-matic libtool toolchain-funcs
 
-DESCRIPTION="rxvt -- nice small x11 terminal"
+DESCRIPTION="A nice small x11 terminal"
 HOMEPAGE="http://rxvt.sourceforge.net/
 	http://www.giga.it.okayama-u.ac.jp/~ishihara/opensource/"
 SRC_URI="mirror://sourceforge/rxvt/${P}.tar.gz
@@ -24,14 +24,11 @@ RDEPEND="x11-libs/libX11
 DEPEND="${RDEPEND}
 	x11-proto/xproto"
 
-src_unpack() {
-	unpack "${P}.tar.gz"
-	cd "${S}"
-
+src_prepare() {
 	tc-export AR
 
-	epatch "${FILESDIR}"/${P}-line-scroll.patch
-	epatch "${FILESDIR}"/${P}-asneeded.patch
+	epatch "${FILESDIR}"/${P}-line-scroll.patch\
+		"${FILESDIR}"/${P}-asneeded.patch
 	use motif && epatch "${FILESDIR}"/${P}-azz4.diff
 	if use cjk ; then
 		epatch "${DISTDIR}"/${P}-xim-fix.patch.gz
@@ -74,13 +71,11 @@ src_compile() {
 		--enable-shared \
 		--enable-keepscrolling \
 		--with-term=${term} \
-		$(use_enable xgetdefault) || die
-
-	emake || die
+		$(use_enable xgetdefault)
 }
 
 src_install() {
-	einstall mandir="${D}"/usr/share/man/man1 || die
+	emake DESTDIR="${D}" install
 
 	cd "${S}"/doc
 	dodoc README* *.txt BUGS FAQ

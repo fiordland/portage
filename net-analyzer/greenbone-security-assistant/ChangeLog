@@ -1,6 +1,68 @@
 # ChangeLog for net-analyzer/greenbone-security-assistant
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/greenbone-security-assistant/ChangeLog,v 1.7 2014/06/19 13:38:01 hanno Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/greenbone-security-assistant/ChangeLog,v 1.16 2015/02/15 02:02:46 patrick Exp $
+
+  15 Feb 2015; Patrick Lauer <patrick@gentoo.org>
+  -greenbone-security-assistant-5.0.4.ebuild:
+  Remove old version with unsatisfied dependencies
+
+*greenbone-security-assistant-6.0_beta6 (14 Feb 2015)
+*greenbone-security-assistant-5.0.5 (14 Feb 2015)
+
+  14 Feb 2015; Justin Lecher <jlec@gentoo.org>
+  +greenbone-security-assistant-5.0.5.ebuild,
+  +greenbone-security-assistant-6.0_beta6.ebuild,
+  -greenbone-security-assistant-6.0_beta3.ebuild,
+  -greenbone-security-assistant-6.0_beta4.ebuild:
+  Version Bump
+
+  18 Dec 2014; Justin Lecher <jlec@gentoo.org>
+  greenbone-security-assistant-5.0.4.ebuild,
+  greenbone-security-assistant-6.0_beta4.ebuild:
+  Fix version number if depndencies, #532896
+
+*greenbone-security-assistant-6.0_beta4 (01 Dec 2014)
+
+  01 Dec 2014; Justin Lecher <jlec@gentoo.org>
+  -greenbone-security-assistant-2.0.1.ebuild,
+  -greenbone-security-assistant-4.0.1.ebuild,
+  -greenbone-security-assistant-4.0.2.ebuild,
+  -greenbone-security-assistant-5.0.3-r1.ebuild,
+  +greenbone-security-assistant-6.0_beta4.ebuild:
+  Version Bump; drop old
+
+*greenbone-security-assistant-5.0.4 (04 Nov 2014)
+
+  04 Nov 2014; Justin Lecher <jlec@gentoo.org>
+  +greenbone-security-assistant-5.0.4.ebuild:
+  Version Bump
+
+*greenbone-security-assistant-6.0_beta3 (22 Oct 2014)
+
+  22 Oct 2014; Justin Lecher <jlec@gentoo.org>
+  -greenbone-security-assistant-5.0.1.ebuild,
+  -greenbone-security-assistant-5.0.3.ebuild,
+  greenbone-security-assistant-5.0.3-r1.ebuild,
+  +greenbone-security-assistant-6.0_beta3.ebuild:
+  Update to latest beta; drop old
+
+  01 Oct 2014; Justin Lecher <jlec@gentoo.org> files/gsad.init:
+  Fix service dependency
+
+*greenbone-security-assistant-5.0.3-r1 (01 Oct 2014)
+
+  01 Oct 2014; Justin Lecher <jlec@gentoo.org>
+  +greenbone-security-assistant-5.0.3-r1.ebuild,
+  +files/greenbone-security-assistant-5.0.3-run.patch, +files/gsad.init,
+  +files/gsad.logrotate, +files/gsad.service, +files/gsad.tmpfiles.d,
+  +files/gsad-daemon.conf:
+  Add systemd support
+
+*greenbone-security-assistant-5.0.3 (28 Sep 2014)
+
+  28 Sep 2014; Justin Lecher <jlec@gentoo.org>
+  +greenbone-security-assistant-5.0.3.ebuild, metadata.xml:
+  Version Bump
 
 *greenbone-security-assistant-5.0.1 (19 Jun 2014)
 

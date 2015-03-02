@@ -1,6 +1,27 @@
 # ChangeLog for www-apps/drupal
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/drupal/ChangeLog,v 1.108 2014/08/14 12:59:01 jmbsvicetto Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-apps/drupal/ChangeLog,v 1.111 2015/03/01 17:34:18 jmbsvicetto Exp $
+
+*drupal-8.0.0_beta7 (01 Mar 2015)
+
+  01 Mar 2015; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +drupal-8.0.0_beta7.ebuild:
+  Add initial drupal 8.0 beta release from my overlay. I've been testing it
+  locally, but will leave it without keywords until there's more feedback.
+
+*drupal-6.34 (20 Nov 2014)
+*drupal-7.34 (20 Nov 2014)
+
+  20 Nov 2014; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +drupal-6.34.ebuild, +drupal-7.34.ebuild, -drupal-6.33.ebuild,
+  -drupal-7.32.ebuild:
+  Version bump to address DRUPAL-SA-CORE-2014-006. Drop affected versions.
+
+*drupal-7.32 (17 Oct 2014)
+
+  17 Oct 2014; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +drupal-7.32.ebuild, -drupal-7.31.ebuild:
+  Bump to release 7.32 - fixes bug 525514 (CVE-2014-3704).
 
 *drupal-6.33 (14 Aug 2014)
 *drupal-7.31 (14 Aug 2014)

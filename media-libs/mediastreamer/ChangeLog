@@ -1,6 +1,17 @@
 # ChangeLog for media-libs/mediastreamer
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/mediastreamer/ChangeLog,v 1.75 2014/01/18 10:32:07 hwoarang Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/mediastreamer/ChangeLog,v 1.78 2015/02/07 20:13:52 mgorny Exp $
+
+*mediastreamer-2.9.0-r1 (07 Feb 2015)
+
+  07 Feb 2015; Michał Górny <mgorny@gentoo.org> +mediastreamer-2.9.0-r1.ebuild:
+  Replace the virtual with USE=libav.
+
+  12 Nov 2014; Andrew Savchenko <bircoph@gentoo.org> metadata.xml:
+  Update e-mail :/.
+
+  12 Nov 2014; Andrew Savchenko <bircoph@gentoo.org> metadata.xml:
+  Package is now directly maintained instead of proxy-maintaining.
 
   18 Jan 2014; Markos Chandras <hwoarang@gentoo.org> mediastreamer-2.9.0.ebuild:
   Bump ortp dependency to 0.21.0. Bug #494766

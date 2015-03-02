@@ -1,6 +1,27 @@
 # ChangeLog for dev-python/django-extensions
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/django-extensions/ChangeLog,v 1.9 2014/06/01 02:06:38 idella4 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/django-extensions/ChangeLog,v 1.13 2015/03/01 17:08:16 jlec Exp $
+
+  01 Mar 2015; Justin Lecher <jlec@gentoo.org>
+  -django-extensions-1.0.2-r1.ebuild, -django-extensions-1.3.3.ebuild,
+  -django-extensions-1.3.7.ebuild, django-extensions-1.4.0.ebuild:
+  Drop old; remove USE constraints from django
+
+*django-extensions-1.5.0 (27 Feb 2015)
+
+  27 Feb 2015; Justin Lecher <jlec@gentoo.org> +django-extensions-1.5.0.ebuild,
+  metadata.xml:
+  Version Bump, fixes #476762 (python3 support) and #538038 (Uneeded dependency
+  on db support in django)
+
+  28 Nov 2014; Pacho Ramos <pacho@gentoo.org> django-extensions-1.4.0.ebuild:
+  Support python 3.4
+
+*django-extensions-1.4.0 (12 Oct 2014)
+
+  12 Oct 2014; Johann Schmitz <ercpe@gentoo.org>
+  +django-extensions-1.4.0.ebuild:
+  Version bump of django-extensions
 
   01 Jun 2014; Ian Delaney <idella4@gentoo.org> django-extensions-1.3.3.ebuild,
   django-extensions-1.3.7.ebuild:

@@ -1,6 +1,26 @@
 # ChangeLog for games-rpg/freedink
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/freedink/ChangeLog,v 1.6 2014/05/29 20:47:34 hasufell Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-rpg/freedink/ChangeLog,v 1.12 2015/02/25 15:56:57 ago Exp $
+
+  25 Feb 2015; Agostino Sarubbo <ago@gentoo.org> freedink-108.4.ebuild:
+  Stable for x86, wrt bug #540604
+
+  19 Feb 2015; Agostino Sarubbo <ago@gentoo.org> freedink-108.4.ebuild:
+  Stable for amd64, wrt bug #540604
+
+  08 Feb 2015; Michael Sterrett <mr_bones_@gentoo.org> freedink-108.4.ebuild:
+  nls is not optional (bug #518752)
+
+  26 Jan 2015; Michael Sterrett <mr_bones_@gentoo.org> -freedink-108.2.ebuild:
+  old
+
+  25 Nov 2014; Julian Ospald <hasufell@gentoo.org> metadata.xml:
+  drop maintainership
+
+*freedink-108.4 (12 Nov 2014)
+
+  12 Nov 2014; Julian Ospald <hasufell@gentoo.org> +freedink-108.4.ebuild:
+  version bump
 
 *freedink-108.2 (29 May 2014)
 

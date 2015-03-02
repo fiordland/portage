@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/gourmet/gourmet-0.17.4.ebuild,v 1.1 2014/06/09 00:28:08 nixphoeni Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/gourmet/gourmet-0.17.4.ebuild,v 1.4 2015/01/26 10:17:09 ago Exp $
 
 EAPI="5"
 PYTHON_COMPAT=( python2_7 )
@@ -16,7 +16,7 @@ SRC_URI="https://github.com/thinkle/gourmet/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="-i18n -ipython pdf print spell sound web"
 
 RDEPEND=">=dev-python/pygtk-2.22.0:2[${PYTHON_USEDEP}]
@@ -28,7 +28,7 @@ RDEPEND=">=dev-python/pygtk-2.22.0:2[${PYTHON_USEDEP}]
 	       >=dev-python/python-poppler-0.12.1-r4[${PYTHON_USEDEP}] )
 	print? ( >=dev-python/reportlab-2.6[${PYTHON_USEDEP}]
 	         >=dev-python/python-poppler-0.12.1-r4[${PYTHON_USEDEP}] )
-	spell? ( dev-python/gtkspell-python )
+	spell? ( >=dev-python/gtkspell-python-2.25.3-r1[${PYTHON_USEDEP}] )
 	sound? ( >=dev-python/gst-python-0.10.22-r1:0.10[${PYTHON_USEDEP}] )
 	web? ( >=dev-python/beautifulsoup-3.2.1-r1:python-2[${PYTHON_USEDEP}] )"
 DEPEND="${RDEPEND}

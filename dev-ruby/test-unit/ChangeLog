@@ -1,6 +1,34 @@
 # ChangeLog for dev-ruby/test-unit
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/test-unit/ChangeLog,v 1.103 2014/08/01 12:55:38 mrueg Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/test-unit/ChangeLog,v 1.110 2015/02/15 09:51:19 graaff Exp $
+
+  15 Feb 2015; Hans de Graaff <graaff@gentoo.org> test-unit-3.0.9-r1.ebuild:
+  Add keywords from dev-lang/ruby since this code was already bundled there.
+
+  15 Feb 2015; Hans de Graaff <graaff@gentoo.org> -test-unit-3.0.9.ebuild:
+  Remove broken version.
+
+*test-unit-3.0.9-r1 (27 Jan 2015)
+
+  27 Jan 2015; Hans de Graaff <graaff@gentoo.org> +test-unit-3.0.9-r1.ebuild,
+  +files/testrb-3:
+  Fix the testrb-2 wrapper to work with test-unit 3.x as well.
+
+  26 Jan 2015; Jeroen Roovers <jer@gentoo.org> test-unit-3.0.9.ebuild:
+  Marked ~hppa (bug #537838).
+
+*test-unit-3.0.9 (25 Jan 2015)
+
+  25 Jan 2015; Hans de Graaff <graaff@gentoo.org> +test-unit-3.0.9.ebuild:
+  Version bump.
+
+  28 Dec 2014; Hans de Graaff <graaff@gentoo.org> test-unit-2.5.5-r2.ebuild:
+  Drop jruby.
+
+  18 Nov 2014; Manuel Rüger <mrueg@gentoo.org>
+  -files/test-unit-2.3.0-jruby-tests.patch,
+  -files/test-unit-2.3.0-ree18-tests.patch:
+  Cleanup unused patches.
 
   01 Aug 2014; Manuel Rüger <mrueg@gentoo.org> -test-unit-2.5.3.ebuild:
   Cleanup old.

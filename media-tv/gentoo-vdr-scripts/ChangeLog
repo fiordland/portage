@@ -1,6 +1,67 @@
 # ChangeLog for media-tv/gentoo-vdr-scripts
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/gentoo-vdr-scripts/ChangeLog,v 1.125 2013/07/07 09:54:34 hd_brummy Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-tv/gentoo-vdr-scripts/ChangeLog,v 1.136 2015/02/18 00:06:13 hd_brummy Exp $
+
+*gentoo-vdr-scripts-2.7 (18 Feb 2015)
+
+  18 Feb 2015; Joerg Bornkessel <hd_brummy@gentoo.org>
+  +gentoo-vdr-scripts-2.7.ebuild:
+  support >=vdr-2.1.10, fix some deprecated warnings in new vdr major release
+
+  06 Feb 2015; Joerg Bornkessel <hd_brummy@gentoo.org>
+  gentoo-vdr-scripts-2.6.ebuild:
+  typo; using elog instead of einfo now
+
+*gentoo-vdr-scripts-2.6 (06 Feb 2015)
+
+  06 Feb 2015; Joerg Bornkessel <hd_brummy@gentoo.org>
+  +gentoo-vdr-scripts-2.6.ebuild:
+  bump, init script vdr-x11 added
+
+  03 Feb 2015; Joerg Bornkessel <hd_brummy@gentoo.org>
+  gentoo-vdr-scripts-2.5.ebuild:
+  stable amd64 x86
+
+  03 Jan 2015; Joerg Bornkessel <hd_brummy@gentoo.org>
+  -gentoo-vdr-scripts-0.5.3.ebuild, -gentoo-vdr-scripts-2.5_rc4.ebuild:
+  clean up old
+
+  01 Jan 2015; Joerg Bornkessel <hd_brummy@gentoo.org>
+  gentoo-vdr-scripts-2.5.ebuild:
+  better detailed info for systemd handling
+
+*gentoo-vdr-scripts-2.5 (01 Jan 2015)
+
+  01 Jan 2015; Joerg Bornkessel <hd_brummy@gentoo.org>
+  +gentoo-vdr-scripts-2.5.ebuild:
+  bump; fixed locale handling for systemd, thx to D.Ferdinand wrt bug 530690;
+  fixed misusing 'need net', wrt bug 530828; fixed locale handling openrc
+
+*gentoo-vdr-scripts-2.5_rc4 (22 Oct 2014)
+
+  22 Oct 2014; Joerg Bornkessel <hd_brummy@gentoo.org>
+  -gentoo-vdr-scripts-2.5_rc3.ebuild, +gentoo-vdr-scripts-2.5_rc4.ebuild:
+  bump (again), something goes wrong with last commit
+
+*gentoo-vdr-scripts-2.5_rc3 (21 Oct 2014)
+
+  21 Oct 2014; Joerg Bornkessel <hd_brummy@gentoo.org>
+  -gentoo-vdr-scripts-2.5_rc1.ebuild, -gentoo-vdr-scripts-2.5_rc2.ebuild,
+  +gentoo-vdr-scripts-2.5_rc3.ebuild:
+  bump, fixed typo(s), thx to L.Muresan, M.Rathgeb; cleanup old
+
+*gentoo-vdr-scripts-2.5_rc2 (18 Oct 2014)
+
+  18 Oct 2014; Joerg Bornkessel <hd_brummy@gentoo.org>
+  +gentoo-vdr-scripts-2.5_rc2.ebuild:
+  bump, better systemd support wrt bug 353492#33; added --keep-going paramter
+  to vdrplugin-rebuild script, thx to M.Dummer
+
+*gentoo-vdr-scripts-2.5_rc1 (23 Sep 2014)
+
+  23 Sep 2014; Joerg Bornkessel <hd_brummy@gentoo.org>
+  +gentoo-vdr-scripts-2.5_rc1.ebuild:
+  bump; several minor fixes; added systemd support, wrt bug 353492
 
   07 Jul 2013; Joerg Bornkessel <hd_brummy@gentoo.org>
   -gentoo-vdr-scripts-0.4.9.ebuild, -gentoo-vdr-scripts-0.5.2.ebuild,

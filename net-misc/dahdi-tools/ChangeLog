@@ -1,6 +1,14 @@
 # ChangeLog for net-misc/dahdi-tools
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dahdi-tools/ChangeLog,v 1.34 2014/08/19 08:30:05 chainsaw Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dahdi-tools/ChangeLog,v 1.36 2015/03/02 10:00:03 chainsaw Exp $
+
+*dahdi-tools-2.10.1 (02 Mar 2015)
+
+  02 Mar 2015; Tony Vroon <chainsaw@gentoo.org> +dahdi-tools-2.10.1.ebuild:
+  Version bump as requested by Oliver Jaksch in bug #541010.
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org> dahdi-tools-2.10.0.ebuild:
+  Stable for amd64, wrt bug #535596
 
 *dahdi-tools-2.10.0 (19 Aug 2014)
 

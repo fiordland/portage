@@ -1,6 +1,23 @@
 # ChangeLog for dev-python/icalendar
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/icalendar/ChangeLog,v 1.42 2014/08/10 21:12:06 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/icalendar/ChangeLog,v 1.46 2015/01/26 10:24:36 ago Exp $
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> icalendar-3.8.4.ebuild:
+  Stable for x86, wrt bug #535332
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org> icalendar-3.8.4.ebuild:
+  Stable for amd64, wrt bug #535332
+
+*icalendar-3.8.4 (07 Nov 2014)
+
+  07 Nov 2014; Ian Delaney <idella4@gentoo.org> +icalendar-3.8.4.ebuild,
+  -icalendar-3.7.ebuild, -icalendar-3.8.2.ebuild, -icalendar-3.8.3.ebuild:
+  bump; remove some old
+
+*icalendar-3.8.3 (09 Sep 2014)
+
+  09 Sep 2014; Ian Delaney <idella4@gentoo.org> +icalendar-3.8.3.ebuild:
+  bump
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> icalendar-2.2.ebuild,
   icalendar-3.5.ebuild, icalendar-3.7.ebuild, icalendar-3.8.2.ebuild:

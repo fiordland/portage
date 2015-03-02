@@ -1,6 +1,57 @@
 # ChangeLog for net-mail/dovecot
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/dovecot/ChangeLog,v 1.490 2014/08/21 09:54:06 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-mail/dovecot/ChangeLog,v 1.500 2014/12/28 16:33:27 titanofold Exp $
+
+  28 Dec 2014; Aaron W. Swenson <titanofold@gentoo.org> dovecot-2.2.9.ebuild,
+  dovecot-2.2.13.ebuild, dovecot-2.2.13-r1.ebuild, dovecot-2.2.14.ebuild,
+  dovecot-2.2.14-r1.ebuild, dovecot-2.2.15.ebuild, dovecot-2.2.15-r1.ebuild,
+  dovecot-2.2.15-r2.ebuild, dovecot-2.2.15-r3.ebuild:
+  Rename virtual/postgresql to dev-db/postgresql
+
+  08 Dec 2014; Eray Aslan <eras@gentoo.org> files/dovecot-10-ssl.patch:
+  Change cipher list recommendation
+
+*dovecot-2.2.15-r3 (04 Dec 2014)
+
+  04 Dec 2014; Eray Aslan <eras@gentoo.org> +dovecot-2.2.15-r3.ebuild:
+  Fix lz4 lzma automagic dependency - bug #531302
+
+*dovecot-2.2.15-r2 (04 Nov 2014)
+
+  04 Nov 2014; Eray Aslan <eras@gentoo.org> +dovecot-2.2.15-r2.ebuild:
+  Version bump
+
+  03 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> dovecot-2.2.9.ebuild,
+  dovecot-2.2.13.ebuild, dovecot-2.2.13-r1.ebuild, dovecot-2.2.14.ebuild,
+  dovecot-2.2.14-r1.ebuild, dovecot-2.2.15.ebuild, dovecot-2.2.15-r1.ebuild:
+  Update PostgreSQL dependencies and/or checks to virtual/postgresql.
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> dovecot-2.2.13-r1.ebuild,
+  dovecot-2.2.13.ebuild, dovecot-2.2.14-r1.ebuild, dovecot-2.2.14.ebuild,
+  dovecot-2.2.15-r1.ebuild, dovecot-2.2.15.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+*dovecot-2.2.15-r1 (31 Oct 2014)
+
+  31 Oct 2014; Eray Aslan <eras@gentoo.org> +dovecot-2.2.15-r1.ebuild,
+  +files/dovecot-pigeonhole-0.4.5.patch:
+  Pigeonhole version bump
+
+*dovecot-2.2.15 (28 Oct 2014)
+*dovecot-2.2.14-r1 (28 Oct 2014)
+
+  28 Oct 2014; Eray Aslan <eras@gentoo.org> +dovecot-2.2.14-r1.ebuild,
+  +dovecot-2.2.15.ebuild:
+  Version bump - bug #527198
+
+*dovecot-2.2.14 (15 Oct 2014)
+
+  15 Oct 2014; Eray Aslan <eras@gentoo.org> +dovecot-2.2.14.ebuild:
+  Version bump
+
+  02 Sep 2014; Patrick Lauer <patrick@gentoo.org> dovecot-2.2.13-r1.ebuild:
+  Revert incomplete stable keywording for alpha #501600
 
   21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> dovecot-2.2.13-r1.ebuild:
   Stable for alpha, wrt bug #509954

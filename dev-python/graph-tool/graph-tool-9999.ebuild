@@ -1,15 +1,15 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/graph-tool/graph-tool-9999.ebuild,v 1.6 2014/02/05 18:41:16 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/graph-tool/graph-tool-9999.ebuild,v 1.13 2015/01/31 08:28:58 radhermit Exp $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_7,3_2,3_3} )
+PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 
-inherit check-reqs eutils toolchain-funcs python-r1
+inherit check-reqs toolchain-funcs python-r1
 
 if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="git://git.skewed.de/graph-tool"
-	inherit git-2
+	EGIT_REPO_URI="https://git.skewed.de/count0/graph-tool.git"
+	inherit autotools git-r3
 else
 	SRC_URI="http://downloads.skewed.de/${PN}/${P}.tar.bz2"
 	KEYWORDS="~amd64 ~x86"
@@ -23,7 +23,7 @@ SLOT="0"
 IUSE="+cairo openmp"
 
 CDEPEND="${PYTHON_DEPS}
-	>=dev-libs/boost-1.46.0[python,${PYTHON_USEDEP}]
+	>=dev-libs/boost-1.54.0[python,${PYTHON_USEDEP}]
 	dev-libs/expat
 	dev-python/numpy[${PYTHON_USEDEP}]
 	sci-libs/scipy[${PYTHON_USEDEP}]
@@ -52,25 +52,32 @@ pkg_pretend() {
 }
 
 src_prepare() {
+	[[ ${PV} == "9999" ]] && eautoreconf
 	>py-compile
 	python_copy_sources
 }
 
 src_configure() {
-	python_parallel_foreach_impl run_in_build_dir \
+	local threads
+	has_version dev-libs/boost[threads] && threads="-mt"
+
+	configure() {
 		econf \
 			--disable-static \
 			--disable-optimization \
 			$(use_enable openmp) \
-			$(use_enable cairo)
+			$(use_enable cairo) \
+			--with-boost-python="${EPYTHON: -3}${threads}"
+	}
+	python_foreach_impl run_in_build_dir configure
 }
 
 src_compile() {
-	python_parallel_foreach_impl run_in_build_dir default
+	python_foreach_impl run_in_build_dir default
 }
 
 src_install() {
-	python_parallel_foreach_impl run_in_build_dir default
+	python_foreach_impl run_in_build_dir default
 	prune_libtool_files --modules
 
 	# remove unwanted extra docs

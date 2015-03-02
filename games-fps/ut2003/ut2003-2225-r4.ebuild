@@ -1,6 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/ut2003/ut2003-2225-r4.ebuild,v 1.15 2010/12/16 19:20:44 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-fps/ut2003/ut2003-2225-r4.ebuild,v 1.17 2014/10/15 11:34:01 pacho Exp $
+
+EAPI=5
 
 inherit eutils games
 
@@ -14,11 +16,21 @@ KEYWORDS="amd64 x86"
 IUSE="dedicated"
 RESTRICT="strip"
 
-RDEPEND="dedicated? ( games-server/ut2003-ded )
-	!dedicated? ( virtual/opengl )
+RDEPEND="
 	games-fps/ut2003-data
-	amd64? ( app-emulation/emul-linux-x86-compat
-		app-emulation/emul-linux-x86-xlibs )"
+	dedicated? ( games-server/ut2003-ded )
+	!dedicated? (
+		|| (
+			(
+				 virtual/opengl[abi_x86_32(-)]
+			)
+			amd64? (
+				app-emulation/emul-linux-x86-opengl[-abi_x86_32(-)]
+			)
+		)
+	)
+"
+DEPEND=""
 
 S=${WORKDIR}
 
@@ -26,8 +38,7 @@ dir="${GAMES_PREFIX_OPT}/${PN}"
 Ddir="${D}/${dir}"
 
 src_unpack() {
-	unpack ut2003lnx_patch${PV}.tar.tar \
-		|| die "unpacking patch"
+	unpack ut2003lnx_patch${PV}.tar.tar
 }
 
 src_install() {

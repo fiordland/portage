@@ -1,6 +1,34 @@
 # ChangeLog for dev-vcs/fossil
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/fossil/ChangeLog,v 1.19 2014/05/04 08:25:03 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/fossil/ChangeLog,v 1.25 2015/02/27 01:35:42 rafaelmartins Exp $
+
+  27 Feb 2015; Rafael G. Martins <rafaelmartins@gentoo.org>
+  -fossil-20130911114349.ebuild, -fossil-20140612172556.ebuild:
+  Removed vulnerable versions. bug #539468
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> fossil-20150119112900.ebuild:
+  Stable for amd64, wrt bug #539468
+
+  23 Feb 2015; Andreas Schuerch <nativemad@gentoo.org>
+  fossil-20150119112900.ebuild:
+  x86 stable, see bug 539468
+
+*fossil-20150119112900 (11 Feb 2015)
+
+  11 Feb 2015; Rafael G. Martins <rafaelmartins@gentoo.org>
+  +fossil-20150119112900.ebuild:
+  version bump. bug #539468
+
+*fossil-20140612172556 (20 Nov 2014)
+
+  20 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org>
+  -fossil-20130216000435.ebuild, +fossil-20140612172556.ebuild:
+  Version bump. Add ~arm. Clean out old. Fixes bug 521910. Thanks
+  David Flogeras.
+
+  01 Sep 2014; Michał Górny <mgorny@gentoo.org> fossil-20130911114349.ebuild:
+  Remove := subslot operator from || () block since it is meaningless and
+  broken.
 
   04 May 2014; Agostino Sarubbo <ago@gentoo.org> fossil-20130911114349.ebuild:
   Stable for x86, wrt bug #502812

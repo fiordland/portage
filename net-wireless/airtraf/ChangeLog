@@ -1,6 +1,24 @@
 # ChangeLog for net-wireless/airtraf
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/airtraf/ChangeLog,v 1.21 2014/07/19 12:30:30 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/airtraf/ChangeLog,v 1.26 2015/02/22 08:26:58 jer Exp $
+
+  22 Feb 2015; Jeroen Roovers <jer@gentoo.org> -airtraf-1.1.ebuild:
+  Old.
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> airtraf-1.1-r3.ebuild:
+  Stable for ppc, wrt bug #539202
+
+  10 Feb 2015; Agostino Sarubbo <ago@gentoo.org> airtraf-1.1-r3.ebuild:
+  Stable for x86, wrt bug #539202
+
+*airtraf-1.1-r3 (08 Feb 2015)
+
+  08 Feb 2015; Jeroen Roovers <jer@gentoo.org> -airtraf-1.1-r2.ebuild,
+  +airtraf-1.1-r3.ebuild, +files/airtraf-1.1-fprintf-format.patch:
+  Fix fprintf()s with missing format argument (bug #539228).
+
+  07 Feb 2015; Agostino Sarubbo <ago@gentoo.org> airtraf-1.1-r2.ebuild:
+  Stable for amd64, wrt bug #539202
 
   19 Jul 2014; Jeroen Roovers <jer@gentoo.org> files/airtraf-1.1.patch:
   Fix patch.

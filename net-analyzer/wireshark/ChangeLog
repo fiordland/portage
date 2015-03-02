@@ -1,6 +1,202 @@
 # ChangeLog for net-analyzer/wireshark
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/wireshark/ChangeLog,v 1.645 2014/08/12 09:59:34 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/wireshark/ChangeLog,v 1.694 2015/02/05 09:34:24 jer Exp $
+
+*wireshark-1.99.2 (05 Feb 2015)
+
+  05 Feb 2015; Jeroen Roovers <jer@gentoo.org> -wireshark-1.99.1.ebuild,
+  +wireshark-1.99.2.ebuild:
+  Version bump.
+
+  28 Jan 2015; Michał Górny <mgorny@gentoo.org> metadata.xml,
+  wireshark-1.99.1.ebuild, wireshark-99999999.ebuild:
+  Switch to CPU_FLAGS_X86.
+
+  20 Jan 2015; Jeroen Roovers <jer@gentoo.org> wireshark-99999999.ebuild:
+  Drop obsolete patch.
+
+  16 Jan 2015; Jeroen Roovers <jer@gentoo.org> -wireshark-1.12.2.ebuild:
+  Old.
+
+  16 Jan 2015; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.3.ebuild:
+  Stable for ia64, wrt bug #536034
+
+  15 Jan 2015; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.3.ebuild:
+  Stable for ppc, wrt bug #536034
+
+  14 Jan 2015; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.3.ebuild:
+  Stable for ppc64, wrt bug #536034
+
+  13 Jan 2015; Jeroen Roovers <jer@gentoo.org> wireshark-1.12.3.ebuild,
+  wireshark-1.99.1.ebuild, wireshark-99999999.ebuild:
+  RDEPEND on virtual/freedesktop-icon-theme for all of USE="gtk3 qt4 qt5" (bug
+  #525390).
+
+  13 Jan 2015; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.3.ebuild:
+  Stable for sparc, wrt bug #536034
+
+  09 Jan 2015; Tobias Klausmann <klausman@gentoo.org> wireshark-1.12.3.ebuild:
+  Stable on alpha, bug 536034
+
+  09 Jan 2015; Jeroen Roovers <jer@gentoo.org> wireshark-1.12.3.ebuild:
+  Stable for HPPA (bug #536034).
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.3.ebuild:
+  Stable for x86, wrt bug #536034
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.3.ebuild:
+  Stable for amd64, wrt bug #536034
+
+*wireshark-1.12.3 (08 Jan 2015)
+
+  08 Jan 2015; Jeroen Roovers <jer@gentoo.org> -wireshark-1.12.2-r1.ebuild,
+  +wireshark-1.12.3.ebuild:
+  Version bump (bug #536034).
+
+*wireshark-1.12.2-r1 (17 Dec 2014)
+
+  17 Dec 2014; Jeroen Roovers <jer@gentoo.org> +wireshark-1.12.2-r1.ebuild,
+  wireshark-99999999.ebuild:
+  Same.
+
+  17 Dec 2014; Jeroen Roovers <jer@gentoo.org> wireshark-1.99.1.ebuild,
+  +files/wireshark-1.99.1-sbc.patch, metadata.xml:
+  Make media-libs/sbc support explicit.
+
+*wireshark-1.99.1 (11 Dec 2014)
+
+  11 Dec 2014; Jeroen Roovers <jer@gentoo.org> -wireshark-1.99.0-r1.ebuild,
+  +wireshark-1.99.1.ebuild:
+  Version bump.
+
+  03 Dec 2014; Jeroen Roovers <jer@gentoo.org> -wireshark-1.12.1.ebuild:
+  Old.
+
+  03 Dec 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.2.ebuild:
+  Stable for ppc, wrt bug #529100
+
+  01 Dec 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.2.ebuild:
+  Stable for sparc, wrt bug #529100
+
+  29 Nov 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.2.ebuild:
+  Stable for ppc64, wrt bug #529100
+
+  20 Nov 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.2.ebuild:
+  Stable for ia64, wrt bug #529100
+
+  17 Nov 2014; Tobias Klausmann <klausman@gentoo.org> wireshark-1.12.2.ebuild:
+  Stable on alpha, bug 529100
+
+  13 Nov 2014; Jeroen Roovers <jer@gentoo.org> wireshark-1.12.2.ebuild:
+  Stable for HPPA (bug #529100).
+
+  13 Nov 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.2.ebuild:
+  Stable for x86, wrt bug #529100
+
+  13 Nov 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.2.ebuild:
+  Stable for amd64, wrt bug #529100
+
+  13 Nov 2014; Jeroen Roovers <jer@gentoo.org> wireshark-1.12.2.ebuild,
+  wireshark-1.99.0-r1.ebuild, wireshark-99999999.ebuild:
+  Clarify pkg_postinst() notice.
+
+*wireshark-1.12.2 (13 Nov 2014)
+
+  13 Nov 2014; Jeroen Roovers <jer@gentoo.org> -wireshark-1.12.1-r1.ebuild,
+  +wireshark-1.12.2.ebuild:
+  Version bump (bug #529100).
+
+  11 Nov 2014; Jeroen Roovers <jer@gentoo.org> wireshark-1.12.1.ebuild,
+  wireshark-1.12.1-r1.ebuild, wireshark-1.99.0-r1.ebuild,
+  wireshark-99999999.ebuild:
+  Depend on dev-qt/qtgui[accessibility] (bug #528806 by tux_mind).
+
+*wireshark-1.12.1-r1 (06 Nov 2014)
+
+  06 Nov 2014; Jeroen Roovers <jer@gentoo.org> +wireshark-1.12.1-r1.ebuild:
+  Add Qt 5 support to the stable branch (bug #488640).
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> wireshark-1.12.1.ebuild,
+  wireshark-1.99.0-r1.ebuild, wireshark-99999999.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+*wireshark-99999999 (30 Oct 2014)
+
+  30 Oct 2014; Jeroen Roovers <jer@gentoo.org> -wireshark-1.99.0.ebuild,
+  +wireshark-99999999.ebuild:
+  Add live ebuild.
+
+  27 Oct 2014; Mike Frysinger <vapier@gentoo.org> wireshark-1.12.1.ebuild,
+  wireshark-1.99.0-r1.ebuild, wireshark-1.99.0.ebuild:
+  Drop random perl deps in favor of blockers #455122.
+
+*wireshark-1.99.0-r1 (24 Oct 2014)
+
+  24 Oct 2014; Jeroen Roovers <jer@gentoo.org> +wireshark-1.99.0-r1.ebuild,
+  +files/wireshark-1.99.0-qt5.patch:
+  Add USE=qt5 (bug #488640).
+
+  14 Oct 2014; Jeroen Roovers <jer@gentoo.org> wireshark-1.12.1.ebuild,
+  wireshark-1.99.0.ebuild:
+  Add virtual/freedesktop-icon-theme dependency (bug #525390).
+
+*wireshark-1.99.0 (07 Oct 2014)
+
+  07 Oct 2014; Jeroen Roovers <jer@gentoo.org> +wireshark-1.99.0.ebuild,
+  -wireshark-1.99.0.1989.ebuild:
+  Version bump.
+
+*wireshark-1.99.0.1989 (03 Oct 2014)
+
+  03 Oct 2014; Jeroen Roovers <jer@gentoo.org> -wireshark-1.99.0.1975.ebuild,
+  +wireshark-1.99.0.1989.ebuild:
+  Version bump. Fix USE=doc-pdf / pof accessing /root/.java.
+
+*wireshark-1.99.0.1975 (02 Oct 2014)
+
+  02 Oct 2014; Jeroen Roovers <jer@gentoo.org> +wireshark-1.99.0.1975.ebuild,
+  +files/wireshark-1.99.0.1975-gcc_option.patch,
+  +files/wireshark-1.99.0.1975-sse4_2.patch, metadata.xml:
+  Version bump.
+
+  27 Sep 2014; Jeroen Roovers <jer@gentoo.org> -wireshark-1.10.9.ebuild,
+  -files/wireshark-1.10.1-oldlibs.patch,
+  -files/wireshark-1.10.6-gtk-deprecated-warnings.patch, metadata.xml:
+  Old.
+
+  27 Sep 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.1.ebuild:
+  Stable for ppc, wrt bug #522968
+
+  27 Sep 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.1.ebuild:
+  Stable for ia64, wrt bug #522968
+
+  20 Sep 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.1.ebuild:
+  Stable for alpha, wrt bug #522968
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.1.ebuild:
+  Stable for ppc64, wrt bug #522968
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.1.ebuild:
+  Stable for sparc, wrt bug #522968
+
+  18 Sep 2014; Jeroen Roovers <jer@gentoo.org> wireshark-1.12.1.ebuild:
+  Fix configuring without libnl (bug #523154 by Stuart Shelton).
+
+  18 Sep 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.1.ebuild:
+  Stable for x86, wrt bug #522968
+
+  18 Sep 2014; Agostino Sarubbo <ago@gentoo.org> wireshark-1.12.1.ebuild:
+  Stable for amd64, wrt bug #522968
+
+  17 Sep 2014; Jeroen Roovers <jer@gentoo.org> wireshark-1.12.1.ebuild:
+  Stable for HPPA (bug #522968).
+
+*wireshark-1.12.1 (16 Sep 2014)
+
+  16 Sep 2014; Jeroen Roovers <jer@gentoo.org> -wireshark-1.12.0.ebuild,
+  +wireshark-1.12.1.ebuild:
+  Version bump (bug #522968).
 
   12 Aug 2014; Jeroen Roovers <jer@gentoo.org> -wireshark-1.8.15.ebuild,
   -wireshark-1.8.15-r1.ebuild, -wireshark-1.10.8.ebuild,

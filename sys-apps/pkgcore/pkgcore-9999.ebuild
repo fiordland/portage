@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/pkgcore/pkgcore-9999.ebuild,v 1.19 2014/05/25 03:50:44 radhermit Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/pkgcore/pkgcore-9999.ebuild,v 1.22 2015/02/19 17:28:10 radhermit Exp $
 
-EAPI=4
+EAPI=5
 PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1
 
 if [[ ${PV} == *9999 ]] ; then
-	EGIT_REPO_URI="git://github.com/pkgcore/pkgcore.git"
+	EGIT_REPO_URI="https://github.com/pkgcore/pkgcore.git"
 	inherit git-r3
 else
 	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
@@ -19,7 +19,7 @@ HOMEPAGE="http://pkgcore.googlecode.com/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+doc"
+IUSE="doc"
 
 RDEPEND="=dev-python/snakeoil-9999[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}

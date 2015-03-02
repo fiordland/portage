@@ -1,6 +1,50 @@
 # ChangeLog for dev-util/boost-build
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/boost-build/ChangeLog,v 1.128 2014/08/15 07:57:24 pinkbyte Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/boost-build/ChangeLog,v 1.138 2015/02/27 09:26:38 pinkbyte Exp $
+
+  27 Feb 2015; Sergey Popov <pinkbyte@gentoo.org> boost-build-1.55.0.ebuild,
+  boost-build-1.55.0-r1.ebuild, boost-build-1.56.0.ebuild,
+  boost-build-1.57.0.ebuild, +files/boost-build-1.55.0-ppc-aix.patch:
+  Fix building on Gentoo Prefix on AIX, wrt bug #515102. Thanks to Michael
+  Haubenwallner
+
+*boost-build-1.57.0 (18 Feb 2015)
+
+  18 Feb 2015; Sergey Popov <pinkbyte@gentoo.org> +boost-build-1.57.0.ebuild:
+  Version bump, wrt bug #528204
+
+  02 Jan 2015; Agostino Sarubbo <ago@gentoo.org> boost-build-1.55.0.ebuild:
+  Stable for x86, wrt bug #525286
+
+  01 Jan 2015; Patrick Lauer <patrick@gentoo.org> boost-build-1.52.0-r1.ebuild,
+  boost-build-1.53.0.ebuild, boost-build-1.54.0.ebuild,
+  boost-build-1.55.0-r1.ebuild, boost-build-1.55.0.ebuild,
+  boost-build-1.56.0.ebuild:
+  Disable test phase as it hasn't worked in over 2 years #442576 etc.
+
+  26 Dec 2014; Anthony G. Basile <blueness@gentoo.org>
+  boost-build-1.55.0.ebuild:
+  Stable on ppc and ppc64, bug #525286
+
+  16 Nov 2014; Michał Górny <mgorny@gentoo.org> boost-build-1.55.0-r1.ebuild,
+  boost-build-1.56.0.ebuild:
+  Support using tests without enabling Python linking, bug #529480.
+
+*boost-build-1.55.0-r1 (16 Nov 2014)
+
+  16 Nov 2014; Michał Górny <mgorny@gentoo.org> +boost-build-1.55.0-r1.ebuild,
+  boost-build-1.56.0.ebuild:
+  Use python-single-r1 and a run-time dependency on Python since bjam links to
+  libpython. Backport the conversion into non-masked 1.55.0 branch.
+
+  12 Nov 2014; Sergey Popov <pinkbyte@gentoo.org> boost-build-1.55.0.ebuild:
+  Stable on amd64, wrt bug #525286
+
+  11 Nov 2014; Markus Meier <maekke@gentoo.org> boost-build-1.55.0.ebuild:
+  arm stable, bug #525286
+
+  06 Nov 2014; Jeroen Roovers <jer@gentoo.org> boost-build-1.55.0.ebuild:
+  Stable for HPPA (bug #525286).
 
 *boost-build-1.56.0 (15 Aug 2014)
 

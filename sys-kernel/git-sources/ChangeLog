@@ -1,6 +1,139 @@
 # ChangeLog for sys-kernel/git-sources
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/git-sources/ChangeLog,v 1.1396 2014/08/26 09:38:43 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/git-sources/ChangeLog,v 1.1421 2015/02/23 12:48:11 mpagano Exp $
+
+*git-sources-4.0_rc1 (23 Feb 2015)
+
+  23 Feb 2015; Mike Pagano <mpagano@gentoo.org> -git-sources-3.19_rc7.ebuild,
+  +git-sources-4.0_rc1.ebuild:
+  Linux patch 4.0_rc1. Remove old version.
+
+  04 Feb 2015; Mike Pagano <mpagano@gentoo.org> -git-sources-3.19_rc1.ebuild,
+  -git-sources-3.19_rc2.ebuild, -git-sources-3.19_rc3.ebuild,
+  -git-sources-3.19_rc4.ebuild, -git-sources-3.19_rc5.ebuild,
+  -git-sources-3.19_rc6.ebuild, git-sources-3.19_rc7.ebuild:
+  Fix patch version dependency. Drop old
+
+*git-sources-3.19_rc7 (02 Feb 2015)
+
+  02 Feb 2015; Mike Pagano <mpagano@gentoo.org> +git-sources-3.19_rc7.ebuild:
+  Version bump
+
+  26 Jan 2015; Mike Pagano <mpagano@gentoo.org> git-sources-3.19_rc1.ebuild,
+  git-sources-3.19_rc2.ebuild, git-sources-3.19_rc3.ebuild,
+  git-sources-3.19_rc4.ebuild, git-sources-3.19_rc5.ebuild,
+  git-sources-3.19_rc6.ebuild:
+  Limit patch version to <2.7.3. See bug #537852 
+
+*git-sources-3.19_rc6 (26 Jan 2015)
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> +git-sources-3.19_rc6.ebuild:
+  Automated version bump to 3.19_rc6
+
+*git-sources-3.19_rc5 (18 Jan 2015)
+
+  18 Jan 2015; Mike Pagano <mpagano@gentoo.org> +git-sources-3.19_rc5.ebuild:
+  Version bump
+
+*git-sources-3.19_rc4 (11 Jan 2015)
+
+  11 Jan 2015; Michael Pagano <mpagano@gentoo.org>
+  +git-sources-3.19_rc4.ebuild:
+  Version bump
+
+*git-sources-3.19_rc3 (06 Jan 2015)
+
+  06 Jan 2015; Agostino Sarubbo <ago@gentoo.org> +git-sources-3.19_rc3.ebuild:
+  Automated version bump to 3.19_rc3
+
+*git-sources-3.19_rc2 (29 Dec 2014)
+
+  29 Dec 2014; Michael Pagano <mpagano@gentoo.org>
+  +git-sources-3.19_rc2.ebuild:
+  Manual version bump.
+
+  21 Dec 2014; Michael Pagano <mpagano@gentoo.org>
+  -git-sources-3.18_rc7.ebuild:
+  Remove old. Non-automated manual.
+
+*git-sources-3.19_rc1 (21 Dec 2014)
+
+  21 Dec 2014; Agostino Sarubbo <ago@gentoo.org> +git-sources-3.19_rc1.ebuild:
+  Automated version bump to 3.19_rc1
+
+  01 Dec 2014; Michael Pagano <mpagano@gentoo.org>
+  -git-sources-3.18_rc1.ebuild, -git-sources-3.18_rc2.ebuild,
+  -git-sources-3.18_rc3.ebuild, -git-sources-3.18_rc4.ebuild,
+  -git-sources-3.18_rc5.ebuild, -git-sources-3.18_rc6.ebuild:
+  Cleanup
+
+*git-sources-3.18_rc7 (01 Dec 2014)
+
+  01 Dec 2014; Agostino Sarubbo <ago@gentoo.org> +git-sources-3.18_rc7.ebuild:
+  Automated version bump to 3.18_rc7
+
+*git-sources-3.18_rc6 (24 Nov 2014)
+
+  24 Nov 2014; Mike Pagano <mpagano@gentoo.org> +git-sources-3.18_rc6.ebuild:
+  Version bump
+
+*git-sources-3.18_rc5 (17 Nov 2014)
+
+  17 Nov 2014; Mike Pagano <mpagano@gentoo.org> +git-sources-3.18_rc5.ebuild:
+  Version bump
+
+*git-sources-3.18_rc4 (10 Nov 2014)
+
+  10 Nov 2014; Michael Pagano <mpagano@gentoo.org>
+  +git-sources-3.18_rc4.ebuild:
+  Version bump
+
+*git-sources-3.18_rc3 (03 Nov 2014)
+
+  03 Nov 2014; Mike Pagano <mpagano@gentoo.org> +git-sources-3.18_rc3.ebuild:
+  Version bump
+
+*git-sources-3.18_rc2 (27 Oct 2014)
+
+  27 Oct 2014; Michael Pagano <mpagano@gentoo.org>
+  +git-sources-3.18_rc2.ebuild:
+  Version bump
+
+  20 Oct 2014; Mike Pagano <mpagano@gentoo.org> -git-sources-3.17_rc1.ebuild,
+  -git-sources-3.17_rc2.ebuild, -git-sources-3.17_rc3.ebuild,
+  -git-sources-3.17_rc4.ebuild, -git-sources-3.17_rc5.ebuild,
+  -git-sources-3.17_rc6.ebuild, -git-sources-3.17_rc7.ebuild:
+  Drop old.
+
+*git-sources-3.18_rc1 (20 Oct 2014)
+
+  20 Oct 2014; Mike Pagano <mpagano@gentoo.org> +git-sources-3.18_rc1.ebuild:
+  Version bump
+
+*git-sources-3.17_rc7 (29 Sep 2014)
+
+  29 Sep 2014; Agostino Sarubbo <ago@gentoo.org> +git-sources-3.17_rc7.ebuild:
+  Automated version bump to 3.17_rc7
+
+*git-sources-3.17_rc6 (22 Sep 2014)
+
+  22 Sep 2014; Agostino Sarubbo <ago@gentoo.org> +git-sources-3.17_rc6.ebuild:
+  Automated version bump to 3.17_rc6
+
+*git-sources-3.17_rc5 (15 Sep 2014)
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> +git-sources-3.17_rc5.ebuild:
+  Automated version bump to 3.17_rc5
+
+*git-sources-3.17_rc4 (09 Sep 2014)
+
+  09 Sep 2014; Agostino Sarubbo <ago@gentoo.org> +git-sources-3.17_rc4.ebuild:
+  Version bump to 3.17_rc4
+
+*git-sources-3.17_rc3 (01 Sep 2014)
+
+  01 Sep 2014; Agostino Sarubbo <ago@gentoo.org> +git-sources-3.17_rc3.ebuild:
+  Version bump to 3.17_rc3
 
 *git-sources-3.17_rc2 (26 Aug 2014)
 

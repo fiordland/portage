@@ -1,9 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/ardour/ardour-3.5.380.ebuild,v 1.2 2014/05/19 09:58:30 nativemad Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/ardour/ardour-3.5.380.ebuild,v 1.5 2015/01/29 18:52:23 mgorny Exp $
 
 EAPI=4
-inherit eutils toolchain-funcs flag-o-matic waf-utils
+
+PYTHON_COMPAT=( python2_7 )
+PYTHON_REQ_USE='threads(+)'
+
+inherit eutils toolchain-funcs flag-o-matic python-any-r1 waf-utils
 
 DESCRIPTION="Digital Audio Workstation"
 HOMEPAGE="http://ardour.org/"
@@ -19,14 +23,14 @@ fi
 
 LICENSE="GPL-2"
 SLOT="3"
-IUSE="altivec debug doc nls lv2 sse"
+IUSE="altivec debug doc nls lv2 cpu_flags_x86_sse"
 
 RDEPEND="media-libs/aubio
 	media-libs/liblo
 	sci-libs/fftw:3.0
 	media-libs/freetype:2
 	>=dev-libs/glib-2.10.1:2
-	dev-cpp/glibmm:2
+	>=dev-cpp/glibmm-2.32.0
 	>=x11-libs/gtk+-2.8.1:2
 	>=dev-libs/libxml2-2.6:2
 	>=media-libs/libsndfile-1.0.18
@@ -61,6 +65,7 @@ RDEPEND="media-libs/aubio
 	)"
 
 DEPEND="${RDEPEND}
+	${PYTHON_DEPS}
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )
 	doc? ( app-doc/doxygen[dot] )"
@@ -85,7 +90,6 @@ src_prepare(){
 
 	fi
 	epatch "${FILESDIR}"/${PN}-3.5.7-syslibs.patch
-	sed 's/python/python2/' -i waf
 #	sed 's/'FLAGS\'\,\ optimization_flags'/'FLAGS\'\,\ \'\''/g' -i "${S}"/wscript
 	sed 's/'FLAGS\'\,\ compiler_flags'/'FLAGS\'\,\ \'\''/g' -i "${S}"/wscript
 	append-flags "-lboost_system"
@@ -101,7 +105,7 @@ src_configure() {
 		$(use lv2 && echo "--lv2" || echo "--no-lv2") \
 		$(use nls && echo "--nls" || echo "--no-nls") \
 		$(use debug && echo "--stl-debug" || echo "--optimize") \
-		$((use altivec || use sse) && echo "--fpu-optimization" || echo "--no-fpu-optimization") \
+		$((use altivec || use cpu_flags_x86_sse) && echo "--fpu-optimization" || echo "--no-fpu-optimization") \
 		$(use doc && echo "--docs")
 }
 

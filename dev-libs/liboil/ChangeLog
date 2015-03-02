@@ -1,6 +1,21 @@
 # ChangeLog for dev-libs/liboil
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/liboil/ChangeLog,v 1.93 2013/08/10 20:36:54 aballier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/liboil/ChangeLog,v 1.98 2015/03/02 09:34:00 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> liboil-0.3.17-r2.ebuild:
+  Stable for ppc, wrt bug #525748
+
+  15 Jan 2015; Raúl Porcel <armin76@gentoo.org> liboil-0.3.17-r2.ebuild:
+  alpha/ia64/sh/sparc stable wrt #525748
+
+  25 Oct 2014; Markus Meier <maekke@gentoo.org> liboil-0.3.17-r2.ebuild:
+  arm stable, bug #525748
+
+  23 Oct 2014; Pacho Ramos <pacho@gentoo.org> liboil-0.3.17-r2.ebuild:
+  amd64/x86 stable, bug #525748
+
+  20 Oct 2014; Jeroen Roovers <jer@gentoo.org> liboil-0.3.17-r2.ebuild:
+  Stable for HPPA (bug #525748).
 
 *liboil-0.3.17-r2 (10 Aug 2013)
 
@@ -352,4 +367,3 @@
   16 Nov 2004; Don Seiler <rizzo@gentoo.org> +metadata.xml,
   +liboil-0.2.0.ebuild:
   Initial add.  Closes bug #71270.
-

@@ -1,6 +1,58 @@
 # ChangeLog for www-client/seamonkey-bin
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey-bin/ChangeLog,v 1.206 2014/07/05 11:23:50 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-client/seamonkey-bin/ChangeLog,v 1.218 2015/02/26 02:32:32 axs Exp $
+
+*seamonkey-bin-2.32.1 (26 Feb 2015)
+
+  26 Feb 2015; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +seamonkey-bin-2.32.1.ebuild:
+  version bump
+
+  10 Dec 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.31.ebuild:
+  Stable for x86, wrt bug #531408
+
+  10 Dec 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.31.ebuild:
+  Stable for amd64, wrt bug #531408
+
+*seamonkey-bin-2.31 (05 Dec 2014)
+
+  05 Dec 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +seamonkey-bin-2.31.ebuild:
+  version bump for security bug 531408
+
+  18 Oct 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  -seamonkey-bin-2.26.1.ebuild, -seamonkey-bin-2.29.1.ebuild:
+  cleanup old, security bug 525474
+
+  18 Oct 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.30-r1.ebuild:
+  Stable for x86, wrt bug #525474
+
+  18 Oct 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.30-r1.ebuild:
+  Stable for amd64, wrt bug #525474
+
+*seamonkey-bin-2.30-r1 (17 Oct 2014)
+
+  17 Oct 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +seamonkey-bin-2.30-r1.ebuild:
+  added missing deps to 2.30 and revbumped for stable candidate
+
+  16 Oct 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.29.1.ebuild:
+  Stable for x86, wrt bug #523652
+
+  16 Oct 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.29.1.ebuild:
+  Stable for amd64, wrt bug #523652
+
+*seamonkey-bin-2.29.1 (26 Sep 2014)
+
+  26 Sep 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +seamonkey-bin-2.29.1.ebuild, -seamonkey-bin-2.29.ebuild:
+  security bump, bug 523652 ; removed old
+
+*seamonkey-bin-2.29 (09 Sep 2014)
+
+  09 Sep 2014; Jeff Horelick <jdhore@gentoo.org> +seamonkey-bin-2.29.ebuild,
+  -seamonkey-bin-2.25.ebuild, -seamonkey-bin-2.26.ebuild:
+  Version bump. Remove old.
 
   05 Jul 2014; Agostino Sarubbo <ago@gentoo.org> seamonkey-bin-2.26.1.ebuild:
   Stable for x86, wrt bug #512896

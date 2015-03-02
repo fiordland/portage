@@ -1,6 +1,39 @@
 # ChangeLog for net-firewall/shorewall-core
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-firewall/shorewall-core/ChangeLog,v 1.59 2014/07/27 10:48:28 phajdan.jr Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-firewall/shorewall-core/ChangeLog,v 1.67 2015/01/13 15:53:01 jer Exp $
+
+  13 Jan 2015; Jeroen Roovers <jer@gentoo.org>
+  shorewall-core-4.5.21.10-r1.ebuild:
+  Stable for HPPA (bug #535560).
+
+  18 Nov 2014; Michael Weber <xmw@gentoo.org> -files/4.5.18-r1/shorewallrc_new,
+  -files/4.5.21.7/10-releasenotes.patch, -files/4.5.21.7/shorewallrc,
+  -shorewall-core-4.5.18-r1.ebuild, -shorewall-core-4.5.21.7.ebuild:
+  Drop old.
+
+*shorewall-core-4.5.21.10-r1 (18 Nov 2014)
+
+  18 Nov 2014; Michael Weber <xmw@gentoo.org> +files/4.5.21.10-r1/shorewallrc,
+  +shorewall-core-4.5.21.10-r1.ebuild, -files/4.5.21.10/shorewallrc,
+  -shorewall-core-4.5.21.10.ebuild:
+  Revbump (bug 520316, thanks whissi).
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org>
+  shorewall-core-4.5.21.10.ebuild, shorewall-core-4.5.21.9.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org> shorewall-core-4.5.21.9.ebuild:
+  Stable for sparc, wrt bug #511620
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org> shorewall-core-4.5.21.9.ebuild:
+  Stable for ppc64, wrt bug #511620
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org> shorewall-core-4.5.21.9.ebuild:
+  Stable for ppc, wrt bug #511620
+
+  30 Aug 2014; Chema Alonso <nimiux@gentoo.org> shorewall-core-4.5.21.9.ebuild:
+  Stable for amd64 wrt bug #511620
 
   26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
   shorewall-core-4.5.21.9.ebuild:

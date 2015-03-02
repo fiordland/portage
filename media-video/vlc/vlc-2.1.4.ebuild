@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.1.4.ebuild,v 1.6 2014/03/26 18:38:20 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-2.1.4.ebuild,v 1.17 2015/02/16 02:16:22 dlan Exp $
 
 EAPI="5"
 
@@ -47,10 +47,10 @@ IUSE="a52 aalib alsa altivec atmo +audioqueue avahi +avcodec
 	growl httpd ieee1394 ios-vout jack kate kde libass libcaca libnotify
 	libsamplerate libtiger linsys libtar lirc live lua +macosx
 	+macosx-audio +macosx-dialog-provider +macosx-eyetv +macosx-quartztext
-	+macosx-qtkit +macosx-vout matroska media-library mmx modplug mp3 mpeg
+	+macosx-qtkit +macosx-vout matroska media-library cpu_flags_x86_mmx modplug mp3 mpeg
 	mtp musepack ncurses neon ogg omxil opencv opengl optimisememory opus
-	png +postproc projectm pulseaudio +qt4 qt5 rdp rtsp run-as-root samba
-	schroedinger sdl sdl-image sftp shout sid skins speex sse svg +swscale
+	png +postproc projectm pulseaudio +qt4 rdp rtsp run-as-root samba
+	schroedinger sdl sdl-image sftp shout sid skins speex cpu_flags_x86_sse svg +swscale
 	taglib theora tremor truetype twolame udev upnp vaapi v4l vcdx vdpau
 	vlm vnc vorbis wma-fixed +X x264 +xcb xml xv zvbi"
 
@@ -84,7 +84,7 @@ RDEPEND="
 		flac? ( media-libs/libogg:0 >=media-libs/flac-1.1.2:0 )
 		fluidsynth? ( >=media-sound/fluidsynth-1.1.2:0 )
 		fontconfig? ( media-libs/fontconfig:1.0 )
-		gcrypt? ( >=dev-libs/libgcrypt-1.2.0:0 )
+		gcrypt? ( >=dev-libs/libgcrypt-1.2.0:0= )
 		gme? ( media-libs/game-music-emu:0 )
 		gnome? ( gnome-base/gnome-vfs:2 dev-libs/glib:2 )
 		gnutls? ( >=net-libs/gnutls-3.0.20:0 )
@@ -115,12 +115,11 @@ RDEPEND="
 		opengl? ( virtual/opengl:0 >=x11-libs/libX11-1.3.99.901:0 )
 		opus? ( >=media-libs/opus-1.0.3:0 )
 		png? ( media-libs/libpng:0= sys-libs/zlib:0 )
-		postproc? ( || ( >=media-video/ffmpeg-1.2:0= media-libs/libpostproc:0 ) )
+		postproc? ( || ( >=media-video/ffmpeg-1.2:0 media-libs/libpostproc:0 ) )
 		projectm? ( media-libs/libprojectm:0 media-fonts/dejavu:0 )
 		pulseaudio? ( >=media-sound/pulseaudio-0.9.22:0 )
 		qt4? ( >=dev-qt/qtgui-4.6.0:4 >=dev-qt/qtcore-4.6.0:4 )
-		qt5? ( >=dev-qt/qtgui-5.1.0:5 >=dev-qt/qtcore-5.1.0:5 dev-qt/qtwidgets:5 )
-		rdp? ( net-misc/freerdp:0= )
+		rdp? ( <net-misc/freerdp-1.2:0= )
 		samba? ( || ( >=net-fs/samba-3.4.6:0[smbclient] >=net-fs/samba-4.0.0:0[client] ) )
 		schroedinger? ( >=media-libs/schroedinger-1.0.10:0 )
 		sdl? ( >=media-libs/libsdl-1.2.10:0
@@ -141,7 +140,7 @@ RDEPEND="
 		udev? ( >=virtual/udev-142:0 )
 		upnp? ( net-libs/libupnp:0 )
 		v4l? ( media-libs/libv4l:0 )
-		vaapi? ( x11-libs/libva:0 virtual/ffmpeg[vaapi] )
+		vaapi? ( x11-libs/libva:0[X] virtual/ffmpeg[vaapi] )
 		vcdx? ( >=dev-libs/libcdio-0.78.2:0 >=media-video/vcdimager-0.7.22:0 )
 		vdpau? ( >=x11-libs/libvdpau-0.6:0 !<media-video/libav-10_beta1 )
 		vnc? ( >=net-libs/libvncserver-0.9.9:0 )
@@ -175,10 +174,9 @@ REQUIRED_USE="
 	libcaca? ( X )
 	libtar? ( skins )
 	libtiger? ( kate )
-	qt4? ( X !qt5 )
-	qt5? ( X !qt4 )
+	qt4? ( X )
 	sdl? ( X )
-	skins? ( truetype X ^^ ( qt4 qt5 ) )
+	skins? ( truetype X qt4 )
 	vaapi? ( avcodec X )
 	vlm? ( encode )
 	xv? ( xcb )
@@ -187,7 +185,7 @@ REQUIRED_USE="
 S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
-	if [[ "$(tc-getCC)" == *"gcc"* ]] ; then
+	if [[ "${MERGE_TYPE}" != "binary" && "$(tc-getCC)" == *"gcc"* ]] ; then
 		if [[ $(gcc-major-version) < 4 || ( $(gcc-major-version) == 4 && $(gcc-minor-version) < 5 ) ]] ; then
 			die "You need to have at least >=sys-devel/gcc-4.5 to build and/or have a working vlc, see bug #426754."
 		fi
@@ -203,12 +201,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	# Support for Qt5.
-	if use qt5 ; then
-		export UIC="/usr/lib64/qt5/bin/uic"
-		export MOC="/usr/lib64/qt5/bin/moc"
-	fi
-
 	# Remove unnecessary warnings about unimplemented pragmas on gcc for now.
 	# Need to recheck this with gcc 4.9 and every subsequent minor bump of gcc.
 	#
@@ -219,9 +211,6 @@ src_prepare() {
 	if [[ "$(tc-getCC)" == *"gcc"* ]] ; then
 		sed -i 's/ifndef __FAST_MATH__/if 0/g' configure.ac || die
 	fi
-
-	# _FORTIFY_SOURCE is set to 2 by default on Gentoo, remove redefine warnings.
-	sed -i '/_FORTIFY_SOURCE.*, 2,/d' configure.ac || die
 
 	# Bootstrap when we are on a git checkout.
 	if [[ "${PV%9999}" != "${PV}" ]] ; then
@@ -242,22 +231,36 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-2.1.0-TomWij-bisected-PA-broken-underflow.patch
 
 	# Disable avcodec checks when avcodec is not used.
-	sed -i 's/^#if LIBAVCODEC_VERSION_CHECK(.*)$/#if 0/' modules/codec/avcodec/fourcc.c || die
+	if ! use avcodec; then
+		sed -i 's/^#if LIBAVCODEC_VERSION_CHECK(.*)$/#if 0/' modules/codec/avcodec/fourcc.c || die
+	fi
 
 	# Don't use --started-from-file when not using dbus.
 	if ! use dbus ; then
 		sed -i 's/ --started-from-file//' share/vlc.desktop.in || die
 	fi
 
+	epatch_user
+
 	eautoreconf
 
 	# Disable automatic running of tests.
 	find . -name 'Makefile.in' -exec sed -i 's/\(..*\)check-TESTS/\1/' {} \; || die
+
+	# If qtchooser is installed, it may break the build, because moc,rcc and uic binaries for wrong qt version may be used.
+	# Setting QT_SELECT environment variable will enforce correct binaries.
+	if use qt4; then
+		export QT_SELECT=qt4
+	fi
 }
 
 src_configure() {
 	# Compatibility fix for Samba 4.
 	use samba && append-cppflags "-I/usr/include/samba-4.0"
+
+	# We need to disable -fstack-check if use >=gcc 4.8.0.
+	# See bug #499996
+	use x86 && append-cflags $(test-flags-CC -fno-stack-check)
 
 	# Needs libresid-builder from libsidplay:2 which is in another directory...
 	# FIXME!
@@ -269,11 +272,6 @@ src_configure() {
 				--with-default-font-family=Sans \
 				--with-default-monospace-font=${dejavu}/DejaVuSansMono.ttf
 				--with-default-monospace-font-family=Monospace"
-	fi
-
-	local qt_flag=""
-	if use qt4 || use qt5 ; then
-		qt_flag="--enable-qt"
 	fi
 
 	econf \
@@ -345,7 +343,7 @@ src_configure() {
 		$(use_enable macosx-quartztext) \
 		$(use_enable macosx-vout) \
 		$(use_enable matroska mkv) \
-		$(use_enable mmx) \
+		$(use_enable cpu_flags_x86_mmx mmx) \
 		$(use_enable modplug mod) \
 		$(use_enable mp3 mad) \
 		$(use_enable mpeg libmpeg2) \
@@ -364,7 +362,7 @@ src_configure() {
 		$(use_enable postproc) \
 		$(use_enable projectm) \
 		$(use_enable pulseaudio pulse) \
-		${qt_flag} \
+		$(use_enable qt4 qt) \
 		$(use_enable rdp libfreerdp) \
 		$(use_enable rtsp realrtsp) \
 		$(use_enable run-as-root) \
@@ -377,7 +375,7 @@ src_configure() {
 		$(use_enable shout) \
 		$(use_enable skins skins2) \
 		$(use_enable speex) \
-		$(use_enable sse) \
+		$(use_enable cpu_flags_x86_sse sse) \
 		$(use_enable svg) \
 		$(use_enable swscale) \
 		$(use_enable taglib) \
@@ -425,6 +423,11 @@ src_configure() {
 		--disable-wasapi
 
 		# ^ We don't have these disabled libraries in the Portage tree yet.
+
+	# _FORTIFY_SOURCE is set to 2 in config.h, which is also the default value on Gentoo.
+	# Other values of _FORTIFY_SOURCE may break the build (bug 523144), so definition should not be removed from config.h.
+	# To prevent redefinition warnings, we undefine _FORTIFY_SOURCE at the very start of config.h file
+	sed -i '1i#undef _FORTIFY_SOURCE' "${S}"/config.h || die
 }
 
 src_test() {

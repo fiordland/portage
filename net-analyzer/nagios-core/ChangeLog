@@ -1,6 +1,66 @@
 # ChangeLog for net-analyzer/nagios-core
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-core/ChangeLog,v 1.191 2014/08/03 16:31:49 tgall Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-core/ChangeLog,v 1.204 2015/02/22 00:44:02 mjo Exp $
+
+*nagios-core-4.0.8-r2 (22 Feb 2015)
+
+  22 Feb 2015; Michael Orlitzky <mjo@gentoo.org> +nagios-core-4.0.8-r2.ebuild,
+  metadata.xml:
+  Add myself as a maintainer, fix apache module dep, and fix libltdl/libtool
+  dep.
+
+  27 Jan 2015; Panagiotis Christopoulos <pchrist@gentoo.org>
+  nagios-core-3.5.1.ebuild:
+  Better USE=-web handling for 3.5.1, fixes bug #537974, btw the whole -web
+  thing needs improvement
+
+  13 Dec 2014; Mikle Kolyada <zlogene@gentoo.org> -nagios-core-3.2.3.ebuild,
+  -nagios-core-3.3.1.ebuild:
+  Security cleanup
+
+*nagios-core-4.0.8-r1 (26 Nov 2014)
+
+  26 Nov 2014; Michael Orlitzky <mjo@gentoo.org>
+  +files/fix-bogus-perf-data-warnings.patch, +nagios-core-4.0.8-r1.ebuild,
+  -nagios-core-4.0.8.ebuild:
+  Revbump to fix bugs #388323 and #530640.
+
+*nagios-core-4.0.8 (22 Nov 2014)
+
+  22 Nov 2014; Michael Orlitzky <mjo@gentoo.org> +files/99_nagios4.conf,
+  +files/lighttpd_nagios4.conf, +files/nagios4,
+  +files/use-INSTALL-to-install-themes.patch,
+  +files/use-MAKE-instead-of-bare-make.patch, +nagios-core-4.0.8.ebuild,
+  metadata.xml:
+  Version bump with permission from creffett, bug #485756. Thanks to Tomas Mozes
+  and others for testing.
+
+  19 Sep 2014; Agostino Sarubbo <ago@gentoo.org> nagios-core-3.5.1.ebuild:
+  Stable for sparc, wrt bug #501200
+
+  14 Sep 2014; Agostino Sarubbo <ago@gentoo.org> nagios-core-3.5.1.ebuild:
+  Stable for ppc, wrt bug #501200
+
+  14 Sep 2014; Agostino Sarubbo <ago@gentoo.org> nagios-core-3.5.1.ebuild:
+  Stable for ppc64, wrt bug #501200
+
+  13 Sep 2014; Agostino Sarubbo <ago@gentoo.org> nagios-core-3.5.1.ebuild:
+  Stable for alpha, wrt bug #501200
+
+  06 Sep 2014; Agostino Sarubbo <ago@gentoo.org> nagios-core-3.5.1.ebuild:
+  Stable for x86, wrt bug #501200
+
+  06 Sep 2014; Agostino Sarubbo <ago@gentoo.org> nagios-core-3.5.1.ebuild:
+  Stable for amd64, wrt bug #501200
+
+  04 Sep 2014; Jeroen Roovers <jer@gentoo.org> nagios-core-3.5.1.ebuild:
+  Stable for HPPA (bug #501200).
+
+*nagios-core-3.5.1 (02 Sep 2014)
+
+  02 Sep 2014; Chris Reffett <creffett@gentoo.org>
+  +files/nagios-core-3.5.1-process_cgivars.patch, +nagios-core-3.5.1.ebuild:
+  Bump to 3.5.1 and add patch wrt security bugs 501200, 495132, 447802
 
   03 Aug 2014;  <tgall@gentoo.org> nagios-core-3.3.1.ebuild:
   arm64, initial support

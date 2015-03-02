@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/jedi/jedi-0.8.1.ebuild,v 1.1 2014/07/24 20:19:41 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/jedi/jedi-0.8.1.ebuild,v 1.4 2014/12/28 12:12:48 ago Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_7 python3_2 python3_3 )
+PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 inherit distutils-r1
 
 MY_PV="${PV/_beta/b}-final0"
@@ -15,7 +15,7 @@ SRC_URI="mirror://pypi/j/jedi/jedi-${MY_PV}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="doc test"
 
 DEPEND="app-arch/xz-utils

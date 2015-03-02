@@ -1,6 +1,16 @@
 # ChangeLog for dev-perl/PDL
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/PDL/ChangeLog,v 1.117 2014/07/30 09:07:51 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/PDL/ChangeLog,v 1.120 2014/11/19 19:33:13 dilfridge Exp $
+
+  19 Nov 2014; Andreas K. Huettel <dilfridge@gentoo.org> PDL-2.4.11.ebuild:
+  Replace perl-module_pkg_setup with perl_set_version
+
+  15 Sep 2014; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Drop old
+
+  01 Sep 2014; Mikle Kolyada <zlogene@gentoo.org> -PDL-2.4.3-r1.ebuild,
+  PDL-2.4.11.ebuild:
+  Stable for all wrt bug #496422; Drop old.
 
   30 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> -PDL-2.4.7.ebuild:
   Drop old.

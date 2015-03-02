@@ -1,6 +1,18 @@
 # ChangeLog for sci-chemistry/xds-bin
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/xds-bin/ChangeLog,v 1.14 2014/07/06 08:24:55 jlec Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/xds-bin/ChangeLog,v 1.16 2015/03/02 07:27:37 jlec Exp $
+
+*xds-bin-20141119 (02 Mar 2015)
+
+  02 Mar 2015; Justin Lecher <jlec@gentoo.org> +xds-bin-20141119.ebuild,
+  -xds-bin-20141018.ebuild:
+  Version Bump, #516390
+
+*xds-bin-20141018 (14 Jan 2015)
+
+  14 Jan 2015; Justin Lecher <jlec@gentoo.org> -xds-bin-20140110.ebuild,
+  +xds-bin-20141018.ebuild:
+  Version Bump
 
 *xds-bin-20140110 (06 Jul 2014)
 
@@ -79,4 +91,3 @@
   +xds-bin-20080602.ebuild:
   (#209120) New package: X-ray Detector Software for processing
   single-crystal monochromatic diffraction data.
-

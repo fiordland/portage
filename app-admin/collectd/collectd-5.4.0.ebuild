@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/collectd/collectd-5.4.0.ebuild,v 1.4 2014/06/30 19:17:49 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/collectd/collectd-5.4.0.ebuild,v 1.9 2014/12/28 14:43:46 titanofold Exp $
 
 EAPI="5"
 
@@ -55,8 +55,7 @@ unset plugin
 COMMON_DEPEND="
 	dev-libs/libgcrypt:0
 	sys-devel/libtool
-	perl?					( dev-lang/perl[ithreads] ( || ( sys-devel/libperl[ithreads] >=sys-devel/libperl-5.10 ) ) )
-	selinux?						( sec-policy/selinux-collectd )
+	perl?					( dev-lang/perl:=[ithreads] )
 	collectd_plugins_apache?		( net-misc/curl )
 	collectd_plugins_ascent?		( net-misc/curl dev-libs/libxml2 )
 	collectd_plugins_bind?			( dev-libs/libxml2 )
@@ -80,9 +79,9 @@ COMMON_DEPEND="
 	collectd_plugins_nut?			( sys-power/nut )
 	collectd_plugins_onewire?		( sys-fs/owfs )
 	collectd_plugins_oracle?		( dev-db/oracle-instantclient-basic )
-	collectd_plugins_perl?			( dev-lang/perl[ithreads] ( || ( sys-devel/libperl[ithreads] >=sys-devel/libperl-5.10 ) ) )
+	collectd_plugins_perl?			( dev-lang/perl:=[ithreads] )
 	collectd_plugins_ping?			( net-libs/liboping )
-	collectd_plugins_postgresql?		( dev-db/postgresql-base )
+	collectd_plugins_postgresql?		( dev-db/postgresql )
 	collectd_plugins_python?		( =dev-lang/python-2* )
 	collectd_plugins_routeros?		( net-libs/librouteros )
 	collectd_plugins_rrdcached?		( net-analyzer/rrdtool )
@@ -110,7 +109,8 @@ DEPEND="${COMMON_DEPEND}
 	)"
 
 RDEPEND="${COMMON_DEPEND}
-	collectd_plugins_syslog?		( virtual/logger )"
+	collectd_plugins_syslog?		( virtual/logger )
+	selinux?						( sec-policy/selinux-collectd )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.10.2"-{libocci,nohal}.patch
@@ -311,7 +311,7 @@ src_configure() {
 src_install() {
 	emake DESTDIR="${D}" install
 
-	fixlocalpod
+	perl_delete_localpod
 
 	find "${D}/usr/" -name "*.la" -exec rm -f {} +
 

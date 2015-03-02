@@ -1,6 +1,12 @@
 # ChangeLog for games-emulation/caps
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/caps/ChangeLog,v 1.19 2013/02/16 12:39:57 pacho Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-emulation/caps/ChangeLog,v 1.21 2015/02/21 08:03:51 mr_bones_ Exp $
+
+  21 Feb 2015; Michael Sterrett <mr_bones_@gentoo.org> caps-20071115.ebuild:
+  Add QA_PREBUILT (bug #432720)
+
+  17 Jan 2015; Tupone Alfredo <tupone@gentoo.org> caps-20071115.ebuild:
+  EAPI 5
 
   16 Feb 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due bug #96436

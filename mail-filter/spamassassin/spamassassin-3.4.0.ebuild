@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/spamassassin/spamassassin-3.4.0.ebuild,v 1.2 2014/08/28 15:32:29 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/spamassassin/spamassassin-3.4.0.ebuild,v 1.14 2015/02/26 19:00:42 maekke Exp $
 
 EAPI=5
 
@@ -14,8 +14,10 @@ SRC_URI="mirror://apache/spamassassin/source/${MY_P}.tar.bz2"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~s390 ~sh ~x86 ~amd64-linux ~x86-linux ~x86-macos"
-IUSE="berkdb qmail ssl doc ldap mysql postgres sqlite ipv6"
+KEYWORDS="~alpha ~amd64 arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~x86-macos"
+IUSE="+berkdb qmail ssl doc ldap mysql postgres sqlite ipv6"
+
+REQUIRED_USE="|| ( berkdb mysql postgres sqlite )"
 
 DEPEND=">=dev-lang/perl-5.8.8-r8
 	virtual/perl-MIME-Base64
@@ -58,7 +60,7 @@ DEPEND=">=dev-lang/perl-5.8.8-r8
 	)
 	ipv6? (
 		|| ( dev-perl/IO-Socket-INET6
-			dev-perl/IO-Socket-IP )
+			virtual/perl-IO-Socket-IP )
 	)"
 RDEPEND="${DEPEND}"
 
@@ -178,7 +180,6 @@ EOF
 }
 
 pkg_postinst() {
-	perl-module_pkg_postinst
 	elog "If you plan on using the -u flag to spamd, please read the notes"
 	elog "in /etc/conf.d/spamd regarding the location of the pid file.\n"
 	elog "If you build ${PN} with optional dependancy support,"

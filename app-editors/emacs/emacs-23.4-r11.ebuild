@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs/emacs-23.4-r11.ebuild,v 1.11 2014/06/19 18:14:23 maekke Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs/emacs-23.4-r11.ebuild,v 1.17 2015/02/21 21:38:08 ulm Exp $
 
 EAPI=5
 WANT_AUTOMAKE="none"
@@ -10,7 +10,7 @@ inherit autotools elisp-common eutils flag-o-matic multilib readme.gentoo
 DESCRIPTION="The extensible, customizable, self-documenting real-time display editor"
 HOMEPAGE="http://www.gnu.org/software/emacs/"
 SRC_URI="mirror://gnu/emacs/${P}.tar.bz2
-	http://dev.gentoo.org/~ulm/emacs/${P}-patches-14.tar.xz"
+	http://dev.gentoo.org/~ulm/emacs/${P}-patches-15.tar.xz"
 
 LICENSE="GPL-3+ FDL-1.3+ BSD HPND MIT W3C unicode PSF-2"
 SLOT="23"
@@ -36,7 +36,7 @@ RDEPEND="sys-libs/ncurses
 		jpeg? ( virtual/jpeg:0= )
 		png? ( >=media-libs/libpng-1.4:0= )
 		svg? ( >=gnome-base/librsvg-2.0 )
-		tiff? ( media-libs/tiff )
+		tiff? ( media-libs/tiff:0 )
 		xpm? ( x11-libs/libXpm )
 		xft? (
 			media-libs/fontconfig
@@ -104,7 +104,7 @@ src_prepare() {
 
 src_configure() {
 	strip-flags
-	filter-flags -fstrict-aliasing
+	filter-flags -fstrict-aliasing -pie
 	append-flags $(test-flags -fno-strict-aliasing)
 
 	if use sh; then
@@ -242,6 +242,9 @@ src_install () {
 
 	# remove unused <version>/site-lisp dir
 	rm -rf "${ED}"/usr/share/emacs/${FULL_VERSION}/site-lisp
+
+	# remove COPYING file (except for etc/COPYING used by describe-copying)
+	rm "${ED}"/usr/share/emacs/${FULL_VERSION}/lisp/COPYING
 
 	local cdir
 	if use source; then

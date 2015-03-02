@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit/polkit-0.112-r2.ebuild,v 1.4 2014/08/14 14:14:06 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit/polkit-0.112-r2.ebuild,v 1.17 2015/02/11 03:45:06 patrick Exp $
 
 EAPI=5
 inherit eutils multilib pam pax-utils systemd user
@@ -11,10 +11,10 @@ SRC_URI="http://www.freedesktop.org/software/${PN}/releases/${P}.tar.gz"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86"
 IUSE="examples gtk +introspection jit kde nls pam selinux systemd"
 
-RDEPEND="
+CDEPEND="
 	ia64? ( =dev-lang/spidermonkey-1.8.5*[-debug] )
 	hppa? ( =dev-lang/spidermonkey-1.8.5*[-debug] )
 	mips? ( =dev-lang/spidermonkey-1.8.5*[-debug] )
@@ -26,20 +26,25 @@ RDEPEND="
 		sys-auth/pambase
 		virtual/pam
 		)
-	selinux? ( sec-policy/selinux-policykit )
 	systemd? ( sys-apps/systemd:0= )"
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
 	dev-util/intltool
 	virtual/pkgconfig"
+RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-policykit )
+"
 PDEPEND="
 	gtk? ( || (
 		>=gnome-extra/polkit-gnome-0.105
 		lxde-base/lxpolkit
 		) )
-	kde? ( sys-auth/polkit-kde-agent )
+	kde? ( || (
+		kde-plasma/polkit-kde-agent
+		sys-auth/polkit-kde-agent
+		) )
 	!systemd? ( sys-auth/consolekit[policykit] )"
 
 QA_MULTILIB_PATHS="
@@ -89,7 +94,7 @@ src_compile() {
 	use hppa && m='mr'
 	use ia64 && m='mr'
 	use mips && m='mr'
-	pax-mark ${m} ${f}
+	[ -n "$m" ] && pax-mark ${m} ${f}
 }
 
 src_install() {

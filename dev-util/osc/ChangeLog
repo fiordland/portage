@@ -1,6 +1,28 @@
 # ChangeLog for dev-util/osc
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/osc/ChangeLog,v 1.33 2014/05/23 13:08:07 scarabeus Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/osc/ChangeLog,v 1.37 2015/01/14 23:46:12 yac Exp $
+
+*osc-0.150.1 (15 Jan 2015)
+
+  15 Jan 2015; Jan Matejka <yac@gentoo.org> +osc-0.150.1.ebuild:
+  Version bump
+
+  12 Oct 2014; Tomáš Chvátal <scarabeus@gentoo.org> -osc-0.146.0.ebuild,
+  osc-0.148.2.ebuild:
+  Stabilise on x86 and amd64, remove older. We need to trigger maintenance so
+  fast-track it.
+
+*osc-0.148.2 (12 Oct 2014)
+
+  12 Oct 2014; Tomáš Chvátal <scarabeus@gentoo.org> +osc-0.148.2.ebuild,
+  -osc-0.147.0.ebuild:
+  Version bump to 148.2 which works well with new maintenance workflow.
+
+*osc-0.147.0 (05 Sep 2014)
+
+  05 Sep 2014; Tomáš Chvátal <scarabeus@gentoo.org> +osc-0.147.0.ebuild,
+  -osc-0.144.1.ebuild, osc-0.146.0.ebuild:
+  Version bump to 0.147.0. Stabilse 0.146.0 on amd64 and x86. Drop oldest.
 
 *osc-0.146.0 (23 May 2014)
 

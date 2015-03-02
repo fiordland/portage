@@ -1,6 +1,25 @@
 # ChangeLog for sys-process/numactl
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/numactl/ChangeLog,v 1.35 2014/06/25 17:46:25 vapier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-process/numactl/ChangeLog,v 1.39 2015/02/20 02:47:47 ottxor Exp $
+
+*numactl-2.0.10-r1 (20 Feb 2015)
+
+  20 Feb 2015; Christoph Junghans <ottxor@gentoo.org> +numactl-2.0.10-r1.ebuild:
+  added multilib support (bug #540034)
+
+  12 Nov 2014; Justin Lecher <jlec@gentoo.org> numactl-2.0.10.ebuild,
+  metadata.xml:
+  Fix double PREFIX installation
+
+  06 Oct 2014; Lars Wendler <polynomial-c@gentoo.org> Manifest:
+  Upstream re-released the source tarball.
+
+*numactl-2.0.10 (06 Oct 2014)
+
+  06 Oct 2014; Lars Wendler <polynomial-c@gentoo.org> -numactl-2.0.7-r2.ebuild,
+  -numactl-2.0.8-r1.ebuild, +numactl-2.0.10.ebuild,
+  -files/numactl-2.0.7-static_libs.patch:
+  Version bump. Removed old.
 
   25 Jun 2014; Mike Frysinger <vapier@gentoo.org> numactl-2.0.9.ebuild:
   Explicitly mask arm platforms.

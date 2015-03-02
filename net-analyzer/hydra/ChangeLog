@@ -1,6 +1,32 @@
 # ChangeLog for net-analyzer/hydra
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/hydra/ChangeLog,v 1.84 2014/07/27 11:32:24 phajdan.jr Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/hydra/ChangeLog,v 1.91 2015/03/02 09:32:33 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> hydra-8.0.ebuild:
+  Stable for ppc, wrt bug #516966
+
+  28 Dec 2014; Aaron W. Swenson <titanofold@gentoo.org> hydra-7.4.2.ebuild,
+  hydra-7.5.ebuild, hydra-7.6.ebuild, hydra-8.0.ebuild, hydra-8.1.ebuild:
+  Rename virtual/postgresql to dev-db/postgresql
+
+*hydra-8.1 (09 Dec 2014)
+
+  09 Dec 2014; Jeroen Roovers <jer@gentoo.org> +hydra-8.1.ebuild:
+  Version bump.
+
+  03 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> hydra-7.4.2.ebuild,
+  hydra-7.5.ebuild, hydra-7.6.ebuild, hydra-8.0.ebuild:
+  Update PostgreSQL dependencies and/or checks to virtual/postgresql.
+
+  09 Sep 2014; Chema Alonso <nimiux@gentoo.org> hydra-8.0.ebuild:
+  Stable for amd64 wrt bug #516966
+
+  08 Sep 2014; Jeroen Roovers <jer@gentoo.org> hydra-8.0.ebuild,
+  +files/hydra-8.0-configure.patch:
+  Fix net-fs/ncpfs automagic (partial fix for bug #521746).
+
+  06 Sep 2014; Jeroen Roovers <jer@gentoo.org> hydra-8.0.ebuild:
+  Override faulty libdir.
 
   26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> hydra-8.0.ebuild:
   x86 stable wrt bug #516966

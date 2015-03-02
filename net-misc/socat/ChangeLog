@@ -1,6 +1,40 @@
 # ChangeLog for net-misc/socat
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/socat/ChangeLog,v 1.143 2014/07/20 11:53:02 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/socat/ChangeLog,v 1.153 2015/02/24 10:57:26 ago Exp $
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> socat-1.7.3.0.ebuild:
+  Stable for alpha, wrt bug #537592
+
+  23 Feb 2015; Agostino Sarubbo <ago@gentoo.org> socat-1.7.3.0.ebuild:
+  Stable for ia64, wrt bug #537592
+
+  16 Feb 2015; Agostino Sarubbo <ago@gentoo.org> socat-1.7.3.0.ebuild:
+  Stable for sparc, wrt bug #537592
+
+  15 Feb 2015; Agostino Sarubbo <ago@gentoo.org> socat-1.7.3.0.ebuild:
+  Stable for x86, wrt bug #537592
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org> socat-1.7.3.0.ebuild:
+  Stable for ppc, wrt bug #537592
+
+  28 Jan 2015; Agostino Sarubbo <ago@gentoo.org> socat-1.7.3.0.ebuild:
+  Stable for amd64, wrt bug #537592
+
+  25 Jan 2015; Markus Meier <maekke@gentoo.org> socat-1.7.3.0.ebuild:
+  arm stable, bug #537592
+
+  25 Jan 2015; Jeroen Roovers <jer@gentoo.org> socat-1.7.3.0.ebuild:
+  Stable for HPPA (bug #537592).
+
+*socat-1.7.3.0 (25 Jan 2015)
+
+  25 Jan 2015; Jeroen Roovers <jer@gentoo.org> +socat-1.7.3.0.ebuild:
+  Version bump (bug #537592).
+
+  27 Oct 2014; Jeroen Roovers <jer@gentoo.org> socat-1.7.2.4-r1.ebuild,
+  +files/socat-1.7.2.4-linux-3.17.patch:
+  Fix building against sys-kernel/linux-headers-3.17 (bug #526946 by Gangræna
+  Gorgeous).
 
   20 Jul 2014; Jeroen Roovers <jer@gentoo.org> -socat-1.7.2.3.ebuild:
   Old.

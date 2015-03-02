@@ -1,6 +1,64 @@
 # ChangeLog for dev-ruby/minitest
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/minitest/ChangeLog,v 1.163 2014/08/25 05:32:44 graaff Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/minitest/ChangeLog,v 1.177 2015/01/10 21:55:37 mrueg Exp $
+
+*minitest-5.5.1 (10 Jan 2015)
+
+  10 Jan 2015; Manuel Rüger <mrueg@gentoo.org> +minitest-5.5.1.ebuild:
+  Version bump.
+
+  27 Dec 2014; Hans de Graaff <graaff@gentoo.org> minitest-4.7.5-r1.ebuild,
+  minitest-5.4.3.ebuild, minitest-5.5.0.ebuild:
+  Add ruby22.
+
+*minitest-5.5.0 (27 Dec 2014)
+
+  27 Dec 2014; Manuel Rüger <mrueg@gentoo.org> +minitest-5.5.0.ebuild:
+  Version bump.
+
+  26 Nov 2014; Manuel Rüger <mrueg@gentoo.org> minitest-4.7.5-r1.ebuild:
+  Drop jruby target.
+
+*minitest-5.3.3-r1 (26 Nov 2014)
+
+  26 Nov 2014; Manuel Rüger <mrueg@gentoo.org> +minitest-5.3.3-r1.ebuild:
+  activerecord depends on <5.3.4. Get 5.3.3-r1 back. Drop jruby.
+
+  25 Nov 2014; Manuel Rüger <mrueg@gentoo.org> -minitest-5.3.3-r1.ebuild,
+  -minitest-5.4.1.ebuild, -minitest-5.4.2.ebuild, minitest-4.7.5-r1.ebuild,
+  minitest-4.7.5.ebuild, minitest-5.3.3.ebuild, minitest-5.4.3.ebuild:
+  Cleanup old. Drop jruby.
+
+*minitest-5.4.3 (13 Nov 2014)
+
+  13 Nov 2014; Manuel Rüger <mrueg@gentoo.org> +minitest-5.4.3.ebuild:
+  Version bump.
+
+  08 Nov 2014; Agostino Sarubbo <ago@gentoo.org> minitest-5.3.3.ebuild:
+  Stable for ppc64, wrt bug #528630
+
+  08 Nov 2014; Agostino Sarubbo <ago@gentoo.org> minitest-5.3.3.ebuild:
+  Stable for ppc, wrt bug #528630
+
+  30 Oct 2014; Manuel Rüger <mrueg@gentoo.org> -minitest-4.7.4.ebuild:
+  Cleanup old.
+
+  30 Oct 2014; Agostino Sarubbo <ago@gentoo.org> minitest-4.7.5.ebuild:
+  Stable for ppc64, wrt bug #508996
+
+  30 Oct 2014; Agostino Sarubbo <ago@gentoo.org> minitest-4.7.5.ebuild:
+  Stable for ppc, wrt bug #508996
+
+*minitest-5.4.2 (04 Oct 2014)
+
+  04 Oct 2014; Manuel Rüger <mrueg@gentoo.org> +minitest-5.4.2.ebuild:
+  Version bump.
+
+*minitest-5.4.1 (30 Aug 2014)
+
+  30 Aug 2014; Manuel Rüger <mrueg@gentoo.org> +minitest-5.4.1.ebuild,
+  -minitest-5.3.4.ebuild, -minitest-5.3.5.ebuild, -minitest-5.4.0.ebuild:
+  Version bump. Cleanup old.
 
 *minitest-5.4.0 (25 Aug 2014)
 

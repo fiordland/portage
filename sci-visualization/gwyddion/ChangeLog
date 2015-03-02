@@ -1,6 +1,22 @@
 # ChangeLog for sci-visualization/gwyddion
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/gwyddion/ChangeLog,v 1.45 2013/01/23 10:21:53 jlec Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-visualization/gwyddion/ChangeLog,v 1.49 2015/02/02 07:52:57 jlec Exp $
+
+  02 Feb 2015; Justin Lecher <jlec@gentoo.org> -gwyddion-2.29.ebuild,
+  -gwyddion-2.30.ebuild, -gwyddion-2.30-r1.ebuild:
+  Drop old
+
+  01 Feb 2015; Mikle Kolyada <zlogene@gentoo.org> gwyddion-2.39.ebuild:
+  x86 stable wrt bug #536800
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org> gwyddion-2.39.ebuild:
+  Stable for amd64, wrt bug #536800
+
+*gwyddion-2.39 (09 Jan 2015)
+
+  09 Jan 2015; Andreas K. Huettel <dilfridge@gentoo.org> +gwyddion-2.39.ebuild:
+  Version bump, EAPI=5, python-single-r1, fixes build with Perl 5.20, bug
+  536150
 
 *gwyddion-2.30-r1 (23 Jan 2013)
 

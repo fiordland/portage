@@ -1,6 +1,24 @@
 # ChangeLog for dev-perl/Filter
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Filter/ChangeLog,v 1.26 2014/07/07 18:38:50 dilfridge Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Filter/ChangeLog,v 1.32 2015/02/28 18:24:19 grobian Exp $
+
+  28 Feb 2015; Fabian Groffen <grobian@gentoo.org> Filter-1.490.0.ebuild:
+  Added some Prefix keywords, bug #541380
+
+  18 Jan 2015; Mikle Kolyada <zlogene@gentoo.org> Filter-1.490.0.ebuild:
+  Stable for all
+
+  17 Jan 2015; Markus Meier <maekke@gentoo.org> Filter-1.490.0.ebuild:
+  arm stable, bug #535178
+
+  17 Jan 2015; Agostino Sarubbo <ago@gentoo.org> Filter-1.490.0.ebuild:
+  Stable for ppc, wrt bug #535178
+
+  13 Jan 2015; Jeroen Roovers <jer@gentoo.org> Filter-1.490.0.ebuild:
+  Stable for HPPA (bug #535178).
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> Filter-1.490.0.ebuild:
+  Stable for amd64, wrt bug #535178
 
   07 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org>
   +Filter-1.450.0.ebuild, +Filter-1.490.0.ebuild, +metadata.xml:

@@ -1,11 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/mplayer2-9999.ebuild,v 1.67 2014/06/09 19:27:56 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer2/mplayer2-9999.ebuild,v 1.71 2015/02/01 23:21:49 mgorny Exp $
 
 EAPI=5
 
 # https://bugs.gentoo.org/show_bug.cgi?id=434356#c4
-PYTHON_COMPAT=( python{2_7,3_2,3_3} )
+PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} )
 
 EGIT_REPO_URI="git://git.mplayer2.org/mplayer2.git"
 
@@ -23,15 +23,15 @@ SLOT="0"
 [[ ${PV} == *9999* ]] || \
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux"
 IUSE="+alsa aqua bluray bs2b cddb +cdio cpudetection debug directfb doc dvb +dvd
-+dvdnav +enca ftp gif +iconv ipv6 jack joystick jpeg ladspa lcms +libass libcaca
++dvdnav +enca ftp gif +iconv ipv6 jack joystick jpeg ladspa lcms +libass libav libcaca
 lirc md5sum mng +mp3 +network +opengl oss png pnm portaudio +postproc pulseaudio
 pvr +quvi radio samba selinux +shm tga +threads +unicode v4l vcd vdpau +X xinerama
 +xscreensaver +xv yuv4mpeg"
 IUSE+=" symlink"
 
-CPU_FEATURES="3dnow 3dnowext altivec +mmx mmxext sse sse2 ssse3"
+CPU_FEATURES="cpu_flags_x86_3dnow:3dnow cpu_flags_x86_3dnowext:3dnowext altivec +cpu_flags_x86_mmx:mmx cpu_flags_x86_mmxext:mmxext cpu_flags_x86_sse:sse cpu_flags_x86_sse2:sse2 cpu_flags_x86_ssse3:ssse3"
 for x in ${CPU_FEATURES}; do
-	IUSE+=" ${x}"
+	IUSE+=" ${x%:*}"
 done
 
 REQUIRED_USE="
@@ -97,18 +97,15 @@ RDEPEND+="
 	pnm? ( media-libs/netpbm )
 	portaudio? ( >=media-libs/portaudio-19_pre20111121 )
 	postproc? (
-		|| (
-			media-libs/libpostproc
-			media-video/ffmpeg:0
-		)
+		libav? ( media-libs/libpostproc:0= )
+		!libav? ( media-video/ffmpeg:0= )
 	)
 	pulseaudio? ( media-sound/pulseaudio )
 	quvi? ( >=media-libs/libquvi-0.4.1 <media-libs/libquvi-0.9 )
 	samba? ( net-fs/samba )
-	selinux? ( sec-policy/selinux-mplayer )
 	|| (
-		>=media-video/libav-9.12:=[threads?,vdpau?]
-		>=media-video/ffmpeg-1.2.6:0=[threads?,vdpau?]
+		libav? ( >=media-video/libav-9.12:0=[threads?,vdpau?] )
+		!libav? ( >=media-video/ffmpeg-1.2.6:0=[threads?,vdpau?] )
 	)
 	symlink? ( !media-video/mplayer )
 "
@@ -127,6 +124,9 @@ DEPEND="${RDEPEND}
 		app-text/docbook-xml-dtd
 		app-text/docbook-xsl-stylesheets
 	)
+"
+RDEPEND+="
+	selinux? ( sec-policy/selinux-mplayer )
 "
 DOCS=( AUTHORS Copyright README etc/example.conf etc/input.conf etc/codecs.conf )
 
@@ -308,7 +308,7 @@ src_configure() {
 	use shm || myconf+=" --disable-shm"
 
 	for i in ${CPU_FEATURES//+/}; do
-		myconf+=" $(use_enable ${i})"
+		myconf+=" $(use_enable ${i%:*} ${i#*:})"
 	done
 
 	use debug && myconf+=" --enable-debug=3"

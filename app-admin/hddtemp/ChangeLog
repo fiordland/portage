@@ -1,6 +1,21 @@
 # ChangeLog for app-admin/hddtemp
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/hddtemp/ChangeLog,v 1.157 2014/07/05 08:21:00 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-admin/hddtemp/ChangeLog,v 1.160 2014/12/23 15:47:28 mgorny Exp $
+
+  23 Dec 2014; Michał Górny <mgorny@gentoo.org> files/hddgentoo.db:
+  Add HTS547575A9E384, provided by Olexandr Burlaka,
+  https://bugs.funtoo.org/browse/FL-1850.
+
+  01 Nov 2014; Amadeusz Żołnowski <aidecoe@gentoo.org>
+  hddtemp-0.3_beta15-r24.ebuild, hddtemp-0.3_beta15-r25.ebuild,
+  hddtemp-0.3_beta15-r7.ebuild:
+  Move SELinux dependency from build-time to run-time.  Fix bug #527704.
+
+  12 Oct 2014; Amadeusz Żołnowski <aidecoe@gentoo.org> files/hddgentoo.db:
+  Add new drives to hddgentoo.db
+
+  Fixes: bug #512732, bug #516610, bug #518178, bug #518128, bug #521418,
+         bug #522154, bug #522216
 
   05 Jul 2014; Sven Vermeulen <swift@gentoo.org> hddtemp-0.3_beta15-r24.ebuild,
   hddtemp-0.3_beta15-r25.ebuild, hddtemp-0.3_beta15-r7.ebuild:

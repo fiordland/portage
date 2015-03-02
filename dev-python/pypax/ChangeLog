@@ -1,6 +1,31 @@
 # ChangeLog for dev-python/pypax
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pypax/ChangeLog,v 1.88 2014/07/30 17:33:52 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pypax/ChangeLog,v 1.95 2014/12/27 19:25:34 ago Exp $
+
+  27 Dec 2014; Agostino Sarubbo <ago@gentoo.org> pypax-0.9.0.ebuild:
+  Stable for amd64, wrt bug #530570
+
+  09 Dec 2014; Jeroen Roovers <jer@gentoo.org> pypax-0.9.0.ebuild:
+  Stable for HPPA (bug #530570).
+
+  26 Nov 2014; Anthony G. Basile <blueness@gentoo.org> pypax-0.9.0.ebuild:
+  Stable on arm, ppc and ppc64.  Bug #530570.
+
+  03 Nov 2014; Anthony G. Basile <blueness@gentoo.org> -pypax-0.8.6.ebuild:
+  Remove older unstable version
+
+*pypax-0.9.0 (03 Nov 2014)
+
+  03 Nov 2014; Anthony G. Basile <blueness@gentoo.org> +pypax-0.9.0.ebuild:
+  Version bump
+
+  08 Sep 2014; Anthony G. Basile <blueness@gentoo.org> -pypax-0.8.1-r1.ebuild,
+  -pypax-0.8.3.ebuild, -pypax-0.8.5.ebuild, pypax-0.8.4.ebuild,
+  pypax-0.8.6.ebuild:
+  Fix RDEPEND.
+
+  30 Aug 2014; Ian Delaney <idella4@gentoo.org> pypax-0.8.6.ebuild:
+  drop py2.6 add py3.4
 
   30 Jul 2014; Anthony G. Basile <blueness@gentoo.org> pypax-0.8.5.ebuild:
   Fix manifest

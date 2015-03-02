@@ -1,6 +1,29 @@
 # ChangeLog for dev-vcs/mr
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/mr/ChangeLog,v 1.15 2014/03/24 21:02:53 dastergon Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/mr/ChangeLog,v 1.21 2015/01/26 10:42:46 ago Exp $
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> mr-1.20141024.ebuild:
+  Stable for x86, wrt bug #535414
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> mr-1.20141024.ebuild:
+  Stable for amd64, wrt bug #535414
+
+  25 Nov 2014; Agostino Sarubbo <ago@gentoo.org> mr-1.20140831.1.ebuild:
+  Stable for x86, wrt bug #515700
+
+  13 Nov 2014; Agostino Sarubbo <ago@gentoo.org> mr-1.20140831.1.ebuild:
+  Stable for amd64, wrt bug #515700
+
+*mr-1.20141024 (11 Nov 2014)
+
+  11 Nov 2014; Matthias Maier <tamiko@gentoo.org> +mr-1.20141024.ebuild,
+  -mr-1.14.ebuild, -mr-1.20140227.ebuild, metadata.xml:
+  take over maintainership; version bump; drop old
+
+*mr-1.20140831.1 (10 Sep 2014)
+
+  10 Sep 2014; Tiziano Müller <dev-zero@gentoo.org> +mr-1.20140831.1.ebuild:
+  Version bump.
 
 *mr-1.20140227 (24 Mar 2014)
 

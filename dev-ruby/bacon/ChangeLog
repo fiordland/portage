@@ -1,6 +1,13 @@
 # ChangeLog for dev-ruby/bacon
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/bacon/ChangeLog,v 1.32 2014/08/01 10:12:25 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/bacon/ChangeLog,v 1.34 2014/12/28 01:04:03 mrueg Exp $
+
+  28 Dec 2014; Manuel Rüger <mrueg@gentoo.org> bacon-1.2.0-r2.ebuild:
+  Add ruby2.2 target.
+
+  30 Oct 2014; Manuel Rüger <mrueg@gentoo.org> bacon-1.2.0-r1.ebuild,
+  bacon-1.2.0-r2.ebuild:
+  Drop jruby target.
 
   01 Aug 2014; Raúl Porcel <armin76@gentoo.org> bacon-1.2.0-r1.ebuild:
   sparc stable wrt #490176

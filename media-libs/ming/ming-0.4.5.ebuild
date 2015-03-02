@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/ming/ming-0.4.5.ebuild,v 1.1 2014/08/27 19:59:35 axs Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/ming/ming-0.4.5.ebuild,v 1.7 2015/01/22 17:32:30 grknight Exp $
 
 EAPI=5
 
@@ -9,7 +9,7 @@ PHP_EXT_NAME=ming
 PHP_EXT_OPTIONAL_USE=php
 AUTOTOOLS_AUTORECONF=yes
 GENTOO_DEPEND_ON_PERL=no
-inherit autotools-utils flag-o-matic multilib php-ext-source-r2 perl-module distutils-r1
+inherit autotools-utils flag-o-matic multilib perl-module distutils-r1
 
 DESCRIPTION="An Open Source library for Flash movie generation"
 HOMEPAGE="http://ming.sourceforge.net/"
@@ -30,8 +30,10 @@ RDEPEND="perl? ( dev-lang/perl:= )
 DEPEND="${RDEPEND}
 	sys-devel/flex
 	virtual/yacc"
+PDEPEND="php? ( dev-php/ming-php )"
 
 S=${WORKDIR}/${P/_/.}
+PATCHES=( "${FILESDIR}"/${P}-gif-error.patch )
 
 # Tests only work when the package is tested on a system
 # which does not presently have any version of ming installed.
@@ -47,12 +49,6 @@ src_prepare() {
 		-e 's/ungif/gif/' \
 		py_ext/setup.py.in
 
-	if use php; then
-		cd "${S}/php_ext"
-		php-ext-source-r2_phpize
-		cd "${S}"
-	fi
-
 	sed -i -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:' configure.in || die
 
 	autotools-utils_src_prepare
@@ -63,8 +59,10 @@ src_configure() {
 	replace-flags -O3 -O2
 
 	# build python via distutils calls, disable here
+	# php is done in dev-php/ming-php
 	local myeconfargs=(
 		--disable-python
+		--disable-php
 		$(use_enable static-libs static)
 		$(use_enable perl)
 		)
@@ -83,14 +81,6 @@ src_compile() {
 	autotools-utils_src_compile
 
 	run_distutils ${FUNCNAME}
-
-	if use php; then
-		cd "${S}"/php_ext
-		myconf="--disable-rpath
-			--disable-static
-			--with-ming"
-		php-ext-source-r2_src_compile
-	fi
 }
 
 src_install() {
@@ -98,22 +88,17 @@ src_install() {
 
 	autotools-utils_src_install INSTALLDIRS="vendor"
 
-	fixlocalpod
-
-	if use php; then
-		cd "${S}"/php_ext
-		php-ext-source-r2_src_install
-	fi
+	perl_delete_localpod
 }
 
 pkg_postinst() {
-	use perl && perl-module_pkg_postinst
+	:
 }
 
 pkg_prerm() {
-	use perl && perl-module_pkg_prerm
+	:
 }
 
 pkg_postrm() {
-	use perl && perl-module_pkg_postrm
+	:
 }

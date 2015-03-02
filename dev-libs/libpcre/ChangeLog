@@ -1,6 +1,27 @@
 # ChangeLog for dev-libs/libpcre
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libpcre/ChangeLog,v 1.242 2014/08/23 15:28:31 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libpcre/ChangeLog,v 1.245 2014/10/02 08:54:24 polynomial-c Exp $
+
+*libpcre-8.36 (02 Oct 2014)
+
+  02 Oct 2014; Lars Wendler <polynomial-c@gentoo.org> -libpcre-8.02.ebuild,
+  -libpcre-8.12.ebuild, -libpcre-8.13.ebuild, -libpcre-8.13-r1.ebuild,
+  -libpcre-8.20.ebuild, -libpcre-8.21.ebuild, -libpcre-8.30-r2.ebuild,
+  -libpcre-8.31.ebuild, -libpcre-8.32.ebuild, -libpcre-8.32-r1.ebuild,
+  -libpcre-8.33.ebuild, -libpcre-8.33-r1.ebuild, -libpcre-8.34.ebuild,
+  +libpcre-8.36.ebuild, -files/libpcre-8.13-posix-regex.patch,
+  -files/libpcre-8.21-static-build.patch, -files/libpcre-8.30-bzip2-typo.patch,
+  -files/libpcre-8.31-madvise.patch:
+  Version bump. Removed old.
+
+  04 Sep 2014; Mike Frysinger <vapier@gentoo.org> libpcre-8.35.ebuild:
+  Mark arm64/m68k/s390/sh/sparc stable.
+
+*libpcre-8.35-r1 (04 Sep 2014)
+
+  04 Sep 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/libpcre-8.35-export-output.patch, +libpcre-8.35-r1.ebuild:
+  Add fix from upstream for exported symbols in C++ lib.
 
   23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libpcre-8.35.ebuild:
   Stable for ia64, wrt bug #512012

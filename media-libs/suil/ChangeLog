@@ -1,6 +1,20 @@
 # ChangeLog for media-libs/suil
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/suil/ChangeLog,v 1.14 2014/01/18 12:20:50 aballier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/suil/ChangeLog,v 1.17 2015/01/03 12:00:57 mgorny Exp $
+
+  03 Jan 2015; Michał Górny <mgorny@gentoo.org> suil-0.8.2.ebuild:
+  Use python-any-r1 for waf. Remove no-op base.eclass inherit.
+
+*suil-0.8.2 (02 Nov 2014)
+
+  02 Nov 2014; Alexis Ballier <aballier@gentoo.org> +suil-0.8.2.ebuild:
+  version bump
+
+  02 Nov 2014; Alexis Ballier <aballier@gentoo.org> -suil-0.4.4.ebuild,
+  -suil-0.6.0.ebuild, -suil-0.6.2.ebuild, -suil-0.6.4.ebuild,
+  -suil-0.6.6.ebuild, -suil-0.6.10.ebuild, -suil-0.6.12.ebuild,
+  -files/ldconfig.patch:
+  remove old
 
 *suil-0.8.0 (18 Jan 2014)
 

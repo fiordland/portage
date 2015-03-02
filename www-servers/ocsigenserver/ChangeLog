@@ -1,6 +1,16 @@
 # ChangeLog for www-servers/ocsigenserver
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/ocsigenserver/ChangeLog,v 1.7 2014/03/13 20:28:59 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/ocsigenserver/ChangeLog,v 1.9 2014/12/01 10:04:01 aballier Exp $
+
+*ocsigenserver-2.5 (01 Dec 2014)
+
+  01 Dec 2014; Alexis Ballier <aballier@gentoo.org> +ocsigenserver-2.5.ebuild:
+  version bump
+
+  01 Sep 2014; Michał Górny <mgorny@gentoo.org> ocsigenserver-2.2.0.ebuild,
+  ocsigenserver-2.3.0.ebuild:
+  Remove := subslot operator from || () block since it is meaningless and
+  broken.
 
 *ocsigenserver-2.3.0 (13 Mar 2014)
 
@@ -35,4 +45,3 @@
   +files/ocsigenserver.initd, +metadata.xml:
   initial import, split of www-servers/ocsigen, ebuild based on old one by
   Guillaume Horel and Jacques-Pascal Deplaix, bug #406513
-

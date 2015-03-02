@@ -1,6 +1,74 @@
 # ChangeLog for dev-python/requests
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/requests/ChangeLog,v 1.69 2014/08/28 08:29:47 naota Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/requests/ChangeLog,v 1.83 2015/02/28 07:52:17 patrick Exp $
+
+*requests-2.5.3 (28 Feb 2015)
+
+  28 Feb 2015; Patrick Lauer <patrick@gentoo.org> +requests-2.5.3.ebuild:
+  Bump
+
+*requests-2.5.1 (28 Dec 2014)
+
+  28 Dec 2014; Tim Harder <radhermit@gentoo.org> +requests-2.5.1.ebuild:
+  Version bump.
+
+*requests-2.5.0-r1 (04 Dec 2014)
+
+  04 Dec 2014; Tim Harder <radhermit@gentoo.org> -requests-2.5.0.ebuild,
+  +requests-2.5.0-r1.ebuild, +files/requests-2.5.0-system-cacerts.patch:
+  Fix system-cacerts patch.
+
+*requests-2.5.0 (04 Dec 2014)
+
+  04 Dec 2014; Tim Harder <radhermit@gentoo.org> +requests-2.5.0.ebuild:
+  Version bump.
+
+  19 Nov 2014; Ian Delaney <idella4@gentoo.org> -requests-1.2.3.ebuild,
+  -requests-2.4.0.ebuild, requests-2.4.3.ebuild:
+  Add pypy3 support, rm old
+
+*requests-2.4.3 (14 Oct 2014)
+
+  14 Oct 2014; Tim Harder <radhermit@gentoo.org> +requests-2.4.3.ebuild:
+  Version bump.
+
+  24 Sep 2014; Agostino Sarubbo <ago@gentoo.org> requests-2.3.0.ebuild:
+  Stable for x86, wrt bug #513278
+
+  24 Sep 2014; Agostino Sarubbo <ago@gentoo.org> requests-2.3.0.ebuild:
+  Stable for ppc64, wrt bug #513278
+
+  24 Sep 2014; Agostino Sarubbo <ago@gentoo.org> requests-2.3.0.ebuild:
+  Stable for ppc, wrt bug #513278
+
+  23 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  -files/requests-0.12.1-setup.py.patch, -files/requests-0.13-python2.6.patch,
+  -files/requests-0.14.1-system-cacerts.patch,
+  -files/requests-0.14.1-system-libs.patch,
+  -files/requests-1.0.4-system-libs.patch,
+  -files/requests-1.1.0-system-cacerts.patch,
+  -files/requests-1.1.0-system-libs.patch, -requests-0.13.1.ebuild,
+  -requests-0.14.2-r1.ebuild:
+  More cleanup.
+
+  23 Sep 2014; Dirkjan Ochtman <djc@gentoo.org> -requests-1.2.2.ebuild,
+  -requests-2.0.0.ebuild, -requests-2.0.1.ebuild, -requests-2.1.0.ebuild,
+  -requests-2.2.0.ebuild, -requests-2.2.1.ebuild:
+  Remove a bunch of old versions
+
+*requests-2.4.1 (10 Sep 2014)
+
+  10 Sep 2014; Mike Gilbert <floppym@gentoo.org> +requests-2.4.1.ebuild:
+  Version bump, resolves bug 522466.
+
+*requests-2.4.0 (09 Sep 2014)
+
+  09 Sep 2014; Ian Delaney <idella4@gentoo.org>
+  +files/requests-2.4.0-system-cacerts.patch, +requests-2.4.0.ebuild:
+  bump
+
+  06 Sep 2014; Ian Delaney <idella4@gentoo.org> requests-2.3.0.ebuild:
+  re-add py3.2 to support reverse deps
 
   28 Aug 2014; Naohiro Aota <naota@gentoo.org> requests-2.3.0.ebuild:
   Add ~x86-fbsd. #509628

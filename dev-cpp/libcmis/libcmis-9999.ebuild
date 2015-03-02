@@ -1,11 +1,11 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/libcmis/libcmis-9999.ebuild,v 1.12 2013/08/09 08:51:25 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-cpp/libcmis/libcmis-9999.ebuild,v 1.15 2015/02/15 19:14:47 dilfridge Exp $
 
 EAPI=5
 
-EGIT_REPO_URI="git://gitorious.org/libcmis/libcmis.git"
-[[ ${PV} == 9999 ]] && SCM_ECLASS="git-2"
+EGIT_REPO_URI="git://git.code.sf.net/p/libcmis/code"
+[[ ${PV} == 9999 ]] && SCM_ECLASS="git-r3"
 inherit eutils alternatives autotools ${SCM_ECLASS}
 unset SCM_ECLASS
 
@@ -14,16 +14,19 @@ HOMEPAGE="https://sourceforge.net/projects/libcmis/"
 [[ ${PV} == 9999 ]] || SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="|| ( GPL-2 LGPL-2 MPL-1.1 )"
-SLOT="0.4"
+SLOT="0.5"
 
 # Don't move KEYWORDS on the previous line or ekeyword won't work # 399061
 [[ ${PV} == 9999 ]] || \
-KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux ~x86-linux"
 
 IUSE="static-libs man test"
 
 RDEPEND="
 	!dev-cpp/libcmis:0
+	!dev-cpp/libcmis:0.2
+	!dev-cpp/libcmis:0.3
+	!dev-cpp/libcmis:0.4
 	dev-libs/boost:=
 	dev-libs/libxml2
 	net-misc/curl
@@ -34,7 +37,10 @@ DEPEND="${RDEPEND}
 		app-text/docbook2X
 		dev-libs/libxslt
 	)
-	test? ( dev-util/cppunit )
+	test? (
+		dev-util/cppcheck
+		dev-util/cppunit
+	)
 "
 
 src_prepare() {
@@ -49,7 +55,6 @@ src_configure() {
 		$(use_with man) \
 		$(use_enable static-libs static) \
 		$(use_enable test tests) \
-		--disable-long-tests \
 		--enable-client
 }
 

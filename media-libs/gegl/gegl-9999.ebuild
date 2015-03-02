@@ -1,8 +1,8 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/gegl/gegl-9999.ebuild,v 1.7 2013/05/01 00:46:15 sping Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/gegl/gegl-9999.ebuild,v 1.9 2015/02/26 18:25:41 mgorny Exp $
 
-EAPI=4
+EAPI=5
 
 VALA_MIN_API_VERSION=0.14
 VALA_USE_DEPEND=vapigen
@@ -17,7 +17,7 @@ LICENSE="|| ( GPL-3 LGPL-3 )"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="cairo debug ffmpeg introspection jpeg jpeg2k lensfun mmx openexr png raw sdl sse svg umfpack vala"
+IUSE="cairo debug ffmpeg introspection jpeg jpeg2k lensfun libav cpu_flags_x86_mmx openexr png raw sdl cpu_flags_x86_sse svg umfpack vala"
 
 RDEPEND=">=media-libs/babl-0.1.10[introspection?]
 	>=dev-libs/glib-2.28:2
@@ -25,7 +25,10 @@ RDEPEND=">=media-libs/babl-0.1.10[introspection?]
 	x11-libs/pango
 	sys-libs/zlib
 	cairo? ( x11-libs/cairo )
-	ffmpeg? ( virtual/ffmpeg )
+	ffmpeg? (
+		libav? ( media-video/libav:0= )
+		!libav? ( media-video/ffmpeg:0= )
+	)
 	jpeg? ( virtual/jpeg )
 	jpeg2k? ( >=media-libs/jasper-1.900.1 )
 	openexr? ( media-libs/openexr )
@@ -90,8 +93,8 @@ src_configure() {
 		--without-libspiro \
 		--disable-docs --disable-workshop \
 		--with-pango --with-gdk-pixbuf \
-		$(use_enable mmx) \
-		$(use_enable sse) \
+		$(use_enable cpu_flags_x86_mmx mmx) \
+		$(use_enable cpu_flags_x86_sse sse) \
 		$(use_enable debug) \
 		$(use_with cairo) \
 		$(use_with cairo pangocairo) \

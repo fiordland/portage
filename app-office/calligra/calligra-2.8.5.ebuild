@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/calligra/calligra-2.8.5.ebuild,v 1.1 2014/07/25 19:29:06 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/calligra/calligra-2.8.5.ebuild,v 1.7 2015/02/14 14:38:03 ago Exp $
 
 # note: files that need to be checked for dependencies etc:
 # CMakeLists.txt, kexi/CMakeLists.txt kexi/migration/CMakeLists.txt
@@ -37,7 +37,7 @@ LICENSE="GPL-2"
 SLOT="4"
 
 if [[ ${KDE_BUILD_TYPE} == release ]] ; then
-	KEYWORDS="~amd64 ~arm ~x86"
+	KEYWORDS="amd64 ~arm x86"
 fi
 
 IUSE="attica +crypt +eigen +exif fftw +fontconfig freetds +glew +glib +gsf gsl
@@ -74,15 +74,16 @@ RDEPEND="
 	!app-office/kspread
 	!app-office/kword
 	$(add_kdebase_dep kdelibs 'nepomuk?')
+	$(add_kdebase_dep knewstuff)
 	dev-lang/perl
 	dev-libs/boost
-	$(add_kdebase_dep knewstuff)
+	dev-qt/qtcore:4[exceptions]
 	media-libs/libpng
 	sys-libs/zlib
 	>=dev-qt/qtgui-4.8.1-r1:4
 	virtual/libiconv
 	attica? ( dev-libs/libattica )
-	crypt? ( app-crypt/qca:2 )
+	crypt? ( app-crypt/qca:2[qt4(+)] )
 	eigen? ( dev-cpp/eigen:2 )
 	exif? ( media-gfx/exiv2:= )
 	fftw? ( sci-libs/fftw:3.0 )
@@ -120,7 +121,7 @@ RDEPEND="
 		media-gfx/pstoedit
 	)
 	postgres? (
-		dev-db/postgresql-base
+		dev-db/postgresql
 		dev-libs/libpqxx
 	)
 	spacenav? ( dev-libs/libspnav  )

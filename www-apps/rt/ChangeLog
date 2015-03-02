@@ -1,6 +1,35 @@
 # ChangeLog for www-apps/rt
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/rt/ChangeLog,v 1.86 2014/07/23 00:07:38 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/rt/ChangeLog,v 1.91 2014/11/19 15:40:10 titanofold Exp $
+
+  19 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> rt-4.2.9-r1.ebuild:
+  Fix bug 529854. Properly install all docs by letting dodoc -r do its thing.
+
+*rt-4.2.9-r1 (18 Nov 2014)
+
+  18 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> -rt-4.2.9.ebuild,
+  +rt-4.2.9-r1.ebuild, files/postinstall-en.txt, files/reconfig,
+  files/rt_apache2.conf:
+  Refresh rt_apache.conf so that it has a working example appropriate
+  for the only version in the tree. Added another sed statement in the
+  ebuild to remove excess slashes. Fixed reconfig so that it actually
+  does what it's supposed to do, and do so quietly so that the message
+  isn't lost. Cleaned up postinstall and have it point to our wiki page
+  instead of an outdated, flash heavy guide. This package now does
+  everything it promised, but didn't deliver.
+
+  16 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> rt-4.2.9.ebuild:
+  Add missing dependency. If we are not using Lighttpd and not FastCGI, we need
+  mod_perl
+
+*rt-4.2.9 (16 Nov 2014)
+
+  16 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> -rt-4.2.4.ebuild,
+  +rt-4.2.9.ebuild:
+  Version bump fixes bug 528444.
+
+  29 Sep 2014; Aaron W. Swenson <titanofold@gentoo.org> rt-4.2.4.ebuild:
+  Add missing dependencies fixing bug 523972
 
   23 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org> rt-4.2.4.ebuild:
   locale-maketext becomes Locale-Maketext

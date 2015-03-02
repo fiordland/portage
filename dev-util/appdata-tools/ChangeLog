@@ -1,6 +1,46 @@
 # ChangeLog for dev-util/appdata-tools
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/appdata-tools/ChangeLog,v 1.7 2014/07/07 13:08:05 pacho Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/appdata-tools/ChangeLog,v 1.17 2015/02/04 09:47:13 pacho Exp $
+
+  04 Feb 2015; Pacho Ramos <pacho@gentoo.org> appdata-tools-0.1.8-r1.ebuild:
+  ia64 keyword, bug #523924 by Émeric Maschino
+
+  08 Dec 2014; Pacho Ramos <pacho@gentoo.org> appdata-tools-0.1.8-r1.ebuild:
+  x86 keyword, bug #523924
+
+  24 Nov 2014; Michał Górny <mgorny@gentoo.org> appdata-tools-0.1.8-r1.ebuild:
+  [QA] Fix the metapackage to use RDEPEND instead of DEPEND. Otherwise,
+  appstream-glib can be uninstalled as soon as the metapackage is built.
+
+  23 Nov 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  appdata-tools-0.1.8-r1.ebuild:
+  Empty SRC_URI for dummy package.
+
+*appdata-tools-0.1.8-r1 (23 Nov 2014)
+
+  23 Nov 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +appdata-tools-0.1.8-r1.ebuild:
+  Version bump. Fix dependency issues while apps are transitioning to
+  appstream.
+
+  23 Oct 2014; Markus Meier <maekke@gentoo.org> appdata-tools-0.1.8.ebuild:
+  add ~arm, bug #523924
+
+  16 Oct 2014; Anthony G. Basile <blueness@gentoo.org>
+  appdata-tools-0.1.8.ebuild:
+  Keyword ~ppc ~ppc64, bug #523924
+
+  28 Sep 2014; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Help co-maintaining this as more and more gnome apps need this
+
+  28 Sep 2014; Jeroen Roovers <jer@gentoo.org> appdata-tools-0.1.8.ebuild:
+  Marked ~hppa too.
+
+*appdata-tools-0.1.8 (27 Sep 2014)
+
+  27 Sep 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +appdata-tools-0.1.8.ebuild:
+  Version bump, required by some Gnome 3.14 packages.
 
   07 Jul 2014; Pacho Ramos <pacho@gentoo.org> appdata-tools-0.1.7.ebuild:
   amd64/x86 stable, bug #516188

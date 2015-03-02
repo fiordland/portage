@@ -1,6 +1,20 @@
 # ChangeLog for x11-misc/lsw
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/lsw/ChangeLog,v 1.11 2013/06/01 12:55:45 pacho Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/lsw/ChangeLog,v 1.15 2015/01/31 11:50:44 jer Exp $
+
+  31 Jan 2015; Jeroen Roovers <jer@gentoo.org> -lsw-0.2-r1.ebuild:
+  Old.
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org> lsw-0.3.ebuild:
+  Stable for amd64, wrt bug #538030
+
+  28 Jan 2015; Jeroen Roovers <jer@gentoo.org> lsw-0.3.ebuild:
+  Make compiler calls visible.
+
+*lsw-0.3 (01 Dec 2014)
+
+  01 Dec 2014; Jeroen Roovers <jer@gentoo.org> +lsw-0.3.ebuild:
+  Version bump.
 
   01 Jun 2013; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due bug #151880

@@ -1,6 +1,30 @@
 # ChangeLog for dev-python/hgdistver
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/hgdistver/ChangeLog,v 1.13 2014/07/03 13:08:38 klausman Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/hgdistver/ChangeLog,v 1.20 2015/02/19 18:30:53 mrueg Exp $
+
+  19 Feb 2015; Manuel Rüger <mrueg@gentoo.org> -hgdistver-0.16-r1.ebuild,
+  -hgdistver-0.16.ebuild, -hgdistver-0.18.ebuild:
+  Remove old.
+
+  06 Dec 2014; Agostino Sarubbo <ago@gentoo.org> hgdistver-0.22.ebuild:
+  Stable for ia64, wrt bug #530472
+
+  05 Dec 2014; Agostino Sarubbo <ago@gentoo.org> hgdistver-0.22.ebuild:
+  Stable for x86, wrt bug #530472
+
+  04 Dec 2014; Agostino Sarubbo <ago@gentoo.org> hgdistver-0.22.ebuild:
+  Stable for amd64, wrt bug #530472
+
+  02 Dec 2014; Ian Delaney <idella4@gentoo.org> hgdistver-0.22.ebuild:
+  add pypy3 support
+
+  26 Oct 2014; Fabian Groffen <grobian@gentoo.org> hgdistver-0.22.ebuild:
+  Added Prefix keywords, bug #503094
+
+*hgdistver-0.22 (12 Oct 2014)
+
+  12 Oct 2014; Dirkjan Ochtman <djc@gentoo.org> +hgdistver-0.22.ebuild:
+  Version bump hgdistver to 0.22
 
   03 Jul 2014; Tobias Klausmann <klausman@gentoo.org> hgdistver-0.18.ebuild:
   Keyworded on alpha, bug #514448

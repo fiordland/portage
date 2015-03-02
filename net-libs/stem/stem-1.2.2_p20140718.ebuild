@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/stem/stem-1.2.2_p20140718.ebuild,v 1.4 2014/07/24 02:20:01 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-libs/stem/stem-1.2.2_p20140718.ebuild,v 1.6 2014/12/07 01:51:14 blueness Exp $
 
 EAPI=5
 PYTHON_COMPAT=(python2_7)
@@ -12,9 +12,9 @@ HOMEPAGE="https://stem.torproject.org"
 COMMIT_ID="14861679a24e0cfb5949da8fd90f3a3c45016dfb"
 SRC_URI="https://gitweb.torproject.org/stem.git/snapshot/${COMMIT_ID}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~mips ~ppc ~ppc64 ~x86-fbsd"
+KEYWORDS="~amd64 ~arm ~mips ~ppc ~ppc64 ~x86 ~x86-fbsd"
 IUSE="test"
 
 DEPEND="test? ( dev-python/mock[${PYTHON_USEDEP}] )

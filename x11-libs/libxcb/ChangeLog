@@ -1,6 +1,52 @@
 # ChangeLog for x11-libs/libxcb
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libxcb/ChangeLog,v 1.144 2014/08/21 02:28:34 floppym Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/libxcb/ChangeLog,v 1.157 2015/02/24 08:38:17 ago Exp $
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libxcb-1.11-r1.ebuild:
+  Stable for alpha, wrt bug #530652
+
+  23 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libxcb-1.11-r1.ebuild:
+  Stable for sparc, wrt bug #530652
+
+  23 Feb 2015; Matt Turner <mattst88@gentoo.org> libxcb-1.11-r1.ebuild:
+  Add docs USE flag and add proper dependency, bug 534122.
+
+  23 Feb 2015; Matt Turner <mattst88@gentoo.org> libxcb-1.11-r1.ebuild:
+  Depend on dev-libs/check for tests, bug 484054.
+
+  22 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libxcb-1.11-r1.ebuild:
+  Stable for ia64, wrt bug #530652
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libxcb-1.11-r1.ebuild:
+  Stable for ppc64, wrt bug #530652
+
+  20 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libxcb-1.11-r1.ebuild:
+  Stable for ppc, wrt bug #530652
+
+  19 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libxcb-1.11-r1.ebuild:
+  Stable for x86, wrt bug #530652
+
+  18 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libxcb-1.11-r1.ebuild:
+  Stable for amd64, wrt bug #530652
+
+*libxcb-1.11-r1 (30 Dec 2014)
+
+  30 Dec 2014; Rémi Cardona <remi@gentoo.org> +libxcb-1.11-r1.ebuild,
+  +files/libxcb-1.11-Don-t-install-headers-man-pages-for-disabled-extensi.patch
+  :
+  Don't install headers/man pages for disabled extension, see bug #533906.
+
+  21 Dec 2014; Michał Górny <mgorny@gentoo.org> files/xcb-rebuilder.sh:
+  Use sys-apps/gentoo-functions in xcb-rebuilder, bug #504420.
+
+*libxcb-1.11 (22 Oct 2014)
+
+  22 Oct 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +files/libxcb-1.11-xevie-xprint_removal.patch, +libxcb-1.11.ebuild:
+  Version bump.
+
+  03 Sep 2014; Mike Gilbert <floppym@gentoo.org> libxcb-1.10.ebuild:
+  Drop MULTILIB_USEDEP from xcb-proto in python_check_deps, bug 520146.
 
   21 Aug 2014; Mike Gilbert <floppym@gentoo.org> libxcb-1.10.ebuild:
   Add missing ${PYTHON_DEPS} to DEPEND, bug 520146.

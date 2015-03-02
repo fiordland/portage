@@ -1,6 +1,24 @@
 # ChangeLog for app-text/ghostscript-gpl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/ghostscript-gpl/ChangeLog,v 1.174 2014/06/10 01:04:40 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/ghostscript-gpl/ChangeLog,v 1.177 2014/11/09 13:51:18 tamiko Exp $
+
+*ghostscript-gpl-9.10-r4 (09 Nov 2014)
+*ghostscript-gpl-9.15-r1 (09 Nov 2014)
+
+  09 Nov 2014; Matthias Maier <tamiko@gentoo.org>
+  +ghostscript-gpl-9.10-r4.ebuild, +ghostscript-gpl-9.15-r1.ebuild,
+  -ghostscript-gpl-9.10-r3.ebuild, -ghostscript-gpl-9.14.ebuild,
+  -ghostscript-gpl-9.15.ebuild:
+  also install [...]/Resource/Font/* wrt bug #490248, enable parallel make for
+  9.15* wrt bug #234378
+
+  23 Oct 2014; Matthias Maier <tamiko@gentoo.org> ghostscript-gpl-9.15.ebuild:
+  fix build dependency wrt bug #524676
+
+*ghostscript-gpl-9.15 (06 Oct 2014)
+
+  06 Oct 2014; Manuel Rüger <mrueg@gentoo.org> +ghostscript-gpl-9.15.ebuild:
+  Version bump.
 
   10 Jun 2014; Mike Frysinger <vapier@gentoo.org>
   ghostscript-gpl-9.10-r2.ebuild, ghostscript-gpl-9.10-r3.ebuild,

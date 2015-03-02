@@ -1,6 +1,19 @@
 # ChangeLog for app-admin/sagan-rules
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/sagan-rules/ChangeLog,v 1.17 2014/06/26 13:24:48 maksbotan Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/sagan-rules/ChangeLog,v 1.20 2015/01/09 15:23:19 zlogene Exp $
+
+  09 Jan 2015; Mikle Kolyada <zlogene@gentoo.org> sagan-rules-20140617.ebuild:
+  x86 stable wrt bug #534806
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> sagan-rules-20140617.ebuild:
+  Stable for amd64, wrt bug #534806
+
+*sagan-rules-20140617 (05 Dec 2014)
+
+  05 Dec 2014; Maxim Koltsov <maksbotan@gentoo.org>
+  +sagan-rules-20140617.ebuild, -sagan-rules-20120918.ebuild,
+  -sagan-rules-20140203.ebuild:
+  Add new rules snapshot, clean old, thanks to slepnoga
 
 *sagan-rules-20140203 (26 Jun 2014)
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/qtermwidget/qtermwidget-0.4.0.37.ebuild,v 1.2 2014/08/03 16:53:22 maksbotan Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/qtermwidget/qtermwidget-0.4.0.37.ebuild,v 1.4 2014/12/15 20:44:03 pesa Exp $
 
 EAPI="5"
 
@@ -15,5 +15,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="debug" # todo: python
 
-DEPEND="|| ( ( >=dev-qt/qtgui-4.8.5:4 dev-qt/designer:4 ) <dev-qt/qtgui-4.8.5:4 )"
+DEPEND="
+	dev-qt/designer:4
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
+"
 RDEPEND="${DEPEND}"

@@ -1,12 +1,12 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/ratpoison/ratpoison-9999.ebuild,v 1.5 2014/07/21 19:07:58 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/ratpoison/ratpoison-9999.ebuild,v 1.7 2014/10/20 15:11:09 jer Exp $
 
 EAPI=5
 
 inherit autotools elisp-common eutils git-r3 toolchain-funcs
 
-DESCRIPTION="Ratpoison is an extremely light-weight and barebones wm modelled after screen"
+DESCRIPTION="an extremely light-weight and barebones wm modelled after screen"
 HOMEPAGE="http://www.nongnu.org/ratpoison/"
 EGIT_REPO_URI="git://git.savannah.nongnu.org/ratpoison.git"
 
@@ -39,10 +39,10 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		--without-electric-fence \
+		$(use_enable debug) \
 		$(use_enable history) \
 		$(use_with xft) \
-		$(usex debug --enable-debug '')
+		--without-electric-fence
 }
 
 src_compile() {

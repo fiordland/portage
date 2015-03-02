@@ -1,6 +1,70 @@
 # ChangeLog for media-video/vdr
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vdr/ChangeLog,v 1.180 2014/06/15 08:15:37 hd_brummy Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-video/vdr/ChangeLog,v 1.193 2015/02/20 12:56:35 hd_brummy Exp $
+
+  20 Feb 2015; Joerg Bornkessel <hd_brummy@gentoo.org> metadata.xml:
+  minor syntax fixes, metadata.xml
+
+  20 Feb 2015; Joerg Bornkessel <hd_brummy@gentoo.org> -vdr-2.0.4.ebuild,
+  -vdr-2.0.5.ebuild, -vdr-2.0.6-r2.ebuild, vdr-2.2.0.ebuild,
+  -files/vdr-2.0.0-fixkeeptracksinit.diff, -files/vdr-2.0.0_gentoo.patch,
+  -files/vdr-2.0.6_systemd_argsdir.patch,
+  -files/vdr-2.0.6_systemd_argsdir_vanilla.patch:
+  big cleanup old
+
+  19 Feb 2015; Joerg Bornkessel <hd_brummy@gentoo.org> vdr-2.2.0.ebuild:
+  fixed upstream owner name
+
+  19 Feb 2015; Joerg Bornkessel <hd_brummy@gentoo.org> vdr-2.2.0.ebuild:
+  fixed previous_less
+
+*vdr-2.2.0 (19 Feb 2015)
+
+  19 Feb 2015; Joerg Bornkessel <hd_brummy@gentoo.org> vdr-2.0.4.ebuild,
+  vdr-2.0.5.ebuild, vdr-2.0.6-r1.ebuild, vdr-2.0.6-r2.ebuild, vdr-2.0.7.ebuild,
+  +vdr-2.2.0.ebuild, +files/vdr-2.2.0_gentoo.patch, metadata.xml:
+  BUMP, 15 YEARS ANNIVERSARY EDITON; minor fixes on virtual/jpeg
+
+  03 Feb 2015; Joerg Bornkessel <hd_brummy@gentoo.org> vdr-2.0.6-r1.ebuild:
+  stable amd64 x86
+
+*vdr-2.0.7 (23 Jan 2015)
+
+  23 Jan 2015; Joerg Bornkessel <hd_brummy@gentoo.org> +vdr-2.0.7.ebuild,
+  +files/vdr-2.0.7_systemd_argsdir.patch,
+  +files/vdr-2.0.7_systemd_argsdir_vanilla.patch:
+  bump
+
+*vdr-2.0.6-r2 (20 Jan 2015)
+
+  20 Jan 2015; Joerg Bornkessel <hd_brummy@gentoo.org> +vdr-2.0.6-r2.ebuild,
+  +files/vdr-2.0.6-r2_gentoo.patch, +files/vdr-2.0.6_systemd_argsdir.patch,
+  +files/vdr-2.0.6_systemd_argsdir_vanilla.patch:
+  added better systemd support, backported from vdr-2.1.7, based on patch by
+  Lucian Muresan
+
+  04 Jan 2015; Joerg Bornkessel <hd_brummy@gentoo.org> vdr-2.0.4.ebuild,
+  vdr-2.0.5.ebuild, vdr-2.0.6-r1.ebuild:
+  fixed documentation URL, wrt bug 534486
+
+  25 Nov 2014; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  No proxy-maintainers.
+
+*vdr-2.0.6-r1 (01 Oct 2014)
+
+  01 Oct 2014; Joerg Bornkessel <hd_brummy@gentoo.org> -vdr-2.0.6.ebuild,
+  +vdr-2.0.6-r1.ebuild:
+  naludump patch fixed, reported by M.Dummer
+
+  27 Sep 2014; Joerg Bornkessel <hd_brummy@gentoo.org> vdr-2.0.6.ebuild:
+  fixed typo in patchset
+
+*vdr-2.0.6 (26 Sep 2014)
+
+  26 Sep 2014; Joerg Bornkessel <hd_brummy@gentoo.org> +vdr-2.0.6.ebuild,
+  +files/vdr-2.0.6_gentoo.patch, metadata.xml:
+  bump; removed use-flag setup depends; extended patchset for vdr-permashift-1;
+  wrt bug 521570; wrt bug 499444
 
   15 Jun 2014; Joerg Bornkessel <hd_brummy@gentoo.org> -vdr-1.6.0_p2-r7.ebuild,
   -vdr-1.6.0_p2-r11.ebuild, -files/vdr-1.6.0-extensions-72-gcc-4.4.diff,

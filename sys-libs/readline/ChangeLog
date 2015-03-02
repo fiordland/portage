@@ -1,6 +1,33 @@
 # ChangeLog for sys-libs/readline
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/readline/ChangeLog,v 1.215 2014/08/23 15:34:11 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/readline/ChangeLog,v 1.220 2015/01/21 11:50:44 polynomial-c Exp $
+
+*readline-6.3_p8-r2 (21 Jan 2015)
+
+  21 Jan 2015; Lars Wendler <polynomial-c@gentoo.org>
+  +readline-6.3_p8-r2.ebuild, +files/readline-6.3-read-eof.patch:
+  Added a fix from upstream.
+
+  29 Dec 2014; Lars Wendler <polynomial-c@gentoo.org> -readline-6.2_p1.ebuild,
+  -readline-6.3_p8.ebuild, readline-6.3_p8-r1.ebuild:
+  Fixed installation location for documents (bug #533770 by Chris Mayo).
+  Removed old versions.
+
+  27 Oct 2014; Mike Frysinger <vapier@gentoo.org> readline-6.2_p5-r1.ebuild:
+  Mark m68k/s390/sh stable.
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> readline-6.2_p5-r1.ebuild:
+  Stable for sparc, wrt bug #512012
+
+*readline-6.3_p8-r1 (30 Aug 2014)
+
+  30 Aug 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -readline-6.3_p6-r1.ebuild, +readline-6.3_p8-r1.ebuild,
+  +files/readline-6.3-fix-long-prompt-vi-search.patch,
+  -files/readline-6.3-horizontal-redisplay.patch,
+  -files/readline-6.3-readline-sigint-cleanup.patch,
+  -files/readline-6.3-revert-all-at-newline-history-segfault.patch:
+  Revbump to fix very long prompts in vi mode. Removed old.
 
   23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> readline-6.2_p5-r1.ebuild:
   Stable for ia64, wrt bug #512012

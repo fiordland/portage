@@ -1,6 +1,41 @@
 # ChangeLog for dev-libs/libevdev
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libevdev/ChangeLog,v 1.11 2014/06/15 14:29:33 hattya Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libevdev/ChangeLog,v 1.21 2015/02/24 08:36:55 ago Exp $
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libevdev-1.3.ebuild:
+  Stable for alpha, wrt bug #530652
+
+  23 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libevdev-1.3.ebuild:
+  Stable for sparc, wrt bug #530652
+
+  22 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libevdev-1.3.ebuild:
+  Stable for ia64, wrt bug #530652
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libevdev-1.3.ebuild:
+  Stable for ppc64, wrt bug #530652
+
+  20 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libevdev-1.3.ebuild:
+  Stable for ppc, wrt bug #530652
+
+  19 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libevdev-1.3.ebuild:
+  Stable for x86, wrt bug #530652
+
+  18 Feb 2015; Agostino Sarubbo <ago@gentoo.org> libevdev-1.3.ebuild:
+  Stable for amd64, wrt bug #530652
+
+  25 Jan 2015; Raúl Porcel <armin76@gentoo.org> libevdev-0.6.ebuild,
+  libevdev-0.6-r1.ebuild, libevdev-1.2.1.ebuild, libevdev-1.3.ebuild:
+  Add ~sparc/~sh wrt #487944
+
+*libevdev-1.3 (04 Nov 2014)
+
+  04 Nov 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +libevdev-1.3.ebuild:
+  Version bump.
+
+  28 Sep 2014; Anthony G. Basile <blueness@gentoo.org> libevdev-0.6-r1.ebuild,
+  libevdev-0.6.ebuild, libevdev-1.2.1.ebuild:
+  Keyword ~ppc64, bug #487944
 
   15 Jun 2014; Akinori Hattori <hattya@gentoo.org> libevdev-0.6-r1.ebuild,
   libevdev-0.6.ebuild, libevdev-1.2.1.ebuild:

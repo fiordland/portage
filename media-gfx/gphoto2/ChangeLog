@@ -1,6 +1,41 @@
 # ChangeLog for media-gfx/gphoto2
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/gphoto2/ChangeLog,v 1.155 2014/08/25 10:59:16 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/gphoto2/ChangeLog,v 1.165 2015/01/26 12:12:39 pacho Exp $
+
+*gphoto2-2.5.6 (26 Jan 2015)
+
+  26 Jan 2015; Pacho Ramos <pacho@gentoo.org> +gphoto2-2.5.6.ebuild,
+  -gphoto2-2.5.3.ebuild, -gphoto2-2.5.4.ebuild:
+  Version bump, drop old
+
+  02 Jan 2015; Agostino Sarubbo <ago@gentoo.org> gphoto2-2.5.5.ebuild:
+  Stable for alpha, wrt bug #529964
+
+  01 Jan 2015; Agostino Sarubbo <ago@gentoo.org> gphoto2-2.5.5.ebuild:
+  Stable for sparc, wrt bug #529964
+
+  30 Dec 2014; Agostino Sarubbo <ago@gentoo.org> gphoto2-2.5.5.ebuild:
+  Stable for ppc64, wrt bug #529964
+
+  28 Dec 2014; Agostino Sarubbo <ago@gentoo.org> gphoto2-2.5.5.ebuild:
+  Stable for ppc, wrt bug #529964
+
+  19 Dec 2014; Pacho Ramos <pacho@gentoo.org> gphoto2-2.5.5.ebuild:
+  amd64 stable, bug 529964
+
+  18 Dec 2014; Pacho Ramos <pacho@gentoo.org> gphoto2-2.5.5.ebuild:
+  x86 stable, bug 529964
+
+  12 Dec 2014; Jeroen Roovers <jer@gentoo.org> gphoto2-2.5.5.ebuild:
+  Stable for HPPA (bug #529964).
+
+*gphoto2-2.5.5 (02 Nov 2014)
+
+  02 Nov 2014; Gilles Dartiguelongue <eva@gentoo.org> +gphoto2-2.5.5.ebuild:
+  Version bump.
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> gphoto2-2.5.4.ebuild:
+  Stable for sparc, wrt bug #512012
 
   25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> gphoto2-2.5.4.ebuild:
   Stable for alpha, wrt bug #512012

@@ -1,6 +1,19 @@
 # ChangeLog for sci-libs/camd
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/camd/ChangeLog,v 1.27 2014/03/04 19:46:55 vincent Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/camd/ChangeLog,v 1.31 2015/03/02 09:22:59 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> camd-2.3.1.ebuild:
+  Stable for ppc, wrt bug #534640
+
+  22 Feb 2015; Matt Turner <mattst88@gentoo.org> camd-2.2.0.ebuild,
+  camd-2.3.1.ebuild:
+  Drop alpha keyword.
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org> camd-2.3.1.ebuild:
+  Stable for amd64, wrt bug #534640
+
+  13 Jan 2015; Jeroen Roovers <jer@gentoo.org> camd-2.3.1.ebuild:
+  Stable for HPPA (bug #534640).
 
   04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org> camd-2.3.1.ebuild:
   Add ~mips keyword.

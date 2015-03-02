@@ -1,6 +1,100 @@
 # ChangeLog for sys-apps/busybox
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/busybox/ChangeLog,v 1.368 2014/07/10 13:33:27 zlogene Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/busybox/ChangeLog,v 1.393 2015/02/28 19:48:25 tgall Exp $
+
+  28 Feb 2015;  <tgall@gentoo.org> busybox-1.23.1-r1.ebuild:
+  arm64, stable
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> busybox-1.23.1.ebuild:
+  Stable for alpha, wrt bug #537978
+
+  23 Feb 2015; Agostino Sarubbo <ago@gentoo.org> busybox-1.23.1.ebuild:
+  Stable for ia64, wrt bug #537978
+
+  16 Feb 2015; Agostino Sarubbo <ago@gentoo.org> busybox-1.23.1.ebuild:
+  Stable for sparc, wrt bug #537978
+
+  15 Feb 2015; Mike Frysinger <vapier@gentoo.org>
+  +files/busybox-1.23.1-modprobe-small.patch, busybox-1.23.1-r1.ebuild:
+  Pull in patch from upstream.
+
+  08 Feb 2015; Anthony G. Basile <blueness@gentoo.org> busybox-1.23.1-r1.ebuild:
+  Stable on amd64, ppc, ppc64 and x86
+
+  08 Feb 2015; Markus Meier <maekke@gentoo.org> busybox-1.23.1-r1.ebuild:
+  arm stable, bug #537978
+
+  06 Feb 2015; Agostino Sarubbo <ago@gentoo.org> busybox-1.23.1.ebuild:
+  Stable for x86, wrt bug #537978
+
+  06 Feb 2015; Agostino Sarubbo <ago@gentoo.org> busybox-1.23.1.ebuild:
+  Stable for amd64, wrt bug #537978
+
+  06 Feb 2015; William Hubbs <williamh@gentoo.org> busybox-9999.ebuild:
+  Sync live ebuild
+
+*busybox-1.23.1-r1 (06 Feb 2015)
+
+  06 Feb 2015; William Hubbs <williamh@gentoo.org> +busybox-1.23.1-r1.ebuild:
+  Disable start-stop-daemon for bug #468914
+
+  05 Feb 2015; Jeroen Roovers <jer@gentoo.org> busybox-1.23.1.ebuild:
+  Stable for HPPA (bug #537978).
+
+*busybox-1.23.1 (02 Feb 2015)
+
+  02 Feb 2015; Anthony G. Basile <blueness@gentoo.org> +busybox-1.23.1.ebuild,
+  busybox-9999.ebuild:
+  Version bump, bug #537978
+
+  23 Jan 2015; William Hubbs <williamh@gentoo.org> -busybox-1.23.0.ebuild:
+  remove broken 1.23.0 version
+
+  23 Jan 2015; William Hubbs <williamh@gentoo.org> busybox-9999.ebuild:
+  sync live ebuild
+
+*busybox-1.23.0-r1 (22 Jan 2015)
+
+  22 Jan 2015; William Hubbs <williamh@gentoo.org> +busybox-1.23.0-r1.ebuild,
+  files/mdev.initd:
+  In consultation with blueness, and per user requests, revert to using
+  alyesconfig. Also, fix the shebang path in the mdev init script.
+
+  19 Jan 2015; Anthony G. Basile <blueness@gentoo.org> busybox-1.23.0.ebuild:
+  Stable on ppc, ppc64 and x86.  Bug #530688.
+
+  18 Jan 2015; Markus Meier <maekke@gentoo.org> busybox-1.23.0.ebuild:
+  arm stable, bug #530688
+
+  17 Jan 2015; Mikle Kolyada <zlogene@gentoo.org> busybox-1.23.0.ebuild:
+  amd64 stable wrt bug #530688
+
+  16 Jan 2015; Jeroen Roovers <jer@gentoo.org> busybox-1.23.0.ebuild:
+  Stable for HPPA (bug #530688).
+
+  30 Dec 2014; William Hubbs <williamh@gentoo.org> busybox-1.23.0.ebuild:
+  Put the openrc blocker behind the mdev use flag since it is not relevant
+  otherwise
+
+*busybox-1.23.0 (30 Dec 2014)
+
+  30 Dec 2014; William Hubbs <williamh@gentoo.org> +busybox-1.23.0.ebuild,
+  +files/mdev.initd:
+  version bump, approved by blueness
+
+  03 Nov 2014; Mike Frysinger <vapier@gentoo.org> busybox-1.21.0.ebuild:
+  Mark m68k stable.
+
+  21 Oct 2014; Mike Frysinger <vapier@gentoo.org>
+  +files/busybox-1.22.1-zcat-no-ext.patch:
+  Add zcat fix from upstream.
+
+*busybox-1.22.1-r1 (18 Oct 2014)
+
+  18 Oct 2014; Mike Frysinger <vapier@gentoo.org> +busybox-1.22.1-r1.ebuild,
+  +files/busybox-1.22.1-lzop.patch, +files/busybox-1.22.1-nc.patch:
+  Add lzop fix from upstream #515254 by Kristian Fiskerstrand.  Add USE=debug to
+  control build debug options and switch to defconfig #525586 by emil karlson.
 
   10 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> busybox-1.22.1.ebuild:
   Add ~arm64 keyword

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphite2/graphite2-1.2.4.ebuild,v 1.1 2014/01/25 21:55:35 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/graphite2/graphite2-1.2.4.ebuild,v 1.5 2014/12/13 21:01:33 dilfridge Exp $
 
 EAPI=5
 
@@ -19,7 +19,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd6
 IUSE="perl test"
 
 RDEPEND="
-	perl? ( dev-lang/perl )
+	perl? ( dev-lang/perl:= )
 "
 DEPEND="${RDEPEND}
 	perl? ( virtual/perl-Module-Build )
@@ -39,7 +39,7 @@ PATCHES=(
 )
 
 pkg_setup() {
-	use perl && perl-module_pkg_setup
+	use perl && perl_set_version
 	use test && python-any-r1_pkg_setup
 }
 
@@ -77,7 +77,7 @@ src_compile() {
 	cmake-utils_src_compile
 	if use perl; then
 		cd contrib/perl
-		perl-module_src_prep
+		perl-module_src_configure
 		perl-module_src_compile
 	fi
 }
@@ -95,7 +95,7 @@ src_install() {
 	if use perl; then
 		cd contrib/perl
 		perl-module_src_install
-		fixlocalpod
+		perl_delete_localpod
 	fi
 
 	prune_libtool_files --all

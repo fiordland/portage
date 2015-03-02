@@ -1,6 +1,48 @@
 # ChangeLog for games-emulation/dolphin
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/dolphin/ChangeLog,v 1.21 2014/06/30 05:39:48 twitch153 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-emulation/dolphin/ChangeLog,v 1.30 2015/02/09 00:00:07 twitch153 Exp $
+
+*dolphin-4.0.2-r4 (09 Feb 2015)
+
+  09 Feb 2015; Devan Franchini <twitch153@gentoo.org> +dolphin-4.0.2-r4.ebuild,
+  -dolphin-4.0.2-r3.ebuild, dolphin-9999.ebuild:
+  Modifies sed regexs to remove optional features, bug #539148
+
+*dolphin-4.0.2-r3 (08 Feb 2015)
+*dolphin-3.5-r1 (08 Feb 2015)
+*dolphin-4.0-r1 (08 Feb 2015)
+
+  08 Feb 2015; Devan Franchini <twitch153@gentoo.org> +dolphin-3.5-r1.ebuild,
+  +dolphin-4.0-r1.ebuild, +dolphin-4.0.2-r3.ebuild, -dolphin-3.5.ebuild,
+  -dolphin-4.0.2-r2.ebuild, -dolphin-4.0.ebuild, dolphin-9999.ebuild:
+  Adds subslotting to readline RDEPEND package
+
+  08 Feb 2015; Devan Franchini <twitch153@gentoo.org> dolphin-9999.ebuild:
+  Adds save for xxhash bundled binary
+
+*dolphin-4.0.2-r2 (16 Jan 2015)
+
+  16 Jan 2015; Devan Franchini <twitch153@gentoo.org> +dolphin-4.0.2-r2.ebuild,
+  -dolphin-4.0.2-r1.ebuild:
+  Adds media-libs/libsdl2 as dependency, bug #535978
+
+  12 Jan 2015; Devan Franchini <twitch153@gentoo.org> dolphin-9999.ebuild:
+  Adds media-libs/libsdl2 as dependency, bug #535978
+
+  28 Dec 2014; Devan Franchini <twitch153@gentoo.org> dolphin-9999.ebuild:
+  Adds polarssl[havege] as dependency, bug #483794
+
+*dolphin-4.0.2-r1 (12 Dec 2014)
+
+  12 Dec 2014; Devan Franchini <twitch153@gentoo.org> +dolphin-4.0.2-r1.ebuild,
+  -dolphin-4.0.2.ebuild, dolphin-9999.ebuild:
+  Modifies FindALSA sed regex, bug 532212
+
+  07 Dec 2014; Devan Franchini <twitch153@gentoo.org> dolphin-9999.ebuild:
+  Updates libsfml version dependency to 2.1, bug #531262
+
+  20 Sep 2014; Devan Franchini <twitch153@gentoo.org> dolphin-9999.ebuild:
+  Modifies location set for doicon call, bug #523282
 
   30 Jun 2014; Devan Franchini <twitch153@gentoo.org> dolphin-9999.ebuild:
   Adds wxGTK3.0 version dependency, bug #515688

@@ -1,9 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-board/ccgo/ccgo-0.3.6.4.ebuild,v 1.5 2012/05/04 04:30:11 jdhore Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-board/ccgo/ccgo-0.3.6.4.ebuild,v 1.7 2014/10/10 15:20:30 ago Exp $
 
-EAPI=2
-inherit autotools games
+EAPI=5
+inherit autotools toolchain-funcs games
 
 DESCRIPTION="An IGS client written in C++"
 HOMEPAGE="http://ccdw.org/~cjj/prog/ccgo/"
@@ -11,7 +11,7 @@ SRC_URI="http://ccdw.org/~cjj/prog/ccgo/src/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc x86"
+KEYWORDS="amd64 ~ppc x86"
 IUSE="nls"
 
 RDEPEND=">=dev-cpp/gtkmm-2.4:2.4
@@ -24,26 +24,27 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	sed -i \
 		-e '/^Encoding/d' \
-		-e '/^Categories/s/Application;//' \
-		ccgo.desktop.in \
-		|| die 'sed failed'
+		-e '/^Categories/ { s/Application;//; s/$/GTK;/ }' \
+		ccgo.desktop.in || die
 	sed -i \
 		-e '/^localedir/s/=.*/=@localedir@/' \
 		-e '/^appicondir/s:=.*:=/usr/share/pixmaps:' \
 		-e '/^desktopdir/s:=.*:=/usr/share/applications:' \
-		Makefile.am \
-		|| die 'sed failed'
+		Makefile.am || die
 	eautoreconf
 }
 
 src_configure() {
 	egamesconf \
-		--disable-dependency-tracking \
 		--localedir=/usr/share/locale \
 		$(use_enable nls)
 }
 
+src_compile() {
+	emake AR="$(tc-getAR)"
+}
+
 src_install() {
-	emake DESTDIR="${D}" install || die 'emake install failed'
+	default
 	prepgamesdirs
 }

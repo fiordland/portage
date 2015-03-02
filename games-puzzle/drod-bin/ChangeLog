@@ -1,6 +1,12 @@
 # ChangeLog for games-puzzle/drod-bin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/drod-bin/ChangeLog,v 1.20 2013/11/14 22:02:47 mr_bones_ Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-puzzle/drod-bin/ChangeLog,v 1.22 2014/10/16 10:21:39 pacho Exp $
+
+  16 Oct 2014; Pacho Ramos <pacho@gentoo.org> drod-bin-1.6.7.ebuild:
+  Support multilib providers for deps. Bump to EAPI=5.
+
+  07 Sep 2014; Ulrich Müller <ulm@gentoo.org> drod-bin-1.6.7.ebuild:
+  Replace emul-linux-x86-compat dependency by virtual/libstdc++, bug 522218.
 
   14 Nov 2013; Michael Sterrett <mr_bones_@gentoo.org> drod-bin-1.6.7.ebuild:
   tidy

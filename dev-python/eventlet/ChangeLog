@@ -1,6 +1,28 @@
 # ChangeLog for dev-python/eventlet
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/eventlet/ChangeLog,v 1.7 2013/09/05 19:35:48 prometheanfire Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/eventlet/ChangeLog,v 1.12 2015/02/26 17:09:59 prometheanfire Exp $
+
+  26 Feb 2015; Matthew Thode <prometheanfire@gentoo.org> eventlet-0.17.1.ebuild:
+  making tests more consistent with upstream
+
+*eventlet-0.17.1 (26 Feb 2015)
+
+  26 Feb 2015; Matthew Thode <prometheanfire@gentoo.org>
+  +eventlet-0.17.1.ebuild:
+  bumping, adds py3 support too
+
+  01 Feb 2015; Manuel Rüger <mrueg@gentoo.org> -eventlet-0.12.1-r1.ebuild,
+  -eventlet-0.9.16.ebuild:
+  Remove old.
+
+  19 Oct 2014; Ian Delaney <idella4@gentoo.org> eventlet-0.15.2.ebuild:
+  update HOMEPAGE
+
+*eventlet-0.15.2 (18 Oct 2014)
+
+  18 Oct 2014; Ian Delaney <idella4@gentoo.org> +eventlet-0.15.2.ebuild:
+  bump; drop py2.6, fix doc build, fix file collisions by tests folder, bugs
+  filed upstream and entered in commented text
 
 *eventlet-0.13.0 (05 Sep 2013)
 

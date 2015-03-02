@@ -1,6 +1,19 @@
 # ChangeLog for media-libs/xine-lib
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/xine-lib/ChangeLog,v 1.712 2014/08/22 11:40:56 ssuominen Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/xine-lib/ChangeLog,v 1.715 2015/03/02 09:32:27 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> xine-lib-1.2.6.ebuild:
+  Stable for ppc, wrt bug #517988
+
+*xine-lib-1.2.6-r1 (01 Feb 2015)
+
+  01 Feb 2015; Michał Górny <mgorny@gentoo.org> +xine-lib-1.2.6-r1.ebuild,
+  xine-lib-1.2.9999.ebuild:
+  Introduce USE=libav to control the preferred implementation. Add subslot op to
+  force rebuilds on ABI change.
+
+  12 Dec 2014; Sergey Popov <pinkbyte@gentoo.org> metadata.xml:
+  USE='vaapi' is now global, removing it's description from metadata
 
   22 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> xine-lib-1.2.6.ebuild:
   amd64/x86 stable wrt #517988

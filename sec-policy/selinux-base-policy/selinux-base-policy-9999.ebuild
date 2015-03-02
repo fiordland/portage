@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sec-policy/selinux-base-policy/selinux-base-policy-9999.ebuild,v 1.13 2014/08/24 07:53:58 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/sec-policy/selinux-base-policy/selinux-base-policy-9999.ebuild,v 1.21 2014/12/07 13:21:06 perfinion Exp $
 EAPI="5"
 
 inherit eutils
@@ -14,7 +14,7 @@ if [[ ${PV} == 9999* ]]; then
 
 	KEYWORDS=""
 else
-	SRC_URI="http://oss.tresys.com/files/refpolicy/refpolicy-${PV}.tar.bz2
+	SRC_URI="https://raw.githubusercontent.com/wiki/TresysTechnology/refpolicy/files/refpolicy-${PV}.tar.bz2
 			http://dev.gentoo.org/~swift/patches/${PN}/patchbundle-${PN}-${PVR}.tar.bz2"
 	KEYWORDS="~amd64 ~x86"
 fi
@@ -27,7 +27,6 @@ IUSE="+unconfined"
 RDEPEND="=sec-policy/selinux-base-${PVR}"
 PDEPEND="unconfined? ( sec-policy/selinux-unconfined )"
 DEPEND=""
-KEYWORDS=""
 
 MODS="application authlogin bootloader clock consoletype cron dmesg fstools getty hostname hotplug init iptables libraries locallogin logging lvm miscfiles modutils mount mta netutils nscd portage raid rsync selinuxutil setrans ssh staff storage su sysadm sysnetwork tmpfiles udev userdomain usermanage unprivuser xdg"
 LICENSE="GPL-2"
@@ -100,8 +99,7 @@ src_prepare() {
 
 src_compile() {
 	for i in ${POLICY_TYPES}; do
-		# Parallel builds are broken, so we need to force -j1 here
-		emake -j1 NAME=$i -C "${S}"/${i} || die "${i} compile failed"
+		emake NAME=$i -C "${S}"/${i} || die "${i} compile failed"
 	done
 }
 
@@ -133,14 +131,13 @@ pkg_postinst() {
 	done
 
 	# Relabel depending packages
-	PKGSET="";
+	local PKGSET="";
 	if [ -x /usr/bin/qdepends ] ; then
-		PKGSET=$(/usr/bin/qdepends -Cq -Q ${CATEGORY}/${PN});
+		PKGSET=$(/usr/bin/qdepends -Cq -r -Q ${CATEGORY}/${PN} | grep -v 'sec-policy/selinux-');
 	elif [ -x /usr/bin/equery ] ; then
-		PKGSET=$(/usr/bin/equery -Cq depends ${CATEGORY}/${PN});
+		PKGSET=$(/usr/bin/equery -Cq depends ${CATEGORY}/${PN} | grep -v 'sec-policy/selinux-');
 	fi
-	for PKG in ${PKGSET};
-	do
-		rlpkg ${PKG};
-	done
+	if [ -n "${PKGSET}" ] ; then
+		rlpkg ${PKGSET};
+	fi
 }

@@ -1,6 +1,26 @@
 # ChangeLog for dev-python/apsw
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/apsw/ChangeLog,v 1.71 2014/06/10 23:56:38 radhermit Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/apsw/ChangeLog,v 1.76 2015/01/26 10:22:11 ago Exp $
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> apsw-3.8.5_p1.ebuild:
+  Stable for x86, wrt bug #530390
+
+  16 Jan 2015; Patrick Lauer <patrick@gentoo.org> apsw-3.8.7.1_p1.ebuild:
+  Stable on amd64 and x86 for 527558
+
+  27 Dec 2014; Agostino Sarubbo <ago@gentoo.org> apsw-3.8.5_p1.ebuild:
+  Stable for amd64, wrt bug #530390
+
+  01 Dec 2014; Ian Delaney <idella4@gentoo.org> -apsw-3.7.17_p1.ebuild,
+  -apsw-3.8.0.2_p1.ebuild, -apsw-3.8.0_p2.ebuild, -apsw-3.8.1_p1.ebuild,
+  -apsw-3.8.2_p1.ebuild, -apsw-3.8.3.1_p1.ebuild, -apsw-3.8.4.1_p1.ebuild,
+  -apsw-3.8.4.3_p1.ebuild, apsw-3.8.5_p1.ebuild, apsw-3.8.7.1_p1.ebuild:
+  clean old python impl, minor upgrade to fix to qa issue, remove many old
+
+*apsw-3.8.7.1_p1 (06 Nov 2014)
+
+  06 Nov 2014; Tim Harder <radhermit@gentoo.org> +apsw-3.8.7.1_p1.ebuild:
+  Version bump.
 
 *apsw-3.8.5_p1 (10 Jun 2014)
 

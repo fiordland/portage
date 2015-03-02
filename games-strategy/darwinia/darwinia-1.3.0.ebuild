@@ -1,6 +1,8 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/darwinia/darwinia-1.3.0.ebuild,v 1.16 2014/08/10 21:20:37 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/darwinia/darwinia-1.3.0.ebuild,v 1.18 2014/10/13 16:41:00 mgorny Exp $
+
+EAPI=5
 
 CDROM_OPTIONAL="yes"
 inherit eutils unpacker cdrom games
@@ -16,18 +18,21 @@ IUSE=""
 RESTRICT="mirror strip"
 
 RDEPEND="
-	sys-libs/glibc
-	sys-devel/gcc
-	x86? (
-		virtual/opengl
-		virtual/glu
-		media-libs/libsdl
-		media-libs/libvorbis )
-	amd64? (
-		app-emulation/emul-linux-x86-xlibs
-		app-emulation/emul-linux-x86-medialibs
-		app-emulation/emul-linux-x86-sdl
-		app-emulation/emul-linux-x86-compat )"
+	~virtual/libstdc++-3.3
+	|| (
+		(
+			media-libs/libsdl[abi_x86_32(-)]
+			media-libs/libvorbis[abi_x86_32(-)]
+			virtual/glu[abi_x86_32(-)]
+			virtual/opengl[abi_x86_32(-)]
+		)
+		amd64? (
+			app-emulation/emul-linux-x86-medialibs[-abi_x86_32(-)]
+			app-emulation/emul-linux-x86-opengl[-abi_x86_32(-)]
+			app-emulation/emul-linux-x86-sdl[-abi_x86_32(-)]
+			app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
+		)
+	)"
 
 S=${WORKDIR}
 
@@ -43,17 +48,16 @@ src_install() {
 	exeinto "${dir}"/lib
 
 	doins lib/{language,patch}.dat
-	doexe lib/darwinia.bin.x86 lib/open-www.sh || die "copying executables"
+	doexe lib/darwinia.bin.x86 lib/open-www.sh
 
 	exeinto "${dir}"
-	doexe bin/Linux/x86/darwinia || die "couldn't do exe"
+	doexe bin/Linux/x86/darwinia
 
 	if use cdinstall ; then
-		doins "${CDROM_ROOT}"/gamefiles/{main,sounds}.dat \
-			|| die "couldn't copy data files"
+		doins "${CDROM_ROOT}"/gamefiles/{main,sounds}.dat
 	fi
 
-	dodoc README || die "no reading"
+	dodoc README
 	newicon darwinian.png darwinia.png
 
 	games_make_wrapper darwinia ./darwinia "${dir}" "${dir}"

@@ -1,6 +1,24 @@
 # ChangeLog for dev-lang/ifc
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/ifc/ChangeLog,v 1.76 2014/06/02 11:27:27 jlec Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/ifc/ChangeLog,v 1.80 2015/02/12 10:43:08 jlec Exp $
+
+  12 Feb 2015; Justin Lecher <jlec@gentoo.org> ifc-15.0.2.164.ebuild:
+  Avoid file collisions
+
+*ifc-15.0.2.164 (12 Feb 2015)
+
+  12 Feb 2015; Justin Lecher <jlec@gentoo.org> +ifc-15.0.2.164.ebuild:
+  Version Bump
+
+*ifc-15.0.1.133 (30 Nov 2014)
+
+  30 Nov 2014; Justin Lecher <jlec@gentoo.org> +ifc-15.0.1.133.ebuild:
+  Version Bump
+
+*ifc-15.0.0.090 (15 Sep 2014)
+
+  15 Sep 2014; Justin Lecher <jlec@gentoo.org> +ifc-15.0.0.090.ebuild:
+  Version Bump
 
 *ifc-14.0.3.174 (02 Jun 2014)
 
@@ -277,4 +295,3 @@
   -ifc-7.0.064.ebuild, +ifc-9.0.021.ebuild, +ifc-9.0.026.ebuild:
   Added ifc-9.0.021 (public) and ifc-9.0.026 (only available via
   premier.intel.com). Removed obsolete version 7.0.064.
-

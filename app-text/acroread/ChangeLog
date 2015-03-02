@@ -1,6 +1,21 @@
 # ChangeLog for app-text/acroread
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/acroread/ChangeLog,v 1.203 2014/06/18 19:03:13 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/acroread/ChangeLog,v 1.206 2014/12/16 13:25:37 pacho Exp $
+
+  16 Dec 2014; Pacho Ramos <pacho@gentoo.org> acroread-9.5.5-r2.ebuild:
+  amd64/x86 stable, bug #528596
+
+*acroread-9.5.5-r2 (07 Nov 2014)
+
+  07 Nov 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +acroread-9.5.5-r2.ebuild, -acroread-9.5.5-r1.ebuild:
+  cleaned up RDEPEND again, added missing deps as per bug 520696
+
+*acroread-9.5.5-r1 (22 Oct 2014)
+
+  22 Oct 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +acroread-9.5.5-r1.ebuild:
+  revbump to fix some gx86-multilib deps and clean up the *DEPEND a little
 
   18 Jun 2014; Michał Górny <mgorny@gentoo.org> acroread-9.5.5.ebuild:
   Update dependencies to require guaranteed EAPI=5 or multilib ebuilds, bug

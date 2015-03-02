@@ -1,6 +1,52 @@
 # ChangeLog for Gentoo/AMD64 profile directory
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/ChangeLog,v 1.66 2014/08/21 00:54:03 blueness Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/ChangeLog,v 1.78 2015/02/21 23:29:59 blueness Exp $
+
+  21 Feb 2015; Anthony G. Basile <blueness@gentoo.org>
+  +linux/amd64/no-emul-linux-x86/eapi, +linux/amd64/no-emul-linux-x86/parent:
+  Add hardened/linux/amd64/no-emul-linux-x86 profile
+
+  30 Jan 2015; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/amd64/make.defaults, linux/musl/x86/make.defaults:
+  musl: unhide the CPU_FLAGS_X86 USE_EXPANDs, mirror change from
+  arch/{amd64,x86}/make.defaults.
+
+  28 Jan 2015; Michał Górny <mgorny@gentoo.org> linux/musl/amd64/use.mask,
+  linux/musl/x86/use.mask:
+  Unmask CPU_FLAGS_X86 in musl profiles.
+
+  30 Dec 2014; Anthony G. Basile <blueness@gentoo.org> linux/musl/package.mask:
+  Unmask >sys-apps/file-5.17 for musl, bug #525816
+
+  18 Nov 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/ppc/make.defaults:
+  linux/musl/ppc/make.defaults: add mutlib ABI, thanks Felix Janda
+
+  23 Oct 2014; Anthony G. Basile <blueness@gentoo.org>
+  +linux/musl/package.use.mask:
+  Mask USE=sanitize on musl profiles, bug #504200
+
+  20 Oct 2014; Anthony G. Basile <blueness@gentoo.org> linux/musl/package.mask:
+  Mask >app-misc/pax-utils-0.7 on musl for bug #526048
+
+  18 Oct 2014; Anthony G. Basile <blueness@gentoo.org> linux/musl/package.mask:
+  Mask >sys-apps/file-5.17 on musl for bug #525816
+
+  12 Oct 2014; Magnus Granberg <zorry@gentoo.org> linux/amd64/package.use:
+  Add pic for media-libs/libpostpros needed for the x86 part #523736
+
+  14 Oct 2014; Anthony G. Basile <blueness@gentoo.org>
+  linux/musl/make.defaults:
+  BOOTSTRAP_USE=-nls to avoid a clash between musl and gettext in stage2
+
+  11 Oct 2014; Tim Harder <radhermit@gentoo.org> linux/package.use.mask:
+  Mask skype use flag for net-im/bitlbee since skype doesn't work under
+  hardened.
+
+  22 Sep 2014; Anthony G. Basile <blueness@gentoo.org> linux/make.defaults,
+  linux/package.use.force:
+  Default USE=xattr on for all hardened profiles, and force on for tar,
+  coreutils and portage
 
   21 Aug 2014; Anthony G. Basile <blueness@gentoo.org>
   +linux/musl/mips/package.mask:

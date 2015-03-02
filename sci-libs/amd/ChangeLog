@@ -1,6 +1,22 @@
 # ChangeLog for sci-libs/amd
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/amd/ChangeLog,v 1.37 2014/03/04 19:51:23 vincent Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/amd/ChangeLog,v 1.42 2015/02/22 00:53:19 mattst88 Exp $
+
+  22 Feb 2015; Matt Turner <mattst88@gentoo.org> amd-2.2.0.ebuild,
+  amd-2.3.1.ebuild:
+  Drop alpha keyword.
+
+  15 Feb 2015; Pacho Ramos <pacho@gentoo.org> amd-2.3.1.ebuild:
+  ppc/ppc64 stable, bug #534626
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org> amd-2.3.1.ebuild:
+  Stable for amd64, wrt bug #534626
+
+  13 Jan 2015; Jeroen Roovers <jer@gentoo.org> amd-2.3.1.ebuild:
+  Stable for HPPA (bug #534626).
+
+  04 Jan 2015; Justin Lecher <jlec@gentoo.org> -amd-2.2.3.ebuild, metadata.xml:
+  Drop old
 
   04 Mar 2014; Vicente Olivert Riera <vincent@gentoo.org> amd-2.3.1.ebuild:
   Add ~mips keyword.

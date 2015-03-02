@@ -1,6 +1,66 @@
 # ChangeLog for sys-apps/man-pages
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/man-pages/ChangeLog,v 1.226 2014/08/22 03:30:31 vapier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/man-pages/ChangeLog,v 1.238 2015/02/21 15:49:56 blueness Exp $
+
+*man-pages-3.80 (21 Feb 2015)
+
+  21 Feb 2015; Anthony G. Basile <blueness@gentoo.org> +man-pages-3.80.ebuild:
+  Version bump
+
+  11 Feb 2015; Mike Frysinger <vapier@gentoo.org> man-pages-3.78.ebuild:
+  Stabilize for all.
+
+*man-pages-3.79 (02 Feb 2015)
+
+  02 Feb 2015; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.76.ebuild,
+  +man-pages-3.79.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.78 (23 Jan 2015)
+
+  23 Jan 2015; Lars Wendler <polynomial-c@gentoo.org> +man-pages-3.78.ebuild:
+  Version bump.
+
+*man-pages-3.77 (20 Jan 2015)
+
+  20 Jan 2015; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.72.ebuild,
+  +man-pages-3.77.ebuild:
+  Version bump. Removed old.
+
+  02 Jan 2015; Mike Frysinger <vapier@gentoo.org> man-pages-3.75.ebuild:
+  Stabilize for all.
+
+*man-pages-3.76 (01 Jan 2015)
+
+  01 Jan 2015; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.70.ebuild,
+  -man-pages-3.73.ebuild, -man-pages-3.74.ebuild, +man-pages-3.76.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.75 (19 Oct 2014)
+
+  19 Oct 2014; Mike Frysinger <vapier@gentoo.org> +man-pages-3.75.ebuild:
+  Version bump.
+
+  16 Oct 2014; Mike Frysinger <vapier@gentoo.org> man-pages-3.72.ebuild:
+  Stabilize for all.
+
+*man-pages-3.74 (06 Oct 2014)
+
+  06 Oct 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.71.ebuild,
+  +man-pages-3.74.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.73 (02 Oct 2014)
+
+  02 Oct 2014; Lars Wendler <polynomial-c@gentoo.org> +man-pages-3.73.ebuild:
+  Version bump.
+
+*man-pages-3.72 (09 Sep 2014)
+
+  09 Sep 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.63.ebuild,
+  -man-pages-3.66.ebuild, -man-pages-3.67.ebuild, -man-pages-3.68.ebuild,
+  -man-pages-3.69.ebuild, +man-pages-3.72.ebuild:
+  Version bump. Removed old.
 
 *man-pages-3.71 (22 Aug 2014)
 

@@ -1,6 +1,15 @@
 # ChangeLog for net-analyzer/nagstamon
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagstamon/ChangeLog,v 1.47 2014/08/15 10:54:05 idl0r Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagstamon/ChangeLog,v 1.49 2015/01/31 14:10:31 ago Exp $
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org> nagstamon-1.0.1.ebuild:
+  Stable for amd64, wrt bug #529470
+
+*nagstamon-1.0.1 (30 Sep 2014)
+
+  30 Sep 2014; Christian Ruppert <idl0r@gentoo.org> -nagstamon-1.0.ebuild,
+  +nagstamon-1.0.1.ebuild:
+  Version bump
 
   15 Aug 2014; Christian Ruppert <idl0r@gentoo.org> nagstamon-1.0.ebuild:
   Move some stuff outside of the python_foreach_impl function

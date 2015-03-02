@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_perl/mod_perl-2.0.8.ebuild,v 1.4 2014/08/28 18:55:18 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_perl/mod_perl-2.0.8.ebuild,v 1.11 2014/11/27 23:45:31 dilfridge Exp $
 
 EAPI="5"
 
@@ -11,7 +11,7 @@ SRC_URI="mirror://apache/perl/${P}.tar.gz"
 HOMEPAGE="https://projects.apache.org/projects/mod_perl.html"
 
 LICENSE="GPL-2"
-KEYWORDS="alpha amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="alpha amd64 ~hppa ia64 ppc ppc64 sparc x86"
 IUSE="debug"
 SLOT="1"
 
@@ -125,7 +125,7 @@ src_install() {
 
 	# rendhalver - fix the perllocal.pod that gets installed
 	# it seems to me that this has been getting installed for ages
-	fixlocalpod
+	perl_delete_localpod
 	# Remove empty .bs files as well
 	perl_delete_packlist
 
@@ -139,7 +139,7 @@ src_install() {
 	# happening and revert if problematic.
 
 	# Sorry for this evil hack...
-	perlinfo # just to be sure...
+	perl_set_version # just to be sure...
 	sed -i -e "s,-I${S}/[^[:space:]\"\']\+[[:space:]]\?,,g" \
 		-e "s,-typemap[[:space:]]${S}/[^[:space:]\"\']\+[[:space:]]\?,,g" \
 		-e "s,${S}\(/[^[:space:]\"\']\+\)\?,/,g" "${D}/${VENDOR_ARCH}/Apache2/BuildConfig.pm" || die
@@ -153,6 +153,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	perl-module_pkg_postinst
 	apache-module_pkg_postinst
 }

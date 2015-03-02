@@ -1,6 +1,44 @@
 # ChangeLog for dev-ml/async_extra
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/async_extra/ChangeLog,v 1.10 2014/02/13 15:51:52 aballier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ml/async_extra/ChangeLog,v 1.17 2015/02/20 17:45:46 aballier Exp $
+
+  20 Feb 2015; Alexis Ballier <aballier@gentoo.org>
+  -async_extra-110.01.00.ebuild, -async_extra-111.28.00.ebuild,
+  -async_extra-112.01.00.ebuild, -async_extra-112.06.00.ebuild:
+  remove old
+
+*async_extra-112.17.00 (20 Feb 2015)
+
+  20 Feb 2015; Alexis Ballier <aballier@gentoo.org>
+  +async_extra-112.17.00.ebuild:
+  version bump
+
+*async_extra-112.06.00 (22 Dec 2014)
+
+  22 Dec 2014; Alexis Ballier <aballier@gentoo.org>
+  +async_extra-112.06.00.ebuild:
+  version bump
+
+*async_extra-112.01.00 (01 Dec 2014)
+
+  01 Dec 2014; Alexis Ballier <aballier@gentoo.org>
+  +async_extra-112.01.00.ebuild:
+  version bump
+
+  28 Nov 2014; Alexis Ballier <aballier@gentoo.org>
+  async_extra-111.28.00.ebuild:
+  update deps for ocaml 4.02
+
+*async_extra-111.28.00 (10 Nov 2014)
+
+  10 Nov 2014; Alexis Ballier <aballier@gentoo.org>
+  +async_extra-111.28.00.ebuild:
+  version bump
+
+  30 Oct 2014; Alexis Ballier <aballier@gentoo.org>
+  -async_extra-109.35.00.ebuild, -async_extra-109.38.00.ebuild,
+  -async_extra-109.60.00.ebuild:
+  remove old
 
 *async_extra-110.01.00 (13 Feb 2014)
 

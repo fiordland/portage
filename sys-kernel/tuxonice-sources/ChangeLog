@@ -1,6 +1,101 @@
 # ChangeLog for sys-kernel/tuxonice-sources
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/tuxonice-sources/ChangeLog,v 1.204 2014/08/18 00:05:26 floppym Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/tuxonice-sources/ChangeLog,v 1.214 2015/02/14 02:58:18 floppym Exp $
+
+*tuxonice-sources-3.4.106 (14 Feb 2015)
+*tuxonice-sources-3.19.0 (14 Feb 2015)
+*tuxonice-sources-3.10.69 (14 Feb 2015)
+*tuxonice-sources-3.12.37 (14 Feb 2015)
+*tuxonice-sources-3.14.33 (14 Feb 2015)
+*tuxonice-sources-3.18.7 (14 Feb 2015)
+
+  14 Feb 2015; Mike Gilbert <floppym@gentoo.org>
+  +tuxonice-sources-3.10.69.ebuild, +tuxonice-sources-3.12.37.ebuild,
+  +tuxonice-sources-3.14.33.ebuild, +tuxonice-sources-3.18.7.ebuild,
+  +tuxonice-sources-3.19.0.ebuild, +tuxonice-sources-3.4.106.ebuild:
+  Version bumps. Ebuilds by Arfrever.
+
+*tuxonice-sources-3.10.65 (27 Jan 2015)
+*tuxonice-sources-3.14.29 (27 Jan 2015)
+
+  27 Jan 2015; Mike Gilbert <floppym@gentoo.org>
+  +tuxonice-sources-3.10.65.ebuild, +tuxonice-sources-3.14.29.ebuild:
+  Version bumps. Ebuilds by Arfrever.
+
+*tuxonice-sources-3.10.64 (13 Jan 2015)
+*tuxonice-sources-3.14.28 (13 Jan 2015)
+
+  13 Jan 2015; Mike Gilbert <floppym@gentoo.org>
+  +tuxonice-sources-3.10.64.ebuild, +tuxonice-sources-3.14.28.ebuild:
+  Version bumps. Ebuilds by Arfrever.
+
+*tuxonice-sources-3.12.35 (21 Dec 2014)
+*tuxonice-sources-3.10.63 (21 Dec 2014)
+*tuxonice-sources-3.4.105 (21 Dec 2014)
+*tuxonice-sources-3.14.27 (21 Dec 2014)
+
+  21 Dec 2014; Mike Gilbert <floppym@gentoo.org>
+  +tuxonice-sources-3.10.63.ebuild, +tuxonice-sources-3.12.35.ebuild,
+  +tuxonice-sources-3.14.27.ebuild, +tuxonice-sources-3.4.105.ebuild:
+  Version bumps. Ebuild by Arfrever.
+
+  19 Nov 2014; Mike Gilbert <floppym@gentoo.org>
+  -tuxonice-sources-3.10.52.ebuild, -tuxonice-sources-3.10.53.ebuild,
+  -tuxonice-sources-3.10.55.ebuild, -tuxonice-sources-3.10.58.ebuild,
+  -tuxonice-sources-3.10.59.ebuild, -tuxonice-sources-3.12.26.ebuild,
+  -tuxonice-sources-3.12.28.ebuild, -tuxonice-sources-3.12.29.ebuild,
+  -tuxonice-sources-3.12.30.ebuild, -tuxonice-sources-3.14.16.ebuild,
+  -tuxonice-sources-3.14.17.ebuild, -tuxonice-sources-3.14.19.ebuild,
+  -tuxonice-sources-3.14.22.ebuild, -tuxonice-sources-3.14.23.ebuild,
+  -tuxonice-sources-3.15.9.ebuild, -tuxonice-sources-3.16.0.ebuild,
+  -tuxonice-sources-3.16.1.ebuild, -tuxonice-sources-3.16.3.ebuild,
+  -tuxonice-sources-3.16.6.ebuild, -tuxonice-sources-3.4.102.ebuild,
+  -tuxonice-sources-3.4.103.ebuild:
+  Remove old.
+
+*tuxonice-sources-3.10.60 (19 Nov 2014)
+*tuxonice-sources-3.14.24 (19 Nov 2014)
+
+  19 Nov 2014; Mike Gilbert <floppym@gentoo.org>
+  +tuxonice-sources-3.10.60.ebuild, +tuxonice-sources-3.14.24.ebuild:
+  Version bumps by Arfrever.
+
+*tuxonice-sources-3.16.7 (09 Nov 2014)
+*tuxonice-sources-3.10.59 (09 Nov 2014)
+*tuxonice-sources-3.12.32 (09 Nov 2014)
+*tuxonice-sources-3.14.23 (09 Nov 2014)
+
+  09 Nov 2014; Mike Gilbert <floppym@gentoo.org>
+  +tuxonice-sources-3.10.59.ebuild, +tuxonice-sources-3.12.32.ebuild,
+  +tuxonice-sources-3.14.23.ebuild, +tuxonice-sources-3.16.7.ebuild:
+  Version bumps. Ebuilds by Arfrever.
+
+*tuxonice-sources-3.16.6 (16 Oct 2014)
+*tuxonice-sources-3.10.58 (16 Oct 2014)
+*tuxonice-sources-3.14.22 (16 Oct 2014)
+*tuxonice-sources-3.12.30 (16 Oct 2014)
+
+  16 Oct 2014; Mike Gilbert <floppym@gentoo.org>
+  +tuxonice-sources-3.10.58.ebuild, +tuxonice-sources-3.12.30.ebuild,
+  +tuxonice-sources-3.14.22.ebuild, +tuxonice-sources-3.16.6.ebuild:
+  Version bumps. Ebuilds by Arfrever.
+
+*tuxonice-sources-3.4.104 (01 Oct 2014)
+*tuxonice-sources-3.12.29 (01 Oct 2014)
+
+  01 Oct 2014; Mike Gilbert <floppym@gentoo.org>
+  +tuxonice-sources-3.12.29.ebuild, +tuxonice-sources-3.4.104.ebuild:
+  Version bumps. Ebuilds by Arfrever.
+
+*tuxonice-sources-3.14.19 (22 Sep 2014)
+*tuxonice-sources-3.16.3 (22 Sep 2014)
+*tuxonice-sources-3.10.55 (22 Sep 2014)
+*tuxonice-sources-3.12.28 (22 Sep 2014)
+
+  22 Sep 2014; Mike Gilbert <floppym@gentoo.org>
+  +tuxonice-sources-3.10.55.ebuild, +tuxonice-sources-3.12.28.ebuild,
+  +tuxonice-sources-3.14.19.ebuild, +tuxonice-sources-3.16.3.ebuild:
+  Version bumps. Ebuilds by Arfrever.
 
   18 Aug 2014; Mike Gilbert <floppym@gentoo.org>
   -tuxonice-sources-3.10.49.ebuild, -tuxonice-sources-3.10.50.ebuild,

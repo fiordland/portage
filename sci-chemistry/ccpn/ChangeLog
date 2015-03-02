@@ -1,6 +1,107 @@
 # ChangeLog for sci-chemistry/ccpn
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/ccpn/ChangeLog,v 1.144 2014/08/12 08:27:13 jlec Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/ccpn/ChangeLog,v 1.162 2015/02/26 07:50:22 jlec Exp $
+
+*ccpn-2.4.1_p150226 (26 Feb 2015)
+
+  26 Feb 2015; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.1_p150226.ebuild,
+  files/analysis, files/dangle, files/dataShifter, files/depositionFileImporter,
+  files/eci, files/extendNmr, files/formatConverter, files/pipe2azara,
+  files/xeasy2azara:
+  Todays python patches; drop LD_LIBRARY_PATH from launcher
+
+*ccpn-2.4.1_p150224 (24 Feb 2015)
+
+  24 Feb 2015; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.1_p150224.ebuild:
+  Todays python patches
+
+*ccpn-2.4.1_p150223 (23 Feb 2015)
+
+  23 Feb 2015; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.1_p150223.ebuild:
+  Todays python patches
+
+*ccpn-2.4.1_p150202 (02 Feb 2015)
+
+  02 Feb 2015; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.1_p150202.ebuild:
+  Todays python patches
+
+  22 Jan 2015; Justin Lecher <jlec@gentoo.org> -files/2.1.3_1-dynamics.patch,
+  -files/2.1.3_1-impl-dec.patch, -files/2.1.3_1-parallel.patch,
+  -files/2.2.1-parallel.patch, -files/2.2.2-parallel.patch,
+  -files/ccpn-2.4.0_p140425-lxml.patch:
+  Drop obsolete patches
+
+*ccpn-2.4.1_p150122 (22 Jan 2015)
+
+  22 Jan 2015; Justin Lecher <jlec@gentoo.org> -ccpn-2.3.1_p140425.ebuild,
+  -ccpn-2.4.0_p140915.ebuild, -ccpn-2.4.0_p140917.ebuild,
+  -ccpn-2.4.0_p140925.ebuild, -ccpn-2.4.1_p141008.ebuild,
+  -ccpn-2.4.1_p141020.ebuild, -ccpn-2.4.1_p141022.ebuild,
+  -ccpn-2.4.1_p141117.ebuild, -ccpn-2.4.1_p141204.ebuild,
+  -ccpn-2.4.1_p150105.ebuild, +ccpn-2.4.1_p150122.ebuild:
+  Todays python patches; dop old
+
+*ccpn-2.4.1_p150108 (08 Jan 2015)
+
+  08 Jan 2015; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.1_p150108.ebuild:
+  Todays python patches
+
+*ccpn-2.4.1_p150105 (05 Jan 2015)
+
+  05 Jan 2015; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.1_p150105.ebuild:
+  Todays python patches
+
+*ccpn-2.4.1_p141204 (04 Dec 2014)
+
+  04 Dec 2014; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.1_p141204.ebuild:
+  Todays python patches
+
+*ccpn-2.4.1_p141117 (17 Nov 2014)
+
+  17 Nov 2014; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.1_p141117.ebuild:
+  Todays python patches
+
+*ccpn-2.4.1_p141022 (22 Oct 2014)
+
+  22 Oct 2014; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.1_p141022.ebuild:
+  Todays python patches
+
+*ccpn-2.4.1_p141020 (20 Oct 2014)
+
+  20 Oct 2014; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.1_p141020.ebuild:
+  Todays python patches
+
+  08 Oct 2014; Justin Lecher <jlec@gentoo.org> ccpn-2.4.1_p141008.ebuild:
+  Uncomment variable
+
+*ccpn-2.4.1_p141008 (08 Oct 2014)
+
+  08 Oct 2014; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.1_p141008.ebuild:
+  Todays python patches
+
+*ccpn-2.4.1 (06 Oct 2014)
+
+  06 Oct 2014; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.1.ebuild:
+  Version Bump
+
+*ccpn-2.4.0_p140925 (25 Sep 2014)
+
+  25 Sep 2014; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.0_p140925.ebuild:
+  Todays python patches
+
+*ccpn-2.4.0_p140917 (17 Sep 2014)
+
+  17 Sep 2014; Justin Lecher <jlec@gentoo.org> -ccpn-2.4.0_p140425.ebuild,
+  -ccpn-2.4.0_p140425-r1.ebuild, -ccpn-2.4.0_p140513.ebuild,
+  -ccpn-2.4.0_p140526.ebuild, -ccpn-2.4.0_p140605.ebuild,
+  -ccpn-2.4.0_p140614.ebuild, -ccpn-2.4.0_p140707.ebuild,
+  -ccpn-2.4.0_p140812.ebuild, +ccpn-2.4.0_p140917.ebuild:
+  Todays python patches; drop old
+
+*ccpn-2.4.0_p140915 (15 Sep 2014)
+
+  15 Sep 2014; Justin Lecher <jlec@gentoo.org> +ccpn-2.4.0_p140915.ebuild:
+  Latest Python patches
 
 *ccpn-2.4.0_p140812 (12 Aug 2014)
 

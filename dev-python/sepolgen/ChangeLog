@@ -1,6 +1,49 @@
 # ChangeLog for dev-python/sepolgen
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/sepolgen/ChangeLog,v 1.41 2014/05/10 14:07:32 swift Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/sepolgen/ChangeLog,v 1.49 2015/02/04 17:56:33 perfinion Exp $
+
+*sepolgen-1.2.2 (04 Feb 2015)
+
+  04 Feb 2015; Jason Zaman <perfinion@gentoo.org> +sepolgen-1.2.2.ebuild:
+  Version bump
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> sepolgen-1.2.1-r1.ebuild:
+  Stable for x86, wrt bug #535374
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org> sepolgen-1.2.1-r1.ebuild:
+  Stable for amd64, wrt bug #535374
+
+*sepolgen-1.2.2_rc7 (06 Dec 2014)
+*sepolgen-1.2.1-r1 (06 Dec 2014)
+
+  06 Dec 2014; Jason Zaman <perfinion@gentoo.org> +sepolgen-1.2.1-r1.ebuild,
+  +sepolgen-1.2.2_rc7.ebuild, -sepolgen-1.2.2_rc2.ebuild,
+  -sepolgen-1.2.2_rc5.ebuild:
+  version bump and ebuild clean up, drop old RC
+
+*sepolgen-1.2.2_rc6 (14 Nov 2014)
+
+  14 Nov 2014; Sven Vermeulen <swift@gentoo.org> +sepolgen-1.2.2_rc6.ebuild:
+  Bump to rc6
+
+*sepolgen-1.2.2_rc5 (29 Oct 2014)
+
+  29 Oct 2014; Sven Vermeulen <swift@gentoo.org> +sepolgen-1.2.2_rc5.ebuild,
+  -sepolgen-1.2.2_rc4.ebuild:
+  Bump to 1.2.2_rc5
+
+*sepolgen-1.2.2_rc4 (07 Oct 2014)
+
+  07 Oct 2014; Sven Vermeulen <swift@gentoo.org> +sepolgen-1.2.2_rc4.ebuild:
+  Bump to 2.4-rc4
+
+*sepolgen-1.2.2_rc2 (21 Sep 2014)
+
+  21 Sep 2014; Sven Vermeulen <swift@gentoo.org>
+  +files/0030-default-path-for-tests-also-needed-bug-467264.patch,
+  +files/0040-have-test-run-with-PYTHON-variable-python-bug-467264.patch,
+  +sepolgen-1.2.2_rc2.ebuild, sepolgen-1.2.1.ebuild:
+  Noved to github; also add in masked 2.4 series
 
   10 May 2014; Sven Vermeulen <swift@gentoo.org> -sepolgen-1.1.9.ebuild,
   -sepolgen-1.1.9-r1.ebuild, -sepolgen-1.1.9-r2.ebuild,

@@ -1,6 +1,24 @@
 # ChangeLog for dev-python/serpent
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/serpent/ChangeLog,v 1.13 2014/07/23 08:58:26 idella4 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/serpent/ChangeLog,v 1.18 2015/01/16 23:09:33 idella4 Exp $
+
+*serpent-1.8 (16 Jan 2015)
+
+  16 Jan 2015; Ian Delaney <idella4@gentoo.org> +serpent-1.8.ebuild,
+  -serpent-1.4.ebuild, -serpent-1.6.ebuild:
+  bump, rm old
+
+  04 Dec 2014; Agostino Sarubbo <ago@gentoo.org> serpent-1.7.ebuild:
+  Stable for ppc64, wrt bug #525508
+
+  03 Dec 2014; Agostino Sarubbo <ago@gentoo.org> serpent-1.7.ebuild:
+  Stable for ppc, wrt bug #525508
+
+  03 Nov 2014; Agostino Sarubbo <ago@gentoo.org> serpent-1.7.ebuild:
+  Stable for x86, wrt bug #525508
+
+  03 Nov 2014; Agostino Sarubbo <ago@gentoo.org> serpent-1.7.ebuild:
+  Stable for amd64, wrt bug #525508
 
 *serpent-1.7 (23 Jul 2014)
 

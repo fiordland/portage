@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nds/openldap/openldap-2.4.38-r2.ebuild,v 1.15 2014/08/10 17:25:37 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-nds/openldap/openldap-2.4.38-r2.ebuild,v 1.17 2014/11/02 09:23:40 swift Exp $
 
 EAPI="5"
 
@@ -17,7 +17,7 @@ HOMEPAGE="http://www.OpenLDAP.org/"
 SRC_URI="ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/${P}.tgz
 		 mirror://gentoo/${BIS_P}"
 
-LICENSE="OPENLDAP"
+LICENSE="OPENLDAP GPL-2"
 SLOT="0"
 KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~x86-solaris"
 
@@ -32,7 +32,7 @@ IUSE="${IUSE_DAEMON} ${IUSE_BACKEND} ${IUSE_OVERLAY} ${IUSE_OPTIONAL} ${IUSE_CON
 REQUIRED_USE="cxx? ( sasl )"
 
 # openssl is needed to generate lanman-passwords required by samba
-RDEPEND="icu? ( dev-libs/icu:= )
+CDEPEND="icu? ( dev-libs/icu:= )
 	ssl? ( !gnutls? ( >=dev-libs/openssl-1.0.1h-r2[${MULTILIB_USEDEP}] )
 		gnutls? ( >=net-libs/gnutls-2.12.23-r6[${MULTILIB_USEDEP}] >=dev-libs/libgcrypt-1.5.3:0[${MULTILIB_USEDEP}] ) )
 	sasl? ( dev-libs/cyrus-sasl:= )
@@ -51,13 +51,15 @@ RDEPEND="icu? ( dev-libs/icu:= )
 		kerberos? ( virtual/krb5 )
 		cxx? ( dev-libs/cyrus-sasl:= )
 	)
-	selinux? ( sec-policy/selinux-ldap )
 	abi_x86_32? (
 		!<=app-emulation/emul-linux-x86-baselibs-20140508-r3
 		!app-emulation/emul-linux-x86-baselibs[-abi_x86_32(-)]
 	)"
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	sys-apps/groff"
+RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-ldap )
+"
 
 # for tracking versions
 OPENLDAP_VERSIONTAG=".version-tag"

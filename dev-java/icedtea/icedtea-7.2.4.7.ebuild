@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/icedtea/icedtea-7.2.4.7.ebuild,v 1.2 2014/05/17 15:22:54 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-java/icedtea/icedtea-7.2.4.7.ebuild,v 1.7 2014/11/21 09:52:17 vapier Exp $
 # Build written by Andrew John Hughes (gnu_andrew@member.fsf.org)
 
 # *********************************************************
@@ -9,7 +9,7 @@
 
 EAPI="5"
 
-inherit java-pkg-2 java-vm-2 pax-utils prefix versionator virtualx
+inherit java-pkg-2 java-vm-2 multiprocessing pax-utils prefix versionator virtualx
 
 ICEDTEA_VER=$(get_version_component_range 2-)
 ICEDTEA_BRANCH=$(get_version_component_range 2-3)
@@ -100,7 +100,6 @@ COMMON_DEP="
 	javascript? ( dev-java/rhino:1.6 )
 	nss? ( >=dev-libs/nss-3.12.5-r1 )
 	pulseaudio?  ( >=media-sound/pulseaudio-0.9.11:= )
-	selinux? ( sec-policy/selinux-java )
 	kerberos? ( virtual/krb5 )
 	>=dev-util/systemtap-1"
 
@@ -120,7 +119,8 @@ RDEPEND="${COMMON_DEP}
 		)
 	)
 	alsa? ( ${ALSA_COMMON_DEP} )
-	cups? ( ${CUPS_COMMON_DEP} )"
+	cups? ( ${CUPS_COMMON_DEP} )
+	selinux? ( sec-policy/selinux-java )"
 
 # Only ant-core-1.8.1 has fixed ant -diagnostics when xerces+xalan are not present.
 # ca-certificates, perl and openssl are used for the cacerts keystore generation
@@ -138,7 +138,7 @@ DEPEND="${COMMON_DEP} ${ALSA_COMMON_DEP} ${CUPS_COMMON_DEP} ${X_COMMON_DEP}
 	app-arch/unzip
 	app-arch/zip
 	app-misc/ca-certificates
-	dev-java/ant-core
+	>=dev-java/ant-core-1.8.2
 	dev-lang/perl
 	>=dev-libs/libxslt-1.1.26
 	dev-libs/openssl
@@ -148,8 +148,14 @@ DEPEND="${COMMON_DEP} ${ALSA_COMMON_DEP} ${CUPS_COMMON_DEP} ${X_COMMON_DEP}
 	${X_DEPEND}
 	pax_kernel? ( sys-apps/elfix )"
 
-PDEPEND="webstart? ( dev-java/icedtea-web:7 )
-	nsplugin? ( dev-java/icedtea-web:7[nsplugin] )"
+PDEPEND="webstart? ( || (
+			dev-java/icedtea-web:0[icedtea7]
+			>=dev-java/icedtea-web-1.3.2:7
+		) )
+		nsplugin? ( || (
+			dev-java/icedtea-web:0[icedtea7,nsplugin]
+			>=dev-java/icedtea-web-1.3.2:7[nsplugin]
+		) )"
 
 S="${WORKDIR}"/${ICEDTEA_PKG}
 
@@ -227,12 +233,7 @@ src_configure() {
 		zero_config="--enable-zero";
 	fi
 
-	# OpenJDK-specific parallelism support. Bug #389791, #337827
-	# Implementation modified from waf-utils.eclass
-	# Note that "-j" is converted to "-j1" as the system doesn't support --load-average
-	local procs=$(echo -j1 ${MAKEOPTS} | sed -r "s/.*(-j\s*|--jobs=)([0-9]+).*/\2/" )
-	config="${config} --with-parallel-jobs=${procs}";
-	einfo "Configuring using --with-parallel-jobs=${procs}"
+	config+=" --with-parallel-jobs=$(makeopts_jobs)"
 
 	if use javascript ; then
 		config="${config} --with-rhino=$(java-pkg_getjar rhino-1.6 js.jar)"

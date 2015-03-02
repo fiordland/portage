@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/mmix/mmix-20131017.ebuild,v 1.2 2014/08/10 20:29:23 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/mmix/mmix-20131017.ebuild,v 1.6 2014/12/28 10:10:28 ago Exp $
 
 EAPI="5"
 
@@ -8,15 +8,17 @@ inherit eutils toolchain-funcs
 
 DESCRIPTION="Donald Knuth's MMIX Assembler and Simulator"
 HOMEPAGE="http://www-cs-faculty.stanford.edu/~knuth/mmix.html"
-SRC_URI="http://www-cs-faculty.stanford.edu/~knuth/programs/${P}.tgz"
+SRC_URI="http://mmix.cs.hm.edu/src/${P}.tgz"
 
-DEPEND="|| ( >=dev-util/cweb-3.63
-	virtual/tex-base )"
+RESTRICT="mirror"
+
+DEPEND="virtual/tex-base
+	doc? ( dev-texlive/texlive-genericrecommended )"
 RDEPEND=""
 
 SLOT="0"
 LICENSE="${PN}"
-KEYWORDS="~amd64"
+KEYWORDS="amd64 x86"
 IUSE="doc"
 
 S="${WORKDIR}"

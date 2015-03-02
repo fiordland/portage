@@ -1,6 +1,21 @@
 # ChangeLog for net-analyzer/argus
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/argus/ChangeLog,v 1.63 2014/07/10 19:02:18 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/argus/ChangeLog,v 1.67 2015/01/26 10:13:31 ago Exp $
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> argus-3.0.8.ebuild:
+  Stable for x86, wrt bug #535520
+
+  17 Jan 2015; Agostino Sarubbo <ago@gentoo.org> argus-3.0.8.ebuild:
+  Stable for ppc, wrt bug #535520
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> argus-3.0.8.ebuild:
+  Stable for amd64, wrt bug #535520
+
+*argus-3.0.8 (12 Oct 2014)
+
+  12 Oct 2014; Jeroen Roovers <jer@gentoo.org> -argus-3.0.8_rc6.ebuild,
+  +argus-3.0.8.ebuild:
+  Version bump.
 
 *argus-3.0.8_rc6 (10 Jul 2014)
 

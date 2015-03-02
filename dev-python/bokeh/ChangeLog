@@ -1,6 +1,25 @@
 # ChangeLog for dev-python/bokeh
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/bokeh/ChangeLog,v 1.7 2014/07/07 09:22:32 jlec Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/bokeh/ChangeLog,v 1.11 2015/01/26 07:51:03 jlec Exp $
+
+*bokeh-0.7.1 (26 Jan 2015)
+
+  26 Jan 2015; Justin Lecher <jlec@gentoo.org> +bokeh-0.7.1.ebuild,
+  +files/bokeh-0.7.1-setup.patch:
+  Version Bump, #529986; thanks Marius Brehler for the upgraded ebuild
+
+  30 Oct 2014; Ian Delaney <idella4@gentoo.org> +files/0.5.0-setup.patch,
+  bokeh-0.5.0.ebuild:
+  add patch to purge check for previous install from setup.py, fixes Bug #527336
+
+  29 Oct 2014; Mike Gilbert <floppym@gentoo.org> metadata.xml:
+  Drop python herd after discussion in IRC.
+
+*bokeh-0.5.0 (29 Oct 2014)
+
+  29 Oct 2014; Ian Delaney <idella4@gentoo.org> +bokeh-0.5.0.ebuild,
+  metadata.xml:
+  bump; update deps, update test phase and fix broken install in setup.py,
 
   07 Jul 2014; Justin Lecher <jlec@gentoo.org> bokeh-0.4.4.ebuild:
   Fix parallel installation issues, #516052

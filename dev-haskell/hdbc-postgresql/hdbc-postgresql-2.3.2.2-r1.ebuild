@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hdbc-postgresql/hdbc-postgresql-2.3.2.2-r1.ebuild,v 1.1 2014/01/14 08:34:09 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/hdbc-postgresql/hdbc-postgresql-2.3.2.2-r1.ebuild,v 1.3 2014/12/28 15:21:59 titanofold Exp $
 
 EAPI=5
 
@@ -23,7 +23,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 RESTRICT="test" # requires configured postgresql
 
-RDEPEND=">=dev-db/postgresql-base-7
+RDEPEND=">=dev-db/postgresql-7
 	dev-haskell/convertible:=[profile?]
 	dev-haskell/mtl:=[profile?]
 	dev-haskell/parsec:=[profile?]

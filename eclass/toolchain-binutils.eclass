@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/toolchain-binutils.eclass,v 1.134 2014/08/11 13:32:35 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/toolchain-binutils.eclass,v 1.140 2015/02/09 19:34:02 vapier Exp $
 #
 # Maintainer: Toolchain Ninjas <toolchain@gentoo.org>
 #
@@ -8,17 +8,14 @@
 # us easily merge multiple versions for multiple targets (if we wish) and
 # then switch the versions on the fly (with `binutils-config`).
 #
-# binutils-99999999       -> live cvs
 # binutils-9999           -> live git
 # binutils-9999_preYYMMDD -> nightly snapshot date YYMMDD
 # binutils-#              -> normal release
 
-extra_eclass=""
 if [[ -n ${BINUTILS_TYPE} ]] ; then
 	BTYPE=${BINUTILS_TYPE}
 else
 	case ${PV} in
-	99999999)  BTYPE="cvs";;
 	9999)      BTYPE="git";;
 	9999_pre*) BTYPE="snap";;
 	*.*.90)    BTYPE="snap";;
@@ -28,18 +25,10 @@ else
 fi
 
 case ${BTYPE} in
-cvs)
-	extra_eclass="cvs"
-	ECVS_SERVER="sourceware.org:/cvs/src"
-	ECVS_MODULE="binutils"
-	ECVS_USER="anoncvs"
-	ECVS_PASS="anoncvs"
-	BVER="cvs"
-	;;
 git)
-	extra_eclass="git-2"
 	BVER="git"
 	EGIT_REPO_URI="git://sourceware.org/git/binutils-gdb.git"
+	inherit git-2
 	;;
 snap)
 	BVER=${PV/9999_pre}
@@ -49,7 +38,7 @@ snap)
 	;;
 esac
 
-inherit eutils libtool flag-o-matic gnuconfig multilib versionator unpacker ${extra_eclass}
+inherit eutils libtool flag-o-matic gnuconfig multilib versionator unpacker
 case ${EAPI:-0} in
 0|1)
 	EXPORT_FUNCTIONS src_unpack src_compile src_test src_install pkg_postinst pkg_postrm ;;
@@ -70,7 +59,7 @@ DESCRIPTION="Tools necessary to build programs"
 HOMEPAGE="http://sourceware.org/binutils/"
 
 case ${BTYPE} in
-	cvs|git) SRC_URI="" ;;
+	git) SRC_URI="" ;;
 	snap)
 		SRC_URI="ftp://gcc.gnu.org/pub/binutils/snapshots/binutils-${BVER}.tar.bz2
 			ftp://sourceware.org/pub/binutils/snapshots/binutils-${BVER}.tar.bz2" ;;
@@ -103,13 +92,13 @@ IUSE="cxx multislot multitarget nls static-libs test vanilla"
 if version_is_at_least 2.19 ; then
 	IUSE+=" zlib"
 fi
-if use multislot ; then
+if ! version_is_at_least 2.23.90 || [[ ${BTYPE} != "rel" ]] || is_cross || use multislot ; then
 	SLOT="${BVER}"
 else
 	SLOT="0"
 fi
 
-RDEPEND=">=sys-devel/binutils-config-1.9"
+RDEPEND=">=sys-devel/binutils-config-3"
 in_iuse zlib && RDEPEND+=" zlib? ( sys-libs/zlib )"
 DEPEND="${RDEPEND}
 	test? ( dev-util/dejagnu )
@@ -119,7 +108,7 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/binutils
 case ${BVER} in
-cvs|git) ;;
+git) ;;
 *) S=${S}-${BVER} ;;
 esac
 
@@ -135,7 +124,6 @@ fi
 
 tc-binutils_unpack() {
 	case ${BTYPE} in
-	cvs) cvs_src_unpack ;;
 	git) git-2_src_unpack ;;
 	*)   unpacker ${A} ;;
 	esac
@@ -220,6 +208,15 @@ _eprefix_init() {
 	has "${EAPI:-0}" 0 1 2 && ED=${D} EPREFIX= EROOT=${ROOT}
 }
 
+# Intended for ebuilds to override to set their own versioning information.
+toolchain-binutils_bugurl() {
+	printf "http://bugs.gentoo.org/"
+}
+toolchain-binutils_pkgversion() {
+	printf "Gentoo ${BVER}"
+	[[ -n ${PATCHVER} ]] && printf " p${PATCHVER}"
+}
+
 toolchain-binutils_src_configure() {
 	_eprefix_init
 
@@ -281,8 +278,6 @@ toolchain-binutils_src_configure() {
 	has_version ">=${CATEGORY}/glibc-2.5" && myconf+=( --enable-secureplt )
 	has_version ">=sys-libs/glibc-2.5" && myconf+=( --enable-secureplt )
 
-	local pkgver="Gentoo ${BVER}"
-	[[ -n ${PATCHVER} ]] && pkgver+=" p${PATCHVER}"
 	myconf+=(
 		--prefix="${EPREFIX}"/usr
 		--host=${CHOST}
@@ -300,12 +295,15 @@ toolchain-binutils_src_configure() {
 		# Newer versions (>=2.24) make this an explicit option. #497268
 		--enable-install-libiberty
 		--disable-werror
-		--with-bugurl=http://bugs.gentoo.org/
-		--with-pkgversion="${pkgver}"
+		--with-bugurl="$(toolchain-binutils_bugurl)"
+		--with-pkgversion="$(toolchain-binutils_pkgversion)"
 		$(use_enable static-libs static)
 		${EXTRA_ECONF}
 		# Disable modules that are in a combined binutils/gdb tree. #490566
 		--disable-{gdb,libdecnumber,readline,sim}
+		# Strip out broken static link flags.
+		# https://gcc.gnu.org/PR56750
+		--without-stage1-ldflags
 	)
 	echo ./configure "${myconf[@]}"
 	"${S}"/configure "${myconf[@]}" || die

@@ -1,6 +1,62 @@
 # ChangeLog for net-misc/openntpd
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/openntpd/ChangeLog,v 1.121 2014/08/02 18:09:25 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/openntpd/ChangeLog,v 1.131 2015/02/03 05:30:01 yngwin Exp $
+
+*openntpd-5.7_p3 (03 Feb 2015)
+
+  03 Feb 2015; Ben de Groot <yngwin@gentoo.org> +openntpd-5.7_p3.ebuild:
+  version bump (bug #538394)
+
+*openntpd-5.7_p2 (25 Jan 2015)
+
+  25 Jan 2015; Christoph Junghans <ottxor@gentoo.org>
+  +files/openntpd-5.7_p2-adjtimex.patch, +files/openntpd-5.7_p2-proctitle.patch,
+  +openntpd-5.7_p2.ebuild, -files/openntpd-5.7_p1-signal.patch,
+  -files/openntpd-5.7_p1-warn-s-failure.patch, -openntpd-5.7_p1.ebuild:
+  version bump (bug #537292, thx to Paul)
+
+*openntpd-5.7_p1 (12 Jan 2015)
+
+  12 Jan 2015; Christoph Junghans <ottxor@gentoo.org>
+  +files/openntpd-5.7_p1-driftpath.patch,
+  +files/openntpd-5.7_p1-gentoopool.patch, +files/openntpd-5.7_p1-runpath.patch,
+  +files/openntpd-5.7_p1-signal.patch,
+  +files/openntpd-5.7_p1-warn-s-failure.patch, +openntpd-5.7_p1.ebuild:
+  version bump (bug #536032)
+
+  12 Jan 2015; Christoph Junghans <ottxor@gentoo.org>
+  -openntpd-20080406-r9.ebuild, openntpd-4.0_pre20080406.ebuild:
+  move stable keywords from 20080406-r9 to 4.0_pre20080406 in preparation of
+  version bump to 5.7_p1 (bug #536032)
+
+*openntpd-4.0_pre20080406 (12 Jan 2015)
+
+  12 Jan 2015; Christoph Junghans <ottxor@gentoo.org>
+  +openntpd-4.0_pre20080406.ebuild:
+  copy 20080406-r9 version to 4.0_pre20080406 to prepare version bump to 5.7_p1
+  (bug #536032)
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> openntpd-20080406-r9.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+  17 Oct 2014; Christoph Junghans <ottxor@gentoo.org>
+  -files/openntpd.service-20080406-r3, -openntpd-20080406-r7.ebuild,
+  -openntpd-20080406-r8.ebuild:
+  remove old
+
+  17 Oct 2014; Christoph Junghans <ottxor@gentoo.org>
+  openntpd-20080406-r9.ebuild:
+  all stable (bug #525118)
+
+  17 Oct 2014; Jeroen Roovers <jer@gentoo.org> openntpd-20080406-r9.ebuild:
+  Stable for HPPA (bug #525118).
+
+*openntpd-20080406-r9 (12 Oct 2014)
+
+  12 Oct 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/openntpd.service-20080406-r4, +openntpd-20080406-r9.ebuild:
+  Conflicts=systemd-timesyncd.service will be needed for systemd-216 (#521804)
 
   02 Aug 2014; Agostino Sarubbo <ago@gentoo.org> openntpd-20080406-r8.ebuild:
   Stable for ppc64, wrt bug #507846

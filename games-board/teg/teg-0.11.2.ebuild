@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-board/teg/teg-0.11.2.ebuild,v 1.4 2011/01/24 21:53:41 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-board/teg/teg-0.11.2.ebuild,v 1.6 2015/01/08 09:10:38 tupone Exp $
 
-EAPI=2
+EAPI=5
 inherit gnome2
 
 DESCRIPTION="Gnome Risk Clone"
@@ -15,7 +15,7 @@ KEYWORDS="amd64 ppc ppc64 sparc x86"
 IUSE="nls"
 
 RDEPEND="dev-libs/glib:2
-	|| ( >=gnome-base/libgnomeui-2.24.0 gnome-base/libgnomeui[jpeg] )
+	gnome-base/libgnomeui
 	gnome-base/libgnome
 	nls? ( virtual/libintl )"
 DEPEND="${RDEPEND}

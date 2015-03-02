@@ -1,6 +1,35 @@
 # ChangeLog for net-misc/vino
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/vino/ChangeLog,v 1.212 2014/07/23 15:24:13 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/vino/ChangeLog,v 1.218 2015/02/18 11:37:39 pacho Exp $
+
+*vino-3.14.2 (18 Feb 2015)
+
+  18 Feb 2015; Pacho Ramos <pacho@gentoo.org> +vino-3.14.2.ebuild, metadata.xml:
+  Version bump
+
+*vino-3.14.1 (23 Dec 2014)
+
+  23 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org> -vino-3.12.0.ebuild,
+  +vino-3.14.1.ebuild:
+  Version bump for Gnome 3.14. Clean up old revision.
+
+  19 Dec 2014; Pacho Ramos <pacho@gentoo.org> vino-3.12.0-r1.ebuild:
+  amd64 stable, bug 529964
+
+  18 Dec 2014; Pacho Ramos <pacho@gentoo.org> vino-3.12.0-r1.ebuild:
+  x86 stable, bug 529964
+
+  13 Nov 2014; Pacho Ramos <pacho@gentoo.org>
+  -files/vino-2.26.2-autorestart-loop.patch,
+  -files/vino-3.6.2-clipboard-leak.patch, -files/vino-3.8.1-new-client.patch,
+  -vino-2.32.2-r2.ebuild:
+  Drop old (#508854)
+
+*vino-3.12.0-r1 (07 Sep 2014)
+
+  07 Sep 2014; Pacho Ramos <pacho@gentoo.org> +vino-3.12.0-r1.ebuild,
+  -vino-3.10.1.ebuild:
+  Force --disable-http-server per bug #518384 by Mike Auty, drop old.
 
   23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> vino-3.12.0.ebuild:
   Stable for x86, wrt bug #512012

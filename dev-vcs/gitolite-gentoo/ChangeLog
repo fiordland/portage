@@ -1,6 +1,45 @@
 # ChangeLog for dev-vcs/gitolite-gentoo
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/gitolite-gentoo/ChangeLog,v 1.37 2014/08/24 21:31:07 idl0r Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/gitolite-gentoo/ChangeLog,v 1.43 2015/02/04 00:41:19 robbat2 Exp $
+
+*gitolite-gentoo-3.6.2.3 (04 Feb 2015)
+
+  04 Feb 2015; Robin H. Johnson <robbat2@gentoo.org>
+  +gitolite-gentoo-3.6.2.3.ebuild:
+  Support Ed25519 keys.
+
+*gitolite-gentoo-3.6.2.2 (28 Dec 2014)
+
+  28 Dec 2014; Robin H. Johnson <robbat2@gentoo.org>
+  +gitolite-gentoo-3.6.2.2.ebuild:
+  Minor bump, fixes metadata handling for email@NN pubkey files.
+
+*gitolite-gentoo-3.6.2.1 (27 Dec 2014)
+
+  27 Dec 2014; Robin H. Johnson <robbat2@gentoo.org>
+  +gitolite-gentoo-3.6.2.1.ebuild:
+  Bump.
+
+*gitolite-gentoo-3.6.1-r1 (29 Nov 2014)
+*gitolite-gentoo-9999 (29 Nov 2014)
+
+  29 Nov 2014; Robin H. Johnson <robbat2@gentoo.org>
+  +gitolite-gentoo-3.6.1-r1.ebuild, +gitolite-gentoo-9999.ebuild:
+  Easy to use 9999 version for testing, and a non-9999 version based on the same
+  ebuild
+
+  15 Nov 2014; Christian Ruppert <idl0r@gentoo.org>
+  gitolite-gentoo-3.5.3.1.ebuild, gitolite-gentoo-3.6.1.ebuild:
+  Fix migration links, bug 515588, thanks to Alex Xu (Hello71)
+  <alex_y_xu@yahoo.ca>
+
+*gitolite-gentoo-2.3.3-r1 (03 Nov 2014)
+*gitolite-gentoo-2.3.1-r1 (03 Nov 2014)
+
+  03 Nov 2014; Mikle Kolyada <zlogene@gentoo.org>
+  +gitolite-gentoo-2.3.1-r1.ebuild, +gitolite-gentoo-2.3.3-r1.ebuild,
+  -gitolite-gentoo-2.3.1.ebuild, -gitolite-gentoo-2.3.3.ebuild:
+  Bump to EAPI=5
 
 *gitolite-gentoo-3.6.1 (24 Aug 2014)
 
@@ -198,4 +237,3 @@
   02 Nov 2010; Christian Ruppert <idl0r@gentoo.org>
   +gitolite-gentoo-1.5.6.ebuild, +files/gitolite-require.patch, +metadata.xml:
   Initial import of dev-vcs/gitolite-gentoo-1.5.6.
-

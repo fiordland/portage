@@ -1,6 +1,38 @@
 # ChangeLog for x11-misc/redshift
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/redshift/ChangeLog,v 1.24 2014/07/26 21:01:26 sping Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/redshift/ChangeLog,v 1.32 2015/01/26 00:18:48 sping Exp $
+
+*redshift-1.10 (26 Jan 2015)
+
+  26 Jan 2015; Sebastian Pipping <sping@gentoo.org> +redshift-1.10.ebuild:
+  Bump to 1.10 (bug #537678)
+
+*redshift-1.9.1-r2 (15 Dec 2014)
+
+  15 Dec 2014; Sebastian Pipping <sping@gentoo.org> +redshift-1.9.1-r2.ebuild:
+  Install systemd units provided by upstream (bug #532578)
+
+  17 Nov 2014; Sebastian Pipping <sping@gentoo.org> redshift-1.9.1-r1.ebuild,
+  metadata.xml:
+  Add appindicator use flag (patch by Marek Pikuła)
+
+*redshift-1.9.1-r1 (01 Nov 2014)
+
+  01 Nov 2014; Sebastian Pipping <sping@gentoo.org> +redshift-1.9.1-r1.ebuild:
+  Require GTK+ 3.x with introspection (bug #527540)
+
+  01 Nov 2014; Sebastian Pipping <sping@gentoo.org> -redshift-1.4.1.ebuild,
+  -redshift-1.6-r1.ebuild, -redshift-1.8.ebuild, -redshift-1.9-r1.ebuild:
+  Remove old versions
+
+  05 Oct 2014; Manuel Rüger <mrueg@gentoo.org> redshift-1.9.1.ebuild:
+  Mark stable on amd64. Bug #521320
+
+  09 Sep 2014; Patrick Lauer <patrick@gentoo.org> redshift-1.9.1.ebuild:
+  Add py3.4 support
+
+  06 Sep 2014; Sebastian Pipping <sping@gentoo.org> redshift-1.9-r1.ebuild:
+  Unlock support for Python 3.4 (bug #521904)
 
 *redshift-1.9.1 (26 Jul 2014)
 
@@ -111,4 +143,3 @@
   +redshift-1.4.1.ebuild:
   Initial commit wrt #303173 by Peter Gantner, Kacper Kowalik and Joshua
   Rich.
-

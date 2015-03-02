@@ -1,6 +1,58 @@
 # ChangeLog for sys-libs/libselinux
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libselinux/ChangeLog,v 1.129 2014/08/05 09:43:56 swift Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libselinux/ChangeLog,v 1.139 2015/02/04 17:49:56 perfinion Exp $
+
+*libselinux-2.4 (04 Feb 2015)
+
+  04 Feb 2015; Jason Zaman <perfinion@gentoo.org> +libselinux-2.4.ebuild:
+  Version bump
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> libselinux-2.3-r2.ebuild:
+  Stable for x86, wrt bug #535682
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org> libselinux-2.3-r2.ebuild:
+  Stable for amd64, wrt bug #535682
+
+*libselinux-2.4_rc7 (06 Dec 2014)
+
+  06 Dec 2014; Jason Zaman <perfinion@gentoo.org> +libselinux-2.4_rc7.ebuild,
+  -libselinux-2.4_rc2.ebuild, -libselinux-2.4_rc5.ebuild:
+  version bump and ebuild clean up, drop old RC
+
+*libselinux-2.3-r2 (04 Dec 2014)
+
+  04 Dec 2014; Jason Zaman <perfinion@gentoo.org> +libselinux-2.3-r2.ebuild,
+  libselinux-2.4_rc6.ebuild:
+  Call python_optimize, bug 531638
+
+*libselinux-2.4_rc6 (14 Nov 2014)
+
+  14 Nov 2014; Sven Vermeulen <swift@gentoo.org> +libselinux-2.4_rc6.ebuild:
+  Bump to rc6, add python3_4 to PYTHON_COMPAT (fixes bug 529176); rc6 also fixes
+  unconfined issue when USE=-unconfined is set
+
+*libselinux-2.4_rc5 (29 Oct 2014)
+
+  29 Oct 2014; Sven Vermeulen <swift@gentoo.org> +libselinux-2.4_rc5.ebuild,
+  -libselinux-2.4_rc4.ebuild:
+  Bump to 2.4_rc5
+
+*libselinux-2.4_rc4 (07 Oct 2014)
+
+  07 Oct 2014; Sven Vermeulen <swift@gentoo.org> +libselinux-2.4_rc4.ebuild:
+  Bump to 2.4-rc4
+
+*libselinux-2.4_rc2 (21 Sep 2014)
+
+  21 Sep 2014; Sven Vermeulen <swift@gentoo.org>
+  +files/0005-use-ruby-include-with-rubylibver.patch,
+  +files/0006-build-related-fixes-bug-500674.patch, +libselinux-2.4_rc2.ebuild,
+  libselinux-2.3-r1.ebuild:
+  Noved to github; also add in masked 2.4 series
+
+  16 Sep 2014; Brian Dolbec <dolsen@gentoo.org> libselinux-2.3-r1.ebuild:
+  Add python-3.4 target, needed for dep of portage. Tested and 
+  confirmed working by perfinion.
 
   05 Aug 2014; Sven Vermeulen <swift@gentoo.org> -libselinux-2.2.2-r4.ebuild,
   -libselinux-2.3.ebuild, -libselinux-2.3_rc1-r1.ebuild,

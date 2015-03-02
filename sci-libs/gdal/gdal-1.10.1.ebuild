@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/gdal/gdal-1.10.1.ebuild,v 1.8 2014/07/11 19:38:23 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-libs/gdal/gdal-1.10.1.ebuild,v 1.14 2015/02/28 15:52:54 jlec Exp $
 
 EAPI=5
 
@@ -19,25 +19,24 @@ SRC_URI="http://download.osgeo.org/${PN}/${PV}/${P}.tar.gz"
 SLOT="0"
 LICENSE="MIT"
 KEYWORDS="amd64 ppc ~ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
-IUSE="armadillo +aux_xml curl debug doc ecwj2k fits geos gif gml hdf5 java jpeg jpeg2k mdb mysql netcdf odbc ogdi opencl pdf perl png postgres python ruby spatialite sqlite threads xls"
+IUSE="armadillo +aux_xml curl debug doc fits geos gif gml hdf5 java jpeg jpeg2k mdb mysql netcdf odbc ogdi opencl pdf perl png postgres python ruby spatialite sqlite threads xls"
 
 RDEPEND="
 	dev-libs/expat
 	dev-libs/libpcre
 	dev-libs/libxml2
-	media-libs/tiff
+	media-libs/tiff:0=
 	sci-libs/libgeotiff
 	sys-libs/zlib[minizip(+)]
 	armadillo? ( sci-libs/armadillo[lapack] )
 	curl? ( net-misc/curl )
-	ecwj2k? ( sci-libs/libecwj2 )
 	fits? ( sci-libs/cfitsio )
 	geos?   ( >=sci-libs/geos-2.2.1 )
 	gif? ( media-libs/giflib )
 	gml? ( >=dev-libs/xerces-c-3 )
 	hdf5? ( >=sci-libs/hdf5-1.6.4[szip] )
-	java? ( >=virtual/jre-1.6 )
-	jpeg? ( virtual/jpeg )
+	java? ( >=virtual/jre-1.6:* )
+	jpeg? ( virtual/jpeg:0= )
 	jpeg2k? ( media-libs/jasper )
 	mysql? ( virtual/mysql )
 	netcdf? ( sci-libs/netcdf )
@@ -46,8 +45,8 @@ RDEPEND="
 	opencl? ( virtual/opencl )
 	pdf? ( >=app-text/poppler-0.24.3:= )
 	perl? ( dev-lang/perl:= )
-	png? ( media-libs/libpng )
-	postgres? ( >=dev-db/postgresql-base-8.4 )
+	png? ( media-libs/libpng:0= )
+	postgres? ( >=dev-db/postgresql-8.4:* )
 	python? (
 		${PYTHON_DEPS}
 		dev-python/setuptools[${PYTHON_USEDEP}]
@@ -71,7 +70,6 @@ AT_M4DIR="${S}/m4"
 MAKEOPTS+=" -j1"
 
 REQUIRED_USE="
-	ecwj2k? ( threads )
 	spatialite? ( sqlite )
 	mdb? ( java )
 "
@@ -201,7 +199,7 @@ gdal_src_configure() {
 		$(use_with armadillo) \
 		$(use_with aux_xml pam) \
 		$(use_with curl) \
-		$(use_with ecwj2k ecw) \
+		--without-ecw \
 		$(use_with fits cfitsio) \
 		$(use_with geos) \
 		$(use_with gif) \
@@ -271,7 +269,7 @@ src_compile() {
 
 	if use perl ; then
 		pushd "${S}"/swig/perl > /dev/null
-		perl-module_src_prep
+		perl-module_src_configure
 		perl-module_src_compile
 		popd > /dev/null
 	fi
@@ -309,7 +307,7 @@ src_install() {
 		popd > /dev/null
 	fi
 
-	use perl && fixlocalpod
+	use perl && perl_delete_localpod
 
 	dodoc Doxyfile HOWTO-RELEASE NEWS
 

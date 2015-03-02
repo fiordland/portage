@@ -1,6 +1,19 @@
 # ChangeLog for net-misc/httpie
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/httpie/ChangeLog,v 1.14 2014/07/06 12:54:51 mgorny Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/httpie/ChangeLog,v 1.17 2015/02/01 20:36:36 vikraman Exp $
+
+  01 Feb 2015; Vikraman Choudhury (vikraman) <vikraman@gentoo.org>
+  -httpie-0.6.0.ebuild, -httpie-0.7.2.ebuild:
+  Drop old versions
+
+*httpie-0.9.0 (01 Feb 2015)
+
+  01 Feb 2015; Vikraman Choudhury (vikraman) <vikraman@gentoo.org>
+  +httpie-0.9.0.ebuild, httpie-0.8.0.ebuild:
+  Bump to version 0.9.0
+
+  28 Nov 2014; Pacho Ramos <pacho@gentoo.org> httpie-0.8.0.ebuild:
+  Support python 3.4
 
   06 Jul 2014; Michał Górny <mgorny@gentoo.org> httpie-0.6.0.ebuild,
   httpie-0.7.2.ebuild, httpie-0.8.0.ebuild:

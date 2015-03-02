@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/postgis/postgis-2.1.1.ebuild,v 1.3 2014/08/22 03:49:29 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-db/postgis/postgis-2.1.1.ebuild,v 1.6 2015/03/02 09:35:05 ago Exp $
 
 EAPI="5"
 POSTGRES_COMPAT=( 9.{0,1,2,3,4} )
@@ -16,16 +16,16 @@ HOMEPAGE="http://postgis.net"
 SRC_URI="http://download.osgeo.org/postgis/source/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc gtk test"
 
 RDEPEND="
 		|| (
-			dev-db/postgresql-server:9.4
-			dev-db/postgresql-server:9.3
-			dev-db/postgresql-server:9.2
-			dev-db/postgresql-server:9.1
-			dev-db/postgresql-server:9.0
+			dev-db/postgresql:9.4[server]
+			dev-db/postgresql:9.3[server]
+			dev-db/postgresql:9.2[server]
+			dev-db/postgresql:9.1[server]
+			dev-db/postgresql:9.0[server]
 		)
 		<dev-libs/json-c-0.11
 		dev-libs/libxml2:2

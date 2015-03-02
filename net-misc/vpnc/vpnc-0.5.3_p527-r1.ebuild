@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/vpnc/vpnc-0.5.3_p527-r1.ebuild,v 1.10 2014/05/17 15:15:31 swift Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/vpnc/vpnc-0.5.3_p527-r1.ebuild,v 1.14 2015/02/27 08:05:58 jlec Exp $
 
 EAPI=5
 
@@ -21,11 +21,14 @@ DEPEND="
 	dev-lang/perl
 	dev-libs/libgcrypt:0=
 	>=sys-apps/iproute2-2.6.19.20061214[-minimal]
-	gnutls? ( net-libs/gnutls )
-	!gnutls? ( dev-libs/openssl )
-	selinux? ( sec-policy/selinux-vpn )"
+	gnutls? ( net-libs/gnutls:= )
+	!gnutls? ( dev-libs/openssl )"
 RDEPEND="${DEPEND}
-	resolvconf? ( net-dns/openresolv )"
+	resolvconf? ( net-dns/openresolv )
+	selinux? ( sec-policy/selinux-vpn )
+"
+
+RESTRICT="!bindist? ( bindist )"
 
 CONFIG_CHECK="~TUN"
 
@@ -69,5 +72,5 @@ src_install() {
 pkg_postinst() {
 	elog "You can generate a configuration file from the original Cisco profiles of your"
 	elog "connection by using /usr/bin/pcf2vpnc to convert the .pcf file"
-	elog "A guide is available in http://www.gentoo.org/doc/en/vpnc-howto.xml"
+	elog "A guide is available at https://wiki.gentoo.org/wiki/Vpnc"
 }

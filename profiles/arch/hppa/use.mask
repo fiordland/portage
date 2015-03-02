@@ -1,6 +1,40 @@
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/use.mask,v 1.81 2014/08/13 12:25:16 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/profiles/arch/hppa/use.mask,v 1.90 2015/02/03 12:07:38 jer Exp $
+
 # DON'T TOUCH THIS FILE. Instead, file a bug and assign it to <hppa@gentoo.org>.
+
+# Jeroen Roovers <jer@gentoo.org> (3 Feb 2015)
+# app-misc/geoclue has not been tested on HPPA
+geoclue
+
+# Jeroen Roovers <jer@gentoo.org> (3 Feb 2015)
+# net-misc/connman has not been tested on HPPA
+connman
+
+# Jeroen Roovers <jer@gentoo.org> (18 Jan 2015)
+# No video acceleration is available so video decoding acceleration will not
+# work either (bug #536956)
+vaapi
+
+# Jeroen Roovers <jer@gentoo.org> (24 Dec 2014)
+# sys-devel/clang has not been ported to HPPA
+clang
+
+# Jeroen Roovers <jer@gentoo.org> (7 Nov 2014)
+# dev-lang/luajit has not been ported to HPPA
+luajit
+
+# Jeroen Roovers <jer@gentoo.org> (19 Oct 2014)
+# sys-devel/gcc says it has not been ported to HPPA (bug #504200)
+sanitize
+
+# Jeroen Roovers <jer@gentoo.org> (30 Sep 2014)
+# sys-libs/libseccomp has not been ported to HPPA (bug #524148)
+seccomp
+
+# Jeroen Roovers <jer@gentoo.org> (19 Sep 2014)
+# >=net-libs/libgadu-1.12.0 (bug #519854) requires dev-libs/protobuf-c (bug #519772)
+gadu
 
 # Jeroen Roovers <jer@gentoo.org> (20 May 2014)
 # Mask USE=systemtap generally until proper kernel support is in place
@@ -194,7 +228,7 @@ beagle
 dmi
 
 # 2006/03/07 Donnie Berkholz <dberkholz@gentoo.org>
-# Modular X: mask for architectures lacking direct rendering      
+# Modular X: mask for architectures lacking direct rendering
 dri
 
 # 2006/02/05 Donnie Berkholz <dberkholz@gentoo.org>
@@ -303,7 +337,7 @@ ibm
 djbfft
 
 # Added because of xmms-plugin.eclass.  Please test out
-# media-sound/beep-media-player and remove if   
+# media-sound/beep-media-player and remove if
 bmp
 freetts
 3dfx

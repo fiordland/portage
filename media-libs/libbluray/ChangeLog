@@ -1,6 +1,22 @@
 # ChangeLog for media-libs/libbluray
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libbluray/ChangeLog,v 1.67 2014/08/05 09:57:51 polynomial-c Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libbluray/ChangeLog,v 1.71 2015/03/02 09:28:25 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> libbluray-0.6.2.ebuild:
+  Stable for ppc, wrt bug #526004
+
+  12 Feb 2015; Pacho Ramos <pacho@gentoo.org> libbluray-0.6.2.ebuild:
+  amd64 stable, bug #526004
+
+*libbluray-0.7.0 (29 Jan 2015)
+
+  29 Jan 2015; Tim Harder <radhermit@gentoo.org> +libbluray-0.7.0.ebuild:
+  Version bump, add fontconfig use flag.
+
+*libbluray-0.6.2 (22 Sep 2014)
+
+  22 Sep 2014; Tim Harder <radhermit@gentoo.org> +libbluray-0.6.2.ebuild:
+  Version bump.
 
   05 Aug 2014; Lars Wendler <polynomial-c@gentoo.org> libbluray-9999.ebuild:
   Adjusted live ebuild.

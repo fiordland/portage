@@ -1,6 +1,24 @@
 # ChangeLog for dev-ruby/logue
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/logue/ChangeLog,v 1.13 2014/08/05 15:48:28 armin76 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/logue/ChangeLog,v 1.17 2015/02/10 09:23:14 ago Exp $
+
+  10 Feb 2015; Agostino Sarubbo <ago@gentoo.org> logue-1.0.2-r1.ebuild:
+  Add ~sparc, wrt bug #539472
+
+*logue-1.0.2-r1 (09 Feb 2015)
+
+  09 Feb 2015; Manuel Rüger <mrueg@gentoo.org> +logue-1.0.2-r1.ebuild,
+  -logue-1.0.2.ebuild:
+  Add ruby20, ruby21 support. Use correct slot of dev-ruby/rainbow. Drop sparc
+  keyword. Remove old.
+
+*logue-1.0.2 (01 Jan 2015)
+
+  01 Jan 2015; Manuel Rüger <mrueg@gentoo.org> +logue-1.0.2.ebuild:
+  Version bump.
+
+  30 Oct 2014; Manuel Rüger <mrueg@gentoo.org> logue-1.0.1.ebuild:
+  Drop jruby target.
 
   05 Aug 2014; Raúl Porcel <armin76@gentoo.org> logue-1.0.1.ebuild:
   sparc stable, bug #505100

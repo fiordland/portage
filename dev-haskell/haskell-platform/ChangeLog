@@ -1,6 +1,23 @@
 # ChangeLog for dev-haskell/haskell-platform
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-haskell/haskell-platform/ChangeLog,v 1.13 2014/07/25 08:58:15 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-haskell/haskell-platform/ChangeLog,v 1.16 2015/02/09 19:32:24 qnikst Exp $
+
+  09 Feb 2015; Alexander Vershilov <qnikst@gentoo.org>
+  -haskell-platform-2011.2.0.1-r2.ebuild, -haskell-platform-2011.4.0.0.ebuild,
+  -haskell-platform-2012.2.0.0.ebuild:
+  cleanup
+
+*haskell-platform-2014.2.0.0 (15 Nov 2014)
+
+  15 Nov 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  +haskell-platform-2014.2.0.0.ebuild:
+  Version bump.
+
+*haskell-platform-2013.2.0.0-r2 (27 Oct 2014)
+
+  27 Oct 2014; Michael Orlitzky <mjo@gentoo.org>
+  +haskell-platform-2013.2.0.0-r2.ebuild, -haskell-platform-2013.2.0.0.ebuild:
+  Revision bump to fix bug #502146 (thanks to Sean Santos).
 
   25 Jul 2014; Sergei Trofimovich <slyfox@gentoo.org> metadata.xml:
   Drop redundant '<maintainer>' field, leave only '<herd>'.

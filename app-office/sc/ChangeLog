@@ -1,6 +1,14 @@
 # ChangeLog for app-office/sc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/sc/ChangeLog,v 1.24 2014/08/10 18:17:32 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/sc/ChangeLog,v 1.26 2014/10/30 21:59:57 jer Exp $
+
+  30 Oct 2014; Jeroen Roovers <jer@gentoo.org> files/sc-7.16-amd64.patch,
+  files/sc-7.16-lex-syntax.patch, sc-7.16-r1.ebuild:
+  Fix building against sys-libs/ncurses[tinfo] (bug #527420).
+
+  26 Sep 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +files/sc-7.16-amd64.patch:
+  fixed cvs sticky options on file(s) that should not have cvs keyword expansion
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> sc-7.16-r1.ebuild:
   QA: drop trailing '.' from DESCRIPTION

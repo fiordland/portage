@@ -1,6 +1,43 @@
 # ChangeLog for sys-apps/install-xattr
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/install-xattr/ChangeLog,v 1.21 2014/08/19 17:56:40 nimiux Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/install-xattr/ChangeLog,v 1.32 2015/02/28 13:22:38 ago Exp $
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org> install-xattr-0.4.ebuild:
+  Stable for ia64, wrt bug #540480
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> install-xattr-0.4.ebuild:
+  Stable for sparc, wrt bug #540480
+
+  25 Feb 2015; Agostino Sarubbo <ago@gentoo.org> install-xattr-0.4.ebuild:
+  Stable for x86, wrt bug #540480
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> install-xattr-0.4.ebuild:
+  Stable for alpha, wrt bug #540480
+
+  19 Feb 2015; Agostino Sarubbo <ago@gentoo.org> install-xattr-0.4.ebuild:
+  Stable for amd64, wrt bug #540480
+
+  18 Feb 2015; Anthony G. Basile <blueness@gentoo.org> install-xattr-0.4.ebuild:
+  Stable on arm, bug #540480
+
+  18 Feb 2015; Anthony G. Basile <blueness@gentoo.org> install-xattr-0.4.ebuild:
+  Stable on ppc and ppc64, bug #540480
+
+  18 Feb 2015; Anthony G. Basile <blueness@gentoo.org> install-xattr-0.4.ebuild,
+  install-xattr-9999.ebuild:
+  Add some || die.
+
+*install-xattr-0.4 (13 Oct 2014)
+
+  13 Oct 2014; Anthony G. Basile <blueness@gentoo.org>
+  +install-xattr-0.4.ebuild, install-xattr-9999.ebuild:
+  Version bump, fixes bug #523994
+
+  12 Oct 2014; Mikle Kolyada <zlogene@gentoo.org> install-xattr-0.3.ebuild:
+  Add ~arm64 and ~m68k keywords
+
+  30 Aug 2014; Anthony G. Basile <blueness@gentoo.org> install-xattr-0.3.ebuild:
+  Stable on x86, bug #511984
 
   19 Aug 2014; Chema Alonso <nimiux@gentoo.org> install-xattr-0.3.ebuild:
   Stable for amd64 wrt bug #511984

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udisks/udisks-2.1.3.ebuild,v 1.10 2014/06/02 17:31:03 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udisks/udisks-2.1.3.ebuild,v 1.12 2014/12/06 20:19:20 zlogene Exp $
 
 EAPI=5
 inherit bash-completion-r1 eutils linux-info systemd udev
@@ -21,7 +21,6 @@ COMMON_DEPEND=">=dev-libs/glib-2.32
 	virtual/libgudev:=
 	virtual/udev
 	introspection? ( >=dev-libs/gobject-introspection-1.30 )
-	selinux? ( sec-policy/selinux-devicekit )
 	systemd? ( sys-apps/systemd )"
 # gptfdisk -> src/udiskslinuxpartition.c -> sgdisk (see also #412801#c1)
 # util-linux -> mount, umount, swapon, swapoff (see also #403073)
@@ -33,7 +32,9 @@ RDEPEND="${COMMON_DEPEND}
 		sys-fs/cryptsetup[udev(+)]
 		sys-fs/lvm2[udev(+)]
 		)
-	gptfdisk? ( >=sys-apps/gptfdisk-0.8 )"
+	gptfdisk? ( >=sys-apps/gptfdisk-0.8 )
+	selinux? ( sec-policy/selinux-devicekit )
+"
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
@@ -61,6 +62,8 @@ pkg_setup() {
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-2.1.0-W_define.patch
 	use systemd || { sed -i -e 's:libsystemd-login:&disable:' configure || die; }
+
+	epatch_user
 }
 
 src_configure() {

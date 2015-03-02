@@ -1,6 +1,38 @@
 # ChangeLog for app-text/t1utils
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/t1utils/ChangeLog,v 1.71 2014/03/09 12:13:04 aballier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/t1utils/ChangeLog,v 1.81 2015/03/02 10:45:52 aballier Exp $
+
+*t1utils-1.39 (02 Mar 2015)
+
+  02 Mar 2015; Alexis Ballier <aballier@gentoo.org> +t1utils-1.39.ebuild:
+  version bump
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org> t1utils-1.38.ebuild:
+  Stable for ia64, wrt bug #534912
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> t1utils-1.38.ebuild:
+  Stable for sparc, wrt bug #534912
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> t1utils-1.38.ebuild:
+  Stable for alpha, wrt bug #534912
+
+  23 Feb 2015; Agostino Sarubbo <ago@gentoo.org> t1utils-1.38.ebuild:
+  Stable for ppc64, wrt bug #534912
+
+  28 Jan 2015; Agostino Sarubbo <ago@gentoo.org> t1utils-1.38.ebuild:
+  Stable for ppc, wrt bug #534912
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> t1utils-1.38.ebuild:
+  Stable for x86, wrt bug #534912
+
+  22 Jan 2015; Agostino Sarubbo <ago@gentoo.org> t1utils-1.38.ebuild:
+  Stable for amd64, wrt bug #534912
+
+  13 Jan 2015; Jeroen Roovers <jer@gentoo.org> t1utils-1.38.ebuild:
+  Stable for HPPA (bug #534912).
+
+  11 Jan 2015; Markus Meier <maekke@gentoo.org> t1utils-1.38.ebuild:
+  arm stable, bug #534912
 
 *t1utils-1.38 (09 Mar 2014)
 

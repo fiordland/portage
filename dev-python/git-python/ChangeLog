@@ -1,6 +1,39 @@
 # ChangeLog for dev-python/git-python
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/git-python/ChangeLog,v 1.11 2014/08/10 21:11:41 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/git-python/ChangeLog,v 1.17 2015/02/07 07:06:22 idella4 Exp $
+
+*git-python-0.3.6 (07 Feb 2015)
+
+  07 Feb 2015; Ian Delaney <idella4@gentoo.org> +git-python-0.3.6.ebuild,
+  -git-python-0.3.4.ebuild:
+  bump, rm old
+
+  26 Jan 2015; Ian Delaney <idella4@gentoo.org> git-python-0.3.5.ebuild:
+  update version border of dev-python/gitdb, fixes bug #537502 by ercpe
+
+*git-python-0.3.5 (18 Jan 2015)
+
+  18 Jan 2015; Ian Delaney <idella4@gentoo.org> +git-python-0.3.5.ebuild,
+  git-python-0.3.4.ebuild:
+  bump
+
+*git-python-0.3.4 (12 Jan 2015)
+
+  12 Jan 2015; Ian Delaney <idella4@gentoo.org> +git-python-0.3.4.ebuild,
+  -git-python-0.1.7.ebuild, -git-python-0.3.2.1.ebuild,
+  -git-python-0.3.2.ebuild:
+  bump, rm old
+
+*git-python-0.3.2.1 (18 Nov 2014)
+
+  18 Nov 2014; Justin Lecher <jlec@gentoo.org> +git-python-0.3.2.1.ebuild:
+  Version Bump
+
+*git-python-0.3.2 (18 Nov 2014)
+
+  18 Nov 2014; Justin Lecher <jlec@gentoo.org> -git-python-0.3.2_rc1.ebuild,
+  -git-python-0.3.2_rc1-r1.ebuild, +git-python-0.3.2.ebuild, metadata.xml:
+  Version Bump; drop RC
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> git-python-0.1.7.ebuild,
   git-python-0.3.2_rc1-r1.ebuild, git-python-0.3.2_rc1.ebuild:

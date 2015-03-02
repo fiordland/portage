@@ -1,6 +1,55 @@
 # ChangeLog for www-client/pybugz
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/pybugz/ChangeLog,v 1.124 2014/08/13 17:34:47 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-client/pybugz/ChangeLog,v 1.138 2014/12/29 22:13:04 williamh Exp $
+
+  29 Dec 2014; William Hubbs <williamh@gentoo.org>
+  -files/pybugz-0.10.1-bugzilla-4.4.1.patch, -pybugz-0.10.1-r2.ebuild,
+  -pybugz-0.10.1.ebuild, -pybugz-0.11.ebuild:
+  remove old versions
+
+  14 Dec 2014; Mikle Kolyada <zlogene@gentoo.org> pybugz-0.11.1.ebuild:
+  ppc/ppc64 stable wrt bug #531826
+
+  12 Dec 2014; Mikle Kolyada <zlogene@gentoo.org> pybugz-0.11.1.ebuild:
+  sparc stable wrt bug #531826
+
+  09 Dec 2014; Jeroen Roovers <jer@gentoo.org> pybugz-0.11.1.ebuild:
+  Stable for HPPA (bug #531826).
+
+  08 Dec 2014; Mikle Kolyada <zlogene@gentoo.org> pybugz-0.11.1.ebuild:
+  ia64 stable wrt bug #531826
+
+  07 Dec 2014; Mikle Kolyada <zlogene@gentoo.org> pybugz-0.11.1.ebuild:
+  arm stable wrt bug #531826
+
+  07 Dec 2014; Mikle Kolyada <zlogene@gentoo.org> pybugz-0.11.1.ebuild:
+  alpha stable wrt bug #531826
+
+  07 Dec 2014; Mikle Kolyada <zlogene@gentoo.org> pybugz-0.11.1.ebuild:
+  x86 stable wrt bug #531826
+
+  06 Dec 2014; William Hubbs <williamh@gentoo.org> pybugz-0.11.1.ebuild:
+  Stable for amd64 wrt #531826
+
+  02 Dec 2014; Markus Meier <maekke@gentoo.org> pybugz-0.11.ebuild:
+  arm stable, bug #530508
+
+*pybugz-0.11.1 (10 Sep 2014)
+
+  10 Sep 2014; William Hubbs <williamh@gentoo.org> +pybugz-0.11.1.ebuild:
+  version bump
+
+  08 Sep 2014; William Hubbs <williamh@gentoo.org> pybugz-0.11.ebuild,
+  pybugz-9999.ebuild:
+  add python 3.4 compatibility
+
+*pybugz-0.11 (04 Sep 2014)
+
+  04 Sep 2014; William Hubbs <williamh@gentoo.org> +pybugz-0.11.ebuild:
+  version bump
+
+  30 Aug 2014; William Hubbs <williamh@gentoo.org> pybugz-9999.ebuild:
+  only support python-3.3 or newer due to upstream bugs in python 2.x
 
   13 Aug 2014; Raúl Porcel <armin76@gentoo.org> pybugz-0.10.1-r2.ebuild:
   alpha/ia64/sparc stable wrt #517550

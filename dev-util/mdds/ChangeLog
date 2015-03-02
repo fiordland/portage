@@ -1,6 +1,33 @@
 # ChangeLog for dev-util/mdds
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/mdds/ChangeLog,v 1.38 2014/06/29 16:43:28 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/mdds/ChangeLog,v 1.43 2015/02/08 18:22:36 dilfridge Exp $
+
+  08 Feb 2015; Andreas K. Huettel <dilfridge@gentoo.org> -mdds-0.8.1.ebuild,
+  -mdds-0.11.1.ebuild:
+  Remove old
+
+*mdds-0.12.0 (08 Feb 2015)
+
+  08 Feb 2015; Andreas K. Huettel <dilfridge@gentoo.org> +mdds-0.12.0.ebuild:
+  Version bump
+
+*mdds-0.11.2-r1 (08 Feb 2015)
+
+  08 Feb 2015; Lars Wendler <polynomial-c@gentoo.org> +mdds-0.11.2-r1.ebuild,
+  +files/mdds-0.11.2-include_algorithm_unconditionally.patch:
+  Revbump which contains an upstream fix for boost-1.57.0. Permission kindly
+  granted by dilfridge.
+
+*mdds-0.11.2 (27 Dec 2014)
+
+  27 Dec 2014; Andreas K. Huettel <dilfridge@gentoo.org> -mdds-0.7.1.ebuild,
+  +mdds-0.11.2.ebuild:
+  Version bump; remove old
+
+*mdds-0.11.1 (17 Nov 2014)
+
+  17 Nov 2014; Tomáš Chvátal <scarabeus@gentoo.org> +mdds-0.11.1.ebuild:
+  Version bump to latest release.
 
   29 Jun 2014; Agostino Sarubbo <ago@gentoo.org> mdds-0.10.3.ebuild:
   Stable for x86, wrt bug #514886

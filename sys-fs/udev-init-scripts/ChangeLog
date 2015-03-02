@@ -1,6 +1,33 @@
 # ChangeLog for sys-fs/udev-init-scripts
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/ChangeLog,v 1.105 2014/08/18 19:02:25 williamh Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/udev-init-scripts/ChangeLog,v 1.113 2015/02/28 22:25:44 jmorgan Exp $
+
+  28 Feb 2015; Jack Morgan <jmorgan@gentoo.org> udev-init-scripts-27.ebuild:
+  sparc stable wrt bug #531602 (for real)
+
+  28 Feb 2015; Jack Morgan <jmorgan@gentoo.org> udev-init-scripts-27.ebuild:
+  sparc stable wrt bug #531602
+
+  24 Feb 2015; Mike Frysinger <vapier@gentoo.org> udev-init-scripts-27.ebuild:
+  Mark arm64/m68k/ia64/s390/sh stable.
+
+  19 Jan 2015; Anthony G. Basile <blueness@gentoo.org>
+  udev-init-scripts-27.ebuild:
+  Stable on arm, bug #531602.
+
+  19 Jan 2015; Anthony G. Basile <blueness@gentoo.org>
+  udev-init-scripts-27.ebuild:
+  Stable on ppc, ppc64 and x86.  Bug #531602
+
+  17 Jan 2015; Mikle Kolyada <zlogene@gentoo.org> udev-init-scripts-27.ebuild:
+  amd64 stable wrt bug #531602
+
+  16 Jan 2015; Jeroen Roovers <jer@gentoo.org> udev-init-scripts-27.ebuild:
+  Stable for HPPA (bug #531602).
+
+  25 Nov 2014; William Hubbs <williamh@gentoo.org>
+  udev-init-scripts-9999.ebuild:
+  Add message about adding udev-trigger to sysinit
 
   18 Aug 2014; William Hubbs <williamh@gentoo.org> udev-init-scripts-27.ebuild,
   udev-init-scripts-9999.ebuild:

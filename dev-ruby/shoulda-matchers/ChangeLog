@@ -1,6 +1,21 @@
 # ChangeLog for dev-ruby/shoulda-matchers
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/shoulda-matchers/ChangeLog,v 1.6 2014/08/18 01:44:21 blueness Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/shoulda-matchers/ChangeLog,v 1.9 2015/02/01 23:32:35 mrueg Exp $
+
+*shoulda-matchers-2.8.0 (01 Feb 2015)
+
+  01 Feb 2015; Manuel Rüger <mrueg@gentoo.org> +shoulda-matchers-2.8.0.ebuild:
+  Version bump.
+
+*shoulda-matchers-2.7.0 (08 Sep 2014)
+
+  08 Sep 2014; Hans de Graaff <graaff@gentoo.org>
+  +shoulda-matchers-2.7.0.ebuild:
+  Version bump.
+
+  08 Sep 2014; Hans de Graaff <graaff@gentoo.org>
+  -shoulda-matchers-2.5.0.ebuild, -shoulda-matchers-2.6.0.ebuild:
+  Cleanup.
 
   18 Aug 2014; Anthony G. Basile <blueness@gentoo.org>
   shoulda-matchers-2.5.0.ebuild, shoulda-matchers-2.6.0.ebuild,

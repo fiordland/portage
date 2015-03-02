@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/cvsps/cvsps-3.13-r1.ebuild,v 1.1 2014/08/24 13:49:08 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-vcs/cvsps/cvsps-3.13-r1.ebuild,v 1.3 2015/01/15 19:57:26 slyfox Exp $
 
 EAPI=5
 
@@ -27,10 +27,10 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-make.patch
 	mv ${PN}.asc ${gentoo_name}.asc || die
 	sed -i "s/${PN}/${gentoo_name}/g" ${gentoo_name}.asc || die
-	MAKEOPTS+=" PROG=${gentoo_name}"
+	sed -i "s/PROG         = cvsps/PROG         = ${gentoo_name}/" Makefile || die
 
 	tc-export CC
-	export prefix=/usr
+	export prefix="${EPREFIX}"/usr
 }
 
 src_install() {

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/DirectFB/DirectFB-1.7.1.ebuild,v 1.2 2014/07/31 06:02:26 pinkbyte Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/DirectFB/DirectFB-1.7.1.ebuild,v 1.5 2015/01/28 19:30:18 mgorny Exp $
 
 EAPI=5
 inherit autotools eutils toolchain-funcs
@@ -32,7 +32,7 @@ SRC_URI="http://directfb.org/downloads/Core/${PN}-${PV:0:3}/${P}.tar.gz
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 -mips ~ppc ~ppc64 ~sh -sparc ~x86"
-IUSE="alsa bmp cddb debug divine drmkms +dynload doc egl fbcon fusiondale fusionsound gif gles2 gstreamer imlib2 input_hub jpeg jpeg2k mad mmx mng mpeg2 mpeg3 multicore opengl oss png pnm sawman sdl sse static-libs svg swfdec tiff timidity tremor truetype v4l vdpau vorbis webp X xine zlib ${IUV} ${IUD}"
+IUSE="alsa bmp cddb debug divine drmkms +dynload doc egl fbcon fusiondale fusionsound gif gles2 gstreamer imlib2 input_hub jpeg jpeg2k mad cpu_flags_x86_mmx mng mpeg2 mpeg3 multicore opengl oss png pnm sawman sdl cpu_flags_x86_sse static-libs svg swfdec tiff timidity tremor truetype v4l vdpau vorbis webp X xine zlib ${IUV} ${IUD}"
 REQUIRED_USE="gles2? ( opengl )"
 
 # ffmpeg useflag broken
@@ -78,6 +78,9 @@ src_prepare() {
 		"${FILESDIR}"/${P}-build.patch \
 		"${FILESDIR}"/${PN}-1.6.3-setregion.patch \
 		"${FILESDIR}"/${PN}-1.6.3-atomic-fix-compiler-error-when-building-for-thumb2.patch
+	sed -i \
+		-e '/#define RASPBERRY_PI/d' \
+		systems/egl/egl_system.c || die #497124
 
 	mv configure.{in,ac} || die
 	eautoreconf
@@ -123,6 +126,8 @@ src_configure() {
 	use input_hub && inputdrivers="${inputdrivers},input_hub"
 	inputdrivers="$(echo ${inputdrivers} | sed 's/none,//')"
 
+	# The xine-vdpau flag requires a custom patch to xine-lib which we don't carry:
+	# http://git.directfb.org/?p=extras/DirectFB-extra.git;a=blob;f=interfaces/IDirectFBVideoProvider/xine-lib-1.2-vdpau-hooks.patch;hb=HEAD
 	econf \
 		$(use_enable static-libs static) \
 		$(use_enable X x11) \
@@ -131,8 +136,8 @@ src_configure() {
 		$(use_enable fusiondale) \
 		$(use_enable fusionsound) \
 		$(use_enable fbcon fbdev) \
-		$(use_enable mmx) \
-		$(use_enable sse) \
+		$(use_enable cpu_flags_x86_mmx mmx) \
+		$(use_enable cpu_flags_x86_sse sse) \
 		$(use_enable egl) \
 		$(use_enable egl idirectfbgl-egl) \
 		$(use_enable jpeg) \
@@ -148,7 +153,7 @@ src_configure() {
 		$(use_enable mpeg3 libmpeg3) \
 		--disable-flash \
 		$(use_enable xine) \
-		$(usex xine "$(use_enable vdpau xine-vdpau)" "--disable-xine-vdpau") \
+		--disable-xine-vdpau \
 		--disable-ffmpeg \
 		$(use_enable bmp) \
 		$(use_enable jpeg2k jpeg2000) \

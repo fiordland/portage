@@ -1,6 +1,46 @@
 # ChangeLog for net-misc/dhcp
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcp/ChangeLog,v 1.255 2014/07/05 15:55:30 zlogene Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dhcp/ChangeLog,v 1.264 2015/03/02 09:23:23 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> dhcp-4.3.1-r2.ebuild:
+  Stable for ppc, wrt bug #539258
+
+*dhcp-4.3.1-r2 (10 Feb 2015)
+
+  10 Feb 2015; Lars Wendler <polynomial-c@gentoo.org> -dhcp-4.3.1.ebuild,
+  -dhcp-4.3.1-r1.ebuild, +dhcp-4.3.1-r2.ebuild, files/dhcpd.init5:
+  Revbump to fix a typo which slipped in with the latest init script fix.
+  Removed old.
+
+*dhcp-4.3.1-r1 (07 Feb 2015)
+
+  07 Feb 2015; William Hubbs <williamh@gentoo.org> +dhcp-4.3.1-r1.ebuild:
+  rev bump to make sure ~ gets the init script fixes
+
+  07 Feb 2015; Lars Wendler <polynomial-c@gentoo.org> files/dhcpd.init5:
+  Re-added the possibility to depend on slapd in the init script.
+
+  07 Feb 2015; William Hubbs <williamh@gentoo.org> files/dhcpd.init5:
+  typo fix
+
+  07 Feb 2015; William Hubbs <williamh@gentoo.org> files/dhcpd.init5:
+  Fix dhcpd init script if you are running dhcpd in a chroot with
+  >=openrc-0.13.9. This should be backward compatible as well, thanks to poly-c
+  for pointing it out.
+
+*dhcp-4.3.1 (08 Nov 2014)
+
+  08 Nov 2014; Mike Frysinger <vapier@gentoo.org> +dhcp-4.3.1.ebuild,
+  +files/dhcp-4.3.1-dhclient-resolvconf.patch:
+  Version bump #510006 by cilly.
+
+  08 Nov 2014; Mike Frysinger <vapier@gentoo.org> files/dhcrelay.conf:
+  Add suggestion to set rc_need for specific network interfaces when IFACE is
+  set #309133 by Milan Dadok.
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> dhcp-4.2.5_p1-r2.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
 
   05 Jul 2014; Mikle Kolyada <zlogene@gentoo.org> dhcp-4.2.5_p1-r2.ebuild:
   ia64/ppc64/ppc/sparc stable wrt bug #499324

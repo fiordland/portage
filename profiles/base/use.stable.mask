@@ -1,11 +1,14 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/use.stable.mask,v 1.6 2014/07/14 18:03:59 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/base/use.stable.mask,v 1.9 2015/02/01 16:02:48 yngwin Exp $
 
 # This file requires eapi 5 or later. New entries go on top.
 # Please use the same syntax as in use.mask
 
-# Mike Gilbert <floppym@gentoo.org> (30 Mar 2014)
-# dev-lang/python:3.4 is not stable.
-python_targets_python3_4
-python_single_target_python3_4
+# Ben de Groot <yngwin@gentoo.org> (01 Feb 2015)
+# until Qt5 is stable
+qt5
+
+# Brian Evans <grknight@gentoo.org> (22 Oct 2014)
+# dev-lang/php:5.6 is not stable
+php_targets_php5-6

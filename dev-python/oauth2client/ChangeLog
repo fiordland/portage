@@ -1,0 +1,20 @@
+# ChangeLog for dev-python/oauth2client
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/oauth2client/ChangeLog,v 1.4 2015/01/27 22:05:54 vapier Exp $
+
+*oauth2client-1.4.6 (27 Jan 2015)
+
+  27 Jan 2015; Mike Frysinger <vapier@gentoo.org> +oauth2client-1.4.6.ebuild:
+  Version bump.
+
+  30 Dec 2014; Markus Meier <maekke@gentoo.org> oauth2client-1.4.2.ebuild:
+  add ~arm, bug #531816
+
+  06 Dec 2014; Justin Lecher <jlec@gentoo.org> oauth2client-1.4.2.ebuild:
+  Add blocker due to filecollision
+
+*oauth2client-1.4.2 (06 Dec 2014)
+
+  06 Dec 2014; Justin Lecher <jlec@gentoo.org> +oauth2client-1.4.2.ebuild,
+  +metadata.xml:
+  New addition, written by me

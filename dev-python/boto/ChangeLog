@@ -1,6 +1,34 @@
 # ChangeLog for dev-python/boto
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/boto/ChangeLog,v 1.99 2014/07/10 23:52:54 radhermit Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/boto/ChangeLog,v 1.107 2015/02/27 11:36:15 ago Exp $
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> boto-2.35.1.ebuild:
+  Stable for sparc, wrt bug #535316
+
+  26 Feb 2015; Markus Meier <maekke@gentoo.org> boto-2.35.1.ebuild:
+  arm stable, bug #535316
+
+  25 Feb 2015; Agostino Sarubbo <ago@gentoo.org> boto-2.35.1.ebuild:
+  Stable for x86, wrt bug #535316
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> boto-2.35.1.ebuild:
+  Stable for ppc, wrt bug #535316
+
+  19 Feb 2015; Agostino Sarubbo <ago@gentoo.org> boto-2.35.1.ebuild:
+  Stable for amd64, wrt bug #535316
+
+  10 Jan 2015; Tim Harder <radhermit@gentoo.org> boto-2.35.1.ebuild:
+  Add python3_3 and python3_4 to PYTHON_COMPAT and update test functionality.
+
+*boto-2.35.1 (10 Jan 2015)
+
+  10 Jan 2015; Tim Harder <radhermit@gentoo.org> +boto-2.35.1.ebuild:
+  Version bump.
+
+*boto-2.34.0 (18 Nov 2014)
+
+  18 Nov 2014; Matthew Thode <prometheanfire@gentoo.org> +boto-2.34.0.ebuild:
+  bup for glance
 
 *boto-2.31.1 (10 Jul 2014)
 

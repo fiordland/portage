@@ -1,10 +1,12 @@
-DEFINED_PHASES=compile install postinst postrm prepare setup unpack
-DEPEND=dev-python/epydoc dev-python/simpleparse =dev-lang/python-2* dev-vcs/git
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-python/epydoc[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] dev-python/simpleparse[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] >=dev-vcs/git-1.8.2.1
 DESCRIPTION=ConfigShell Community Edition for target_core_mod/ConfigFS
-EAPI=4
+EAPI=5
 HOMEPAGE=http://linux-iscsi.org/
+IUSE=python_targets_python2_7
 LICENSE=AGPL-3
-RDEPEND=dev-python/epydoc dev-python/simpleparse =dev-lang/python-2*
+RDEPEND=dev-python/epydoc[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] dev-python/simpleparse[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+REQUIRED_USE=|| ( python_targets_python2_7 )
 SLOT=0
-_eclasses_=distutils	34e0f373c466bb0e97ba194735f1acf2	eutils	06133990e861be0fe60c2b428fd025d9	git-2	2027b81a576527fa16bece425941e094	git-r3	6ebae45064cb04482f3c702632dd9528	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	python	be9965681d83c3980660a2660ac95e95	toolchain-funcs	0f1760274637a138b99bb649202ea402
-_md5_=89a28565c65cfdb6d4daa438b94bd26f
+_eclasses_=distutils-r1	c01d5c4af34f4a37a51fc9638299c222	eutils	998e5931fb95b10a6a11ec796ada2759	git-r3	3a2bd0ae504c33a50061885480f3def3	multibuild	6d4858dc00f8bc51caf3f957f8430eb0	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	python-r1	331701099758706863819fe3ff6ddc8a	python-utils-r1	e3288bc2e6e487674ce218b632701c9e	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
+_md5_=6d42e7cfdfac38c22d3f743698193c64

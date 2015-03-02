@@ -1,6 +1,41 @@
 # ChangeLog for net-misc/strongswan
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/strongswan/ChangeLog,v 1.144 2014/07/10 08:16:13 gurligebis Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/strongswan/ChangeLog,v 1.152 2015/01/17 20:02:35 maekke Exp $
+
+  17 Jan 2015; Markus Meier <maekke@gentoo.org> strongswan-5.2.2.ebuild:
+  arm stable, bug #536226
+
+  15 Jan 2015; Agostino Sarubbo <ago@gentoo.org> strongswan-5.2.2.ebuild:
+  Stable for ppc, wrt bug #536226
+
+  12 Jan 2015; Agostino Sarubbo <ago@gentoo.org> strongswan-5.2.2.ebuild:
+  Stable for amd64, wrt bug #536226
+
+  11 Jan 2015; Andreas Schuerch <nativemad@gentoo.org> strongswan-5.2.2.ebuild:
+  x86 stable, see bug 536226
+
+*strongswan-5.2.2 (11 Jan 2015)
+
+  11 Jan 2015; <gurligebis@gentoo.org> -strongswan-5.2.1.ebuild,
+  +strongswan-5.2.2.ebuild:
+  Bumping to 5.2.2, containing fix for CVE-2014-9221.
+
+*strongswan-5.2.1 (26 Oct 2014)
+
+  26 Oct 2014; <gurligebis@gentoo.org> -strongswan-5.2.0-r1.ebuild,
+  +strongswan-5.2.1.ebuild:
+  Bumping to 5.2.1
+
+  18 Oct 2014; Mike Frysinger <vapier@gentoo.org> strongswan-5.2.0-r1.ebuild:
+  Add USE=gmp to control the gmp plugin #504942 by Enrico Tagliavini.
+
+*strongswan-5.2.0-r1 (13 Sep 2014)
+
+  13 Sep 2014; <gurligebis@gentoo.org> -strongswan-5.2.0.ebuild,
+  +strongswan-5.2.0-r1.ebuild, files/ipsec, metadata.xml:
+  Changing init script to "use logger" instead of "need logger" - fixing bug
+  #476514 .
+  Adding use flags for more plugins, fixing bugs #481740 and #504942 .
 
 *strongswan-5.2.0 (10 Jul 2014)
 

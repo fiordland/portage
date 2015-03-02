@@ -1,6 +1,20 @@
 # ChangeLog for sys-power/powertop
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/powertop/ChangeLog,v 1.104 2014/08/25 16:48:36 mrueg Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-power/powertop/ChangeLog,v 1.108 2015/03/02 09:33:37 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> powertop-2.6.ebuild:
+  Stable for ppc, wrt bug #520616
+
+  16 Jan 2015; Raúl Porcel <armin76@gentoo.org> powertop-2.6.ebuild:
+  sparc/x86 stable wrt #520616
+
+*powertop-2.7 (24 Nov 2014)
+
+  24 Nov 2014; Rick Farina <zerochaos@gentoo.org> +powertop-2.7.ebuild:
+  bump
+
+  14 Sep 2014; Markus Meier <maekke@gentoo.org> powertop-2.6.ebuild:
+  arm stable, bug #520616
 
   25 Aug 2014; Manuel Rüger <mrueg@gentoo.org> powertop-2.6.ebuild:
   Mark amd64 stable. Bug #520616.

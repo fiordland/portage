@@ -1,6 +1,69 @@
 # ChangeLog for dev-ruby/activesupport
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activesupport/ChangeLog,v 1.268 2014/08/23 07:09:07 graaff Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/activesupport/ChangeLog,v 1.279 2015/01/07 07:03:48 graaff Exp $
+
+*activesupport-4.1.9 (07 Jan 2015)
+*activesupport-4.0.13 (07 Jan 2015)
+
+  07 Jan 2015; Hans de Graaff <graaff@gentoo.org> +activesupport-4.0.13.ebuild,
+  +activesupport-4.1.9.ebuild:
+  Version bumps.
+
+*activesupport-4.2.0 (01 Jan 2015)
+
+  01 Jan 2015; Hans de Graaff <graaff@gentoo.org> +activesupport-4.2.0.ebuild:
+  Version bump for Rails 4.2. Dropped keywords tracked in bug 534186.
+
+  20 Dec 2014; Hans de Graaff <graaff@gentoo.org> -activesupport-3.2.20.ebuild,
+  -activesupport-4.0.11.ebuild, -activesupport-4.1.7.ebuild:
+  Cleanup of vulnerable versions.
+
+  26 Nov 2014; Manuel Rüger <mrueg@gentoo.org> activesupport-3.2.20.ebuild,
+  activesupport-3.2.21.ebuild:
+  Drop jruby traces.
+
+  25 Nov 2014; Manuel Rüger <mrueg@gentoo.org> activesupport-3.2.20.ebuild,
+  activesupport-3.2.21.ebuild:
+  Drop jruby target.
+
+  18 Nov 2014; Manuel Rüger <mrueg@gentoo.org>
+  -files/activesupport-2.3.14-unvendorize.patch,
+  -files/activesupport-2.3.15-unvendorize.patch,
+  -files/activesupport-2.3.16-unvendorize.patch,
+  -files/activesupport-2.3.5-mocha-0.9.5.patch,
+  -files/activesupport-3.0.3-mocha-0.9.5.patch:
+  Cleanup unused patches.
+
+*activesupport-4.1.8 (17 Nov 2014)
+*activesupport-4.0.12 (17 Nov 2014)
+*activesupport-3.2.21 (17 Nov 2014)
+
+  17 Nov 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-3.2.21.ebuild,
+  +activesupport-4.0.12.ebuild, +activesupport-4.1.8.ebuild:
+  Version bump for security bug 529635.
+
+  07 Nov 2014; Hans de Graaff <graaff@gentoo.org> -activesupport-3.2.19.ebuild,
+  -activesupport-4.0.9.ebuild, -activesupport-4.0.10.ebuild,
+  -activesupport-4.1.5.ebuild, -activesupport-4.1.6.ebuild:
+  Remove vulnerable versions.
+
+*activesupport-4.1.7 (31 Oct 2014)
+*activesupport-4.0.11 (31 Oct 2014)
+*activesupport-3.2.20 (31 Oct 2014)
+
+  31 Oct 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-3.2.20.ebuild,
+  +activesupport-4.0.11.ebuild, +activesupport-4.1.7.ebuild:
+  Version bump for security issue CVE-2014-7818.
+
+*activesupport-4.1.6 (12 Sep 2014)
+
+  12 Sep 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.1.6.ebuild:
+  Version bump.
+
+*activesupport-4.0.10 (12 Sep 2014)
+
+  12 Sep 2014; Hans de Graaff <graaff@gentoo.org> +activesupport-4.0.10.ebuild:
+  Version bump.
 
   23 Aug 2014; Hans de Graaff <graaff@gentoo.org> -activesupport-4.0.8.ebuild,
   -activesupport-4.1.4.ebuild:

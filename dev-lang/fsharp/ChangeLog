@@ -1,6 +1,18 @@
 # ChangeLog for dev-lang/fsharp
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/fsharp/ChangeLog,v 1.11 2014/05/17 09:07:09 cynede Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/fsharp/ChangeLog,v 1.13 2014/12/28 15:02:08 cynede Exp $
+
+*fsharp-3.1.1.31 (28 Dec 2014)
+
+  28 Dec 2014; Heather Cynede <cynede@gentoo.org> +fsharp-3.1.1.31.ebuild,
+  -fsharp-3.1.1.26.ebuild:
+  F# bump
+
+*fsharp-3.1.1.26 (19 Sep 2014)
+
+  19 Sep 2014; Heather Cynede <cynede@gentoo.org> +fsharp-3.1.1.26.ebuild,
+  -fsharp-3.1.1.14.ebuild:
+  bump F#
 
 *fsharp-3.1.1.14 (17 May 2014)
 

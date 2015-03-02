@@ -1,6 +1,14 @@
 # ChangeLog for dev-util/complexity
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/complexity/ChangeLog,v 1.9 2014/05/23 23:48:52 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/complexity/ChangeLog,v 1.11 2015/02/11 09:22:02 jer Exp $
+
+  11 Feb 2015; Jeroen Roovers <jer@gentoo.org> -complexity-1.1.ebuild:
+  Old.
+
+*complexity-1.2 (21 Dec 2014)
+
+  21 Dec 2014; Jeroen Roovers <jer@gentoo.org> +complexity-1.2.ebuild:
+  Version bump.
 
   23 May 2014; Jeroen Roovers <jer@gentoo.org> -complexity-1.0.ebuild,
   -files/complexity-1.0-ac_aux_dir.patch:

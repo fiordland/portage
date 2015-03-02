@@ -1,6 +1,13 @@
 # ChangeLog for games-action/descent1-demodata
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/descent1-demodata/ChangeLog,v 1.4 2013/03/29 15:28:31 hasufell Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-action/descent1-demodata/ChangeLog,v 1.6 2015/02/06 10:55:11 mr_bones_ Exp $
+
+  06 Feb 2015; Michael Sterrett <mr_bones_@gentoo.org>
+  descent1-demodata-1.4.ebuild:
+  EAPI=5; tidy
+
+  31 Dec 2014; Tupone Alfredo <tupone@gentoo.org> descent1-demodata-1.4.ebuild:
+  Migrating to EAPI 4
 
   29 Mar 2013; Julian Ospald <hasufell@gentoo.org>
   descent1-demodata-1.4.ebuild:
@@ -21,4 +28,3 @@
   +descent1-demodata-1.4.ebuild:
   Initial import. Ebuild by Paul Bredbury <brebs@sent.com>. Closing bug
   #154591.
-

@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/rstudio/rstudio-0.98.490-r1.ebuild,v 1.1 2014/08/27 15:38:02 hasufell Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/rstudio/rstudio-0.98.490-r1.ebuild,v 1.4 2015/02/28 04:39:43 gienah Exp $
 
 EAPI=5
 
-inherit eutils cmake-utils gnome2-utils versionator fdo-mime java-pkg-2
+inherit eutils cmake-utils gnome2-utils versionator fdo-mime java-pkg-2 pax-utils
 
 # TODO
 # * package gin and gwt
@@ -23,17 +23,17 @@ SRC_URI="https://github.com/rstudio/rstudio/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 QTVER=4.8
 QTSLOT=4
 RDEPEND=">=dev-lang/R-2.11.1
-	>=dev-libs/boost-1.50
+	>=dev-libs/boost-1.50:=
 	dev-libs/mathjax
-	dev-libs/openssl
+	dev-libs/openssl:0
 	sys-libs/zlib
-	>=virtual/jre-1.5
+	>=virtual/jre-1.5:=
 	x11-libs/pango
 	>=dev-qt/qtcore-${QTVER}:${QTSLOT}
 	>=dev-qt/qtdbus-${QTVER}:${QTSLOT}
@@ -79,6 +79,11 @@ src_prepare() {
 	sed -i \
 		-e "s:/usr:${EPREFIX}/usr:g" \
 		CMakeGlobals.txt src/cpp/desktop/CMakeLists.txt || die
+
+	# specify that namespace core the is in the global namespace and not
+	# relative to some other namespace (like its ::core not ::boost::core)
+	find . \( -name *.cpp -or -name *.hpp \) -exec sed \
+		-e 's@<core::@< ::core::@g' -e 's@\([^:]\)core::@\1::core::@g' -i {} \;
 }
 
 src_configure() {
@@ -101,6 +106,7 @@ src_compile() {
 
 src_install() {
 	cmake-utils_src_install
+	pax-mark m "${ED}usr/bin/rstudio"
 }
 
 pkg_preinst() {

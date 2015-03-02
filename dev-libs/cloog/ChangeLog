@@ -1,6 +1,51 @@
 # ChangeLog for dev-libs/cloog
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/cloog/ChangeLog,v 1.17 2014/08/05 15:34:18 armin76 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/cloog/ChangeLog,v 1.29 2015/02/05 12:33:39 blueness Exp $
+
+  05 Feb 2015; Anthony G. Basile <blueness@gentoo.org> cloog-0.18.3.ebuild:
+  Fix FEATURES=test for 0.18.3
+
+*cloog-0.18.3 (05 Feb 2015)
+
+  05 Feb 2015; Anthony G. Basile <blueness@gentoo.org> +cloog-0.18.3.ebuild,
+  cloog-9999.ebuild:
+  Add 0.18.3 which depends on =dev-libs/isl-0.14:0/14.  We skip 0.18.2 doesn't
+  build against any versions of isl and is skipped in their update log.
+
+  26 Dec 2014; Agostino Sarubbo <ago@gentoo.org> cloog-0.18.1.ebuild:
+  Stable for sparc, wrt bug #516152
+
+  04 Nov 2014; Mike Frysinger <vapier@gentoo.org> cloog-0.18.0.ebuild,
+  cloog-0.18.1.ebuild, cloog-9999.ebuild:
+  Update HOMEPAGE.
+
+  04 Nov 2014; Mike Frysinger <vapier@gentoo.org> cloog-0.18.1.ebuild,
+  cloog-9999.ebuild:
+  Add arm64 love.
+
+  04 Nov 2014; Mike Frysinger <vapier@gentoo.org> cloog-0.18.1.ebuild:
+  Mark m68k/s390/sh stable.
+
+  03 Nov 2014; Agostino Sarubbo <ago@gentoo.org> cloog-0.18.1.ebuild:
+  Stable for x86, wrt bug #516152
+
+*cloog-9999 (01 Nov 2014)
+
+  01 Nov 2014; Anthony G. Basile <blueness@gentoo.org> +cloog-9999.ebuild:
+  Add live ebuild for testing
+
+  24 Oct 2014; Mikle Kolyada <zlogene@gentoo.org> cloog-0.18.1.ebuild:
+  amd64 stable wrt bug #516152
+
+  22 Oct 2014; Anthony G. Basile <blueness@gentoo.org> cloog-0.18.1.ebuild:
+  Stable on ppc and ppc64, bug #516152
+
+  22 Oct 2014; Markus Meier <maekke@gentoo.org> cloog-0.18.1.ebuild:
+  arm stable, bug #516152
+
+  24 Sep 2014; Anthony G. Basile <blueness@gentoo.org> cloog-0.18.0.ebuild,
+  cloog-0.18.1.ebuild:
+  Keyword ~ppc ~ppc64
 
   05 Aug 2014; Raúl Porcel <armin76@gentoo.org> cloog-0.18.0.ebuild,
   cloog-0.18.1.ebuild:

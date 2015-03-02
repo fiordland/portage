@@ -1,6 +1,45 @@
 # ChangeLog for app-portage/portpeek
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/portpeek/ChangeLog,v 1.180 2014/08/14 00:19:49 mpagano Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-portage/portpeek/ChangeLog,v 1.189 2014/12/29 18:47:39 mpagano Exp $
+
+*portpeek-2.1.18 (29 Dec 2014)
+
+  29 Dec 2014; Mike Pagano <mpagano@gentoo.org> -portpeek-2.1.16.ebuild,
+  -portpeek-2.1.16-r1.ebuild, +portpeek-2.1.18.ebuild:
+  Portpeek was removing a masked package in package.unmask, even if it was
+  installed and globally masked.
+
+  08 Dec 2014; Mike Pagano <mpagano@gentoo.org> portpeek-2.1.16.ebuild:
+  Dropping amd64 stable keyword. There might be an issue with this version. I
+  am trying to reproduce.
+
+*portpeek-2.1.16-r1 (27 Nov 2014)
+
+  27 Nov 2014; Mike Pagano <mpagano@gentoo.org> +portpeek-2.1.16-r1.ebuild:
+  Bump gentoolkit dependency. Needed for python 3.4 support.
+
+  27 Nov 2014; Mike Pagano <mpagano@gentoo.org> portpeek-2.1.16.ebuild:
+  Remove 3.4 compatibility from 2.1.16
+
+  26 Nov 2014; Agostino Sarubbo <ago@gentoo.org> portpeek-2.1.16.ebuild:
+  Stable for amd64, wrt bug #530050
+
+  24 Nov 2014; Mike Pagano <mpagano@gentoo.org> portpeek-2.1.16.ebuild:
+  Added python-3.4 to PYTHON_COMPAT. See bug #530376 .
+
+  03 Oct 2014; Mike Pagano <mpagano@gentoo.org> -portpeek-2.1.15.ebuild:
+  Drop old.
+
+*portpeek-2.1.16 (03 Oct 2014)
+
+  03 Oct 2014; Mike Pagano <mpagano@gentoo.org> +portpeek-2.1.16.ebuild:
+  Handle slot in package.use
+
+*portpeek-2.1.15 (26 Sep 2014)
+
+  26 Sep 2014; Mike Pagano <mpagano@gentoo.org> -portpeek-2.1.14.ebuild,
+  +portpeek-2.1.15.ebuild:
+  Fix bug in package.mask reason check. Remove old.
 
 *portpeek-2.1.14 (14 Aug 2014)
 

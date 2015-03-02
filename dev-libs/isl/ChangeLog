@@ -1,6 +1,37 @@
 # ChangeLog for dev-libs/isl
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/isl/ChangeLog,v 1.21 2014/08/05 15:21:38 armin76 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/isl/ChangeLog,v 1.30 2014/12/26 11:28:23 ago Exp $
+
+  26 Dec 2014; Agostino Sarubbo <ago@gentoo.org> isl-0.12.2.ebuild:
+  Stable for sparc, wrt bug #516152
+
+  04 Nov 2014; Mike Frysinger <vapier@gentoo.org> isl-0.11.1.ebuild,
+  isl-0.12.2.ebuild, isl-0.13.ebuild, isl-0.14.ebuild:
+  Add arm64 love.
+
+  04 Nov 2014; Mike Frysinger <vapier@gentoo.org> isl-0.12.2.ebuild:
+  Mark m68k/s390/sh stable.
+
+  03 Nov 2014; Agostino Sarubbo <ago@gentoo.org> isl-0.12.2.ebuild:
+  Stable for x86, wrt bug #516152
+
+*isl-0.14 (29 Oct 2014)
+
+  29 Oct 2014; Anthony G. Basile <blueness@gentoo.org> +isl-0.14.ebuild:
+  Version bump.  Masked for testing, see bug #467192.
+
+  24 Oct 2014; Mikle Kolyada <zlogene@gentoo.org> isl-0.12.2.ebuild:
+  amd64 stable wrt bug #516152
+
+  22 Oct 2014; Anthony G. Basile <blueness@gentoo.org> isl-0.12.2.ebuild:
+  Stable on ppc and ppc64, bug #516152
+
+  22 Oct 2014; Markus Meier <maekke@gentoo.org> isl-0.12.2.ebuild:
+  arm stable, bug #516152
+
+  24 Sep 2014; Anthony G. Basile <blueness@gentoo.org> isl-0.11.1.ebuild,
+  isl-0.12.2.ebuild, isl-0.13.ebuild:
+  Keyword ~ppc ~ppc64
 
   05 Aug 2014; Raúl Porcel <armin76@gentoo.org> isl-0.11.1.ebuild,
   isl-0.12.2.ebuild, isl-0.13.ebuild:

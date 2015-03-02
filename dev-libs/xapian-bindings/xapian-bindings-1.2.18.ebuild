@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/xapian-bindings/xapian-bindings-1.2.18.ebuild,v 1.1 2014/06/23 10:34:24 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/xapian-bindings/xapian-bindings-1.2.18.ebuild,v 1.11 2014/12/05 10:17:58 ago Exp $
 
 EAPI="5"
 
@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python{2_6,2_7,3_2} )
 PYTHON_REQ_USE="threads"
 USE_PYTHON='2.6 2.7'
 
-USE_PHP="php5-3 php5-4"
+USE_PHP="php5-4"
 
 PHP_EXT_NAME="xapian"
 PHP_EXT_INI="yes"
@@ -24,7 +24,7 @@ SRC_URI="http://oligarchy.co.uk/xapian/${PV}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 arm ia64 ~mips ppc ppc64 sparc x86"
 #IUSE="java lua mono perl php python ruby tcl"
 #REQUIRED_USE="|| ( java lua mono perl php python ruby tcl )"
 IUSE="java lua perl php python ruby tcl"
@@ -32,7 +32,7 @@ REQUIRED_USE="|| ( java lua perl php python ruby tcl )"
 
 COMMONDEPEND="=dev-libs/xapian-${PV}*
 	lua? ( >=dev-lang/lua-5.1 )
-	perl? ( dev-lang/perl )
+	perl? ( dev-lang/perl:= )
 	ruby? ( dev-lang/ruby )
 	tcl? ( >=dev-lang/tcl-8.1 )"
 #	mono? ( >=dev-lang/mono-1.0.8 )

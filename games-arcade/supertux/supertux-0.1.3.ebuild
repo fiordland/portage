@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/supertux/supertux-0.1.3.ebuild,v 1.18 2014/08/10 21:22:46 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-arcade/supertux/supertux-0.1.3.ebuild,v 1.20 2015/02/19 06:28:27 mr_bones_ Exp $
 
 EAPI=5
 inherit eutils games
 
 DESCRIPTION="A game similar to Super Mario Bros"
 HOMEPAGE="http://super-tux.sourceforge.net"
-SRC_URI="mirror://berlios/${PN}/${P}.tar.bz2"
+SRC_URI="https://supertux.googlecode.com/files/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -16,19 +16,19 @@ IUSE="opengl"
 
 DEPEND="media-libs/libsdl[joystick]
 	media-libs/sdl-image[png,jpeg]
-	media-libs/sdl-mixer[mikmod,vorbis]
+	media-libs/sdl-mixer[mod,vorbis]
 	x11-libs/libXt"
-RDEPEND="${DEPEND}"
+RDEPEND=${DEPEND}
 
-PATCHES=(
-	"${FILESDIR}"/${P}-gcc41.patch
-	"${FILESDIR}"/${P}-ndebug.patch
+src_prepare() {
+	epatch \
+	"${FILESDIR}"/${P}-gcc41.patch \
+	"${FILESDIR}"/${P}-ndebug.patch \
 	"${FILESDIR}"/${P}-desktop.patch
-)
+}
 
 src_configure() {
 	egamesconf \
-		--disable-dependency-tracking \
 		--disable-debug \
 		$(use_enable opengl)
 }
@@ -37,7 +37,7 @@ src_install() {
 	emake DESTDIR="${D}" \
 		desktopdir=/usr/share/applications \
 		icondir=/usr/share/pixmaps \
-		install || die
+		install
 	dodoc AUTHORS ChangeLog LEVELDESIGN README TODO
 	prepgamesdirs
 }

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-215-r3.ebuild,v 1.12 2014/08/27 12:24:39 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/systemd/systemd-215-r3.ebuild,v 1.16 2015/01/01 15:09:29 floppym Exp $
 
 EAPI=5
 
@@ -16,7 +16,7 @@ SRC_URI="http://www.freedesktop.org/software/systemd/${P}.tar.xz"
 
 LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0/2"
-KEYWORDS="~alpha amd64 arm ~ia64 ppc ~ppc64 ~sparc x86"
+KEYWORDS="alpha amd64 arm ia64 ppc ppc64 sparc x86"
 IUSE="acl audit cryptsetup doc elfutils +firmware-loader gcrypt gudev http
 	introspection kdbus +kmod lzma pam policykit python qrcode +seccomp selinux
 	ssl test vanilla"
@@ -60,6 +60,7 @@ RDEPEND="${COMMON_DEPEND}
 # sys-apps/dbus: the daemon only (+ build-time lib dep for tests)
 PDEPEND=">=sys-apps/dbus-1.6.8-r1:0[systemd]
 	>=sys-apps/hwids-20130717-r1[udev]
+	>=sys-fs/udev-init-scripts-25
 	policykit? ( sys-auth/polkit )
 	!vanilla? ( sys-apps/gentoo-systemd-integration )"
 
@@ -100,7 +101,7 @@ src_prepare() {
 pkg_pretend() {
 	local CONFIG_CHECK="~AUTOFS4_FS ~BLK_DEV_BSG ~CGROUPS ~DEVTMPFS ~DMIID
 		~EPOLL ~FANOTIFY ~FHANDLE ~INOTIFY_USER ~IPV6 ~NET ~NET_NS ~PROC_FS
-		~SECCOMP ~SIGNALFD ~SYSFS ~TIMERFD ~TMPFS_XATTR
+		~SECCOMP ~SIGNALFD ~SYSFS ~TIMERFD ~TMPFS_XATTR ~DEVPTS_MULTIPLE_INSTANCES
 		~!IDE ~!SYSFS_DEPRECATED ~!SYSFS_DEPRECATED_V2
 		~!GRKERNSEC_PROC"
 

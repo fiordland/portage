@@ -1,6 +1,37 @@
 # ChangeLog for dev-db/postgis
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/postgis/ChangeLog,v 1.92 2014/08/22 03:49:29 patrick Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-db/postgis/ChangeLog,v 1.99 2015/03/02 09:35:05 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> postgis-2.1.1.ebuild:
+  Stable for ppc, wrt bug #498156
+
+  28 Dec 2014; Aaron W. Swenson <titanofold@gentoo.org> postgis-2.0.3.ebuild,
+  postgis-2.0.6.ebuild, postgis-2.1.0.ebuild, postgis-2.1.1.ebuild,
+  postgis-2.1.4.ebuild, postgis-2.1.5.ebuild:
+  Rename virtual/postgresql to dev-db/postgresql
+
+*postgis-2.1.5 (19 Dec 2014)
+
+  19 Dec 2014; Patrick Lauer <patrick@gentoo.org> +postgis-2.1.5.ebuild:
+  Bump
+
+  08 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> postgis-2.1.4.ebuild:
+  Fix bug 528576. Force serial compilation.
+
+  08 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> postgis-2.0.6.ebuild,
+  postgis-2.1.4.ebuild:
+  Fix bug 528584. Use grep instead of cut.
+
+*postgis-2.1.4 (05 Nov 2014)
+*postgis-2.0.6 (05 Nov 2014)
+
+  05 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> +postgis-2.0.6.ebuild,
+  +postgis-2.1.4.ebuild, +files/postgis-2.1.4-pkgconfig-json.patch:
+  Version bump. Fixes bugs 464392, 507708, and 520694.
+
+  03 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> postgis-2.0.3.ebuild,
+  postgis-2.1.0.ebuild, postgis-2.1.1.ebuild:
+  Update PostgreSQL dependencies and/or checks to virtual/postgresql.
 
   22 Aug 2014; Patrick Lauer <patrick@gentoo.org> postgis-2.1.1.ebuild:
   Fix json-c dep, add postgres-9.4 support #516986

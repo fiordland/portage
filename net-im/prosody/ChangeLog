@@ -1,6 +1,48 @@
 # ChangeLog for net-im/prosody
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/prosody/ChangeLog,v 1.37 2014/08/05 18:34:13 mrueg Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-im/prosody/ChangeLog,v 1.47 2015/02/26 18:45:17 maekke Exp $
+
+  26 Feb 2015; Markus Meier <maekke@gentoo.org> prosody-0.9.7.ebuild:
+  arm stable, bug #511532
+
+  11 Jan 2015; Andreas Schuerch <nativemad@gentoo.org> prosody-0.9.7.ebuild:
+  x86 stable, see bug 511532
+
+  11 Jan 2015; Tobias Klausmann <klausman@gentoo.org> prosody-0.9.7.ebuild:
+  Stable on amd64, bug 511532
+
+*prosody-0.9.7 (11 Dec 2014)
+
+  11 Dec 2014; Tobias Klausmann <klausman@gentoo.org> +prosody-0.9.7.ebuild:
+  Version bump to 0.9.7, bug 525782
+
+  14 Nov 2014; Markus Meier <maekke@gentoo.org> prosody-0.9.4.ebuild:
+  arm stable, bug #511532
+
+  15 Oct 2014; Tobias Klausmann <klausman@gentoo.org> prosody-0.9.5-r2.ebuild:
+  Fix referencing old & broken init file
+
+*prosody-0.9.5-r2 (15 Oct 2014)
+
+  15 Oct 2014; Tobias Klausmann <klausman@gentoo.org> -prosody-0.9.5-r1.ebuild,
+  +prosody-0.9.5-r2.ebuild, -files/prosody.initd-r1, +files/prosody.initd-r2:
+  Fix checkpath call to make file, not directory. Bug 525402
+
+*prosody-0.9.5-r1 (14 Oct 2014)
+
+  14 Oct 2014; Tobias Klausmann <klausman@gentoo.org> +prosody-0.9.5-r1.ebuild,
+  +files/prosody.initd-r1:
+  Update initd file to check for file permissions, re-add systemd files and
+  clean up init script a bit
+
+  13 Oct 2014; Tobias Klausmann <klausman@gentoo.org> prosody-0.9.4.ebuild:
+  Stable on amd64, bug 511532
+
+*prosody-0.9.5 (13 Oct 2014)
+
+  13 Oct 2014; Tobias Klausmann <klausman@gentoo.org> -prosody-0.9.1-r1.ebuild,
+  -prosody-0.9.2.ebuild, -prosody-0.9.3.ebuild, +prosody-0.9.5.ebuild:
+  Version bump and cleanup of old versions
 
   05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> prosody-0.8.2-r1.ebuild,
   prosody-0.8.2.ebuild, prosody-0.9.1-r1.ebuild, prosody-0.9.2.ebuild,

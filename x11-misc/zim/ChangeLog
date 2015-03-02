@@ -1,6 +1,15 @@
 # ChangeLog for x11-misc/zim
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/zim/ChangeLog,v 1.23 2014/08/28 09:55:22 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/zim/ChangeLog,v 1.25 2015/01/06 08:59:57 jer Exp $
+
+  06 Jan 2015; Jeroen Roovers <jer@gentoo.org> metadata.xml:
+  Update longdescription with upstream blurb (bug #535718 by Jonas Stein).
+
+*zim-0.62 (04 Oct 2014)
+
+  04 Oct 2014; Jeroen Roovers <jer@gentoo.org> -zim-0.60.ebuild,
+  +zim-0.62.ebuild, +files/zim-0.62-desktop.patch:
+  Version bump.
 
 *zim-0.61 (28 Aug 2014)
 

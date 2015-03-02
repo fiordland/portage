@@ -1,6 +1,28 @@
 # ChangeLog for perl-core/Module-CoreList
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/Module-CoreList/ChangeLog,v 1.87 2014/07/09 20:32:49 dilfridge Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/perl-core/Module-CoreList/ChangeLog,v 1.91 2015/02/16 18:15:44 dilfridge Exp $
+
+*Module-CoreList-5.201.502.140 (16 Feb 2015)
+
+  16 Feb 2015; Andreas K. Huettel <dilfridge@gentoo.org>
+  +Module-CoreList-5.201.502.140.ebuild:
+  Version bump for perl team convenience
+
+*Module-CoreList-5.201.501.200 (24 Jan 2015)
+
+  24 Jan 2015; Andreas K. Huettel <dilfridge@gentoo.org>
+  +Module-CoreList-5.201.501.200.ebuild:
+  Version bump
+
+  08 Nov 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -Module-CoreList-2.840.0.ebuild, -Module-CoreList-5.21.1.ebuild:
+  Remove old
+
+*Module-CoreList-5.201.409.140 (16 Sep 2014)
+
+  16 Sep 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  +Module-CoreList-5.201.409.140.ebuild:
+  Version bump
 
   09 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org>
   -Module-CoreList-2.940.0.ebuild, -Module-CoreList-2.960.0.ebuild,

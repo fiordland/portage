@@ -1,6 +1,62 @@
 # ChangeLog for net-wireless/wpa_supplicant
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/wpa_supplicant/ChangeLog,v 1.214 2014/06/13 14:56:17 gurligebis Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/wpa_supplicant/ChangeLog,v 1.227 2015/03/02 09:22:42 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> wpa_supplicant-2.2-r1.ebuild:
+  Stable for ppc, wrt bug #522852
+
+  16 Feb 2015; Mike Gilbert <floppym@gentoo.org> metadata.xml,
+  wpa_supplicant-2.3-r2.ebuild:
+  Make it 'hs2-0' to avoid the 'reserved' underscore character.
+
+  16 Feb 2015; Mike Gilbert <floppym@gentoo.org> metadata.xml,
+  wpa_supplicant-2.3-r2.ebuild:
+  Replace hs2.0 with hs2_0 to comply with PMS requirements.
+
+  11 Feb 2015; <gurligebis@gentoo.org> wpa_supplicant-2.3-r2.ebuild:
+  Fixing config generation with broken sed command, fixing bug #539598
+
+  09 Feb 2015; Rick Farina <zerochaos@gentoo.org> -wpa_supplicant-2.3-r1.ebuild,
+  wpa_supplicant-2.3-r2.ebuild:
+  readding keywords that were removed for review purposes of new ebuild style
+
+*wpa_supplicant-2.3-r2 (04 Feb 2015)
+
+  04 Feb 2015; Mike Gilbert <floppym@gentoo.org> +wpa_supplicant-2.3-r2.ebuild:
+  Exclude wpa_supplicant.service when USE=-dbus, bug 538600.
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> wpa_supplicant-2.2-r1.ebuild,
+  wpa_supplicant-2.3-r1.ebuild, wpa_supplicant-2.3.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+*wpa_supplicant-2.3-r1 (27 Oct 2014)
+
+  27 Oct 2014; Rick Farina <zerochaos@gentoo.org> +wpa_supplicant-2.3-r1.ebuild,
+  metadata.xml:
+  new handling for config file, enable new features, enable optional new
+  features
+
+  16 Oct 2014; <gurligebis@gentoo.org> wpa_supplicant-2.3.ebuild:
+  Changing to using upstream supplied systemd files, fixing bug #525436
+
+*wpa_supplicant-2.3 (10 Oct 2014)
+
+  10 Oct 2014; <gurligebis@gentoo.org> +wpa_supplicant-2.3.ebuild,
+  +files/wpa_supplicant-2.3-dbus-path-fix.patch,
+  +files/wpa_supplicant-2.3-do-not-call-dbus-functions-with-NULL-path.patch,
+  +files/wpa_supplicant-2.3-fix-undefined-reference-to-random_get_bytes.patch,
+  +files/wpa_supplicant-2.3-generate-libeap-peer.patch:
+  Bumping to 2.3
+
+  05 Oct 2014; Rick Farina <zerochaos@gentoo.org> wpa_supplicant-2.2-r1.ebuild:
+  added missing dep on dev-qt/qtcore
+
+  05 Oct 2014; Manuel Rüger <mrueg@gentoo.org> wpa_supplicant-2.2-r1.ebuild:
+  Mark stable on amd64. Bug #522852
+
+  04 Oct 2014; Markus Meier <maekke@gentoo.org> wpa_supplicant-2.2-r1.ebuild:
+  arm stable, bug #522852
 
 *wpa_supplicant-2.2-r1 (13 Jun 2014)
 

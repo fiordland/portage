@@ -1,6 +1,66 @@
 # ChangeLog for dev-util/android-studio
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/android-studio/ChangeLog,v 1.4 2014/07/05 08:40:37 swift Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/android-studio/ChangeLog,v 1.13 2015/02/27 11:49:38 perfinion Exp $
+
+*android-studio-1.1.0.135.1740770 (27 Feb 2015)
+
+  27 Feb 2015; Jason Zaman <perfinion@gentoo.org>
+  +android-studio-1.1.0.135.1740770.ebuild,
+  -android-studio-0.8.14.135.1538390.ebuild:
+  version bump, drop old
+
+*android-studio-1.0.2.135.1653844 (19 Dec 2014)
+
+  19 Dec 2014; Jason Zaman <perfinion@gentoo.org>
+  +android-studio-1.0.2.135.1653844.ebuild:
+  version bump
+
+*android-studio-1.0.1.135.1641136 (14 Dec 2014)
+
+  14 Dec 2014; Jason Zaman <perfinion@gentoo.org>
+  +android-studio-1.0.1.135.1641136.ebuild,
+  -android-studio-1.0.0.135.1626825_rc4.ebuild:
+  version bump and drop RCs
+
+*android-studio-1.0.0.135.1629389 (09 Dec 2014)
+
+  09 Dec 2014; Jason Zaman <perfinion@gentoo.org>
+  +android-studio-1.0.0.135.1629389.ebuild:
+  version bump
+
+*android-studio-1.0.0.135.1626825_rc4 (05 Dec 2014)
+
+  05 Dec 2014; Jason Zaman <perfinion@gentoo.org>
+  +android-studio-1.0.0.135.1626825_rc4.ebuild,
+  -android-studio-0.8.1.135.1248636.ebuild,
+  -android-studio-0.8.12.135.1503853.ebuild,
+  -android-studio-0.8.6.135.1339820.ebuild:
+  Version bump, remove old
+
+  21 Nov 2014; Jason Zaman <perfinon@gentoo.org> metadata.xml:
+  Change maintainer email
+
+*android-studio-0.8.14.135.1538390 (03 Nov 2014)
+
+  03 Nov 2014; Yixun Lan <dlan@gentoo.org>
+  +android-studio-0.8.14.135.1538390.ebuild:
+  version bump, bug 528018, proxy for Jason Zaman
+
+*android-studio-0.8.12.135.1503853 (12 Oct 2014)
+
+  12 Oct 2014; Sven Vermeulen <swift@gentoo.org>
+  +android-studio-0.8.12.135.1503853.ebuild:
+  Bumping android-studio to 0.8.12.135.1503853, requested by Jason
+
+*android-studio-0.8.6.135.1339820 (03 Sep 2014)
+
+  03 Sep 2014; Sven Vermeulen <swift@gentoo.org>
+  +android-studio-0.8.6.135.1339820.ebuild,
+  -android-studio-0.5.8.135.1155795.ebuild,
+  -android-studio-0.5.9.135.1195882.ebuild,
+  -android-studio-0.6.1.135.1224218.ebuild:
+  Bump version (bug #5213400). Drop older editions. Thanks to Jason Zaman
+  (perfinion)
 
 *android-studio-0.8.1.135.1248636 (05 Jul 2014)
 

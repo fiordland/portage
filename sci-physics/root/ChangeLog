@@ -1,6 +1,34 @@
 # ChangeLog for sci-physics/root
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-physics/root/ChangeLog,v 1.131 2014/03/27 18:51:54 bicatali Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-physics/root/ChangeLog,v 1.137 2015/03/02 08:46:28 bircoph Exp $
+
+  02 Mar 2015; Andrew Savchenko <bircoph@gentoo.org> -root-5.34.18.ebuild,
+  -root-5.34.18-r1.ebuild, -files/root-5.32.00-prop-flags.patch,
+  -files/root-5.34.13-pythia8.patch:
+  Remove old and broken vensions.
+
+*root-5.34.26 (02 Mar 2015)
+
+  02 Mar 2015; Andrew Savchenko <bircoph@gentoo.org> +root-5.34.26.ebuild,
+  files/root-5.32.00-chklib64.patch, metadata.xml:
+  Version bump (from science overlay). Rework compilers handling,
+  *flags handling. Add support for http, C++14. Fix html headers.
+
+  28 Dec 2014; Aaron W. Swenson <titanofold@gentoo.org> root-5.32.03-r2.ebuild,
+  root-5.34.18.ebuild, root-5.34.18-r1.ebuild:
+  Rename virtual/postgresql to dev-db/postgresql
+
+  11 Nov 2014; Andrew Savchenko <bircoph@gmail.com> metadata.xml:
+  Package is now directly maintained instead of proxy-maintaining.
+
+  03 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> root-5.32.03-r2.ebuild,
+  root-5.34.18.ebuild, root-5.34.18-r1.ebuild:
+  Update PostgreSQL dependencies and/or checks to virtual/postgresql.
+
+  01 Sep 2014; Michał Górny <mgorny@gentoo.org> root-5.34.18-r1.ebuild,
+  root-5.34.18.ebuild:
+  Remove := subslot operator from || () block since it is meaningless and
+  broken.
 
   27 Mar 2014; Sébastien Fabbro <bicatali@gentoo.org> root-5.34.18-r1.ebuild:
   Uncomment inadvertently commented out user and group creation

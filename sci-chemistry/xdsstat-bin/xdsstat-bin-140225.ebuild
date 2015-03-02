@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/xdsstat-bin/xdsstat-bin-140225.ebuild,v 1.1 2014/02/25 07:25:57 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/xdsstat-bin/xdsstat-bin-140225.ebuild,v 1.3 2014/11/13 07:37:53 jlec Exp $
 
 EAPI=5
 
@@ -18,9 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
-RDEPEND="
-	sci-chemistry/xds-bin
-	amd64? ( app-emulation/emul-linux-x86-baselibs )"
+RDEPEND="sci-chemistry/xds-bin"
 DEPEND=""
 
 RESTRICT="mirror"

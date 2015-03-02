@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<herd>proxy-maintainers</herd>
 	<maintainer>
 		<email>mschiff@gentoo.org</email>
 		<name>Marc Schiffbauer</name>
-		<description>Proxy-Maintainer. Assign bugs to him</description>
 	</maintainer>
 	<maintainer>
-		<email>cr@sys4.de</email>
+		<email>info@roessner-net.com</email>
 		<name>Christian Roessner</name>
 		<description>Proxy-Maintainer. Assign bugs to him</description>
 	</maintainer>

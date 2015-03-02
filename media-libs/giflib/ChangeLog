@@ -1,6 +1,19 @@
 # ChangeLog for media-libs/giflib
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/giflib/ChangeLog,v 1.90 2014/08/23 15:30:42 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/giflib/ChangeLog,v 1.93 2015/01/10 23:00:55 radhermit Exp $
+
+*giflib-5.1.1 (10 Jan 2015)
+
+  10 Jan 2015; Tim Harder <radhermit@gentoo.org> +giflib-5.1.1.ebuild:
+  Version bump.
+
+*giflib-5.1.0 (23 Oct 2014)
+
+  23 Oct 2014; Tim Harder <radhermit@gentoo.org> +giflib-5.1.0.ebuild:
+  Version bump.
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> giflib-4.1.6-r3.ebuild:
+  Stable for sparc, wrt bug #512012
 
   23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> giflib-4.1.6-r3.ebuild:
   Stable for ia64, wrt bug #512012

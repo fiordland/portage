@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/x264/x264-0.0.20140308.ebuild,v 1.9 2014/08/25 11:00:18 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/x264/x264-0.0.20140308.ebuild,v 1.11 2015/01/29 18:02:34 mgorny Exp $
 
 EAPI=5
 
@@ -23,7 +23,7 @@ SONAME="142"
 SLOT="0/${SONAME}"
 
 LICENSE="GPL-2"
-IUSE="10bit +interlaced opencl pic static-libs sse +threads"
+IUSE="10bit +interlaced opencl pic static-libs cpu_flags_x86_sse +threads"
 
 ASM_DEP=">=dev-lang/yasm-1.2.0"
 DEPEND="abi_x86_32? ( ${ASM_DEP} )
@@ -38,7 +38,7 @@ DOCS="AUTHORS doc/*.txt"
 src_prepare() {
 	# Initial support for x32 ABI, bug #420241
 	# Avoid messing too much with CFLAGS.
-	epatch "${FILESDIR}"/x264-cflags.patch
+	epatch "${FILESDIR}"/x264-0.0.20130912-cflags.patch
 }
 
 multilib_src_configure() {
@@ -50,7 +50,7 @@ multilib_src_configure() {
 	fi
 
 	# Upstream uses this, see the cflags patch
-	use sse && append-flags "-msse" "-mfpmath=sse"
+	use cpu_flags_x86_sse && append-flags "-msse" "-mfpmath=sse"
 
 	"${S}/configure" \
 		--prefix="${EPREFIX}"/usr \

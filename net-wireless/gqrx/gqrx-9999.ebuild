@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/gqrx/gqrx-9999.ebuild,v 1.5 2014/08/27 17:50:06 zerochaos Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-wireless/gqrx/gqrx-9999.ebuild,v 1.8 2015/01/20 20:51:58 zerochaos Exp $
 
 EAPI=5
 
@@ -22,20 +22,19 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE="pulseaudio"
 
-DEPEND=">=net-wireless/gnuradio-3.7_rc:=
+DEPEND=">=net-wireless/gnuradio-3.7_rc:=[audio,analog,filter]
 	>=net-wireless/gr-osmosdr-0.1.0:=
 	dev-libs/boost:=
-	dev-qt/qtgui:=
-	dev-qt/qtcore:=
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
 	pulseaudio? ( media-sound/pulseaudio:= )"
 RDEPEND="${DEPEND}
-	dev-qt/qtsvg"
+	dev-qt/qtsvg:4"
 
 src_prepare() {
 	if use !pulseaudio; then
 		sed -i 's/AUDIO_BACKEND = pulse/#AUDIO_BACKEND = pulse/' gqrx.pro || die
 	fi
-	epatch "${FILESDIR}"/no_qtsvg.patch
 	qt4-r2_src_prepare
 }
 

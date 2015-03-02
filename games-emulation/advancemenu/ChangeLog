@@ -1,6 +1,12 @@
 # ChangeLog for games-emulation/advancemenu
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/advancemenu/ChangeLog,v 1.35 2014/07/21 19:15:24 mr_bones_ Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-emulation/advancemenu/ChangeLog,v 1.37 2015/02/25 15:58:05 ago Exp $
+
+  25 Feb 2015; Agostino Sarubbo <ago@gentoo.org> advancemenu-2.7.ebuild:
+  Stable for x86, wrt bug #540632
+
+  19 Feb 2015; Agostino Sarubbo <ago@gentoo.org> advancemenu-2.7.ebuild:
+  Stable for amd64, wrt bug #540632
 
   21 Jul 2014; Michael Sterrett <mr_bones_@gentoo.org> advancemenu-2.7.ebuild:
   drop static support

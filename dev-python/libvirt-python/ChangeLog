@@ -1,6 +1,67 @@
 # ChangeLog for dev-python/libvirt-python
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/libvirt-python/ChangeLog,v 1.14 2014/08/12 20:34:53 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/libvirt-python/ChangeLog,v 1.29 2015/01/27 10:41:17 tamiko Exp $
+
+*libvirt-python-1.2.12 (27 Jan 2015)
+
+  27 Jan 2015; Matthias Maier <tamiko@gentoo.org> +libvirt-python-1.2.12.ebuild:
+  version bump
+
+  24 Dec 2014; Matthias Maier <tamiko@gentoo.org> -libvirt-python-1.2.9.ebuild:
+  drop old
+
+  24 Dec 2014; Agostino Sarubbo <ago@gentoo.org> libvirt-python-1.2.10.ebuild:
+  Stable for x86, wrt bug #532438
+
+  24 Dec 2014; Agostino Sarubbo <ago@gentoo.org> libvirt-python-1.2.10.ebuild:
+  Stable for amd64, wrt bug #532438
+
+*libvirt-python-1.2.11 (13 Dec 2014)
+
+  13 Dec 2014; Matthias Maier <tamiko@gentoo.org> +libvirt-python-1.2.11.ebuild,
+  libvirt-python-1.2.10.ebuild, libvirt-python-9999.ebuild, metadata.xml:
+  version bump; ebuild maintenance; drop custom tests attempt - this doesn't
+  work
+
+  13 Dec 2014; Matthias Maier <tamiko@gentoo.org> libvirt-python-1.2.10.ebuild:
+  tightly couple libvirt dependency to version
+
+  01 Dec 2014; Ian Delaney <idella4@gentoo.org> libvirt-python-1.2.10.ebuild,
+  libvirt-python-9999.ebuild:
+  clean py3.2 add py3.4 to live ebuild, edit to comment re misfiring test phase
+
+  30 Nov 2014; Ian Delaney <idella4@gentoo.org> libvirt-python-1.2.10.ebuild:
+  drop py3.2 add py3.4 support, correct deps, restrict test phase, fix qa issue
+
+  17 Nov 2014; Matthias Maier <tamiko@gentoo.org> libvirt-python-1.2.10.ebuild,
+  libvirt-python-9999.ebuild:
+  ebuild maintenance
+
+*libvirt-python-9999 (08 Nov 2014)
+
+  08 Nov 2014; Matthias Maier <tamiko@gentoo.org> +libvirt-python-9999.ebuild:
+  provide live ebuild as suggested by Paige Thompson on the mailing list
+
+*libvirt-python-1.2.10 (06 Nov 2014)
+
+  06 Nov 2014; Matthias Maier <tamiko@gentoo.org> +libvirt-python-1.2.10.ebuild:
+  version bump, bug #528300
+
+  31 Oct 2014; Matthias Maier <tamiko@gentoo.org> -libvirt-python-1.2.3.ebuild,
+  -libvirt-python-1.2.4.ebuild, -libvirt-python-1.2.5.ebuild,
+  -libvirt-python-1.2.6.ebuild:
+  synchronize with app-emulation/libvirt and drop old
+
+  27 Oct 2014; Agostino Sarubbo <ago@gentoo.org> libvirt-python-1.2.9.ebuild:
+  Stable for x86, wrt bug #524184
+
+  27 Oct 2014; Agostino Sarubbo <ago@gentoo.org> libvirt-python-1.2.9.ebuild:
+  Stable for amd64, wrt bug #524184
+
+*libvirt-python-1.2.9 (21 Oct 2014)
+
+  21 Oct 2014; Matthias Maier <tamiko@gentoo.org> +libvirt-python-1.2.9.ebuild:
+  version bump
 
   12 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libvirt-python-1.2.5.ebuild:
   Stable for x86, wrt bug #509858

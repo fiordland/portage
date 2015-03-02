@@ -1,6 +1,33 @@
 # ChangeLog for sys-process/glances
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/glances/ChangeLog,v 1.19 2014/07/07 14:49:56 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-process/glances/ChangeLog,v 1.24 2014/12/31 04:03:30 idella4 Exp $
+
+*glances-2.2.1 (31 Dec 2014)
+
+  31 Dec 2014; Ian Delaney <idella4@gentoo.org> +glances-2.2.1.ebuild,
+  -glances-2.1.2.ebuild:
+  bump, rm old
+
+  02 Nov 2014; Ian Delaney <idella4@gentoo.org> -glances-2.0.1.ebuild,
+  -glances-2.0.ebuild:
+  rm (missed) old
+
+*glances-2.1.2 (02 Nov 2014)
+
+  02 Nov 2014; Ian Delaney <idella4@gentoo.org> +glances-2.1.2.ebuild,
+  -glances-2.1.1.ebuild, -glances-2.1.ebuild:
+  bump; rm old
+
+*glances-2.1.1 (10 Oct 2014)
+
+  10 Oct 2014; Ian Delaney <idella4@gentoo.org> +glances-2.1.1.ebuild:
+  bump
+
+*glances-2.1 (24 Sep 2014)
+
+  24 Sep 2014; Ian Delaney <idella4@gentoo.org> +glances-2.1.ebuild,
+  metadata.xml:
+  bump; drop py3.2, add IUSE chart for support of graph charts
 
 *glances-2.0.1 (07 Jul 2014)
 

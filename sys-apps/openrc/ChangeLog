@@ -1,6 +1,123 @@
 # ChangeLog for sys-apps/openrc
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/ChangeLog,v 1.308 2014/08/22 20:17:35 williamh Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/ChangeLog,v 1.336 2015/02/26 18:59:35 williamh Exp $
+
+  26 Feb 2015; William Hubbs <williamh@gentoo.org> openrc-0.13.11.ebuild,
+  openrc-9999.ebuild:
+  Add dependency on virtual/pam for #540948
+
+  24 Feb 2015; Mike Frysinger <vapier@gentoo.org> openrc-0.13.11.ebuild:
+  Mark arm64/m68k/s390/sh stable.
+
+  21 Feb 2015; William Hubbs <williamh@gentoo.org> -openrc-0.12.4.ebuild,
+  -openrc-0.13.10.ebuild, -openrc-0.13.8.ebuild, -openrc-0.13.9.ebuild:
+  Remove versions most affected by bug #540006
+
+  21 Feb 2015; Agostino Sarubbo <ago@gentoo.org> openrc-0.13.11.ebuild:
+  Stable for ia64/sparc/x86, wrt bug #540706
+
+  21 Feb 2015; Jeroen Roovers <jer@gentoo.org> openrc-0.13.11.ebuild:
+  Stable for HPPA (bug #540706).
+
+  20 Feb 2015; Anthony G. Basile <blueness@gentoo.org> openrc-0.13.11.ebuild:
+  Stable on ppc, ppc64 and arm.  Bug #540706
+
+  20 Feb 2015; Tobias Klausmann <klausman@gentoo.org> openrc-0.13.11.ebuild:
+  Stable on alpha, bug 540706
+
+  20 Feb 2015; Mikle Kolyada <zlogene@gentoo.org> openrc-0.13.11.ebuild:
+  amd64 stable wrt bug #540706
+
+*openrc-0.13.11 (19 Feb 2015)
+
+  19 Feb 2015; William Hubbs <williamh@gentoo.org> +openrc-0.13.11.ebuild:
+  version bump
+
+*openrc-0.13.10 (19 Feb 2015)
+
+  19 Feb 2015; William Hubbs <williamh@gentoo.org> +openrc-0.13.10.ebuild:
+  version bump
+
+*openrc-0.13.9 (05 Feb 2015)
+
+  05 Feb 2015; William Hubbs <williamh@gentoo.org> +openrc-0.13.9.ebuild:
+  version bump for bug #537996
+
+  19 Jan 2015; Anthony G. Basile <blueness@gentoo.org> openrc-0.13.8.ebuild:
+  Stable on arm.  Bug #530120.
+
+  19 Jan 2015; Anthony G. Basile <blueness@gentoo.org> openrc-0.13.8.ebuild:
+  Stable on ppc, ppc64 and x86.  Bug #530120
+
+  18 Jan 2015; William Hubbs <williamh@gentoo.org> -openrc-0.13.7.ebuild:
+  remove broken version
+
+*openrc-0.13.8 (18 Jan 2015)
+
+  18 Jan 2015; William Hubbs <williamh@gentoo.org> +openrc-0.13.8.ebuild:
+  version bump to fix interaction with kmod
+
+  17 Jan 2015; Mikle Kolyada <zlogene@gentoo.org> openrc-0.13.7.ebuild:
+  amd64 stable
+
+  16 Jan 2015; Jeroen Roovers <jer@gentoo.org> openrc-0.13.7.ebuild:
+  Stable for HPPA (bug #530120).
+
+  15 Jan 2015; William Hubbs <williamh@gentoo.org> -openrc-0.13.1.ebuild,
+  -openrc-0.13.2.ebuild, -openrc-0.13.3.ebuild, -openrc-0.13.4.ebuild,
+  -openrc-0.13.5.ebuild, -openrc-0.13.6.ebuild:
+  Remove broken 0.13.x versions. Bug #531600 was a memory management issue that
+  was present in most of this series; it was fixed in 0.13.7, so everyone should
+  run this version.
+
+*openrc-0.13.7 (15 Jan 2015)
+
+  15 Jan 2015; William Hubbs <williamh@gentoo.org> +openrc-0.13.7.ebuild:
+  version bump
+
+  05 Dec 2014; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
+  Change reference from git.mk to gitver.mk to match upstream
+
+*openrc-0.13.6 (24 Nov 2014)
+
+  24 Nov 2014; William Hubbs <williamh@gentoo.org> +openrc-0.13.6.ebuild:
+  version bump
+
+*openrc-0.13.5 (20 Nov 2014)
+
+  20 Nov 2014; William Hubbs <williamh@gentoo.org> +openrc-0.13.5.ebuild:
+  version bump
+
+  14 Nov 2014; Sven Vermeulen <swift@gentoo.org> openrc-0.13.2.ebuild,
+  openrc-0.13.3.ebuild, openrc-0.13.4.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+*openrc-0.13.4 (10 Nov 2014)
+
+  10 Nov 2014; William Hubbs <williamh@gentoo.org> +openrc-0.13.4.ebuild:
+  version bump
+
+*openrc-0.13.3 (04 Nov 2014)
+
+  04 Nov 2014; William Hubbs <williamh@gentoo.org> +openrc-0.13.3.ebuild:
+  version bump
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> metadata.xml,
+  openrc-0.12.4.ebuild, openrc-0.13.1.ebuild, openrc-9999.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+  28 Oct 2014; William Hubbs <williamh@gentoo.org> openrc-0.12.4.ebuild,
+  openrc-0.13.1.ebuild, openrc-0.13.2.ebuild, openrc-9999.ebuild:
+  repoman fix, convert dependency on baselayout to a blocker against older
+  versions.
+
+*openrc-0.13.2 (26 Oct 2014)
+
+  26 Oct 2014; William Hubbs <williamh@gentoo.org> +openrc-0.13.2.ebuild,
+  openrc-9999.ebuild:
+  version bump
 
   22 Aug 2014; William Hubbs <williamh@gentoo.org> openrc-9999.ebuild:
   sync live ebuild

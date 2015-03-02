@@ -1,6 +1,26 @@
 # ChangeLog for dev-lang/vala
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/vala/ChangeLog,v 1.183 2014/08/25 10:56:52 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/vala/ChangeLog,v 1.188 2015/01/24 12:59:24 pacho Exp $
+
+*vala-0.26.2 (24 Jan 2015)
+
+  24 Jan 2015; Pacho Ramos <pacho@gentoo.org> +vala-0.26.2.ebuild:
+  Version bump
+
+*vala-0.26.1 (21 Dec 2014)
+
+  21 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org> -vala-0.24.0.ebuild,
+  +vala-0.26.1.ebuild:
+  Version bump for Gnome 3.14. Clean up old revision.
+
+  01 Nov 2014; Pacho Ramos <pacho@gentoo.org> -vala-0.18.1.ebuild:
+  Drop no longer needed version
+
+  11 Oct 2014; Markus Meier <maekke@gentoo.org> vala-0.24.0-r1.ebuild:
+  arm stable, bug #512012
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> vala-0.24.0-r1.ebuild:
+  Stable for sparc, wrt bug #512012
 
   25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> vala-0.24.0-r1.ebuild:
   Stable for alpha, wrt bug #512012

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/geoclue/geoclue-2.1.9.ebuild,v 1.3 2014/07/23 15:13:23 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/geoclue/geoclue-2.1.9.ebuild,v 1.6 2014/11/20 13:49:47 pacho Exp $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -20,7 +20,7 @@ IUSE="+modemmanager"
 RDEPEND="
 	>=dev-libs/glib-2.34:2
 	>=dev-libs/json-glib-0.14
-	net-libs/libsoup:2.4
+	>=net-libs/libsoup-2.42:2.4
 	sys-apps/dbus
 	modemmanager? ( >=net-misc/modemmanager-1 )
 	!<sci-geosciences/geocode-glib-3.10.0

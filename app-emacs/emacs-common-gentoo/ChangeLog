@@ -1,6 +1,26 @@
 # ChangeLog for app-emacs/emacs-common-gentoo
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emacs/emacs-common-gentoo/ChangeLog,v 1.109 2014/06/08 11:44:50 ulm Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emacs/emacs-common-gentoo/ChangeLog,v 1.113 2015/02/23 20:48:30 ulm Exp $
+
+*emacs-common-gentoo-1.5 (23 Feb 2015)
+
+  23 Feb 2015; Ulrich Müller <ulm@gentoo.org>
+  -emacs-common-gentoo-1.4-r2.ebuild, +emacs-common-gentoo-1.5.ebuild:
+  Version bump.
+
+  22 Feb 2015; Ulrich Müller <ulm@gentoo.org>
+  emacs-common-gentoo-1.4-r2.ebuild:
+  Update owner and permissions in /var only if necessary.
+
+*emacs-common-gentoo-1.4-r2 (21 Feb 2015)
+
+  21 Feb 2015; Ulrich Müller <ulm@gentoo.org>
+  +emacs-common-gentoo-1.4-r2.ebuild:
+  Follow QA policy for game state directory, bug 537580.
+
+  28 Jan 2015; Ulrich Müller <ulm@gentoo.org>
+  emacs-common-gentoo-1.4-r1.ebuild:
+  Use doicon/newicon helper functions.
 
   08 Jun 2014; Ulrich Müller <ulm@gentoo.org> -emacs-common-gentoo-1.4.ebuild:
   Remove old.

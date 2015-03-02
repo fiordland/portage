@@ -1,6 +1,28 @@
 # ChangeLog for games-sports/torcs
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-sports/torcs/ChangeLog,v 1.40 2014/07/19 13:55:10 tupone Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-sports/torcs/ChangeLog,v 1.44 2015/02/19 01:25:00 mr_bones_ Exp $
+
+  19 Feb 2015; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/torcs-1.3.4-as-needed.patch, -files/torcs-1.3.4-flags.patch,
+  -files/torcs-1.3.4-no-automake.patch, -files/torcs-1.3.4-noXmuXt.patch,
+  -torcs-1.3.4.ebuild:
+  old
+
+  10 Feb 2015; Agostino Sarubbo <ago@gentoo.org> torcs-1.3.6.ebuild:
+  Stable for x86, wrt bug #539194
+
+  07 Feb 2015; Agostino Sarubbo <ago@gentoo.org> torcs-1.3.6.ebuild:
+  Stable for amd64, wrt bug #539194
+
+*torcs-1.3.6 (02 Sep 2014)
+
+  02 Sep 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/torcs-1.3.6-as-needed.patch, +files/torcs-1.3.6-flags.patch,
+  +files/torcs-1.3.6-no-automake.patch, +files/torcs-1.3.6-noXmuXt.patch,
+  +torcs-1.3.6.ebuild, files/torcs-1.3.4-as-needed.patch,
+  files/torcs-1.3.4-flags.patch, files/torcs-1.3.4-no-automake.patch,
+  files/torcs-1.3.4-noXmuXt.patch:
+  version bump
 
   19 Jul 2014; Tupone Alfredo <tupone@gentoo.org> torcs-1.3.4.ebuild,
   +files/torcs-1.3.4-noXmuXt.patch:

@@ -1,6 +1,28 @@
 # ChangeLog for games-arcade/commandergenius
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/commandergenius/ChangeLog,v 1.11 2014/07/01 22:30:23 hasufell Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-arcade/commandergenius/ChangeLog,v 1.16 2015/02/09 05:12:14 mr_bones_ Exp $
+
+  09 Feb 2015; Michael Sterrett <mr_bones_@gentoo.org>
+  -commandergenius-1.7.4.0.ebuild, -files/commandergenius-1.7.4.0-build.patch,
+  -files/commandergenius-1.7.4.0-install.patch:
+  old
+
+*commandergenius-1.8.0.0 (06 Feb 2015)
+
+  06 Feb 2015; Michael Sterrett <mr_bones_@gentoo.org>
+  +commandergenius-1.8.0.0.ebuild, +files/commandergenius-1.8.0.0-install.patch:
+  version bump
+
+  27 Jan 2015; Michael Sterrett <mr_bones_@gentoo.org>
+  -commandergenius-1.7.2.0.ebuild, -commandergenius-1.7.3.0.ebuild:
+  old
+
+  25 Nov 2014; Julian Ospald <hasufell@gentoo.org> metadata.xml:
+  drop maintainership
+
+  22 Sep 2014; Julian Ospald <hasufell@gentoo.org>
+  files/commandergenius-1.7.4.0-build.patch:
+  rm bogus linkage wrt #523396
 
   01 Jul 2014; Julian Ospald <hasufell@gentoo.org>
   commandergenius-1.7.4.0.ebuild, +files/commandergenius-1.7.4.0-build.patch:

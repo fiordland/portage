@@ -1,6 +1,37 @@
 # ChangeLog for sci-mathematics/octave
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/octave/ChangeLog,v 1.166 2014/04/18 14:18:56 jer Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/octave/ChangeLog,v 1.174 2015/01/07 11:33:22 jer Exp $
+
+  07 Jan 2015; Jeroen Roovers <jer@gentoo.org> octave-3.8.1-r1.ebuild,
+  octave-3.8.2.ebuild:
+  Fix imagemagick/graphicsmagick sub-SLOT deps.
+
+  04 Dec 2014; Agostino Sarubbo <ago@gentoo.org> octave-3.8.2.ebuild:
+  Stable for ppc64, wrt bug #528002
+
+  25 Nov 2014; Agostino Sarubbo <ago@gentoo.org> octave-3.8.2.ebuild:
+  Stable for x86, wrt bug #528002
+
+  10 Nov 2014; Agostino Sarubbo <ago@gentoo.org> octave-3.8.2.ebuild:
+  Stable for ppc, wrt bug #528002
+
+  06 Nov 2014; Jeroen Roovers <jer@gentoo.org> octave-3.8.2.ebuild:
+  Stable for HPPA (bug #528002).
+
+  03 Nov 2014; Agostino Sarubbo <ago@gentoo.org> octave-3.8.2.ebuild:
+  Stable for amd64, wrt bug #528002
+
+  09 Sep 2014; Michał Górny <mgorny@gentoo.org> octave-3.8.1-r1.ebuild,
+  octave-3.8.1.ebuild, octave-3.8.2.ebuild:
+  Require llvm < 3.5 because of API incompatibility.
+
+*octave-3.8.2 (07 Sep 2014)
+
+  07 Sep 2014; Mark Wright <gienah@gentoo.org> +octave-3.8.2.ebuild,
+  octave-3.8.1-r1.ebuild:
+  Bump octave to 3.8.2, fixes bump request Bug 520368, thanks to mrueg for
+  reporting. Add deps to USE java, fixes Bug 519756, thanks to M. B. for
+  reporting and the fix.
 
   17 Apr 2014; Sébastien Fabbro <bicatali@gentoo.org> octave-3.8.1-r1.ebuild:
   Removed checking of symbols in linear algebra libraries bug #507782

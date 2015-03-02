@@ -1,6 +1,108 @@
 # ChangeLog for media-sound/pulseaudio
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/pulseaudio/ChangeLog,v 1.353 2014/07/30 19:29:26 ssuominen Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/pulseaudio/ChangeLog,v 1.373 2015/02/19 18:33:55 mgorny Exp $
+
+  19 Feb 2015; Michał Górny <mgorny@gentoo.org> pulseaudio-5.0-r4.ebuild,
+  pulseaudio-5.0-r5.ebuild, pulseaudio-5.0-r6.ebuild, pulseaudio-5.0-r7.ebuild,
+  pulseaudio-5.99.3.ebuild:
+  Add REQUIRED_USE for USE=udev since it requires either alsa or oss being
+  enabled. https://bugs.funtoo.org/browse/FL-2108 with investigation by Nexie
+  Kind and pull request by Roman Kuzmitsky.
+
+  08 Feb 2015; Markus Meier <maekke@gentoo.org> pulseaudio-5.0-r7.ebuild:
+  arm stable, bug #536694
+
+*pulseaudio-5.99.3 (22 Jan 2015)
+
+  22 Jan 2015; Rick Farina <zerochaos@gentoo.org> +pulseaudio-5.99.3.ebuild,
+  -pulseaudio-5.99.2-r1.ebuild:
+  version bump, all tests pass
+
+  19 Jan 2015; Jeroen Roovers <jer@gentoo.org> pulseaudio-5.0-r7.ebuild:
+  Stable for HPPA (bug #536694).
+
+  10 Jan 2015; Michał Górny <mgorny@gentoo.org> pulseaudio-5.0-r7.ebuild:
+  Call gnome2_environment_reset to fix sandbox access violations, bug #534582.
+
+*pulseaudio-5.99.2-r1 (09 Jan 2015)
+
+  09 Jan 2015; Rick Farina <zerochaos@gentoo.org> +pulseaudio-5.99.2-r1.ebuild,
+  -pulseaudio-5.99.2.ebuild, metadata.xml:
+  add optional native/ofono headset support and appropriate use flags and
+  postinst messages
+
+*pulseaudio-5.0-r7 (08 Jan 2015)
+
+  08 Jan 2015; Mart Raudsepp <leio@gentoo.org> +pulseaudio-5.0-r7.ebuild,
+  +files/svolume-fix_param_loading_undefined_beh.patch:
+  Fix severely distorted sound on changing volume of stream in certain ways in
+  pulseaudio with orc-0.4.23, bug 534144
+
+*pulseaudio-5.99.2 (05 Jan 2015)
+
+  05 Jan 2015; Rick Farina <zerochaos@gentoo.org> +pulseaudio-5.99.2.ebuild:
+  adding 5.99.2 release with bluetooth headset support with permission of leio.
+  tested without systemd, but should work either way.  Please add keywords
+  when/if comfortable
+
+  06 Dec 2014; Ulrich Müller <ulm@gentoo.org> metadata.xml:
+  Fix typo.
+
+  06 Dec 2014; Pacho Ramos <pacho@gentoo.org> pulseaudio-5.0-r6.ebuild:
+  Add a reference for the future
+
+  05 Dec 2014; Ulrich Müller <ulm@gentoo.org> pulseaudio-5.0-r6.ebuild:
+  [QA] Fix PDEPEND, bug 519530 comment 15.
+
+  05 Dec 2014; Michał Górny <mgorny@gentoo.org> metadata.xml,
+  pulseaudio-5.0-r6.ebuild:
+  USE default-enabled USE=alsa-plugin to control installing the plugin, as
+  agreed between the maintainers and QA.
+
+  05 Dec 2014; Pacho Ramos <pacho@gentoo.org> pulseaudio-5.0-r6.ebuild:
+  Increase severity of the messages as people wanting to run pulseaudio[alsa]
+  will need alsa-plugins most time if they don't want to see the many alsa-only
+  apps to bypass pulseaudio
+
+*pulseaudio-5.0-r6 (04 Dec 2014)
+
+  04 Dec 2014; Michał Górny <mgorny@gentoo.org> +pulseaudio-5.0-r6.ebuild:
+  QA: Replace unnecessary, blocker-causing alsa-plugins[pulseaudio] dependency
+  with a safe postinst message.
+
+  13 Nov 2014; Pacho Ramos <pacho@gentoo.org> -pulseaudio-2.1-r1.ebuild,
+  -pulseaudio-4.0.ebuild:
+  Drop old (#508854)
+
+  09 Nov 2014; Maxim Koltsov <maksbotan@gentoo.org> pulseaudio-5.0-r5.ebuild:
+  Fix 'avahi not in IUSE' when system-wide is enabled, bug #525290.
+
+  06 Nov 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  pulseaudio-5.0-r4.ebuild, pulseaudio-5.0-r5.ebuild:
+  libltdl is only a native dep, so dropped needless MULTILIB_USEDEP flags; also
+  dropped libtool from ~arch version of ebuild to match vapier's pattern in bug
+  528294; also fixed building with USE=-glib on non-native ABI
+
+*pulseaudio-5.0-r5 (06 Nov 2014)
+*pulseaudio-5.0-r4 (06 Nov 2014)
+
+  06 Nov 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +pulseaudio-5.0-r4.ebuild, +pulseaudio-5.0-r5.ebuild,
+  -pulseaudio-5.0-r2.ebuild, -pulseaudio-5.0-r3.ebuild:
+  Depend on a multilib libltdl, whether from libtool or dev-libs/libltdl (see
+  bug 528294)
+
+*pulseaudio-5.0-r3 (12 Oct 2014)
+
+  12 Oct 2014; Pacho Ramos <pacho@gentoo.org>
+  +files/pulseaudio-5.0-zeroconf-crash-1.patch,
+  +files/pulseaudio-5.0-zeroconf-crash-2.patch,
+  +files/pulseaudio-5.0-zeroconf-crash-3.patch, +pulseaudio-5.0-r3.ebuild,
+  -pulseaudio-5.0-r1.ebuild, -pulseaudio-5.0.ebuild:
+  Fix zeroconf crashes (#504612 by Alexander Tsoy), fix libcap dependency for
+  multilib (#513796 by Michał Górny), move aware from 'avahi' USE in favor of
+  'zeroconf' (#477620), install libpulsedsp.so for 32bits (#515600 by Sergei
+  Trofimovich), drop old.
 
   30 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> pulseaudio-2.1-r1.ebuild,
   pulseaudio-4.0.ebuild, pulseaudio-5.0-r1.ebuild, pulseaudio-5.0-r2.ebuild,

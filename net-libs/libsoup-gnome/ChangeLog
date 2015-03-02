@@ -1,6 +1,32 @@
 # ChangeLog for net-libs/libsoup-gnome
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libsoup-gnome/ChangeLog,v 1.113 2014/08/25 11:03:01 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-libs/libsoup-gnome/ChangeLog,v 1.119 2015/02/08 21:05:07 maekke Exp $
+
+  08 Feb 2015; Markus Meier <maekke@gentoo.org> libsoup-gnome-2.46.0-r1.ebuild:
+  arm stable, bug #536694
+
+  25 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  libsoup-gnome-2.48.1.ebuild, files/libsoup-gnome-2.46.0-system-lib.patch,
+  +files/libsoup-gnome-2.48.0-system-lib.patch:
+  Fix unintended patch change for 2.46, bug #533544.
+
+*libsoup-gnome-2.48.1 (23 Dec 2014)
+
+  23 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  -libsoup-gnome-2.44.2.ebuild, +libsoup-gnome-2.48.1.ebuild,
+  files/libsoup-gnome-2.46.0-system-lib.patch:
+  Version bump for Gnome 3.14. Clean up old revision.
+
+*libsoup-gnome-2.46.0-r1 (22 Nov 2014)
+
+  22 Nov 2014; Michał Górny <mgorny@gentoo.org> +libsoup-gnome-2.46.0-r1.ebuild:
+  Introduce multilib support as needed for x11-libs/gtk+:3.
+
+  11 Oct 2014; Markus Meier <maekke@gentoo.org> libsoup-gnome-2.46.0.ebuild:
+  arm stable, bug #512012
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-gnome-2.46.0.ebuild:
+  Stable for sparc, wrt bug #512012
 
   25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libsoup-gnome-2.46.0.ebuild:
   Stable for alpha, wrt bug #512012

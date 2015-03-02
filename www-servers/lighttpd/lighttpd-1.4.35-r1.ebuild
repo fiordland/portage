@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/lighttpd/lighttpd-1.4.35-r1.ebuild,v 1.1 2014/05/02 10:57:57 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/lighttpd/lighttpd-1.4.35-r1.ebuild,v 1.11 2015/02/28 14:01:41 ago Exp $
 
 EAPI="5"
 inherit base autotools eutils depend.php readme.gentoo user systemd
@@ -11,12 +11,12 @@ SRC_URI="http://download.lighttpd.net/lighttpd/releases-1.4.x/${P}.tar.bz2"
 
 LICENSE="BSD GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~sparc-fbsd ~x86-fbsd"
 IUSE="bzip2 doc fam gdbm ipv6 kerberos ldap libev lua minimal mmap memcache mysql pcre php rrdtool selinux ssl test uploadprogress webdav xattr zlib"
 
 REQUIRED_USE="kerberos? ( ssl )"
 
-RDEPEND="
+CDEPEND="
 	bzip2?    ( app-arch/bzip2 )
 	fam?      ( virtual/fam )
 	gdbm?     ( sys-libs/gdbm )
@@ -28,7 +28,6 @@ RDEPEND="
 	pcre?     ( >=dev-libs/libpcre-3.1 )
 	php?      ( dev-lang/php[cgi] )
 	rrdtool?  ( net-analyzer/rrdtool )
-	selinux? ( sec-policy/selinux-apache )
 	ssl?    ( >=dev-libs/openssl-0.9.7[kerberos?] )
 	webdav? (
 		dev-libs/libxml2
@@ -38,13 +37,17 @@ RDEPEND="
 	xattr? ( kernel_linux? ( sys-apps/attr ) )
 	zlib? (	>=sys-libs/zlib-1.1 )"
 
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	virtual/pkgconfig
 	doc?  ( dev-python/docutils )
 	test? (
 		virtual/perl-Test-Harness
 		dev-libs/fcgi
 	)"
+
+RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-apache )
+"
 
 # update certain parts of lighttpd.conf based on conditionals
 update_config() {

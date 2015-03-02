@@ -1,6 +1,22 @@
 # ChangeLog for dev-ruby/ruby-glib2
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-glib2/ChangeLog,v 1.113 2014/05/21 01:40:18 mrueg Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ruby-glib2/ChangeLog,v 1.117 2015/02/16 06:23:31 graaff Exp $
+
+  16 Feb 2015; Hans de Graaff <graaff@gentoo.org> ruby-glib2-2.2.3.ebuild:
+  Add ruby22.
+
+*ruby-glib2-2.2.3 (13 Nov 2014)
+
+  13 Nov 2014; Manuel Rüger <mrueg@gentoo.org> +ruby-glib2-2.2.3.ebuild:
+  Version bump.
+
+  26 Oct 2014; Hans de Graaff <graaff@gentoo.org> ruby-glib2-2.2.2.ebuild:
+  Fix failing test due to use of our sandbox.
+
+*ruby-glib2-2.2.2 (14 Oct 2014)
+
+  14 Oct 2014; Manuel Rüger <mrueg@gentoo.org> +ruby-glib2-2.2.2.ebuild:
+  Version bump. Add ruby21. Add tests (test_async_clear_environment failing).
 
   21 May 2014; Manuel Rüger <mrueg@gentoo.org> ruby-glib2-1.1.8.ebuild,
   ruby-glib2-1.2.6.ebuild:

@@ -1,6 +1,49 @@
 # ChangeLog for dev-ruby/rspec-mocks
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec-mocks/ChangeLog,v 1.83 2014/08/25 16:03:00 mrueg Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec-mocks/ChangeLog,v 1.94 2015/02/28 06:51:40 graaff Exp $
+
+*rspec-mocks-3.2.1 (28 Feb 2015)
+
+  28 Feb 2015; Hans de Graaff <graaff@gentoo.org> +rspec-mocks-3.2.1.ebuild:
+  Version bump.
+
+  21 Feb 2015; Hans de Graaff <graaff@gentoo.org> rspec-mocks-2.99.2.ebuild,
+  rspec-mocks-3.2.0.ebuild:
+  Add ruby22.
+
+*rspec-mocks-3.2.0 (15 Feb 2015)
+
+  15 Feb 2015; Hans de Graaff <graaff@gentoo.org> +rspec-mocks-3.2.0.ebuild:
+  Version bump.
+
+  18 Jan 2015; Hans de Graaff <graaff@gentoo.org> rspec-mocks-3.1.3.ebuild:
+  Add alpha and sparc keywords missing due to using an old ebuild as template.
+
+*rspec-mocks-3.1.3 (28 Dec 2014)
+
+  28 Dec 2014; Hans de Graaff <graaff@gentoo.org> +rspec-mocks-3.1.3.ebuild:
+  Version bump to rspec 3.x.
+
+  18 Nov 2014; Manuel Rüger <mrueg@gentoo.org>
+  -files/rspec-mocks-2.4.0-no-cucumber.patch:
+  Cleanup patches.
+
+  18 Nov 2014; Manuel Rüger <mrueg@gentoo.org> -rspec-mocks-2.12.1.ebuild:
+  Cleanup old.
+
+  18 Nov 2014; Agostino Sarubbo <ago@gentoo.org> rspec-mocks-2.14.6.ebuild:
+  Stable for sparc, wrt bug #505920
+
+  18 Nov 2014; Agostino Sarubbo <ago@gentoo.org> rspec-mocks-2.14.6.ebuild:
+  Stable for ppc64, wrt bug #505920
+
+  18 Nov 2014; Agostino Sarubbo <ago@gentoo.org> rspec-mocks-2.14.6.ebuild:
+  Stable for ppc, wrt bug #505920
+
+  11 Nov 2014; Manuel Rüger <mrueg@gentoo.org> rspec-mocks-2.12.1.ebuild,
+  rspec-mocks-2.14.6-r1.ebuild, rspec-mocks-2.14.6.ebuild,
+  rspec-mocks-2.99.2.ebuild:
+  Drop jruby target.
 
   25 Aug 2014; Manuel Rüger <mrueg@gentoo.org> rspec-mocks-2.14.6.ebuild:
   Mark amd64 stable. Bug #505920.

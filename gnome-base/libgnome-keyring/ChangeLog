@@ -1,6 +1,23 @@
 # ChangeLog for gnome-base/libgnome-keyring
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/libgnome-keyring/ChangeLog,v 1.62 2014/08/25 10:58:57 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/gnome-base/libgnome-keyring/ChangeLog,v 1.66 2014/11/13 11:36:35 pacho Exp $
+
+  13 Nov 2014; Pacho Ramos <pacho@gentoo.org>
+  -files/libgnome-keyring-2.32.0-drop-test.patch,
+  -files/libgnome-keyring-2.32.0-hang-tests.patch,
+  -files/libgnome-keyring-2.32.0-run-test.patch,
+  -libgnome-keyring-2.32.0.ebuild:
+  Drop old (#508854)
+
+  14 Oct 2014; Pacho Ramos <pacho@gentoo.org> -libgnome-keyring-3.10.1.ebuild,
+  libgnome-keyring-3.12.0.ebuild:
+  Fix missing dependencies (#522526 by Rick Farina (Zero_Chaos)), drop old
+
+  11 Oct 2014; Markus Meier <maekke@gentoo.org> libgnome-keyring-3.12.0.ebuild:
+  arm stable, bug #512012
+
+  15 Sep 2014; Agostino Sarubbo <ago@gentoo.org> libgnome-keyring-3.12.0.ebuild:
+  Stable for sparc, wrt bug #512012
 
   25 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libgnome-keyring-3.12.0.ebuild:
   Stable for alpha, wrt bug #512012

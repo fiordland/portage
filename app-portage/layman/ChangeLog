@@ -1,6 +1,117 @@
 # ChangeLog for app-portage/layman
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/layman/ChangeLog,v 1.204 2014/08/17 02:10:22 twitch153 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-portage/layman/ChangeLog,v 1.229 2015/02/18 13:45:10 pinkbyte Exp $
+
+  18 Feb 2015; Sergey Popov <pinkbyte@gentoo.org> layman-2.3.0.ebuild:
+  Add ~s390 keyword, wrt bug #539366
+
+  18 Feb 2015; Joshua Kinard <kumba@gentoo.org> layman-2.3.0.ebuild:
+  Added ~mips, #539366.
+
+  11 Feb 2015; Jeroen Roovers <jer@gentoo.org> layman-2.3.0.ebuild:
+  Marked ~hppa (bug #539366).
+
+  10 Feb 2015; Brian Dolbec <dolsen@gentoo.org> layman-2.3.0.ebuild:
+  Add ssl-fetch to DEPEND due to needing to import setup.py in the prepare
+  phase.
+
+*layman-2.3.0 (08 Feb 2015)
+
+  08 Feb 2015; Brian Dolbec <dolsen@gentoo.org> +layman-2.3.0.ebuild,
+  layman-9999.ebuild:
+  Version bump. Add portage plugin USE flag and installation to layman-9999.
+
+  17 Jan 2015; Patrick Lauer <patrick@gentoo.org> layman-2.2.0-r7.ebuild:
+  Fix #525896, tests now actually run and fail
+
+*layman-2.2.0-r7 (12 Jan 2015)
+
+  12 Jan 2015; Devan Franchini <twitch153@gentoo.org>
+  +files/layman-2.2.0-change-for-upstream-ssl-fetch.patch,
+  +layman-2.2.0-r7.ebuild, -layman-2.2.0-r6.ebuild,
+  files/layman-2.2.0-adds-kwargs-debug.patch:
+  Adds patch to bring layman-2.2.0 up to date for ssl-fetch, bug #536280
+
+*layman-2.2.0-r6 (12 Jan 2015)
+
+  12 Jan 2015; Devan Franchini <twitch153@gentoo.org>
+  +files/layman-2.2.0-adds-kwargs-debug.patch, +layman-2.2.0-r6.ebuild,
+  -layman-2.2.0-r5.ebuild:
+  Adds patch to fix bug #536280, bumps layman to 2.2.0-r6
+
+  23 Nov 2014; Mikle Kolyada <zlogene@gentoo.org> layman-2.2.0-r5.ebuild:
+  Add ~sparc keyword wrt bug #524040
+
+  23 Nov 2014; Mikle Kolyada <zlogene@gentoo.org> layman-2.2.0-r5.ebuild:
+  Add ~alpha keyword wrt bug #524040
+
+  09 Nov 2014; Mikle Kolyada <zlogene@gentoo.org> layman-2.2.0-r5.ebuild:
+  Add ~ia64 keyword wrt bug #524040
+
+*layman-2.2.0-r5 (18 Oct 2014)
+
+  18 Oct 2014; Devan Franchini <twitch153@gentoo.org> +layman-2.2.0-r5.ebuild,
+  -layman-2.2.0-r4.ebuild, files/layman-2.2.0-removes-doctest-remnants.patch:
+  Removes dtest.py in src_prepare() instead of patch, bug #525806
+
+  18 Oct 2014; Devan Franchini <twitch153@gentoo.org>
+  files/layman-2.2.0-removes-doctest-remnants.patch:
+  Fixes patch to remove doctest remnants
+
+*layman-2.2.0-r4 (18 Oct 2014)
+
+  18 Oct 2014; Devan Franchini <twitch153@gentoo.org>
+  +files/layman-2.2.0-removes-doctest-remnants.patch, +layman-2.2.0-r4.ebuild,
+  -layman-2.2.0-r3.ebuild:
+  Adds patch to remove doctests
+
+  16 Oct 2014; Manuel Rüger <mrueg@gentoo.org> layman-2.2.0-r3.ebuild:
+  Add ~arm keyword. Bug #524040.
+
+*layman-2.2.0-r3 (14 Oct 2014)
+
+  14 Oct 2014; Devan Franchini <twitch153@gentoo.org> +layman-2.2.0-r3.ebuild,
+  -layman-2.2.0-r2.ebuild, layman-9999.ebuild:
+  Moves python_pkg_setup to pkg_setup, thanks to Arfrever for the clarification
+
+*layman-2.2.0-r2 (13 Oct 2014)
+
+  13 Oct 2014; Devan Franchini <twitch153@gentoo.org> +layman-2.2.0-r2.ebuild,
+  -layman-2.2.0-r1.ebuild:
+  Moves pkg_setup to python_pkg_setup
+
+  13 Oct 2014; Devan Franchini <twitch153@gentoo.org> layman-9999.ebuild:
+  Adds proper kernel config checking
+
+*layman-2.2.0-r1 (13 Oct 2014)
+
+  13 Oct 2014; Devan Franchini <twitch153@gentoo.org> +layman-2.2.0-r1.ebuild,
+  -layman-2.2.0.ebuild:
+  Adds proper kernel config checking, thanks to Arfrever
+
+  04 Oct 2014; Anthony G. Basile <blueness@gentoo.org> layman-2.2.0.ebuild:
+  Keyworded ~ppc and ~ppc64, bug #524040
+
+  29 Sep 2014; Jeroen Roovers <jer@gentoo.org> layman-2.2.0.ebuild:
+  Marked ~hppa (bug #524040).
+
+  29 Sep 2014; Jeroen Roovers <jer@gentoo.org> layman-2.2.0.ebuild:
+  Drop keywords (bug #524040).
+
+*layman-2.2.0 (28 Sep 2014)
+
+  28 Sep 2014; Devan Franchini <twitch153@gentoo.org> +layman-2.2.0.ebuild:
+  Bumps version for new release
+
+  28 Sep 2014; Devan Franchini <twitch153@gentoo.org> layman-2.1.0-r3.ebuild:
+  reintroduces ~ppc ~ppc64 ~sparc keywords
+
+*layman-2.1.0-r3 (02 Sep 2014)
+
+  02 Sep 2014; Devan Franchini <twitch153@gentoo.org>
+  +files/layman-2.1.0-incorrect-import-make-conf-fix.patch,
+  +layman-2.1.0-r3.ebuild, -layman-2.1.0-r2.ebuild:
+  Adds patch to fix improper import for ConfigHandler, bug #521724
 
   17 Aug 2014; Devan Franchini <twitch153@gentoo.org> metadata.xml:
   Adds twitch153 to maintainers

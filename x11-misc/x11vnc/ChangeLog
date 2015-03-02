@@ -1,6 +1,16 @@
 # ChangeLog for x11-misc/x11vnc
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/x11vnc/ChangeLog,v 1.113 2014/08/14 16:25:51 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/x11vnc/ChangeLog,v 1.116 2014/11/25 23:29:13 hasufell Exp $
+
+  25 Nov 2014; Julian Ospald <hasufell@gentoo.org> metadata.xml:
+  drop maintainership
+
+  04 Oct 2014; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  x11vnc-0.9.13-r1.ebuild:
+  Keyword ~mips
+
+  29 Aug 2014; Chema Alonso <nimiux@gentoo.org> x11vnc-0.9.13-r1.ebuild:
+  Stable for amd64 wrt bug #518214
 
   14 Aug 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> x11vnc-0.9.13-r1.ebuild:
   x86 stable wrt bug #518214

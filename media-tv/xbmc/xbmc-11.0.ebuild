@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/xbmc/xbmc-11.0.ebuild,v 1.24 2014/07/24 11:43:48 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-tv/xbmc/xbmc-11.0.ebuild,v 1.26 2015/02/16 01:05:11 vapier Exp $
 
 EAPI="4"
 
@@ -27,7 +27,7 @@ HOMEPAGE="http://xbmc.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="airplay alsa altivec avahi bluetooth bluray cec css debug goom joystick midi mysql profile +projectm pulseaudio pvr +rsxs rtmp +samba sse sse2 udisks upower vaapi vdpau webserver +xrandr"
+IUSE="airplay alsa altivec avahi bluetooth bluray cec css debug goom joystick midi mysql profile +projectm pulseaudio pvr +rsxs rtmp +samba cpu_flags_x86_sse cpu_flags_x86_sse2 udisks upower vaapi vdpau webserver +xrandr"
 REQUIRED_USE="pvr? ( mysql )"
 
 COMMON_DEPEND="virtual/glu
@@ -96,6 +96,7 @@ COMMON_DEPEND="virtual/glu
 	xrandr? ( x11-libs/libXrandr )
 	x11-libs/libXrender"
 RDEPEND="${COMMON_DEPEND}
+	!media-tv/kodi
 	udisks? ( sys-fs/udisks:0 )
 	upower? ( || ( sys-power/upower sys-power/upower-pm-utils ) )"
 DEPEND="${COMMON_DEPEND}
@@ -151,8 +152,8 @@ src_prepare() {
 
 	local squish #290564
 	use altivec && squish="-DSQUISH_USE_ALTIVEC=1 -maltivec"
-	use sse && squish="-DSQUISH_USE_SSE=1 -msse"
-	use sse2 && squish="-DSQUISH_USE_SSE=2 -msse2"
+	use cpu_flags_x86_sse && squish="-DSQUISH_USE_SSE=1 -msse"
+	use cpu_flags_x86_sse2 && squish="-DSQUISH_USE_SSE=2 -msse2"
 	sed -i \
 		-e '/^CXXFLAGS/{s:-D[^=]*=.::;s:-m[[:alnum:]]*::}' \
 		-e "1iCXXFLAGS += ${squish}" \

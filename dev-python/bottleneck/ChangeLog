@@ -1,6 +1,16 @@
 # ChangeLog for dev-python/bottleneck
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/bottleneck/ChangeLog,v 1.6 2014/06/20 06:29:47 idella4 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/bottleneck/ChangeLog,v 1.9 2015/02/17 09:56:08 jlec Exp $
+
+  17 Feb 2015; Justin Lecher <jlec@gentoo.org> -bottleneck-0.6.0.ebuild,
+  -bottleneck-0.7.0.ebuild, metadata.xml:
+  Drop old
+
+  16 Feb 2015; Pacho Ramos <pacho@gentoo.org> bottleneck-0.8.0.ebuild:
+  amd64/x86 stable, bug #531324
+
+  01 Dec 2014; Ian Delaney <idella4@gentoo.org> bottleneck-0.8.0.ebuild:
+  clean old impl
 
   20 Jun 2014; Ian Delaney <idella4@gentoo.org> bottleneck-0.8.0.ebuild:
   add py3.4 support

@@ -1,6 +1,52 @@
 # ChangeLog for app-admin/ansible
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.51 2014/08/17 15:31:06 ercpe Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/ansible/ChangeLog,v 1.60 2015/02/20 07:49:00 jlec Exp $
+
+  20 Feb 2015; Justin Lecher <jlec@gentoo.org> -ansible-1.6.10.ebuild,
+  -ansible-1.7.2.ebuild, -ansible-1.8.1-r1.ebuild, -ansible-1.8.2.ebuild:
+  Drop old fixes security issue
+
+*ansible-1.8.4 (20 Feb 2015)
+
+  20 Feb 2015; Justin Lecher <jlec@gentoo.org> +ansible-1.8.4.ebuild:
+  Version Bump
+
+  31 Jan 2015; Jeremy Olexa <darkside@gentoo.org> ansible-1.8.2.ebuild:
+  add ~x64-macos, bug 535970
+
+  22 Dec 2014; Sergey Popov <pinkbyte@gentoo.org> ansible-1.8.2.ebuild:
+  Drop tests restriction, cause tests were correctly removed from release
+  tarball
+
+*ansible-1.8.2 (22 Dec 2014)
+
+  22 Dec 2014; Sergey Popov <pinkbyte@gentoo.org> -ansible-1.7.0.ebuild,
+  -ansible-1.7.1.ebuild, +ansible-1.8.2.ebuild:
+  Version bump, wrt bug #533268, thanks to Tomas Mozes <hydrapolic AT
+  gmail.com>. Drop old versions
+
+  02 Dec 2014; Sergey Popov <pinkbyte@gentoo.org> ansible-1.8.1-r1.ebuild,
+  ansible-9999.ebuild:
+  Restrict testing, cause it's broken in release tarball. Add missing test
+  dependency on dev-python/mock to live ebuild
+
+*ansible-1.8.1-r1 (02 Dec 2014)
+
+  02 Dec 2014; Sergey Popov <pinkbyte@gentoo.org> -ansible-1.8.1.ebuild,
+  +ansible-1.8.1-r1.ebuild:
+  Revision bump: use proper tarball with all modules, fix bug #531380, thanks
+  to Vadim Kuznetsov for discovering this issue. Drop old revision
+
+*ansible-1.8.1 (30 Nov 2014)
+
+  30 Nov 2014; Justin Lecher <jlec@gentoo.org> +ansible-1.8.1.ebuild,
+  ansible-9999.ebuild:
+  Verison Bump, #531148
+
+*ansible-1.7.2 (04 Nov 2014)
+
+  04 Nov 2014; Justin Lecher <jlec@gentoo.org> +ansible-1.7.2.ebuild:
+  Version BUmp, #528174
 
 *ansible-1.7.1 (17 Aug 2014)
 

@@ -1,6 +1,46 @@
 # ChangeLog for mail-mta/courier
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-mta/courier/ChangeLog,v 1.174 2014/01/18 19:52:19 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-mta/courier/ChangeLog,v 1.182 2015/02/21 16:04:58 hanno Exp $
+
+*courier-0.74.1-r1 (21 Feb 2015)
+
+  21 Feb 2015; <hanno@gentoo.org> +courier-0.74.1-r1.ebuild,
+  +files/courier-0.74.1-fix-implicit-declaration-warning.diff,
+  +files/courier-0.74.1-fix-testsuite.diff:
+  Fix compiler warning, testsuite, dodoc issue and /var/run.
+
+  15 Jan 2015; Andreas Schuerch <nativemad@gentoo.org> courier-0.74.0.ebuild,
+  courier-0.74.1.ebuild:
+  marked ~x86, see bug 532520
+
+  28 Dec 2014; Aaron W. Swenson <titanofold@gentoo.org> courier-0.71.ebuild,
+  courier-0.74.0.ebuild, courier-0.74.1.ebuild:
+  Rename virtual/postgresql to dev-db/postgresql
+
+*courier-0.74.1 (16 Dec 2014)
+
+  16 Dec 2014; <hanno@gentoo.org> +courier-0.74.1.ebuild:
+  Bump.
+
+  15 Dec 2014; Jeroen Roovers <jer@gentoo.org> courier-0.74.0.ebuild:
+  Marked ~hppa (bug #532520).
+
+*courier-0.74.0 (14 Dec 2014)
+
+  14 Dec 2014; <hanno@gentoo.org> +courier-0.74.0.ebuild,
+  +files/courier-0.74.0-fix-linking.diff:
+  Bump, fix --as-needed linking.
+
+  03 Nov 2014; Aaron W. Swenson <titanofold@gentoo.org> courier-0.71.ebuild:
+  Update PostgreSQL dependencies and/or checks to virtual/postgresql.
+
+  03 Sep 2014; Hanno Boeck <hanno@gentoo.org> -courier-0.65.2.ebuild,
+  -courier-0.65.2-r1.ebuild, -courier-0.66.3.ebuild,
+  -courier-0.68.2.20120626.ebuild, -courier-0.69.0.ebuild,
+  -courier-0.70.ebuild, -files/bofh, -files/courier-init-r2,
+  -files/courier-init-r3, -files/dot_courier, -files/locallowercase,
+  -files/mailer.conf, -files/set-mime:
+  Cleanup.
 
   18 Jan 2014; Agostino Sarubbo <ago@gentoo.org> courier-0.71.ebuild:
   Stable for alpha, wrt bug #486504

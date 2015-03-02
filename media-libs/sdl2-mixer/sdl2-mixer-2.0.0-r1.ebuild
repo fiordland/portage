@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/sdl2-mixer/sdl2-mixer-2.0.0-r1.ebuild,v 1.2 2014/06/18 19:53:54 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/sdl2-mixer/sdl2-mixer-2.0.0-r1.ebuild,v 1.4 2014/11/29 08:36:16 mr_bones_ Exp $
 
 EAPI=5
 inherit eutils multilib-minimal
@@ -39,7 +39,7 @@ RDEPEND=">=media-libs/libsdl2-2.0.1-r1[${MULTILIB_USEDEP}]
 	)
 	mod? (
 		modplug? ( >=media-libs/libmodplug-0.8.8.4-r1[${MULTILIB_USEDEP}] )
-		mikmod? ( >=media-libs/libmikmod-3.2.0[${MULTILIB_USEDEP}] )
+		mikmod? ( >=media-libs/libmikmod-3.3.6-r1[${MULTILIB_USEDEP}] )
 	)
 	vorbis? (
 		tremor? ( >=media-libs/tremor-0_pre20130223[${MULTILIB_USEDEP}] )
@@ -50,6 +50,10 @@ RDEPEND=">=media-libs/libsdl2-2.0.1-r1[${MULTILIB_USEDEP}]
 DEPEND=${RDEPEND}
 
 S=${WORKDIR}/${MY_P}
+
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-Fix-compiling-against-libmodplug-0.8.8.5.patch
+}
 
 multilib_src_configure() {
 	ECONF_SOURCE=${S} \
@@ -76,7 +80,8 @@ multilib_src_configure() {
 		$(use_enable smpeg music-mp3-smpeg) \
 		--disable-music-mp3-smpeg-shared \
 		--disable-smpegtest \
-		$(use_enable mad music-mp3-mad-gpl)
+		$(use_enable mad music-mp3-mad-gpl) \
+		LIBMIKMOD_CONFIG=${EPREFIX}/usr/bin/${CHOST}-libmikmod-config
 }
 
 multilib_src_install() {

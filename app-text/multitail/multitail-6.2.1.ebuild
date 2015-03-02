@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/multitail/multitail-6.2.1.ebuild,v 1.2 2014/08/15 08:04:02 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/multitail/multitail-6.2.1.ebuild,v 1.8 2015/02/10 08:19:01 jlec Exp $
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="http://www.vanheusden.com/multitail/${P}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 hppa ~ia64 ~ppc ~sparc ~x86 ~x86-interix ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 hppa ia64 ppc sparc x86 ~x86-interix ~amd64-linux ~x86-linux"
 IUSE="debug examples unicode"
 
 RDEPEND="sys-libs/ncurses[unicode?]"
@@ -22,8 +22,6 @@ RESTRICT="test" # bug #492270
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-6.0-as-needed.patch
-
-	use x86-interix && epatch "${FILESDIR}"/${PN}-5.2.6-interix.patch
 
 	sed \
 		-e '/gcc/d' \
@@ -37,7 +35,7 @@ src_prepare() {
 	use debug && append-flags "-D_DEBUG"
 }
 
-src_configure() {
+src_compile() {
 	emake UTF8_SUPPORT=$(usex unicode)
 }
 

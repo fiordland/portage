@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/screen/screen-4.2.1-r2.ebuild,v 1.3 2014/08/26 16:07:14 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/screen/screen-4.2.1-r2.ebuild,v 1.6 2014/11/01 11:47:25 swegener Exp $
 
 EAPI=5
 
@@ -15,13 +15,12 @@ SLOT="0"
 KEYWORDS=" ~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~sparc-fbsd ~x86-fbsd ~hppa-hpux ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="debug nethack pam selinux multiuser"
 
-RDEPEND=">=sys-libs/ncurses-5.2
-	pam? ( virtual/pam )
+CDEPEND=">=sys-libs/ncurses-5.2
+	pam? ( virtual/pam )"
+RDEPEND="${CDEPEND}
 	selinux? ( sec-policy/selinux-screen )"
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	sys-apps/texinfo"
-RDEPEND="${RDEPEND}
-	>=sys-apps/openrc-0.11.6"
 
 pkg_setup() {
 	# Make sure utmp group exists, as it's used later on.
@@ -53,7 +52,13 @@ src_prepare() {
 src_configure() {
 	append-cppflags "-DMAXWIN=${MAX_SCREEN_WINDOWS:-100}"
 
-	[[ ${CHOST} == *-solaris* ]] && append-libs -lsocket -lnsl
+	if [[ ${CHOST} == *-solaris* ]] ; then
+		# https://lists.gnu.org/archive/html/screen-devel/2014-04/msg00095.html
+		append-cppflags -D_XOPEN_SOURCE \
+			-D_XOPEN_SOURCE_EXTENDED=1 \
+			-D__EXTENSIONS__
+		append-libs -lsocket -lnsl
+	fi
 
 	use nethack || append-cppflags "-DNONETHACK"
 	use debug && append-cppflags "-DDEBUG"
@@ -123,7 +128,7 @@ pkg_postinst() {
 		elog "applications. Please check /etc/screenrc for information on these changes."
 	fi
 
-	# add /var/run/screen in case it doesn't exist yet. This should solve
+	# Add /tmp/screen in case it doesn't exist yet. This should solve
 	# problems like bug #508634 where tmpfiles.d isn't in effect.
 	local rundir="${EROOT%/}/tmp/screen"
 	if [[ ! -d ${rundir} ]] ; then

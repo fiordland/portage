@@ -1,6 +1,48 @@
 # ChangeLog for net-dns/avahi
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-dns/avahi/ChangeLog,v 1.270 2014/08/25 19:20:50 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-dns/avahi/ChangeLog,v 1.282 2014/11/22 23:32:32 mgorny Exp $
+
+*avahi-0.6.31-r7 (22 Nov 2014)
+
+  22 Nov 2014; Michał Górny <mgorny@gentoo.org> +avahi-0.6.31-r7.ebuild:
+  Enable remaining multilib deps (UI libraries), bug #510182.
+
+  02 Nov 2014; Agostino Sarubbo <ago@gentoo.org> avahi-0.6.31-r6.ebuild:
+  Stable for alpha, wrt bug #520338
+
+  02 Nov 2014; Sven Vermeulen <swift@gentoo.org> avahi-0.6.31-r6.ebuild:
+  Remove sec-policy/selinux-* dependency from DEPEND but keep in RDEPEND (bug
+  #527698)
+
+  29 Oct 2014; Agostino Sarubbo <ago@gentoo.org> avahi-0.6.31-r6.ebuild:
+  Stable for sparc, wrt bug #520338
+
+  28 Oct 2014; Agostino Sarubbo <ago@gentoo.org> avahi-0.6.31-r6.ebuild:
+  Stable for ia64, wrt bug #520338
+
+  23 Oct 2014; Pacho Ramos <pacho@gentoo.org> avahi-0.6.31-r6.ebuild:
+  x86 stable, bug #520338
+
+  14 Oct 2014; Pacho Ramos <pacho@gentoo.org> avahi-0.6.31-r6.ebuild:
+  amd64 stable, bug #520338
+
+  09 Oct 2014; Jeroen Roovers <jer@gentoo.org> avahi-0.6.31-r6.ebuild:
+  Stable for HPPA (bug #520338).
+
+  09 Oct 2014; Anthony G. Basile <blueness@gentoo.org> avahi-0.6.31-r6.ebuild:
+  Stable on ppc, ppc64, arm.  Bug #520338.
+
+*avahi-0.6.31-r6 (09 Oct 2014)
+
+  09 Oct 2014; Anthony G. Basile <blueness@gentoo.org> +avahi-0.6.31-r6.ebuild:
+  Fix autoipd module location, bug #524788.  Thanks Dihan Wickremasuriya.
+
+  07 Sep 2014; Anthony G. Basile <blueness@gentoo.org>
+  files/avahi-0.6.31-fix-locale-build.patch:
+  Patch Makefile.am, not Makefile.in, bug #501664
+
+  30 Aug 2014; Anthony G. Basile <blueness@gentoo.org> avahi-0.6.31-r5.ebuild:
+  Stable on arm, bug #520338
 
   25 Aug 2014; Jeroen Roovers <jer@gentoo.org> avahi-0.6.31-r5.ebuild:
   Stable for HPPA (bug #520338).

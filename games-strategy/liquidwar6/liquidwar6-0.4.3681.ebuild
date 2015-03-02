@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/liquidwar6/liquidwar6-0.4.3681.ebuild,v 1.4 2014/08/14 16:42:35 phajdan.jr Exp $
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/liquidwar6/liquidwar6-0.4.3681.ebuild,v 1.7 2015/01/26 17:41:27 mr_bones_ Exp $
 
 EAPI=5
 
@@ -16,10 +16,11 @@ SRC_URI="http://www.ufoot.org/download/liquidwar/v6/${MY_PV}/${MY_P}.tar.gz
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 x86"
+KEYWORDS="amd64 x86"
 IUSE="doc gles2 gtk libcaca +maps nls +ogg openmp readline test"
 
 # yes, cunit is rdep
+# Drop the libtool dep once libltdl goes stable.
 RDEPEND="dev-db/sqlite:3
 	dev-libs/expat
 	dev-scheme/guile
@@ -30,7 +31,7 @@ RDEPEND="dev-db/sqlite:3
 	media-libs/sdl-image[jpeg,png]
 	media-libs/sdl-ttf
 	net-misc/curl
-	sys-devel/libtool:2
+	|| ( dev-libs/libltdl:0 <sys-devel/libtool-2.4.3-r2:2 )
 	sys-libs/zlib
 	virtual/glu
 	virtual/jpeg
@@ -64,8 +65,9 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-0.2.3551-{ldconfig,paths}.patch \
-		"${FILESDIR}"/${PN}-0.4.3681-check-headers.patch
+	epatch \
+		"${FILESDIR}"/${P}-{ldconfig,paths}.patch \
+		"${FILESDIR}"/${P}-check-headers.patch
 
 	sed -i \
 		-e 's/-Werror//' \

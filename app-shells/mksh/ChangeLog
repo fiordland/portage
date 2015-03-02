@@ -1,6 +1,41 @@
 # ChangeLog for app-shells/mksh
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/mksh/ChangeLog,v 1.53 2014/07/01 04:05:41 patrick Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-shells/mksh/ChangeLog,v 1.61 2015/01/18 01:44:25 patrick Exp $
+
+*mksh-50d-r1 (18 Jan 2015)
+
+  18 Jan 2015; Patrick Lauer <patrick@gentoo.org> +mksh-50d-r1.ebuild,
+  mksh-9999.ebuild:
+  Add mksh to /etc/shells
+
+  01 Jan 2015; Mikle Kolyada <zlogene@gentoo.org> -mksh-48b.ebuild,
+  -mksh-49.ebuild, -mksh-50b.ebuild, -mksh-50c.ebuild:
+  Security cleanup
+
+  30 Oct 2014; Agostino Sarubbo <ago@gentoo.org> mksh-50d.ebuild:
+  Stable for x86, wrt bug #522416
+
+  18 Oct 2014; Agostino Sarubbo <ago@gentoo.org> mksh-50d.ebuild:
+  Stable for ppc, wrt bug #522416
+
+  13 Oct 2014; Chema Alonso <nimiux@gentoo.org> mksh-50d.ebuild:
+  Stable for amd64 wrt bug #522416
+
+*mksh-50d (08 Oct 2014)
+
+  08 Oct 2014; Patrick Lauer <patrick@gentoo.org> +mksh-50d.ebuild:
+  Bump
+
+*mksh-50c (03 Oct 2014)
+
+  03 Oct 2014; Lars Wendler <polynomial-c@gentoo.org> -mksh-50.ebuild,
+  +mksh-50c.ebuild, -files/mksh-40f-etc-configurable.patch:
+  Version bump. Removed old.
+
+*mksh-50b (04 Sep 2014)
+
+  04 Sep 2014; Patrick Lauer <patrick@gentoo.org> +mksh-50b.ebuild:
+  Bump
 
 *mksh-50 (01 Jul 2014)
 

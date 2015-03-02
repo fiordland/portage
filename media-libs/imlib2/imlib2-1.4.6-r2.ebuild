@@ -1,11 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/imlib2/imlib2-1.4.6-r2.ebuild,v 1.14 2014/08/23 15:31:03 ago Exp $
-
-# NOTE!!!: to avoid masking of -9999 the
-# package.mask entry for multilib version
-# reads =media-libs/imlib2-1.4.6-r2
-# Keep this in mind when bumping!
+# $Header: /var/cvsroot/gentoo-x86/media-libs/imlib2/imlib2-1.4.6-r2.ebuild,v 1.18 2015/01/29 17:33:53 mgorny Exp $
 
 EAPI="4"
 
@@ -16,15 +11,17 @@ if [[ ${PV} != "9999" ]] ; then
 	EKEY_STATE="snap"
 fi
 
+# Select automake version explicitly to avoid regenerating all autotools.
+# This is a minor optimization.
+WANT_AUTOMAKE="1.13"
 inherit autotools enlightenment toolchain-funcs multilib-minimal
 
 DESCRIPTION="Version 2 of an advanced replacement library for libraries like libXpm"
 HOMEPAGE="http://www.enlightenment.org/"
 
-# See bug #342185#c13
-KEYWORDS="alpha amd64 ~arm hppa ia64 ~mips ppc ppc64 ~sh ~sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x64-solaris ~x86-solaris"
 
-IUSE="bzip2 gif jpeg mmx mp3 png static-libs tiff X zlib"
+IUSE="bzip2 gif jpeg cpu_flags_x86_mmx mp3 png static-libs tiff X zlib"
 
 RDEPEND="=media-libs/freetype-2*[${MULTILIB_USEDEP}]
 	bzip2? ( >=app-arch/bzip2-1.0.6-r4[${MULTILIB_USEDEP}] )
@@ -57,9 +54,9 @@ src_prepare() {
 multilib_src_configure() {
 	# imlib2 has diff configure options for x86/amd64 mmx
 	if [[ $(tc-arch) == amd64 ]]; then
-		E_ECONF+=( $(use_enable mmx amd64) --disable-mmx )
+		E_ECONF+=( $(use_enable cpu_flags_x86_mmx amd64) --disable-mmx )
 	else
-		E_ECONF+=( --disable-amd64 $(use_enable mmx) )
+		E_ECONF+=( --disable-amd64 $(use_enable cpu_flags_x86_mmx mmx) )
 	fi
 
 	[[ $(gcc-major-version) -ge 4 ]] && E_ECONF+=( --enable-visibility-hiding )

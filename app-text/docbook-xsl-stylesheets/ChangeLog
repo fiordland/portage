@@ -1,6 +1,42 @@
 # ChangeLog for app-text/docbook-xsl-stylesheets
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/docbook-xsl-stylesheets/ChangeLog,v 1.139 2014/01/18 11:45:54 vapier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-text/docbook-xsl-stylesheets/ChangeLog,v 1.148 2015/02/28 13:30:43 ago Exp $
+
+  28 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xsl-stylesheets-1.78.0-r1.ebuild:
+  Stable for ia64, wrt bug #534902
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xsl-stylesheets-1.78.0-r1.ebuild:
+  Stable for sparc, wrt bug #534902
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xsl-stylesheets-1.78.0-r1.ebuild:
+  Stable for alpha, wrt bug #534902
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xsl-stylesheets-1.78.0-r1.ebuild:
+  Stable for x86, wrt bug #534902
+
+  18 Jan 2015; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xsl-stylesheets-1.78.0-r1.ebuild:
+  Stable for ppc64, wrt bug #534902
+
+  17 Jan 2015; Markus Meier <maekke@gentoo.org>
+  docbook-xsl-stylesheets-1.78.0-r1.ebuild:
+  arm stable, bug #534902
+
+  17 Jan 2015; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xsl-stylesheets-1.78.0-r1.ebuild:
+  Stable for ppc, wrt bug #534902
+
+  15 Jan 2015; Jeroen Roovers <jer@gentoo.org>
+  docbook-xsl-stylesheets-1.78.0-r1.ebuild:
+  Stable for HPPA (bug #534902).
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org>
+  docbook-xsl-stylesheets-1.78.0-r1.ebuild:
+  Stable for amd64, wrt bug #534902
 
   18 Jan 2014; Mike Frysinger <vapier@gentoo.org>
   docbook-xsl-stylesheets-1.78.0-r1.ebuild,

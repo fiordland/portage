@@ -1,6 +1,36 @@
 # ChangeLog for app-arch/lzip
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/lzip/ChangeLog,v 1.50 2014/02/25 00:07:16 bicatali Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-arch/lzip/ChangeLog,v 1.59 2015/02/27 11:19:09 ago Exp $
+
+  27 Feb 2015; Agostino Sarubbo <ago@gentoo.org> lzip-1.16.ebuild:
+  Stable for sparc, wrt bug #534812
+
+  24 Feb 2015; Agostino Sarubbo <ago@gentoo.org> lzip-1.16.ebuild:
+  Stable for alpha, wrt bug #534812
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> lzip-1.16.ebuild:
+  Stable for x86, wrt bug #534812
+
+  18 Jan 2015; Agostino Sarubbo <ago@gentoo.org> lzip-1.16.ebuild:
+  Stable for ppc64, wrt bug #534812
+
+  17 Jan 2015; Agostino Sarubbo <ago@gentoo.org> lzip-1.16.ebuild:
+  Stable for ppc, wrt bug #534812
+
+  11 Jan 2015; Markus Meier <maekke@gentoo.org> lzip-1.16.ebuild:
+  arm stable, bug #534812
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> lzip-1.16.ebuild:
+  Stable for amd64, wrt bug #534812
+
+  08 Jan 2015; Jeroen Roovers <jer@gentoo.org> lzip-1.16.ebuild:
+  Stable for HPPA (bug #534812).
+
+*lzip-1.16 (22 Sep 2014)
+
+  22 Sep 2014; Lars Wendler <polynomial-c@gentoo.org> -lzip-1.14.ebuild,
+  +lzip-1.16.ebuild:
+  Version bump. Removed old.
 
   25 Feb 2014; Sébastien Fabbro <bicatali@gentoo.org> lzip-1.15.ebuild:
   Keyword amd64-linux and x86-linux

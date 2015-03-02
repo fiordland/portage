@@ -1,6 +1,61 @@
 # ChangeLog for app-emulation/emul-linux-x86-java
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-java/ChangeLog,v 1.138 2014/04/26 09:09:03 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/emul-linux-x86-java/ChangeLog,v 1.149 2015/01/30 05:23:36 ercpe Exp $
+
+  30 Jan 2015; Johann Schmitz <ercpe@gentoo.org>
+  -emul-linux-x86-java-1.7.0.71.ebuild, -emul-linux-x86-java-1.7.0.72.ebuild:
+  Removed vulnerable versions (#537214)
+
+  28 Jan 2015; Agostino Sarubbo <ago@gentoo.org>
+  emul-linux-x86-java-1.7.0.76.ebuild:
+  Stable for amd64, wrt bug #537214
+
+  24 Jan 2015; Johann Schmitz <ercpe@gentoo.org>
+  emul-linux-x86-java-1.7.0.76.ebuild:
+  Update download url to point to the correct download table
+
+*emul-linux-x86-java-1.7.0.76 (23 Jan 2015)
+
+  23 Jan 2015; Johann Schmitz <ercpe@gentoo.org>
+  +emul-linux-x86-java-1.7.0.76.ebuild:
+  Version bump of emul-linux-x86-java wrt bug #537214
+
+*emul-linux-x86-java-1.7.0.72 (04 Nov 2014)
+
+  04 Nov 2014; Johann Schmitz <ercpe@gentoo.org>
+  +emul-linux-x86-java-1.7.0.72.ebuild:
+  Version bump to 1.7.0.72
+
+  02 Nov 2014; Vlastimil Babka <caster@gentoo.org>
+  -emul-linux-x86-java-1.7.0.51.ebuild, -emul-linux-x86-java-1.7.0.55.ebuild,
+  -emul-linux-x86-java-1.7.0.67.ebuild:
+  Remove old.
+
+  01 Nov 2014; Agostino Sarubbo <ago@gentoo.org>
+  emul-linux-x86-java-1.7.0.71.ebuild:
+  Stable for amd64, wrt bug #525464
+
+  01 Nov 2014; Johann Schmitz <ercpe@gentoo.org>
+  emul-linux-x86-java-1.7.0.71.ebuild:
+  Updated emul-linux-x86-java pkg_nofetch() to include link to Oracle's java
+  download archive.
+
+*emul-linux-x86-java-1.7.0.71 (01 Nov 2014)
+
+  01 Nov 2014; Vlastimil Babka <caster@gentoo.org>
+  +emul-linux-x86-java-1.7.0.71.ebuild:
+  Version bump, security bug #525464.
+
+  16 Oct 2014; Pacho Ramos <pacho@gentoo.org>
+  emul-linux-x86-java-1.7.0.51.ebuild, emul-linux-x86-java-1.7.0.55.ebuild,
+  emul-linux-x86-java-1.7.0.67.ebuild:
+  Support multilib providers for deps. Bump to EAPI=5.
+
+*emul-linux-x86-java-1.7.0.67 (28 Sep 2014)
+
+  28 Sep 2014; Johann Schmitz <ercpe@gentoo.org>
+  +emul-linux-x86-java-1.7.0.67.ebuild:
+  Version bump as per #515992
 
   26 Apr 2014; Agostino Sarubbo <ago@gentoo.org>
   emul-linux-x86-java-1.7.0.55.ebuild:

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/cachefilesd/cachefilesd-0.10.5-r4.ebuild,v 1.1 2014/08/22 13:41:39 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/cachefilesd/cachefilesd-0.10.5-r4.ebuild,v 1.4 2015/01/26 10:00:11 ago Exp $
 
 EAPI=5
 
@@ -12,11 +12,11 @@ SRC_URI="http://people.redhat.com/~dhowells/fscache/${P}.tar.bz2 -> ${P}.tar"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="doc selinux"
 
-DEPEND="selinux? ( sec-policy/selinux-cachefilesd )"
-RDEPEND="${DEPEND}"
+RDEPEND="selinux? ( sec-policy/selinux-cachefilesd )"
+DEPEND=""
 
 src_prepare() {
 	epatch "${FILESDIR}"/0.10.4-makefile.patch

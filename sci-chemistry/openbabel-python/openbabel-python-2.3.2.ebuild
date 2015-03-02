@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/openbabel-python/openbabel-python-2.3.2.ebuild,v 1.8 2013/10/13 08:30:30 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/openbabel-python/openbabel-python-2.3.2.ebuild,v 1.13 2015/03/02 09:22:30 ago Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=(python{2_6,2_7,3_2,3_3})
+PYTHON_COMPAT=( python2_7 python3_{3,4} )
 
 inherit cmake-utils eutils multilib python-r1
 
@@ -12,7 +12,7 @@ DESCRIPTION="Python bindings for OpenBabel (including Pybel)"
 HOMEPAGE="http://openbabel.sourceforge.net/"
 SRC_URI="mirror://sourceforge/openbabel/openbabel-${PV}.tar.gz"
 
-KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~arm ppc ~x86 ~amd64-linux ~x86-linux"
 SLOT="0"
 LICENSE="GPL-2"
 IUSE=""
@@ -24,14 +24,15 @@ RDEPEND="${PYTHON_DEPS}
 	~sci-chemistry/openbabel-${PV}
 	sys-libs/zlib"
 DEPEND="${RDEPEND}
-	>=dev-util/cmake-2.4.8
 	>=dev-lang/swig-2"
 
 S="${WORKDIR}"/openbabel-${PV}
 
 PATCHES=(
-	"${FILESDIR}/${P}-testpybel.patch"
-	"${FILESDIR}/${P}-bindings_only.patch" )
+	"${FILESDIR}"/${P}-testpybel.patch
+	"${FILESDIR}"/${P}-bindings_only.patch
+	"${FILESDIR}"/${P}-swig-3.0.3.patch
+	)
 
 src_prepare() {
 	cmake-utils_src_prepare

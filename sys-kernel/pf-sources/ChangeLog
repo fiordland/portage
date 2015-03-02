@@ -1,6 +1,41 @@
 # ChangeLog for sys-kernel/pf-sources
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/pf-sources/ChangeLog,v 1.121 2014/08/27 17:33:54 hwoarang Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/pf-sources/ChangeLog,v 1.128 2015/02/23 02:07:25 wired Exp $
+
+*pf-sources-3.19_p1 (23 Feb 2015)
+
+  23 Feb 2015; Alex Alexander <wired@gentoo.org> +pf-sources-3.19_p1.ebuild:
+  version bump
+
+  01 Feb 2015; Markos Chandras <hwoarang@gentoo.org> -pf-sources-3.15_p4.ebuild,
+  -pf-sources-3.17_p1.ebuild, -pf-sources-3.17_p2.ebuild:
+  remove old
+
+*pf-sources-3.17_p4 (19 Jan 2015)
+
+  19 Jan 2015; Markos Chandras <hwoarang@gentoo.org> +pf-sources-3.17_p4.ebuild:
+  Version bump
+
+*pf-sources-3.17_p2 (29 Nov 2014)
+
+  29 Nov 2014; Alex Alexander <wired@gentoo.org> +pf-sources-3.17_p2.ebuild:
+  version bump
+
+*pf-sources-3.17_p1 (06 Nov 2014)
+
+  06 Nov 2014; Markos Chandras <hwoarang@gentoo.org> +pf-sources-3.17_p1.ebuild:
+  Version bump. Bug #528234
+
+*pf-sources-3.16_p4 (02 Nov 2014)
+
+  02 Nov 2014; Markos Chandras <hwoarang@gentoo.org> +pf-sources-3.16_p4.ebuild,
+  -pf-sources-3.16_p1.ebuild, -pf-sources-3.16_p2.ebuild:
+  Version bump. Bug #526880
+
+*pf-sources-3.16_p2 (14 Sep 2014)
+
+  14 Sep 2014; Alex Alexander <wired@gentoo.org> +pf-sources-3.16_p2.ebuild:
+  version bump
 
 *pf-sources-3.15_p5 (27 Aug 2014)
 *pf-sources-3.16_p1 (27 Aug 2014)

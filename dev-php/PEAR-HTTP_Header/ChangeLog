@@ -1,6 +1,27 @@
 # ChangeLog for dev-php/PEAR-HTTP_Header
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/PEAR-HTTP_Header/ChangeLog,v 1.6 2014/08/10 20:50:17 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-php/PEAR-HTTP_Header/ChangeLog,v 1.11 2015/02/25 16:25:07 grknight Exp $
+
+  25 Feb 2015; Brian Evans <grknight@gentoo.org> -PEAR-HTTP_Header-1.2.0.ebuild:
+  Drop old
+
+  25 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  PEAR-HTTP_Header-1.2.1-r1.ebuild:
+  Stable for x86, wrt bug #535274
+
+  14 Feb 2015; Agostino Sarubbo <ago@gentoo.org>
+  PEAR-HTTP_Header-1.2.1-r1.ebuild:
+  Stable for amd64, wrt bug #535274
+
+  22 Jan 2015; Brian Evans <grknight@gentoo.org>
+  PEAR-HTTP_Header-1.2.1-r1.ebuild:
+  Don't install LICENSE file
+
+*PEAR-HTTP_Header-1.2.1-r1 (06 Nov 2014)
+
+  06 Nov 2014; Brian Evans <grknight@gentoo.org>
+  +PEAR-HTTP_Header-1.2.1-r1.ebuild, -PEAR-HTTP_Header-1.2.1.ebuild:
+  EAPI Revbump
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
   PEAR-HTTP_Header-1.2.0.ebuild, PEAR-HTTP_Header-1.2.1.ebuild:

@@ -1,6 +1,24 @@
 # ChangeLog for www-servers/thttpd
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/thttpd/ChangeLog,v 1.77 2014/08/10 20:09:17 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-servers/thttpd/ChangeLog,v 1.82 2015/03/02 09:27:07 ago Exp $
+
+  02 Mar 2015; Agostino Sarubbo <ago@gentoo.org> thttpd-2.27.0.ebuild:
+  Stable for ppc, wrt bug #535694
+
+  12 Jan 2015; Chema Alonso <nimiux@gentoo.org> thttpd-2.27.0.ebuild:
+  Stable for amd64 wrt bug #535694
+
+  08 Jan 2015; Markus Meier <maekke@gentoo.org> thttpd-2.27.0.ebuild:
+  arm stable, bug #535694
+
+  03 Oct 2014; Anthony G. Basile <blueness@gentoo.org> -thttpd-2.26.4-r2.ebuild:
+  Remove older stable version
+
+*thttpd-2.27.0 (03 Oct 2014)
+
+  03 Oct 2014; Anthony G. Basile <blueness@gentoo.org> +thttpd-2.27.0.ebuild,
+  files/thttpd-renamed-htpasswd.patch:
+  Version bump
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> thttpd-2.26.4-r2.ebuild,
   thttpd-2.26.4-r3.ebuild, thttpd-9999.ebuild:

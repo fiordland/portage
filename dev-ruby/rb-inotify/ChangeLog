@@ -1,6 +1,22 @@
 # ChangeLog for dev-ruby/rb-inotify
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rb-inotify/ChangeLog,v 1.32 2014/08/05 16:00:30 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rb-inotify/ChangeLog,v 1.36 2014/12/31 11:28:04 ago Exp $
+
+  31 Dec 2014; Agostino Sarubbo <ago@gentoo.org> rb-inotify-0.9.5.ebuild:
+  Stable for x86, wrt bug #523188
+
+  31 Dec 2014; Agostino Sarubbo <ago@gentoo.org> rb-inotify-0.9.5.ebuild:
+  Stable for amd64, wrt bug #523188
+
+  25 Nov 2014; Manuel Rüger <mrueg@gentoo.org> rb-inotify-0.9.0.ebuild,
+  rb-inotify-0.9.5-r1.ebuild, rb-inotify-0.9.5.ebuild:
+  Drop jruby target.
+
+*rb-inotify-0.9.5-r1 (19 Sep 2014)
+
+  19 Sep 2014; Hans de Graaff <graaff@gentoo.org> rb-inotify-0.9.5.ebuild,
+  +rb-inotify-0.9.5-r1.ebuild:
+  Add new revision for ruby21 and create stable candidate.
 
   05 Aug 2014; Manuel Rüger <mrueg@gentoo.org> rb-inotify-0.9.0.ebuild,
   rb-inotify-0.9.5.ebuild:

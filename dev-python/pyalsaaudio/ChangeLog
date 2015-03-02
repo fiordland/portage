@@ -1,6 +1,16 @@
 # ChangeLog for dev-python/pyalsaaudio
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyalsaaudio/ChangeLog,v 1.36 2014/03/05 15:38:26 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyalsaaudio/ChangeLog,v 1.39 2015/02/01 21:26:03 mrueg Exp $
+
+  01 Feb 2015; Manuel Rüger <mrueg@gentoo.org> -pyalsaaudio-0.6.ebuild,
+  -pyalsaaudio-0.7.ebuild:
+  Remove old.
+
+  01 Jan 2015; Michał Górny <mgorny@gentoo.org> pyalsaaudio-0.7-r1.ebuild:
+  Remove invalid src_test() phase, it was restricted anyway.
+
+  25 Nov 2014; Pacho Ramos <pacho@gentoo.org> pyalsaaudio-0.7-r2.ebuild:
+  Support python 3.4
 
   05 Mar 2014; Agostino Sarubbo <ago@gentoo.org> pyalsaaudio-0.7-r1.ebuild:
   Stable for ppc, wrt bug #474192

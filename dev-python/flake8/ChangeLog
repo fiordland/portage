@@ -1,6 +1,31 @@
 # ChangeLog for dev-python/flake8
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/flake8/ChangeLog,v 1.16 2014/08/20 20:30:48 blueness Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/flake8/ChangeLog,v 1.23 2015/01/13 11:55:00 pacho Exp $
+
+  13 Jan 2015; Pacho Ramos <pacho@gentoo.org> flake8-2.2.5.ebuild:
+  amd64/x86 stable, bug #530600
+
+  01 Jan 2015; Markus Meier <maekke@gentoo.org> flake8-2.2.5.ebuild:
+  arm stable, bug #530600
+
+  30 Dec 2014; Jeroen Roovers <jer@gentoo.org> flake8-2.2.5.ebuild:
+  Stable for HPPA (bug #530600).
+
+  03 Nov 2014; Agostino Sarubbo <ago@gentoo.org> flake8-2.1.0.ebuild:
+  Stable for x86, wrt bug #525508
+
+  03 Nov 2014; Agostino Sarubbo <ago@gentoo.org> flake8-2.1.0.ebuild:
+  Stable for amd64, wrt bug #525508
+
+*flake8-2.2.5 (26 Oct 2014)
+
+  26 Oct 2014; Tim Harder <radhermit@gentoo.org> +flake8-2.2.5.ebuild:
+  Version bump, drop python3_2 support.
+
+*flake8-2.0-r1 (23 Sep 2014)
+
+  23 Sep 2014; Alex Brandt <alunduil@gentoo.org> +flake8-2.0-r1.ebuild:
+  add python3_4 target
 
   20 Aug 2014; Anthony G. Basile <blueness@gentoo.org> flake8-2.0.ebuild,
   flake8-2.1.0.ebuild:

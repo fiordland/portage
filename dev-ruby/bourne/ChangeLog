@@ -1,6 +1,21 @@
 # ChangeLog for dev-ruby/bourne
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/bourne/ChangeLog,v 1.13 2014/08/06 07:55:17 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/bourne/ChangeLog,v 1.17 2014/12/31 11:35:44 ago Exp $
+
+  31 Dec 2014; Agostino Sarubbo <ago@gentoo.org> bourne-1.6.0.ebuild:
+  Add ~x86, wrt bug #501152
+
+*bourne-1.6.0 (09 Dec 2014)
+
+  09 Dec 2014; Manuel Rüger <mrueg@gentoo.org> +bourne-1.6.0.ebuild:
+  Version bump. Drop x86 keyword, rekeywording in bug 501152
+
+  11 Nov 2014; Manuel Rüger <mrueg@gentoo.org> bourne-1.5.0-r1.ebuild:
+  Drop jruby target.
+
+  05 Nov 2014; Justin Lecher <jlec@gentoo.org> bourne-1.5.0-r1.ebuild,
+  metadata.xml:
+  Keyword for ~x86
 
   06 Aug 2014; Manuel Rüger <mrueg@gentoo.org> bourne-1.5.0-r1.ebuild:
   Add ruby21 target.

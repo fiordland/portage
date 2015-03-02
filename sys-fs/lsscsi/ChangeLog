@@ -1,6 +1,30 @@
 # ChangeLog for sys-fs/lsscsi
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/lsscsi/ChangeLog,v 1.87 2014/03/19 13:48:54 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/lsscsi/ChangeLog,v 1.94 2015/01/18 08:49:53 ago Exp $
+
+  18 Jan 2015; Agostino Sarubbo <ago@gentoo.org> lsscsi-0.28.ebuild:
+  Stable for ppc64, wrt bug #535678
+
+  17 Jan 2015; Agostino Sarubbo <ago@gentoo.org> lsscsi-0.28.ebuild:
+  Stable for ppc, wrt bug #535678
+
+  16 Jan 2015; Raúl Porcel <armin76@gentoo.org> lsscsi-0.26.ebuild,
+  lsscsi-0.27.ebuild, lsscsi-0.28.ebuild:
+  alpha/ia64/sparc/x86 stable wrt #535678
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> lsscsi-0.28.ebuild:
+  Stable for amd64, wrt bug #535678
+
+  08 Jan 2015; Jeroen Roovers <jer@gentoo.org> lsscsi-0.28.ebuild:
+  Stable for HPPA (bug #535678).
+
+  08 Jan 2015; Markus Meier <maekke@gentoo.org> lsscsi-0.28.ebuild:
+  arm stable, bug #535678
+
+*lsscsi-0.28 (04 Dec 2014)
+
+  04 Dec 2014; Tim Harder <radhermit@gentoo.org> +lsscsi-0.28.ebuild:
+  Version bump.
 
   19 Mar 2014; Agostino Sarubbo <ago@gentoo.org> lsscsi-0.27.ebuild:
   Stable for alpha, wrt bug #474306

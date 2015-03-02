@@ -1,6 +1,32 @@
 # ChangeLog for dev-libs/libgit2-glib
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgit2-glib/ChangeLog,v 1.18 2014/06/24 00:58:25 tetromino Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgit2-glib/ChangeLog,v 1.23 2015/01/20 10:35:32 pacho Exp $
+
+  20 Jan 2015; Pacho Ramos <pacho@gentoo.org> libgit2-glib-0.0.24.ebuild,
+  libgit2-glib-0.22.0.ebuild:
+  Add a reference to upstream bug report and make the dependency of 0.0.24
+  stricter
+
+*libgit2-glib-0.22.0 (20 Jan 2015)
+
+  20 Jan 2015; Rémi Cardona <remi@gentoo.org> +libgit2-glib-0.22.0.ebuild,
+  +files/libgit2-glib-0.22.0-automagic-ssh.patch:
+  Bump to 0.22.0, refresh automagic ssh patch, see bug #536830.
+
+  22 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  libgit2-glib-0.0.24.ebuild:
+  Raise minimum vala API to 0.22. Drop deprecated python3.2 support.
+
+  24 Nov 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  libgit2-glib-0.0.24.ebuild:
+  Enable vala by default for gitg
+
+*libgit2-glib-0.0.24 (24 Nov 2014)
+
+  24 Nov 2014; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +libgit2-glib-0.0.24.ebuild, +files/libgit2-glib-0.0.24-automagic-ssh.patch,
+  metadata.xml:
+  Version bump, now covers more of libgit2's API
 
 *libgit2-glib-0.0.16 (24 Jun 2014)
 

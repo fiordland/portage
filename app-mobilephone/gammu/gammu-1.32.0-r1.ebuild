@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/gammu/gammu-1.32.0-r1.ebuild,v 1.1 2013/09/17 21:06:35 creffett Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/gammu/gammu-1.32.0-r1.ebuild,v 1.3 2014/12/28 14:49:38 titanofold Exp $
 
 EAPI=5
 
@@ -21,7 +21,7 @@ RDEPEND="bluetooth? ( net-wireless/bluez )
 	curl? ( net-misc/curl )
 	usb? ( virtual/libusb:1 )
 	mysql? ( virtual/mysql )
-	postgres? ( dev-db/postgresql-server )
+	postgres? ( dev-db/postgresql[server] )
 	dbi? ( >=dev-db/libdbi-0.8.3 )
 	dev-util/dialog"
 DEPEND="${RDEPEND}

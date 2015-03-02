@@ -1,6 +1,42 @@
 # ChangeLog for dev-ruby/webmock
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/webmock/ChangeLog,v 1.30 2014/08/15 14:32:50 blueness Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/webmock/ChangeLog,v 1.40 2015/02/20 23:13:53 mrueg Exp $
+
+  20 Feb 2015; Manuel Rüger <mrueg@gentoo.org> -webmock-1.7.4.ebuild:
+  Remove old.
+
+  20 Feb 2015; Agostino Sarubbo <ago@gentoo.org> webmock-1.19.0.ebuild:
+  Stable for x86, wrt bug #540254
+
+  20 Feb 2015; Agostino Sarubbo <ago@gentoo.org> webmock-1.19.0.ebuild:
+  Stable for amd64, wrt bug #540254
+
+  20 Feb 2015; Hans de Graaff <graaff@gentoo.org> webmock-1.19.0.ebuild:
+  Create stable candidate.
+
+*webmock-1.20.3 (02 Jan 2015)
+
+  02 Jan 2015; Manuel Rüger <mrueg@gentoo.org> +webmock-1.20.3.ebuild:
+  Version bump.
+
+  22 Dec 2014; Manuel Rüger <mrueg@gentoo.org> -webmock-1.18.0.ebuild:
+  Remove old.
+
+  19 Dec 2014; Agostino Sarubbo <ago@gentoo.org> webmock-1.19.0.ebuild:
+  Add ~x86, wrt bug #511176
+
+  26 Nov 2014; Manuel Rüger <mrueg@gentoo.org> webmock-1.18.0.ebuild,
+  webmock-1.19.0.ebuild, webmock-1.7.4.ebuild:
+  Drop jruby. Fix deps for ruby21.
+
+  18 Nov 2014; Manuel Rüger <mrueg@gentoo.org>
+  -files/webmock-1.4.0-network-specs.patch, -files/webmock-1.4.0-tmpdir.patch:
+  Cleanup unused patches.
+
+*webmock-1.19.0 (04 Oct 2014)
+
+  04 Oct 2014; Hans de Graaff <graaff@gentoo.org> +webmock-1.19.0.ebuild:
+  Version bump.
 
   15 Aug 2014; Anthony G. Basile <blueness@gentoo.org> webmock-1.18.0.ebuild,
   webmock-1.7.4.ebuild:

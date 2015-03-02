@@ -1,6 +1,59 @@
 # ChangeLog for sci-chemistry/pymol
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pymol/ChangeLog,v 1.117 2014/08/21 07:25:44 jlec Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pymol/ChangeLog,v 1.126 2015/01/22 09:06:49 jlec Exp $
+
+  22 Jan 2015; Justin Lecher <jlec@gentoo.org> -pymol-1.5.0.3-r1.ebuild,
+  -pymol-1.5.0.3-r2.ebuild, -pymol-1.6.0_rc1.ebuild, -pymol-1.6.0.0.ebuild,
+  -pymol-1.6.0.0-r1.ebuild, -pymol-1.6.0.0-r2.ebuild, -pymol-1.7.0.0.ebuild,
+  -pymol-1.7.0.4.ebuild, -pymol-1.7.0.4-r1.ebuild, -pymol-1.7.1.1.ebuild,
+  -pymol-1.7.1.3.ebuild, -pymol-1.7.2.0.ebuild, -pymol-1.7.2.1.ebuild,
+  -pymol-1.7.3.0.ebuild, -pymol-1.7.3.1.ebuild, -pymol-1.7.3.2.ebuild,
+  -pymol-1.7.3.4.ebuild, -files/pymol-1.5.0.1-data-path.patch,
+  -files/pymol-1.5.0.1-flags.patch, -files/pymol-1.5.0.1-setup.py.patch,
+  -files/pymol-1.5.0.1-vmd.patch, -files/pymol-1.5.0.1-web.patch,
+  -files/pymol-1.5.0.3-prefix.patch, -files/pymol-1.5.0.3-web.patch,
+  -files/pymol-1.6.0.0-bg_rgb.patch, -files/pymol-1.6.0.0-labels.patch,
+  -files/pymol-1.6.0.0-stereo.patch,
+  -files/pymol-1.7.0.4-fix-broken-label-scaling-on-Linux.patch,
+  -files/pymol-9999-listing.patch, -files/1.2.1/nosplash-gentoo.patch,
+  -files/pymol-9999-options.patch, metadata.xml:
+  Drop old
+
+  22 Jan 2015; Sergey Popov <pinkbyte@gentoo.org> pymol-1.5.0.3-r1.ebuild:
+  Drop to ~ppc, wrt bug #507142
+
+  04 Dec 2014; Patrick Lauer <patrick@gentoo.org> pymol-1.7.4.0.ebuild:
+  Remove unneeded blank line on last line
+
+*pymol-1.7.4.0 (04 Dec 2014)
+
+  04 Dec 2014; Justin Lecher <jlec@gentoo.org> +pymol-1.7.4.0.ebuild:
+  Version BUmp
+
+*pymol-1.7.3.4 (21 Nov 2014)
+
+  21 Nov 2014; Justin Lecher <jlec@gentoo.org> +pymol-1.7.3.4.ebuild:
+  Version Bump
+
+  27 Oct 2014; Justin Lecher <jlec@gentoo.org> pymol-1.7.3.2.ebuild:
+  Add missing PYTHON_USEDEP
+
+*pymol-1.7.3.2 (20 Oct 2014)
+
+  20 Oct 2014; Justin Lecher <jlec@gentoo.org> +pymol-1.7.3.2.ebuild,
+  +files/pymol-9999-listing.patch, +files/pymol-9999-options.patch:
+  Version Bump
+
+*pymol-1.7.3.1 (17 Oct 2014)
+
+  17 Oct 2014; Justin Lecher <jlec@gentoo.org> +pymol-1.7.3.1.ebuild,
+  +files/pymol-1.7.3.1-maeffplugin.cpp.patch:
+  Version Bump
+
+*pymol-1.7.3.0 (15 Sep 2014)
+
+  15 Sep 2014; Justin Lecher <jlec@gentoo.org> +pymol-1.7.3.0.ebuild:
+  Version Bump
 
 *pymol-1.7.2.1 (21 Aug 2014)
 
@@ -189,4 +242,3 @@
   02 Jun 2011; Justin Lecher <jlec@gentoo.org> +files/1.4.1-web.patch,
   pymol-1.4.1.ebuild, metadata.xml:
   Fix collision with dev-python/webpy, #368947
-

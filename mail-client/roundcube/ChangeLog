@@ -1,6 +1,54 @@
 # ChangeLog for mail-client/roundcube
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/roundcube/ChangeLog,v 1.136 2014/08/20 11:34:06 armin76 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/mail-client/roundcube/ChangeLog,v 1.149 2015/02/24 03:44:56 radhermit Exp $
+
+  24 Feb 2015; Tim Harder <radhermit@gentoo.org> -roundcube-1.0.2.ebuild,
+  -roundcube-1.0.3.ebuild, -roundcube-1.0.4.ebuild:
+  Remove old.
+
+  18 Feb 2015; Agostino Sarubbo <ago@gentoo.org> roundcube-1.0.5.ebuild:
+  Stable for ppc, wrt bug #534766
+
+  15 Feb 2015; Agostino Sarubbo <ago@gentoo.org> roundcube-1.0.5.ebuild:
+  Stable for x86, wrt bug #534766
+
+  08 Feb 2015; Markus Meier <maekke@gentoo.org> roundcube-1.0.5.ebuild:
+  arm stable, bug #534766
+
+  01 Feb 2015; Agostino Sarubbo <ago@gentoo.org> roundcube-1.0.5.ebuild:
+  Stable for amd64, wrt bug #534766
+
+*roundcube-1.0.5 (27 Jan 2015)
+
+  27 Jan 2015; Tim Harder <radhermit@gentoo.org> +roundcube-1.0.5.ebuild:
+  Version bump.
+
+*roundcube-1.0.4 (21 Dec 2014)
+
+  21 Dec 2014; Tim Harder <radhermit@gentoo.org> +roundcube-1.0.4.ebuild:
+  Version bump.
+
+*roundcube-1.0.3 (08 Oct 2014)
+
+  08 Oct 2014; Tim Harder <radhermit@gentoo.org> +roundcube-1.0.3.ebuild:
+  Version bump (bug #524068).
+
+  14 Sep 2014; Jeroen Roovers <jer@gentoo.org> roundcube-1.0.2.ebuild:
+  Remove obsolete USE dependency.
+
+  14 Sep 2014; Jeroen Roovers <jer@gentoo.org> -roundcube-0.8.7.ebuild,
+  -roundcube-0.9.5.ebuild, -files/postinstall-en-0.6.txt,
+  -files/postupgrade-en-0.6.txt:
+  Old.
+
+  14 Sep 2014; Agostino Sarubbo <ago@gentoo.org> roundcube-1.0.2.ebuild:
+  Stable for ppc, wrt bug #507512
+
+  30 Aug 2014; Agostino Sarubbo <ago@gentoo.org> roundcube-1.0.2.ebuild:
+  It should be ~ppc64 instead of stable
+
+  30 Aug 2014; Agostino Sarubbo <ago@gentoo.org> roundcube-1.0.2.ebuild:
+  Add ppc64, wrt bug #507512
 
   20 Aug 2014; Raúl Porcel <armin76@gentoo.org> roundcube-1.0.2.ebuild:
   arm stable and add ~sparc wrt #507512

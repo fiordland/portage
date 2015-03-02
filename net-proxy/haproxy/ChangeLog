@@ -1,6 +1,71 @@
 # ChangeLog for net-proxy/haproxy
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/haproxy/ChangeLog,v 1.100 2014/08/11 20:06:25 idl0r Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-proxy/haproxy/ChangeLog,v 1.114 2015/02/07 14:59:03 idl0r Exp $
+
+*haproxy-1.5.11 (07 Feb 2015)
+
+  07 Feb 2015; Christian Ruppert <idl0r@gentoo.org> +haproxy-1.5.11.ebuild:
+  Version bump
+
+*haproxy-1.5.10 (12 Jan 2015)
+
+  12 Jan 2015; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5.9.ebuild,
+  +haproxy-1.5.10.ebuild:
+  Version bump
+
+  07 Jan 2015; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Reassign and cleanup as discussed at https://www.mail-archive.com/gentoo-
+  dev@lists.gentoo.org/msg66357.html
+
+*haproxy-1.5.9 (24 Dec 2014)
+
+  24 Dec 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5.8.ebuild,
+  +haproxy-1.5.9.ebuild:
+  Version bump, bug 532468
+
+*haproxy-1.5.8 (31 Oct 2014)
+
+  31 Oct 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5.6.ebuild,
+  +haproxy-1.5.8.ebuild:
+  Version bump
+
+  30 Oct 2014; Christian Ruppert <idl0r@gentoo.org> haproxy-1.5.6.ebuild,
+  haproxy-9999.ebuild, metadata.xml:
+  Fix live ebuild. Add separate USE-flag for JIT and also fix the libpcre
+  depend
+
+*haproxy-1.5.6 (19 Oct 2014)
+
+  19 Oct 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5.5.ebuild,
+  +haproxy-1.5.6.ebuild:
+  Version bump
+
+  18 Oct 2014; Agostino Sarubbo <ago@gentoo.org> haproxy-1.5.4.ebuild:
+  Stable for ppc, wrt bug #524762
+
+  10 Oct 2014; Agostino Sarubbo <ago@gentoo.org> haproxy-1.5.4.ebuild:
+  Stable for x86, wrt bug #524762
+
+  09 Oct 2014; Agostino Sarubbo <ago@gentoo.org> haproxy-1.5.4.ebuild:
+  Stable for amd64, wrt bug #524762
+
+*haproxy-1.5.5 (08 Oct 2014)
+
+  08 Oct 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.4.24.ebuild,
+  +haproxy-1.5.5.ebuild:
+  Version bump
+
+  07 Sep 2014; Agostino Sarubbo <ago@gentoo.org> haproxy-1.4.25.ebuild:
+  Stable for ppc, wrt bug #514930
+
+*haproxy-1.5.4 (03 Sep 2014)
+
+  03 Sep 2014; Christian Ruppert <idl0r@gentoo.org> -haproxy-1.5.3.ebuild,
+  +haproxy-1.5.4.ebuild:
+  Version bump, bug 522018
+
+  30 Aug 2014; Chema Alonso <nimiux@gentoo.org> haproxy-1.4.25.ebuild:
+  Stable for amd64 wrt bug #514930
 
   11 Aug 2014; Christian Ruppert <idl0r@gentoo.org> haproxy-1.5.3.ebuild:
   Minor: Fix CFLAGS not being respected for "halog"

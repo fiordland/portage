@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libixion/libixion-0.7.0.ebuild,v 1.3 2014/05/26 10:48:01 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libixion/libixion-0.7.0.ebuild,v 1.7 2015/02/15 14:58:58 ago Exp $
 
 EAPI=5
 
@@ -15,14 +15,15 @@ HOMEPAGE="http://gitorious.org/ixion/pages/Home"
 [[ ${PV} == 9999 ]] || SRC_URI="http://kohei.us/files/ixion/src/${P}.tar.bz2"
 
 LICENSE="MIT"
-SLOT="0/0.7"
+SLOT="0"
 [[ ${PV} == 9999 ]] || \
-KEYWORDS=""
+KEYWORDS="amd64 ~arm ~ppc x86"
 IUSE="static-libs"
 
 RDEPEND="dev-libs/boost:="
 DEPEND="${RDEPEND}
 	>=dev-util/mdds-0.10.1:=
+	<dev-util/mdds-0.12.0:=
 "
 
 src_prepare() {

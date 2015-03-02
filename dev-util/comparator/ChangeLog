@@ -1,6 +1,30 @@
 # ChangeLog for dev-util/comparator
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/comparator/ChangeLog,v 1.28 2013/02/12 19:34:27 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/comparator/ChangeLog,v 1.35 2015/01/26 09:41:51 ago Exp $
+
+  26 Jan 2015; Agostino Sarubbo <ago@gentoo.org> comparator-2.10.ebuild:
+  Stable for x86, wrt bug #535396
+
+  18 Jan 2015; Agostino Sarubbo <ago@gentoo.org> comparator-2.10.ebuild:
+  Stable for ppc64, wrt bug #535396
+
+  17 Jan 2015; Agostino Sarubbo <ago@gentoo.org> comparator-2.10.ebuild:
+  Stable for ppc, wrt bug #535396
+
+  09 Jan 2015; Agostino Sarubbo <ago@gentoo.org> comparator-2.10.ebuild:
+  Stable for amd64, wrt bug #535396
+
+  08 Jan 2015; Markus Meier <maekke@gentoo.org> comparator-2.10.ebuild:
+  arm stable, bug #535396
+
+*comparator-2.10 (13 Oct 2014)
+
+  13 Oct 2014; Anthony G. Basile <blueness@gentoo.org> +comparator-2.10.ebuild:
+  Version bump
+
+  13 Oct 2014; Anthony G. Basile <blueness@gentoo.org> -comparator-2.8.ebuild,
+  comparator-2.5.ebuild:
+  Remove older unstable version
 
   12 Feb 2013; Agostino Sarubbo <ago@gentoo.org> comparator-2.9.ebuild:
   Stable for arm, wrt bug #456628

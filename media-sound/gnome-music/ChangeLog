@@ -1,6 +1,38 @@
 # ChangeLog for media-sound/gnome-music
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/gnome-music/ChangeLog,v 1.18 2014/07/23 15:22:59 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/gnome-music/ChangeLog,v 1.24 2015/01/26 14:28:27 pacho Exp $
+
+*gnome-music-3.14.3.1 (26 Jan 2015)
+
+  26 Jan 2015; Pacho Ramos <pacho@gentoo.org> +gnome-music-3.14.3.1.ebuild,
+  -files/gnome-music-3.14.3-music-dir.patch, -gnome-music-3.14.3-r1.ebuild:
+  Version bump, drop old
+
+*gnome-music-3.14.3-r1 (25 Jan 2015)
+
+  25 Jan 2015; Pacho Ramos <pacho@gentoo.org>
+  +files/gnome-music-3.14.3-music-dir.patch, +gnome-music-3.14.3-r1.ebuild,
+  -gnome-music-3.14.2.ebuild, -gnome-music-3.14.3.ebuild:
+  Fix call for music directory, upstream bug #743484 (thanks to foser for
+  reporting the bug and the fix); drop old
+
+*gnome-music-3.14.3 (19 Jan 2015)
+
+  19 Jan 2015; Pacho Ramos <pacho@gentoo.org> +gnome-music-3.14.3.ebuild:
+  Version bump
+
+*gnome-music-3.14.2 (22 Dec 2014)
+
+  22 Dec 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-music-3.14.2.ebuild:
+  Version bump for Gnome 3.14.
+
+  24 Nov 2014; Pacho Ramos <pacho@gentoo.org> gnome-music-3.12.2.1.ebuild:
+  python-3.3 is the default again
+
+  24 Nov 2014; Pacho Ramos <pacho@gentoo.org> -gnome-music-3.10.4.ebuild,
+  gnome-music-3.12.2.1.ebuild:
+  Support python 3.4, drop old
 
   23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> gnome-music-3.12.2.1.ebuild:
   Stable for x86, wrt bug #512012
