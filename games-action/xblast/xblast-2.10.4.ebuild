@@ -1,8 +1,8 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/xblast/xblast-2.10.4.ebuild,v 1.6 2015/01/02 11:13:01 tupone Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 inherit autotools games
 
 # Change these as releases changes
@@ -28,7 +28,7 @@ IUSE=""
 
 RDEPEND="x11-libs/libICE
 	x11-libs/libX11
-	media-libs/libpng"
+	media-libs/libpng:0"
 DEPEND="${RDEPEND}
 	x11-libs/libXt"
 
@@ -49,8 +49,7 @@ src_install() {
 
 	# Images
 	dodir "${IMAGE_INSTALL_DIR}"
-	cp -pPR "${WORKDIR}/${IMAGES}"/* "${D}/${IMAGE_INSTALL_DIR}" \
-		|| die "cp failed"
+	cp -pPR "${WORKDIR}/${IMAGES}"/* "${D}/${IMAGE_INSTALL_DIR}" || die
 
 	# Levels
 	insinto "${GAMES_DATADIR}/xblast/level"

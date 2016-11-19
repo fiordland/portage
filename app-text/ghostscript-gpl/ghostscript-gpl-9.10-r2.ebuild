@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/ghostscript-gpl/ghostscript-gpl-9.10-r2.ebuild,v 1.11 2014/06/10 01:04:39 vapier Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,12 +15,13 @@ PVM=$(get_version_component_range 1-2)
 SRC_URI="
 	mirror://sourceforge/ghostscript/${MY_P}.tar.bz2
 	mirror://gentoo/${PN}-9.10-patchset-1.tar.bz2
-	!bindist? ( djvu? ( mirror://sourceforge/djvu/gsdjvu-${GSDJVU_PV}.tar.gz ) )"
+	djvu? ( mirror://sourceforge/djvu/gsdjvu-${GSDJVU_PV}.tar.gz )"
 
 LICENSE="AGPL-3 CPL-1.0"
 SLOT="0"
 KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
-IUSE="bindist cups dbus djvu gtk idn linguas_de static-libs X"
+IUSE="cups dbus djvu gtk idn l10n_de static-libs X"
+RESTRICT="djvu? ( bindist )"
 
 COMMON_DEPEND="
 	app-text/libpaper
@@ -32,9 +33,9 @@ COMMON_DEPEND="
 	>=media-libs/tiff-4.0.1:0=
 	>=sys-libs/zlib-1.2.7:=
 	virtual/jpeg:0
-	!bindist? ( djvu? ( app-text/djvu ) )
 	cups? ( >=net-print/cups-1.3.8 )
 	dbus? ( sys-apps/dbus )
+	djvu? ( app-text/djvu )
 	gtk? ( || ( x11-libs/gtk+:3 x11-libs/gtk+:2 ) )
 	idn? ( net-dns/libidn )
 	X? ( x11-libs/libXt x11-libs/libXext )
@@ -47,10 +48,10 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=app-text/poppler-data-0.4.5-r1
 	>=media-fonts/urw-fonts-2.4.9
-	linguas_ja? ( media-fonts/kochi-substitute )
-	linguas_ko? ( media-fonts/baekmuk-fonts )
-	linguas_zh_CN? ( media-fonts/arphicfonts )
-	linguas_zh_TW? ( media-fonts/arphicfonts )
+	l10n_ja? ( media-fonts/kochi-substitute )
+	l10n_ko? ( media-fonts/baekmuk-fonts )
+	l10n_zh-CN? ( media-fonts/arphicfonts )
+	l10n_zh-TW? ( media-fonts/arphicfonts )
 	!!media-fonts/gnu-gs-fonts-std
 	!!media-fonts/gnu-gs-fonts-other
 	!<net-print/cups-filters-1.0.36-r2
@@ -58,14 +59,14 @@ RDEPEND="${COMMON_DEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-LANGS="ja ko zh_CN zh_TW"
+LANGS="ja ko zh-CN zh-TW"
 for X in ${LANGS} ; do
-	IUSE="${IUSE} linguas_${X}"
+	IUSE="${IUSE} l10n_${X}"
 done
 
 pkg_setup() {
-	if use bindist && use djvu; then
-		ewarn "You have bindist in your USE, djvu support will NOT be compiled!"
+	if use djvu; then
+		ewarn "With USE=\"djvu\", distribution of binaries is restricted!"
 		ewarn "See http://djvu.sourceforge.net/gsdjvu/COPYING for details on licensing issues."
 	fi
 }
@@ -92,7 +93,7 @@ src_prepare() {
 	EPATCH_SOURCE="${WORKDIR}/patches/"
 	epatch
 
-	if ! use bindist && use djvu ; then
+	if use djvu ; then
 		unpack gsdjvu-${GSDJVU_PV}.tar.gz
 		cp gsdjvu-${GSDJVU_PV}/gsdjvu "${S}"
 		cp gsdjvu-${GSDJVU_PV}/gdevdjvu.c "${S}"/base
@@ -164,7 +165,7 @@ src_configure() {
 		$(use_with idn libidn) \
 		$(use_with X x)
 
-	if ! use bindist && use djvu ; then
+	if use djvu ; then
 		sed -i -e 's!$(DD)bbox.dev!& $(DD)djvumask.dev $(DD)djvusep.dev!g' \
 			"${S}"/Makefile || die "sed failed"
 	fi
@@ -187,7 +188,7 @@ src_install() {
 	# workaround: -j1 -> see bug #356303
 	emake -j1 DESTDIR="${D}" install-so install
 
-	if ! use bindist && use djvu ; then
+	if use djvu ; then
 		dobin gsdjvu
 	fi
 
@@ -205,8 +206,8 @@ src_install() {
 	doins "${WORKDIR}/fontmaps/CIDFnmap"
 	doins "${WORKDIR}/fontmaps/cidfmap"
 	for X in ${LANGS} ; do
-		if use linguas_${X} ; then
-			doins "${WORKDIR}/fontmaps/cidfmap.${X}"
+		if use l10n_${X} ; then
+			doins "${WORKDIR}/fontmaps/cidfmap.${X/-/_}"
 		fi
 	done
 
@@ -215,5 +216,5 @@ src_install() {
 
 	use static-libs || find "${D}" -name '*.la' -delete
 
-	use linguas_de || rm -r "${D}"/usr/share/man/de
+	use l10n_de || rm -r "${D}"/usr/share/man/de
 }

@@ -1,40 +1,23 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gcc-apple/gcc-apple-4.2.1_p5666-r2.ebuild,v 1.3 2015/01/31 16:15:23 grobian Exp $
+# $Id$
 
-EAPI="3"
+EAPI="5"
 
 inherit eutils toolchain flag-o-matic autotools prefix
 
 GCC_VERS=${PV/_p*/}
 APPLE_VERS="${PV/*_p/}.3"
 DESCRIPTION="Apple branch of the GNU Compiler Collection, Developer Tools 4.0"
-HOMEPAGE="http://gcc.gnu.org"
+HOMEPAGE="https://gcc.gnu.org"
 SRC_URI="http://www.opensource.apple.com/darwinsource/tarballs/other/gcc-${APPLE_VERS}.tar.gz
 		http://www.opensource.apple.com/darwinsource/tarballs/other/libstdcxx-16.tar.gz
 		http://www.opensource.apple.com/darwinsource/tarballs/other/libstdcxx-39.tar.gz
 		fortran? ( mirror://gnu/gcc/gcc-4.2.4/gcc-fortran-4.2.4.tar.bz2 )"
 LICENSE="GPL-2 GPL-3"
 
-case ${CHOST} in
-	*-darwin1*|i?86-*-darwin9|powerpc-*-darwin9)
-		LIBSTDCXX_APPLE_VERSION=39
-	;;
-	*)
-		# pre Leopard has no dtrace, which is required by 37.11 and above
-		# Leopard only has 32-bits version of dtrace
-		LIBSTDCXX_APPLE_VERSION=16
-	;;
-esac
-
-if is_crosscompile; then
-	SLOT="${CTARGET}-42"
-else
-	SLOT="42"
-fi
-
+SLOT="42"
 KEYWORDS="~ppc-macos ~x64-macos ~x86-macos"
-
 IUSE="fortran nls +openmp objc objc++ +cxx"
 
 RDEPEND=">=sys-libs/zlib-1.1.4
@@ -58,14 +41,6 @@ S=${WORKDIR}/gcc-${APPLE_VERS}
 # TPREFIX is the prefix of the CTARGET installation
 export TPREFIX=${TPREFIX:-${EPREFIX}}
 
-LIBPATH=${EPREFIX}/usr/lib/gcc/${CTARGET}/${GCC_VERS}
-if is_crosscompile ; then
-	BINPATH=${EPREFIX}/usr/${CHOST}/${CTARGET}/gcc-bin/${GCC_VERS}
-else
-	BINPATH=${EPREFIX}/usr/${CTARGET}/gcc-bin/${GCC_VERS}
-fi
-STDCXX_INCDIR=${LIBPATH}/include/g++-v${GCC_VERS/\.*/}
-
 do_bootstrap() {
 	is_crosscompile && return 1
 	[[ ${CHOST} != ${CBUILD} ]] && return 1
@@ -88,6 +63,16 @@ src_prepare() {
 	fi
 
 	# move in libstdc++
+	case ${CHOST} in
+		*-darwin1*|i?86-*-darwin9|powerpc-*-darwin9)
+			LIBSTDCXX_APPLE_VERSION=39
+		;;
+		*)
+			# pre Leopard has no dtrace, which is required by 37.11 and above
+			# Leopard only has 32-bits version of dtrace
+			LIBSTDCXX_APPLE_VERSION=16
+		;;
+	esac
 	mv "${WORKDIR}"/libstdcxx-${LIBSTDCXX_APPLE_VERSION}/libstdcxx/libstdc++-v3 .
 	if [[ ${LIBSTDCXX_APPLE_VERSION} == 16 ]] ; then
 		epatch "${FILESDIR}"/libstdc++-${LIBSTDCXX_APPLE_VERSION}.patch # does it apply on 37?
@@ -173,6 +158,14 @@ src_configure() {
 	use objc++ && langs="${langs/,objc/},objc,obj-c++" # need objc with objc++
 	use fortran && langs="${langs},fortran"
 
+	LIBPATH=${EPREFIX}/usr/lib/gcc/${CTARGET}/${GCC_VERS}
+	if is_crosscompile ; then
+		BINPATH=${EPREFIX}/usr/${CHOST}/${CTARGET}/gcc-bin/${GCC_VERS}
+	else
+		BINPATH=${EPREFIX}/usr/${CTARGET}/gcc-bin/${GCC_VERS}
+	fi
+	STDCXX_INCDIR=${LIBPATH}/include/g++-v${GCC_VERS/\.*/}
+
 	local myconf="${myconf} \
 		--prefix=${EPREFIX}/usr \
 		--bindir=${BINPATH} \
@@ -240,11 +233,16 @@ src_configure() {
 	CFLAGS="-O2 -pipe"
 	CXXFLAGS=${CFLAGS}
 
-	# http://gcc.gnu.org/ml/gcc-patches/2006-11/msg00765.html
+	# https://gcc.gnu.org/ml/gcc-patches/2006-11/msg00765.html
 	# (won't hurt if already 64-bits, but is essential when coming from a
 	# multilib compiler -- the default)
 	[[ ${CTARGET} == powerpc64-* || ${CTARGET} == x86_64-* ]] && \
 		export CC="${CC:-$(tc-getCC)} -m64"
+
+	# Clang on OSX defaults to c99 mode, while GCC defaults to gnu89
+	# (C90 + extensions).  This makes Clang barf on GCC's sources, so
+	# work around that.  Bugs #491098, #574736
+	export CC="${CC:-$(tc-getCC)} -std=gnu89"
 
 	mkdir -p "${WORKDIR}"/build
 	cd "${WORKDIR}"/build

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/xpired/xpired-1.22.ebuild,v 1.14 2015/02/27 20:28:32 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -17,11 +17,13 @@ IUSE=""
 DEPEND="media-libs/sdl-gfx
 	media-libs/sdl-image[jpeg]
 	media-libs/sdl-mixer[mod]"
-RDEPEND="${DEPEND}"
+RDEPEND=${DEPEND}
 
 S=${WORKDIR}/src
 
-PATCHES=( "${FILESDIR}"/${P}-ldflags.patch )
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-ldflags.patch
+}
 
 src_compile() {
 	emake \

@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/libgeotiff/libgeotiff-1.4.0.ebuild,v 1.9 2015/01/05 15:26:30 aballier Exp $
+# $Id$
 
 EAPI=4
 
@@ -8,7 +8,7 @@ inherit autotools eutils
 
 MY_P=${P/_rc/RC}
 
-DESCRIPTION="Library for reading TIFF files with embedded tags for geographic (cartographic) information"
+DESCRIPTION="Library for reading TIFF files with embedded tags for geographic information"
 HOMEPAGE="http://geotiff.osgeo.org/"
 SRC_URI="http://download.osgeo.org/geotiff/${PN}/${MY_P}.tar.gz"
 

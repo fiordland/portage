@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/llpp/llpp-20_p20140818.ebuild,v 1.1 2014/08/25 15:25:09 xmw Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,11 +12,12 @@ SRC_URI="http://repo.or.cz/w/llpp.git/snapshot/4fc967506989680faf64fb6c1dd0e0d13
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ppc x86"
 IUSE="+ocamlopt static"
 #IUSE="egl +ocamlopt static"
 
 LIB_DEPEND=">=app-text/mupdf-1.5:0=[static-libs]
+	<app-text/mupdf-1.9a:0=[static-libs]
 	media-libs/openjpeg:2[static-libs]
 	media-libs/fontconfig:1.0[static-libs]
 	media-libs/freetype:2[static-libs]
@@ -51,7 +52,7 @@ src_compile() {
 	#if use egl ; then
 	#	ccopt+=" -DUSE_EGL $(pkg-config --cflags egl)"
 	#	local egl="egl"
-	#fi 
+	#fi
 	if use static ; then
 		local cclib=""
 		local slib=""

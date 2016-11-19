@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<maintainer>
+<maintainer type="person">
 	<email>alicef@gentoo.org</email>
 	<name>Alice Ferrazzi</name>
 </maintainer>
-<use>
-	<flag name="bindist">Disable support for <pkg>dev-db/firebird</pkg> database
-		which is not GPL compatible.</flag>
-</use>
 </pkgmetadata>

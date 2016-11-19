@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/eggdrop/eggdrop-1.6.21-r1.ebuild,v 1.3 2014/12/28 16:25:53 titanofold Exp $
+# $Id$
 
-EAPI=4
+EAPI=6
 
 inherit eutils
 
@@ -11,27 +11,33 @@ PATCHSET_V="1.0"
 
 DESCRIPTION="An IRC bot extensible with C or TCL"
 HOMEPAGE="http://www.eggheads.org/"
-SRC_URI="ftp://ftp.eggheads.org/pub/eggdrop/source/1.6/${MY_P}.tar.bz2
-	http://dev.gentoo.org/~binki/distfiles/${CATEGORY}/${PN}/${P}-patches-${PATCHSET_V}.tar.bz2"
+SRC_URI="
+	ftp://ftp.eggheads.org/pub/eggdrop/source/1.6/${MY_P}.tar.bz2
+	https://dev.gentoo.org/~binki/distfiles/${CATEGORY}/${PN}/${P}-patches-${PATCHSET_V}.tar.bz2"
 
 KEYWORDS="alpha amd64 ia64 ~mips ppc sparc x86"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="debug mysql postgres ssl static vanilla"
+
 REQUIRED_USE="vanilla? ( !mysql !postgres !ssl )"
 
-DEPEND="dev-lang/tcl
+DEPEND="
+	dev-lang/tcl:0
 	sys-apps/gentoo-functions
 	!vanilla? (
 		mysql? ( virtual/mysql )
-		postgres? ( dev-db/postgresql[server] )
-		ssl? ( dev-libs/openssl )
+		postgres? ( dev-db/postgresql:*[server] )
+		ssl? ( dev-libs/openssl:0= )
 	)"
 RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${MY_P}
 
 src_prepare()  {
+	# fix bug 571004 and a QA warning
+	epatch "${FILESDIR}/${P}-fix-gcc5-remove-inline.patch" \
+		"${FILESDIR}/${P}-fix-memset.patch"
 	if use vanilla; then
 		rm -f "${WORKDIR}"/patch/[1-6]*.patch || die
 	fi
@@ -42,6 +48,7 @@ src_prepare()  {
 	sed -i \
 		-e '/\$(LD)/s/-o/$(CFLAGS) $(LDFLAGS) &/' \
 		src/mod/*.mod/Makefile* src/Makefile.in || die
+	default
 }
 
 src_configure() {
@@ -65,7 +72,7 @@ src_compile() {
 		target="debug"
 	fi
 
-	emake ${target}
+	emake -j1 ${target} # fixes #533490
 }
 
 src_install() {
@@ -94,7 +101,7 @@ src_install() {
 		src/mod/mystats.mod/tools/mystats.{conf,sql} \
 		src/mod/pgstats.mod/tools/{pgstats.conf,setup.sql}
 
-	dohtml doc/html/*.html
+	dodoc -r doc/html
 
 	dobin "${FILESDIR}"/eggdrop-installer
 	doman doc/man1/eggdrop.1

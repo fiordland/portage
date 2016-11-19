@@ -1,69 +1,54 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/setools/setools-3.3.8-r7.ebuild,v 1.2 2015/02/18 03:35:21 perfinion Exp $
+# $Id$
 
 EAPI="5"
 PYTHON_COMPAT=( python2_7 python3_4 )
 
-inherit autotools java-pkg-opt-2 python-r1 eutils
+inherit autotools java-pkg-opt-2 python-r1 eutils toolchain-funcs
 
 DESCRIPTION="SELinux policy tools"
-HOMEPAGE="http://www.tresys.com/selinux/selinux_policy_tools.shtml"
+HOMEPAGE="https://github.com/TresysTechnology/setools/wiki"
 SRC_URI="http://oss.tresys.com/projects/setools/chrome/site/dists/${P}/${P}.tar.bz2
-	http://dev.gentoo.org/~perfinion/patches/setools/${P}-04-gentoo-patches.tar.bz2"
+	https://dev.gentoo.org/~perfinion/patches/setools/${P}-04-gentoo-patches.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~mips x86"
 IUSE="X debug java python"
 
-DEPEND=">=sys-devel/automake-1.12.1
-	>=sys-libs/libsepol-2.4
+COMMONDEPEND=">=sys-libs/libsepol-2.4
 	>=sys-libs/libselinux-2.4
-	sys-devel/bison
-	sys-devel/flex
 	>=dev-db/sqlite-3.2:3
 	dev-libs/libxml2:2
-	virtual/pkgconfig
-	java? (
-		>=virtual/jdk-1.4
-		dev-lang/swig
-	)
-	python? (
-		${PYTHON_DEPS}
-		dev-lang/swig
-	)
+	python? ( ${PYTHON_DEPS} )
 	X? (
-		>=dev-lang/tk-8.4.9
+		>=dev-lang/tk-8.4.9:0=
 		>=gnome-base/libglade-2.0
 		>=x11-libs/gtk+-2.8:2
 	)"
 
-RDEPEND=">=sys-libs/libsepol-2.1.4
-	>=sys-libs/libselinux-2.3
-	>=dev-db/sqlite-3.2:3
-	dev-libs/libxml2:2
-	java? ( >=virtual/jre-1.4 )
-	X? (
-		>=dev-lang/tk-8.4.9
-		>=dev-tcltk/bwidget-1.8
-		>=gnome-base/libglade-2.0
-		>=x11-libs/gtk+-2.8:2
-	)"
+DEPEND="${COMMONDEPEND}
+	>=sys-devel/automake-1.12.1
+	sys-devel/bison
+	sys-devel/flex
+	virtual/pkgconfig
+	java? ( dev-lang/swig
+	        virtual/jdk:= )
+	python? ( dev-lang/swig )"
+
+RDEPEND="${COMMONDEPEND}
+	java? ( >=virtual/jre-1.4:= )
+	X? ( >=dev-tcltk/bwidget-1.8 )"
 
 RESTRICT="test"
 # setools dirs that contain python code to build
 PYTHON_DIRS="libapol/swig/python libpoldiff/swig/python libqpol/swig/python libseaudit/swig/python libsefs/swig/python python"
 
 pkg_setup() {
-	local myld=$(tc-getLD)
-
 	if use java; then
 		java-pkg-opt-2_pkg_setup
 	fi
-
-	${myld} -v | grep -q "GNU gold" && \
-	ewarn "Bug #467136 shows us that the gold linker doesn't work with setools for now."
 }
 
 src_prepare() {
@@ -73,8 +58,13 @@ src_prepare() {
 	EPATCH_FORCE="yes" \
 	epatch
 
+	epatch "${FILESDIR}"/${PN}-3.3.8-no-check-file.patch
+	epatch "${FILESDIR}"/${PN}-3.3.8-policy-max.patch
+
 	# Fix build failure due to double __init__.py installation
 	sed -e "s/^wrappedpy_DATA = qpol.py \$(pkgpython_PYTHON)/wrappedpy_DATA = qpol.py/" -i libqpol/swig/python/Makefile.am || die
+	# Disable broken check for SWIG version. Bug #542032
+	sed -e "s/AC_PROG_SWIG(2.0.0)/AC_PROG_SWIG/" -i configure.ac || die "sed failed"
 
 	local dir
 	for dir in ${PYTHON_DIRS}; do
@@ -93,6 +83,7 @@ src_prepare() {
 }
 
 src_configure() {
+	tc-ld-disable-gold #467136
 	econf \
 		--with-java-prefix=${JAVA_HOME} \
 		--disable-selinux-check \
@@ -109,29 +100,29 @@ src_configure() {
 }
 
 src_compile() {
-	emake LD="$(tc-getLD).bfd" || die "Failed to build setools"
+	emake
 
 	if use python; then
 		building() {
 			python_export PYTHON_INCLUDEDIR
 			python_export PYTHON_SITEDIR
 			python_export PYTHON_LIBS
-			emake LD="$(tc-getLD).bfd" \
+			emake \
 				SWIG_PYTHON_CPPFLAGS="-I${PYTHON_INCLUDEDIR}" \
 				PYTHON_LDFLAGS="${PYTHON_LIBS}" \
 				pyexecdir="${PYTHON_SITEDIR}" \
 				pythondir="${PYTHON_SITEDIR}" \
-				-C ${1};
+				-C "$1"
 		}
 		local dir
 		for dir in ${PYTHON_DIRS}; do
-			python_foreach_impl building ${dir};
+			python_foreach_impl building ${dir}
 		done
 	fi
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
+	emake DESTDIR="${D}" install
 
 	if use python; then
 		installation() {
@@ -139,12 +130,12 @@ src_install() {
 			emake DESTDIR="${D}" \
 				pyexecdir="${PYTHON_SITEDIR}" \
 				pythondir="${PYTHON_SITEDIR}" \
-				-C ${1} install
+				-C "$1" install
 		}
 
 		local dir
 		for dir in ${PYTHON_DIRS}; do
-			python_foreach_impl installation ${dir};
+			python_foreach_impl installation "${dir}"
 		done
 	fi
 }

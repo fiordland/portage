@@ -1,16 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/seekwatcher/seekwatcher-0.12_p20091015.ebuild,v 1.2 2014/08/10 20:22:27 slyfox Exp $
+# $Id$
 
 EAPI=4
 PYTHON_DEPEND="2"
 
 inherit eutils distutils
 
-DESCRIPTION="Seekwatcher generates graphs from blktrace runs to help visualize IO patterns and performance"
+DESCRIPTION="generates graphs from blktrace to help visualize IO patterns and performance"
 HOMEPAGE="http://oss.oracle.com/~mason/seekwatcher/"
 #SRC_URI="http://oss.oracle.com/~mason/seekwatcher/${P}.tar.bz2"
-SRC_URI="http://dev.gentoo.org/~slyfox/${P}.tar.gz"
+SRC_URI="https://dev.gentoo.org/~slyfox/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -19,8 +19,8 @@ IUSE=""
 
 DEPEND="dev-python/pyrex"
 RDEPEND="dev-python/matplotlib
-		dev-python/numpy
-		>=sys-block/btrace-0.0.20070730162628"
+	dev-python/numpy
+	>=sys-block/blktrace-0.0.20070730162628"
 
 S=${WORKDIR}/${PN}-b392aeaf693b # hg snapshot
 

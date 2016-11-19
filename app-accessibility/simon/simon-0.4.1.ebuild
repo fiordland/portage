@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-accessibility/simon/simon-0.4.1.ebuild,v 1.3 2013/08/28 11:14:18 ago Exp $
+# $Id$
 
 # KEEP KDE ECLASSES OUT OF HERE
 
@@ -32,10 +32,10 @@ RDEPEND="
 	x11-libs/libX11
 	x11-libs/libXtst
 	x11-libs/qwt:6
-	kdepim? ( kde-base/kdepimlibs:4 )
+	kdepim? ( kde-apps/kdepimlibs:4 )
 	libsamplerate? ( media-libs/libsamplerate )
 	nls? (
-		kde-base/kde-l10n
+		kde-apps/kde4-l10n
 		virtual/libintl
 	)
 	opencv? ( media-libs/opencv )
@@ -51,11 +51,12 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )"
 
-src_prepare() {
-	epatch "${FILESDIR}"/${P}-libdir.patch \
-		"${FILESDIR}"/${P}-linguas.patch \
-		"${FILESDIR}"/${P}-sphinx.patch
-}
+PATCHES=(
+	"${FILESDIR}"/${P}-libdir.patch
+	"${FILESDIR}"/${P}-linguas.patch
+	"${FILESDIR}"/${P}-sphinx.patch
+	"${FILESDIR}"/${P}-opencv-include.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
@@ -80,7 +81,7 @@ pkg_postinst() {
 	gnome2_icon_cache_update
 
 	elog "optional dependencies:"
-	elog "  kde-base/jovie (support for Jovie TTS system)"
+	elog "  kde-apps/jovie (support for Jovie TTS system)"
 	use sphinx && elog "  app-accessibility/julius (alternative backend)"
 }
 

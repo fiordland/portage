@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-electronics/pcb/pcb-20140316.ebuild,v 1.5 2015/02/21 12:17:11 ago Exp $
+# $Id$
 
 EAPI="5"
 
@@ -33,7 +33,7 @@ CDEPEND="dev-libs/glib:2
 	virtual/libintl
 	png? ( >=media-libs/gd-2.0.23[png] )
 	m4lib-png? ( >=media-libs/gd-2.0.23[png] )
-	tk? ( >=dev-lang/tk-8 )"
+	tk? ( >=dev-lang/tk-8:0 )"
 #toporouter-output? ( x11-libs/cairo )
 
 DEPEND="${CDEPEND}

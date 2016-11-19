@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/ZMQ-LibZMQ3/ZMQ-LibZMQ3-1.19.0.ebuild,v 1.2 2015/01/23 08:34:08 jer Exp $
+# $Id$
 
 EAPI=5
 
@@ -11,7 +11,7 @@ inherit perl-module
 DESCRIPTION="A libzmq 3.x wrapper for Perl"
 
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~x86"
+KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE="test"
 
 RDEPEND="

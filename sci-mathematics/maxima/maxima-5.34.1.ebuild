@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/maxima/maxima-5.34.1.ebuild,v 1.2 2015/01/31 14:12:30 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
+KEYWORDS="amd64 ppc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
 
 # Supported lisps
 LISPS=(     sbcl cmucl gcl             ecls clozurecl clisp )
@@ -33,7 +33,7 @@ done
 
 RDEPEND="X? ( x11-misc/xdg-utils
 		 sci-visualization/gnuplot[gd]
-		 tk? ( dev-lang/tk ) )
+		 tk? ( dev-lang/tk:0 ) )
 	latex? ( virtual/latex-base )
 	emacs? ( virtual/emacs
 		latex? ( app-emacs/auctex ) )
@@ -63,11 +63,7 @@ for ((n--; n >= 0; n--)); do
 done
 
 # default lisp
-if use arm; then
-	DEF_LISP=2 # gcl
-else
-	DEF_LISP=0 # sbcl
-fi
+DEF_LISP=0 # sbcl
 
 DEF_DEP="${DEF_DEP} `depends ${DEF_LISP}`"
 
@@ -144,12 +140,12 @@ src_configure() {
 		done
 	fi
 
-	econf ${CONFS} $(use_with tk wish) --with-lispdir="${SITELISP}"/${PN}
+	econf ${CONFS} $(use_with tk wish) --with-lispdir="${EPREFIX}/${SITELISP}"/${PN}
 }
 
 src_install() {
 	docompress -x /usr/share/info
-	emake DESTDIR="${D}" emacsdir="${SITELISP}/${PN}" install
+	emake DESTDIR="${D}" emacsdir="${EPREFIX}/${SITELISP}/${PN}" install
 
 	use tk && make_desktop_entry xmaxima xmaxima \
 		/usr/share/${PN}/${PV}/xmaxima/maxima-new.png \
@@ -168,7 +164,7 @@ src_install() {
 	dosym ../${PN}/${PV}/doc /usr/share/doc/${PF} || die
 
 	if use emacs; then
-		elisp-site-file-install "${FILESDIR}"/50maxima-gentoo.el || die
+		elisp-site-file-install "${FILESDIR}"/50maxima-gentoo-0.el || die
 	fi
 
 	# if we use ecls, build an ecls library for maxima

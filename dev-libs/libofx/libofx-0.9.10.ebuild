@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libofx/libofx-0.9.10.ebuild,v 1.1 2014/12/26 18:50:02 kensington Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 hppa ~ppc ~ppc64 x86"
 IUSE="static-libs test"
 
 RDEPEND="
@@ -37,6 +37,10 @@ src_prepare() {
 
 	# configure arguments alone don't disable everything
 	sed -e "/^SUBDIRS/s/doc//" -i Makefile.in || die
+}
+
+src_compile() {
+	autotools-utils_src_compile CXXFLAGS+=-std=c++11 #566456
 }
 
 src_install() {

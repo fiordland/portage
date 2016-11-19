@@ -1,12 +1,12 @@
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-lang/tcl >=virtual/mysql-4.1
+DEPEND=dev-lang/tcl:0 >=virtual/mysql-4.1
 DESCRIPTION=TCL MySQL Interface
 EAPI=4
 HOMEPAGE=http://www.xdobry.de/mysqltcl/
 KEYWORDS=amd64 ~ppc ~sparc x86
 LICENSE=HPND
-RDEPEND=dev-lang/tcl >=virtual/mysql-4.1
+RDEPEND=dev-lang/tcl:0 >=virtual/mysql-4.1
 SLOT=0
 SRC_URI=http://www.xdobry.de/mysqltcl/mysqltcl-3.05.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=7ffa529b6b0fe74612d2cda77a2e4c7d
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=603a81e325564696af7bab6616cdac33

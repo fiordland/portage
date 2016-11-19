@@ -1,9 +1,9 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/tint/tint-0.03b.ebuild,v 1.9 2015/02/25 21:32:13 tupone Exp $
+# $Id$
 
 EAPI=5
-inherit games
+inherit eutils games
 
 MY_P=${P/-/_}
 DESCRIPTION="Tint Is Not Tetris, a ncurses based clone of the original Tetris(tm) game"
@@ -15,10 +15,12 @@ SLOT="0"
 KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd"
 IUSE=""
 
-DEPEND=">=sys-libs/ncurses-5.4-r1"
-RDEPEND="${DEPEND}"
+DEPEND=">=sys-libs/ncurses-5.4-r1:0"
+RDEPEND=${DEPEND}
 
-PATCHES=( "${FILESDIR}"/${P}-ovflfix.patch )
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-ovflfix.patch
+}
 
 src_compile() {
 	emake \

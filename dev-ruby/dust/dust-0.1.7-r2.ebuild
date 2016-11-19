@@ -1,9 +1,9 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/dust/dust-0.1.7-r2.ebuild,v 1.4 2015/02/01 12:04:49 graaff Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21 ruby22"
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_EXTRADOC="README"
 
@@ -13,7 +13,7 @@ DESCRIPTION="Descriptive block syntax definition for Test::Unit"
 HOMEPAGE="http://dust.rubyforge.org/"
 LICENSE="MIT"
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 SLOT="0"
 IUSE=""
 

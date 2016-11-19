@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/lxr/lxr-0.9.8-r1.ebuild,v 1.4 2014/11/09 22:09:37 dilfridge Exp $
+# $Id$
 
 EAPI=5
 
 inherit perl-module webapp multilib eutils depend.apache
 
 DESCRIPTION="general purpose source code indexer and cross-referener with a web-based frontend"
-HOMEPAGE="http://sourceforge.net/projects/lxr"
+HOMEPAGE="https://sourceforge.net/projects/lxr"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tgz"
 
 LICENSE="GPL-2"

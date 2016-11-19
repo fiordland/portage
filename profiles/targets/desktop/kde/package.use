@@ -1,14 +1,42 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/targets/desktop/kde/package.use,v 1.7 2014/04/22 15:48:15 kensington Exp $
+# $Id$
+
+# Resolve conflicts with slot 5 ebuilds
+kde-frameworks/baloo minimal
+kde-apps/kde4-l10n minimal
+
+# Required by kde-frameworks/kauth
+sys-auth/polkit-qt qt5
+
+# Required by kde-frameworks/knotifications[dbus]
+dev-libs/libdbusmenu-qt qt5
+
+# Required by kde-frameworks/knotifyconfig[phonon]
+media-libs/phonon qt5
+
+# Required by media-libs/phonon[vlc]
+media-libs/phonon-vlc qt5
+
+# Required by kde-apps/kdenlive:5
+media-libs/mlt kdenlive qt5 melt -kde -qt4
+
+# Required by dev-qt/qtcore:5
+dev-libs/libpcre pcre16
+
+# Required by kde-frameworks/kcoreaddons
+dev-qt/qtcore icu
+
+# Required by kde-apps/kate[addons]
+dev-libs/libgit2 threads
 
 # Required by kde-base/pykde4
 dev-python/PyQt4 script sql webkit
 
-# Required by app-office/akonadi-server
+# Required by kde-apps/akonadi
 dev-qt/qtsql mysql
 
-# Required by media-gfx/graphviz which is required by kde-base/kcachegrind
+# Required by media-gfx/graphviz which is required by kde-apps/kcachegrind
 media-libs/gd fontconfig
 
 # Required by dev-db/virtuoso-server
@@ -17,8 +45,11 @@ sys-libs/zlib minizip
 # Not required, but makes life easier with Qt; bug 457934
 app-arch/unzip natspec
 
-# Required by kde-base/libkexiv2
+# Required by kde-apps/libkexiv2
 media-gfx/exiv2 xmp
 
-# Required by kde-base/artikulate
+# Required by kde-apps/artikulate
 dev-qt/qt-mobility multimedia
+
+# Required by app-office/libreoffice
+media-libs/phonon designer

@@ -8,5 +8,5 @@ LICENSE=Artistic
 RDEPEND=dev-perl/Net-DNS virtual/perl-Net-Ping virtual/perl-Time-HiRes || ( virtual/perl-Digest-SHA dev-perl/Digest-SHA1 ) dev-perl/URI dev-perl/Digest-Nilsimsa dev-lang/perl:=[-build(-)]
 SLOT=0
 SRC_URI=mirror://sourceforge/razor/razor-agents-2.85.tar.bz2
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	perl-module	6b84915e66050718c89bcbc76c144e80	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	unpacker	f300a7ca9131b1024a79762e8edd3c52
-_md5_=b4a66d152490a46d70f0c0f3df488cf7
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	multiprocessing	e32940a7b2a9992ad217eccddb84d548	perl-functions	aac50de73be0a80ebe780e0b20850130	perl-module	f6549146ea31a902e20b5f2e6f244358	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	unpacker	45d07319df5f40ee6af58418b0f930be
+_md5_=a7909c6480013bc94fb9ec8c6596c14c

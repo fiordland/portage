@@ -1,11 +1,11 @@
-DEFINED_PHASES=compile configure install preinst prepare test unpack
-DEPEND=dev-libs/boost sci-libs/libgenome sci-libs/libmuscle doc? ( app-doc/doxygen ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 || ( dev-vcs/subversion[http] dev-vcs/subversion[webdav-neon] dev-vcs/subversion[webdav-serf] ) net-misc/rsync
+DEFINED_PHASES=preinst prepare unpack
+DEPEND=dev-libs/boost sci-libs/libgenome sci-libs/libmuscle doc? ( app-doc/doxygen ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 || ( dev-vcs/subversion[http] dev-vcs/subversion[webdav-neon] dev-vcs/subversion[webdav-serf] ) net-misc/rsync
 DESCRIPTION=Library for sci-biology/mauve
-EAPI=4
+EAPI=6
 HOMEPAGE=http://gel.ahabs.wisc.edu/mauve/
 IUSE=doc
 LICENSE=GPL-2
 RDEPEND=dev-libs/boost sci-libs/libgenome sci-libs/libmuscle
 SLOT=0
-_eclasses_=autotools	8fc2dd333ef9346c906ffd9a523d8211	autotools-utils	3727db64c7b960903d5033280f108080	eutils	998e5931fb95b10a6a11ec796ada2759	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	subversion	c12bdf4fcc82f86ad89b14c8f76c4026	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=7d2ca16d582011332d449fa094582631
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	b83a2420b796f7c6eff682679d08fe25	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	subversion	750f91bd0705a41b26ba01bcee93aaad	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=69e9d93c60512012023b9645d61788c4

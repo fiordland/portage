@@ -3,11 +3,11 @@ DEPEND=>=sys-fs/fuse-2.7.0 dev-libs/uthash
 DESCRIPTION=Fuse multi harddrive filesystem
 EAPI=4
 HOMEPAGE=http://mhddfs.uvw.ru/ http://svn.uvw.ru/mhddfs/trunk/README
-IUSE=linguas_ru suid
+IUSE=l10n_ru suid
 KEYWORDS=amd64
 LICENSE=GPL-3
 RDEPEND=>=sys-fs/fuse-2.7.0
 SLOT=0
 SRC_URI=http://mhddfs.uvw.ru/downloads/mhddfs_0.1.39.tar.gz
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=8627c793e9cd681989fb4698e436e8e7
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=b12e3a2c7dc7b9d22432d1b09af68e1c

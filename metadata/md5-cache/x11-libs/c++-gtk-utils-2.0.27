@@ -4,10 +4,10 @@ DESCRIPTION=A library containing a number of classes and functions for programmi
 EAPI=5
 HOMEPAGE=http://cxx-gtk-utils.sourceforge.net/
 IUSE=+gtk nls static-libs
-KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+KEYWORDS=amd64 ~ppc ~ppc64 x86
 LICENSE=LGPL-2.1
 RDEPEND=>=dev-libs/glib-2.26 gtk? ( x11-libs/gtk+:3 )
 SLOT=3
 SRC_URI=mirror://sourceforge/cxx-gtk-utils/c++-gtk-utils-2.0.27.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=60a1c13c8df586e8b4b6b1a5bad99a01
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=d6122b22b4dc611c149f98c6e4b3ab4c

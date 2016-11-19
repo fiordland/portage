@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/pm-utils/pm-utils-1.4.1-r6.ebuild,v 1.6 2014/11/08 18:56:02 ssuominen Exp $
+# $Id$
 
 EAPI=5
 inherit eutils multilib
 
 DESCRIPTION="Suspend and hibernation utilities"
-HOMEPAGE="http://pm-utils.freedesktop.org/"
-SRC_URI="http://pm-utils.freedesktop.org/releases/${P}.tar.gz"
+HOMEPAGE="https://pm-utils.freedesktop.org/"
+SRC_URI="https://pm-utils.freedesktop.org/releases/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

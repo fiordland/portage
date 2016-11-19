@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/libbackend-elements/libbackend-elements-1.7.2.ebuild,v 1.9 2014/08/10 19:53:46 slyfox Exp $
+# $Id$
 
 EAPI="2"
 
@@ -17,7 +17,7 @@ IUSE=""
 RDEPEND=">=dev-cpp/libcult-1.4.6-r1
 	dev-libs/boost"
 DEPEND="${RDEPEND}
-	dev-util/build:0.3"
+	dev-util/build"
 
 src_configure() {
 	BOOST_PKG="$(best_version ">=dev-libs/boost-1.35.0-r5")"

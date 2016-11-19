@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyplusplus/pyplusplus-9999.ebuild,v 1.2 2015/01/01 23:43:25 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,11 +12,11 @@ DESCRIPTION="Object-oriented framework for creating a code generator for Boost.P
 HOMEPAGE="http://www.language-binding.net/"
 
 if [[ ${PV} == 9999 ]]; then
-	ESVN_REPO_URI="http://svn.code.sf.net/p/pygccxml/svn/${PN}_dev"
+	ESVN_REPO_URI="https://svn.code.sf.net/p/pygccxml/svn/${PN}_dev"
 	inherit subversion
 	S=${WORKDIR}/${PN}_dev
 else
-	SRC_URI="http://dev.gentoo.org/~heroxbd/${P}.tar.xz"
+	SRC_URI="https://dev.gentoo.org/~heroxbd/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 fi
 

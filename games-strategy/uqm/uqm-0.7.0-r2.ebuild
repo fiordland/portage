@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/uqm/uqm-0.7.0-r2.ebuild,v 1.7 2015/02/19 09:29:18 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit eutils multilib toolchain-funcs games
@@ -22,7 +22,7 @@ IUSE="music opengl remix voice"
 
 RDEPEND="media-libs/libmikmod
 	media-libs/libogg
-	>=media-libs/libpng-1.4
+	>=media-libs/libpng-1.4:0
 	media-libs/libsdl[X,sound,joystick,video]
 	media-libs/libvorbis
 	media-libs/sdl-image[png]

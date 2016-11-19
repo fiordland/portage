@@ -1,15 +1,15 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gmapcatcher/gmapcatcher-0.8.0.4.ebuild,v 1.2 2013/07/25 14:46:26 mrueg Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1
 
 DESCRIPTION="An offline viewer for different map providers"
-HOMEPAGE="http://code.google.com/p/gmapcatcher/"
-SRC_URI="http://gmapcatcher.googlecode.com/files/mapcatcher_${PV}.tar.gz"
+HOMEPAGE="https://code.google.com/p/gmapcatcher/"
+SRC_URI="https://gmapcatcher.googlecode.com/files/mapcatcher_${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -20,7 +20,7 @@ RDEPEND="x11-libs/gtk+:2
 	dev-python/pygtk[${PYTHON_USEDEP}]
 	dev-python/pygobject[${PYTHON_USEDEP}]
 	dev-python/pycairo[${PYTHON_USEDEP}]
-	virtual/python-imaging[${PYTHON_USEDEP}]"
+	dev-python/pillow[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/mapcatcher-${PV}

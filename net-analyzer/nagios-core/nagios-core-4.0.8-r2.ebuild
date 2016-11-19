@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nagios-core/nagios-core-4.0.8-r2.ebuild,v 1.1 2015/02/22 00:44:02 mjo Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,11 +14,11 @@ HOMEPAGE="http://www.nagios.org/"
 # extracted, and also the basename of the archive containing it.
 GENTOO_ICONS="${PN}-gentoo-icons-20141125"
 SRC_URI="mirror://sourceforge/nagios/${MY_P}.tar.gz
-	web? ( http://dev.gentoo.org/~mjo/distfiles/${GENTOO_ICONS}.tar )"
+	web? ( https://dev.gentoo.org/~mjo/distfiles/${GENTOO_ICONS}.tar )"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 IUSE="classicui lighttpd perl +web vim-syntax"
 
 # In pkg_postinst(), we change the group of the Nagios configuration

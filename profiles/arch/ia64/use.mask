@@ -3,6 +3,11 @@
 
 # This is a list of USE flags that should not be used on ia64.
 
+# Julian Ospald <hasufell@gentoo.org> (20 Sep 2015)
+# no LibreSSL support yet
+curl_ssl_libressl
+libressl
+
 # No hardware to test by the team
 3dfx
 bluetooth
@@ -55,6 +60,7 @@ valgrind
 matplotlib
 mongodb
 pgm
+scim
 
 # Stuff we don't want
 antlr
@@ -83,6 +89,7 @@ schroedinger
 ots
 eclipse
 vaapi
+librtmp
 rtmp
 vpx
 frei0r
@@ -139,23 +146,10 @@ phonon
 # architecture.
 qdbm
 
-# java releated use flags
-# need to get dev-java/ant marked stable stable
-# before unmasking (16 Oct 2006 nichoj)
+# James Le Cuirot <chewi@gentoo.org> (11 Jul 2015)
+# We don't support java on ia64.
 java
-java6
-java-internal
-java-external
 freetts
-# need to keyword openjms-bin, sun-jms
-jms
-# need to keyword sun-jmx
-jmx
-# need to keyword sun-javamail-bin, sun-javamail
-javamail
-# depends on ibm-jdk-bin which isn't available for ia64
-mpe-sdk
-# needs java
 pdfannotextractor
 
 # Aggelos Orfanakos <agorf@gentoo.org> (18 Jan 2008)
@@ -186,6 +180,7 @@ video_cards_ilo
 # vmware wasn't added with mesa-8.0, but it should still be masked
 video_cards_vmware
 # llvm is not keyworded
+video_cards_amdgpu
 video_cards_radeonsi
 
 # Diego Pettenò <flameeyes@gentoo.org> (6 Dec 2006)
@@ -223,19 +218,15 @@ alsa_cards_sgalaxy
 alsa_cards_sscape
 alsa_cards_wavefront
 
-# Matt Turner <mattst88@gentoo.org) (10 Feb 2012)
+# Matt Turner <mattst88@gentoo.org> (10 Feb 2012)
 # mask d3d since we don't have wine
 d3d
-
-# Matt Turner <mattst88@gentoo.org) (10 Feb 2012)
-# mask wayland since dev-libs/wayland isn't keyworded
-wayland
 
 # Diego Elio Pettenò <flameeyes@gentoo.org> (21 Aug 2012)
 # IPMI is only implemented for x86, amd64 and ia64
 -ipmi
 
-# Michael Sterrett <mr_bones_@gentoo.org) (24 Aug 2012)
+# Michael Sterrett <mr_bones_@gentoo.org> (24 Aug 2012)
 # media-sound/fluidsynth isn't keyworded
 fluidsynth
 

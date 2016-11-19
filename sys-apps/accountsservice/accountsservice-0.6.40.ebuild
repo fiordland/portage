@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/accountsservice/accountsservice-0.6.40.ebuild,v 1.1 2015/01/26 12:51:50 pacho Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -8,12 +8,12 @@ GCONF_DEBUG="no"
 inherit eutils gnome2 systemd
 
 DESCRIPTION="D-Bus interfaces for querying and manipulating user account information"
-HOMEPAGE="http://www.freedesktop.org/wiki/Software/AccountsService/"
-SRC_URI="http://www.freedesktop.org/software/${PN}/${P}.tar.xz"
+HOMEPAGE="https://www.freedesktop.org/wiki/Software/AccountsService/"
+SRC_URI="https://www.freedesktop.org/software/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 arm ~arm64 ~ia64 ppc ppc64 ~sparc x86"
 
 IUSE="doc +introspection selinux systemd"
 

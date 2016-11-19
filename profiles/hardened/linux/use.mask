@@ -1,10 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/hardened/linux/use.mask,v 1.18 2013/01/12 12:36:18 zorry Exp $
+# $Id$
 
 -hardened
-
-emul-linux-x86
 
 # tcc is x86-only
 tcc
@@ -14,3 +12,6 @@ pch
 
 # prelink is masked for hardened
 prelink
+
+# profile are incompatible when linking with pie
+profile

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/cuyo/cuyo-2.1.1.ebuild,v 1.8 2015/02/18 20:37:41 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils gnome2-utils versionator games
@@ -8,7 +8,7 @@ inherit autotools eutils gnome2-utils versionator games
 MY_P=${PN}-$(get_version_component_range 1).~-$(get_version_component_range 2-3)
 DESCRIPTION="highly addictive and remotely related to tetris"
 HOMEPAGE="http://www.karimmi.de/cuyo/"
-SRC_URI="http://savannah.nongnu.org/download/cuyo/${MY_P}.tar.gz"
+SRC_URI="https://savannah.nongnu.org/download/cuyo/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

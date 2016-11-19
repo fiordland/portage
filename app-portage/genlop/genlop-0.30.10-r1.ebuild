@@ -1,22 +1,22 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/genlop/genlop-0.30.10-r1.ebuild,v 1.1 2015/02/25 21:12:42 fuzzyray Exp $
+# $Id$
 
 EAPI=5
 
 inherit base bash-completion-r1
 
 DESCRIPTION="A nice emerge.log parser"
-HOMEPAGE="http://www.gentoo.org/proj/en/perl"
-SRC_URI="http://dev.gentoo.org/~dilfridge/distfiles/${P}.tar.gz"
+HOMEPAGE="https://www.gentoo.org/proj/en/perl"
+SRC_URI="https://dev.gentoo.org/~dilfridge/distfiles/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
 IUSE=""
 
 DEPEND="dev-lang/perl
-	 dev-perl/DateManip
+	 dev-perl/Date-Manip
 	 dev-perl/libwww-perl"
 RDEPEND="${DEPEND}"
 

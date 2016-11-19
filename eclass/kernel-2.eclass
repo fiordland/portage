@@ -1,12 +1,12 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kernel-2.eclass,v 1.300 2015/02/27 23:44:41 mpagano Exp $
+# $Id$
 
 # Description: kernel.eclass rewrite for a clean base regarding the 2.6
 #              series of kernel with back-compatibility for 2.4
 #
 # Original author: John Mylchreest <johnm@gentoo.org>
-# Maintainer: kernel-misc@gentoo.org
+# Maintainer: kernel@gentoo.org
 #
 # Please direct your bugs to the current eclass maintainer :)
 
@@ -37,6 +37,8 @@
 # K_EXTRAEWARN			- same as K_EXTRAEINFO except using ewarn instead of einfo
 # K_SYMLINK				- if this is set, then forcably create symlink anyway
 #
+# K_BASE_VER			- for git-sources, declare the base version this patch is
+#						  based off of.
 # K_DEFCONFIG			- Allow specifying a different defconfig target.
 #						  If length zero, defaults to "defconfig".
 # K_WANT_GENPATCHES		- Apply genpatches to kernel source. Provide any
@@ -47,6 +49,9 @@
 # 						  as a result the user cannot choose to apply those patches.
 # K_EXP_GENPATCHES_LIST	- A list of patches to pick from "experimental" to apply when
 # 						  the USE flag is unset and K_EXP_GENPATCHES_PULL is set.
+# K_FROM_GIT - If set, this variable signals that the kernel sources derives from a git tree and special
+#	    handling will be applied so that any patches that are applied will actually apply.
+#
 # K_GENPATCHES_VER		- The version of the genpatches tarball(s) to apply.
 #						  A value of "5" would apply genpatches-2.6.12-5 to
 #						  my-sources-2.6.12.ebuild
@@ -54,6 +59,8 @@
 # K_DEBLOB_AVAILABLE	- A value of "0" will disable all of the optional deblob
 #						  code. If empty, will be set to "1" if deblobbing is
 #						  possible. Test ONLY for "1".
+# K_DEBLOB_TAG     		- This will be the version of deblob script. It's a upstream SVN tag
+#						  such asw -gnu or -gnu1.
 # K_PREDEBLOBBED		- This kernel was already deblobbed elsewhere.
 #						  If false, either optional deblobbing will be available
 #						  or the license will note the inclusion of freedist
@@ -61,6 +68,9 @@
 # K_LONGTERM			- If set, the eclass will search for the kernel source
 #						  in the long term directories on the upstream servers
 #						  as the location has been changed by upstream
+# K_KDBUS_AVAILABLE		- If set, the ebuild contains the option of installing the
+#						  kdbus patch.  This patch is not installed without the 'kdbus'
+#						  and 'experimental' use flags.
 # H_SUPPORTEDARCH		- this should be a space separated list of ARCH's which
 #						  can be supported by the headers ebuild
 
@@ -80,6 +90,8 @@
 # If you do change them, there is a chance that we will not fix resulting bugs;
 # that of course does not mean we're not willing to help.
 
+has "${EAPI:-0}" 0 1 2 3 4 5 || die "kernel-2.eclass is unsupported for EAPI ${EAPI}"
+
 PYTHON_COMPAT=( python{2_6,2_7} )
 
 inherit eutils toolchain-funcs versionator multilib python-any-r1
@@ -95,8 +107,10 @@ if [[ ${CTARGET} == ${CHOST} && ${CATEGORY/cross-} != ${CATEGORY} ]]; then
 	export CTARGET=${CATEGORY/cross-}
 fi
 
-HOMEPAGE="http://www.kernel.org/ http://www.gentoo.org/ ${HOMEPAGE}"
+HOMEPAGE="https://www.kernel.org/ https://www.gentoo.org/ ${HOMEPAGE}"
 : ${LICENSE:="GPL-2"}
+
+has "${EAPI:-0}" 0 1 2 && ED=${D} EPREFIX= EROOT=${ROOT}
 
 # This is the latest KV_PATCH of the deblob tool available from the
 # libre-sources upstream. If you bump this, you MUST regenerate the Manifests
@@ -125,8 +139,19 @@ debug-print-kernel2-variables() {
 #Eclass functions only from here onwards ...
 #==============================================================
 handle_genpatches() {
-	local tarball
+	local tarball want_unipatch_list
 	[[ -z ${K_WANT_GENPATCHES} || -z ${K_GENPATCHES_VER} ]] && return 1
+
+	if [[ -n ${1} ]]; then
+		# set UNIPATCH_LIST_GENPATCHES only on explicit request
+		# since that requires 'use' call which can be used only in phase
+		# functions, while the function is also called in global scope
+		if [[ ${1} == --set-unipatch-list ]]; then
+			want_unipatch_list=1
+		else
+			die "Usage: ${FUNCNAME} [--set-unipatch-list]"
+		fi
+	fi
 
 	debug-print "Inside handle_genpatches"
 	local OKV_ARRAY
@@ -154,25 +179,14 @@ handle_genpatches() {
 			use_cond_start="experimental? ( "
 			use_cond_end=" )"
 
-			if use experimental ; then
+			if [[ -n ${want_unipatch_list} ]] && use experimental ; then
 				UNIPATCH_LIST_GENPATCHES+=" ${DISTDIR}/${tarball}"
 				debug-print "genpatches tarball: $tarball"
-
-				# check gcc version < 4.9.X uses patch 5000 and = 4.9.X uses patch 5010			
-				if [[ $(gcc-major-version) -eq 4 ]] && [[ $(gcc-minor-version) -ne 9 ]]; then
-						# drop 5000_enable-additional-cpu-optimizations-for-gcc-4.9.patch
-						UNIPATCH_EXCLUDE+=" 5010_enable-additional-cpu-optimizations-for-gcc-4.9.patch"
-				else
-					#drop 5000_enable-additional-cpu-optimizations-for-gcc.patch
-					UNIPATCH_EXCLUDE+=" 5000_enable-additional-cpu-optimizations-for-gcc.patch"
-				fi
-
 			fi
-		else
+		elif [[ -n ${want_unipatch_list} ]]; then
 			UNIPATCH_LIST_GENPATCHES+=" ${DISTDIR}/${tarball}"
 			debug-print "genpatches tarball: $tarball"
 		fi
-
 		GENPATCHES_URI+=" ${use_cond_start}mirror://gentoo/${tarball}${use_cond_end}"
 	done
 }
@@ -338,7 +352,7 @@ detect_version() {
 	KV_FULL=${OKV}${EXTRAVERSION}
 
 	# we will set this for backwards compatibility.
-	S=${WORKDIR}/linux-${KV_FULL}
+	S="${WORKDIR}"/linux-${KV_FULL}
 	KV=${KV_FULL}
 
 	# -rc-git pulls can be achieved by specifying CKV
@@ -375,8 +389,9 @@ detect_version() {
 
 		# the different majorminor versions have different patch start versions
 		OKV_DICT=(["2"]="${KV_MAJOR}.$((${KV_PATCH_ARR} - 1))" ["3"]="2.6.39" ["4"]="3.19")
+
 		if [[ ${RELEASETYPE} == -rc ]] || [[ ${RELEASETYPE} == -pre ]]; then
-			OKV=${OKV_DICT["${KV_MAJOR}"]}
+			OKV=${K_BASE_VER:-$OKV_DICT["${KV_MAJOR}"]}
 			KERNEL_URI="${KERNEL_BASE_URI}/testing/patch-${CKV//_/-}.xz
 						${KERNEL_BASE_URI}/linux-${OKV}.tar.xz"
 			UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-${CKV//_/-}.xz"
@@ -389,7 +404,7 @@ detect_version() {
 		fi
 
 		if [[ ${RELEASETYPE} == -rc-git ]]; then
-			OKV=${OKV_DICT["${KV_MAJOR}"]}
+			OKV=${K_BASE_VER:-$OKV_DICT["${KV_MAJOR}"]}
 			KERNEL_URI="${KERNEL_BASE_URI}/snapshots/patch-${KV_MAJOR}.${KV_PATCH}${RELEASE}.xz
 						${KERNEL_BASE_URI}/testing/patch-${KV_MAJOR}.${KV_PATCH}${RELEASE/-git*}.xz
 						${KERNEL_BASE_URI}/linux-${OKV}.tar.xz"
@@ -399,7 +414,7 @@ detect_version() {
 
 
 	fi
-	
+
 	debug-print-kernel2-variables
 
 	handle_genpatches
@@ -452,11 +467,14 @@ if [[ ${ETYPE} == sources ]]; then
 		dev-lang/perl
 		sys-devel/bc
 	)"
-	PDEPEND="!build? ( virtual/dev-manager )"
 
 	SLOT="${PVR}"
 	DESCRIPTION="Sources based on the Linux Kernel."
 	IUSE="symlink build"
+
+	if [[ -n ${K_KDBUS_AVAILABLE} ]]; then
+		IUSE="${IUSE} kdbus"
+	fi
 
 	# Bug #266157, deblob for libre support
 	if [[ -z ${K_PREDEBLOBBED} ]] ; then
@@ -484,15 +502,18 @@ if [[ ${ETYPE} == sources ]]; then
 				DEBLOB_PV="${KV_MAJOR}.${KV_MINOR}"
 			fi
 
+			# deblob svn tag, default is -gnu, to change, use K_DEBLOB_TAG in ebuild
+			K_DEBLOB_TAG=${K_DEBLOB_TAG:--gnu}
 			DEBLOB_A="deblob-${DEBLOB_PV}"
 			DEBLOB_CHECK_A="deblob-check-${DEBLOB_PV}"
-			DEBLOB_HOMEPAGE="http://www.fsfla.org/svnwiki/selibre/linux-libre/"
-			DEBLOB_URI_PATH="download/releases/LATEST-${DEBLOB_PV}.N"
+			DEBLOB_HOMEPAGE="http://www.fsfla.org/svn/fsfla/software/linux-libre/releases/tags"
+			DEBLOB_URI_PATH="${DEBLOB_PV}${K_DEBLOB_TAG}"
 			if ! has "${EAPI:-0}" 0 1 ; then
 				DEBLOB_CHECK_URI="${DEBLOB_HOMEPAGE}/${DEBLOB_URI_PATH}/deblob-check -> ${DEBLOB_CHECK_A}"
 			else
 				DEBLOB_CHECK_URI="mirror://gentoo/${DEBLOB_CHECK_A}"
 			fi
+
 			DEBLOB_URI="${DEBLOB_HOMEPAGE}/${DEBLOB_URI_PATH}/${DEBLOB_A}"
 			HOMEPAGE="${HOMEPAGE} ${DEBLOB_HOMEPAGE}"
 
@@ -510,6 +531,7 @@ if [[ ${ETYPE} == sources ]]; then
 
 elif [[ ${ETYPE} == headers ]]; then
 	DESCRIPTION="Linux system headers"
+	IUSE="crosscompile_opts_headers-only"
 
 	# Since we should NOT honour KBUILD_OUTPUT in headers
 	# lets unset it here.
@@ -653,7 +675,7 @@ compile_headers() {
 
 		# autoconf.h isnt generated unless it already exists. plus, we have
 		# no guarantee that any headers are installed on the system...
-		[[ -f ${ROOT}/usr/include/linux/autoconf.h ]] \
+		[[ -f ${EROOT}usr/include/linux/autoconf.h ]] \
 			|| touch include/linux/autoconf.h
 
 		# if K_DEFCONFIG isn't set, force to "defconfig"
@@ -674,7 +696,7 @@ compile_headers() {
 		# symlink in /usr/include/, and make defconfig will fail, so we have
 		# to force an include path with $S.
 		HOSTCFLAGS="${HOSTCFLAGS} -I${S}/include/"
-		ln -sf asm-${KARCH} "${S}"/include/asm
+		ln -sf asm-${KARCH} "${S}"/include/asm || die
 		cross_pre_c_headers && return 0
 
 		make ${K_DEFCONFIG} HOSTCFLAGS="${HOSTCFLAGS}" ${xmakeopts} || die "defconfig failed (${K_DEFCONFIG})"
@@ -691,7 +713,7 @@ compile_headers_tweak_config() {
 	# .config based upon any info we may have
 	case ${CTARGET} in
 	sh*)
-		sed -i '/CONFIG_CPU_SH/d' .config
+		sed -i '/CONFIG_CPU_SH/d' .config || die
 		echo "CONFIG_CPU_SH${CTARGET:2:1}=y" >> .config
 		return 0;;
 	esac
@@ -717,10 +739,10 @@ install_headers() {
 	# of this crap anymore :D
 	if kernel_is ge 2 6 18 ; then
 		env_setup_xmakeopts
-		emake headers_install INSTALL_HDR_PATH="${D}"/${ddir}/.. ${xmakeopts} || die
+		emake headers_install INSTALL_HDR_PATH="${ED}"${ddir}/.. ${xmakeopts} || die
 
 		# let other packages install some of these headers
-		rm -rf "${D}"/${ddir}/scsi  #glibc/uclibc/etc...
+		rm -rf "${ED}"${ddir}/scsi || die #glibc/uclibc/etc...
 		return 0
 	fi
 
@@ -728,15 +750,15 @@ install_headers() {
 	# $S values where the cmdline to cp is too long
 	pushd "${S}" >/dev/null
 	dodir ${ddir}/linux
-	cp -pPR "${S}"/include/linux "${D}"/${ddir}/ || die
-	rm -rf "${D}"/${ddir}/linux/modules
+	cp -pPR "${S}"/include/linux "${ED}"${ddir}/ || die
+	rm -rf "${ED}"${ddir}/linux/modules || die
 
 	dodir ${ddir}/asm
-	cp -pPR "${S}"/include/asm/* "${D}"/${ddir}/asm
+	cp -pPR "${S}"/include/asm/* "${ED}"${ddir}/asm || die
 
 	if kernel_is 2 6 ; then
 		dodir ${ddir}/asm-generic
-		cp -pPR "${S}"/include/asm-generic/* "${D}"/${ddir}/asm-generic
+		cp -pPR "${S}"/include/asm-generic/* "${ED}"${ddir}/asm-generic || die
 	fi
 
 	# clean up
@@ -770,7 +792,7 @@ install_sources() {
 			> "${S}"/patches.txt
 	fi
 
-	mv ${WORKDIR}/linux* "${D}"/usr/src
+	mv "${WORKDIR}"/linux* "${ED}"usr/src || die
 
 	if [[ -n "${UNIPATCH_DOCS}" ]] ; then
 		for i in ${UNIPATCH_DOCS}; do
@@ -783,8 +805,8 @@ install_sources() {
 #==============================================================
 preinst_headers() {
 	local ddir=$(kernel_header_destdir)
-	[[ -L ${ddir}/linux ]] && rm ${ddir}/linux
-	[[ -L ${ddir}/asm ]] && rm ${ddir}/asm
+	[[ -L ${EPREFIX}${ddir}/linux ]] && { rm "${EPREFIX}"${ddir}/linux || die; }
+	[[ -L ${EPREFIX}${ddir}/asm ]] && { rm "${EPREFIX}"${ddir}/asm || die; }
 }
 
 # pkg_postinst functions
@@ -795,33 +817,34 @@ postinst_sources() {
 	# if we have USE=symlink, then force K_SYMLINK=1
 	use symlink && K_SYMLINK=1
 
-	# if we're using a deblobbed kernel, it's not supported
-	[[ $K_DEBLOB_AVAILABLE == 1 ]] && \
-		use deblob && \
-		K_SECURITY_UNSUPPORTED=deblob
+	# We do support security on a deblobbed kernel, bug #555878.
+	# If some particular kernel version doesn't have security
+	# supported because of USE=deblob or otherwise, one can still
+	# set K_SECURITY_UNSUPPORTED on a per ebuild basis.
+	#[[ $K_DEBLOB_AVAILABLE == 1 ]] && \
+	#	use deblob && \
+	#	K_SECURITY_UNSUPPORTED=deblob
 
 	# if we are to forcably symlink, delete it if it already exists first.
 	if [[ ${K_SYMLINK} > 0 ]]; then
-		[[ -h ${ROOT}usr/src/linux ]] && rm ${ROOT}usr/src/linux
+		[[ -h ${EROOT}usr/src/linux ]] && { rm "${EROOT}"usr/src/linux || die; }
 		MAKELINK=1
 	fi
 
 	# if the link doesnt exist, lets create it
-	[[ ! -h ${ROOT}usr/src/linux ]] && MAKELINK=1
+	[[ ! -h ${EROOT}usr/src/linux ]] && MAKELINK=1
 
 	if [[ ${MAKELINK} == 1 ]]; then
-		cd "${ROOT}"usr/src
-		ln -sf linux-${KV_FULL} linux
-		cd ${OLDPWD}
+		ln -sf linux-${KV_FULL} "${EROOT}"usr/src/linux || die
 	fi
 
 	# Don't forget to make directory for sysfs
-	[[ ! -d ${ROOT}sys ]] && kernel_is 2 6 && mkdir ${ROOT}sys
+	[[ ! -d ${EROOT}sys ]] && kernel_is 2 6 && { mkdir "${EROOT}"sys || die ; }
 
 	echo
 	elog "If you are upgrading from a previous kernel, you may be interested"
 	elog "in the following document:"
-	elog "  - General upgrade guide: http://www.gentoo.org/doc/en/kernel-upgrade.xml"
+	elog "  - General upgrade guide: https://wiki.gentoo.org/wiki/Kernel/Upgrade"
 	echo
 
 	# if K_EXTRAEINFO is set then lets display it now
@@ -844,17 +867,14 @@ postinst_sources() {
 
 	# optionally display security unsupported message
 	#  Start with why
-	if [[ ${K_SECURITY_UNSUPPORTED} = deblob ]]; then
-		ewarn "Deblobbed kernels may not be up-to-date security-wise"
-		ewarn "as they depend on external scripts."
-	elif [[ -n ${K_SECURITY_UNSUPPORTED} ]]; then
+	if [[ -n ${K_SECURITY_UNSUPPORTED} ]]; then
 		ewarn "${PN} is UNSUPPORTED by Gentoo Security."
 	fi
 	#  And now the general message.
 	if [[ -n ${K_SECURITY_UNSUPPORTED} ]]; then
 		ewarn "This means that it is likely to be vulnerable to recent security issues."
 		ewarn "For specific information on why this kernel is unsupported, please read:"
-		ewarn "http://www.gentoo.org/proj/en/security/kernel.xml"
+		ewarn "https://wiki.gentoo.org/wiki/Project:Kernel_Security"
 	fi
 
 	# warn sparc users that they need to do cross-compiling with >= 2.6.25(bug #214765)
@@ -1001,7 +1021,30 @@ unipatch() {
 				done
 				UNIPATCH_DROP+=" $(basename ${j})"
 			done
-		fi
+		else
+			UNIPATCH_LIST_GENPATCHES+=" ${DISTDIR}/${tarball}"
+			debug-print "genpatches tarball: $tarball"
+
+			# check gcc version < 4.9.X uses patch 5000 and = 4.9.X uses patch 5010
+			if [[ $(gcc-major-version) -eq 4 ]] && [[ $(gcc-minor-version) -ne 9 ]]; then
+				# drop 5000_enable-additional-cpu-optimizations-for-gcc-4.9.patch
+				if [[ $UNIPATCH_DROP != *"5010_enable-additional-cpu-optimizations-for-gcc-4.9.patch"* ]]; then
+					UNIPATCH_DROP+=" 5010_enable-additional-cpu-optimizations-for-gcc-4.9.patch"
+				fi
+			else
+				if [[ $UNIPATCH_DROP != *"5000_enable-additional-cpu-optimizations-for-gcc.patch"* ]]; then
+					#drop 5000_enable-additional-cpu-optimizations-for-gcc.patch
+					UNIPATCH_DROP+=" 5000_enable-additional-cpu-optimizations-for-gcc.patch"
+				fi
+			fi
+
+			# if kdbus use flag is not set, drop the kdbus patch
+            if [[ $UNIPATCH_DROP != *"5015_kdbus*.patch"* ]]; then
+				if ! has kdbus ${IUSE} ||  ! use kdbus; then
+					UNIPATCH_DROP="${UNIPATCH_DROP} 5015_kdbus*.patch"
+				fi
+			fi
+ 		fi
 	done
 
 	#populate KPATCH_DIRS so we know where to look to remove the excludes
@@ -1052,12 +1095,13 @@ unipatch() {
 			#                                                                  #
 			# https://bugs.gentoo.org/show_bug.cgi?id=507656                   #
 			####################################################################
-			if [[ ${PN} == "git-sources" ]] ; then
-				if [[ ${KV_MAJOR}${KV_PATCH} -ge 315 && ${RELEASETYPE} == -rc ]] ; then
+			if [[ -n ${K_FROM_GIT} ]] ; then
+				if [[ ${KV_MAJOR} -gt 3 || ( ${KV_MAJOR} -eq 3 && ${KV_PATCH} -gt 15 ) &&
+					${RELEASETYPE} == -rc ]] ; then
 					ebegin "Applying ${i/*\//} (-p1)"
-					if [ $(patch -p1 --no-backup-if-mismatch -f < ${i} >> ${STDERR_T}) "$?" -eq 0 ]; then
+					if [ $(patch -p1 --no-backup-if-mismatch -f < ${i} >> ${STDERR_T}) "$?" -le 2 ]; then
 						eend 0
-						rm ${STDERR_T}
+						rm ${STDERR_T} || die
 						break
 					else
 						eend 1
@@ -1081,7 +1125,7 @@ unipatch() {
 					echo "=======================================================" >> ${STDERR_T}
 					if [ $(patch -p${PATCH_DEPTH} --no-backup-if-mismatch -f < ${i} >> ${STDERR_T}) "$?" -eq 0 ]; then
 						eend 0
-						rm ${STDERR_T}
+						rm ${STDERR_T} || die
 						break
 					else
 						eend 1
@@ -1115,9 +1159,9 @@ unipatch() {
 	local tmp
 	for x in ${KPATCH_DIR}; do
 		for i in ${UNIPATCH_DOCS}; do
-			if [[ -f "${x}/${i}" ]] ; then
+			if [[ -f ${x}/${i} ]] ; then
 				tmp="${tmp} ${i}"
-				cp -f "${x}/${i}" "${T}"/
+				cp -f "${x}/${i}" "${T}"/ || die
 			fi
 		done
 	done
@@ -1205,6 +1249,8 @@ kernel-2_src_unpack() {
 	universal_unpack
 	debug-print "Doing unipatch"
 
+	# request UNIPATCH_LIST_GENPATCHES in phase since it calls 'use'
+	handle_genpatches --set-unipatch-list
 	[[ -n ${UNIPATCH_LIST} || -n ${UNIPATCH_LIST_DEFAULT} || -n ${UNIPATCH_LIST_GENPATCHES} ]] && \
 		unipatch "${UNIPATCH_LIST_DEFAULT} ${UNIPATCH_LIST_GENPATCHES} ${UNIPATCH_LIST}"
 
@@ -1313,11 +1359,11 @@ kernel-2_pkg_postrm() {
 	[[ ${ETYPE} == headers ]] && return 0
 
 	# If there isn't anything left behind, then don't complain.
-	[[ -e ${ROOT}usr/src/linux-${KV_FULL} ]] || return 0
+	[[ -e ${EROOT}usr/src/linux-${KV_FULL} ]] || return 0
 	echo
 	ewarn "Note: Even though you have successfully unmerged "
 	ewarn "your kernel package, directories in kernel source location: "
-	ewarn "${ROOT}usr/src/linux-${KV_FULL}"
+	ewarn "${EROOT}usr/src/linux-${KV_FULL}"
 	ewarn "with modified files will remain behind. By design, package managers"
 	ewarn "will not remove these modified files and the directories they reside in."
 	echo

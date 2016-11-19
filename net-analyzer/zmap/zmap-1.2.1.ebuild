@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/zmap/zmap-1.2.1.ebuild,v 1.1 2015/01/05 12:52:32 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,7 +16,7 @@ KEYWORDS=" ~amd64 ~x86"
 IUSE="json redis"
 
 RDEPEND="
-	dev-libs/gmp
+	dev-libs/gmp:0
 	net-libs/libpcap
 	json? ( dev-libs/json-c )
 	redis? ( dev-libs/hiredis )"

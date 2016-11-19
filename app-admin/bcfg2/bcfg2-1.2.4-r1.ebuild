@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/bcfg2/bcfg2-1.2.4-r1.ebuild,v 1.1 2014/12/15 05:15:53 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -27,7 +27,7 @@ RDEPEND="app-portage/gentoolkit[${PYTHON_USEDEP}]
 		dev-libs/libgamin[python,${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
 		dev-python/nose[${PYTHON_USEDEP}]
-		virtual/fam )"
+		!kernel_linux? ( virtual/fam ) )"
 
 python_compile_all() {
 	if use doc; then

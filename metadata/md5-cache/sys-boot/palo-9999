@@ -1,9 +1,9 @@
 DEFINED_PHASES=compile install prepare unpack
 DEPEND=>=dev-vcs/git-1.8.2.1
 DESCRIPTION=PALO : PArisc Linux Loader
-EAPI=5
+EAPI=6
 HOMEPAGE=http://parisc-linux.org/ https://parisc.wiki.kernel.org/
 LICENSE=GPL-2
 SLOT=0
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	flag-o-matic	c263990f1b677b0f0be0a3299f179762	git-r3	3a2bd0ae504c33a50061885480f3def3	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=d8e5ea39b03aca09d7afff508c1f92fa
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	flag-o-matic	7366202dd55cb8f018f5d450d54e7749	git-r3	e928b84a9f6f1d9076d1d27687876dc6	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=5584481e9680a880864c95cd685363d1

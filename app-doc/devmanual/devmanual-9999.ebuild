@@ -1,14 +1,14 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-doc/devmanual/devmanual-9999.ebuild,v 1.10 2014/12/21 10:11:45 hwoarang Exp $
+# $Id$
 
 EAPI=5
 
 inherit git-2 readme.gentoo
 
 DESCRIPTION="The Gentoo Development Guide"
-HOMEPAGE="http://devmanual.gentoo.org/"
-EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/devmanual.git"
+HOMEPAGE="https://devmanual.gentoo.org/"
+EGIT_REPO_URI="git://anongit.gentoo.org/proj/devmanual.git"
 
 LICENSE="CC-BY-SA-2.0"
 SLOT="0"

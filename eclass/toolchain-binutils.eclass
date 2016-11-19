@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/toolchain-binutils.eclass,v 1.140 2015/02/09 19:34:02 vapier Exp $
+# $Id$
 #
 # Maintainer: Toolchain Ninjas <toolchain@gentoo.org>
 #
@@ -49,14 +49,14 @@ esac
 
 export CTARGET=${CTARGET:-${CHOST}}
 if [[ ${CTARGET} == ${CHOST} ]] ; then
-	if [[ ${CATEGORY/cross-} != ${CATEGORY} ]] ; then
-		export CTARGET=${CATEGORY/cross-}
+	if [[ ${CATEGORY} == cross-* ]] ; then
+		export CTARGET=${CATEGORY#cross-}
 	fi
 fi
 is_cross() { [[ ${CHOST} != ${CTARGET} ]] ; }
 
 DESCRIPTION="Tools necessary to build programs"
-HOMEPAGE="http://sourceware.org/binutils/"
+HOMEPAGE="https://sourceware.org/binutils/"
 
 case ${BTYPE} in
 	git) SRC_URI="" ;;
@@ -76,7 +76,7 @@ add_src_uri() {
 	else
 		a+=".bz2"
 	fi
-	set -- mirror://gentoo http://dev.gentoo.org/~vapier/dist
+	set -- mirror://gentoo https://dev.gentoo.org/~vapier/dist
 	SRC_URI="${SRC_URI} ${@/%//${a}}"
 }
 add_src_uri binutils-${BVER}-patches-${PATCHVER}.tar ${PATCHVER}
@@ -88,23 +88,29 @@ if version_is_at_least 2.18 ; then
 else
 	LICENSE="|| ( GPL-2 LGPL-2 )"
 fi
-IUSE="cxx multislot multitarget nls static-libs test vanilla"
-if version_is_at_least 2.19 ; then
+IUSE="cxx multitarget nls static-libs test vanilla"
+if version_is_at_least 2.19 && ! version_is_at_least 2.26 ; then
 	IUSE+=" zlib"
 fi
-if ! version_is_at_least 2.23.90 || [[ ${BTYPE} != "rel" ]] || is_cross || use multislot ; then
-	SLOT="${BVER}"
-else
-	SLOT="0"
-fi
+SLOT="${BVER}"
 
 RDEPEND=">=sys-devel/binutils-config-3"
-in_iuse zlib && RDEPEND+=" zlib? ( sys-libs/zlib )"
+if in_iuse zlib ; then
+	RDEPEND+=" zlib? ( sys-libs/zlib )"
+elif version_is_at_least 2.26 ; then
+	RDEPEND+=" sys-libs/zlib"
+fi
 DEPEND="${RDEPEND}
 	test? ( dev-util/dejagnu )
 	nls? ( sys-devel/gettext )
 	sys-devel/flex
 	virtual/yacc"
+if is_cross ; then
+	# The build assumes the host has libiberty and such when cross-compiling
+	# its build tools.  We should probably make binutils itself build a local
+	# copy to use, but until then, be lazy.
+	DEPEND+=" >=sys-libs/binutils-libs-${PV}"
+fi
 
 S=${WORKDIR}/binutils
 case ${BVER} in
@@ -164,6 +170,13 @@ tc-binutils_apply_patches() {
 			fi
 		fi
 		[[ ${#PATCHES[@]} -gt 0 ]] && epatch "${PATCHES[@]}"
+
+		# Make sure our explicit libdir paths don't get clobbered. #562460
+		sed -i \
+			-e 's:@bfdlibdir@:@libdir@:g' \
+			-e 's:@bfdincludedir@:@includedir@:g' \
+			{bfd,opcodes}/Makefile.in || die
+
 		epatch_user
 	fi
 
@@ -210,7 +223,7 @@ _eprefix_init() {
 
 # Intended for ebuilds to override to set their own versioning information.
 toolchain-binutils_bugurl() {
-	printf "http://bugs.gentoo.org/"
+	printf "https://bugs.gentoo.org/"
 }
 toolchain-binutils_pkgversion() {
 	printf "Gentoo ${BVER}"
@@ -260,6 +273,8 @@ toolchain-binutils_src_configure() {
 		# older versions did not have an explicit configure flag
 		export ac_cv_search_zlibVersion=$(usex zlib -lz no)
 		myconf+=( $(use_with zlib) )
+	elif version_is_at_least 2.26 ; then
+		myconf+=( --with-system-zlib )
 	fi
 
 	# For bi-arch systems, enable a 64bit bfd.  This matches
@@ -271,7 +286,10 @@ toolchain-binutils_src_configure() {
 
 	use multitarget && myconf+=( --enable-targets=all --enable-64-bit-bfd )
 	[[ -n ${CBUILD} ]] && myconf+=( --build=${CBUILD} )
-	is_cross && myconf+=( --with-sysroot="${EPREFIX}"/usr/${CTARGET} )
+	is_cross && myconf+=(
+		--with-sysroot="${EPREFIX}"/usr/${CTARGET}
+		--enable-poison-system-directories
+	)
 
 	# glibc-2.3.6 lacks support for this ... so rather than force glibc-2.5+
 	# on everyone in alpha (for now), we'll just enable it when possible
@@ -292,6 +310,8 @@ toolchain-binutils_src_configure() {
 		--enable-obsolete
 		--enable-shared
 		--enable-threads
+		# Newer versions (>=2.27) offer a configure flag now.
+		--enable-relro
 		# Newer versions (>=2.24) make this an explicit option. #497268
 		--enable-install-libiberty
 		--disable-werror

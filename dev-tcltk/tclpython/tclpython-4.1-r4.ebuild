@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tcltk/tclpython/tclpython-4.1-r4.ebuild,v 1.4 2014/12/31 16:02:04 ago Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 
 inherit eutils multilib python-single-r1 toolchain-funcs
 
@@ -20,7 +20,7 @@ IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}
-	dev-lang/tcl"
+	dev-lang/tcl:0="
 RDEPEND="${DEPEND}"
 
 PATCHES=(

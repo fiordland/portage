@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/nemesis/nemesis-5.22b.ebuild,v 1.2 2013/07/18 07:21:30 jlec Exp $
+# $Id$
 
 EAPI=4
 
@@ -10,7 +10,7 @@ MY_PN="exodus"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Enhancement to the EXODUSII finite element database model"
-HOMEPAGE="http://sourceforge.net/projects/exodusii/"
+HOMEPAGE="https://sourceforge.net/projects/exodusii/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="BSD"

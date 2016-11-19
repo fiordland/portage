@@ -1,8 +1,8 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/asteroid/asteroid-1.1.ebuild,v 1.8 2015/01/03 13:27:52 tupone Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="A modern version of the arcade classic that uses OpenGL"
@@ -19,12 +19,14 @@ DEPEND="virtual/opengl
 	virtual/glu
 	media-libs/libsdl
 	media-libs/sdl-mixer"
-RDEPEND="${DEPEND}"
+RDEPEND=${DEPEND}
 
-PATCHES=( "${FILESDIR}"/${P}-include.patch )
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-include.patch
+}
 
 src_install() {
-	emake DESTDIR="${D}" install
-	dodoc asteroid-{authors,changes,readme}.txt
+	DOCS="$(echo asteroid-{authors,changes,readme}.txt)" \
+		default
 	prepgamesdirs
 }

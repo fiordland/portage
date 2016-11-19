@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/mocha/mocha-0.10.5-r2.ebuild,v 1.4 2014/10/30 15:53:52 mrueg Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21 "
+USE_RUBY="ruby20 ruby21 ruby22"
 
 RUBY_FAKEGEM_TASK_TEST="test:units"
 
@@ -15,7 +15,7 @@ RUBY_FAKEGEM_EXTRAINSTALL="init.rb"
 
 inherit ruby-fakegem
 
-DESCRIPTION="A Ruby library for mocking and stubbing using a syntax like that of JMock, and SchMock"
+DESCRIPTION="Mocking and stubbing using a syntax like that of JMock and SchMock"
 HOMEPAGE="http://mocha.rubyforge.org/"
 
 LICENSE="MIT"

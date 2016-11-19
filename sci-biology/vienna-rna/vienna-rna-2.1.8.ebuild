@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/vienna-rna/vienna-rna-2.1.8.ebuild,v 1.2 2014/11/16 20:29:21 dilfridge Exp $
+# $Id$
 
 EAPI=5
 
@@ -28,7 +28,7 @@ DEPEND="
 	doc? ( dev-texlive/texlive-latex )
 	python? (
 		${PYTHON_DEPS}
-		dev-lang/swig )"
+		dev-lang/swig:0 )"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/ViennaRNA-${PV}"

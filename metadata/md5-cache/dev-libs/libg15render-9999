@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install preinst prepare unpack
-DEPEND=dev-libs/libg15 truetype? ( media-libs/freetype ) || ( dev-vcs/subversion[http] dev-vcs/subversion[webdav-neon] dev-vcs/subversion[webdav-serf] ) net-misc/rsync !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEPEND=dev-libs/libg15 truetype? ( media-libs/freetype ) || ( dev-vcs/subversion[http] dev-vcs/subversion[webdav-neon] dev-vcs/subversion[webdav-serf] ) net-misc/rsync !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DESCRIPTION=Small library for display text and graphics on a Logitech G15 keyboard
 EAPI=4
 HOMEPAGE=http://g15tools.sourceforge.net/
@@ -7,5 +7,5 @@ IUSE=truetype
 LICENSE=GPL-2
 RDEPEND=dev-libs/libg15 truetype? ( media-libs/freetype )
 SLOT=0
-_eclasses_=autotools	8fc2dd333ef9346c906ffd9a523d8211	base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	998e5931fb95b10a6a11ec796ada2759	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	subversion	c12bdf4fcc82f86ad89b14c8f76c4026	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=9d2f3b98b94d87ef60dc777f658143fc
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	b83a2420b796f7c6eff682679d08fe25	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	subversion	750f91bd0705a41b26ba01bcee93aaad	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=05ab3b1227639b98e1028a8de9be8a25

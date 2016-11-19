@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-cdr/cdrtools/cdrtools-3.01_alpha24.ebuild,v 1.7 2015/02/25 22:00:37 vapier Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ inherit fcaps multilib eutils toolchain-funcs flag-o-matic gnuconfig
 MY_P="${P/_alpha/a}"
 
 DESCRIPTION="A set of tools for CD/DVD reading and recording, including cdrecord"
-HOMEPAGE="http://sourceforge.net/projects/cdrtools/"
+HOMEPAGE="https://sourceforge.net/projects/cdrtools/"
 SRC_URI="mirror://sourceforge/${PN}/$([[ -z ${PV/*_alpha*} ]] && echo 'alpha')/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL-2.1 CDDL-Schily"

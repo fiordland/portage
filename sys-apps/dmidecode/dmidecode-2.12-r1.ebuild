@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/dmidecode/dmidecode-2.12-r1.ebuild,v 1.2 2014/11/02 09:44:50 swift Exp $
+# $Id$
 
 EAPI="4"
 
@@ -8,11 +8,11 @@ inherit flag-o-matic toolchain-funcs eutils
 
 DESCRIPTION="DMI (Desktop Management Interface) table related utilities"
 HOMEPAGE="http://www.nongnu.org/dmidecode/"
-SRC_URI="http://savannah.nongnu.org/download/${PN}/${P}.tar.bz2"
+SRC_URI="https://savannah.nongnu.org/download/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-solaris"
+KEYWORDS="-* amd64 arm ia64 ppc ppc64 sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-solaris"
 IUSE="selinux"
 
 RDEPEND="selinux? ( sec-policy/selinux-dmidecode )"

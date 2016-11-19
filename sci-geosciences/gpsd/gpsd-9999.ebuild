@@ -1,11 +1,11 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/gpsd/gpsd-9999.ebuild,v 1.20 2015/02/27 18:11:55 vapier Exp $
+# $Id$
 
 EAPI="5"
 
 DISTUTILS_OPTIONAL=1
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 SCONS_MIN_VERSION="1.2.1"
 
 inherit eutils udev user multilib distutils-r1 scons-utils toolchain-funcs
@@ -18,7 +18,7 @@ else
 	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 fi
 
-DESCRIPTION="GPS daemon and library to support USB/serial GPS devices and various GPS/mapping clients"
+DESCRIPTION="GPS daemon and library for USB/serial GPS devices and GPS/mapping clients"
 HOMEPAGE="http://catb.org/gpsd/"
 
 LICENSE="BSD"
@@ -37,7 +37,7 @@ REQUIRED_USE="X? ( python )
 	python? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="X? ( dev-python/pygtk:2[${PYTHON_USEDEP}] )
-	ncurses? ( sys-libs/ncurses )
+	ncurses? ( sys-libs/ncurses:= )
 	bluetooth? ( net-wireless/bluez )
 	usb? ( virtual/libusb:1 )
 	dbus? (

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/xmlsec/xmlsec-1.2.20.ebuild,v 1.3 2014/12/28 10:16:10 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ SRC_URI="http://www.aleksey.com/xmlsec/download/${PN}1-${PV}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~sparc x86"
+KEYWORDS="amd64 ~ppc ~ppc64 ~sparc x86"
 IUSE="doc gcrypt gnutls nss +openssl static-libs"
 REQUIRED_USE="|| ( gcrypt gnutls nss openssl )
 	gnutls? ( gcrypt )"
@@ -25,7 +25,7 @@ RDEPEND=">=dev-libs/libxml2-2.7.4
 		>=dev-libs/nspr-4.4.1
 		>=dev-libs/nss-3.9
 	)
-	openssl? ( >=dev-libs/openssl-0.9.7 )"
+	openssl? ( >=dev-libs/openssl-0.9.7:* )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 

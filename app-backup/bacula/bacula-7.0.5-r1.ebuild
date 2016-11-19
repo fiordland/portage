@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/bacula/bacula-7.0.5-r1.ebuild,v 1.5 2015/03/02 09:35:25 ago Exp $
+# $Id$
 
 EAPI="5"
 
@@ -15,15 +15,15 @@ SRC_URI="mirror://sourceforge/bacula/${MY_P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="amd64 ppc ~sparc ~x86"
-IUSE="acl bacula-clientonly bacula-nodir bacula-nosd examples ipv6 logwatch mysql postgres qt4 readline +sqlite3 ssl static tcpd vim-syntax X"
+KEYWORDS="amd64 ppc sparc x86"
+IUSE="acl bacula-clientonly bacula-nodir bacula-nosd examples ipv6 logwatch mysql postgres qt4 readline +sqlite ssl static tcpd vim-syntax X"
 
 DEPEND="
-	dev-libs/gmp
+	dev-libs/gmp:0
 	!bacula-clientonly? (
-		postgres? ( dev-db/postgresql[threads] )
+		postgres? ( dev-db/postgresql:*[threads] )
 		mysql? ( virtual/mysql )
-		sqlite3? ( dev-db/sqlite:3 )
+		sqlite? ( dev-db/sqlite:3 )
 		!bacula-nodir? ( virtual/mta )
 	)
 	qt4? (
@@ -32,20 +32,20 @@ DEPEND="
 	)
 	logwatch? ( sys-apps/logwatch )
 	tcpd? ( >=sys-apps/tcp-wrappers-7.6 )
-	readline? ( >=sys-libs/readline-4.1 )
+	readline? ( sys-libs/readline:0 )
 	static? (
 		acl? ( virtual/acl[static-libs] )
 		sys-libs/zlib[static-libs]
 		dev-libs/lzo[static-libs]
-		sys-libs/ncurses[static-libs]
-		ssl? ( dev-libs/openssl[static-libs] )
+		sys-libs/ncurses:=[static-libs]
+		ssl? ( dev-libs/openssl:0[static-libs] )
 	)
 	!static? (
 		acl? ( virtual/acl )
 		sys-libs/zlib
 		dev-libs/lzo
-		sys-libs/ncurses
-		ssl? ( dev-libs/openssl )
+		sys-libs/ncurses:=
+		ssl? ( dev-libs/openssl:0 )
 	)"
 RDEPEND="${DEPEND}
 	!bacula-clientonly? (
@@ -56,7 +56,7 @@ RDEPEND="${DEPEND}
 	)
 	vim-syntax? ( || ( app-editors/vim app-editors/gvim ) )"
 
-REQUIRED_USE="|| ( ^^ ( mysql postgres sqlite3 ) bacula-clientonly )
+REQUIRED_USE="|| ( ^^ ( mysql postgres sqlite ) bacula-clientonly )
 				static? ( bacula-clientonly )"
 
 S=${WORKDIR}/${MY_P}
@@ -65,7 +65,7 @@ pkg_setup() {
 	#XOR and !bacula-clientonly controlled by REQUIRED_USE
 	use mysql && export mydbtype="mysql"
 	use postgres && export mydbtype="postgresql"
-	use sqlite3 && export mydbtype="sqlite3"
+	use sqlite && export mydbtype="sqlite3"
 
 	# create the daemon group and user
 	if [ -z "$(egetent group bacula 2>/dev/null)" ]; then
@@ -345,7 +345,7 @@ src_install() {
 			bacula-dir)
 				case "${mydbtype}" in
 					sqlite3)
-						# sqlite3 databases don't have a daemon
+						# sqlite databases don't have a daemon
 						sed -i -e 's/need "%database%"/:/g' "${T}/${script}".initd || die
 						;;
 					*)
@@ -390,7 +390,7 @@ pkg_postinst() {
 		einfo
 	fi
 
-	if use sqlite3; then
+	if use sqlite; then
 		einfo
 		einfo "Be aware that Bacula does not officially support SQLite database anymore."
 		einfo "Best use it only for a client-only installation. See Bug #445540."

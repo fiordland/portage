@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/qscintilla/qscintilla-2.8.4-r1.ebuild,v 1.4 2015/03/02 09:28:14 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,12 +9,12 @@ inherit flag-o-matic qmake-utils
 MY_P=QScintilla-gpl-${PV}
 
 DESCRIPTION="A Qt port of Neil Hodgson's Scintilla C++ editor class"
-HOMEPAGE="http://www.riverbankcomputing.co.uk/software/qscintilla/intro"
+HOMEPAGE="http://www.riverbankcomputing.com/software/qscintilla/intro"
 SRC_URI="mirror://sourceforge/pyqt/${MY_P}.tar.gz"
 
 LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="0/11"
-KEYWORDS="~alpha amd64 ~arm ~ia64 ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 ~arm ia64 ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
 IUSE="designer doc"
 
 DEPEND="

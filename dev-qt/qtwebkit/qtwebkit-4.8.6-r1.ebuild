@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-qt/qtwebkit/qtwebkit-4.8.6-r1.ebuild,v 1.1 2014/11/15 02:38:53 pesa Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,9 +9,9 @@ inherit qt4-build-multilib
 DESCRIPTION="The WebKit module for the Qt toolkit"
 
 if [[ ${QT4_BUILD_TYPE} == live ]]; then
-	KEYWORDS=""
+	KEYWORDS="arm ia64 ppc ppc64"
 else
-	KEYWORDS="~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x64-solaris ~x86-solaris"
+	KEYWORDS="amd64 arm ia64 ~mips ppc ppc64 x86 ~amd64-fbsd ~x86-fbsd"
 fi
 
 IUSE="+gstreamer icu +jit"
@@ -47,13 +47,17 @@ QCONFIG_ADD="webkit"
 QCONFIG_DEFINE="QT_WEBKIT"
 
 src_prepare() {
-	# Fix version number in generated pkgconfig file, bug 406443
-	sed -i -e 's/^isEmpty(QT_BUILD_TREE)://' \
-		src/3rdparty/webkit/Source/WebKit/qt/QtWebKit.pro || die
-
 	# Remove -Werror from CXXFLAGS
 	sed -i -e '/QMAKE_CXXFLAGS\s*+=/ s:-Werror::g' \
 		src/3rdparty/webkit/Source/WebKit.pri || die
+
+	# Fix version number in generated pkgconfig file (bug 406443)
+	sed -i -e 's/^isEmpty(QT_BUILD_TREE)://' \
+		src/3rdparty/webkit/Source/WebKit/qt/QtWebKit.pro || die
+
+	# Prevent automagic dependency on qt-mobility (bug 547350)
+	sed -i -e 's/contains(MOBILITY_CONFIG,\s*\w\+)/false/' \
+		src/3rdparty/webkit/Source/WebCore/features.pri || die
 
 	if use icu; then
 		sed -i -e '/CONFIG\s*+=\s*text_breaking_with_icu/ s:^#\s*::' \

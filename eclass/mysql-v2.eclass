@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/mysql-v2.eclass,v 1.36 2015/02/16 14:37:50 grknight Exp $
+# $Id$
 
 # @ECLASS: mysql-v2.eclass
 # @MAINTAINER:
@@ -47,7 +47,7 @@ MYSQL_EXTRAS=""
 # Use "none" to disable it's use
 [[ ${MY_EXTRAS_VER} == "live" ]] && MYSQL_EXTRAS="git-r3"
 
-inherit eutils flag-o-matic gnuconfig ${MYSQL_EXTRAS} ${BUILD_INHERIT} mysql_fx versionator toolchain-funcs user
+inherit eutils flag-o-matic ${MYSQL_EXTRAS} ${BUILD_INHERIT} mysql_fx versionator toolchain-funcs user
 
 #
 # Supported EAPI versions and export functions
@@ -70,7 +70,7 @@ S="${WORKDIR}/mysql"
 
 [[ ${MY_EXTRAS_VER} == "latest" ]] && MY_EXTRAS_VER="20090228-0714Z"
 if [[ ${MY_EXTRAS_VER} == "live" ]]; then
-	EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/mysql-extras.git"
+	EGIT_REPO_URI="git://anongit.gentoo.org/proj/mysql-extras.git"
 	EGIT_CHECKOUT_DIR=${WORKDIR}/mysql-extras
 	EGIT_CLONE_TYPE=shallow
 fi
@@ -184,9 +184,9 @@ if [[ ${MY_EXTRAS_VER} != "live" && ${MY_EXTRAS_VER} != "none" ]]; then
 	SRC_URI="${SRC_URI}
 		mirror://gentoo/mysql-extras-${MY_EXTRAS_VER}.tar.bz2
 		http://g3nt8.org/patches/mysql-extras-${MY_EXTRAS_VER}.tar.bz2
-		http://dev.gentoo.org/~robbat2/distfiles/mysql-extras-${MY_EXTRAS_VER}.tar.bz2
-		http://dev.gentoo.org/~jmbsvicetto/distfiles/mysql-extras-${MY_EXTRAS_VER}.tar.bz2
-		http://dev.gentoo.org/~grknight/distfiles/mysql-extras-${MY_EXTRAS_VER}.tar.bz2"
+		https://dev.gentoo.org/~robbat2/distfiles/mysql-extras-${MY_EXTRAS_VER}.tar.bz2
+		https://dev.gentoo.org/~jmbsvicetto/distfiles/mysql-extras-${MY_EXTRAS_VER}.tar.bz2
+		https://dev.gentoo.org/~grknight/distfiles/mysql-extras-${MY_EXTRAS_VER}.tar.bz2"
 fi
 
 DESCRIPTION="A fast, multi-threaded, multi-user SQL database server"
@@ -222,12 +222,15 @@ IUSE="${IUSE} latin1 extraengine cluster max-idx-128 +community profiling"
 if [[ ${PN} == "mariadb" || ${PN} == "mariadb-galera" ]] && \
 	mysql_version_is_at_least "5.5" ; then
 	IUSE="bindist ${IUSE}"
+	RESTRICT="${RESTRICT} !bindist? ( bindist )"
 elif [[ ${PN} == "mysql" || ${PN} == "percona-server" ]] && \
 	mysql_check_version_range "5.5.37 to 5.6.11.99" ; then
 	IUSE="bindist ${IUSE}"
+	RESTRICT="${RESTRICT} !bindist? ( bindist )"
 elif [[ ${PN} == "mysql-cluster" ]] && \
 	mysql_check_version_range "7.2 to 7.2.99.99"  ; then
 	IUSE="bindist ${IUSE}"
+	RESTRICT="${RESTRICT} !bindist? ( bindist )"
 fi
 
 if [[ ${PN} == "mariadb" || ${PN} == "mariadb-galera" ]]; then
@@ -815,8 +818,7 @@ mysql-v2_pkg_config() {
 		mysql_version_is_at_least "5.6" || options="${options} --loose-skip-innodb"
 	fi
 
-	einfo "Creating the mysql database and setting proper"
-	einfo "permissions on it ..."
+	einfo "Creating the mysql database and setting proper permissions on it ..."
 
 	# Now that /var/run is a tmpfs mount point, we need to ensure it exists before using it
 	PID_DIR="${EROOT}/var/run/mysqld"
@@ -884,14 +886,14 @@ mysql-v2_pkg_config() {
 
 	ebegin "Setting root password"
 	# Do this from memory, as we don't want clear text passwords in temp files
-	local sql="UPDATE mysql.user SET Password = PASSWORD('${MYSQL_ROOT_PASSWORD}') WHERE USER='root'"
+	local sql="UPDATE mysql.user SET Password = PASSWORD('${MYSQL_ROOT_PASSWORD}') WHERE USER='root'; FLUSH PRIVILEGES"
 	"${EROOT}/usr/bin/mysql" \
 		--socket=${socket} \
 		-hlocalhost \
 		-e "${sql}"
 	eend $?
 
-	ebegin "Loading \"zoneinfo\", this step may require a few seconds ..."
+	ebegin "Loading \"zoneinfo\", this step may require a few seconds"
 	"${EROOT}/usr/bin/mysql" \
 		--socket=${socket} \
 		-hlocalhost \

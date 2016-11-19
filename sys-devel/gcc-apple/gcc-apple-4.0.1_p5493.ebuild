@@ -1,26 +1,20 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gcc-apple/gcc-apple-4.0.1_p5493.ebuild,v 1.5 2011/12/06 19:57:09 grobian Exp $
+# $Id$
 
-EAPI="3"
+EAPI="5"
 
 inherit eutils toolchain prefix
 
 GCC_VERS=${PV/_p*/}
 APPLE_VERS=${PV/*_p/}
 DESCRIPTION="Apple branch of the GNU Compiler Collection, Developer Tools 3.1.3"
-HOMEPAGE="http://gcc.gnu.org"
+HOMEPAGE="https://gcc.gnu.org"
 SRC_URI="http://www.opensource.apple.com/darwinsource/tarballs/other/gcc-${APPLE_VERS}.tar.gz"
 LICENSE="APSL-2 GPL-2"
 
-if is_crosscompile; then
-	SLOT="${CTARGET}-40"
-else
-	SLOT="40"
-fi
-
+SLOT="40"
 KEYWORDS="~ppc-macos ~x64-macos ~x86-macos"
-
 IUSE="nls objc objc++ +cxx"
 
 RDEPEND=">=sys-libs/zlib-1.1.4
@@ -35,14 +29,6 @@ S=${WORKDIR}/gcc-${APPLE_VERS}
 
 # TPREFIX is the prefix of the CTARGET installation
 export TPREFIX=${TPREFIX:-${EPREFIX}}
-
-LIBPATH=${EPREFIX}/usr/lib/gcc/${CTARGET}/${GCC_VERS}
-if is_crosscompile ; then
-	BINPATH=${EPREFIX}/usr/${CHOST}/${CTARGET}/gcc-bin/${GCC_VERS}
-else
-	BINPATH=${EPREFIX}/usr/${CTARGET}/gcc-bin/${GCC_VERS}
-fi
-STDCXX_INCDIR=${LIBPATH}/include/g++-v${GCC_VERS/\.*/}
 
 src_unpack() {
 	# override toolchain.eclass func
@@ -73,6 +59,14 @@ src_configure() {
 	use cxx && langs="${langs},c++"
 	use objc && langs="${langs},objc"
 	use objc++ && langs="${langs/,objc/},objc,obj-c++" # need objc with objc++
+
+	LIBPATH=${EPREFIX}/usr/lib/gcc/${CTARGET}/${GCC_VERS}
+	if is_crosscompile ; then
+		BINPATH=${EPREFIX}/usr/${CHOST}/${CTARGET}/gcc-bin/${GCC_VERS}
+	else
+		BINPATH=${EPREFIX}/usr/${CTARGET}/gcc-bin/${GCC_VERS}
+	fi
+	STDCXX_INCDIR=${LIBPATH}/include/g++-v${GCC_VERS/\.*/}
 
 	local myconf="${myconf} \
 		--prefix=${EPREFIX}/usr \
@@ -140,7 +134,7 @@ src_configure() {
 	CFLAGS="-O2 -pipe"
 	CXXFLAGS=${CFLAGS}
 
-	# http://gcc.gnu.org/ml/gcc-patches/2006-11/msg00765.html
+	# https://gcc.gnu.org/ml/gcc-patches/2006-11/msg00765.html
 	# (won't hurt if already 64-bits, but is essential when coming from a
 	# multilib compiler -- the default)
 	[[ ${CTARGET} == powerpc64-* || ${CTARGET} == x86_64-* ]] && \

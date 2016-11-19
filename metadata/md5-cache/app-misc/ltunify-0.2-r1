@@ -7,5 +7,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 SLOT=0
 SRC_URI=https://git.lekensteyn.nl/ltunify/snapshot/ltunify-0.2.tar.gz
-_eclasses_=multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	udev	da001465a2e939c93f7ae16947ce3438
-_md5_=42dba8d181bce78d7cafb179d590f9de
+_eclasses_=multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	udev	73058269b3e70e34e084fa3981282338
+_md5_=be68adc52357be44d87629f09fe5ea88

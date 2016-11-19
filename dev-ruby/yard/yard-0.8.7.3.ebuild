@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/yard/yard-0.8.7.3.ebuild,v 1.16 2014/11/18 11:46:57 ago Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="ruby20 ruby21"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 RUBY_FAKEGEM_TASK_DOC="yard"
@@ -29,8 +29,6 @@ IUSE=""
 
 ruby_add_bdepend "doc? ( || ( dev-ruby/bluecloth dev-ruby/maruku dev-ruby/rdiscount dev-ruby/kramdown ) )
 	test? ( dev-ruby/rack )"
-
-USE_RUBY="ruby19" ruby_add_bdepend "test? ( >=dev-ruby/ruby-gettext-2.3.8 )"
 
 all_ruby_prepare() {
 	sed -i -e '/[Bb]undler/ s:^:#:' spec/spec_helper.rb || die

@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=dev-libs/gmp virtual/libffi >=dev-libs/boehm-gc-7.1[threads?] >=dev-lisp/asdf-2.33-r3:= app-text/texi2html emacs? ( virtual/emacs >=app-admin/eselect-emacs-1.12 )
+DEPEND=dev-libs/gmp virtual/libffi >=dev-libs/boehm-gc-7.1[threads?] >=dev-lisp/asdf-2.33-r3:= app-text/texi2html emacs? ( virtual/emacs >=app-eselect/eselect-emacs-1.12 )
 DESCRIPTION=ECL is an embeddable Common Lisp implementation
 EAPI=5
 HOMEPAGE=http://ecls.sourceforge.net/
 IUSE=debug emacs gengc precisegc cpu_flags_x86_sse +threads +unicode X
-KEYWORDS=amd64 ~ppc ~sparc ~x86
+KEYWORDS=amd64 ~ppc ~sparc x86
 LICENSE=BSD LGPL-2
 RDEPEND=dev-libs/gmp virtual/libffi >=dev-libs/boehm-gc-7.1[threads?] >=dev-lisp/asdf-2.33-r3:=
 RESTRICT=test
 SLOT=0/13.5.1
 SRC_URI=mirror://sourceforge/ecls/ecl-13.5.1.tgz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=052aff351203c50fc307b06aac6605ca
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=b8e711233442cc28062d02713c14be10

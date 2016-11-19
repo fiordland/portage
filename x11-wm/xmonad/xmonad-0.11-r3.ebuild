@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/xmonad/xmonad-0.11-r3.ebuild,v 1.1 2015/02/27 08:45:58 slyfox Exp $
+# $Id$
 
 EAPI=5
 
@@ -62,7 +62,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	ghc-package_pkg_postinst
+	haskell-cabal_pkg_postinst
 
 	elog "A sample ${SAMPLE_CONFIG} configuration file can be found here:"
 	elog "    /usr/share/${PF}/ghc-$(ghc-version)/${SAMPLE_CONFIG_LOC}/${SAMPLE_CONFIG}"

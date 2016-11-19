@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/commons-lang/commons-lang-3.3.2.ebuild,v 1.2 2015/02/01 08:00:41 fordfrog Exp $
+# $Id$
 
 EAPI="5"
 JAVA_PKG_IUSE="doc source test"
@@ -28,7 +28,7 @@ RDEPEND=">=virtual/jre-1.6"
 
 LICENSE="Apache-2.0"
 SLOT="3.3"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x64-solaris"
+KEYWORDS="~amd64 ~ppc64 ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x64-solaris"
 RESTRICT="ppc? ( test ) ppc64? ( test )"
 
 S="${WORKDIR}/${MY_P}-src"

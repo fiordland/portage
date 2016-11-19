@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apache/libapreq2/libapreq2-2.13-r1.ebuild,v 1.4 2014/11/18 23:40:26 dilfridge Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,7 +8,7 @@ inherit apache-module perl-module multilib
 
 DESCRIPTION="A library for manipulating client request data via the Apache API"
 SRC_URI="mirror://apache/httpd/libapreq/${P}.tar.gz"
-HOMEPAGE="http://httpd.apache.org/apreq/"
+HOMEPAGE="https://httpd.apache.org/apreq/"
 
 LICENSE="Apache-2.0"
 SLOT="2"

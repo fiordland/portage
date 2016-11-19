@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/http-replicator/http-replicator-3.0-r4.ebuild,v 1.5 2014/04/05 07:05:35 pacho Exp $
+# $Id$
 
 EAPI=4
 PYTHON_DEPEND="2:2.7:2.7" # not 2.6 bug #33907, not 3.0 bug #411083
@@ -9,7 +9,7 @@ inherit eutils python systemd
 MY_P="${PN}_${PV}"
 
 DESCRIPTION="Proxy cache for Gentoo packages"
-HOMEPAGE="http://sourceforge.net/projects/http-replicator"
+HOMEPAGE="https://sourceforge.net/projects/http-replicator"
 SRC_URI="mirror://sourceforge/http-replicator/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
@@ -28,8 +28,7 @@ src_compile() {
 
 src_install(){
 	# Daemon and repcacheman into /usr/bin
-	exeinto /usr/bin
-	doexe http-replicator
+	dobin http-replicator
 	newexe "${FILESDIR}/http-replicator-3.0-callrepcacheman-0.1" repcacheman
 	newexe "${FILESDIR}/http-replicator-3.0-repcacheman-0.44-r2" repcacheman.py
 
@@ -64,6 +63,6 @@ pkg_postinst() {
 	einfo "  good http mirrors"
 	einfo
 	einfo "For more information please refer to the following forum thread:"
-	einfo "  http://forums.gentoo.org/viewtopic-t-173226.html"
+	einfo "  https://forums.gentoo.org/viewtopic-t-173226.html"
 	einfo
 }

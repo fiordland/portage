@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/qd/qd-2.3.14.ebuild,v 1.1 2013/05/31 12:30:18 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -23,7 +23,7 @@ PATCHES=( "${FILESDIR}"/${PN}-2.3.13-autotools.patch )
 
 src_configure() {
 	local myeconfargs=(
-		$(use_enable fortran enable_fortran)
+		$(use_enable fortran)
 	)
 	autotools-utils_src_configure
 }

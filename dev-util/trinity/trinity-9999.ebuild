@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/trinity/trinity-9999.ebuild,v 1.6 2014/10/10 19:41:03 radhermit Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit toolchain-funcs git-r3
 
@@ -24,10 +24,7 @@ src_prepare() {
 		-i Makefile || die
 
 	tc-export CC
-}
-
-src_configure() {
-	./configure.sh || die
+	default
 }
 
 src_compile() {

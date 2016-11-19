@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/mwlib-rl/mwlib-rl-0.14.5.ebuild,v 1.1 2014/04/12 11:38:28 idella4 Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="xml"
 
 inherit distutils-r1
@@ -13,7 +13,7 @@ MY_PN="${PN/-/.}"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Generate pdfs from mediawiki markup"
-HOMEPAGE="http://code.pediapress.com/wiki/wiki http://pypi.python.org/pypi/mwlib.rl"
+HOMEPAGE="http://code.pediapress.com/wiki/wiki https://pypi.python.org/pypi/mwlib.rl"
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.zip"
 
 LICENSE="BSD"

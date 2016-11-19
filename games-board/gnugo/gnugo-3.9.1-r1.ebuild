@@ -1,21 +1,21 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-board/gnugo/gnugo-3.9.1-r1.ebuild,v 1.2 2015/02/14 03:34:24 zerochaos Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
 
 DESCRIPTION="A Go-playing program"
-HOMEPAGE="http://www.gnu.org/software/gnugo/devel.html"
+HOMEPAGE="https://www.gnu.org/software/gnugo/devel.html"
 SRC_URI="mirror://gentoo/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="amd64 ~arm ppc ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="readline"
 
-DEPEND="readline? ( sys-libs/readline )
-	>=sys-libs/ncurses-5.2-r3"
+DEPEND="readline? ( sys-libs/readline:0 )
+	>=sys-libs/ncurses-5.2-r3:0"
 RDEPEND=${DEPEND}
 
 src_prepare() {

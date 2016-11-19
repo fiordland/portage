@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/x2goserver/x2goserver-4.0.1.19.ebuild,v 1.2 2015/02/26 16:47:30 voyageur Exp $
+# $Id$
 
 EAPI=4
 inherit eutils multilib systemd toolchain-funcs user
@@ -11,7 +11,7 @@ SRC_URI="http://code.x2go.org/releases/source/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+fuse postgres +sqlite"
 
 REQUIRED_USE="|| ( postgres sqlite )"
@@ -23,13 +23,13 @@ RDEPEND="dev-perl/Capture-Tiny
 	dev-perl/File-ReadBackwards
 	dev-perl/File-Which
 	media-fonts/font-cursor-misc
-	media-fonts/font-misc-misc
+	media-fonts/font-misc-misc[nls]
 	>=net-misc/nx-3.5.0.25
 	net-misc/openssh
 	x11-apps/xauth
 	x11-apps/xhost
 	x11-apps/xwininfo
-	fuse? ( sys-fs/sshfs-fuse )
+	fuse? ( net-fs/sshfs )
 	postgres? ( dev-perl/DBD-Pg )
 	sqlite? ( dev-perl/DBD-SQLite )"
 
@@ -75,7 +75,7 @@ pkg_postinst() {
 		elog " # x2godbadmin --createdb"
 	fi
 	if use postgres ; then
-		elog "To use a PostgreSQL databse, more information is availabe here:"
+		elog "To use a PostgreSQL database, more information is availabe here:"
 		elog "http://www.x2go.org/doku.php/wiki:advanced:multi-node:x2goserver-pgsql"
 	fi
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/unison/unison-2.48.3.ebuild,v 1.1 2015/02/23 20:08:15 mgorny Exp $
+# $Id$
 
 EAPI="5"
 
@@ -12,7 +12,7 @@ DESCRIPTION="Two-way cross-platform file synchronizer"
 HOMEPAGE="http://www.cis.upenn.edu/~bcpierce/unison/"
 LICENSE="GPL-2"
 SLOT="$(get_version_component_range 1-2 ${PV})"
-KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris"
+KEYWORDS="amd64 ~arm ~ppc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris"
 
 # ocaml version so we are sure it has ocamlopt use flag
 DEPEND=">=dev-lang/ocaml-3.10.2[ocamlopt?]
@@ -22,7 +22,7 @@ DEPEND=">=dev-lang/ocaml-3.10.2[ocamlopt?]
 RDEPEND="gtk? ( >=dev-ml/lablgtk-2.2
 	|| ( net-misc/x11-ssh-askpass net-misc/ssh-askpass-fullscreen ) )
 	!net-misc/unison:0
-	app-admin/eselect-unison"
+	app-eselect/eselect-unison"
 
 #PDEPEND="gtk? ( media-fonts/font-schumacher-misc )"
 

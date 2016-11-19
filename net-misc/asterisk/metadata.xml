@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer>
+  <maintainer type="person">
     <email>chainsaw@gentoo.org</email>
     <name>Tony Vroon</name>
   </maintainer>
@@ -16,5 +16,6 @@
     <flag name="http">Enable embedded web server</flag>
     <flag name="cluster">Enable high-availability support through the Corosync Cluster Engine</flag>
     <flag name="ilbc">Enable the Internet Low Bitrate Codec (iLBC)</flag>
+	<flag name="pjproject">Enable support for pjproject (pjsip)</flag>
   </use>
 </pkgmetadata>

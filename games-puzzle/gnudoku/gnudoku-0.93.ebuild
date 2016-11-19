@@ -1,9 +1,9 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/gnudoku/gnudoku-0.93.ebuild,v 1.10 2015/02/20 20:50:55 tupone Exp $
+# $Id$
 
 EAPI=5
-inherit eutils games
+inherit eutils flag-o-matic games
 
 MY_PN="GNUDoku"
 MY_P=${MY_PN}-${PV}
@@ -25,6 +25,7 @@ S=${WORKDIR}/${MY_P}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-gcc43.patch
+	append-cxxflags -std=c++11
 	sed -i \
 		-e "s:\$(CXX):\$(CXX) ${CXXFLAGS} ${LDFLAGS}:" \
 		Makefile \

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Net-DBus/Net-DBus-1.0.0-r1.ebuild,v 1.1 2014/08/24 12:40:14 axs Exp $
+# $Id$
 
 EAPI=5
 
@@ -11,7 +11,7 @@ inherit perl-module
 DESCRIPTION="Perl extension for the DBus message system"
 
 SLOT="0"
-KEYWORDS="alpha amd64 ~arm ia64 ppc sparc x86"
+KEYWORDS="alpha amd64 ~arm ~arm64 ia64 ppc sparc x86"
 IUSE="test"
 
 RDEPEND="
@@ -21,8 +21,12 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	test? (
-		dev-perl/Test-Pod
-		dev-perl/Test-Pod-Coverage
+		virtual/perl-Test-Simple
 	)"
 
 SRC_TEST="do"
+
+src_test() {
+	perl_rm_files t/10-pod-coverage.t t/05-pod.t
+	perl-module_src_test
+}

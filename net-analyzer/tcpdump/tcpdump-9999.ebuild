@@ -1,24 +1,30 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/tcpdump/tcpdump-9999.ebuild,v 1.1 2015/01/07 16:08:40 jer Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 inherit eutils flag-o-matic git-r3 toolchain-funcs user
 
 DESCRIPTION="A Tool for network monitoring and data acquisition"
-HOMEPAGE="http://www.tcpdump.org/"
 EGIT_REPO_URI="https://github.com/the-tcpdump-group/tcpdump"
+HOMEPAGE="
+	http://www.tcpdump.org/
+	${EGIT_REPO_URI}
+"
 
 LICENSE="BSD"
 SLOT="0"
+IUSE="+drop-root libressl smi ssl samba suid test"
 KEYWORDS=""
-IUSE="+drop-root smi ssl ipv6 samba suid test"
 
 RDEPEND="
 	drop-root? ( sys-libs/libcap-ng )
 	net-libs/libpcap
 	smi? ( net-libs/libsmi )
-	ssl? ( >=dev-libs/openssl-0.9.6m )
+	ssl? (
+		!libressl? ( >=dev-libs/openssl-0.9.6m:0 )
+		libressl? ( dev-libs/libressl )
+	)
 "
 DEPEND="
 	${RDEPEND}
@@ -50,7 +56,6 @@ src_configure() {
 	fi
 
 	econf \
-		$(use_enable ipv6) \
 		$(use_enable samba smb) \
 		$(use_with drop-root chroot '') \
 		$(use_with smi) \

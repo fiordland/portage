@@ -2,12 +2,12 @@ DEFINED_PHASES=compile install prepare
 DEPEND=>=games-emulation/mupen64plus-core-2.0-r1:0= media-libs/libpng:0= media-libs/libsdl:0=[video] virtual/opengl:0= virtual/pkgconfig
 DESCRIPTION=A fork of Mupen64 Nintendo 64 emulator, rice video plugin
 EAPI=5
-HOMEPAGE=http://code.google.com/p/mupen64plus/
+HOMEPAGE=http://www.mupen64plus.org/
 IUSE=cpu_flags_x86_sse
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2 LGPL-2.1
 RDEPEND=>=games-emulation/mupen64plus-core-2.0-r1:0= media-libs/libpng:0= media-libs/libsdl:0=[video] virtual/opengl:0=
 SLOT=0
 SRC_URI=https://github.com/mupen64plus/mupen64plus-video-rice/releases/download/2.0/mupen64plus-video-rice-src-2.0.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=99fc5ebc18ddfb526ef53bcc2f554923
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=e5b6e7fc29c4aaa0b55d5a1d8269ace3

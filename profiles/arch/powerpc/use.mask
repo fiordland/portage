@@ -1,6 +1,23 @@
 # PPC Specific use flags
 #
 
+# 2015/11/13 - Daniel Kuehn <lejonet@gentoo.org>
+# Unmask sssd USE-flag as it is tested on this arch in regards to bugs
+# 540540 and 525674
+-sssd
+
+# Jeroen Roovers <jer@gentoo.org> (22 Sep 2015)
+# sci-libs/mkl is not supported on PPC
+mkl
+
+# Jeroen Roovers <jer@gentoo.org> (25 May 2015)
+# PowerPC has no support for this bootloader (bug #550322)
+gnuefi
+
+# Patrick Lauer <patrick@gentoo.org> (28 Apr 2015)
+# dependencies not keyworded yet
+ayatana
+
 # Anthony G. Basile <blueness@gentoo.org> (30 Sep 2014)
 # sys-libs/libseccomp has not been ported to ppc/ppc64, bug #524148
 seccomp
@@ -163,6 +180,10 @@ video_cards_ilo
 # vmware wasn't added with mesa-8.0, but it should still be masked
 video_cards_vmware
 
+# Matt Turner <mattst88@gentoo.org> (13 Nov 2015)
+# radeonsi requires glamor support
+video_cards_radeonsi
+
 # Doug Goldstein <cardoe@gentoo.org> (3 Apr 2008)
 # nvidia-drivers specific feature which don't exist for ppc
 opengl-xvmc
@@ -191,13 +212,9 @@ mumble
 # ppc keywords were dropped for dev-libs/prelude
 prelude
 
-# Matt Turner <mattst88@gentoo.org) (10 Feb 2012)
+# Matt Turner <mattst88@gentoo.org> (10 Feb 2012)
 # mask d3d since we don't have wine
 d3d
-
-# Matt Turner <mattst88@gentoo.org) (10 Feb 2012)
-# mask wayland since dev-libs/wayland isn't keyworded
-wayland
 
 # Julian Ospald <hasufell@gentoo.org> (25 Apr 2012)
 # Masked because nvidia-texture-tools is not (tested) for PowerPC
@@ -218,6 +235,4 @@ clvm
 # Unmask systemd since it is keyworded here.
 -systemd
 
-# Ben de Groot <yngwin@gentoo.org> (01 Feb 2015)
-# please remove when keyworded
-qt5
+

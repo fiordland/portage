@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/flumotion/flumotion-0.10.1.ebuild,v 1.1 2015/01/05 23:47:41 eva Exp $
+# $Id$
 
 EAPI="5"
 PYTHON_COMPAT=( python2_7 )
@@ -13,7 +13,7 @@ SRC_URI="http://www.flumotion.net/src/${PN}/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1" # LICENSE.LGPL
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="doc test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -23,10 +23,10 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # media-plugins/gst-plugins-libpng:0.10
 # dev-python/twisted-web
 # dev-python/twisted-names
-# dev-python/imaging
+# dev-python/pillow
 
 # These are from README
-RDEPEND="
+RDEPEND="${PYTHON_DEPS}
 	dev-python/gst-python:0.10[${PYTHON_USEDEP}]
 	dev-python/kiwi[${PYTHON_USEDEP}]
 	dev-python/pycairo[${PYTHON_USEDEP}]
@@ -41,7 +41,7 @@ RDEPEND="
 "
 # These are from README and error and trial FEATURES="test" Import's
 DEPEND="${RDEPEND}
-	${PYTHON_DEPEND}
+	${PYTHON_DEPS}
 	dev-util/intltool
 	sys-devel/gettext
 	virtual/pkgconfig

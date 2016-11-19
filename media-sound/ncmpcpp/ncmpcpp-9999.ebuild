@@ -1,10 +1,9 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/ncmpcpp/ncmpcpp-9999.ebuild,v 1.8 2015/01/03 09:59:39 jer Exp $
+# $Id$
 
-EAPI=5
-
-inherit autotools bash-completion-r1 eutils git-r3
+EAPI=6
+inherit autotools git-r3
 
 DESCRIPTION="featureful ncurses based MPD client inspired by ncmpc"
 HOMEPAGE="http://ncmpcpp.rybczak.net/"
@@ -16,13 +15,18 @@ KEYWORDS=""
 IUSE="clock curl outputs taglib unicode visualizer"
 
 RDEPEND="
+	!dev-libs/boost:0/1.57.0
 	>=media-libs/libmpdclient-2.1
-	curl? ( net-misc/curl )
 	dev-libs/boost:=[nls,threads]
-	sys-libs/ncurses[unicode?]
-	sys-libs/readline
+	sys-libs/ncurses:=[unicode?]
+	sys-libs/readline:*
+	curl? ( net-misc/curl )
 	taglib? ( media-libs/taglib )
-	visualizer? ( sci-libs/fftw:3.0 )
+	unicode? (
+		dev-libs/boost:=[icu]
+		dev-libs/icu:=
+	)
+	visualizer? ( sci-libs/fftw:3.0= )
 "
 DEPEND="
 	${RDEPEND}
@@ -30,6 +34,8 @@ DEPEND="
 "
 
 src_prepare() {
+	default
+
 	sed -i -e '/^docdir/d' {,doc/}Makefile.am || die
 	sed -i -e 's|COPYING||g' Makefile.am || die
 	eautoreconf
@@ -51,8 +57,6 @@ src_install() {
 	default
 
 	dodoc doc/{bindings,config}
-
-	newbashcomp doc/${PN}-completion.bash ${PN}
 }
 
 pkg_postinst() {

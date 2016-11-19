@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/automake/automake-1.13.4.ebuild,v 1.15 2014/11/15 06:07:49 vapier Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
 
 inherit eutils
 
 DESCRIPTION="Used to generate Makefile.in from Makefile.am"
-HOMEPAGE="http://www.gnu.org/software/automake/"
+HOMEPAGE="https://www.gnu.org/software/automake/"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
@@ -17,7 +17,7 @@ KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86
 IUSE=""
 
 RDEPEND="dev-lang/perl
-	>=sys-devel/automake-wrapper-9
+	>=sys-devel/automake-wrapper-10
 	>=sys-devel/autoconf-2.69
 	sys-devel/gnuconfig"
 DEPEND="${RDEPEND}
@@ -26,14 +26,11 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	export WANT_AUTOCONF=2.5
 	epatch "${FILESDIR}"/${PN}-1.13-dyn-ithreads.patch
+	sed -i -e "/APIVERSION=/s:=.*:=${SLOT}:" configure || die
 }
 
 src_configure() {
-	econf --docdir=/usr/share/doc/${PF} HELP2MAN=true
-}
-
-src_compile() {
-	emake APIVERSION="${SLOT}" pkgvdatadir="/usr/share/${PN}-${SLOT}"
+	econf --docdir="\$(datarootdir)/doc/${PF}"
 }
 
 src_test() {
@@ -43,7 +40,7 @@ src_test() {
 # slot the info pages.  do this w/out munging the source so we don't have
 # to depend on texinfo to regen things.  #464146 (among others)
 slot_info_pages() {
-	pushd "${D}"/usr/share/info >/dev/null
+	pushd "${ED}"/usr/share/info >/dev/null
 	rm -f dir
 
 	# Rewrite all the references to other pages.
@@ -70,16 +67,14 @@ slot_info_pages() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install \
-		APIVERSION="${SLOT}" pkgvdatadir="/usr/share/${PN}-${SLOT}"
-	slot_info_pages
-	rm "${D}"/usr/share/aclocal/README || die
-	rmdir "${D}"/usr/share/aclocal || die
-	dodoc AUTHORS ChangeLog NEWS README THANKS
+	default
 
+	slot_info_pages
+	rm "${ED}"/usr/share/aclocal/README || die
+	rmdir "${ED}"/usr/share/aclocal || die
 	rm \
-		"${D}"/usr/bin/{aclocal,automake} \
-		"${D}"/usr/share/man/man1/{aclocal,automake}.1 || die
+		"${ED}"/usr/bin/{aclocal,automake} \
+		"${ED}"/usr/share/man/man1/{aclocal,automake}.1 || die
 
 	# remove all config.guess and config.sub files replacing them
 	# w/a symlink to a specific gnuconfig version

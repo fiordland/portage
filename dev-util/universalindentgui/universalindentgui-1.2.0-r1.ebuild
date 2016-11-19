@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/universalindentgui/universalindentgui-1.2.0-r1.ebuild,v 1.2 2013/03/02 21:07:26 hwoarang Exp $
+# $Id$
 
 EAPI=4
 PYTHON_DEPEND="python? 2"
 LANGS="de fr ja ru uk zh_TW"
 
-inherit eutils python qt4-r2
+inherit eutils python qmake-utils qt4-r2
 
 DESCRIPTION="Cross platform GUI for several code formatters, beautifiers and indenters"
 HOMEPAGE="http://universalindent.sourceforge.net/"
@@ -30,7 +30,7 @@ RDEPEND="${DEPEND}
 		app-text/htmltidy
 		perl? ( dev-lang/perl )
 	)
-	perl? ( dev-perl/perltidy )
+	perl? ( dev-perl/Perl-Tidy )
 	php? ( dev-php/PEAR-PHP_Beautifier )
 	ruby? ( dev-lang/ruby )
 	xml? ( dev-util/xmlindent )
@@ -47,8 +47,8 @@ pkg_setup() {
 
 src_prepare() {
 	# correct translation binaries
-	sed -e "s/lupdate-qt4/lupdate/" \
-		-e "s/lrelease-qt4/lrelease/" \
+	sed -e "s|lupdate-qt4|$(qt4_get_bindir)/lupdate|" \
+		-e "s|lrelease-qt4|$(qt4_get_bindir)/lrelease|" \
 		-i UniversalIndentGUI.pro || die "sed pro translation binary"
 
 	if use debug; then

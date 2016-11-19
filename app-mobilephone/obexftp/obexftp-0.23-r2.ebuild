@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/obexftp/obexftp-0.23-r2.ebuild,v 1.7 2014/11/27 23:42:25 dilfridge Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 GENTOO_DEPEND_ON_PERL=no
 
 inherit distutils-r1 eutils perl-module flag-o-matic autotools
@@ -20,9 +20,9 @@ IUSE="bluetooth debug perl python ruby tcl"
 
 RDEPEND="dev-libs/openobex
 	bluetooth? ( net-wireless/bluez )
-	perl? ( dev-lang/perl )
+	perl? ( dev-lang/perl:= )
 	ruby? ( dev-lang/ruby:1.9 )
-	tcl? ( dev-lang/tcl )
+	tcl? ( dev-lang/tcl:0= )
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Class-InsideOut/Class-InsideOut-1.130.0-r1.ebuild,v 1.1 2014/12/06 20:05:02 dilfridge Exp $
+# $Id$
 
 EAPI=5
 MODULE_AUTHOR=DAGOLDEN
@@ -29,7 +29,6 @@ DEPEND="${RDEPEND}
 		virtual/perl-Scalar-List-Utils
 		>=virtual/perl-Test-Simple-0.45
 		virtual/perl-XSLoader
-		virtual/perl-threads
 	)
 "
 

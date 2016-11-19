@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/d1x-rebirth/d1x-rebirth-0.58.1.ebuild,v 1.1 2015/01/27 07:45:13 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 CDROM_OPTIONAL="yes"
@@ -15,12 +15,12 @@ SRC_URI="http://www.dxx-rebirth.com/download/dxx/${MY_P}.tar.gz
 	http://www.dxx-rebirth.com/download/dxx/res/dxx-rebirth_icons.zip
 	opl3-musicpack? ( http://www.dxx-rebirth.com/download/dxx/res/d${DV}xr-opl3-music.zip )
 	sc55-musicpack? ( http://www.dxx-rebirth.com/download/dxx/res/d${DV}xr-sc55-music.zip )	cdinstall? ( http://www.dxx-rebirth.com/download/dxx/res/d1datapt.zip )
-	linguas_de? ( http://www.dxx-rebirth.com/download/dxx/res/d${DV}xr-briefings-ger.zip )"
+	l10n_de? ( http://www.dxx-rebirth.com/download/dxx/res/d${DV}xr-briefings-ger.zip )"
 
 LICENSE="D1X GPL-2 public-domain"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="cdinstall debug demo ipv6 linguas_de +music opengl opl3-musicpack sc55-musicpack"
+KEYWORDS="amd64 x86"
+IUSE="cdinstall debug demo ipv6 l10n_de +music opengl opl3-musicpack sc55-musicpack"
 REQUIRED_USE="?? ( cdinstall demo )
 	?? ( opl3-musicpack sc55-musicpack )
 	opl3-musicpack? ( music )
@@ -80,7 +80,7 @@ src_install() {
 	insinto "${GAMES_DATADIR}/d${DV}x"
 	doins "${DISTDIR}"/d1xrdata.zip
 	# None of the following zip files need to be extracted.
-	use linguas_de && doins "${DISTDIR}"/d${DV}xr-briefings-ger.zip
+	use l10n_de && doins "${DISTDIR}"/d${DV}xr-briefings-ger.zip
 	use opl3-musicpack && doins "${DISTDIR}"/d${DV}xr-opl3-music.zip
 	use sc55-musicpack && doins "${DISTDIR}"/d${DV}xr-sc55-music.zip
 

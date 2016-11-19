@@ -1,10 +1,10 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/lv2/lv2-1.8.0.ebuild,v 1.2 2015/01/03 11:39:11 mgorny Exp $
+# $Id$
 
 EAPI=4
 
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 PYTHON_REQ_USE='threads(+)'
 inherit python-single-r1 waf-utils
 

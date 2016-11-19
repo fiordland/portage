@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-geosciences/qgis/qgis-1.8.0.ebuild,v 1.8 2014/12/28 16:51:34 titanofold Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,8 +16,8 @@ SRC_URI="http://qgis.org/downloads/${P}.tar.bz2
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="bundled-libs examples gps grass gsl postgres python spatialite test"
+KEYWORDS="amd64 x86"
+IUSE="bundled-libs examples gsl postgres python spatialite test"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -32,15 +32,14 @@ RDEPEND="
 	sci-geosciences/gpsbabel
 	>=sci-libs/gdal-1.6.1[geos,python?]
 	sci-libs/geos
-	sci-libs/gsl
 	sci-libs/libspatialindex
 	sci-libs/proj
 	x11-libs/qwt:5[svg]
 	!bundled-libs? ( <x11-libs/qwtpolar-1 )
-	grass? ( >=sci-geosciences/grass-6.4.0_rc6[python?] )
-	postgres? ( >=dev-db/postgresql-8.4 )
+	gsl? ( sci-libs/gsl )
+	postgres? ( >=dev-db/postgresql-8.4:= )
 	python? (
-		dev-python/PyQt4[X,sql,svg,${PYTHON_USEDEP}]
+		dev-python/PyQt4[X,sql,svg,webkit,${PYTHON_USEDEP}]
 		dev-python/sip:=[${PYTHON_USEDEP}]
 	)
 	spatialite? (
@@ -54,6 +53,8 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	"${FILESDIR}/${PN}-1.7.0-avoid-deprecated-pyqtconfig.patch"
 	"${FILESDIR}/${PN}-1.8.0-no-python-pyc.patch"
+	"${FILESDIR}/${PN}-1.8.0-redrawning.patch"
+	"${FILESDIR}/${PN}-1.8.0-private.patch"
 )
 
 pkg_setup() {
@@ -70,13 +71,12 @@ src_configure() {
 		"-DWITH_INTERNAL_QWTPOLAR=$(usex bundled-libs "ON" "OFF")"
 		"-DPEDANTIC=OFF"
 		"-DWITH_APIDOC=OFF"
+		"-DWITH_GRASS=OFF"
 		$(cmake-utils_use_with postgres POSTGRESQL)
-		$(cmake-utils_use_with grass GRASS)
 		$(cmake-utils_use_with python BINDINGS)
 		$(cmake-utils_use python BINDINGS_GLOBAL_INSTALL)
 		$(cmake-utils_use_with spatialite SPATIALITE)
 		$(cmake-utils_use_enable test TESTS)
-		$(usex grass "-DGRASS_PREFIX=/usr/" "")
 	)
 	cmake-utils_src_configure
 }
@@ -93,10 +93,8 @@ src_install() {
 		doins -r "${WORKDIR}"/qgis_sample_data/*
 	fi
 
-	python_fix_shebang "${D}"/usr/share/qgis/grass/scripts
 	python_optimize "${D}"/usr/share/qgis/python/plugins \
-		"${D}"/$(python_get_sitedir)/qgis \
-		"${D}"/usr/share/qgis/grass/scripts
+		"${D}"/$(python_get_sitedir)/qgis
 }
 
 pkg_preinst() {

@@ -1,9 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gdb/gdb-9999.ebuild,v 1.34 2015/02/27 08:14:05 vapier Exp $
 
-EAPI="4"
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+EAPI="5"
+PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 
 inherit flag-o-matic eutils python-single-r1
 
@@ -18,23 +17,29 @@ is_cross() { [[ ${CHOST} != ${CTARGET} ]] ; }
 RPM=
 MY_PV=${PV}
 case ${PV} in
-*.*.*.*.*.*)
-	# fedora version: gdb-6.8.50.20090302-8.fc11.src.rpm
-	inherit versionator rpm
-	gvcr() { get_version_component_range "$@"; }
-	MY_PV=$(gvcr 1-4)
-	RPM="${PN}-${MY_PV}-$(gvcr 5).fc$(gvcr 6).src.rpm"
-	SRC_URI="mirror://fedora/development/source/SRPMS/${RPM}"
-	;;
-*.*.50.*)
-	# weekly snapshots
-	SRC_URI="ftp://sourceware.org/pub/gdb/snapshots/current/gdb-weekly-${PV}.tar.xz"
-	;;
 9999*)
 	# live git tree
 	EGIT_REPO_URI="git://sourceware.org/git/binutils-gdb.git"
 	inherit git-2
 	SRC_URI=""
+	;;
+*.*.50.2???????)
+	# weekly snapshots
+	SRC_URI="ftp://sourceware.org/pub/gdb/snapshots/current/gdb-weekly-${PV}.tar.xz"
+	;;
+*.*.*.*.*.*)
+	# fedora versions; note we swap the rpm & fedora core versions.
+	# gdb-6.8.50.20090302-8.fc11.src.rpm -> gdb-6.8.50.20090302.11.8.ebuild
+	# gdb-7.9-11.fc23.src.rpm -> gdb-7.9.23.11.ebuild
+	inherit versionator rpm
+	gvcr() { get_version_component_range "$@"; }
+	parse_fedora_ver() {
+		set -- $(get_version_components)
+		MY_PV=$(gvcr 1-$(( $# - 2 )))
+		RPM="${PN}-${MY_PV}-$(gvcr $#).fc$(gvcr $(( $# - 1 ))).src.rpm"
+	}
+	parse_fedora_ver
+	SRC_URI="mirror://fedora-dev/development/rawhide/source/SRPMS/g/${RPM}"
 	;;
 *)
 	# Normal upstream release
@@ -45,7 +50,7 @@ esac
 
 PATCH_VER=""
 DESCRIPTION="GNU debugger"
-HOMEPAGE="http://sourceware.org/gdb/"
+HOMEPAGE="https://sourceware.org/gdb/"
 SRC_URI="${SRC_URI} ${PATCH_VER:+mirror://gentoo/${P}-patches-${PATCH_VER}.tar.xz}"
 
 LICENSE="GPL-2 LGPL-2"
@@ -53,7 +58,7 @@ SLOT="0"
 if [[ ${PV} != 9999* ]] ; then
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~x64-freebsd ~amd64-linux ~arm-linux ~x86-linux ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 fi
-IUSE="+client expat lzma multitarget nls +python +server test vanilla zlib"
+IUSE="+client lzma multitarget nls +python +server test vanilla xml"
 REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
 	|| ( client server )
@@ -61,12 +66,12 @@ REQUIRED_USE="
 
 RDEPEND="server? ( !dev-util/gdbserver )
 	client? (
-		>=sys-libs/ncurses-5.2-r2
-		sys-libs/readline
-		expat? ( dev-libs/expat )
+		>=sys-libs/ncurses-5.2-r2:0=
+		sys-libs/readline:0=
 		lzma? ( app-arch/xz-utils )
 		python? ( ${PYTHON_DEPS} )
-		zlib? ( sys-libs/zlib )
+		xml? ( dev-libs/expat )
+		sys-libs/zlib
 	)"
 DEPEND="${RDEPEND}
 	app-arch/xz-utils
@@ -96,6 +101,7 @@ gdb_branding() {
 	else
 		printf "vanilla"
 	fi
+	[[ -n ${EGIT_COMMIT} ]] && printf " ${EGIT_COMMIT}"
 }
 
 src_configure() {
@@ -103,7 +109,7 @@ src_configure() {
 
 	local myconf=(
 		--with-pkgversion="$(gdb_branding)"
-		--with-bugurl='http://bugs.gentoo.org/'
+		--with-bugurl='https://bugs.gentoo.org/'
 		--disable-werror
 		# Disable modules that are in a combined binutils/gdb tree. #490566
 		--disable-{binutils,etc,gas,gold,gprof,ld}
@@ -136,17 +142,22 @@ src_configure() {
 			--enable-64-bit-bfd
 			--disable-install-libbfd
 			--disable-install-libiberty
+			# Disable guile for now as it requires guile-2.x #562902
+			--without-guile
 			# This only disables building in the readline subdir.
 			# For gdb itself, it'll use the system version.
 			--disable-readline
 			--with-system-readline
+			# This only disables building in the zlib subdir.
+			# For gdb itself, it'll use the system version.
+			--without-zlib
+			--with-system-zlib
 			--with-separate-debug-dir="${EPREFIX}"/usr/lib/debug
-			$(use_with expat)
+			$(use_with xml expat)
 			$(use_with lzma)
 			$(use_enable nls)
 			$(use multitarget && echo --enable-targets=all)
 			$(use_with python python "${EPYTHON}")
-			$(use_with zlib)
 		)
 	fi
 
@@ -163,6 +174,14 @@ src_install() {
 	use client && find "${ED}"/usr -name libiberty.a -delete
 	cd "${S}"
 
+	# Delete translations that conflict with binutils-libs. #528088
+	# Note: Should figure out how to store these in an internal gdb dir.
+	if use nls ; then
+		find "${ED}" \
+			-regextype posix-extended -regex '.*/(bfd|opcodes)[.]g?mo$' \
+			-delete
+	fi
+
 	# Don't install docs when building a cross-gdb
 	if [[ ${CTARGET} != ${CHOST} ]] ; then
 		rm -r "${ED}"/usr/share/{doc,info,locale}
@@ -175,7 +194,7 @@ src_install() {
 		return 0
 	fi
 	# Install it by hand for now:
-	# http://sourceware.org/ml/gdb-patches/2011-12/msg00915.html
+	# https://sourceware.org/ml/gdb-patches/2011-12/msg00915.html
 	# Only install if it exists due to the twisted behavior (see
 	# notes in src_configure above).
 	[[ -e gdb/gdbserver/gdbreplay ]] && dobin gdb/gdbserver/gdbreplay

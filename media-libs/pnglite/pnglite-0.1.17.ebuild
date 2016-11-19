@@ -1,12 +1,12 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/pnglite/pnglite-0.1.17.ebuild,v 1.7 2015/02/10 10:04:38 ago Exp $
+# $Id$
 
 EAPI=5
 inherit eutils flag-o-matic multilib toolchain-funcs
 
 DESCRIPTION="Small and simple library for loading and writing PNG images"
-HOMEPAGE="http://sourceforge.net/projects/pnglite/"
+HOMEPAGE="https://sourceforge.net/projects/pnglite/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.zip"
 
 LICENSE="ZLIB"

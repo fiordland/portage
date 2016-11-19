@@ -1,13 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/pstoedit/pstoedit-3.61.ebuild,v 1.8 2013/02/20 13:16:51 chithanh Exp $
+# $Id$
 
 EAPI=4
 
 inherit autotools eutils
 
 DESCRIPTION="Translate PostScript and PDF graphics into other vector formats"
-HOMEPAGE="http://sourceforge.net/projects/pstoedit/"
+HOMEPAGE="https://sourceforge.net/projects/pstoedit/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"

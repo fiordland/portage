@@ -1,10 +1,10 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/libftdi/libftdi-0.20.ebuild,v 1.5 2013/12/09 05:24:42 vapier Exp $
+# $Id$
 
 EAPI="2"
 
-inherit cmake-utils python
+inherit cmake-utils python eutils
 
 if [[ ${PV} == 9999* ]] ; then
 	EGIT_REPO_URI="git://developer.intra2net.com/${PN}"
@@ -25,6 +25,7 @@ RDEPEND="virtual/libusb:0
 	cxx? ( dev-libs/boost )
 	python? ( dev-lang/python )"
 DEPEND="${RDEPEND}
+	python? ( dev-lang/swig )
 	doc? ( app-doc/doxygen )"
 
 src_prepare() {
@@ -34,6 +35,8 @@ src_prepare() {
 	sed -i \
 		-e '/SET(LIB_SUFFIX /d' \
 		CMakeLists.txt || die
+
+	epatch "${FILESDIR}"/${P}-cmake-{include,version}.patch
 }
 
 src_configure() {

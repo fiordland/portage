@@ -1,13 +1,13 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libunwind/libunwind-1.0.1.ebuild,v 1.2 2012/05/31 20:39:41 ssuominen Exp $
+# $Id$
 
 EAPI="4"
 
 inherit autotools eutils
 
 DESCRIPTION="Portable and efficient API to determine the call-chain of a program"
-HOMEPAGE="http://savannah.nongnu.org/projects/libunwind"
+HOMEPAGE="https://savannah.nongnu.org/projects/libunwind"
 SRC_URI="http://download.savannah.nongnu.org/releases/libunwind/${P}.tar.gz"
 
 LICENSE="MIT"

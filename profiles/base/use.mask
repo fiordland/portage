@@ -1,6 +1,9 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/use.mask,v 1.219 2015/02/04 17:40:39 chithanh Exp $
+# $Id$
+
+# cilk has been ported only to x86 systems
+cilk
 
 # CURL_SSL=winssl is for prefix/windows/winnt only
 curl_ssl_winssl
@@ -12,6 +15,7 @@ cuda
 ruby_targets_ruby18
 ruby_targets_jruby
 ruby_targets_ree18
+ruby_targets_ruby19
 
 # masking here and unmasking in default/linux/
 kmod
@@ -33,9 +37,6 @@ infiniband
 
 # PHP 5.3 har reached EOL and should be removed soon
 php_targets_php5-3
-
-# Its deps are not mature enough yet
-ayatana
 
 # Only available on x86
 fdftk
@@ -62,6 +63,7 @@ kqemu
 lilo
 mmx
 mmxext
+mpx
 sse
 sse2
 sse3
@@ -176,6 +178,8 @@ video_cards_freedreno
 video_cards_omap
 video_cards_omapfb
 video_cards_tegra
+video_cards_vc4
+video_cards_vivante
 
 # linux-only drivers
 video_cards_qxl
@@ -184,9 +188,6 @@ video_cards_qxl
 input_devices_synaptics
 input_devices_wacom
 
-# awaiting keywording, bug #538828
-input_devices_libinput
-
 # psyco only works on x86
 psyco
 
@@ -194,6 +195,7 @@ psyco
 userland_BSD
 
 elibc_AIX
+elibc_bionic
 elibc_Cygwin
 elibc_Darwin
 elibc_DragonFly
@@ -213,10 +215,10 @@ kernel_Darwin
 kernel_FreeBSD
 kernel_freemint
 kernel_HPUX
-kernel_Interix
 kernel_NetBSD
 kernel_OpenBSD
 kernel_SunOS
+kernel_Winnt
 
 # Diego Pettenò <flameeyes@gentoo.org> (6 Dec 2006)
 # Mask specific Apple drivers
@@ -259,25 +261,10 @@ coreaudio
 
 # Diego Pettenò <flameeyes@gentoo.org> (4 Jan 2007)
 # Mask the flags for PHP that are available only on x86
-sybase-ct
-ingres
-birdstep
-adabas
-filepro
-pfpro
-informix
-empress
-empress-bcs
-sybase
 frontbase
-dbmaker
-esoob
-solid
 # Shared with amd64
 oci8
-oracle7
 firebird
-db2
 
 # Robert Buchholz <rbu@gentoo.org> (03 Jun 2007)
 # Only works on x86 or amd64
@@ -308,11 +295,6 @@ pam_console
 prefix
 prefix-guest
 
-# Diego E. Pettenò <flameeyes@gentoo.org> (6 Dec 2009)
-#  on behalf of QA Team
-# Removal of pvm is scheduled for Februrary 4.
-pvm
-
 # Alex Legler <a3li@gentoo.org> (7 Dec 2009)
 # Rubinius is whitelisted on supported arches
 ruby_targets_rbx
@@ -329,10 +311,8 @@ dxr3
 
 # Ralph Sennhauser <sera@gentoo.org> (31 Jul 2012)
 # Unmask in arch specific profiles when jython implementaton is available.
-python_targets_jython2_5
 python_targets_jython2_7
 python_targets_jython3_1
-python_single_target_jython2_5
 python_single_target_jython2_7
 python_single_target_jython3_1
 
@@ -399,3 +379,18 @@ openrc-force
 # Mike Gilbert <floppym@gentoo.org> (19 Oct 2014)
 # sys-libs/libapparmor
 apparmor
+
+# Daniel Kuehn <lejonet@gentoo.org> (13 Nov 2015)
+# Masking sssd USE-flag globally and unmasking it on the tested arches
+# to stop minor arches from blocking major arches AND prevent the dropping
+# of keywords on sudo for said minor arches, in regards to ssd and sudo bugs
+# 540540 and 525674
+sssd
+
+# Brian Evans <grknight@gentoo.org> (2 Dec 2015)
+# php 5.4 is end of life, masked for removal
+php_targets_php5-4
+
+# Brian Evans <grknight@gentoo.org> (22 Aug 2016)
+# php 5.5 is end of life, masked for removal
+php_targets_php5-5

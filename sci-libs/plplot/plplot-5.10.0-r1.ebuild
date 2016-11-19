@@ -1,12 +1,12 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/plplot/plplot-5.10.0-r1.ebuild,v 1.3 2015/02/02 10:13:30 jlec Exp $
+# $Id$
 
 EAPI=5
 
 WX_GTK_VER="2.8"
 FORTRAN_NEEDED=fortran
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 VIRTUALX_REQUIRED=test
 
 inherit eutils fortran-2 cmake-utils python-single-r1 toolchain-funcs \
@@ -19,15 +19,14 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 LICENSE="LGPL-2"
 SLOT="0/12"
 KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
-IUSE="ada cairo cxx doc +dynamic examples fortran gd java jpeg latex lua
+IUSE="cairo cxx doc +dynamic examples fortran gd java jpeg latex lua
 	ocaml octave pdf pdl png python qhull qt4 shapefile svg tcl test
 	threads tk truetype wxwidgets X"
 
 RDEPEND="
-	ada? ( virtual/gnat )
 	cairo? ( x11-libs/cairo:0=[svg?,X?] )
 	gd? ( media-libs/gd:2=[jpeg?,png?] )
-	java? ( >=virtual/jre-1.5 )
+	java? ( >=virtual/jre-1.5:* )
 	latex? (
 		app-text/ghostscript-gpl
 		virtual/latex-base
@@ -58,7 +57,7 @@ RDEPEND="
 		dev-lang/tcl:0=
 		dev-tcltk/itcl:0=
 		tk? (
-			dev-lang/tk
+			dev-lang/tk:0=
 			dev-tcltk/itk
 		)
 	)
@@ -134,6 +133,7 @@ src_configure() {
 		-DDEFAULT_ALL_DEVICES=ON
 		-DTEST_DYNDRIVERS=OFF
 		-DCMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)"
+		-DENABLE_ada=OFF
 		-DENABLE_d=OFF
 		-DBUILD_DVI=OFF
 		-DDOX_DOC=OFF
@@ -144,7 +144,6 @@ src_configure() {
 		$(cmake-utils_use_has python NUMPY)
 		$(cmake-utils_use_has shapefile SHAPELIB)
 		$(cmake-utils_use_with truetype FREETYPE)
-		$(cmake-utils_use_enable ada)
 		$(cmake-utils_use_enable cxx)
 		$(cmake-utils_use_enable dynamic DYNDRIVERS)
 		$(cmake-utils_use_enable fortran f77)

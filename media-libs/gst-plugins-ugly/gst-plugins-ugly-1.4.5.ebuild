@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/gst-plugins-ugly/gst-plugins-ugly-1.4.5.ebuild,v 1.1 2015/02/03 17:44:59 pacho Exp $
+# $Id$
 
 EAPI="5"
 GST_ORG_MODULE="gst-plugins-ugly"
@@ -8,10 +8,10 @@ GST_ORG_MODULE="gst-plugins-ugly"
 inherit eutils flag-o-matic gstreamer
 
 DESCRIPTION="Basepack of plugins for gstreamer"
-HOMEPAGE="http://gstreamer.freedesktop.org/"
+HOMEPAGE="https://gstreamer.freedesktop.org/"
 
 LICENSE="GPL-2"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE="+orc"
 
 RDEPEND="

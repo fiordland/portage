@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/libfprint/libfprint-0.5.0-r1.ebuild,v 1.8 2014/08/02 18:19:41 ago Exp $
+# $Id$
 
 EAPI=4
 
@@ -8,8 +8,8 @@ inherit autotools eutils udev vcs-snapshot
 
 MY_PV="v_${PV//./_}"
 DESCRIPTION="library to add support for consumer fingerprint readers"
-HOMEPAGE="http://cgit.freedesktop.org/libfprint/libfprint/"
-SRC_URI="http://cgit.freedesktop.org/${PN}/${PN}/snapshot/${MY_PV}.tar.bz2 -> ${P}.tar.bz2"
+HOMEPAGE="https://cgit.freedesktop.org/libfprint/libfprint/"
+SRC_URI="https://cgit.freedesktop.org/${PN}/${PN}/snapshot/${MY_PV}.tar.bz2 -> ${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

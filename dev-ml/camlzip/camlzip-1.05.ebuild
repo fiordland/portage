@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/camlzip/camlzip-1.05.ebuild,v 1.5 2013/02/12 16:57:17 ago Exp $
+# $Id$
 
 EAPI="5"
 
@@ -19,6 +19,10 @@ KEYWORDS="amd64 ppc x86 ~x86-fbsd"
 RDEPEND=">=dev-lang/ocaml-3.10.2:=[ocamlopt?]
 		>=sys-libs/zlib-1.1.3"
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	has_version '>=dev-lang/ocaml-4.03.0_beta1' && epatch "${FILESDIR}/ocaml-4.03.patch"
+}
 
 src_compile() {
 	emake all

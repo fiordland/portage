@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libbtbb/libbtbb-9999.ebuild,v 1.13 2014/11/01 18:25:38 zerochaos Exp $
+# $Id$
 
 EAPI=5
 
@@ -17,16 +17,16 @@ else
 	MY_PV=${PV/\./-}
 	MY_PV=${MY_PV/./-R}
 	S=${WORKDIR}/${PN}-${MY_PV}
-	SRC_URI="https://github.com/greatscottgadgets/${PN}/archive/${MY_PV}.tar.gz"
+	SRC_URI="https://github.com/greatscottgadgets/${PN}/archive/${MY_PV}.tar.gz -> ${PN}-${MY_PV}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
 LICENSE="GPL-2"
 SLOT="0/${PV}"
-IUSE="+pcap +wireshark-plugins"
+IUSE="+pcap static-libs +wireshark-plugins"
 
 RDEPEND="
-	net-libs/libpcap
+	pcap? ( net-libs/libpcap[static-libs?] )
 	wireshark-plugins? (
 		>=net-analyzer/wireshark-1.8.3-r1:=
 	)
@@ -39,7 +39,7 @@ get_PV() { local pv=$(best_version $1); pv=${pv#$1-}; pv=${pv%-r*}; pv=${pv//_};
 
 which_plugins() {
 	if has_version '>=net-analyzer/wireshark-1.12.0'; then
-		plugins="btbb"
+		plugins="btbb btbredr"
 	elif has_version '<net-analyzer/wireshark-1.12.0'; then
 		plugins="btbb btle btsm"
 	fi
@@ -55,7 +55,11 @@ src_prepare(){
 		for i in ${plugins}
 		do
 			sed -i 's#column_info#packet#' wireshark/plugins/${i}/cmake/FindWireshark.cmake || die
-			CMAKE_USE_DIR="${S}"/wireshark/plugins/${i}
+			if has_version '>=net-analyzer/wireshark-2.0';  then
+				CMAKE_USE_DIR="${S}"/wireshark/plugins/${i}
+			else
+				CMAKE_USE_DIR="${S}"/wireshark/plugins-legacy/${i}
+			fi
 			BUILD_DIR="${WORKDIR}"/${i}_build
 			cmake-utils_src_prepare
 		done
@@ -66,16 +70,22 @@ src_configure() {
 	CMAKE_USE_DIR="${S}"
 	BUILD_DIR="${S}"_build
 	local mycmakeargs=(
-	-DDISABLE_PYTHON=true
-	-DPACKAGE_MANAGER=true
-	$(cmake-utils_use pcap PCAPDUMP)
+		-DENABLE_PYTHON=false
+		-DPACKAGE_MANAGER=true
+		$(cmake-utils_use pcap PCAPDUMP)
+		$(cmake-utils_use pcap USE_PCAP)
+		$(cmake-utils_use static-libs BUILD_STATIC_LIB)
 	)
 	cmake-utils_src_configure
 
 	if use wireshark-plugins; then
 		for i in ${plugins}
 		do
-			CMAKE_USE_DIR="${S}"/wireshark/plugins/${i}
+			if has_version '>=net-analyzer/wireshark-2.0';  then
+				CMAKE_USE_DIR="${S}"/wireshark/plugins/${i}
+			else
+				CMAKE_USE_DIR="${S}"/wireshark/plugins-legacy/${i}
+			fi
 			BUILD_DIR="${WORKDIR}"/${i}_build
 			local mycmakeargs=(
 			-DCMAKE_INSTALL_LIBDIR="/usr/$(get_libdir)/wireshark/plugins/$(get_PV net-analyzer/wireshark)"
@@ -93,7 +103,11 @@ src_compile(){
 	if use wireshark-plugins; then
 		for i in ${plugins}
 		do
-			CMAKE_USE_DIR="${S}"/wireshark/plugins/${i}
+			if has_version '>=net-analyzer/wireshark-2.0';  then
+				CMAKE_USE_DIR="${S}"/wireshark/plugins/${i}
+			else
+				CMAKE_USE_DIR="${S}"/wireshark/plugins-legacy/${i}
+			fi
 			BUILD_DIR="${WORKDIR}"/${i}_build
 			cmake-utils_src_compile
 		done
@@ -108,7 +122,11 @@ src_test(){
 	if use wireshark-plugins; then
 		for i in ${plugins}
 		do
-			CMAKE_USE_DIR="${S}"/wireshark/plugins/${i}
+			if has_version '>=net-analyzer/wireshark-2.0';  then
+				CMAKE_USE_DIR="${S}"/wireshark/plugins/${i}
+			else
+				CMAKE_USE_DIR="${S}"/wireshark/plugins-legacy/${i}
+			fi
 			BUILD_DIR="${WORKDIR}"/${i}_build
 			cmake-utils_src_test
 		done
@@ -123,7 +141,11 @@ src_install(){
 	if use wireshark-plugins; then
 		for i in ${plugins}
 		do
-			CMAKE_USE_DIR="${S}"/wireshark/plugins/${i}
+			if has_version '>=net-analyzer/wireshark-2.0';  then
+				CMAKE_USE_DIR="${S}"/wireshark/plugins/${i}
+			else
+				CMAKE_USE_DIR="${S}"/wireshark/plugins-legacy/${i}
+			fi
 			BUILD_DIR="${WORKDIR}"/${i}_build
 			cmake-utils_src_install
 		done

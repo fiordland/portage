@@ -1,11 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/pdf2oo/pdf2oo-20090715.ebuild,v 1.9 2013/03/18 10:17:10 kensington Exp $
+# $Id$
 
 EAPI=5
 
 DESCRIPTION="Converts pdf files to odf"
-HOMEPAGE="http://sourceforge.net/projects/pdf2oo/"
+HOMEPAGE="https://sourceforge.net/projects/pdf2oo/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"

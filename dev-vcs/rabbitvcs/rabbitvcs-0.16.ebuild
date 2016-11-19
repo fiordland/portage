@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/rabbitvcs/rabbitvcs-0.16.ebuild,v 1.1 2015/02/27 13:07:06 xmw Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,11 +8,11 @@ PYTHON_DEPEND="2:2.7"
 SUPPORT_PYTHON_ABIS="1"
 RESTRICT_PYTHON_ABIS="3.*"
 
-inherit eutils gnome2-utils multilib distutils
+inherit eutils gnome2-utils multilib distutils vcs-snapshot
 
 DESCRIPTION="Integrated version control support for your desktop"
 HOMEPAGE="http://rabbitvcs.org"
-SRC_URI="http://github.com/rabbitvcs/${PN}/tarball/v${PV} -> ${P}.tar.gz"
+SRC_URI="https://github.com/rabbitvcs/${PN}/tarball/v${PV} -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

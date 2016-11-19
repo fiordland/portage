@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/mozconfig-v5.31.eclass,v 1.3 2015/02/26 20:41:10 axs Exp $
+# $Id$
 #
 # @ECLASS: mozconfig-v5.31.eclass
 # @MAINTAINER:
@@ -81,8 +81,13 @@ RDEPEND=">=app-text/hunspell-1.2
 	system-icu? ( >=dev-libs/icu-51.1:= )
 	system-jpeg? ( >=media-libs/libjpeg-turbo-1.2.1 )
 	system-sqlite? ( >=dev-db/sqlite-3.8.4.2:3[secure-delete,debug=] )
-	system-libvpx? ( =media-libs/libvpx-1.3.0* )
 "
+
+# firefox-31.0-patches-0.3 and above carry a patch making newer libvpx compatible
+case ${PATCHFF##*31.0-patches-} in
+	0.3)	RDEPEND+=" system-libvpx? ( >=media-libs/libvpx-1.3.0:0= )" ;;
+	*)	RDEPEND+=" system-libvpx? ( =media-libs/libvpx-1.3.0* )" ;;
+esac
 
 if [[ -n ${MOZCONFIG_OPTIONAL_WIFI} ]]; then
 	if [[ ${MOZCONFIG_OPTIONAL_WIFI} = "enabled" ]]; then
@@ -208,6 +213,6 @@ mozconfig_config() {
 	mozconfig_use_enable system-sqlite
 	mozconfig_use_with system-jpeg
 	mozconfig_use_with system-icu
-	mozconfig_use_enable system-icu intl-api
+	mozconfig_use_with system-icu intl-api
 	mozconfig_use_with system-libvpx
 }

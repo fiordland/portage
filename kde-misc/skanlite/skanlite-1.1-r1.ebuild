@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/skanlite/skanlite-1.1-r1.ebuild,v 1.4 2014/12/12 21:11:14 mrueg Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ KDE_HANDBOOK="optional"
 inherit kde4-base
 
 DESCRIPTION="KDE image scanning application"
-HOMEPAGE="http://www.kde.org/applications/graphics/skanlite/"
+HOMEPAGE="https://www.kde.org/applications/graphics/skanlite/"
 SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 
 LICENSE="GPL-2"
@@ -21,7 +21,7 @@ KEYWORDS="amd64 x86"
 IUSE="debug"
 
 RDEPEND="
-	|| ( kde-apps/libksane:4 $(add_kdebase_dep libksane) )
+	$(add_kdeapps_dep libksane)
 	media-libs/libpng:0="
 DEPEND="${RDEPEND}
 	sys-devel/gettext"

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/radare2/radare2-9999.ebuild,v 1.1 2015/01/29 11:33:16 slyfox Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,7 +15,7 @@ EGIT_REPO_URI="https://github.com/radare/radare2"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug ssl"
+IUSE="ssl"
 
 RDEPEND="
 	ssl? ( dev-libs/openssl:= )
@@ -26,6 +26,5 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	econf \
-		$(use_with ssl openssl) \
-		$(use_enable debug)
+		$(use_with ssl openssl)
 }

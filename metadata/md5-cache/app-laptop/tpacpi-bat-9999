@@ -1,10 +1,10 @@
 DEFINED_PHASES=install unpack
-DEPEND=virtual/pkgconfig dev-vcs/git
-DESCRIPTION=Control battery thresholds of recent ThinkPads, which are not supported by tp_smapi
-EAPI=5
+DEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1
+DESCRIPTION=Control battery thresholds of recent ThinkPads, not supported by tp_smapi
+EAPI=6
 HOMEPAGE=https://github.com/teleshoes/tpacpi-bat
 LICENSE=GPL-3
 RDEPEND=sys-power/acpi_call dev-lang/perl
 SLOT=0
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	git-2	e28f0d8a9b321431b1e699782851b827	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	systemd	090342761f573a8280dd5aa6b0345f3b	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=238105fead869578c79e341d80188c66
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	e928b84a9f6f1d9076d1d27687876dc6	multilib	165fc17c38d1b11dac2008280dab6e80	systemd	5b6ca8b2fc1307ca593223f327342c96	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=4dad121bbbd4faf23b83eef815bc789f

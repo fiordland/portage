@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-arch/unzip/unzip-6.0-r3.ebuild,v 1.10 2014/01/18 05:01:26 vapier Exp $
+# $Id$
 
 EAPI="2"
 inherit eutils toolchain-funcs flag-o-matic
@@ -25,13 +25,13 @@ S="${WORKDIR}/${MY_P}"
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-no-exec-stack.patch
 	use natspec && epatch "${FILESDIR}/${PN}-6.0-natspec.patch" #275244
-	sed -i \
+	sed -i -r \
 		-e '/^CFLAGS/d' \
-		-e '/CFLAGS/s:-O[0-9]\?:$(CFLAGS) $(CPPFLAGS):' \
+		-e '/CFLAGS/s:-O[0-9]?:$(CFLAGS) $(CPPFLAGS):' \
 		-e '/^STRIP/s:=.*:=true:' \
-		-e "s:\<CC=gcc\>:CC=\"$(tc-getCC)\":" \
-		-e "s:\<LD=gcc\>:LD=\"$(tc-getCC)\":" \
-		-e "s:\<AS=gcc\>:AS=\"$(tc-getCC)\":" \
+		-e "s:\<CC *= *\"?g?cc2?\"?\>:CC=\"$(tc-getCC)\":" \
+		-e "s:\<LD *= *\"?(g?cc2?|ld)\"?\>:LD=\"$(tc-getCC)\":" \
+		-e "s:\<AS *= *\"?(g?cc2?|as)\"?\>:AS=\"$(tc-getCC)\":" \
 		-e 's:LF2 = -s:LF2 = :' \
 		-e 's:LF = :LF = $(LDFLAGS) :' \
 		-e 's:SL = :SL = $(LDFLAGS) :' \
@@ -51,6 +51,7 @@ src_compile() {
 		i?86*-dragonfly*)    TARGET=freebsd ;; # mislabelled bsd with x86 asm
 		*bsd* | *dragonfly*) TARGET=bsd ;;
 		*-darwin*)           TARGET=macosx ;;
+		*-cygwin*)           TARGET=cygwin ;;
 		*) die "Unknown target, you suck" ;;
 	esac
 

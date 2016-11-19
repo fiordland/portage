@@ -2,9 +2,9 @@ DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
 DEPEND=>=virtual/emacs-23 >=dev-vcs/git-1.8.2.1
 DESCRIPTION=Emacs major mode for editing eselect files
 EAPI=5
-HOMEPAGE=http://wiki.gentoo.org/wiki/Project:Eselect
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Eselect
 LICENSE=GPL-2+
 RDEPEND=>=virtual/emacs-23
 SLOT=0
-_eclasses_=elisp	b7ff113c97bf466ace6f3235f80af600	elisp-common	1aa23b3de5dae55456fa2071428eb5bf	eutils	998e5931fb95b10a6a11ec796ada2759	git-r3	3a2bd0ae504c33a50061885480f3def3	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=560602555e24aaa1203fa749066acf76
+_eclasses_=elisp	7e36316fe822639d5a29fa10d5529eb9	elisp-common	9f56c4e9bf1282dbfc2a5a09e1124e74	eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	e928b84a9f6f1d9076d1d27687876dc6	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=329a30831b2010ce67c5f421d88e162a

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/nwn/nwn-1.68-r5.ebuild,v 1.7 2014/10/15 20:34:53 pacho Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,7 +16,7 @@ HOU_NAME=_linuxclient${MY_PV}_xp2.tar.gz
 
 DESCRIPTION="Epic role-playing game set in a huge medieval fantasy world of Dungeons and Dragons"
 HOMEPAGE="http://nwn.bioware.com/downloads/linuxclient.html"
-SRC_URI="http://dev.gentoo.org/~calchan/distfiles/nwn-libs-1.tar.bz2
+SRC_URI="https://dev.gentoo.org/~calchan/distfiles/nwn-libs-1.tar.bz2
 	linguas_fr? (
 		!sou? ( !hou? ( ${PATCH_URL_BASE}/French${PACKAGE_NAME} ) )
 		sou? ( ${PATCH_URL_BASE}/French${SOU_NAME} )
@@ -56,20 +56,10 @@ RESTRICT="mirror strip"
 RDEPEND="
 	>=games-rpg/nwn-data-1.29-r3
 	!<games-rpg/nwmouse-0.1-r1
-	|| (
-		(
-			x11-libs/libXext[abi_x86_32(-)]
-			x11-libs/libX11[abi_x86_32(-)]
-			>=media-libs/libsdl-1.2.15-r5[abi_x86_32(-)]
-			virtual/opengl[abi_x86_32(-)]
-		)
-		amd64? (
-			app-emulation/emul-linux-x86-baselibs[-abi_x86_32(-)]
-			app-emulation/emul-linux-x86-opengl[-abi_x86_32(-)]
-			app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
-			app-emulation/emul-linux-x86-sdl[-abi_x86_32(-)]
-		)
-	)
+	x11-libs/libXext[abi_x86_32(-)]
+	x11-libs/libX11[abi_x86_32(-)]
+	>=media-libs/libsdl-1.2.15-r5[abi_x86_32(-)]
+	virtual/opengl[abi_x86_32(-)]
 "
 DEPEND="app-arch/unzip"
 

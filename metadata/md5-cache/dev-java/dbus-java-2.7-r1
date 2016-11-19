@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.5 app-text/docbook-sgml-utils dev-java/libmatthew-java sys-devel/gettext doc? ( dev-tex/tex4ht dev-texlive/texlive-latexextra ) >=dev-java/java-config-2.1.9-r1 source? ( app-arch/zip )
+DEPEND=>=virtual/jdk-1.5 app-text/docbook-sgml-utils dev-java/libmatthew-java sys-devel/gettext doc? ( dev-tex/tex4ht dev-texlive/texlive-latexextra ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Java bindings for the D-Bus messagebus
 EAPI=2
-HOMEPAGE=http://dbus.freedesktop.org/
+HOMEPAGE=https://dbus.freedesktop.org/
 IUSE=debug elibc_FreeBSD doc source
-KEYWORDS=amd64 ppc ppc64 x86
+KEYWORDS=amd64 ppc64 x86
 LICENSE=|| ( GPL-2 AFL-2.1 )
-RDEPEND=>=virtual/jre-1.5 >=dev-java/libmatthew-java-0.7-r1 >=dev-java/java-config-2.1.9-r1 source? ( app-arch/zip )
+RDEPEND=>=virtual/jre-1.5 >=dev-java/libmatthew-java-0.7-r1 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
-SRC_URI=http://dbus.freedesktop.org/releases/dbus-java/dbus-java-2.7.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	java-pkg-2	65bbb59987d777c1106ae8aa4bf36e7b	java-utils-2	f02d3e4777b404c719a5a6479c37c6e3	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	versionator	cd0bcdb170807e4a1984115e9d53a26f
-_md5_=a9e779db80925ddf769ccbc5cee05a31
+SRC_URI=https://dbus.freedesktop.org/releases/dbus-java/dbus-java-2.7.tar.gz
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	java-pkg-2	eb1f0d7d874162c70088f5ae32c31ee7	java-utils-2	a50950a73b5d5db46f42638e2996a087	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=702bd9877da7f4c3c20077f9e157c29b

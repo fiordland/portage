@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lisp/clisp/clisp-2.48-r2.ebuild,v 1.8 2014/12/28 15:36:16 titanofold Exp $
+# $Id$
 
 EAPI="2"
 
@@ -158,7 +158,7 @@ it is likely that you will encounter bugs in using them. If you do,
 please report bugs upstream:
 
 Mailing list: https://lists.sourceforge.net/lists/listinfo/clisp-devel
-Bug tracker:  http://sourceforge.net/tracker/?atid=101355&group_id=1355
+Bug tracker:  https://sourceforge.net/tracker/?atid=101355&group_id=1355
 
 EOF
 	fi

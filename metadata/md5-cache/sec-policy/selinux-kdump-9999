@@ -1,10 +1,10 @@
 DEFINED_PHASES=compile install postinst postrm prepare unpack
-DEPEND=dev-vcs/git >=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-9999 sys-devel/m4 >=sys-apps/checkpolicy-2.0.21
+DEPEND=>=dev-vcs/git-1.8.2.1 >=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-9999 sys-devel/m4 >=sys-apps/checkpolicy-2.0.21
 DESCRIPTION=SELinux policy for kdump
 EAPI=5
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
 LICENSE=GPL-2
 RDEPEND=>=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-9999
 SLOT=0
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	git-2	e28f0d8a9b321431b1e699782851b827	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	selinux-policy-2	5c9bf941743acbb8e98d156b9657adde	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=ac64e23572545f79d067e6b4ba9138e0
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	e928b84a9f6f1d9076d1d27687876dc6	multilib	165fc17c38d1b11dac2008280dab6e80	selinux-policy-2	de3221b44061d1a089c15c628b625d38	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=4d241a8ef96f091cccc89d7f880cd7a8

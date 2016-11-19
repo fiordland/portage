@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/vo-aacenc/vo-aacenc-9999.ebuild,v 1.11 2013/07/28 19:25:41 aballier Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,7 +14,7 @@ fi
 inherit autotools-multilib ${SCM}
 
 DESCRIPTION="VisualOn AAC encoder library"
-HOMEPAGE="http://sourceforge.net/projects/opencore-amr/"
+HOMEPAGE="https://sourceforge.net/projects/opencore-amr/"
 
 if [[ ${PV} == *9999 ]] ; then
 	SRC_URI=""

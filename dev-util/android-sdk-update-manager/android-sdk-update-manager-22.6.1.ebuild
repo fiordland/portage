@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/android-sdk-update-manager/android-sdk-update-manager-22.6.1.ebuild,v 1.3 2014/10/15 20:22:19 pacho Exp $
+# $Id$
 
 EAPI="5"
 
@@ -10,7 +10,7 @@ MY_P="android-sdk_r${PV}-linux"
 
 DESCRIPTION="Open Handset Alliance's Android SDK"
 HOMEPAGE="http://developer.android.com"
-SRC_URI="http://dl.google.com/android/${MY_P}.tgz"
+SRC_URI="https://dl.google.com/android/${MY_P}.tgz"
 IUSE=""
 RESTRICT="mirror"
 
@@ -23,14 +23,7 @@ DEPEND="app-arch/tar
 RDEPEND=">=virtual/jdk-1.5
 	>=dev-java/ant-core-1.6.5
 	|| ( dev-java/swt:3.7[cairo] dev-java/swt:3.6[cairo] )
-	|| (
-		(
-			>=x11-libs/gtk+-2.24.23-r2:2[abi_x86_32(-)]
-		)
-		amd64? (
-			app-emulation/emul-linux-x86-gtklibs[-abi_x86_32(-)]
-		)
-	)
+	>=x11-libs/gtk+-2.24.23-r2:2[abi_x86_32(-)]
 "
 
 ANDROID_SDK_DIR="/opt/${PN}"
@@ -104,7 +97,7 @@ pkg_postinst() {
 	elog "Just run 'gpasswd -a <USER> android', then have <USER> re-login."
 	elog "See http://developer.android.com/sdk/adding-components.html for more"
 	elog "information."
-	elog "If you have problems downloading the SDK, see http://code.google.com/p/android/issues/detail?id=4406"
+	elog "If you have problems downloading the SDK, see https://code.google.com/p/android/issues/detail?id=4406"
 	elog "You need to run env-update and source /etc/profile in any open shells"
 	elog "if you get an SWT error."
 }

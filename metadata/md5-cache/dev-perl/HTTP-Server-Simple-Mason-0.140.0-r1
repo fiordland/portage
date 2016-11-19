@@ -8,5 +8,5 @@ LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/Hook-LexWrap dev-perl/URI dev-perl/libwww-perl >=dev-perl/HTML-Mason-1.25 >=dev-perl/HTTP-Server-Simple-0.04 dev-lang/perl:=[-build(-)]
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/J/JE/JESSE/HTTP-Server-Simple-Mason-0.14.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	perl-module	6b84915e66050718c89bcbc76c144e80	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	unpacker	f300a7ca9131b1024a79762e8edd3c52
-_md5_=2489299601f0c7a3a18e849e12c3d07b
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	multiprocessing	e32940a7b2a9992ad217eccddb84d548	perl-functions	aac50de73be0a80ebe780e0b20850130	perl-module	f6549146ea31a902e20b5f2e6f244358	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	unpacker	45d07319df5f40ee6af58418b0f930be
+_md5_=0414659942f9d15a21ccf0d2cbbed838

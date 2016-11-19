@@ -1,16 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/rapidsvn/rapidsvn-0.12.1-r1.ebuild,v 1.6 2014/08/13 09:36:29 ago Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 WX_GTK_VER=2.8
 
 AUTOTOOLS_AUTORECONF=true
 
-inherit autotools-utils fdo-mime flag-o-matic python-single-r1 versionator wxwidgets
+inherit autotools-utils fdo-mime flag-o-matic multilib python-single-r1 versionator wxwidgets
 
 MY_PV=$(get_version_component_range 1-2)
 MY_REL="1"
@@ -19,11 +19,11 @@ DESCRIPTION="Cross-platform GUI front-end for the Subversion revision system"
 HOMEPAGE="http://rapidsvn.tigris.org/"
 SRC_URI="
 	http://www.rapidsvn.org/download/release/${PV}/${P}.tar.gz
-	doc? ( http://dev.gentoo.org/~jlec/distfiles/svncpp.dox.xz )"
+	doc? ( https://dev.gentoo.org/~jlec/distfiles/svncpp.dox.xz )"
 
 LICENSE="GPL-2 LGPL-2.1 FDL-1.2"
 SLOT="0"
-KEYWORDS="amd64 arm ppc ~ppc64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 arm ppc ppc64 x86 ~amd64-linux ~x86-linux"
 IUSE="doc static-libs"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"

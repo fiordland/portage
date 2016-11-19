@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/zfs/zfs-0.6.3-r2.ebuild,v 1.1 2014/12/01 14:39:13 ryao Exp $
+# $Id$
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_6,2_7,3_1,3_2,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 
 inherit python-r1
 
@@ -17,9 +17,9 @@ if [ ${PV} == "9999" ] ; then
 else
 	inherit eutils versionator
 	SRC_URI="https://github.com/zfsonlinux/${PN}/archive/${P}.tar.gz
-		http://dev.gentoo.org/~ryao/dist/${P}-patches-r1.tar.xz"
+		https://dev.gentoo.org/~ryao/dist/${P}-patches-r1.tar.xz"
 	S="${WORKDIR}/${PN}-${P}"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64"
 fi
 
 inherit bash-completion-r1 flag-o-matic toolchain-funcs autotools-utils udev systemd
@@ -131,13 +131,13 @@ pkg_postinst() {
 		update_moduledb
 	fi
 
-	[ -e "${EROOT}/etc/runlevels/boot/zfs" ] \
+	[ -e "${EROOT}etc/runlevels/boot/zfs" ] \
 		|| ewarn 'You should add zfs to the boot runlevel.'
 
-	if [ -e "${EROOT}/etc/runlevels/shutdown/zfs-shutdown" ]
+	if [ -e "${EROOT}etc/runlevels/shutdown/zfs-shutdown" ]
 	then
 		einfo "The zfs-shutdown script is obsolete. Removing it from runlevel."
-		rm "${EROOT}/etc/runlevels/shutdown/zfs-shutdown"
+		rm "${EROOT}etc/runlevels/shutdown/zfs-shutdown"
 	fi
 
 }

@@ -1,17 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/whoosh/whoosh-2.6.0.ebuild,v 1.4 2014/12/28 12:09:11 ago Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python{2_7,3_3,3_4} pypy )
+PYTHON_COMPAT=( python{2_7,3_4} pypy )
 
 MY_PN="Whoosh"
 
 inherit distutils-r1
 
 DESCRIPTION="Fast, pure-Python full text indexing, search and spell checking library"
-HOMEPAGE="http://bitbucket.org/mchaput/whoosh/wiki/Home/ http://pypi.python.org/pypi/Whoosh/"
+HOMEPAGE="https://bitbucket.org/mchaput/whoosh/wiki/Home/ https://pypi.python.org/pypi/Whoosh/"
 SRC_URI="mirror://pypi/W/${MY_PN}/${MY_PN}-${PV}.zip"
 
 DEPEND="app-arch/unzip
@@ -38,12 +38,6 @@ python_prepare_all() {
 python_compile_all() {
 	# https://bitbucket.org/mchaput/whoosh/issue/403/
 	use doc && sphinx-build -b html -c docs/source/ docs/source/ docs/source/build/html
-}
-
-# Restrict to test phase; a few random tests fail without it
-src_test() {
-	local DISTUTILS_NO_PARALLEL_BUILD=1
-	distutils-r1_src_test
 }
 
 python_test() {

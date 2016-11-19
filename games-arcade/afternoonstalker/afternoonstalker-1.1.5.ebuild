@@ -1,8 +1,8 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/afternoonstalker/afternoonstalker-1.1.5.ebuild,v 1.5 2015/01/03 13:02:17 tupone Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 inherit autotools games
 
 DESCRIPTION="Clone of the 1981 Night Stalker video game by Mattel Electronics"
@@ -23,8 +23,7 @@ src_prepare() {
 		-e "/^pkgsounddir/ s:sounds.*:\$(PACKAGE)/sounds:" \
 		-e "/^desktopentrydir/ s:=.*:=/usr/share/applications:" \
 		-e "/^pixmapdir/ s:=.*:=/usr/share/pixmaps:" \
-		src/Makefile.am \
-		|| die
+		src/Makefile.am || die
 	eautoreconf
 }
 

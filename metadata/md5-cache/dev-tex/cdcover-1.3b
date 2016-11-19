@@ -1,11 +1,12 @@
 DEFINED_PHASES=compile install postinst postrm unpack
 DEPEND=virtual/latex-base >=sys-apps/texinfo-4.2-r5
 DESCRIPTION=LaTeX package used to create CD case covers
+EAPI=0
 HOMEPAGE=http://www.ctan.org/tex-archive/macros/latex/contrib/cd-cover/
 KEYWORDS=x86 amd64 ~sparc
 LICENSE=GPL-2
 RDEPEND=virtual/latex-base
 SLOT=0
 SRC_URI=mirror://gentoo/cdcover-1.3b.tar.gz
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	998e5931fb95b10a6a11ec796ada2759	latex-package	999c52f495ebb8dd3b69bda982bb2817	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=83cfb076897c01810d1db5aa9bb6e76c
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	b83a2420b796f7c6eff682679d08fe25	latex-package	58e25573cc86e53dddea91261009b301	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=80890d292667cfd4effe24d700829061

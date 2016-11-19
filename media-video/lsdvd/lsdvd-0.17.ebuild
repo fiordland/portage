@@ -1,12 +1,12 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/lsdvd/lsdvd-0.17.ebuild,v 1.7 2014/12/04 08:35:30 ago Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils
 
 DESCRIPTION="Utility for getting info out of DVDs"
-HOMEPAGE="http://sourceforge.net/projects/lsdvd/"
+HOMEPAGE="https://sourceforge.net/projects/lsdvd/"
 SRC_URI="mirror://sourceforge/lsdvd/${P}.tar.gz"
 
 LICENSE="GPL-2"

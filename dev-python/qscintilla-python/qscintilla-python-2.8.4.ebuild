@@ -1,21 +1,21 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/qscintilla-python/qscintilla-python-2.8.4.ebuild,v 1.4 2015/03/02 09:28:19 ago Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 
 inherit python-r1 qmake-utils
 
 MY_P=QScintilla-gpl-${PV}
 
 DESCRIPTION="Python bindings for Qscintilla"
-HOMEPAGE="http://www.riverbankcomputing.co.uk/software/qscintilla/intro"
+HOMEPAGE="http://www.riverbankcomputing.com/software/qscintilla/intro"
 SRC_URI="mirror://sourceforge/pyqt/${MY_P}.tar.gz"
 
 LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~ia64 ppc ~ppc64 ~sparc x86"
+KEYWORDS="alpha amd64 ia64 ppc ppc64 ~sparc x86"
 IUSE="debug"
 
 DEPEND="
@@ -41,12 +41,12 @@ src_configure() {
 		local myconf=(
 			"${PYTHON}" configure.py
 			--destdir="$(python_get_sitedir)"/PyQt4
-			--pyqt=PyQt4
 			--sip-incdir="$(python_get_includedir)"
 			--pyqt-sipdir="${EPREFIX}"/usr/share/sip
 			--qsci-sipdir="${EPREFIX}"/usr/share/sip
-			$(use debug && echo --debug)
+			--pyqt=PyQt4
 			--no-timestamp
+			$(use debug && echo --debug)
 		)
 		echo "${myconf[@]}"
 		"${myconf[@]}" || die
@@ -54,7 +54,7 @@ src_configure() {
 		# Run eqmake4 to respect toolchain, build flags, and prevent stripping
 		eqmake4
 	}
-	python_parallel_foreach_impl run_in_build_dir configuration
+	python_foreach_impl run_in_build_dir configuration
 }
 
 src_compile() {

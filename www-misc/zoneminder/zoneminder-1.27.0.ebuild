@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-misc/zoneminder/zoneminder-1.27.0.ebuild,v 1.2 2014/04/26 20:02:12 dilfridge Exp $
+# $Id$
 
 # TO DO:
-# * ffmpeg support can be disabled in CMakeLists.txt but it does not build then 
+# * ffmpeg support can be disabled in CMakeLists.txt but it does not build then
 #		$(cmake-utils_useno ffmpeg ZM_NO_FFMPEG)
 # * dependencies of unknown status:
 # 	dev-perl/Archive-Zip
@@ -19,7 +19,7 @@ EAPI=5
 
 PERL_EXPORT_PHASE_FUNCTIONS=no
 
-inherit perl-module readme.gentoo eutils base cmake-utils depend.php depend.apache multilib flag-o-matic
+inherit perl-module readme.gentoo eutils base cmake-utils depend.apache multilib flag-o-matic
 
 MY_PN="ZoneMinder"
 
@@ -39,12 +39,13 @@ REQUIRED_USE="
 DEPEND="
 	dev-lang/perl:=
 	dev-libs/libpcre
-	dev-perl/DateManip
+	dev-perl/Date-Manip
 	dev-perl/DBD-mysql
 	dev-perl/DBI
 	dev-perl/libwww-perl
 	sys-libs/zlib
 	virtual/ffmpeg
+	virtual/httpd-php
 	virtual/jpeg
 	virtual/mysql
 	virtual/perl-ExtUtils-MakeMaker
@@ -63,7 +64,6 @@ RDEPEND="${DEPEND}"
 # we cannot use need_httpd_cgi here, since we need to setup permissions for the
 # webserver in global scope (/etc/zm.conf etc), so we hardcode apache here.
 need_apache
-need_php_httpd
 
 S=${WORKDIR}/${MY_PN}-${PV}
 
@@ -74,7 +74,7 @@ PATCHES=(
 MY_ZM_WEBDIR=/usr/share/zoneminder/www
 
 pkg_setup() {
-	require_php_with_use mysql sockets apache2
+	:
 }
 
 src_configure() {

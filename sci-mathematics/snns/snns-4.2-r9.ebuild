@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-mathematics/snns/snns-4.2-r9.ebuild,v 1.2 2012/02/26 05:28:38 patrick Exp $
+# $Id$
 
 EAPI="3"
 PYTHON_DEPEND="python? 2"
@@ -11,7 +11,7 @@ inherit distutils eutils
 
 MY_P="SNNSv${PV}"
 DESCRIPTION="Stuttgart Neural Network Simulator"
-HOMEPAGE="http://sourceforge.net/projects/snns/"
+HOMEPAGE="https://sourceforge.net/projects/snns/"
 SRC_URI="mirror://sourceforge/snns/${PN}-${PV}-patched.tar.gz
 	doc? ( http://www-ra.informatik.uni-tuebingen.de/downloads/SNNS/${MY_P}.Manual.pdf )
 	python? ( mirror://sourceforge/snns/python.patch.gz )"

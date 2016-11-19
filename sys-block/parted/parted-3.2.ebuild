@@ -1,17 +1,18 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-block/parted/parted-3.2.ebuild,v 1.13 2015/01/03 09:50:51 jer Exp $
+# $Id$
 
 EAPI=5
+
 inherit autotools eutils
 
 DESCRIPTION="Create, destroy, resize, check, copy partitions and file systems"
-HOMEPAGE="http://www.gnu.org/software/parted"
+HOMEPAGE="https://www.gnu.org/software/parted"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86"
 IUSE="+debug device-mapper nls readline selinux static-libs"
 RESTRICT="test"
 
@@ -19,9 +20,9 @@ RESTRICT="test"
 # to fix bug 85999
 RDEPEND="
 	>=sys-fs/e2fsprogs-1.27
-	>=sys-libs/ncurses-5.7-r7
+	>=sys-libs/ncurses-5.7-r7:0=
 	device-mapper? ( >=sys-fs/lvm2-2.02.45 )
-	readline? ( >=sys-libs/readline-5.2 )
+	readline? ( >=sys-libs/readline-5.2:0= )
 	selinux? ( sys-libs/libselinux )
 "
 DEPEND="
@@ -31,9 +32,9 @@ DEPEND="
 "
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-3.2-devmapper.patch
-
-	epatch "${FILESDIR}"/${PN}-3.2-po4a-mandir.patch
+	epatch \
+		"${FILESDIR}"/${PN}-3.2-devmapper.patch \
+		"${FILESDIR}"/${PN}-3.2-po4a-mandir.patch
 	eautoreconf
 }
 

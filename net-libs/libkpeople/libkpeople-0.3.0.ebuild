@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libkpeople/libkpeople-0.3.0.ebuild,v 1.2 2015/02/12 22:06:09 johu Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 VIRTUALX_REQUIRED="test"
 KDE_LINGUAS="bs cs da de el fi fr hu ja lt nl pl pt pt_BR ro ru sk sl sv uk"
@@ -23,8 +23,8 @@ SLOT="4/4"
 IUSE="debug examples semantic-desktop test"
 
 RDEPEND="
-	$(add_kdebase_dep kdepimlibs)
-	semantic-desktop? ( $(add_kdebase_dep baloo) )
+	$(add_kdeapps_dep kdepimlibs)
+	semantic-desktop? ( kde-frameworks/baloo:4 )
 "
 DEPEND="${RDEPEND}
 	sys-devel/gettext
@@ -32,7 +32,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with examples)
+		-DENABLE_EXAMPLES=$(usex examples)
 		$(cmake-utils_use_find_package semantic-desktop Baloo)
 	)
 

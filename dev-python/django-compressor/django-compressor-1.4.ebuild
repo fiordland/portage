@@ -1,10 +1,10 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/django-compressor/django-compressor-1.4.ebuild,v 1.4 2015/02/28 19:12:59 jlec Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_7 python3_{3,4} )
+PYTHON_COMPAT=( python2_7 python3_4 )
 
 inherit distutils-r1
 
@@ -13,7 +13,7 @@ MY_PN="${PN/-/_}"
 DESCRIPTION="Compresses linked and inline javascript or CSS into a single cached file"
 HOMEPAGE="https://github.com/django-compressor/django-compressor"
 SRC_URI="https://github.com/jezdez/django_compressor/archive/${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="doc test"
 
 LICENSE="MIT"
@@ -38,10 +38,6 @@ DEPEND="${RDEPEND}
 		dev-python/jingo[${PYTHON_USEDEP}]
 	)"
 DISTUTILS_IN_SOURCE_BUILD=1
-
-PATCHES=(
-	"${FILESDIR}"/${P}-test.patch
-)
 
 python_compile_all() {
 	use doc && emake -C docs html

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/avidemux-plugins/avidemux-plugins-2.6.8.ebuild,v 1.3 2015/01/29 17:25:10 mgorny Exp $
+# $Id$
 
 EAPI="5"
 
@@ -70,10 +70,6 @@ RDEPEND="$DEPEND"
 
 S="${WORKDIR}/${MY_P}"
 
-processes="buildPluginsCommon:avidemux_plugins
-	buildPluginsCLI:avidemux_plugins"
-use qt4 && processes+=" buildPluginsQt4:avidemux_plugins"
-
 PATCHES=( "${FILESDIR}"/${PN}-2.6.4-optional-pulse.patch )
 
 src_configure() {
@@ -84,6 +80,10 @@ src_configure() {
 
 	# See bug 432322.
 	use x86 && replace-flags -O0 -O1
+
+	processes="buildPluginsCommon:avidemux_plugins
+		buildPluginsCLI:avidemux_plugins"
+	use qt4 && processes+=" buildPluginsQt4:avidemux_plugins"
 
 	for process in ${processes} ; do
 		local build="${process%%:*}"

@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/elektra/elektra-0.7.1-r5.ebuild,v 1.1 2014/06/22 12:38:39 mgorny Exp $
+# $Id$
 
 EAPI=5
 
 inherit autotools autotools-multilib eutils multilib
 
-DESCRIPTION="universal and secure framework to store config parameters in a hierarchical key-value pair mechanism"
-HOMEPAGE="http://freedesktop.org/wiki/Software/Elektra"
+DESCRIPTION="Framework to store config parameters in hierarchical key-value pairs"
+HOMEPAGE="https://freedesktop.org/wiki/Software/Elektra"
 SRC_URI="ftp://ftp.markus-raab.org/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"

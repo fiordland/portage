@@ -72,9 +72,6 @@ gtk3
 gnome
 gnome-keyring
 
-# mask wayland since dev-libs/wayland isn't keyworded
-wayland
-
 diet
 m17n-lib
 xemacs
@@ -111,6 +108,7 @@ input_devices_vmmouse
 input_devices_synaptics
 input_devices_tslib
 input_devices_wacom
+video_cards_amdgpu
 video_cards_apm
 video_cards_ark
 video_cards_ast

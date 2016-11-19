@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocaml-ipaddr/ocaml-ipaddr-2.6.1.ebuild,v 1.1 2015/02/20 17:50:30 aballier Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,11 +13,14 @@ HOMEPAGE="https://github.com/mirage/ocaml-ipaddr"
 SRC_URI="https://github.com/mirage/ocaml-ipaddr/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="ISC"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="dev-ml/sexplib:="
+DEPEND="dev-ml/sexplib:=
+	dev-ml/pa_sexp_conv:=
+"
 RDEPEND="${DEPEND}"
+PATCHES=( "${FILESDIR}/sexpl.patch" )
 
 DOCS=( CHANGES README.md )

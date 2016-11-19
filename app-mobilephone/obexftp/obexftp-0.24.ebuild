@@ -1,11 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-mobilephone/obexftp/obexftp-0.24.ebuild,v 1.3 2014/11/24 12:16:04 pacho Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby18 ruby19 ruby20"
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 inherit cmake-utils python-single-r1 python-utils-r1 eutils multilib
 
 DESCRIPTION="File transfer over OBEX for mobile phones"
@@ -20,10 +19,10 @@ IUSE="bluetooth perl python ruby tcl"
 RDEPEND="
 	>=dev-libs/openobex-1.7
 	bluetooth? ( net-wireless/bluez )
-	perl? ( dev-lang/perl )
+	perl? ( dev-lang/perl:= )
 	python? ( ${PYTHON_DEPS} )
-	ruby? ( dev-lang/ruby )
-	tcl? ( dev-lang/tcl )
+	ruby? ( || ( dev-lang/ruby:2.0 dev-lang/ruby:1.9 ) )
+	tcl? ( dev-lang/tcl:0= )
 "
 DEPEND="
 	${RDEPEND}

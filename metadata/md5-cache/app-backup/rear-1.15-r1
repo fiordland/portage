@@ -2,11 +2,11 @@ DEFINED_PHASES=compile install prepare
 DESCRIPTION=Fully automated disaster recovery supporting a broad variety of backup strategies and scenarios
 EAPI=5
 HOMEPAGE=http://relax-and-recover.org/
-IUSE=udev
+IUSE=libressl udev
 KEYWORDS=~amd64
 LICENSE=GPL-2
-RDEPEND=dev-libs/openssl net-dialup/mingetty net-fs/nfs-utils sys-apps/iproute2 sys-apps/lsb-release sys-apps/util-linux sys-block/parted sys-boot/syslinux virtual/cdrtools udev? ( virtual/udev )
+RDEPEND=!libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) net-dialup/mingetty net-fs/nfs-utils sys-apps/iproute2 sys-apps/lsb-release sys-apps/util-linux sys-block/parted sys-boot/syslinux virtual/cdrtools udev? ( virtual/udev )
 SLOT=0
 SRC_URI=mirror://sourceforge/rear/rear-1.15.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=ac775a019b259079966e1c91f1450d23
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=56776de2a78c9d398d0aba00e937b165

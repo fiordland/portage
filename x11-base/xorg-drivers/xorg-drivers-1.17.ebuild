@@ -1,16 +1,16 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-base/xorg-drivers/xorg-drivers-1.17.ebuild,v 1.1 2015/02/08 17:38:22 chithanh Exp $
+# $Id$
 
 EAPI=5
 
 DESCRIPTION="Meta package containing deps on all xorg drivers"
-HOMEPAGE="http://www.gentoo.org/"
+HOMEPAGE="https://www.gentoo.org/"
 SRC_URI=""
 
 LICENSE="metapackage"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux"
 
 IUSE_INPUT_DEVICES="
 	input_devices_acecad
@@ -32,6 +32,7 @@ IUSE_INPUT_DEVICES="
 	input_devices_wacom
 "
 IUSE_VIDEO_CARDS="
+	video_cards_amdgpu
 	video_cards_apm
 	video_cards_ast
 	video_cards_chips
@@ -104,6 +105,7 @@ PDEPEND="
 	input_devices_synaptics?   ( x11-drivers/xf86-input-synaptics )
 	input_devices_wacom?       ( x11-drivers/xf86-input-wacom )
 
+	video_cards_amdgpu?        ( x11-drivers/xf86-video-amdgpu )
 	video_cards_apm?           ( x11-drivers/xf86-video-apm )
 	video_cards_ast?           ( x11-drivers/xf86-video-ast )
 	video_cards_chips?         ( x11-drivers/xf86-video-chips )

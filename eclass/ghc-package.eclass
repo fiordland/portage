@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/ghc-package.eclass,v 1.40 2015/01/01 21:23:03 slyfox Exp $
+# $Id$
 
 # @ECLASS: ghc-package.eclass
 # @MAINTAINER:
@@ -11,7 +11,7 @@
 # @DESCRIPTION:
 # Helper eclass to handle ghc installation/upgrade/deinstallation process.
 
-inherit versionator
+inherit multiprocessing versionator
 
 # @FUNCTION: ghc-getghc
 # @DESCRIPTION:
@@ -64,13 +64,31 @@ ghc-getghcpkgbin() {
 
 # @FUNCTION: ghc-version
 # @DESCRIPTION:
-# returns the version of ghc
+# returns upstream version of ghc
+# as reported by '--numeric-version'
+# Examples: "7.10.2", "7.9.20141222"
 _GHC_VERSION_CACHE=""
 ghc-version() {
 	if [[ -z "${_GHC_VERSION_CACHE}" ]]; then
 		_GHC_VERSION_CACHE="$($(ghc-getghc) --numeric-version)"
 	fi
 	echo "${_GHC_VERSION_CACHE}"
+}
+
+# @FUNCTION: ghc-pm-version
+# @DESCRIPTION:
+# returns package manager(PM) version of ghc
+# as reported by '$(best_version)'
+# Examples: "PM:7.10.2", "PM:7.10.2_rc1", "PM:7.8.4-r4"
+_GHC_PM_VERSION_CACHE=""
+ghc-pm-version() {
+	local pm_ghc_p
+
+	if [[ -z "${_GHC_PM_VERSION_CACHE}" ]]; then
+		pm_ghc_p=$(best_version dev-lang/ghc)
+		_GHC_PM_VERSION_CACHE="PM:${pm_ghc_p#dev-lang/ghc-}"
+	fi
+	echo "${_GHC_PM_VERSION_CACHE}"
 }
 
 # @FUNCTION: ghc-cabal-version
@@ -88,19 +106,14 @@ ghc-cabal-version() {
 	fi
 }
 
-# @FUNCTION: ghc-sanecabal
+# @FUNCTION: ghc-is-dynamic
 # @DESCRIPTION:
-# check if a standalone Cabal version is available for the
-# currently used ghc; takes minimal version of Cabal as
-# an optional argument
-ghc-sanecabal() {
-	local f
-	local version
-	if [[ -z "$1" ]]; then version="1.0.1"; else version="$1"; fi
-	for f in $(ghc-confdir)/cabal-*; do
-		[[ -f "${f}" ]] && version_is_at_least "${version}" "${f#*cabal-}" && return
-	done
-	return 1
+# checks if ghc is built against dynamic libraries
+# binaries linked against GHC library (and using plugin loading)
+# have to be linked the same way:
+#    https://ghc.haskell.org/trac/ghc/ticket/10301
+ghc-is-dynamic() {
+	$(ghc-getghc) --info | grep "GHC Dynamic" | grep -q "YES"
 }
 
 # @FUNCTION: ghc-supports-shared-libraries
@@ -124,13 +137,6 @@ ghc-supports-threaded-runtime() {
 # checks if ghc is built with support for multiple cores runtime
 ghc-supports-smp() {
 	$(ghc-getghc) --info | grep "Support SMP" | grep -q "YES"
-}
-
-# @FUNCTION: ghc-supports-dynamic-by-default
-# @DESCRIPTION:
-# checks if ghc links against shared haskell libraries by default
-ghc-supports-dynamic-by-default() {
-	$(ghc-getghc) --info | grep "Dynamic by default" | grep -q "YES"
 }
 
 # @FUNCTION: ghc-supports-interpreter
@@ -173,6 +179,25 @@ ghc-libdir() {
 	echo "${_GHC_LIBDIR_CACHE}"
 }
 
+# @FUNCTION: ghc-make-args
+# @DESCRIPTION:
+# Returns default arguments passed along 'ghc --make'
+# build mode. Used mainly to enable parallel build mode.
+ghc-make-args() {
+	local ghc_make_args=()
+	# parallel on all available cores
+	if ghc-supports-smp && ghc-supports-parallel-make; then
+		# It should have been just -j$(makeopts_jobs)
+		# but GHC does not yet have nice defaults:
+		#    https://ghc.haskell.org/trac/ghc/ticket/9221#comment:57
+		# SMP is a requirement for parallel GC's gen0
+		# 'qb' balancing.
+		echo "-j$(makeopts_jobs) +RTS -A256M -qb0 -RTS"
+		ghc_make_args=()
+	fi
+	echo "${ghc_make_args[@]}"
+}
+
 # @FUNCTION: ghc-confdir
 # @DESCRIPTION:
 # returns the (Gentoo) library configuration directory, we
@@ -205,7 +230,8 @@ ghc-package-exists() {
 }
 
 # @FUNCTION: check-for-collisions
-# @DESCRIPTION: makes sure no packages
+# @DESCRIPTION:
+# makes sure no packages
 # have the same version as initial package setup
 check-for-collisions() {
 	local localpkgconf=$1
@@ -218,8 +244,8 @@ check-for-collisions() {
 		local collided=`$(ghc-getghcpkgbin) -f ${initial_pkg_db} list --simple-output "${checked_pkg}"`
 
 		if [[ -n ${collided} ]]; then
-			eerror "Package ${checked_pkg} is shipped with $(ghc-version)."
-			eerror "Ebuild author forgot CABAL_CORE_LIB_GHC_PV entry."
+			eerror "Cabal package '${checked_pkg}' is shipped with '$(ghc-pm-version)' ('$(ghc-version)')."
+			eerror "Ebuild author forgot an entry in CABAL_CORE_LIB_GHC_PV='${CABAL_CORE_LIB_GHC_PV}'."
 			eerror "Found in ${initial_pkg_db}."
 			die
 		fi

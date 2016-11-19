@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/freedroid/freedroid-1.0.2.ebuild,v 1.13 2015/02/11 04:50:46 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -11,16 +11,21 @@ SRC_URI="mirror://sourceforge/freedroid/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ppc x86"
+KEYWORDS="amd64 ppc x86"
 IUSE=""
 
 DEPEND="media-libs/libsdl[joystick,sound,video]
-	virtual/jpeg
+	virtual/jpeg:0
 	sys-libs/zlib
 	media-libs/libpng:0
 	media-libs/sdl-image[jpeg,png]
 	media-libs/sdl-mixer[mod,vorbis]
 	media-libs/libvorbis"
+RDEPEND=${DEPEND}
+
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-format.patch
+}
 
 src_install() {
 	default

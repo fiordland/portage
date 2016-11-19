@@ -1,16 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/bzr-fastimport/bzr-fastimport-0.13.0.ebuild,v 1.5 2014/12/28 18:39:43 floppym Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit distutils-r1
 
 DESCRIPTION="Plugin providing fast loading of revision control data into Bazaar"
 HOMEPAGE="https://launchpad.net/bzr-fastimport http://wiki.bazaar.canonical.com/BzrFastImport"
-SRC_URI="http://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.gz"
+SRC_URI="https://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -24,7 +24,6 @@ DEPEND=""
 DOCS=( NEWS README.txt doc/notes.txt )
 
 pkg_postinst() {
-	distutils_pkg_postinst
 	elog "These commands need additional dependencies:"
 	elog
 	elog "bzr fast-export-from-darcs:  dev-vcs/darcs"

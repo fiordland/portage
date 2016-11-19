@@ -1,10 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/ferret/ferret-0.11.8.6.ebuild,v 1.1 2015/02/21 04:52:48 mrueg Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20 ruby21 ruby22"
+USE_RUBY="ruby20 ruby21 ruby22"
 
 RUBY_FAKEGEM_NAME="ferret"
 
@@ -32,6 +32,11 @@ all_ruby_prepare() {
 	# Remove bundled bzlib code and use system version instead.
 	rm ext/BZLIB* ext/bzlib* || die
 	sed -i -e '14i  $LDFLAGS += " -lbz2 "' ext/extconf.rb || die
+
+	# Avoid test known to fail upstream:
+	# https://github.com/jkraemer/ferret/issues/2
+	sed -i -e '/test_adding_long_url/,/^  end/ s:^:#:' \
+		test/unit/index/tc_index_writer.rb || die
 }
 
 each_ruby_configure() {

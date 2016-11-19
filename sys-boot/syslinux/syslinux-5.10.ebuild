@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/syslinux/syslinux-5.10.ebuild,v 1.5 2014/10/30 10:02:21 ago Exp $
+# $Id$
 
 EAPI=4
 
@@ -63,7 +63,7 @@ src_prepare() {
 }
 
 src_compile() {
-	emake CC=$(tc-getCC) installer
+	emake CC="$(tc-getCC)" installer
 }
 
 src_install() {

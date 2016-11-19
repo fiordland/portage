@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Cache-Memcached-Fast/Cache-Memcached-Fast-0.230.0.ebuild,v 1.1 2014/12/03 00:31:37 dilfridge Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,9 +14,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-SRC_TEST="do"
+PATCHES=(
+	"${FILESDIR}/${PV}-parallel-make.patch"
+)
 
-MAKEOPTS="${MAKEOPTS} -j1"
+SRC_TEST="do"
 
 DEPEND="
 	virtual/perl-ExtUtils-MakeMaker

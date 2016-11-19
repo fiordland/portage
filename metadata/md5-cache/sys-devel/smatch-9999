@@ -6,5 +6,5 @@ HOMEPAGE=http://smatch.sourceforge.net/
 LICENSE=OSL-1.1
 RDEPEND=dev-db/sqlite
 SLOT=0
-_eclasses_=git-2	e28f0d8a9b321431b1e699782851b827	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=04754b241f84d25a4fb064dbcf32558c
+_eclasses_=git-2	7af5d170bfc02983b4bcd3167dc5edd4	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=97d6523a41b3700450988b241659b9a9

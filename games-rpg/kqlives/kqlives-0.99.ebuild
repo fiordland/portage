@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/kqlives/kqlives-0.99.ebuild,v 1.7 2015/03/01 18:12:56 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -20,7 +20,7 @@ RDEPEND=">=x11-libs/gtk+-2.8:2
 	>=gnome-base/libglade-2.4
 	media-libs/allegro:0
 	media-libs/aldumb
-	dev-lang/lua
+	dev-lang/lua:0
 	nls? ( virtual/libintl )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig

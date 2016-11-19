@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/rear/rear-1.15-r1.ebuild,v 1.2 2014/08/10 01:54:00 patrick Exp $
+# $Id$
 
 EAPI="5"
 
@@ -14,9 +14,11 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="udev"
+IUSE="libressl udev"
 
-RDEPEND="dev-libs/openssl
+RDEPEND="
+	!libressl? ( dev-libs/openssl:0= )
+	libressl? ( dev-libs/libressl:0= )
 	net-dialup/mingetty
 	net-fs/nfs-utils
 	sys-apps/iproute2

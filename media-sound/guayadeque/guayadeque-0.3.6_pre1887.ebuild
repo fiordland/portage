@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/guayadeque/guayadeque-0.3.6_pre1887.ebuild,v 1.2 2013/12/29 13:35:47 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -11,7 +11,7 @@ inherit cmake-utils eutils wxwidgets
 DESCRIPTION="Music management program designed for all music enthusiasts"
 HOMEPAGE="http://guayadeque.org/"
 #SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
-SRC_URI="http://sourceforge.net/code-snapshots/svn/g/gu/guayadeque/code/guayadeque-code-1887.zip -> ${P}.zip"
+SRC_URI="https://sourceforge.net/code-snapshots/svn/g/gu/guayadeque/code/guayadeque-code-1887.zip -> ${P}.zip"
 
 LICENSE="GPL-2"
 SLOT="0"

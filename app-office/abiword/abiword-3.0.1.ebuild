@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/abiword/abiword-3.0.1.ebuild,v 1.1 2015/01/14 11:38:16 pacho Exp $
+# $Id$
 
 EAPI=5
 GCONF_DEBUG="yes"
@@ -14,7 +14,7 @@ SRC_URI="http://www.abisource.com/downloads/${PN}/${PV}/source/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="2"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
 IUSE="calendar collab cups eds +goffice grammar +introspection latex map math ots +plugins readline redland spell wordperfect wmf thesaurus"
 
 # You need 'plugins' enabled if want to enable the extra plugins
@@ -28,12 +28,12 @@ RDEPEND="
 	dev-libs/libxslt
 	>=gnome-base/librsvg-2.16:2
 	>=gnome-extra/libgsf-1.14.18
-	>=media-libs/libpng-1.2
-	virtual/jpeg
+	>=media-libs/libpng-1.2:0=
+	virtual/jpeg:0
 	>=x11-libs/cairo-1.10[X]
 	>=x11-libs/gtk+-3.0.8:3[cups?]
-	calendar? ( >=dev-libs/libical-0.46 )
-	eds? ( >=gnome-extra/evolution-data-server-3.6.0 )
+	calendar? ( >=dev-libs/libical-0.46:= )
+	eds? ( >=gnome-extra/evolution-data-server-3.6.0:= )
 	goffice? ( >=x11-libs/goffice-0.10.2:0.10 )
 	introspection? ( >=dev-libs/gobject-introspection-1.0.0 )
 	map? ( >=media-libs/libchamplain-0.12 )
@@ -46,7 +46,7 @@ RDEPEND="
 		grammar? ( >=dev-libs/link-grammar-4.2.1 )
 		math? ( >=x11-libs/gtkmathview-0.7.5 )
 		ots? ( >=app-text/ots-0.5-r1 )
-		readline? ( sys-libs/readline )
+		readline? ( sys-libs/readline:* )
 		thesaurus? ( >=app-text/aiksaurus-1.2[gtk] )
 		wordperfect? (
 			app-text/libwpd:0.9

@@ -1,11 +1,11 @@
 DEFINED_PHASES=configure install preinst prepare unpack
-DEPEND=zlib? ( sys-libs/zlib ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 || ( dev-vcs/subversion[http] dev-vcs/subversion[webdav-neon] dev-vcs/subversion[webdav-serf] ) net-misc/rsync
+DEPEND=zlib? ( sys-libs/zlib ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 || ( dev-vcs/subversion[http] dev-vcs/subversion[webdav-neon] dev-vcs/subversion[webdav-serf] ) net-misc/rsync
 DESCRIPTION=Tool for prepress preparation of PDF and PostScript documents
 EAPI=4
-HOMEPAGE=http://sourceforge.net/projects/pspdftool
+HOMEPAGE=https://sourceforge.net/projects/pspdftool
 IUSE=zlib
 LICENSE=GPL-2
 RDEPEND=zlib? ( sys-libs/zlib )
 SLOT=0
-_eclasses_=autotools	8fc2dd333ef9346c906ffd9a523d8211	eutils	998e5931fb95b10a6a11ec796ada2759	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	subversion	c12bdf4fcc82f86ad89b14c8f76c4026	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=9c5e1611e5be39c3e2ec04571f49b16e
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	b83a2420b796f7c6eff682679d08fe25	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	subversion	750f91bd0705a41b26ba01bcee93aaad	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=501b304640f3f0f4ba7ba14ccc68d9ce

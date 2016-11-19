@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Data-OptList/Data-OptList-0.109.0.ebuild,v 1.3 2015/01/13 06:55:27 zlogene Exp $
+# $Id$
 
 EAPI=5
 
@@ -17,7 +17,6 @@ IUSE="test"
 RDEPEND="dev-perl/Sub-Install
 	dev-perl/Params-Util"
 DEPEND="${RDEPEND}
-	test? ( dev-perl/Test-Pod
-		dev-perl/Test-Pod-Coverage )"
+	test? ( virtual/perl-Test-Simple )"
 
 SRC_TEST=do

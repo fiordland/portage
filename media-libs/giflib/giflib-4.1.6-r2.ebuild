@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/giflib/giflib-4.1.6-r2.ebuild,v 1.4 2014/06/10 01:05:49 vapier Exp $
+# $Id$
 
 EAPI=4
 
 inherit eutils libtool
 
 DESCRIPTION="Library to handle, display and manipulate GIF images"
-HOMEPAGE="http://sourceforge.net/projects/giflib/"
+HOMEPAGE="https://sourceforge.net/projects/giflib/"
 SRC_URI="mirror://sourceforge/giflib/${P}.tar.bz2"
 
 LICENSE="MIT"

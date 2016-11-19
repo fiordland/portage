@@ -1,12 +1,12 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/opencascade/opencascade-6.8.0.ebuild,v 1.1 2015/02/27 14:37:33 xmw Exp $
+# $Id$
 
 EAPI=5
 
 inherit autotools eutils check-reqs multilib java-pkg-opt-2 flag-o-matic
 
-DESCRIPTION="Software development platform for CAD/CAE, 3D surface/solid modeling and data exchange"
+DESCRIPTION="Development platform for CAD/CAE, 3D surface/solid modeling and data exchange"
 HOMEPAGE="http://www.opencascade.org/"
 SRC_URI="http://files.opencascade.com/OCCT/OCC_${PV}_release/opencascade-${PV}.tgz"
 
@@ -15,9 +15,9 @@ SLOT="${PV}"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug doc examples freeimage gl2ps java qt4 +tbb"
 
-DEPEND="app-admin/eselect-opencascade
-	dev-lang/tcl
-	dev-lang/tk
+DEPEND="app-eselect/eselect-opencascade
+	dev-lang/tcl:0=
+	dev-lang/tk:0=
 	dev-tcltk/itcl
 	dev-tcltk/itk
 	dev-tcltk/tix
@@ -27,12 +27,12 @@ DEPEND="app-admin/eselect-opencascade
 	x11-libs/libXmu
 	freeimage? ( media-libs/freeimage )
 	gl2ps? ( x11-libs/gl2ps )
-	java? ( virtual/jdk:= )
+	java? ( >=virtual/jdk-0:= )
 	tbb? ( dev-cpp/tbb )"
 RDEPEND="${DEPEND}"
 
-# http://bugs.gentoo.org/show_bug.cgi?id=352435
-# http://www.gentoo.org/foundation/en/minutes/2011/20110220_trustees.meeting_log.txt
+# https://bugs.gentoo.org/show_bug.cgi?id=352435
+# https://www.gentoo.org/foundation/en/minutes/2011/20110220_trustees.meeting_log.txt
 RESTRICT="bindist mirror"
 
 CHECKREQS_MEMORY="256M"
@@ -139,8 +139,7 @@ src_install() {
 		dosym "$(get_libdir)" "${my_install_dir}/lin/lib"
 	fi
 
-	insinto /etc/env.d/${PN}
-	newins 50${PN} ${PV}
+	newenvd 50${PN} ${PV}
 
 	if use examples ; then
 		insinto /usr/share/doc/${PF}/examples

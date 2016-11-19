@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/crossover-bin/crossover-bin-13.2.0-r2.ebuild,v 1.1 2014/12/20 18:56:20 ryao Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="threads"
 
 inherit python-single-r1 unpacker
@@ -16,7 +16,7 @@ LICENSE="CROSSOVER-2"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
 IUSE="+capi +cups doc +gphoto2 +gsm +jpeg +lcms +ldap +mp3 +nls +openal +opengl +png +scanner +ssl +v4l"
-RESTRICT="fetch test"
+RESTRICT="bindist fetch test"
 QA_FLAGS_IGNORED="opt/cxoffice/.*"
 QA_PRESTRIPPED="opt/cxoffice/lib/.*
 	opt/cxoffice/bin/cxburner
@@ -30,7 +30,17 @@ QA_PRESTRIPPED="opt/cxoffice/lib/.*
 	"
 S="${WORKDIR}"
 
-REGULAR_DEPS="
+DEPEND="dev-lang/perl
+	app-arch/unzip
+	${PYTHON_DEPS}"
+
+RDEPEND="${DEPEND}
+	!prefix? ( sys-libs/glibc )
+	>=dev-python/pygtk-2.10[${PYTHON_USEDEP}]
+	dev-python/dbus-python[${PYTHON_USEDEP}]
+	dev-util/desktop-file-utils
+	!app-emulation/crossover-office-pro-bin
+	!app-emulation/crossover-office-bin
 	capi? ( net-dialup/capi4k-utils )
 	cups? ( net-print/cups[abi_x86_32(-)] )
 	gsm? ( media-sound/gsm[abi_x86_32(-)] )
@@ -63,32 +73,7 @@ REGULAR_DEPS="
 	x11-libs/libXi[abi_x86_32(-)]
 	x11-libs/libXrandr[abi_x86_32(-)]
 	x11-libs/libXxf86vm[abi_x86_32(-)]
-	x11-libs/libxcb[abi_x86_32(-)]
-"
-
-EMUL_DEPS="
-	app-emulation/emul-linux-x86-baselibs[-abi_x86_32(-)]
-	app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)]
-	app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
-	openal? ( app-emulation/emul-linux-x86-sdl[-abi_x86_32(-)] )
-	opengl? ( app-emulation/emul-linux-x86-opengl[-abi_x86_32(-)] )
-	scanner? ( app-emulation/emul-linux-x86-medialibs[-abi_x86_32(-)] )
-	v4l? ( app-emulation/emul-linux-x86-medialibs[-abi_x86_32(-)] )
-"
-
-DEPEND="dev-lang/perl
-	app-arch/unzip
-	${PYTHON_DEPS}"
-
-RDEPEND="${DEPEND}
-	!prefix? ( sys-libs/glibc )
-	>=dev-python/pygtk-2.10[${PYTHON_USEDEP}]
-	dev-python/dbus-python[${PYTHON_USEDEP}]
-	dev-util/desktop-file-utils
-	!app-emulation/crossover-office-pro-bin
-	!app-emulation/crossover-office-bin
-	|| ( ( ${REGULAR_DEPS} ) ( ${EMUL_DEPS} ) )
-	"
+	x11-libs/libxcb[abi_x86_32(-)]"
 
 pkg_nofetch() {
 	einfo "Please visit ${HOMEPAGE}"

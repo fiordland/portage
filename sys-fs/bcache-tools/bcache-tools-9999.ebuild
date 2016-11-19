@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/bcache-tools/bcache-tools-9999.ebuild,v 1.6 2015/02/17 10:21:32 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -25,7 +25,7 @@ src_prepare() {
 	tc-export CC
 	sed \
 		-e '/^CFLAGS/s:-O2::' \
-		-e '/^CFLAGS/s:-g::' \
+		-e '/^CFLAGS/s:-g:-std=gnu89:' \
 		-i Makefile || die
 }
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/tvheadend/tvheadend-3.4.27.ebuild,v 1.3 2014/07/06 00:58:47 twitch153 Exp $
+# $Id$
 
 EAPI=5
 
@@ -20,10 +20,12 @@ IUSE="avahi +dvb +dvbscan ffmpeg imagecache inotify xmltv zlib"
 
 REQUIRED_USE="dvbscan? ( dvb )"
 
-DEPEND="dev-libs/openssl
+# does not build with ffmpeg-3 - bug 574990
+# https://tvheadend.org/issues/3597
+DEPEND="dev-libs/openssl:0=
 	avahi? ( net-dns/avahi )
 	dvb? ( virtual/linuxtv-dvb-headers )
-	ffmpeg? ( virtual/ffmpeg )
+	ffmpeg? ( <media-video/ffmpeg-3:= )
 	imagecache? ( net-misc/curl )
 	zlib? ( sys-libs/zlib )
 	virtual/pkgconfig"
@@ -49,6 +51,10 @@ src_prepare() {
 
 	# remove '-Werror' wrt bug #438424
 	sed -e 's:-Werror::' -i Makefile || die 'sed failed!'
+
+	# imdb changed the search url, bug #536072
+	sed -e 's:akas.imdb.org:akas.imdb.com:' \
+		-i src/webui/static/app/epg.js || die 'sed failed!'
 }
 
 src_configure() {

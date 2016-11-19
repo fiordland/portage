@@ -1,13 +1,13 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/votca-tools/votca-tools-1.2.4.ebuild,v 1.2 2015/01/02 22:05:49 nimiux Exp $
+# $Id$
 
 EAPI="5"
 
 inherit cmake-utils eutils multilib
 
 if [ "${PV}" != "9999" ]; then
-	SRC_URI="http://downloads.votca.googlecode.com/hg/${P}_pristine.tar.gz"
+	SRC_URI="https://downloads.votca.googlecode.com/hg/${P}_pristine.tar.gz"
 else
 	SRC_URI=""
 	inherit mercurial
@@ -19,7 +19,7 @@ HOMEPAGE="http://www.votca.org"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-macos"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-macos"
 IUSE="doc +fftw +gsl sqlite"
 
 RDEPEND="fftw? ( sci-libs/fftw:3.0 )
@@ -29,7 +29,7 @@ RDEPEND="fftw? ( sci-libs/fftw:3.0 )
 	sqlite? ( dev-db/sqlite:3 )"
 
 DEPEND="${RDEPEND}
-	doc? ( || ( <app-doc/doxygen-1.7.6.1[-nodot] >=app-doc/doxygen-1.7.6.1[dot] ) )
+	doc? ( >=app-doc/doxygen-1.7.6.1[dot] )
 	>=app-text/txt2tags-2.5
 	virtual/pkgconfig"
 

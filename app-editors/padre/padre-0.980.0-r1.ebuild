@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/padre/padre-0.980.0-r1.ebuild,v 1.1 2014/08/29 19:12:48 axs Exp $
+# $Id$
 
 EAPI=5
 
@@ -87,7 +87,7 @@ RDEPEND="
 	>=virtual/perl-threads-shared-1.33
 	>=virtual/perl-Time-HiRes-1.97.18
 	>=dev-perl/URI-0
-	>=dev-perl/wxperl-0.990.100
+	>=dev-perl/Wx-0.990.100
 	>=dev-perl/Wx-Perl-ProcessStream-0.28
 	>=dev-perl/Wx-Scintilla-0.340.0
 	>=dev-perl/YAML-Tiny-1.32

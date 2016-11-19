@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/farstream/farstream-0.2.7.ebuild,v 1.3 2015/02/16 10:28:16 pacho Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -10,16 +10,17 @@ PYTHON_COMPAT=( python2_7 )
 inherit gnome2 python-any-r1
 
 DESCRIPTION="Audio/video conferencing framework specifically designed for instant messengers"
-HOMEPAGE="http://www.freedesktop.org/wiki/Software/Farstream"
-SRC_URI="http://freedesktop.org/software/farstream/releases/${PN}/${P}.tar.gz"
+HOMEPAGE="https://www.freedesktop.org/wiki/Software/Farstream"
+SRC_URI="https://freedesktop.org/software/farstream/releases/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
-IUSE="+introspection msn test upnp"
+KEYWORDS="~alpha amd64 arm hppa ~ia64 ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
+IUSE="+introspection test upnp"
 
 SLOT="0.2/5" # .so version
 
 # Tests need shmsink from gst-plugins-bad, which isn't packaged
+# FIXME: do an out-of-tree build for tests if USE=-msn
 RESTRICT="test"
 
 COMMONDEPEND="
@@ -31,10 +32,9 @@ COMMONDEPEND="
 	upnp? ( >=net-libs/gupnp-igd-0.2:= )
 "
 RDEPEND="${COMMONDEPEND}
-	media-libs/gst-plugins-good:1.0
-	media-libs/gst-plugins-bad:1.0
+	>=media-libs/gst-plugins-good-1.4:1.0
+	>=media-libs/gst-plugins-bad-1.4:1.0
 	media-plugins/gst-plugins-libnice:1.0
-	msn? ( media-plugins/gst-plugins-mimic:1.0 )
 "
 DEPEND="${COMMONDEPEND}
 	${PYTHON_DEPS}
@@ -51,7 +51,6 @@ pkg_setup() {
 
 src_configure() {
 	plugins="fsrawconference,fsrtpconference,fsfunnel,fsrtcpfilter,fsvideoanyrate"
-	use msn && plugins="${plugins},fsmsnconference"
 	gnome2_src_configure \
 		--disable-static \
 		$(use_enable introspection) \
@@ -65,14 +64,4 @@ src_compile() {
 	# https://bugzilla.gnome.org/show_bug.cgi?id=744134
 	addpredict /dev
 	gnome2_src_compile
-}
-
-src_test() {
-	# FIXME: do an out-of-tree build for tests if USE=-msn
-	if ! use msn; then
-		elog "Tests disabled without msn use flag"
-		return
-	fi
-
-	emake -j1 check
 }

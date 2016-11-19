@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/qt4-fsarchiver/qt4-fsarchiver-0.6.19.6.ebuild,v 1.3 2014/10/30 10:02:57 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -61,6 +61,6 @@ pkg_postinst() {
 	elog "  sys-fs/ntfs3g[ntfsprogs]"
 	elog "  sys-fs/reiser4progs"
 	elog "  sys-fs/reiserfsprogs"
-	elog "  sys-fs/sshfs-fuse"
+	elog "  net-fs/sshfs"
 	elog "  sys-fs/xfsprogs"
 }

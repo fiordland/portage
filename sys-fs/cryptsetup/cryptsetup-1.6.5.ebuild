@@ -1,15 +1,15 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/cryptsetup/cryptsetup-1.6.5.ebuild,v 1.16 2014/11/01 01:08:12 vapier Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 
 inherit autotools python-single-r1 linux-info libtool eutils versionator
 
 DESCRIPTION="Tool to setup encrypted devices with dm-crypt"
-HOMEPAGE="http://code.google.com/p/cryptsetup/"
-SRC_URI="http://cryptsetup.googlecode.com/files/${P}.tar.xz"
+HOMEPAGE="https://code.google.com/p/cryptsetup/"
+SRC_URI="https://cryptsetup.googlecode.com/files/${P}.tar.xz"
 SRC_URI="mirror://kernel/linux/utils/${PN}/v$(get_version_component_range 1-2)/${P}.tar.xz"
 
 LICENSE="GPL-2+"
@@ -18,7 +18,7 @@ KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86"
 CRYPTO_BACKENDS="+gcrypt kernel nettle openssl"
 # we don't support nss since it doesn't allow cryptsetup to be built statically
 # and it's missing ripemd160 support so it can't provide full backward compatibility
-IUSE="${CRYPTO_BACKENDS} nls python reencrypt static static-libs udev urandom"
+IUSE="${CRYPTO_BACKENDS} nls pwquality python reencrypt static static-libs udev urandom"
 REQUIRED_USE="^^ ( ${CRYPTO_BACKENDS//+/} )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	static? ( !gcrypt )" #496612
@@ -29,6 +29,7 @@ LIB_DEPEND="dev-libs/libgpg-error[static-libs(+)]
 	gcrypt? ( dev-libs/libgcrypt:0=[static-libs(+)] )
 	nettle? ( >=dev-libs/nettle-2.4[static-libs(+)] )
 	openssl? ( dev-libs/openssl[static-libs(+)] )
+	pwquality? ( dev-libs/libpwquality[static-libs(+)] )
 	sys-fs/lvm2[static-libs(+)]
 	udev? ( virtual/libudev[static-libs(+)] )"
 # We have to always depend on ${LIB_DEPEND} rather than put behind
@@ -69,6 +70,7 @@ src_configure() {
 		$(use_enable static static-cryptsetup) \
 		$(use_enable static-libs static) \
 		$(use_enable nls) \
+		$(use_enable pwquality) \
 		$(use_enable python) \
 		$(use_enable reencrypt cryptsetup-reencrypt) \
 		$(use_enable udev) \
@@ -117,6 +119,6 @@ pkg_postinst() {
 		elog "Users using cryptsetup-1.0.x (dm-crypt plain) volumes must use"
 		elog "a compatibility mode when using cryptsetup-1.1.x. This can be"
 		elog "done by specifying the cipher (-c), key size (-s) and hash (-h)."
-		elog "For more info, see http://code.google.com/p/cryptsetup/wiki/FrequentlyAskedQuestions#6._Issues_with_Specific_Versions_of_cryptsetup"
+		elog "For more info, see https://gitlab.com/cryptsetup/cryptsetup/wikis/FrequentlyAskedQuestions#8-issues-with-specific-versions-of-cryptsetup"
 	fi
 }

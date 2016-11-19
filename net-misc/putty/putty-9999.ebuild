@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/putty/putty-9999.ebuild,v 1.2 2014/11/15 13:38:10 jer Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils gnome2-utils git-r3 toolchain-funcs
@@ -8,7 +8,7 @@ inherit autotools eutils gnome2-utils git-r3 toolchain-funcs
 DESCRIPTION="A Free Telnet/SSH Client"
 HOMEPAGE="http://www.chiark.greenend.org.uk/~sgtatham/putty/"
 EGIT_REPO_URI="git://git.tartarus.org/simon/putty.git"
-SRC_URI="http://dev.gentoo.org/~jer/${PN}-icons.tar.bz2"
+SRC_URI="https://dev.gentoo.org/~jer/${PN}-icons.tar.bz2"
 LICENSE="MIT"
 
 SLOT="0"
@@ -17,12 +17,14 @@ IUSE="doc +gtk ipv6 kerberos"
 
 RDEPEND="
 	!net-misc/pssh
-	kerberos? ( virtual/krb5 )
-	gtk? ( x11-libs/gdk-pixbuf
+	gtk? (
+		dev-libs/glib:2
+		x11-libs/gdk-pixbuf
 		x11-libs/gtk+:2
 		x11-libs/libX11
 		x11-libs/pango
-		dev-libs/glib )
+	)
+	kerberos? ( virtual/krb5 )
 "
 DEPEND="
 	${RDEPEND}

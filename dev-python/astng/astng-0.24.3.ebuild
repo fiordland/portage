@@ -1,20 +1,20 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/astng/astng-0.24.3.ebuild,v 1.12 2014/12/31 16:18:54 ago Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_3,3_4} pypy )
+PYTHON_COMPAT=( python{2_7,3_4} pypy )
 
 inherit distutils-r1
 
 DESCRIPTION="Abstract Syntax Tree for logilab packages"
-HOMEPAGE="http://www.logilab.org/project/logilab-astng http://pypi.python.org/pypi/logilab-astng"
+HOMEPAGE="http://www.logilab.org/project/logilab-astng https://pypi.python.org/pypi/logilab-astng"
 SRC_URI="ftp://ftp.logilab.org/pub/astng/logilab-${P}.tar.gz mirror://pypi/l/logilab-astng/logilab-${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~ia64 ppc ~ppc64 ~sparc x86 ~x64-macos ~x86-macos"
+KEYWORDS="alpha amd64 arm ia64 ppc ppc64 sparc x86 ~x64-macos ~x86-macos"
 IUSE="test"
 
 # Version specified in __pkginfo__.py.

@@ -1,13 +1,13 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/gsl/gsl-1.14.ebuild,v 1.10 2013/02/21 21:36:16 jlec Exp $
+# $Id$
 
 EAPI="3"
 
 inherit autotools eutils flag-o-matic toolchain-funcs
 
 DESCRIPTION="The GNU Scientific Library"
-HOMEPAGE="http://www.gnu.org/software/gsl/"
+HOMEPAGE="https://www.gnu.org/software/gsl/"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
@@ -17,7 +17,7 @@ IUSE="cblas-external"
 
 RDEPEND="cblas-external? ( virtual/cblas )"
 DEPEND="${RDEPEND}
-	app-admin/eselect-cblas
+	app-eselect/eselect-cblas
 	virtual/pkgconfig"
 
 pkg_setup() {
@@ -84,4 +84,8 @@ pkg_postinst() {
 		elog "To use ${p} ${ESELECT_PROF} implementation, you have to issue (as root):"
 		elog "\t eselect ${p} set ${ESELECT_PROF}"
 	fi
+}
+
+src_test() {
+	emake -j1 check || die
 }

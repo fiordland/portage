@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
-DEPEND=dev-db/sqlite:3 >=dev-games/openscenegraph-3.2.0[png] ~dev-games/simgear-3.4.0 media-libs/openal media-libs/speex media-sound/gsm sys-libs/zlib x11-libs/libX11 dbus? ( >=sys-apps/dbus-1.6.18-r1 ) qt5? ( >=dev-qt/qtcore-5.4.1:5 >=dev-qt/qtgui-5.4.1:5 >=dev-qt/qtwidgets-5.4.1:5 ) udev? ( virtual/udev ) utils? ( media-libs/freeglut media-libs/libpng:0 virtual/opengl ) >=dev-libs/boost-1.44 >=media-libs/plib-1.8.5 sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 )
+DEPEND=dev-db/sqlite:3 >=dev-games/openscenegraph-3.2.0[png] ~dev-games/simgear-3.4.0 media-libs/openal media-libs/speex media-sound/gsm sys-libs/zlib x11-libs/libX11 dbus? ( >=sys-apps/dbus-1.6.18-r1 ) qt5? ( >=dev-qt/qtcore-5.4.1:5 >=dev-qt/qtgui-5.4.1:5 >=dev-qt/qtwidgets-5.4.1:5 ) udev? ( virtual/udev ) utils? ( media-libs/freeglut media-libs/libpng:0 virtual/opengl ) >=dev-libs/boost-1.44 >=media-libs/plib-1.8.5 sys-devel/make >=dev-util/cmake-2.8.12
 DESCRIPTION=Open Source Flight Simulator
 EAPI=5
 HOMEPAGE=http://www.flightgear.org/
 IUSE=dbus debug examples +jsbsim oldfdm qt5 test +udev +utils vim-syntax +yasim
-KEYWORDS=~amd64 ~ppc ~x86
+KEYWORDS=amd64 ~ppc x86
 LICENSE=GPL-2
 RDEPEND=dev-db/sqlite:3 >=dev-games/openscenegraph-3.2.0[png] ~dev-games/simgear-3.4.0 media-libs/openal media-libs/speex media-sound/gsm sys-libs/zlib x11-libs/libX11 dbus? ( >=sys-apps/dbus-1.6.18-r1 ) qt5? ( >=dev-qt/qtcore-5.4.1:5 >=dev-qt/qtgui-5.4.1:5 >=dev-qt/qtwidgets-5.4.1:5 ) udev? ( virtual/udev ) utils? ( media-libs/freeglut media-libs/libpng:0 virtual/opengl ) ~games-simulation/flightgear-data-3.4.0 games-misc/games-envd
 SLOT=0
 SRC_URI=mirror://flightgear/Source/flightgear-3.4.0.tar.bz2
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	bash-completion-r1	c8399c7c7ecbcf7ed6e5bd3abb3d4af3	cmake-utils	0430c386d85cec959d72640afd63ea91	eutils	998e5931fb95b10a6a11ec796ada2759	flag-o-matic	c263990f1b677b0f0be0a3299f179762	games	1ad3205dbf62a2c98249f2f59b0a2d39	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	user	f54e098dd38ba1c0847a13e685b87747
-_md5_=adba225bea3fbd211814e42584d551d0
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	bash-completion-r1	acf715fa09463f043fbfdc1640f3fb85	cmake-utils	f3d38665b0a86e08ba3a5473cdbfafd3	eutils	b83a2420b796f7c6eff682679d08fe25	flag-o-matic	7366202dd55cb8f018f5d450d54e7749	games	2cf0d67d765e6358b435ccda30c13ad8	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	user	80aaa71614ced86f02ee1a513821dc87	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=71fc0ea6bed23d5e3014cc26ba7d2671

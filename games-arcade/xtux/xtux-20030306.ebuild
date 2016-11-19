@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/xtux/xtux-20030306.ebuild,v 1.19 2015/01/06 09:52:04 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -15,7 +15,8 @@ KEYWORDS="amd64 ~ppc x86"
 IUSE=""
 
 DEPEND="x11-libs/libXpm"
-RDPENED="${DEPEND}"
+RDEPEND=${DEPEND}
+
 S=${WORKDIR}/${PN}
 
 src_prepare() {

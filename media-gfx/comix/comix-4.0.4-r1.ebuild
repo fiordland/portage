@@ -1,10 +1,10 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/comix/comix-4.0.4-r1.ebuild,v 1.5 2015/02/25 15:28:13 ago Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 PLOCALES="ca cs es fr hr hu id ja ko pl pt_BR ru sv zh_CN zh_TW"
 
 inherit eutils fdo-mime gnome2-utils l10n python-single-r1
@@ -19,7 +19,7 @@ KEYWORDS="amd64 ppc x86 ~x86-fbsd"
 IUSE="rar"
 
 DEPEND="${PYTHON_DEPS}
-	virtual/python-imaging[${PYTHON_USEDEP}]
+	dev-python/pillow[${PYTHON_USEDEP}]
 	>=dev-python/pygtk-2.12[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}
 	rar? ( || ( app-arch/unrar app-arch/rar ) )"

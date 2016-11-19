@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/restkit/restkit-4.2.2.ebuild,v 1.4 2015/01/16 13:52:17 idella4 Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,12 +9,12 @@ PYTHON_COMPAT=( python2_7 pypy )
 inherit distutils-r1
 
 DESCRIPTION="A HTTP ressource kit for Python"
-HOMEPAGE="http://github.com/benoitc/restkit"
+HOMEPAGE="https://github.com/benoitc/restkit"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 arm ppc ppc64 ~s390 ~sh x86"
 IUSE="+cli doc examples test"
 
 PY27_USEDEP="$(python_gen_usedep python2_7)"

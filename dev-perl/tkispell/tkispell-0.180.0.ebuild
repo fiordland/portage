@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/tkispell/tkispell-0.180.0.ebuild,v 1.1 2014/10/11 08:48:22 dilfridge Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,7 +16,7 @@ IUSE=""
 
 RDEPEND="
 	app-text/aspell
-	dev-perl/perl-tk
+	dev-perl/Tk
 	virtual/perl-Carp
 "
 DEPEND="${RDEPEND}"

@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-board/ascal/ascal-0.1.1.ebuild,v 1.7 2014/10/30 05:22:38 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
-inherit autotools eutils games
+inherit autotools eutils flag-o-matic games
 
 DESCRIPTION="A game similar to Draughts but with some really cool enhancements"
 HOMEPAGE="http://ascal.sourceforge.net/"
@@ -24,6 +24,11 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-install.patch \
 		"${FILESDIR}"/${P}-gcc43.patch
 	eautoreconf
+}
+
+src_configure() {
+	append-cxxflags -std=c++11
+	egamesconf
 }
 
 src_install() {

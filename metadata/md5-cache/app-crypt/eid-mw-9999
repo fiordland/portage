@@ -1,11 +1,12 @@
 DEFINED_PHASES=configure install prepare unpack
-DEPEND=gtk? ( x11-libs/gtk+:2 ) >=sys-apps/pcsc-lite-1.2.9 xpi? ( || ( >=www-client/firefox-bin-3.6.24 >=www-client/firefox-3.6.20 ) ) !app-misc/beid-runtime virtual/pkgconfig app-arch/unzip dev-vcs/git !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-DESCRIPTION=Belgian Electronic Identity Card middleware supplied by the Belgian Federal Government
-EAPI=5
+DEPEND=gtk? ( x11-libs/gtk+:= ) >=sys-apps/pcsc-lite-1.2.9 net-libs/libproxy xpi? ( || ( >=www-client/firefox-bin-3.6.24 >=www-client/firefox-3.6.20 ) ) !app-misc/beid-runtime virtual/pkgconfig !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 app-arch/unzip >=dev-vcs/git-1.8.2.1
+DESCRIPTION=Electronic Identity Card middleware supplied by the Belgian Federal Government
+EAPI=6
 HOMEPAGE=http://eid.belgium.be
-IUSE=+gtk +xpi
+IUSE=+gtk +xpi +dialogs
 LICENSE=LGPL-3
-RDEPEND=gtk? ( x11-libs/gtk+:2 ) >=sys-apps/pcsc-lite-1.2.9 xpi? ( || ( >=www-client/firefox-bin-3.6.24 >=www-client/firefox-3.6.20 ) ) !app-misc/beid-runtime
+RDEPEND=gtk? ( x11-libs/gtk+:= ) >=sys-apps/pcsc-lite-1.2.9 net-libs/libproxy xpi? ( || ( >=www-client/firefox-bin-3.6.24 >=www-client/firefox-3.6.20 ) ) !app-misc/beid-runtime
+REQUIRED_USE=dialogs? ( gtk )
 SLOT=0
-_eclasses_=autotools	8fc2dd333ef9346c906ffd9a523d8211	eutils	998e5931fb95b10a6a11ec796ada2759	git-2	e28f0d8a9b321431b1e699782851b827	libtool	52d0e17251d04645ffaa61bfdd858944	mozextension	ba6829881080a663d68531424a3dfbc6	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	versionator	cd0bcdb170807e4a1984115e9d53a26f
-_md5_=11c665c1558741b534f58d046eb8ccbf
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	e928b84a9f6f1d9076d1d27687876dc6	libtool	4890219c51da247200223277f993e054	mozextension	3d8ee4835f89ff39d4666656aa603433	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=0fd6b5f7b650da6ccbddc6acde4736fc

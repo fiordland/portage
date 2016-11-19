@@ -1,22 +1,19 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-frameworks/kf-env/kf-env-3.ebuild,v 1.2 2015/02/01 18:01:48 kensington Exp $
+# $Id$
 
 EAPI=5
 
 DESCRIPTION="Environment setting required for all KDE Frameworks apps to run"
-HOMEPAGE="http://community.kde.org/Frameworks"
+HOMEPAGE="https://community.kde.org/Frameworks"
 SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="5"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~arm ~arm64 x86"
 IUSE=""
 
-DEPEND=""
-RDEPEND="${DEPEND}
-	x11-misc/xdg-utils
-"
+RDEPEND=">=x11-misc/xdg-utils-1.1.0_rc3_p20150119"
 
 S=${WORKDIR}
 

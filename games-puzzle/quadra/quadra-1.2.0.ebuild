@@ -1,17 +1,17 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/quadra/quadra-1.2.0.ebuild,v 1.5 2015/02/11 21:31:37 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
 
 DESCRIPTION="A tetris clone with multiplayer support"
-HOMEPAGE="http://code.google.com/p/quadra/"
-SRC_URI="http://quadra.googlecode.com/files/${P}.tar.gz"
+HOMEPAGE="https://code.google.com/p/quadra/"
+SRC_URI="https://quadra.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc x86"
+KEYWORDS="amd64 ~ppc x86"
 IUSE=""
 
 RDEPEND="x11-libs/libX11
@@ -29,6 +29,7 @@ src_prepare() {
 		-e "/^libgamesdir:=/s:/games:/${PN}:" \
 		-e "/^datagamesdir:=/s:/games:/${PN}:" \
 		config/config.mk.in || die
+	epatch "${FILESDIR}"/${P}-format.patch
 }
 
 src_install() {

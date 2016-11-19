@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-xineliboutput/vdr-xineliboutput-9999.ebuild,v 1.20 2015/02/21 02:14:47 hd_brummy Exp $
+# $Id$
 
 EAPI=5
 GENTOO_VDR_CONDITIONAL=yes
@@ -8,7 +8,7 @@ GENTOO_VDR_CONDITIONAL=yes
 inherit vdr-plugin-2 cvs toolchain-funcs
 
 DESCRIPTION="Video Disk Recorder Xinelib PlugIn"
-HOMEPAGE="http://sourceforge.net/projects/xineliboutput/"
+HOMEPAGE="https://sourceforge.net/projects/xineliboutput/"
 
 ECVS_SERVER="xineliboutput.cvs.sourceforge.net:/cvsroot/xineliboutput"
 ECVS_MODULE="${PN}"
@@ -131,7 +131,7 @@ src_install() {
 		fi
 
 		if use xine; then
-			doinit "${FILESDIR}"/vdr-frontend
+			doinitd "${FILESDIR}"/vdr-frontend
 
 			insinto $XINE_PLUGIN_DIR
 			doins xineplug_inp_xvdr.so

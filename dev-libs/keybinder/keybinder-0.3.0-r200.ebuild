@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/keybinder/keybinder-0.3.0-r200.ebuild,v 1.9 2012/11/28 09:48:45 ssuominen Exp $
+# $Id$
 
 EAPI=4
 
@@ -9,8 +9,8 @@ PYTHON_DEPEND="python? 2:2.6"
 inherit eutils python
 
 DESCRIPTION="A library for registering global keyboard shortcuts"
-HOMEPAGE="http://kaizer.se/wiki/keybinder/"
-SRC_URI="http://kaizer.se/publicfiles/${PN}/${P}.tar.gz"
+HOMEPAGE="https://github.com/engla/keybinder"
+SRC_URI="mirror://gentoo/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -51,7 +51,7 @@ src_configure() {
 		$(use_enable introspection) \
 		$(use_enable python) \
 		${myconf} \
-		--with-html-dir=/usr/share/doc/${PF}/html
+		--with-html-dir="${EPREFIX}/usr/share/doc/${PF}/html"
 }
 
 src_install() {

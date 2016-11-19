@@ -1,12 +1,12 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-simulation/lincity-ng/lincity-ng-2.0.ebuild,v 1.11 2015/02/05 08:16:11 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit eutils multiprocessing games
 
 DESCRIPTION="city/country simulation game for X and opengl"
-HOMEPAGE="http://sourceforge.net/projects/lincity-ng.berlios/"
+HOMEPAGE="https://sourceforge.net/projects/lincity-ng.berlios/"
 SRC_URI="mirror://sourceforge/lincity-ng.berlios/${P}.tar.bz2"
 
 LICENSE="GPL-2 BitstreamVera"

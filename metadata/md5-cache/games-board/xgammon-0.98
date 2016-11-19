@@ -1,12 +1,12 @@
-DEFINED_PHASES=compile configure postinst prepare
+DEFINED_PHASES=compile configure install postinst preinst prepare setup unpack
 DEPEND=x11-libs/libXaw app-text/rman x11-misc/imake
 DESCRIPTION=very nice backgammon game for X
 EAPI=5
 HOMEPAGE=http://fawn.unibw-hamburg.de/steuer/xgammon/xgammon.html
 KEYWORDS=amd64 ppc sparc x86
 LICENSE=GPL-2
-RDEPEND=x11-libs/libXaw
+RDEPEND=x11-libs/libXaw games-misc/games-envd
 SLOT=0
 SRC_URI=http://fawn.unibw-hamburg.de/steuer/xgammon/Downloads/xgammon-0.98a.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=b41b0141e8c78bcfa403bb35eba5fdad
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	b83a2420b796f7c6eff682679d08fe25	games	2cf0d67d765e6358b435ccda30c13ad8	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	user	80aaa71614ced86f02ee1a513821dc87
+_md5_=bd647ab929f11188b9ef8eaa992d9cb5

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/depend.apache.eclass,v 1.47 2012/04/20 07:22:47 patrick Exp $
+# $Id$
 
 # @ECLASS: depend.apache.eclass
 # @MAINTAINER:
@@ -41,6 +41,21 @@
 # @CODE
 
 inherit multilib
+
+case ${EAPI:-0} in
+	0|1|2|3|4|5)
+		;;
+	6)
+		ewarn
+		ewarn "EAPI=${EAPI} is not supported by depend.apache.eclass."
+		ewarn "This means that ${CATEGORY}/${PF} is most likely buggy."
+		ewarn "Please file a report on https://bugs.gentoo.org/"
+		ewarn
+		;;
+	*)
+		die "EAPI=${EAPI} is not supported by depend.apache.eclass"
+		;;
+esac
 
 # ==============================================================================
 # INTERNAL VARIABLES

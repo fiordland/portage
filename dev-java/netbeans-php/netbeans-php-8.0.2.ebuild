@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/netbeans-php/netbeans-php-8.0.2.ebuild,v 1.2 2015/02/04 21:39:21 fordfrog Exp $
+# $Id$
 
 EAPI="4"
 inherit eutils java-pkg-2 java-ant-2
@@ -10,12 +10,12 @@ HOMEPAGE="http://netbeans.org/projects/php"
 SLOT="8.0"
 SOURCE_URL="http://download.netbeans.org/netbeans/8.0.2/final/zip/netbeans-8.0.2-201411181905-src.zip"
 SRC_URI="${SOURCE_URL}
-	http://dev.gentoo.org/~fordfrog/distfiles/netbeans-8.0.2-build.xml.patch.bz2
+	https://dev.gentoo.org/~fordfrog/distfiles/netbeans-8.0.2-build.xml.patch.bz2
 	http://hg.netbeans.org/binaries/0702230EB3354A1687E4496D73A94F33A1E343BD-phpdocdesc.zip
 	http://hg.netbeans.org/binaries/BFB982F9B33E2F1A1766C212C8208793F9B7E77C-phpsigfiles.zip
 	http://hg.netbeans.org/binaries/3D6AF75EA20D715887DAF47A3F063864EF0814C1-predefined_vars.zip"
-LICENSE="|| ( CDDL GPL-2-with-linking-exception )"
-KEYWORDS="~amd64 ~x86"
+LICENSE="|| ( CDDL GPL-2-with-classpath-exception )"
+KEYWORDS="amd64 x86"
 IUSE=""
 S="${WORKDIR}"
 

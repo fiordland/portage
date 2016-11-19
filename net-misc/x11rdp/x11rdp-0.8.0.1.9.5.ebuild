@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/x11rdp/x11rdp-0.8.0.1.9.5.ebuild,v 1.1 2014/10/27 10:21:40 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ XORG_P=xorg-server-$(get_version_component_range 4-6)
 DESCRIPTION="A X11 server for RDP clients (used by xrdp)"
 HOMEPAGE="http://www.xrdp.org/"
 # mirrored from https://github.com/neutrinolabs/xrdp/releases
-SRC_URI="http://dev.gentoo.org/~mgorny/dist/${XRDP_P}.tar.xz
+SRC_URI="https://dev.gentoo.org/~mgorny/dist/${XRDP_P}.tar.xz
 	http://xorg.freedesktop.org/releases/individual/xserver/${XORG_P}.tar.bz2"
 
 LICENSE="Apache-2.0 MIT"
@@ -37,7 +37,8 @@ RDEPEND="dev-libs/openssl
 	>=x11-misc/xkeyboard-config-1.4
 	>=x11-libs/libX11-1.1.5
 	>=x11-libs/libXext-1.0.5
-	>=media-libs/mesa-7.8_rc[nptl=]"
+	>=media-libs/mesa-7.8_rc[nptl=]
+	<x11-base/xorg-server-1.17"
 
 DEPEND="${RDEPEND}
 	sys-devel/flex

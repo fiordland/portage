@@ -1,10 +1,10 @@
-DEFINED_PHASES=install test unpack
-DEPEND=test? ( =dev-lang/python-2* ) >=dev-vcs/git-1.8.2.1
+DEFINED_PHASES=prepare setup unpack
+DEPEND=test? ( || ( >=dev-lang/python-2.7.5-r2:2.7 ) ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1
 DESCRIPTION=C/C++/C#/D/Java/Pawn code indenter and beautifier
-EAPI=5
+EAPI=6
 HOMEPAGE=http://uncrustify.sourceforge.net/
 IUSE=test
 LICENSE=GPL-2
 SLOT=0
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	git-r3	3a2bd0ae504c33a50061885480f3def3	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=2a07e19aba297d152b487ba7687d9165
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	e928b84a9f6f1d9076d1d27687876dc6	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	python-any-r1	1c20f9b800324335a8e3b137363362e8	python-utils-r1	d142329ab093dd20c1dd0edb5f094108	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=dac9f465224f4edf61189ae44c6da39b

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libcdr/libcdr-0.0.16.ebuild,v 1.2 2015/02/15 14:51:34 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ inherit base eutils
 [[ ${PV} == 9999 ]] && inherit autotools git-2
 
 DESCRIPTION="Library parsing the Corel cdr documents"
-HOMEPAGE="http://www.freedesktop.org/wiki/Software/libcdr"
+HOMEPAGE="https://www.freedesktop.org/wiki/Software/libcdr"
 [[ ${PV} == 9999 ]] || SRC_URI="http://dev-www.libreoffice.org/src/${P}.tar.xz"
 
 LICENSE="MPL-2.0"

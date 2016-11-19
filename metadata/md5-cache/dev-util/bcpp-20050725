@@ -1,9 +1,10 @@
 DEFINED_PHASES=install postinst unpack
 DESCRIPTION=Indents C/C++ source code
+EAPI=0
 HOMEPAGE=http://invisible-island.net/bcpp/
 KEYWORDS=amd64 ppc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos
 LICENSE=GPL-2
 SLOT=0
 SRC_URI=ftp://invisible-island.net/bcpp/bcpp-20050725.tgz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=c8e775065aac8940cbfd11fa158d4f39
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=25f8393c0719805f2bf4a157a7709757

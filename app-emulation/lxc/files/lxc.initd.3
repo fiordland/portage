@@ -1,15 +1,17 @@
-#!/sbin/runscript
-# Copyright 1999-2014 Gentoo Foundation
+#!/sbin/openrc-run
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/lxc/files/lxc.initd.3,v 1.1 2014/10/18 17:00:37 hwoarang Exp $
+# $Id$
 
 CONTAINER=${SVCNAME#*.}
 
+LXC_PATH=`lxc-config lxc.lxcpath`
+
 lxc_get_configfile() {
-	if [ -f "/etc/lxc/${CONTAINER}.conf" ]; then
-		echo "/etc/lxc/${CONTAINER}.conf"
-	elif [ -f "/etc/lxc/${CONTAINER}/config" ]; then
-		echo "/etc/lxc/${CONTAINER}/config"
+	if [ -f "${LXC_PATH}/${CONTAINER}.conf" ]; then
+		echo "${LXC_PATH}/${CONTAINER}.conf"
+	elif [ -f "${LXC_PATH}/${CONTAINER}/config" ]; then
+		echo "${LXC_PATH}/${CONTAINER}/config"
 	else
 		eerror "Unable to find a suitable configuration file."
 		eerror "If you set up the container in a non-standard"
@@ -77,7 +79,7 @@ depend() {
 
 start() {
 	checkconfig || return 1
-	rm /var/log/lxc/${CONTAINER}.log
+	rm -f /var/log/lxc/${CONTAINER}.log
 
 	rootpath=$(lxc_get_var lxc.rootfs)
 
@@ -109,29 +111,8 @@ stop() {
 	    return 0
 	fi
 
-	init_pid=$(lxc-info -n ${CONTAINER} --pid | awk '{ print $2 }')
-
-	if [ -z "${init_pid}" ]; then
-	    ewarn "${CONTAINER} doesn't seem to be running."
-	    return 0
-	fi
-
-	ebegin "Shutting down system in ${CONTAINER}"
-	kill -PWR ${init_pid}
-	eend $?
-
-	TIMEOUT=${TIMEOUT:-30}
-	i=0
-	while [ -n "$(pgrep -P ${init_pid})" -a $i -lt ${TIMEOUT} ]; do
-		sleep 1
-		i=$(expr $i + 1)
-	done
-
-	if [ -n "${missingprocs}" ]; then
-		ewarn "Something failed to properly shut down in ${CONTAINER}"
-	fi
-
+	# 10s should be enough to shut everything down
 	ebegin "Stopping ${CONTAINER}"
-	lxc-stop -n ${CONTAINER}
+	lxc-stop -t 10 -n ${CONTAINER}
 	eend $?
 }

@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mongodb/mongodb-2.6.8.ebuild,v 1.1 2015/02/27 09:55:48 ultrabug Exp $
+# $Id$
 
 EAPI=5
 SCONS_MIN_VERSION="1.2.0"
@@ -15,11 +15,11 @@ MY_P=${PN}-src-r${PV/_rc/-rc}
 DESCRIPTION="A high-performance, open source, schema-free document-oriented database"
 HOMEPAGE="http://www.mongodb.org"
 SRC_URI="http://downloads.mongodb.org/src/${MY_P}.tar.gz
-	mms-agent? ( http://dev.gentoo.org/~ultrabug/20140409-mms-monitoring-agent.zip )"
+	mms-agent? ( https://dev.gentoo.org/~ultrabug/20140409-mms-monitoring-agent.zip )"
 
 LICENSE="AGPL-3 Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="debug kerberos mms-agent ssl static-libs"
 
 PDEPEND="mms-agent? ( dev-python/pymongo app-arch/unzip )"
@@ -74,6 +74,7 @@ pkg_setup() {
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-2.6.2-fix-scons.patch"
 	epatch "${FILESDIR}/${PN}-2.4-fix-v8-pythonpath.patch"
+	epatch "${FILESDIR}/${PN}-2.6.10-fix-boost-1.57.patch"
 
 	# fix yaml-cpp detection
 	sed -i -e "s/\[\"yaml\"\]/\[\"yaml-cpp\"\]/" SConstruct || die
@@ -83,6 +84,12 @@ src_prepare() {
 
 	# bug #482576
 	sed -i -e "/-Werror/d" src/third_party/v8/SConscript || die
+}
+
+src_configure() {
+	# filter some problematic flags
+	filter-flags "-march=*"
+	filter-flags -O?
 }
 
 src_compile() {
@@ -149,25 +156,29 @@ src_test() {
 }
 
 pkg_postinst() {
-	if [[ ${REPLACING_VERSIONS} < 2.6 ]]; then
-		ewarn "!! IMPORTANT !!"
-		ewarn " "
-		ewarn "${PN} configuration files have changed !"
-		ewarn " "
-		ewarn "Make sure you migrate from /etc/conf.d/${PN} to the new YAML standard in /etc/${PN}.conf"
-		ewarn "  http://docs.mongodb.org/manual/reference/configuration-options/"
-		ewarn " "
-		ewarn "Make sure you also follow the upgrading process :"
-		ewarn "  http://docs.mongodb.org/master/release-notes/2.6-upgrade/"
-		ewarn " "
-		if use mms-agent; then
-			ewarn "MMS Agent configuration file has been moved to :"
-			ewarn "  /etc/mms-agent.conf"
+	local v
+	for v in ${REPLACING_VERSIONS}; do
+		if ! version_is_at_least 2.6 ${v}; then
+			ewarn "!! IMPORTANT !!"
+			ewarn " "
+			ewarn "${PN} configuration files have changed !"
+			ewarn " "
+			ewarn "Make sure you migrate from /etc/conf.d/${PN} to the new YAML standard in /etc/${PN}.conf"
+			ewarn "  http://docs.mongodb.org/manual/reference/configuration-options/"
+			ewarn " "
+			ewarn "Make sure you also follow the upgrading process :"
+			ewarn "  http://docs.mongodb.org/master/release-notes/2.6-upgrade/"
+			ewarn " "
+			if use mms-agent; then
+				ewarn "MMS Agent configuration file has been moved to :"
+				ewarn "  /etc/mms-agent.conf"
+			fi
+			break
+		else
+			if use mms-agent; then
+				elog "Edit your MMS Agent configuration file :"
+				elog "  /etc/mms-agent.conf"
+			fi
 		fi
-	else
-		if use mms-agent; then
-			elog "Edit your MMS Agent configuration file :"
-			elog "  /etc/mms-agent.conf"
-		fi
-	fi
+	done
 }

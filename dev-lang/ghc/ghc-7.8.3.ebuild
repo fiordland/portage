@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/ghc/ghc-7.8.3.ebuild,v 1.12 2015/01/18 11:50:59 slyfox Exp $
+# $Id$
 
 EAPI=5
 
@@ -96,9 +96,6 @@ DEPEND="${RDEPEND}
 PDEPEND="!ghcbootstrap? ( =app-admin/haskell-updater-1.2* )"
 
 REQUIRED_USE="?? ( ghcbootstrap binary )"
-
-# yeah, top-level 'use' sucks. I'd like to have it in 'src_install()'
-use binary && QA_PREBUILT="*"
 
 # haskell libraries built with cabal in configure mode, #515354
 QA_CONFIGURE_OPTIONS+=" --with-compiler --with-gcc"
@@ -268,6 +265,9 @@ relocate_ghc() {
 }
 
 pkg_setup() {
+	# quiet portage about prebuilt binaries
+	use binary && QA_PREBUILT="*"
+
 	if use ghcbootstrap; then
 		ewarn "You requested ghc bootstrapping, this is usually only used"
 		ewarn "by Gentoo developers to make binary .tbz2 packages."
@@ -608,4 +608,8 @@ pkg_prerm() {
 	rm -rf "${PKGCACHE}"
 
 	cp -p "${PKGCACHE}"{.shipped,}
+}
+
+pkg_postrm() {
+	ghc-package_pkg_postrm
 }

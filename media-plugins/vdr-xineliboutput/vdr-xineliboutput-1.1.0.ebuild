@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-xineliboutput/vdr-xineliboutput-1.1.0.ebuild,v 1.7 2015/02/21 02:14:47 hd_brummy Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ inherit vdr-plugin-2
 GENTOO_VDR_CONDITIONAL=yes
 
 DESCRIPTION="Video Disk Recorder Xinelib PlugIn"
-HOMEPAGE="http://sourceforge.net/projects/xineliboutput/"
+HOMEPAGE="https://sourceforge.net/projects/xineliboutput/"
 SRC_URI="mirror://sourceforge/${PN#vdr-}/${P}.tgz"
 
 SLOT="0"

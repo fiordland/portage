@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/gegl/gegl-0.2.0-r2.ebuild,v 1.15 2015/02/26 18:25:41 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -32,10 +32,10 @@ RDEPEND="
 		libav? ( media-video/libav:0= )
 		!libav? ( media-video/ffmpeg:0= )
 	)
-	jpeg? ( virtual/jpeg )
-	jpeg2k? ( >=media-libs/jasper-1.900.1 )
+	jpeg? ( virtual/jpeg:0 )
+	jpeg2k? ( >=media-libs/jasper-1.900.1:= )
 	openexr? ( media-libs/openexr )
-	png? ( media-libs/libpng )
+	png? ( media-libs/libpng:0= )
 	raw? ( =media-libs/libopenraw-0.0.9 )
 	sdl? ( media-libs/libsdl )
 	svg? ( >=gnome-base/librsvg-2.14:2 )
@@ -97,7 +97,7 @@ src_configure() {
 	#  - Parameter --with-exiv2 compiles a noinst-app only, no use
 	#
 	#  - Parameter --disable-workshop disables any use of Lua, effectivly
-	# 
+	#
 	#  - v4l support does not work with our media-libs/libv4l-0.8.9,
 	#    upstream bug at https://bugzilla.gnome.org/show_bug.cgi?id=654675
 	#

@@ -1,12 +1,12 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/miscfiles/miscfiles-1.5.ebuild,v 1.3 2010/12/29 17:40:14 ulm Exp $
+# $Id$
 
 EAPI="3"
 
 UNI_PV=6.0.0
 DESCRIPTION="Miscellaneous files"
-HOMEPAGE="http://savannah.gnu.org/projects/miscfiles/"
+HOMEPAGE="https://savannah.gnu.org/projects/miscfiles/"
 # http://www.unicode.org/Public/${UNI_PV}/ucd/UnicodeData.txt
 SRC_URI="mirror://gnu/miscfiles/${P}.tar.gz
 	mirror://gentoo/UnicodeData-${UNI_PV}.txt.xz"

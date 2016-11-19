@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/tapiir/tapiir-0.7.3.ebuild,v 1.1 2014/12/10 14:23:51 jer Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils
@@ -11,7 +11,7 @@ SRC_URI="http://www.resorama.com/maarten/files/${P}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+KEYWORDS="amd64 ~ppc ~sparc x86"
 
 RDEPEND="
 	media-sound/jack-audio-connection-kit

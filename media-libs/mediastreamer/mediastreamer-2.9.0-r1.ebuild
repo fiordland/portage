@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/mediastreamer/mediastreamer-2.9.0-r1.ebuild,v 1.1 2015/02/07 20:13:52 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -100,7 +100,8 @@ src_prepare() {
 		"${FILESDIR}/${P}-libav9.patch" \
 		"${FILESDIR}/${P}-underlinking.patch" \
 		"${FILESDIR}/${P}-tests.patch" \
-		"${FILESDIR}/${P}-xxd.patch"
+		"${FILESDIR}/${P}-xxd.patch" \
+		"${FILESDIR}/${P}-ffmpeg3.patch"
 
 	eautoreconf
 }

@@ -1,10 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/shogun/shogun-3.2.0.ebuild,v 1.3 2015/01/27 14:41:32 jlec Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_7 python3_{3,4} )
+PYTHON_COMPAT=( python2_7 python3_4 )
 
 inherit cmake-utils multilib python-single-r1 toolchain-funcs versionator
 
@@ -46,12 +46,12 @@ RDEPEND="
 	sci-libs/nlopt:=
 	sci-mathematics/glpk:=
 	sci-mathematics/lpsolve:=
-	sys-libs/readline
+	sys-libs/readline:0
 	sys-libs/zlib:=
 	virtual/blas
 	virtual/cblas
 	virtual/lapack
-	lua? ( dev-lang/lua )
+	lua? ( dev-lang/lua:0 )
 	mono? ( dev-lang/mono )
 	octave? ( sci-mathematics/octave[hdf5] )
 	python? ( dev-python/numpy[${PYTHON_USEDEP}] )

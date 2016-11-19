@@ -1,12 +1,12 @@
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
-DEPEND=>=media-libs/libpng-1.4 media-libs/libsdl[joystick] link? ( <media-libs/libsfml-2.0 ) sys-libs/zlib virtual/glu virtual/opengl ffmpeg? ( virtual/ffmpeg ) gtk? ( >=dev-cpp/glibmm-2.4.0:2 >=dev-cpp/gtkmm-2.4.0:2.4 >=dev-cpp/gtkglextmm-1.2.0 ) lirc? ( app-misc/lirc ) nls? ( virtual/libintl ) wxwidgets? ( cairo? ( x11-libs/cairo ) openal? ( media-libs/openal ) x11-libs/wxGTK:3.0[X,opengl] ) wxwidgets? ( || ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] ) ) x86? ( || ( dev-lang/nasm dev-lang/yasm ) ) nls? ( sys-devel/gettext ) virtual/pkgconfig sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 ) || ( dev-vcs/subversion[http] dev-vcs/subversion[webdav-neon] dev-vcs/subversion[webdav-serf] ) net-misc/rsync >=sys-apps/sed-4
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=>=media-libs/libpng-1.4:0= media-libs/libsdl[joystick] link? ( >=media-libs/libsfml-2.0:= ) sys-libs/zlib virtual/glu virtual/opengl ffmpeg? ( virtual/ffmpeg[-libav] ) gtk? ( >=dev-cpp/glibmm-2.4.0:2 >=dev-cpp/gtkmm-2.4.0:2.4 >=dev-cpp/gtkglextmm-1.2.0 ) lirc? ( app-misc/lirc ) nls? ( virtual/libintl ) wxwidgets? ( cairo? ( x11-libs/cairo ) openal? ( media-libs/openal ) x11-libs/wxGTK:3.0[X,opengl] ) wxwidgets? ( || ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] ) ) x86? ( || ( dev-lang/nasm dev-lang/yasm ) ) nls? ( sys-devel/gettext ) virtual/pkgconfig sys-devel/make >=dev-util/cmake-2.8.12 >=sys-apps/sed-4 >=dev-vcs/git-1.8.2.1
 DESCRIPTION=Game Boy, GBC, and GBA emulator forked from VisualBoyAdvance
-EAPI=5
-HOMEPAGE=http://vba-m.ngemu.com
+EAPI=6
+HOMEPAGE=https://github.com/visualboyadvance-m/visualboyadvance-m
 IUSE=cairo ffmpeg gtk link lirc nls openal +sdl wxwidgets
 LICENSE=GPL-2
-RDEPEND=>=media-libs/libpng-1.4 media-libs/libsdl[joystick] link? ( <media-libs/libsfml-2.0 ) sys-libs/zlib virtual/glu virtual/opengl ffmpeg? ( virtual/ffmpeg ) gtk? ( >=dev-cpp/glibmm-2.4.0:2 >=dev-cpp/gtkmm-2.4.0:2.4 >=dev-cpp/gtkglextmm-1.2.0 ) lirc? ( app-misc/lirc ) nls? ( virtual/libintl ) wxwidgets? ( cairo? ( x11-libs/cairo ) openal? ( media-libs/openal ) x11-libs/wxGTK:3.0[X,opengl] ) games-misc/games-envd
+RDEPEND=>=media-libs/libpng-1.4:0= media-libs/libsdl[joystick] link? ( >=media-libs/libsfml-2.0:= ) sys-libs/zlib virtual/glu virtual/opengl ffmpeg? ( virtual/ffmpeg[-libav] ) gtk? ( >=dev-cpp/glibmm-2.4.0:2 >=dev-cpp/gtkmm-2.4.0:2.4 >=dev-cpp/gtkglextmm-1.2.0 ) lirc? ( app-misc/lirc ) nls? ( virtual/libintl ) wxwidgets? ( cairo? ( x11-libs/cairo ) openal? ( media-libs/openal ) x11-libs/wxGTK:3.0[X,opengl] )
 REQUIRED_USE=|| ( sdl gtk wxwidgets )
 SLOT=0
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	cmake-utils	0430c386d85cec959d72640afd63ea91	eutils	998e5931fb95b10a6a11ec796ada2759	fdo-mime	0acfe1a88fd8751a1d5dc671168219fa	flag-o-matic	c263990f1b677b0f0be0a3299f179762	games	1ad3205dbf62a2c98249f2f59b0a2d39	gnome2-utils	5cdfd22a2163c9d3a891648bd19453a7	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	subversion	c12bdf4fcc82f86ad89b14c8f76c4026	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	user	f54e098dd38ba1c0847a13e685b87747	wxwidgets	6d6eec2685256d35511e7b6d5461bec9
-_md5_=5fe6427418a0685902fadbdfc65203ab
+_eclasses_=cmake-utils	f3d38665b0a86e08ba3a5473cdbfafd3	eutils	b83a2420b796f7c6eff682679d08fe25	fdo-mime	92d07846ea8ea54172f8c0112a47ae3d	flag-o-matic	7366202dd55cb8f018f5d450d54e7749	git-r3	e928b84a9f6f1d9076d1d27687876dc6	gnome2-utils	c6dcdf3a2c22b578b16adb945dc85c35	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	versionator	99ae9d758cbe7cfed19170e7d48f5a9c	wxwidgets	9b34ce3ca77f4e418e8fd9951c4c1cb1	xdg-utils	e2b2bd56125ce8cf59ce30c642b59d48
+_md5_=87ca20fb0477611f8f4fe7559ee92073

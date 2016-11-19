@@ -2,12 +2,12 @@ DEFINED_PHASES=compile configure install postinst prepare test unpack
 DEPEND=dev-perl/WWW-Mechanize virtual/perl-Module-CoreList dev-perl/HTML-TokeParser-Simple dev-perl/UNIVERSAL-require test? ( media-video/rtmpdump dev-perl/Tie-IxHash dev-perl/XML-Simple dev-perl/Crypt-Rijndael dev-perl/Data-AMF virtual/perl-IO-Compress ) dev-lang/perl:=[-build(-)]
 DESCRIPTION=Downloads videos from various Flash-based video hosting sites
 EAPI=5
-HOMEPAGE=http://code.google.com/p/get-flash-videos/
+HOMEPAGE=https://code.google.com/p/get-flash-videos/
 IUSE=test
 KEYWORDS=amd64 x86 ~amd64-linux ~arm-linux ~x86-linux
 LICENSE=Apache-2.0
 RDEPEND=dev-perl/WWW-Mechanize virtual/perl-Module-CoreList dev-perl/HTML-TokeParser-Simple dev-lang/perl:=[-build(-)]
 SLOT=0
-SRC_URI=http://get-flash-videos.googlecode.com/files/App-get_flash_videos-1.24.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	perl-module	6b84915e66050718c89bcbc76c144e80	readme.gentoo	106edea5533517715013de909a333abd	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	unpacker	f300a7ca9131b1024a79762e8edd3c52
-_md5_=afe2a8106aab9cc4b27cabd9cc1fd462
+SRC_URI=https://get-flash-videos.googlecode.com/files/App-get_flash_videos-1.24.tar.gz
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	multiprocessing	e32940a7b2a9992ad217eccddb84d548	perl-functions	aac50de73be0a80ebe780e0b20850130	perl-module	f6549146ea31a902e20b5f2e6f244358	readme.gentoo	df3fc8fdaf5a519e7d48c83e7592c95f	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	unpacker	45d07319df5f40ee6af58418b0f930be
+_md5_=a06493eb68951e3a1792d461af98f855

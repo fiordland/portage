@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=sys-devel/flex sys-devel/bison dev-libs/fddl sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 )
+DEPEND=sys-devel/flex sys-devel/bison dev-libs/fddl sys-devel/make >=dev-util/cmake-2.8.12
 DESCRIPTION=Iptables policy testing and validation tool
 EAPI=5
 HOMEPAGE=http://itval.sourceforge.net
@@ -7,6 +7,6 @@ KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/fddl
 SLOT=0
-SRC_URI=http://dev.gentoo.org/~pinkbyte/distfiles/snapshots/ITVal-20121104.tar.bz2
-_eclasses_=cmake-utils	0430c386d85cec959d72640afd63ea91	eutils	998e5931fb95b10a6a11ec796ada2759	flag-o-matic	c263990f1b677b0f0be0a3299f179762	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	versionator	cd0bcdb170807e4a1984115e9d53a26f
-_md5_=3a98950e4c69c0c93d82175f96a72a92
+SRC_URI=https://dev.gentoo.org/~pinkbyte/distfiles/snapshots/ITVal-20121104.tar.bz2
+_eclasses_=cmake-utils	f3d38665b0a86e08ba3a5473cdbfafd3	eutils	b83a2420b796f7c6eff682679d08fe25	flag-o-matic	7366202dd55cb8f018f5d450d54e7749	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=17021454f66f438e635e23b433bb3a86

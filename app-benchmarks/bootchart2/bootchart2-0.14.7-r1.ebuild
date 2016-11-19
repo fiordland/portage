@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-benchmarks/bootchart2/bootchart2-0.14.7-r1.ebuild,v 1.1 2014/11/30 15:33:05 jlec Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_7 python3_{3,4} )
+PYTHON_COMPAT=( python2_7 python3_{4,5} )
 
 inherit linux-info python-r1 systemd toolchain-funcs
 
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/mmeeks/bootchart/archive/${PV}.tar.gz -> ${P}.tar.gz
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="svg test X"
 
 REQUIRED_USE="
@@ -36,6 +36,7 @@ S="${WORKDIR}"/${PN%2}-${PV}
 CONFIG_CHECK="~PROC_EVENTS ~TASKSTATS ~TASK_DELAY_ACCT ~TMPFS"
 
 src_prepare() {
+	epatch "${FILESDIR}"/${P}-sysmacros.patch #579922
 	tc-export CC
 	sed \
 		-e "/^install/s:py-install-compile::g" \

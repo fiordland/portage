@@ -1,8 +1,8 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/geki3-KXL/geki3-KXL-1.0.3-r2.ebuild,v 1.6 2015/01/01 12:11:53 tupone Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 inherit autotools eutils games
 
 DESCRIPTION="2D length scroll shooting game"
@@ -24,8 +24,7 @@ src_prepare() {
 	sed -i \
 		-e '1i #include <string.h>' \
 		-e "s:DATA_PATH \"/.score\":\"${GAMES_STATEDIR}/${PN}\":" \
-		src/ranking.c \
-		|| die "sed failed"
+		src/ranking.c || die
 	sed -i -e '/CFLAGS/s/$/ @CFLAGS@/' src/Makefile.am || die #bug 426890
 	epatch "${FILESDIR}"/${P}-paths.patch
 	mv configure.{in,ac}
@@ -34,7 +33,6 @@ src_prepare() {
 
 src_install() {
 	default
-	emake DESTDIR="${D}" install
 	insinto "${GAMES_STATEDIR}"
 	newins data/.score ${PN}
 	fperms g+w "${GAMES_STATEDIR}"/${PN}

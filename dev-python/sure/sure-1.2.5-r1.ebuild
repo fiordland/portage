@@ -1,21 +1,20 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/sure/sure-1.2.5-r1.ebuild,v 1.2 2014/12/10 03:08:52 patrick Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python2_7 python3_{3,4} pypy )
+
+PYTHON_COMPAT=( python2_7 python3_{4,5} pypy )
 
 inherit distutils-r1 vcs-snapshot
 
-DESCRIPTION="utility belt for automated testing in python for python"
-HOMEPAGE="http://github.com/gabrielfalcao/sure"
+DESCRIPTION="Utility belt for automated testing in python for python"
+HOMEPAGE="https://github.com/gabrielfalcao/sure"
 SRC_URI="https://github.com/gabrielfalcao/${PN}/archive/${PV}.tar.gz -> ${P}-r1.tar.gz"
-
-S="${WORKDIR}/${P}-r1"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="test"
 
 CDEPEND="
@@ -28,15 +27,12 @@ DEPEND="
 "
 RDEPEND="${CDEPEND}"
 
+S="${WORKDIR}/${P}-r1"
+
 python_prepare_all() {
-	ebegin 'patching setup.py'
 	sed \
 		-e "82s/read_version()/'${PV}'/" \
-		-i setup.py
-	STATUS=$?
-	eend ${STATUS}
-	[[ ${STATUS} -gt 0 ]] && die
-
+		-i setup.py || die
 	distutils-r1_python_prepare_all
 }
 

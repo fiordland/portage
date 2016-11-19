@@ -1,12 +1,12 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/patchage/patchage-0.5.0-r1.ebuild,v 1.5 2015/01/03 14:49:04 mgorny Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE='threads(+)'
 
-inherit eutils waf-utils python-any-r1
+inherit eutils flag-o-matic waf-utils python-any-r1
 
 DESCRIPTION="Modular patch bay for audio and MIDI systems"
 HOMEPAGE="http://wiki.drobilla.net/Patchage"
@@ -38,6 +38,7 @@ src_prepare() {
 }
 
 src_configure() {
+	append-cxxflags -std=c++11
 	waf-utils_src_configure \
 		$(use debug && echo "--debug") \
 		$(use alsa || echo "--no-alsa") \

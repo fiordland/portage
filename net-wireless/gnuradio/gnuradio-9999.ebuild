@@ -1,12 +1,12 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/gnuradio/gnuradio-9999.ebuild,v 1.32 2015/02/21 22:42:15 zerochaos Exp $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
 
 CMAKE_BUILD_TYPE="None"
-inherit cmake-utils fdo-mime gnome2-utils python-single-r1
+inherit cmake-utils fdo-mime gnome2-utils python-single-r1 eutils
 
 DESCRIPTION="Toolkit that provides signal processing blocks to implement software radios"
 HOMEPAGE="http://gnuradio.org/"
@@ -14,11 +14,11 @@ LICENSE="GPL-3"
 SLOT="0/${PV}"
 
 if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="http://gnuradio.org/git/gnuradio.git"
+	EGIT_REPO_URI=( https://github.com/gnuradio/gnuradio.git http://gnuradio.org/git/gnuradio.git )
 	inherit git-r3
 	KEYWORDS=""
 else
-	SRC_URI="http://gnuradio.org/releases/${PN}/${P}.tar.gz"
+	SRC_URI="http://gnuradio.org/releases/gnuradio/${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
@@ -32,6 +32,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 		portaudio? ( audio )
 		analog? ( filter )
 		digital? ( filter analog )
+		dtv? ( fec )
 		pager? ( filter analog )
 		qt4? ( filter )
 		uhd? ( filter analog )
@@ -88,7 +89,7 @@ RDEPEND="${PYTHON_DEPS}
 	"
 
 DEPEND="${RDEPEND}
-	dev-lang/swig
+	>=dev-lang/swig-3.0.5
 	dev-python/cheetah[${PYTHON_USEDEP}]
 	virtual/pkgconfig
 	doc? (
@@ -106,12 +107,10 @@ src_prepare() {
 
 	# Useless UI element would require qt3support, bug #365019
 	sed -i '/qPixmapFromMimeSource/d' "${S}"/gr-qtgui/lib/spectrumdisplayform.ui || die
-	#epatch "${FILESDIR}"/${PN}-3.6.1-automagic-audio.patch
-	#epatch "${FILESDIR}/${P}-build-type-nonfatal.patch"
+	epatch_user
 }
 
 src_configure() {
-	# TODO: docs are installed to /usr/share/doc/${PN} not /usr/share/doc/${PF}
 	# SYSCONFDIR/GR_PREFSDIR default to install below CMAKE_INSTALL_PREFIX
 	#audio provider is still automagic
 	#zeromq missing deps isn't fatal
@@ -155,6 +154,7 @@ src_configure() {
 		-DENABLE_GR_CORE=ON \
 		-DSYSCONFDIR="${EPREFIX}"/etc \
 		-DPYTHON_EXECUTABLE="${PYTHON}"
+		-DGR_PKG_DOC_DIR="${EPREFIX}/usr/share/doc/${PF}"
 	)
 	use vocoder && mycmakeargs+=( -DGR_USE_SYSTEM_LIBGSM=TRUE )
 	cmake-utils_src_configure
@@ -166,9 +166,15 @@ src_install() {
 	if use examples ; then
 		dodir /usr/share/doc/${PF}/
 		mv "${ED}"/usr/share/${PN}/examples "${ED}"/usr/share/doc/${PF}/ || die
+		docompress -x /usr/share/doc/${PF}/examples
 	else
 	# It seems that the examples are always installed
 		rm -rf "${ED}"/usr/share/${PN}/examples || die
+	fi
+
+	if use doc || use examples; then
+		#this doesn't appear useful
+		rm -rf "${ED}"/usr/share/doc/${PF}/xml || die
 	fi
 
 	# We install the mimetypes to the correct locations from the ebuild

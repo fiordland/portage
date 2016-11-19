@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/clusterssh/clusterssh-4.03.03.ebuild,v 1.1 2014/12/11 14:32:13 ultrabug Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,7 +15,7 @@ HOMEPAGE="http://clusterssh.sourceforge.net"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 IUSE="test"
 
 RDEPEND="
@@ -26,7 +26,7 @@ RDEPEND="
 	dev-perl/Test-Trap
 	dev-perl/Test-DistManifest
 	dev-perl/Try-Tiny
-	dev-perl/perl-tk
+	dev-perl/Tk
 	dev-perl/Config-Simple
 	dev-perl/X11-Protocol
 	dev-perl/XML-Simple
@@ -35,7 +35,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	dev-perl/File-Which
-	virtual/perl-Module-Build
+	dev-perl/Module-Build
 	dev-perl/Test-Pod
 	dev-perl/Test-Differences"
 

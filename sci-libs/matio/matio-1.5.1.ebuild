@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/matio/matio-1.5.1.ebuild,v 1.3 2015/02/02 14:49:00 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ AUTOTOOLS_AUTORECONF=1
 inherit autotools-utils eutils
 
 DESCRIPTION="Library for reading and writing matlab files"
-HOMEPAGE="http://sourceforge.net/projects/matio/"
+HOMEPAGE="https://sourceforge.net/projects/matio/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 SLOT="0"

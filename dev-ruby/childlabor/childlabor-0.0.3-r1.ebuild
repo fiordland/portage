@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/childlabor/childlabor-0.0.3-r1.ebuild,v 1.6 2014/12/28 09:16:23 graaff Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby20 ruby21 ruby22"
 
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_TASK_TEST=""
@@ -19,7 +19,7 @@ SRC_URI="https://github.com/carllerche/childlabor/archive/${COMMIT_ID}.tar.gz ->
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~ppc ~ppc64 ~x86"
 IUSE="test"
 
 RUBY_S="${PN}-${COMMIT_ID}"

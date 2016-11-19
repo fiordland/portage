@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/fbreader/fbreader-0.99.4-r2.ebuild,v 1.4 2014/10/10 11:02:29 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -72,6 +72,10 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-qreal-cast.patch
 	# bug #516794
 	epatch "${FILESDIR}"/${P}-mimetypes.patch
+	# bug #437262
+	epatch "${FILESDIR}"/${P}-ld-bfd.patch
+	# bug #592588
+	epatch "${FILESDIR}"/${P}-gcc6.patch
 }
 
 src_compile() {

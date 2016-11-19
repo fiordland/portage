@@ -1,9 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-termstyle/python-termstyle-0.1.10.ebuild,v 1.2 2014/10/15 01:32:03 idella4 Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python2_7 python{3_3,3_4} pypy )
+
+PYTHON_COMPAT=( python2_7 python3_{4,5} pypy )
 
 inherit distutils-r1 vcs-snapshot
 
@@ -13,10 +14,10 @@ SRC_URI="https://github.com/gfxmonk/${PN#*-}/archive/${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="dev-python/setuptools"
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND=""
 
 python_prepare_all() {

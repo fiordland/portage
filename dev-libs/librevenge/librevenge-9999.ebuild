@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/librevenge/librevenge-9999.ebuild,v 1.4 2014/12/27 16:11:14 dilfridge Exp $
+# $Id$
 
-EAPI="5"
+EAPI=6
 
 inherit eutils multilib-minimal
 
@@ -31,6 +31,7 @@ DEPEND="${RDEPEND}
 "
 
 src_prepare() {
+	eapply_user
 	[[ ${PV} = 9999 ]] && eautoreconf
 }
 

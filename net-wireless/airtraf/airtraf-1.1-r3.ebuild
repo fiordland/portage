@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/airtraf/airtraf-1.1-r3.ebuild,v 1.3 2015/02/21 12:24:15 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,7 +15,7 @@ KEYWORDS="amd64 ppc x86"
 
 RDEPEND="
 	net-libs/libpcap
-	sys-libs/ncurses
+	sys-libs/ncurses:=
 "
 DEPEND="
 	${RDEPEND}
@@ -24,7 +24,7 @@ DEPEND="
 
 src_prepare() {
 	epatch \
-		"${FILESDIR}"/${P}.patch \
+		"${FILESDIR}"/${P}-sniffd.patch \
 		"${FILESDIR}"/${P}-off-by-one.patch \
 		"${FILESDIR}"/${P}-fprintf-format.patch
 
@@ -32,7 +32,7 @@ src_prepare() {
 		-e '/^LIBS/s|=.*|= $(shell $(PKG_CONFIG) --libs panel)|' \
 		src/libncurses/Makefile || die
 	sed -i \
-		-e 's|-lpanel -lncurses|$(shell $(PKG_CONFIG) --libs panel)|' \
+		-e 's|-lpanel -lncurses|$(shell $(PKG_CONFIG) --libs ncurses panel)|' \
 		src/sniffd/Makefile || die
 	tc-export PKG_CONFIG
 }

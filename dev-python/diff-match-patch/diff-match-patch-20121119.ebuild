@@ -1,15 +1,15 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/diff-match-patch/diff-match-patch-20121119.ebuild,v 1.5 2014/11/24 16:47:17 pacho Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} pypy pypy2_0 )
+PYTHON_COMPAT=( python{2_7,3_4,3_5} pypy )
 
 inherit distutils-r1
 
 DESCRIPTION="Diff, match and patch algorithms for plain text"
-HOMEPAGE="http://code.google.com/p/google-diff-match-patch/"
+HOMEPAGE="https://code.google.com/p/google-diff-match-patch/"
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"

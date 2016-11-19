@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/flask-migrate/flask-migrate-1.3.0.ebuild,v 1.1 2014/12/04 07:55:49 patrick Exp $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -11,12 +11,12 @@ MY_PN="Flask-Migrate"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="SQLAlchemy database migrations for Flask applications using Alembic"
-HOMEPAGE="https://pypi.python.org/pypi/Flask-Admin"
+HOMEPAGE="https://pypi.python.org/pypi/Flask-Migrate"
 SRC_URI="mirror://pypi/${MY_P:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="test"
 
 RDEPEND="dev-python/flask[${PYTHON_USEDEP}]"

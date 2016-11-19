@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/w3m/w3m-0.5.3-r5.ebuild,v 1.7 2014/08/13 09:34:18 ago Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils
@@ -11,12 +11,12 @@ SRC_URI="mirror://sourceforge/w3m/${P}.tar.gz"
 
 LICENSE="w3m"
 SLOT="0"
-KEYWORDS="alpha amd64 ~arm ia64 ppc ~ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris"
-IUSE="X fbcon gpm gtk imlib lynxkeymap migemo nls nntp ssl unicode vanilla xface linguas_ja"
+KEYWORDS="alpha amd64 ~arm ~arm64 ia64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris"
+IUSE="X fbcon gpm gtk imlib lynxkeymap migemo nls nntp ssl unicode vanilla xface l10n_ja"
 
 # We cannot build w3m with gtk+2 w/o X because gtk+2 ebuild doesn't
 # allow us to build w/o X, so we have to give up framebuffer w3mimg....
-RDEPEND=">=sys-libs/ncurses-5.2-r3
+RDEPEND=">=sys-libs/ncurses-5.2-r3:0=
 	>=sys-libs/zlib-1.1.3-r2
 	>=dev-libs/boehm-gc-6.2
 	X? ( x11-libs/libXext x11-libs/libXdmcp )
@@ -27,7 +27,7 @@ RDEPEND=">=sys-libs/ncurses-5.2-r3
 	xface? ( media-libs/compface )
 	gpm? ( >=sys-libs/gpm-1.19.3-r5 )
 	migemo? ( >=app-text/migemo-0.40 )
-	ssl? ( >=dev-libs/openssl-0.9.6b )"
+	ssl? ( >=dev-libs/openssl-0.9.6b:0= )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
@@ -44,7 +44,7 @@ src_prepare() {
 			"${FILESDIR}"/${P}-gdk-pixbuf.patch \
 			"${FILESDIR}"/${P}-input-type-default.patch \
 			"${FILESDIR}"/${P}-url-schema.patch
-	find . -name CVS -type d | xargs rm -r
+	ecvs_clean
 	sed -i -e "/^AR=/s/ar/$(tc-getAR)/" {.,w3mimg,libwc}/Makefile.in || die
 	eautoconf
 }
@@ -72,7 +72,7 @@ src_configure() {
 	# emacs-w3m doesn't like "--enable-m17n --disable-unicode,"
 	# so we better enable or disable both. Default to enable
 	# m17n and unicode, see bug #47046.
-	if use linguas_ja ; then
+	if use l10n_ja ; then
 		if use unicode ; then
 			myconf="${myconf} --enable-japanese=U"
 		else
@@ -122,7 +122,7 @@ src_install() {
 	doins Bonus/*
 	dodoc README NEWS TODO ChangeLog
 	docinto doc-en ; dodoc doc/*
-	if use linguas_ja ; then
+	if use l10n_ja ; then
 		docinto doc-jp ; dodoc doc-jp/*
 	else
 		rm -rf "${ED}"/usr/share/man/ja || die

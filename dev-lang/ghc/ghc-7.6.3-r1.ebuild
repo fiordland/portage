@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/ghc/ghc-7.6.3-r1.ebuild,v 1.16 2015/01/18 11:50:59 slyfox Exp $
+# $Id$
 
 # Brief explanation of the bootstrap logic:
 #
@@ -85,7 +85,7 @@ SRC_URI="!binary? ( http://www.haskell.org/ghc/dist/${PV}/${P}-src.tar.bz2 )"
 [[ -n $arch_binaries ]] && SRC_URI+=" !ghcbootstrap? ( $arch_binaries )"
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="~alpha amd64 ~ia64 ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 ~ia64 ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~x86-solaris"
 IUSE="doc ghcbootstrap ghcmakebinary +gmp llvm"
 IUSE+=" binary" # don't forget about me later!
 IUSE+=" elibc_glibc" # system stuff
@@ -121,8 +121,6 @@ PDEPEND="
 
 # ia64 fails to return from STG GMP primitives (stage2 always SIGSEGVs)
 REQUIRED_USE="ia64? ( !gmp )"
-
-use binary && QA_PREBUILT="*"
 
 # haskell libraries built with cabal in configure mode, #515354
 QA_CONFIGURE_OPTIONS+=" --with-compiler --with-gcc"
@@ -301,6 +299,9 @@ relocate_ghc() {
 }
 
 pkg_setup() {
+	# quiet portage about prebuilt binaries
+	use binary && QA_PREBUILT="*"
+
 	if use ghcbootstrap; then
 		ewarn "You requested ghc bootstrapping, this is usually only used"
 		ewarn "by Gentoo developers to make binary .tbz2 packages for"
@@ -429,7 +430,7 @@ src_prepare() {
 			use ghcmakebinary && return 1
 
 			# pick only registerised arches
-			# http://bugs.gentoo.org/463814
+			# https://bugs.gentoo.org/463814
 			use amd64 && return 0
 			use x86 && return 0
 			return 1
@@ -821,4 +822,8 @@ pkg_prerm() {
 	rm -rf "${PKGCACHE}"
 
 	cp -p "${PKGCACHE}"{.shipped,}
+}
+
+pkg_postrm() {
+	ghc-package_pkg_postrm
 }

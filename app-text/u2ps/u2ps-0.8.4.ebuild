@@ -1,11 +1,11 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/u2ps/u2ps-0.8.4.ebuild,v 1.2 2015/01/31 13:00:34 hwoarang Exp $
+# $Id$
 
 EAPI=5
 
 DESCRIPTION="A text to PostScript converter like a2ps, but supports UTF-8"
-HOMEPAGE="http://sourceforge.net/projects/u2ps.berlios/"
+HOMEPAGE="https://sourceforge.net/projects/u2ps.berlios/"
 SRC_URI="mirror://sourceforge/project/${PN}.berlios/${PN}-full-${PV}.tar.gz"
 
 LICENSE="GPL-3 GPL-3-with-font-exception free-noncomm"

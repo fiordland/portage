@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nds/openldap/openldap-2.4.40-r2.ebuild,v 1.4 2014/11/02 09:23:40 swift Exp $
+# $Id$
 
 EAPI="5"
 
@@ -51,7 +51,7 @@ CDEPEND="icu? ( dev-libs/icu:= )
 		odbc? ( !iodbc? ( dev-db/unixODBC )
 			iodbc? ( dev-db/libiodbc ) )
 		slp? ( net-libs/openslp )
-		perl? ( dev-lang/perl[-build(-)] )
+		perl? ( dev-lang/perl:=[-build(-)] )
 		samba? ( dev-libs/openssl )
 		berkdb? (
 			<sys-libs/db-6.0:=
@@ -288,8 +288,12 @@ pkg_setup() {
 		openldap_find_versiontags
 	fi
 
-	enewgroup ldap 439
-	enewuser ldap 439 -1 /usr/$(get_libdir)/openldap ldap
+	# The user/group are only used for running daemons which are
+	# disabled in minimal builds, so elide the accounts too.
+	if ! use minimal ; then
+		enewgroup ldap 439
+		enewuser ldap 439 -1 /usr/$(get_libdir)/openldap ldap
+	fi
 }
 
 src_prepare() {
@@ -466,6 +470,11 @@ multilib_src_configure() {
 		$(multilib_native_use_with sasl cyrus-sasl)
 		$(multilib_native_use_enable sasl spasswd)
 		$(use_enable tcpd wrappers)
+	)
+
+	# Some cross-compiling tests don't pan out well.
+	tc-is-cross-compiler && myconf+=(
+		--with-yielding-select=yes
 	)
 
 	local ssl_lib="no"
@@ -802,7 +811,7 @@ pkg_postinst() {
 	if has_version 'net-nds/openldap[-minimal]' && ((${OPENLDAP_PRINT_MESSAGES})); then
 		elog "Getting started using OpenLDAP? There is some documentation available:"
 		elog "Gentoo Guide to OpenLDAP Authentication"
-		elog "(http://www.gentoo.org/doc/en/ldap-howto.xml)"
+		elog "(https://www.gentoo.org/doc/en/ldap-howto.xml)"
 		elog "---"
 		elog "An example file for tuning BDB backends with openldap is"
 		elog "DB_CONFIG.fast.example in /usr/share/doc/${PF}/"

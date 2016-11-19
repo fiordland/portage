@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/acl/acl-2.2.52-r1.ebuild,v 1.14 2014/10/27 01:53:30 vapier Exp $
+# $Id$
 
 EAPI="4"
 
-inherit eutils toolchain-funcs multilib-minimal
+inherit eutils libtool toolchain-funcs multilib-minimal
 
 DESCRIPTION="access control list utilities, libraries and headers"
-HOMEPAGE="http://savannah.nongnu.org/projects/acl"
+HOMEPAGE="https://savannah.nongnu.org/projects/acl"
 SRC_URI="http://download.savannah.gnu.org/releases/${PN}/${P}.src.tar.gz"
 
 LICENSE="LGPL-2.1"
@@ -30,6 +30,7 @@ src_prepare() {
 		include/builddefs.in \
 		|| die
 	strip-linguas po
+	elibtoolize #580792
 
 	# same as https://savannah.nongnu.org/bugs/index.php?39736
 	multilib_copy_sources
@@ -51,7 +52,7 @@ multilib_src_install() {
 	emake DIST_ROOT="${D}" install install-dev install-lib
 
 	# move shared libs to /
-	multilib_is_native_abi && gen_usr_ldscript -a acl
+	gen_usr_ldscript -a acl
 }
 
 multilib_src_install_all() {

@@ -1,9 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/freeimage/freeimage-3.15.4.ebuild,v 1.9 2014/08/09 18:36:35 nativemad Exp $
+# $Id$
 
-EAPI="4"
-
+EAPI=5
 inherit toolchain-funcs eutils multilib
 
 MY_PN=FreeImage
@@ -14,25 +13,25 @@ DESCRIPTION="Image library supporting many formats"
 HOMEPAGE="http://freeimage.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.zip
 	mirror://sourceforge/${PN}/${MY_P}.pdf
-	http://dev.gentoo.org/~gienah/2big4tree/media-libs/freeimage/${PN}-3.15.4-libjpeg-turbo.patch.gz"
+	https://dev.gentoo.org/~gienah/2big4tree/media-libs/freeimage/${PN}-3.15.4-libjpeg-turbo.patch.gz"
 
 LICENSE="|| ( GPL-2 FIPL-1.0 )"
 SLOT="0"
-KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~arm x86 ~amd64-linux ~x86-linux"
 IUSE="jpeg jpeg2k mng openexr png raw static-libs tiff"
 
 # The tiff/ilmbase isn't a typo.  The TIFF plugin cheats and
 # uses code from it to handle 16bit<->float conversions.
 RDEPEND="sys-libs/zlib
-	jpeg? ( virtual/jpeg )
+	jpeg? ( virtual/jpeg:0 )
 	jpeg2k? ( media-libs/openjpeg:0 )
 	mng? ( media-libs/libmng )
 	openexr? ( media-libs/openexr )
-	png? ( media-libs/libpng )
+	png? ( media-libs/libpng:0 )
 	raw? ( media-libs/libraw )
 	tiff? (
 		media-libs/ilmbase
-		media-libs/tiff
+		media-libs/tiff:0
 	)"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig

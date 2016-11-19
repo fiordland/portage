@@ -1,12 +1,12 @@
 DEFINED_PHASES=compile configure install postinst preinst prepare setup unpack
-DEPEND=dev-lang/lua media-libs/libsdl[opengl,sound,video] media-libs/libpng:0 media-libs/libvorbis media-libs/libtheora media-libs/libogg virtual/opengl x11-libs/libX11 dev-util/scons
+DEPEND=dev-lang/lua:0 media-libs/libsdl[opengl,sound,video] media-libs/libpng:0 media-libs/libvorbis media-libs/libtheora media-libs/libogg virtual/opengl x11-libs/libX11 dev-util/scons
 DESCRIPTION=Futuristic real-time strategy game
 EAPI=5
 HOMEPAGE=http://www.boswars.org/
 KEYWORDS=amd64 ppc x86
 LICENSE=GPL-2
-RDEPEND=dev-lang/lua media-libs/libsdl[opengl,sound,video] media-libs/libpng:0 media-libs/libvorbis media-libs/libtheora media-libs/libogg virtual/opengl x11-libs/libX11 games-misc/games-envd
+RDEPEND=dev-lang/lua:0 media-libs/libsdl[opengl,sound,video] media-libs/libpng:0 media-libs/libvorbis media-libs/libtheora media-libs/libogg virtual/opengl x11-libs/libX11 games-misc/games-envd
 SLOT=0
-SRC_URI=http://www.boswars.org/dist/releases/boswars-2.7-src.tar.gz http://dev.gentoo.org/~hasufell/distfiles/boswars-2.7-fixed-images-for-libpng-1.6.tar.xz mirror://gentoo/bos.png
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	998e5931fb95b10a6a11ec796ada2759	games	1ad3205dbf62a2c98249f2f59b0a2d39	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	scons-utils	988e24b9e2e4642189b4e97c03e5ae71	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	user	f54e098dd38ba1c0847a13e685b87747
-_md5_=b1ed3db46a6676c3354293fe8c466b95
+SRC_URI=http://www.boswars.org/dist/releases/boswars-2.7-src.tar.gz https://dev.gentoo.org/~hasufell/distfiles/boswars-2.7-fixed-images-for-libpng-1.6.tar.xz mirror://gentoo/bos.png
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	b83a2420b796f7c6eff682679d08fe25	games	2cf0d67d765e6358b435ccda30c13ad8	multilib	165fc17c38d1b11dac2008280dab6e80	scons-utils	6a35944612b7ecb18a3803359554badc	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	user	80aaa71614ced86f02ee1a513821dc87
+_md5_=22e381c8619f1a527dcf9955cb91abf7

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/ppp/ppp-2.4.6-r3.ebuild,v 1.1 2014/06/18 18:51:54 pinkbyte Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,7 +10,7 @@ PATCH_VER="4"
 DESCRIPTION="Point-to-Point Protocol (PPP)"
 HOMEPAGE="http://www.samba.org/ppp"
 SRC_URI="ftp://ftp.samba.org/pub/ppp/${P}.tar.gz
-	http://dev.gentoo.org/~pinkbyte/distfiles/patches/${P}-patches-${PATCH_VER}.tar.xz
+	https://dev.gentoo.org/~pinkbyte/distfiles/patches/${P}-patches-${PATCH_VER}.tar.xz
 	http://www.netservers.net.uk/gpl/ppp-dhcpc.tgz"
 
 LICENSE="BSD GPL-2"
@@ -22,7 +22,7 @@ DEPEND="activefilter? ( net-libs/libpcap )
 	atm? ( net-dialup/linux-atm )
 	pam? ( virtual/pam )
 	gtk? ( x11-libs/gtk+:2 )
-	eap-tls? ( net-misc/curl dev-libs/openssl )"
+	eap-tls? ( net-misc/curl dev-libs/openssl:0 )"
 RDEPEND="${DEPEND}"
 
 src_prepare() {

@@ -1,13 +1,12 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/digikam/digikam-4.4.0-r1.ebuild,v 1.8 2015/02/14 14:38:18 ago Exp $
+# $Id$
 
 EAPI=5
 
-KDE_LINGUAS="af ar az be bg bn br bs ca cs csb cy da de el en_GB eo es et eu fa fi fo fr fy ga gl ha he hi hr hsb
-hu id is it ja ka kk km ko ku lb lo lt lv mi mk mn ms mt nb nds ne nl nn nso oc pa pl pt pt_BR ro ru
-rw se sk sl sq sr sr@Latn ss sv ta te tg th tr tt uk uz uz@cyrillic ven vi wa xh zh_CN zh_HK zh_TW zu"
-
+KDE_LINGUAS="ar be bg bs ca cs da de el en_GB eo es et eu fa fi fr ga gl he hi
+hr hu is it ja km ko lt lv ms nb nds ne nl nn pa pl pt pt_BR ro ru se sk sl sq
+sv th tr uk vi zh_CN zh_TW"
 KDE_HANDBOOK="optional"
 CMAKE_MIN_VERSION="2.8"
 KDE_MINIMAL="4.10"
@@ -27,56 +26,39 @@ LICENSE="GPL-2
 	handbook? ( FDL-1.2 )"
 KEYWORDS="amd64 x86"
 SLOT="4"
-IUSE="addressbook debug doc gphoto2 mysql nepomuk semantic-desktop themedesigner +thumbnails video"
+IUSE="addressbook debug doc gphoto2 mysql semantic-desktop themedesigner +thumbnails video"
 
 CDEPEND="
-	|| (
-		(	kde-apps/kdebase-kioslaves:4
-			kde-apps/libkdcraw:4=
-			kde-apps/libkexiv2:4=
-			kde-apps/libkipi:4
-			kde-apps/marble:4=[plasma] )
-		( 	$(add_kdebase_dep kdebase-kioslaves)
-			kde-base/libkdcraw:4=
-			kde-base/libkexiv2:4=
-			$(add_kdebase_dep libkipi)
-			kde-base/marble:4=[plasma] )
-	)
-	media-libs/jasper
+	kde-apps/kdebase-kioslaves:4
+	kde-apps/libkdcraw:4=
+	kde-apps/libkexiv2:4=
+	<=kde-apps/libkface-4.4.0
+	kde-apps/libkgeomap:4
+	kde-apps/libkipi:4
+	kde-apps/marble:4=[plasma]
+	media-libs/jasper:=
 	media-libs/lcms:2
 	media-libs/lensfun
-	|| ( kde-apps/libkface:4 <=media-libs/libkface-4.4.0 )
-	media-libs/libkgeomap
 	media-libs/liblqr
 	>=media-libs/libpgf-6.12.27
 	media-libs/libpng:0=
-	>=media-libs/opencv-2.4.9
-	media-libs/tiff
-	virtual/jpeg
+	>=media-libs/opencv-2.4.9[-qt5]
+	media-libs/tiff:0
+	virtual/jpeg:0
 	dev-qt/qtgui:4
 	|| ( dev-qt/qtsql:4[mysql] dev-qt/qtsql:4[sqlite] )
-	addressbook? ( $(add_kdebase_dep kdepimlibs) )
+	addressbook? ( $(add_kdeapps_dep kdepimlibs) )
 	gphoto2? ( media-libs/libgphoto2:= )
 	mysql? ( virtual/mysql )
-	nepomuk? (
-		dev-libs/shared-desktop-ontologies
-		dev-libs/soprano
-		$(add_kdebase_dep kdelibs 'semantic-desktop(+)')
-		$(add_kdebase_dep nepomuk-core)
-	)
-	semantic-desktop? (
-		$(add_kdebase_dep baloo)
-	)
+	semantic-desktop? ( kde-frameworks/baloo:4 )
 "
 RDEPEND="${CDEPEND}
-	|| ( kde-apps/kreadconfig:4 $(add_kdebase_dep kreadconfig) )
-	media-plugins/kipi-plugins
+	kde-apps/kreadconfig:4
+	media-plugins/kipi-plugins:4
 	video? (
 		|| (
 			kde-apps/ffmpegthumbs:4
-			kde-apps/mplayerthumbs:4
-			$(add_kdebase_dep mplayerthumbs)
-			$(add_kdebase_dep ffmpegthumbs)
+			$(add_kdeapps_dep ffmpegthumbs)
 		)
 	)
 "
@@ -95,6 +77,7 @@ RESTRICT=test
 PATCHES=(
 	"${FILESDIR}/${P}-libkexiv2.patch"
 	"${FILESDIR}/${P}-hang.patch"
+	"${FILESDIR}/${PN}-4.14.0-lensfun.patch" # bug 566624
 )
 
 src_prepare() {
@@ -132,16 +115,15 @@ src_configure() {
 		-DFORCED_UNBUNDLE=ON
 		-DWITH_LQR=ON
 		-DWITH_LENSFUN=ON
-		$(cmake-utils_use_enable addressbook KDEPIMLIBSSUPPORT)
 		-DWITH_MarbleWidget=ON
+		-DENABLE_NEPOMUKSUPPORT=OFF
+		$(cmake-utils_use_enable addressbook KDEPIMLIBSSUPPORT)
 		$(cmake-utils_use_enable gphoto2 GPHOTO2)
 		$(cmake-utils_use_with gphoto2)
-		$(cmake-utils_use_with nepomuk Soprano)
 		$(cmake-utils_use_enable themedesigner)
 		$(cmake-utils_use_enable thumbnails THUMBS_DB)
 		$(cmake-utils_use_enable mysql INTERNALMYSQL)
 		$(cmake-utils_use_enable debug DEBUG_MESSAGES)
-		$(cmake-utils_use_enable nepomuk NEPOMUKSUPPORT)
 		$(cmake-utils_use_enable semantic-desktop BALOOSUPPORT)
 	)
 

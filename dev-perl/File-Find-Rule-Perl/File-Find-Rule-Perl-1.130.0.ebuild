@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/File-Find-Rule-Perl/File-Find-Rule-Perl-1.130.0.ebuild,v 1.1 2014/10/19 21:32:18 dilfridge Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,7 +13,7 @@ DESCRIPTION="Common rules for searching for Perl things"
 
 LICENSE="|| ( Artistic GPL-1 GPL-2 GPL-3 )"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64 ~arm hppa ~ppc ~ppc64 ~x86"
 IUSE=""
 
 DEPEND="

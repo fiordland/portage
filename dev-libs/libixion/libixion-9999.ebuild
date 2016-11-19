@@ -1,43 +1,52 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libixion/libixion-9999.ebuild,v 1.10 2015/02/08 18:20:40 dilfridge Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-EGIT_REPO_URI="git://gitorious.org/ixion/ixion.git"
+EGIT_REPO_URI="https://gitlab.com/ixion/ixion.git"
 
-PYTHON_COMPAT=( python2_7 python3_3 python3_4 )
+PYTHON_COMPAT=( python3_{4,5} )
 
 [[ ${PV} == 9999 ]] && GITECLASS="git-r3 autotools"
 inherit eutils python-single-r1 ${GITECLASS}
 unset GITECLASS
 
 DESCRIPTION="General purpose formula parser & interpreter"
-HOMEPAGE="http://gitorious.org/ixion/pages/Home"
-[[ ${PV} == 9999 ]] || SRC_URI="http://kohei.us/files/ixion/src/${P}.tar.bz2"
+HOMEPAGE="https://gitlab.com/ixion/ixion"
+[[ ${PV} == 9999 ]] || SRC_URI="http://kohei.us/files/ixion/src/${P}.tar.xz"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/0.12" # based on SONAME of libixion.so
 [[ ${PV} == 9999 ]] || \
 KEYWORDS="~amd64 ~arm ~ppc ~x86"
-IUSE="static-libs"
+IUSE="debug python static-libs +threads"
 
-RDEPEND="${PYTHON_DEPS}
+RDEPEND="
 	dev-libs/boost:=
+	python? ( ${PYTHON_DEPS} )
 "
 DEPEND="${RDEPEND}
-	>=dev-util/mdds-0.12.0:=
+	>=dev-util/mdds-1.2.0:1=
 "
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
+pkg_setup() {
+	use python && python-single-r1_pkg_setup
+}
 
 src_prepare() {
+	default
 	[[ ${PV} == 9999 ]] && eautoreconf
 }
 
 src_configure() {
 	econf \
-		$(use_enable static-libs static)
+		$(use_enable debug) \
+		$(use_enable python) \
+		$(use_enable static-libs static) \
+		$(use_enable threads)
 }
 
 src_install() {

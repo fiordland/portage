@@ -1,12 +1,12 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libffi/libffi-3.1-r3.ebuild,v 1.3 2015/01/18 19:01:31 grobian Exp $
+# $Id$
 
 EAPI=5
 inherit eutils libtool multilib multilib-minimal toolchain-funcs
 
 DESCRIPTION="a portable, high level programming interface to various calling conventions"
-HOMEPAGE="http://sourceware.org/libffi/"
+HOMEPAGE="https://sourceware.org/libffi/"
 SRC_URI="ftp://sourceware.org/pub/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
@@ -23,7 +23,7 @@ DOCS="ChangeLog* README"
 ECONF_SOURCE=${S}
 
 pkg_setup() {
-	# Check for orphaned libffi, see http://bugs.gentoo.org/354903 for example
+	# Check for orphaned libffi, see https://bugs.gentoo.org/354903 for example
 	if [[ ${ROOT} == "/" && ${EPREFIX} == "" ]] && ! has_version ${CATEGORY}/${PN}; then
 		local base="${T}"/conftest
 		echo 'int main() { }' > "${base}".c
@@ -39,11 +39,10 @@ pkg_setup() {
 src_prepare() {
 	epatch \
 		"${FILESDIR}"/${P}-execstack.patch \
-		"${FILESDIR}"/${P}-typing_error.patch \
-		"${FILESDIR}"/${P}-darwin-x32.patch
+		"${FILESDIR}"/${P}-typing_error.patch
 
 	sed -i -e 's:@toolexeclibdir@:$(libdir):g' Makefile.in || die #462814
-	# http://sourceware.org/ml/libffi-discuss/2014/msg00060.html
+	# https://sourceware.org/ml/libffi-discuss/2014/msg00060.html
 	sed -i -e 's:@toolexeclibdir@:${libdir}:' libffi.pc.in || die #511726
 
 	epatch_user

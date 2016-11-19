@@ -1,20 +1,20 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/netifrc/netifrc-9999.ebuild,v 1.10 2015/01/11 06:03:13 floppym Exp $
+# $Id$
 
 EAPI=5
 
-inherit eutils systemd
+inherit eutils systemd udev
 
 DESCRIPTION="Gentoo Network Interface Management Scripts"
-HOMEPAGE="http://www.gentoo.org/proj/en/base/openrc/"
+HOMEPAGE="https://www.gentoo.org/proj/en/base/openrc/"
 
 if [[ ${PV} == "9999" ]]; then
-	EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/${PN}.git"
+	EGIT_REPO_URI="git://anongit.gentoo.org/proj/${PN}.git"
 	#EGIT_REPO_URI="git://github.com/gentoo/netifrc" # Alternate
 	inherit git-r3
 else
-	SRC_URI="http://dev.gentoo.org/~robbat2/dist/${P}.tar.bz2"
+	SRC_URI="https://dev.gentoo.org/~robbat2/distfiles/${P}.tar.bz2"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
 fi
 
@@ -24,7 +24,8 @@ IUSE=""
 
 DEPEND="kernel_linux? ( virtual/pkgconfig )
 	!<sys-fs/udev-172"
-RDEPEND="sys-apps/gentoo-functions"
+RDEPEND="sys-apps/gentoo-functions
+		>=sys-apps/openrc-0.12"
 
 src_prepare() {
 	if [[ ${PV} == "9999" ]] ; then
@@ -40,6 +41,7 @@ src_prepare() {
 
 src_compile() {
 	MAKE_ARGS="${MAKE_ARGS}
+		UDEVDIR=${EPREFIX}$(get_udevdir)
 		LIBEXECDIR=${EPREFIX}/lib/${PN} PF=${PF}"
 
 	use prefix && MAKE_ARGS="${MAKE_ARGS} MKPREFIX=yes PREFIX=${EPREFIX}"
@@ -56,7 +58,7 @@ src_install() {
 	UNIT_DIR="$(systemd_get_unitdir)"
 	sed "s:@LIBEXECDIR@:${LIBEXECDIR}:" "${S}/systemd/net_at.service.in" > "${T}/net_at.service" || die
 	systemd_newunit "${T}/net_at.service" 'net@.service'
-	dosym "${UNIT_DIR}/net@.service" "${UNIT_DIR}/net@lo.service"
+	dosym "${UNIT_DIR#${EPREFIX}}/net@.service" "${UNIT_DIR#${EPREFIX}}/net@lo.service"
 }
 
 pkg_postinst() {

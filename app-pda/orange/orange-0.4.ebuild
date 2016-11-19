@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-pda/orange/orange-0.4.ebuild,v 1.8 2014/08/10 18:20:17 slyfox Exp $
+# $Id$
 
 EAPI=4
 
 MY_P=lib${P}
 
 DESCRIPTION="A tool and library for extracting cabs from executable installers"
-HOMEPAGE="http://sourceforge.net/projects/synce/"
+HOMEPAGE="https://sourceforge.net/projects/synce/"
 SRC_URI="mirror://sourceforge/synce/${MY_P}.tar.gz"
 
 LICENSE="MIT"

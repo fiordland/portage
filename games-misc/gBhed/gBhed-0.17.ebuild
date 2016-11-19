@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-misc/gBhed/gBhed-0.17.ebuild,v 1.7 2015/02/05 20:13:37 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -15,6 +15,7 @@ KEYWORDS="amd64 ppc x86"
 IUSE="gtk"
 
 DEPEND="gtk? ( x11-libs/gtk+:2 )"
+RDEPEND=${DEPEND}
 
 src_prepare() {
 	sed -i 's/19/32/' src/gui/translation_fork.c || die

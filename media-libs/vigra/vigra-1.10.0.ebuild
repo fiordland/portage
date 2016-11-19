@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/vigra/vigra-1.10.0.ebuild,v 1.3 2014/12/29 16:32:04 dilfridge Exp $
+# $Id$
 
 EAPI=5
 MY_P=${P}-src-with-docu
@@ -10,7 +10,7 @@ PYTHON_REQ_USE="threads,xml"
 inherit cmake-utils python-r1
 
 DESCRIPTION="C++ computer vision library with emphasize on customizable algorithms and data structures"
-HOMEPAGE="http://hci.iwr.uni-heidelberg.de/vigra/"
+HOMEPAGE="https://ukoethe.github.io/vigra/"
 SRC_URI="https://github.com/ukoethe/vigra/releases/download/Version-${MY_V}/${MY_P}.tar.gz"
 
 LICENSE="MIT"
@@ -95,7 +95,7 @@ src_configure() {
 		python_foreach_impl vigra_configure
 	else
 		# required for docdir
-		_check_build_dir init
+		_cmake_check_build_dir init
 		vigra_configure
 	fi
 }

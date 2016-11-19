@@ -1,10 +1,10 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/mako/mako-1.0.0.ebuild,v 1.11 2015/02/28 13:37:27 ago Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 
 inherit readme.gentoo versionator distutils-r1
 
@@ -12,12 +12,12 @@ MY_PN="Mako"
 MY_P=${MY_PN}-${PV}
 
 DESCRIPTION="A Python templating language"
-HOMEPAGE="http://www.makotemplates.org/ http://pypi.python.org/pypi/Mako"
+HOMEPAGE="http://www.makotemplates.org/ https://pypi.python.org/pypi/Mako"
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~hppa ia64 ppc ~ppc64 ~s390 ~sh sparc x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
+KEYWORDS="alpha amd64 arm ~hppa ia64 ppc ~ppc64 ~s390 ~sh sparc x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-macos"
 IUSE="doc test"
 
 RDEPEND="

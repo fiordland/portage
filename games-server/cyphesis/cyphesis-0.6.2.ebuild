@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-server/cyphesis/cyphesis-0.6.2.ebuild,v 1.8 2015/01/26 09:50:49 ago Exp $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -21,11 +21,11 @@ RDEPEND=">=media-libs/skstream-0.3.9
 	>=dev-games/mercator-0.3.3
 	dev-libs/libgcrypt:0
 	dev-libs/libsigc++:2
-	sys-libs/ncurses
-	sys-libs/readline
+	sys-libs/ncurses:0
+	sys-libs/readline:0
 	>=media-libs/atlas-c++-0.6.3
 	>=media-libs/varconf-0.6.4
-	dev-db/postgresql"
+	dev-db/postgresql:="
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.40
 	dev-libs/libxml2

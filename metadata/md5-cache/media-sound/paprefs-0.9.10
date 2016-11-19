@@ -1,12 +1,13 @@
 DEFINED_PHASES=configure install
 DEPEND=dev-cpp/gtkmm:2.4 dev-cpp/libglademm:2.4 >=dev-cpp/gconfmm-2.6 >=dev-libs/libsigc++-2.2:2 media-sound/pulseaudio[glib,gnome] || ( x11-themes/tango-icon-theme x11-themes/gnome-icon-theme ) nls? ( sys-devel/gettext dev-util/intltool ) virtual/pkgconfig
 DESCRIPTION=PulseAudio Preferences, configuration dialog for PulseAudio
-EAPI=4
-HOMEPAGE=http://freedesktop.org/software/pulseaudio/paprefs
+EAPI=5
+HOMEPAGE=https://freedesktop.org/software/pulseaudio/paprefs
 IUSE=nls
 KEYWORDS=amd64 ~ppc ~sparc x86
 LICENSE=GPL-2
 RDEPEND=dev-cpp/gtkmm:2.4 dev-cpp/libglademm:2.4 >=dev-cpp/gconfmm-2.6 >=dev-libs/libsigc++-2.2:2 media-sound/pulseaudio[glib,gnome] || ( x11-themes/tango-icon-theme x11-themes/gnome-icon-theme )
 SLOT=0
-SRC_URI=http://freedesktop.org/software/pulseaudio/paprefs/paprefs-0.9.10.tar.xz
-_md5_=d2ac81e60906befd23ebc4604d652fad
+SRC_URI=https://freedesktop.org/software/pulseaudio/paprefs/paprefs-0.9.10.tar.xz
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	flag-o-matic	7366202dd55cb8f018f5d450d54e7749	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=1b8daf18401fbaab0994d87611d98b79

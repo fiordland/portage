@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/construo/construo-0.2.2.ebuild,v 1.17 2015/02/11 06:34:32 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit eutils autotools games
@@ -22,8 +22,10 @@ DEPEND="${RDEPEND}
 	x11-proto/xf86vidmodeproto"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-gcc43.patch \
+	epatch \
+		"${FILESDIR}"/${P}-gcc43.patch \
 		"${FILESDIR}"/${P}-lGLU.patch
+	sed -i -e 's/^bindir=.*/bindir=@bindir@/' Makefile.am || die
 	eautoreconf
 }
 
@@ -32,9 +34,6 @@ src_configure() {
 }
 
 src_install() {
-	emake \
-		DESTDIR="${D}" \
-		bindir="${GAMES_BINDIR}" install
-	dodoc AUTHORS NEWS README TODO
+	default
 	prepgamesdirs
 }

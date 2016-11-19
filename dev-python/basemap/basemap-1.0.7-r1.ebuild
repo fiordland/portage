@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/basemap/basemap-1.0.7-r1.ebuild,v 1.2 2015/02/16 14:49:29 idella4 Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,12 +9,12 @@ PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1 flag-o-matic
 
 DESCRIPTION="matplotlib toolkit to plot map projections"
-HOMEPAGE="http://matplotlib.sourceforge.net/basemap/doc/html/ http://pypi.python.org/pypi/basemap"
+HOMEPAGE="http://matplotlib.sourceforge.net/basemap/doc/html/ https://pypi.python.org/pypi/basemap"
 SRC_URI="mirror://sourceforge/matplotlib/${P}.tar.gz"
 
 IUSE="examples test"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 LICENSE="MIT GPL-2"
 
 CDEPEND="sci-libs/shapelib

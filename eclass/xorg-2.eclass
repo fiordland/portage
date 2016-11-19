@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/xorg-2.eclass,v 1.64 2014/03/02 15:41:20 mgorny Exp $
+# $Id$
 
 # @ECLASS: xorg-2.eclass
 # @MAINTAINER:
@@ -120,7 +120,7 @@ EAUTORECONF_DEPEND+="
 	>=sys-devel/libtool-2.2.6a
 	sys-devel/m4"
 if [[ ${PN} != util-macros ]] ; then
-	EAUTORECONF_DEPEND+=" >=x11-misc/util-macros-1.17"
+	EAUTORECONF_DEPEND+=" >=x11-misc/util-macros-1.18"
 	# Required even by xorg-server
 	[[ ${PN} == "font-util" ]] || EAUTORECONF_DEPEND+=" >=media-fonts/font-util-1.2.0"
 fi
@@ -516,9 +516,9 @@ xorg-2_src_install() {
 	fi
 
 	if [[ -n ${GIT_ECLASS} ]]; then
-		pushd "${EGIT_STORE_DIR}/${EGIT_CLONE_DIR}" > /dev/null
+		pushd "${EGIT_STORE_DIR}/${EGIT_CLONE_DIR}" > /dev/null || die
 		git log ${EGIT_COMMIT} > "${S}"/ChangeLog
-		popd > /dev/null
+		popd > /dev/null || die
 	fi
 
 	if [[ -e "${S}"/ChangeLog ]]; then

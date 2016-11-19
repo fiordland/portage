@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/postgrey/postgrey-1.34-r3.ebuild,v 1.5 2014/10/27 15:59:02 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -18,7 +18,7 @@ IUSE="targrey"
 
 DEPEND=""
 RDEPEND=">=dev-lang/perl-5.6.0
-	dev-perl/net-server
+	dev-perl/Net-Server
 	dev-perl/IO-Multiplex
 	dev-perl/BerkeleyDB
 	dev-perl/Net-DNS

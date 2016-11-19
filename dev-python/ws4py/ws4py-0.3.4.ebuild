@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ws4py/ws4py-0.3.4.ebuild,v 1.2 2014/10/18 16:20:51 floppym Exp $
+# $Id$
 
 # We could depend on dev-python/cherrypy when USE=server, but
 # that is an optional component ...
@@ -8,7 +8,7 @@
 # pypy is viable but better with a cutdown set of deps
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 PYTHON_REQ_USE="threads?"
 
 inherit distutils-r1
@@ -18,7 +18,7 @@ if [[ ${PV} == "9999" ]] ; then
 else
 	inherit vcs-snapshot
 	SRC_URI="https://github.com/Lawouach/WebSocket-for-Python/tarball/v${PV} -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~x86"
+	KEYWORDS="amd64 arm x86"
 fi
 
 DESCRIPTION="WebSocket client and server library for Python 2 and 3 as well as PyPy"

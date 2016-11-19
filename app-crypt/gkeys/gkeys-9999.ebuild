@@ -1,17 +1,17 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/gkeys/gkeys-9999.ebuild,v 1.6 2015/01/09 22:31:56 dolsen Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=(python{2_7,3_3,3_4})
+PYTHON_COMPAT=(python{2_7,3_4,3_5})
 
 #EGIT_PROJECT="gentoo-keys.git"
 EGIT_BRANCH="master"
 
 inherit distutils-r1 git-r3
 
-EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/gentoo-keys.git"
+EGIT_REPO_URI="git://anongit.gentoo.org/proj/gentoo-keys.git"
 
 DESCRIPTION="An OpenPGP/GPG key management tool and python libs"
 HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Gentoo-keys"
@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}
 	app-crypt/gnupg
 	=dev-python/pyGPG-9999[${PYTHON_USEDEP}]
 	=dev-python/ssl-fetch-9999[${PYTHON_USEDEP}]
-	dev-python/snakeoil[${PYTHON_USEDEP}]
+	>=dev-python/snakeoil-0.6.5[${PYTHON_USEDEP}]
 	>=app-crypt/gentoo-keys-201501052117
 	"
 

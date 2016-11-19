@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/mirrormagic/mirrormagic-2.0.2-r1.ebuild,v 1.6 2015/02/22 20:45:33 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit eutils toolchain-funcs games
@@ -27,8 +27,10 @@ src_prepare() {
 	epatch \
 		"${FILESDIR}"/${P}-gcc41.patch \
 		"${FILESDIR}"/${P}-parallel.patch \
-		"${FILESDIR}"/${P}-64bit.patch
-	rm -f ${PN}
+		"${FILESDIR}"/${P}-64bit.patch \
+		"${FILESDIR}"/${P}-gcc5.patch \
+		"${FILESDIR}"/${P}-editor.patch
+	rm -f ${PN} || die
 }
 
 src_compile() {
@@ -41,7 +43,7 @@ src_compile() {
 		EXTRA_LDFLAGS="${LDFLAGS}" \
 		RO_GAME_DIR="${GAMES_DATADIR}"/${PN} \
 		RW_GAME_DIR="${GAMES_STATEDIR}"/${PN} \
-		TARGET=$(use sdl && echo sdl || echo x11)
+		TARGET=$(usex sdl sdl x11)
 }
 
 src_install() {

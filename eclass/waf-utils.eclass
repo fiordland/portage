@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/waf-utils.eclass,v 1.22 2015/01/03 14:50:34 mgorny Exp $
+# $Id$
 
 # @ECLASS: waf-utils.eclass
 # @MAINTAINER:
@@ -15,19 +15,13 @@
 # waf-based packages much easier.
 # Its main features are support of common portage default settings.
 
-inherit base eutils multilib toolchain-funcs multiprocessing
+[[ ${EAPI} == [45] ]] && inherit eutils
+inherit multilib toolchain-funcs multiprocessing
 
 case ${EAPI:-0} in
-	3|4|5) EXPORT_FUNCTIONS src_configure src_compile src_install ;;
+	4|5|6) EXPORT_FUNCTIONS src_configure src_compile src_install ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
-
-# Python with threads is required to run waf. We do not know which python slot
-# is being used as the system interpreter, so we are forced to block all
-# slots that have USE=-threads.
-DEPEND="${DEPEND}
-	dev-lang/python
-	!dev-lang/python[-threads]"
 
 # @ECLASS-VARIABLE: WAF_VERBOSE
 # @DESCRIPTION:
@@ -41,35 +35,41 @@ DEPEND="${DEPEND}
 waf-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	local fail
 	if [[ ! ${_PYTHON_ANY_R1} && ! ${_PYTHON_SINGLE_R1} && ! ${_PYTHON_R1} ]]; then
-		eqawarn "Using waf-utils.eclass without any python-r1 suite eclass is not supported"
-		eqawarn "and will be banned on 2015-01-24. Please make sure to configure and inherit"
-		eqawarn "appropriate -r1 eclass. For more information and examples, please see:"
-		eqawarn "    https://wiki.gentoo.org/wiki/Project:Python/waf-utils_integration"
+		eerror "Using waf-utils.eclass without any python-r1 suite eclass is not supported."
+		eerror "Please make sure to configure and inherit appropriate -r1 eclass."
+		eerror "For more information and examples, please see:"
+		eerror "    https://wiki.gentoo.org/wiki/Project:Python/waf-utils_integration"
+		fail=1
 	else
 		if [[ ! ${EPYTHON} ]]; then
-			eqawarn "EPYTHON is unset while calling waf-utils. This most likely means that"
-			eqawarn "the ebuild did not call the appropriate eclass function before calling waf."
+			eerror "EPYTHON is unset while calling waf-utils. This most likely means that"
+			eerror "the ebuild did not call the appropriate eclass function before calling waf."
 			if [[ ${_PYTHON_ANY_R1} ]]; then
-				eqawarn "Please ensure that python-any-r1_pkg_setup is called in pkg_setup()."
+				eerror "Please ensure that python-any-r1_pkg_setup is called in pkg_setup()."
 			elif [[ ${_PYTHON_SINGLE_R1} ]]; then
-				eqawarn "Please ensure that python-single-r1_pkg_setup is called in pkg_setup()."
+				eerror "Please ensure that python-single-r1_pkg_setup is called in pkg_setup()."
 			else # python-r1
-				eqawarn "Please ensure that python_setup is called before waf-utils_src_configure(),"
-				eqawarn "or that the latter is used within python_foreach_impl as appropriate."
+				eerror "Please ensure that python_setup is called before waf-utils_src_configure(),"
+				eerror "or that the latter is used within python_foreach_impl as appropriate."
 			fi
-			eqawarn
+			eerror
+			fail=1
 		fi
 
 		if [[ ${PYTHON_REQ_USE} != *threads* ]]; then
-			eqawarn "Waf requires threading support in Python. To accomodate this requirement,"
-			eqawarn "please add 'threads(+)' to PYTHON_REQ_USE variable (above inherit line)."
-			eqawarn "For more information and examples, please see:"
-			eqawarn "    https://wiki.gentoo.org/wiki/Project:Python/waf-utils_integration"
+			eerror "Waf requires threading support in Python. To accomodate this requirement,"
+			eerror "please add 'threads(+)' to PYTHON_REQ_USE variable (above inherit line)."
+			eerror "For more information and examples, please see:"
+			eerror "    https://wiki.gentoo.org/wiki/Project:Python/waf-utils_integration"
+			fail=1
 		fi
 	fi
 
-	local libdir=""
+	[[ ${fail} ]] && die "Invalid use of waf-utils.eclass"
+
+	local libdir=()
 
 	# @ECLASS-VARIABLE: WAF_BINARY
 	# @DESCRIPTION:
@@ -81,25 +81,16 @@ waf-utils_src_configure() {
 	# @DESCRIPTION:
 	# Variable specifying that you don't want to set the libdir for waf script.
 	# Some scripts does not allow setting it at all and die if they find it.
-	[[ -z ${NO_WAF_LIBDIR} ]] && libdir="--libdir=${EPREFIX}/usr/$(get_libdir)"
+	[[ -z ${NO_WAF_LIBDIR} ]] && libdir=(--libdir="${EPREFIX}/usr/$(get_libdir)")
 
 	tc-export AR CC CPP CXX RANLIB
-	echo "CCFLAGS=\"${CFLAGS}\" LINKFLAGS=\"${CFLAGS} ${LDFLAGS}\" \"${WAF_BINARY}\" --prefix=${EPREFIX}/usr ${libdir} $@ configure"
+	echo "CCFLAGS=\"${CFLAGS}\" LINKFLAGS=\"${CFLAGS} ${LDFLAGS}\" \"${WAF_BINARY}\" --prefix=${EPREFIX}/usr ${libdir[@]} $@ configure"
 
-	# This condition is required because waf takes even whitespace as function
-	# calls, awesome isn't it?
-	if [[ -z ${NO_WAF_LIBDIR} ]]; then
-		CCFLAGS="${CFLAGS}" LINKFLAGS="${CFLAGS} ${LDFLAGS}" "${WAF_BINARY}" \
-			"--prefix=${EPREFIX}/usr" \
-			"${libdir}" \
-			"$@" \
-			configure || die "configure failed"
-	else
-		CCFLAGS="${CFLAGS}" LINKFLAGS="${CFLAGS} ${LDFLAGS}" "${WAF_BINARY}" \
-			"--prefix=${EPREFIX}/usr" \
-			"$@" \
-			configure || die "configure failed"
-	fi
+	CCFLAGS="${CFLAGS}" LINKFLAGS="${CFLAGS} ${LDFLAGS}" "${WAF_BINARY}" \
+		"--prefix=${EPREFIX}/usr" \
+		"${libdir[@]}" \
+		"$@" \
+		configure || die "configure failed"
 }
 
 # @FUNCTION: waf-utils_src_compile
@@ -125,5 +116,5 @@ waf-utils_src_install() {
 	"${WAF_BINARY}" --destdir="${D}" install  || die "Make install failed"
 
 	# Manual document installation
-	base_src_install_docs
+	einstalldocs
 }

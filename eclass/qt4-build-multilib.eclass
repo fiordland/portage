@@ -1,10 +1,10 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/qt4-build-multilib.eclass,v 1.4 2015/01/18 01:49:43 pesa Exp $
+# $Id$
 
 # @ECLASS: qt4-build-multilib.eclass
 # @MAINTAINER:
-# Qt herd <qt@gentoo.org>
+# qt@gentoo.org
 # @AUTHOR:
 # Davide Pesavento <pesa@gentoo.org>
 # @BLURB: Eclass for Qt4 split ebuilds with multilib support.
@@ -19,27 +19,31 @@ esac
 
 inherit eutils flag-o-matic multilib multilib-minimal toolchain-funcs
 
-HOMEPAGE="https://www.qt.io/ https://qt-project.org/"
-LICENSE="|| ( LGPL-2.1 GPL-3 )"
+HOMEPAGE="https://www.qt.io/"
+LICENSE="|| ( LGPL-2.1 LGPL-3 GPL-3 ) FDL-1.3"
 SLOT="4"
 
 case ${PV} in
 	4.?.9999)
+		# git stable branch
 		QT4_BUILD_TYPE="live"
-		EGIT_REPO_URI=(
-			"git://gitorious.org/qt/qt.git"
-			"https://git.gitorious.org/qt/qt.git"
-		)
 		EGIT_BRANCH=${PV%.9999}
-		inherit git-r3
 		;;
 	*)
+		# official stable release
 		QT4_BUILD_TYPE="release"
 		MY_P=qt-everywhere-opensource-src-${PV/_/-}
 		SRC_URI="http://download.qt.io/official_releases/qt/${PV%.*}/${PV}/${MY_P}.tar.gz"
 		S=${WORKDIR}/${MY_P}
 		;;
 esac
+
+EGIT_REPO_URI=(
+	"git://code.qt.io/qt/qt.git"
+	"https://code.qt.io/git/qt/qt.git"
+	"https://github.com/qtproject/qt.git"
+)
+[[ ${QT4_BUILD_TYPE} == live ]] && inherit git-r3
 
 if [[ ${PN} != qttranslations ]]; then
 	IUSE="aqua debug pch"
@@ -87,11 +91,6 @@ multilib_src_install_all()	{ qt4_multilib_src_install_all; }
 # Space-separated list of directories that will be configured,
 # compiled, and installed. All paths must be relative to ${S}.
 
-# @ECLASS-VARIABLE: QT4_VERBOSE_BUILD
-# @DESCRIPTION:
-# Set to false to reduce build output during compilation.
-: ${QT4_VERBOSE_BUILD:=true}
-
 # @ECLASS-VARIABLE: QCONFIG_ADD
 # @DEFAULT_UNSET
 # @DESCRIPTION:
@@ -107,14 +106,20 @@ multilib_src_install_all()	{ qt4_multilib_src_install_all; }
 # @DESCRIPTION:
 # List of macros that must be defined in QtCore/qconfig.h
 
+
+######  Phase functions  ######
+
 # @FUNCTION: qt4-build-multilib_src_unpack
 # @DESCRIPTION:
 # Unpacks the sources.
 qt4-build-multilib_src_unpack() {
-	if [[ $(gcc-major-version) -lt 4 ]] || [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt 4 ]]; then
-		ewarn
-		ewarn "Using a GCC version lower than 4.4 is not supported."
-		ewarn
+	if tc-is-gcc; then
+		if [[ $(gcc-major-version) -lt 4 ]] || \
+		   [[ $(gcc-major-version) -eq 4 && $(gcc-minor-version) -lt 4 ]]; then
+			ewarn
+			ewarn "Using a GCC version lower than 4.4 is not supported"
+			ewarn
+		fi
 	fi
 
 	if [[ ${PN} == qtwebkit ]]; then
@@ -153,6 +158,78 @@ qt4-build-multilib_src_prepare() {
 			|| die "sed failed (skip X11 tests)"
 	fi
 
+	if [[ ${PN} == qtcore ]]; then
+		# Bug 373061
+		# qmake bus errors with -O2 or -O3 but -O1 works
+		if [[ ${CHOST} == *86*-apple-darwin* ]]; then
+			replace-flags -O[23] -O1
+		fi
+
+		# Bug 503500
+		# undefined reference with -Os and --as-needed
+		if use x86 || use_if_iuse abi_x86_32; then
+			replace-flags -Os -O2
+		fi
+	fi
+
+	if [[ ${PN} == qtdeclarative ]]; then
+		# Bug 551560
+		# gcc-4.8 ICE with -Os, fixed in 4.9
+		if use x86 && tc-is-gcc && [[ $(gcc-version) == 4.8 ]]; then
+			replace-flags -Os -O2
+		fi
+	fi
+
+	if [[ ${PN} == qtwebkit ]]; then
+		# Bug 550780
+		# various ICEs with graphite-related flags, gcc-5 works
+		if [[ $(gcc-major-version) -lt 5 ]]; then
+			filter-flags -fgraphite-identity -floop-strip-mine
+		fi
+	fi
+
+	# Bug 261632
+	if use ppc64; then
+		append-flags -mminimal-toc
+	fi
+
+	# Teach configure about gcc-6 and later
+	sed -i -e 's:5\*|:[5-9]*|:' \
+		configure || die "sed gcc version failed"
+
+	# Read also AR from the environment
+	sed -i -e 's/^SYSTEM_VARIABLES="/&AR /' \
+		configure || die "sed SYSTEM_VARIABLES failed"
+
+	# Reset QMAKE_*FLAGS_{RELEASE,DEBUG} variables,
+	# or they will override the user's flags (via .qmake.cache)
+	sed -i -e '/^SYSTEM_VARIABLES=/ i \
+		QMakeVar set QMAKE_CFLAGS_RELEASE\
+		QMakeVar set QMAKE_CFLAGS_DEBUG\
+		QMakeVar set QMAKE_CXXFLAGS_RELEASE\
+		QMakeVar set QMAKE_CXXFLAGS_DEBUG\
+		QMakeVar set QMAKE_LFLAGS_RELEASE\
+		QMakeVar set QMAKE_LFLAGS_DEBUG\n' \
+		configure || die "sed QMAKE_*FLAGS_{RELEASE,DEBUG} failed"
+
+	# Drop -nocache from qmake invocation in all configure tests, to ensure that the
+	# correct toolchain and build flags are picked up from config.tests/.qmake.cache
+	find config.tests/unix -name '*.test' -type f -execdir \
+		sed -i -e '/bin\/qmake/s/-nocache//' '{}' + || die "sed -nocache failed"
+
+	# compile.test needs additional patching so that it doesn't create another cache file
+	# inside the test subdir, which would incorrectly override config.tests/.qmake.cache
+	sed -i -e '/echo.*QT_BUILD_TREE.*\.qmake\.cache/d' \
+		-e '/bin\/qmake/s/ "$SRCDIR/ "QT_BUILD_TREE=$OUTDIR"&/' \
+		config.tests/unix/compile.test || die "sed compile.test failed"
+
+	# Delete references to the obsolete /usr/X11R6 directory
+	# On prefix, this also prevents looking at non-prefix stuff
+	sed -i -re '/^QMAKE_(LIB|INC)DIR(_X11|_OPENGL|)\s+/ s/=.*/=/' \
+		mkspecs/common/linux.conf \
+		mkspecs/$(qt4_get_mkspec)/qmake.conf \
+		|| die "sed QMAKE_(LIB|INC)DIR failed"
+
 	if use_if_iuse aqua; then
 		sed -i \
 			-e '/^CONFIG/s:app_bundle::' \
@@ -166,48 +243,6 @@ qt4-build-multilib_src_prepare() {
 				configure || die "sed failed (cocoa + qt3support)"
 		fi
 	fi
-
-	# Bug 261632
-	if use ppc64; then
-		append-flags -mminimal-toc
-	fi
-
-	# Bug 373061
-	# qmake bus errors with -O2 or -O3 but -O1 works
-	if [[ ${CHOST} == *86*-apple-darwin* ]]; then
-		replace-flags -O[23] -O1
-	fi
-
-	# Bug 417105
-	# graphite on gcc 4.7 causes miscompilations
-	if [[ $(gcc-version) == "4.7" ]]; then
-		filter-flags -fgraphite-identity
-	fi
-
-	# Read also AR from the environment
-	sed -i -e 's/^SYSTEM_VARIABLES="/&AR /' \
-		configure || die "sed SYSTEM_VARIABLES failed"
-
-	# Reset QMAKE_*FLAGS_{RELEASE,DEBUG} variables,
-	# or they will override user's flags (.qmake.cache)
-	sed -i -e '/^SYSTEM_VARIABLES=/ i \
-		QMakeVar set QMAKE_CFLAGS_RELEASE\
-		QMakeVar set QMAKE_CFLAGS_DEBUG\
-		QMakeVar set QMAKE_CXXFLAGS_RELEASE\
-		QMakeVar set QMAKE_CXXFLAGS_DEBUG\
-		QMakeVar set QMAKE_LFLAGS_RELEASE\
-		QMakeVar set QMAKE_LFLAGS_DEBUG\n' \
-		configure || die "sed QMAKE_*FLAGS_{RELEASE,DEBUG} failed"
-
-	# Respect CC, CXX, LINK and *FLAGS in config.tests
-	find config.tests/unix -name '*.test' -type f -print0 | xargs -0 \
-		sed -i -e "/bin\/qmake/ s: \"\$SRCDIR/: \
-			'QMAKE_CC=$(tc-getCC)'    'QMAKE_CXX=$(tc-getCXX)'      'QMAKE_LINK=$(tc-getCXX)' \
-			'QMAKE_CFLAGS+=${CFLAGS}' 'QMAKE_CXXFLAGS+=${CXXFLAGS}' 'QMAKE_LFLAGS+=${LDFLAGS}'&:" \
-		|| die "sed config.tests failed"
-
-	# Bug 172219
-	sed -e 's:/X11R6/:/:' -i mkspecs/$(qt4_get_mkspec)/qmake.conf || die
 
 	if [[ ${CHOST} == *-darwin* ]]; then
 		# Set FLAGS and remove -arch, since our gcc-apple is multilib crippled (by design)
@@ -245,22 +280,10 @@ qt4-build-multilib_src_prepare() {
 		fi
 	fi
 
-	# this is needed for all systems with a separate -liconv, except
-	# Darwin, for which the sources already cater for -liconv
-	if use !elibc_glibc && [[ ${CHOST} != *-darwin* ]]; then
-		sed -e 's|mac:\(LIBS += -liconv\)|\1|g' \
-			-i config.tests/unix/iconv/iconv.pro \
-			|| die "sed iconv.pro failed"
+	if [[ ${CHOST} == *-solaris* ]]; then
+		sed -i -e '/^QMAKE_LFLAGS_THREAD/a QMAKE_LFLAGS_DYNAMIC_LIST = -Wl,--dynamic-list,' \
+			mkspecs/$(qt4_get_mkspec)/qmake.conf || die
 	fi
-
-	# we need some patches for Solaris
-	sed -i -e '/^QMAKE_LFLAGS_THREAD/a\QMAKE_LFLAGS_DYNAMIC_LIST = -Wl,--dynamic-list,' \
-		mkspecs/$(qt4_get_mkspec)/qmake.conf || die
-	# use GCC over SunStudio
-	sed -i -e '/PLATFORM=solaris-cc/s/cc/g++/' configure || die
-	# do not flirt with non-Prefix stuff, we're quite possessive
-	sed -i -e '/^QMAKE_\(LIB\|INC\)DIR\(_X11\|_OPENGL\|\)\t/s/=.*$/=/' \
-		mkspecs/$(qt4_get_mkspec)/qmake.conf || die
 
 	# apply patches
 	[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
@@ -278,21 +301,21 @@ qt4_multilib_src_configure() {
 		CC=$(tc-getCC) \
 		CXX=$(tc-getCXX) \
 		LD=$(tc-getCXX) \
+		MAKEFLAGS=${MAKEOPTS} \
 		OBJCOPY=$(tc-getOBJCOPY) \
+		OBJDUMP=$(tc-getOBJDUMP) \
 		STRIP=$(tc-getSTRIP)
 
 	# convert tc-arch to the values supported by Qt
-	local arch=
-	case $(tc-arch) in
-		amd64|x64-*)		  arch=x86_64 ;;
-		ppc*-macos)		  arch=ppc ;;
-		ppc*)			  arch=powerpc ;;
-		sparc*)			  arch=sparc ;;
-		x86-macos)		  arch=x86 ;;
-		x86*)			  arch=i386 ;;
-		alpha|arm|ia64|mips|s390) arch=$(tc-arch) ;;
-		hppa|sh)		  arch=generic ;;
-		*) die "qt4-build-multilib.eclass: unsupported tc-arch '$(tc-arch)'" ;;
+	local arch=$(tc-arch)
+	case ${arch} in
+		amd64|x64-*)	arch=x86_64 ;;
+		arm64|hppa)	arch=generic ;;
+		ppc*-macos)	arch=ppc ;;
+		ppc*)		arch=powerpc ;;
+		sparc*)		arch=sparc ;;
+		x86-macos)	arch=x86 ;;
+		x86*)		arch=i386 ;;
 	esac
 
 	# configure arguments
@@ -338,6 +361,21 @@ qt4_multilib_src_configure() {
 		-arch ${arch}
 		-platform $(qt4_get_mkspec)
 
+		# instruction set support
+		$(is-flagq -mno-mmx	&& echo -no-mmx)
+		$(is-flagq -mno-3dnow	&& echo -no-3dnow)
+		$(is-flagq -mno-sse	&& echo -no-sse)
+		$(is-flagq -mno-sse2	&& echo -no-sse2)
+		$(is-flagq -mno-sse3	&& echo -no-sse3)
+		$(is-flagq -mno-ssse3	&& echo -no-ssse3)
+		$(is-flagq -mno-sse4.1	&& echo -no-sse4.1)
+		$(is-flagq -mno-sse4.2	&& echo -no-sse4.2)
+		$(is-flagq -mno-avx	&& echo -no-avx)
+		$(is-flagq -mfpu=*	&& ! is-flagq -mfpu=*neon* && echo -no-neon)
+
+		# bug 367045
+		$([[ ${CHOST} == *86*-apple-darwin* ]] && echo -no-ssse3)
+
 		# prefer system libraries
 		-system-zlib
 
@@ -346,10 +384,10 @@ qt4_multilib_src_configure() {
 		-nomake demos
 
 		# disable rpath on non-prefix (bugs 380415 and 417169)
-		$(use prefix || echo -no-rpath)
+		$(usex prefix '' -no-rpath)
 
-		# verbosity of the configure and build phases
-		-verbose $(${QT4_VERBOSE_BUILD} || echo -silent)
+		# print verbose information about each configure test
+		-verbose
 
 		# precompiled headers don't work on hardened, where the flag is masked
 		$(in_iuse pch && qt_use pch || echo -no-pch)
@@ -359,10 +397,6 @@ qt4_multilib_src_configure() {
 		# mostly to be seen as a core dump with the message:
 		# "QPixmap: Must construct a QApplication before a QPaintDevice"
 		$([[ ${CHOST} != *-solaris* ]] && echo -reduce-relocations)
-
-		# this one is needed for all systems with a separate -liconv, apart from
-		# Darwin, for which the sources already cater for -liconv
-		$(use !elibc_glibc && [[ ${CHOST} != *-darwin* ]] && echo -liconv)
 	)
 
 	if use_if_iuse aqua; then
@@ -444,9 +478,13 @@ qt4_multilib_src_install() {
 		fi
 	fi
 
-	install_qconfigs
-	fix_library_files
-	fix_includes
+	# move pkgconfig directory to the correct location
+	if [[ -d ${D}${QT4_LIBDIR}/pkgconfig ]]; then
+		mv "${D}${QT4_LIBDIR}"/pkgconfig "${ED}usr/$(get_libdir)" || die
+	fi
+
+	qt4_install_module_qconfigs
+	qt4_symlink_framework_headers
 }
 
 qt4_multilib_src_install_all() {
@@ -479,44 +517,53 @@ qt4_multilib_src_install_all() {
 		find "${S}"/src/${moduledir} -type f -name '*_p.h' -exec doins '{}' + || die
 	fi
 
-	# remove .la files since we are building only shared libraries
 	prune_libtool_files
 }
 
 # @FUNCTION: qt4-build-multilib_pkg_postinst
 # @DESCRIPTION:
-# Regenerate configuration, plus throw a message about possible
-# breakages and proposed solutions.
+# Regenerate configuration after installation or upgrade/downgrade.
 qt4-build-multilib_pkg_postinst() {
-	generate_qconfigs
+	qt4_regenerate_global_qconfigs
 }
 
 # @FUNCTION: qt4-build-multilib_pkg_postrm
 # @DESCRIPTION:
-# Regenerate configuration when the package is completely removed.
+# Regenerate configuration when a module is completely removed.
 qt4-build-multilib_pkg_postrm() {
-	generate_qconfigs
+	qt4_regenerate_global_qconfigs
 }
+
+
+######  Public helpers  ######
 
 # @FUNCTION: qt_use
 # @USAGE: <flag> [feature] [enableval]
 # @DESCRIPTION:
+# <flag> is the name of a flag in IUSE.
+#
 # Outputs "-${enableval}-${feature}" if <flag> is enabled, "-no-${feature}"
 # otherwise. If [feature] is not specified, <flag> is used in its place.
 # If [enableval] is not specified, the "-${enableval}" prefix is omitted.
 qt_use() {
-	use "$1" && echo "${3:+-$3}-${2:-$1}" || echo "-no-${2:-$1}"
+	[[ $# -ge 1 ]] || die "${FUNCNAME}() requires at least one argument"
+
+	usex "$1" "${3:+-$3}-${2:-$1}" "-no-${2:-$1}"
 }
 
 # @FUNCTION: qt_native_use
 # @USAGE: <flag> [feature] [enableval]
 # @DESCRIPTION:
+# <flag> is the name of a flag in IUSE.
+#
 # Outputs "-${enableval}-${feature}" if <flag> is enabled and we are currently
 # building for the native ABI, "-no-${feature}" otherwise. If [feature] is not
 # specified, <flag> is used in its place. If [enableval] is not specified,
 # the "-${enableval}" prefix is omitted.
 qt_native_use() {
-	multilib_is_native_abi && use "$1" && echo "${3:+-$3}-${2:-$1}" || echo "-no-${2:-$1}"
+	[[ $# -ge 1 ]] || die "${FUNCNAME}() requires at least one argument"
+
+	multilib_is_native_abi && qt_use "$@" || echo "-no-${2:-$1}"
 }
 
 
@@ -528,10 +575,10 @@ qt_native_use() {
 # Prepares the environment for building Qt.
 qt4_prepare_env() {
 	# setup installation directories
+	# note: keep paths in sync with qmake-utils.eclass
 	QT4_PREFIX=${EPREFIX}/usr
 	QT4_HEADERDIR=${QT4_PREFIX}/include/qt4
 	QT4_LIBDIR=${QT4_PREFIX}/$(get_libdir)/qt4
-	QT4_PCDIR=${QT4_PREFIX}/$(get_libdir)/pkgconfig
 	QT4_BINDIR=${QT4_LIBDIR}/bin
 	QT4_PLUGINDIR=${QT4_LIBDIR}/plugins
 	QT4_IMPORTDIR=${QT4_LIBDIR}/imports
@@ -541,9 +588,13 @@ qt4_prepare_env() {
 	QT4_EXAMPLESDIR=${QT4_DATADIR}/examples
 	QT4_DEMOSDIR=${QT4_DATADIR}/demos
 	QT4_SYSCONFDIR=${EPREFIX}/etc/qt4
-	QMAKE_LIBDIR_QT=${QT4_LIBDIR}
 
+	# are these still needed?
+	QMAKE_LIBDIR_QT=${QT4_LIBDIR}
 	export XDG_CONFIG_HOME="${T}"
+
+	# can confuse qmake if set (bug 583352)
+	unset QMAKESPEC
 }
 
 # @FUNCTION: qt4_foreach_target_subdir
@@ -551,16 +602,19 @@ qt4_prepare_env() {
 # @DESCRIPTION:
 # Executes the given command inside each directory listed in QT4_TARGET_DIRECTORIES.
 qt4_foreach_target_subdir() {
-	local subdir
+	local ret=0 subdir=
 	for subdir in ${QT4_TARGET_DIRECTORIES}; do
 		mkdir -p "${subdir}" || die
 		pushd "${subdir}" >/dev/null || die
 
 		einfo "Running $* ${subdir:+in ${subdir}}"
 		"$@"
+		((ret+=$?))
 
 		popd >/dev/null || die
 	done
+
+	return ${ret}
 }
 
 # @FUNCTION: qt4_symlink_tools_to_build_dir
@@ -594,17 +648,18 @@ qt4_qmake() {
 	local projectdir=${PWD/#${BUILD_DIR}/${S}}
 
 	"${BUILD_DIR}"/bin/qmake \
+		"${projectdir}" \
 		CONFIG+=nostrip \
 		LIBS+=-L"${QT4_LIBDIR}" \
-		"${projectdir}" \
-		|| die "qmake failed (${projectdir})"
+		"${myqmakeargs[@]}" \
+		|| die "qmake failed (${projectdir#${S}/})"
 }
 
-# @FUNCTION: install_qconfigs
+# @FUNCTION: qt4_install_module_qconfigs
 # @INTERNAL
 # @DESCRIPTION:
-# Install gentoo-specific mkspecs configurations.
-install_qconfigs() {
+# Creates and installs gentoo-specific ${PN}-qconfig.{h,pri} files.
+qt4_install_module_qconfigs() {
 	local x
 	if [[ -n ${QCONFIG_ADD} || -n ${QCONFIG_REMOVE} ]]; then
 		for x in QCONFIG_ADD QCONFIG_REMOVE; do
@@ -623,11 +678,12 @@ install_qconfigs() {
 	fi
 }
 
-# @FUNCTION: generate_qconfigs
+# @FUNCTION: qt4_regenerate_global_qconfigs
 # @INTERNAL
 # @DESCRIPTION:
-# Generates gentoo-specific qconfig.{h,pri}.
-generate_qconfigs() {
+# Generates Gentoo-specific qconfig.{h,pri} according to the build configuration.
+# Don't call die here because dying in pkg_post{inst,rm} only makes things worse.
+qt4_regenerate_global_qconfigs() {
 	if [[ -n ${QCONFIG_ADD} || -n ${QCONFIG_REMOVE} || -n ${QCONFIG_DEFINE} || ${PN} == qtcore ]]; then
 		local x qconfig_add qconfig_remove qconfig_new
 		for x in "${ROOT}${QT4_DATADIR}"/mkspecs/gentoo/*-qconfig.pri; do
@@ -636,8 +692,6 @@ generate_qconfigs() {
 			qconfig_remove+=" $(sed -n 's/^QCONFIG_REMOVE=//p' "${x}")"
 		done
 
-		# these error checks do not use die because dying in pkg_post{inst,rm}
-		# just makes things worse.
 		if [[ -e "${ROOT}${QT4_DATADIR}"/mkspecs/gentoo/qconfig.pri ]]; then
 			# start with the qconfig.pri that qtcore installed
 			if ! cp "${ROOT}${QT4_DATADIR}"/mkspecs/gentoo/qconfig.pri \
@@ -683,39 +737,11 @@ generate_qconfigs() {
 	fi
 }
 
-# @FUNCTION: fix_library_files
-# @INTERNAL
+# @FUNCTION: qt4_symlink_framework_headers
 # @DESCRIPTION:
-# Fixes the paths in *.prl and *.pc, as they are wrong due to sandbox, and
-# moves the *.pc files into the pkgconfig directory.
-fix_library_files() {
-	local libfile
-	for libfile in "${D}"/${QT4_LIBDIR}/{*.prl,pkgconfig/*.pc}; do
-		if [[ -e ${libfile} ]]; then
-			sed -i -e "s:${S}/lib:${QT4_LIBDIR}:g" ${libfile} || die "sed on ${libfile} failed"
-		fi
-	done
-
-	# pkgconfig files refer to WORKDIR/bin as the moc and uic locations
-	for libfile in "${D}"/${QT4_LIBDIR}/pkgconfig/*.pc; do
-		if [[ -e ${libfile} ]]; then
-			sed -i -e "s:${S}/bin:${QT4_BINDIR}:g" ${libfile} || die "sed on ${libfile} failed"
-
-		# Move .pc files into the pkgconfig directory
-		dodir ${QT4_PCDIR#${EPREFIX}}
-		mv ${libfile} "${D}"/${QT4_PCDIR}/ || die "moving ${libfile} to ${D}/${QT4_PCDIR}/ failed"
-		fi
-	done
-
-	# Don't install an empty directory
-	rmdir "${D}"/${QT4_LIBDIR}/pkgconfig
-}
-
-# @FUNCTION: fix_includes
-# @DESCRIPTION:
-# For MacOS X we need to add some symlinks when frameworks are
-# being used, to avoid complications with some more or less stupid packages.
-fix_includes() {
+# On OS X we need to add some symlinks when frameworks are being
+# used, to avoid complications with some more or less stupid packages.
+qt4_symlink_framework_headers() {
 	if use_if_iuse aqua && [[ ${CHOST##*-darwin} -ge 9 ]]; then
 		local frw dest f h rdir
 		# Some packages tend to include <Qt/...>
@@ -745,7 +771,7 @@ fix_includes() {
 			dosym "${rdir}"/${f}/Headers "${dest}"
 
 			# Link normal headers as well.
-			for hdr in "${D}/${QT4_LIBDIR}/${f}"/Headers/*; do
+			for hdr in "${D}${QT4_LIBDIR}/${f}"/Headers/*; do
 				h=$(basename ${hdr})
 				dosym "../${rdir}"/${f}/Headers/${h} \
 					"${QT4_HEADERDIR#${EPREFIX}}"/Qt/${h}

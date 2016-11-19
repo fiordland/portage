@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/wgs-assembler/wgs-assembler-7.0-r1.ebuild,v 1.3 2012/11/13 19:19:00 nativemad Exp $
+# $Id$
 
 EAPI=4
 
@@ -9,7 +9,7 @@ PYTHON_DEPEND=2
 inherit eutils python toolchain-funcs
 
 DESCRIPTION="A de novo whole-genome shotgun DNA sequence assembler, also known as the Celera Assembler and CABOG"
-HOMEPAGE="http://sourceforge.net/projects/wgs-assembler/"
+HOMEPAGE="https://sourceforge.net/projects/wgs-assembler/"
 SRC_URI="mirror://sourceforge/${PN}/wgs-${PV}.tar.bz2"
 
 LICENSE="GPL-2"

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-vcs/kdesvn/kdesvn-1.6.0-r1.ebuild,v 1.5 2014/08/10 21:23:25 slyfox Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ KDE_LINGUAS="cs de el es fr it ja lt pt_BR ro ru"
 KDE_LINGUAS_LIVE_OVERRIDE="true"
 inherit flag-o-matic kde4-base
 
-DESCRIPTION="KDESvn is a frontend to the subversion vcs"
+DESCRIPTION="A frontend to the subversion vcs"
 HOMEPAGE="http://kdesvn.alwins-world.de/"
 if [[ ${PV} != 9999* ]]; then
 	SRC_URI="http://kdesvn.alwins-world.de/downloads/${P}.tar.bz2"
@@ -28,10 +28,13 @@ DEPEND="
 	dev-qt/qtsql:4[sqlite]
 "
 RDEPEND="${DEPEND}
-	!kde-base/kdesdk-kioslaves:4[subversion(+)]
+	!kde-apps/kdesdk-kioslaves:4[subversion(+)]
 "
 
-PATCHES=( "${FILESDIR}/${P}-bug-address.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-bug-address.patch"
+	"${FILESDIR}/${P}-cmake.patch"
+)
 
 src_configure() {
 	append-cppflags -DQT_THREAD_SUPPORT

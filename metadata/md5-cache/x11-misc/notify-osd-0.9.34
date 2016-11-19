@@ -1,14 +1,14 @@
 DEFINED_PHASES=configure install postinst postrm preinst prepare
-DEPEND=>=dev-libs/dbus-glib-0.98 >=dev-libs/glib-2.16 >=x11-libs/gtk+-3.2:3 >=x11-libs/libnotify-0.7 >=x11-libs/libwnck-3 x11-libs/libX11 x11-libs/pixman !x11-misc/notification-daemon !x11-misc/qtnotifydaemon virtual/pkgconfig gnome-base/gnome-common x11-proto/xproto !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=sys-apps/sed-4
+DEPEND=>=dev-libs/dbus-glib-0.98 >=dev-libs/glib-2.16 >=x11-libs/gtk+-3.2:3 >=x11-libs/libnotify-0.7 >=x11-libs/libwnck-3 x11-libs/libX11 x11-libs/pixman !x11-misc/notification-daemon !x11-misc/qtnotifydaemon virtual/pkgconfig gnome-base/gnome-common x11-proto/xproto !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=sys-apps/sed-4
 DESCRIPTION=Canonical's on-screen-display notification agent
 EAPI=4
-HOMEPAGE=http://launchpad.net/notify-osd
+HOMEPAGE=https://launchpad.net/notify-osd
 IUSE=minimal savedconfig
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=>=dev-libs/dbus-glib-0.98 >=dev-libs/glib-2.16 >=x11-libs/gtk+-3.2:3 >=x11-libs/libnotify-0.7 >=x11-libs/libwnck-3 x11-libs/libX11 x11-libs/pixman !x11-misc/notification-daemon !x11-misc/qtnotifydaemon !minimal? ( x11-themes/notify-osd-icons )
 RESTRICT=test
 SLOT=0
-SRC_URI=http://launchpad.net/notify-osd/precise/0.9.34/+download/notify-osd-0.9.34.tar.gz
-_eclasses_=autotools	8fc2dd333ef9346c906ffd9a523d8211	gnome2-utils	5cdfd22a2163c9d3a891648bd19453a7	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	portability	a45c088f246ef5091e029f6285d7ce42	savedconfig	5313100f525c41f6c72c6e04edeb4f65	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=1974cdbf5ba4f0c365924511d9c1031c
+SRC_URI=https://launchpad.net/notify-osd/precise/0.9.34/+download/notify-osd-0.9.34.tar.gz
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	b83a2420b796f7c6eff682679d08fe25	gnome2-utils	c6dcdf3a2c22b578b16adb945dc85c35	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	portability	bb1a0ed8ea152b957d17339f01d4d7f5	savedconfig	7de7daa586f6bf361639e77d6f2299db	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	xdg-utils	e2b2bd56125ce8cf59ce30c642b59d48
+_md5_=d19982376150fe3b4341c723df9aac09

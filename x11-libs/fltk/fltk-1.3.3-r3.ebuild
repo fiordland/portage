@@ -1,9 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/fltk/fltk-1.3.3-r3.ebuild,v 1.1 2015/02/16 13:21:27 jer Exp $
+# $Id$
 
 EAPI=5
-
 inherit autotools eutils fdo-mime flag-o-matic
 
 DESCRIPTION="C++ user interface toolkit for X and OpenGL"
@@ -12,35 +11,28 @@ SRC_URI="http://fltk.org/pub/${PN}/${PV}/${P}-source.tar.gz"
 
 SLOT="1"
 LICENSE="FLTK LGPL-2"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~x86-macos"
-IUSE="cairo debug doc examples games opengl pdf static-libs threads xft xinerama"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~x86-macos"
+IUSE="cairo debug doc examples games +opengl static-libs +threads +xft +xinerama"
 
 RDEPEND="
 	>=media-libs/libpng-1.2:0
-	virtual/jpeg:0
 	sys-libs/zlib
+	virtual/jpeg:0
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libXext
 	x11-libs/libXt
-	cairo? ( x11-libs/cairo )
-	opengl? ( virtual/opengl )
+	cairo? ( x11-libs/cairo[X] )
+	opengl? ( virtual/glu virtual/opengl )
+	xft? ( x11-libs/libXft )
 	xinerama? ( x11-libs/libXinerama )
-	xft? ( x11-libs/libXft )"
-DEPEND="${RDEPEND}
+"
+DEPEND="
+	${RDEPEND}
 	x11-proto/xextproto
-	doc? (
-		app-doc/doxygen
-		pdf? (
-			dev-texlive/texlive-fontutils
-			dev-texlive/texlive-latex
-			dev-texlive/texlive-latexextra
-		)
-	)
-	xinerama? ( x11-proto/xineramaproto )"
-
-FLTK_INCDIR=${EPREFIX}/usr/include/fltk
-FLTK_LIBDIR=${EPREFIX}/usr/$(get_libdir)/fltk
+	doc? ( app-doc/doxygen )
+	xinerama? ( x11-proto/xineramaproto )
+"
 
 src_prepare() {
 	rm -rf zlib jpeg png || die
@@ -79,32 +71,34 @@ src_prepare() {
 }
 
 src_configure() {
+	FLTK_INCDIR=${EPREFIX}/usr/include/fltk
+	FLTK_LIBDIR=${EPREFIX}/usr/$(get_libdir)/fltk
+
 	econf \
-		--includedir=${FLTK_INCDIR}\
-		--libdir=${FLTK_LIBDIR} \
+		$(use_enable cairo) \
+		$(use_enable debug) \
+		$(use_enable opengl gl) \
+		$(use_enable threads) \
+		$(use_enable xft) \
+		$(use_enable xinerama) \
+		--disable-localjpeg \
+		--disable-localpng \
+		--disable-localzlib \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}/html" \
 		--enable-largefile \
 		--enable-shared \
 		--enable-xdbe \
-		--disable-localjpeg \
-		--disable-localpng \
-		--disable-localzlib \
-		$(use_enable debug) \
-		$(use_enable cairo) \
-		$(use_enable opengl gl) \
-		$(use_enable threads) \
-		$(use_enable xft) \
-		$(use_enable xinerama)
+		--includedir=${FLTK_INCDIR} \
+		--libdir=${FLTK_LIBDIR}
 }
 
 src_compile() {
 	default
+
 	if use doc; then
 		emake -C documentation html
-		if use pdf; then
-			emake -C documentation pdf
-		fi
 	fi
+
 	if use games; then
 		emake -C test blocks checkers sudoku
 	fi

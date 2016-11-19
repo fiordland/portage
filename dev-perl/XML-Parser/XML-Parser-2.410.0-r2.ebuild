@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/XML-Parser/XML-Parser-2.410.0-r2.ebuild,v 1.3 2014/08/05 22:11:19 vapier Exp $
+# $Id$
 
 EAPI=5
 
@@ -18,4 +18,8 @@ RDEPEND=">=dev-libs/expat-1.95.1-r1"
 DEPEND="${RDEPEND}"
 
 SRC_TEST=do
-myconf="EXPATLIBPATH=${EPREFIX}/usr/$(get_libdir) EXPATINCPATH=${EPREFIX}/usr/include"
+
+src_configure() {
+	myconf="EXPATLIBPATH=${EPREFIX}/usr/$(get_libdir) EXPATINCPATH=${EPREFIX}/usr/include"
+	perl-module_src_configure
+}

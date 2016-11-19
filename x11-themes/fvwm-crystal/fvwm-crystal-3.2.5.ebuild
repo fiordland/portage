@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/fvwm-crystal/fvwm-crystal-3.2.5.ebuild,v 1.1 2013/10/19 13:14:24 hwoarang Exp $
+# $Id$
 
 EAPI="5"
 
@@ -24,6 +24,8 @@ RDEPEND="${PYTHON_DEPS}
 	sys-devel/bc
 	virtual/awk
 	x11-apps/xwd"
+
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 src_install() {
 	emake \

@@ -1,9 +1,9 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/ronn/ronn-0.7.3-r2.ebuild,v 1.14 2015/01/17 19:40:05 ago Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="ruby20"
 
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_EXTRADOC="AUTHORS CHANGES README.md"
@@ -11,7 +11,7 @@ RUBY_FAKEGEM_EXTRADOC="AUTHORS CHANGES README.md"
 inherit ruby-fakegem
 
 DESCRIPTION="Ronn converts simple, human readable textfiles to roff for terminal display, and also to HTML"
-HOMEPAGE="http://github.com/rtomayko/ronn/"
+HOMEPAGE="https://github.com/rtomayko/ronn/"
 
 LICENSE="MIT"
 SLOT="0"
@@ -23,6 +23,8 @@ ruby_add_rdepend "
 	>=dev-ruby/hpricot-0.8.2
 	>=dev-ruby/mustache-0.7.0
 	>=dev-ruby/rdiscount-1.5.8"
+
+ruby_add_bdepend ">=dev-ruby/hpricot-0.8.2 >=dev-ruby/rdiscount-1.5.8"
 
 all_ruby_prepare() {
 	# Avoid test failing due to changes in hash handling in ruby 1.8.7:

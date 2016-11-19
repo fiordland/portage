@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/automake/automake-1.4_p6-r2.ebuild,v 1.1 2014/11/15 06:42:33 vapier Exp $
+# $Id$
 
 EAPI="4"
 
@@ -8,7 +8,7 @@ inherit eutils
 
 MY_P="${P/_/-}"
 DESCRIPTION="Used to generate Makefile.in from Makefile.am"
-HOMEPAGE="http://www.gnu.org/software/automake/"
+HOMEPAGE="https://www.gnu.org/software/automake/"
 SRC_URI="mirror://gnu/${PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -18,7 +18,7 @@ KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86
 IUSE=""
 
 RDEPEND="dev-lang/perl
-	>=sys-devel/automake-wrapper-9
+	>=sys-devel/automake-wrapper-10
 	>=sys-devel/autoconf-2.69
 	sys-devel/gnuconfig"
 DEPEND="${RDEPEND}"
@@ -40,7 +40,7 @@ src_prepare() {
 # slot the info pages.  do this w/out munging the source so we don't have
 # to depend on texinfo to regen things.  #464146 (among others)
 slot_info_pages() {
-	pushd "${D}"/usr/share/info >/dev/null
+	pushd "${ED}"/usr/share/info >/dev/null
 	rm -f dir
 
 	# Rewrite all the references to other pages.
@@ -71,7 +71,7 @@ src_install() {
 		pkgdatadir=/usr/share/automake-${SLOT} \
 		m4datadir=/usr/share/aclocal-${SLOT}
 	slot_info_pages
-	rm -f "${D}"/usr/bin/{aclocal,automake}
+	rm -f "${ED}"/usr/bin/{aclocal,automake}
 	dosym automake-${SLOT} /usr/share/automake
 
 	dodoc NEWS README THANKS TODO AUTHORS ChangeLog

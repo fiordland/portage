@@ -1,12 +1,14 @@
-DEFINED_PHASES=install postinst postrm prepare
+DEFINED_PHASES=install prepare
 DEPEND=app-arch/unzip
-DESCRIPTION=eMovie is a plug-in tool for the molecular visualization program PyMOL
-EAPI=3
+DESCRIPTION=PyMOL plugin for convinient movie creation
+EAPI=5
 HOMEPAGE=http://www.weizmann.ac.il/ISPC/eMovie.html
+IUSE=python_targets_python2_7
 KEYWORDS=~x86 ~amd64 ~x86-linux ~amd64-linux
 LICENSE=GPL-2
-RDEPEND=>sci-chemistry/pymol-0.99
+RDEPEND=python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)] >sci-chemistry/pymol-0.99[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+REQUIRED_USE=|| ( python_targets_python2_7 )
 SLOT=0
 SRC_URI=http://www.weizmann.ac.il/ISPC/eMovie_package.zip
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	python	cd022f89fef846d083fc994b9e3d8c04	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=b07368038bf0e0811efc10be64b0b31c
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multibuild	742139c87a9fa3766f0c2b155e5522bf	multilib	165fc17c38d1b11dac2008280dab6e80	python-r1	dcd61d7a5c283f18cfe763552b09eb88	python-utils-r1	d142329ab093dd20c1dd0edb5f094108	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=ddef001b2bc8efbc967154a0cc58eae4

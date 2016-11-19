@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/java-virtuals/transaction-api/transaction-api-1.1.ebuild,v 1.5 2014/12/02 14:28:08 mrueg Exp $
+# $Id$
 
 EAPI=5
 
 inherit java-virtuals-2
 
 DESCRIPTION="Virtual for Transaction API (javax.transaction)"
-HOMEPAGE="http://www.gentoo.org"
+HOMEPAGE="https://www.gentoo.org"
 SRC_URI=""
 
 LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd"
+KEYWORDS="amd64 ppc64 x86 ~x86-fbsd"
 IUSE=""
 
 DEPEND=""

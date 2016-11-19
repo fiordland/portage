@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libvpx/libvpx-1.3.0.ebuild,v 1.19 2015/02/05 16:00:23 mgorny Exp $
+# $Id$
 
 EAPI=4
 inherit eutils multilib toolchain-funcs multilib-minimal
@@ -14,7 +14,7 @@ elif [[ ${PV} == *pre* ]]; then
 	SRC_URI="mirror://gentoo/${P}.tar.bz2"
 	KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 else
-	SRC_URI="http://webm.googlecode.com/files/${PN}-v${PV}.tar.bz2"
+	SRC_URI="https://webm.googlecode.com/files/${PN}-v${PV}.tar.bz2"
 	KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
@@ -33,6 +33,7 @@ IUSE="altivec cpu_flags_x86_avx cpu_flags_x86_avx2 doc cpu_flags_x86_mmx postpro
 RDEPEND="abi_x86_32? ( !app-emulation/emul-linux-x86-medialibs[-abi_x86_32(-)] )"
 DEPEND="abi_x86_32? ( dev-lang/yasm )
 	abi_x86_64? ( dev-lang/yasm )
+	abi_x86_x32? ( dev-lang/yasm )
 	x86-fbsd? ( dev-lang/yasm )
 	amd64-fbsd? ( dev-lang/yasm )
 	doc? (
@@ -62,7 +63,7 @@ multilib_src_configure() {
 		x86_64*) export AS=yasm;;
 	esac
 
-	# http://bugs.gentoo.org/show_bug.cgi?id=384585
+	# https://bugs.gentoo.org/show_bug.cgi?id=384585
 	# https://bugs.gentoo.org/show_bug.cgi?id=465988
 	# copied from php-pear-r1.eclass
 	addpredict /usr/share/snmp/mibs/.index

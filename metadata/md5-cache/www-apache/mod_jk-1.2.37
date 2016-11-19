@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile configure install postinst preinst prepare setup
-DEPEND=>=virtual/jdk-1.4 =www-servers/apache-2* >=dev-java/java-config-2.1.9-r1
+DEPEND=>=virtual/jdk-1.4 =www-servers/apache-2* >=dev-java/java-config-2.2.0-r3
 DESCRIPTION=JK module for connecting Tomcat and Apache using the ajp13 protocol
 EAPI=2
 HOMEPAGE=http://tomcat.apache.org/connectors-doc/
 IUSE=elibc_FreeBSD
-KEYWORDS=amd64 ppc x86
+KEYWORDS=amd64 x86
 LICENSE=Apache-2.0
-RDEPEND==www-servers/apache-2* >=dev-java/java-config-2.1.9-r1
+RDEPEND==www-servers/apache-2* >=dev-java/java-config-2.2.0-r3
 SLOT=0
 SRC_URI=mirror://apache/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.37-src.tar.gz
-_eclasses_=apache-module	5c4c90da2d68c2dc8391666824f1293c	depend.apache	1a38534d3f755d1ab1d92ce120bd7dbd	eutils	998e5931fb95b10a6a11ec796ada2759	java-pkg-2	65bbb59987d777c1106ae8aa4bf36e7b	java-utils-2	f02d3e4777b404c719a5a6479c37c6e3	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	versionator	cd0bcdb170807e4a1984115e9d53a26f
-_md5_=c8bdbc2632f8e602d6daa6555f9cff38
+_eclasses_=apache-module	5e66430013d92dfe0bf8672b05319b6d	depend.apache	d86176876ab66b0d5239c0097903a1b2	eutils	b83a2420b796f7c6eff682679d08fe25	java-pkg-2	eb1f0d7d874162c70088f5ae32c31ee7	java-utils-2	a50950a73b5d5db46f42638e2996a087	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=2a706c8c23a94cf0bf970f88d719a3fc

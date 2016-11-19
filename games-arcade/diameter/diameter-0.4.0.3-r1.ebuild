@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/diameter/diameter-0.4.0.3-r1.ebuild,v 1.3 2015/01/26 09:47:53 ago Exp $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -28,16 +28,26 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/gamediameter
 
+pkg_setup() {
+	python-any-r1_pkg_setup
+	games_pkg_setup
+}
+
 src_prepare() {
 	sed -i \
 		-e "s:gamediameter:diameter:" \
 		configure.in || die
 	mv configure.in configure.ac || die
+	sed -i \
+		-e '/for i in .*\/lib/s:".*:/usr/lib/ ; do:' \
+		-e "/AC_SUBST.*LDFLAGS/s/\".*\"/\$PYTHON_LIBS/" \
+		acinclude.m4 || die
 	# bug #336812
 	sed -i \
 		-e '/gui nebular3.gif/s/gui//' \
 		data/texture/Makefile.am || die
 	eautoreconf
+	python_export PYTHON PYTHON_LIBS
 }
 
 src_install() {

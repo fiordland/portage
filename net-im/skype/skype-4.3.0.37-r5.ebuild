@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/skype/skype-4.3.0.37-r5.ebuild,v 1.2 2014/12/14 10:30:17 amynka Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,58 +13,26 @@ SRC_URI="http://download.${PN}.com/linux/${P}.tar.bz2"
 LICENSE="skype-4.0.0.7-copyright BSD MIT RSA W3C regexp-UofT no-source-code"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="apulse pax_kernel +pulseaudio selinux"
+IUSE="apulse pax_kernel plasma +pulseaudio selinux"
 REQUIRED_USE="apulse? ( !pulseaudio )"
 
 QA_PREBUILT=opt/bin/${PN}
 RESTRICT="mirror bindist strip" #299368
 
-EMUL_X86_VER=20120520
-
 RDEPEND="
 	virtual/ttf-fonts
-	amd64? (
-		|| (
-			(
-				dev-qt/qtcore:4[abi_x86_32(-)]
-				dev-qt/qtdbus:4[abi_x86_32(-)]
-				dev-qt/qtgui:4[accessibility,abi_x86_32(-)]
-				dev-qt/qtwebkit:4[abi_x86_32(-)]
-			)
-			>=app-emulation/emul-linux-x86-qtlibs-${EMUL_X86_VER}[-abi_x86_32(-)]
-		)
-		|| (
-			media-libs/alsa-lib[abi_x86_32(-)]
-			>=app-emulation/emul-linux-x86-soundlibs-${EMUL_X86_VER}[-abi_x86_32(-)]
-		)
-		|| (
-			(
-				x11-libs/libX11[abi_x86_32(-)]
-				x11-libs/libXext[abi_x86_32(-)]
-				x11-libs/libXScrnSaver[abi_x86_32(-)]
-				x11-libs/libXv[abi_x86_32(-)]
-			)
-			>=app-emulation/emul-linux-x86-xlibs-${EMUL_X86_VER}[-abi_x86_32(-)]
-		)
-		pulseaudio? ( || (
-			media-sound/pulseaudio[abi_x86_32(-)]
-			>=app-emulation/emul-linux-x86-soundlibs-${EMUL_X86_VER}[-abi_x86_32(-)]
-		) )
-		apulse? ( media-sound/apulse[abi_x86_32(-)] )
-	)
-	x86? (
-		media-libs/alsa-lib
-		x11-libs/libX11
-		x11-libs/libXext
-		x11-libs/libXScrnSaver
-		x11-libs/libXv
-		dev-qt/qtcore:4
-		dev-qt/qtdbus:4
-		dev-qt/qtgui:4[accessibility]
-		dev-qt/qtwebkit:4
-		apulse? ( media-sound/apulse )
-	)
-	pulseaudio? ( media-sound/pulseaudio )
+	dev-qt/qtcore:4[abi_x86_32(-)]
+	dev-qt/qtdbus:4[abi_x86_32(-)]
+	dev-qt/qtgui:4[accessibility,abi_x86_32(-)]
+	dev-qt/qtwebkit:4[abi_x86_32(-)]
+	media-libs/alsa-lib[abi_x86_32(-)]
+	x11-libs/libX11[abi_x86_32(-)]
+	x11-libs/libXext[abi_x86_32(-)]
+	x11-libs/libXScrnSaver[abi_x86_32(-)]
+	x11-libs/libXv[abi_x86_32(-)]
+	apulse? ( media-sound/apulse[abi_x86_32(-)] )
+	plasma? ( dev-libs/sni-qt[abi_x86_32(-)] )
+	pulseaudio? ( media-sound/pulseaudio[abi_x86_32(-)] )
 	selinux? ( sec-policy/selinux-skype )"
 
 src_prepare() {
@@ -132,13 +100,9 @@ pkg_preinst() {
 pkg_postinst() {
 	gnome2_icon_cache_update
 
-	# http://bugs.gentoo.org/360815
+	# https://bugs.gentoo.org/360815
 	elog "For webcam support, see \"LD_PRELOAD\" section of \"README.lib\" document provided by"
 	elog "media-libs/libv4l package and \"README\" document of this package."
-	if use amd64; then
-		elog "You can install app-emulation/emul-linux-x86-medialibs package for the 32bit"
-		elog "libraries from the media-libs/libv4l package."
-	fi
 
 	if ! use pulseaudio && ! use apulse; then
 		ewarn "ALSA support was removed from Skype"
@@ -148,6 +112,8 @@ pkg_postinst() {
 		ewarn "These packages can be pulled in by setting"
 		ewarn "appropriate USE flags for net-im/skype."
 	fi
+	elog "If skype is segfaulting for you with gcc-5+ please consider "
+	elog "instalation of dev-qt/qtwebkit[-exceptions]"
 }
 
 pkg_postrm() {

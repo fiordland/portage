@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-leechcraft/lc-core/lc-core-0.6.70.ebuild,v 1.3 2015/01/03 10:12:18 pacho Exp $
+# $Id$
 
 EAPI="5"
 
@@ -12,10 +12,10 @@ inherit eutils confutils leechcraft
 DESCRIPTION="Core of LeechCraft, the modular network client"
 
 SLOT="0"
-KEYWORDS=" ~amd64 ~x86"
+KEYWORDS=" amd64 ~x86"
 IUSE="debug doc +sqlite postgres +qwt"
 
-COMMON_DEPEND=">=dev-libs/boost-1.46
+COMMON_DEPEND=">=dev-libs/boost-1.46:=[threads]
 	dev-qt/qtcore:4
 	dev-qt/qtdbus:4
 	dev-qt/qtdeclarative:4
@@ -30,12 +30,15 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	dev-qt/qtsvg:4
 	|| (
-		kde-apps/oxygen-icons
-		kde-base/oxygen-icons
+		kde-frameworks/oxygen-icons
 		x11-themes/kfaenza
 	 )"
 
 REQUIRED_USE="|| ( postgres sqlite )"
+
+PATCHES=(
+	"${FILESDIR}/${P}-c++11-direct-list-initialization.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(

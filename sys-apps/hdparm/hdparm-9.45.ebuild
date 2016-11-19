@@ -1,18 +1,18 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/hdparm/hdparm-9.45.ebuild,v 1.1 2014/10/02 08:44:59 polynomial-c Exp $
+# $Id$
 
 EAPI="4"
 
 inherit toolchain-funcs flag-o-matic
 
 DESCRIPTION="Utility to change hard drive performance parameters"
-HOMEPAGE="http://sourceforge.net/projects/hdparm/"
+HOMEPAGE="https://sourceforge.net/projects/hdparm/"
 SRC_URI="mirror://sourceforge/hdparm/${P}.tar.gz"
 
 LICENSE="BSD GPL-2" # GPL-2 only
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-linux ~arm-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-linux ~arm-linux ~x86-linux"
 IUSE="static"
 
 src_prepare() {

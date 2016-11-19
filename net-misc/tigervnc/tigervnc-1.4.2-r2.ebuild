@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/tigervnc/tigervnc-1.4.2-r2.ebuild,v 1.2 2015/03/02 09:20:56 armin76 Exp $
+# $Id$
 
 EAPI="4"
 
@@ -17,12 +17,12 @@ HOMEPAGE="http://www.tigervnc.org"
 SRC_URI="https://github.com/TigerVNC/tigervnc/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	mirror://gentoo/${PN}.png
 	mirror://gentoo/${P}-patches-${PATCHVER}.tar.bz2
-	http://dev.gentoo.org/~armin76/dist/${P}-patches-${PATCHVER}.tar.bz2
+	https://dev.gentoo.org/~armin76/dist/${P}-patches-${PATCHVER}.tar.bz2
 	server? ( ftp://ftp.freedesktop.org/pub/xorg/individual/xserver/xorg-server-${XSERVER_VERSION}.tar.bz2	)"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~sh sparc x86"
 IUSE="gnutls java nptl +opengl pam server +xorgmodule"
 
 RDEPEND="virtual/jpeg:0
@@ -42,7 +42,7 @@ RDEPEND="virtual/jpeg:0
 		>=x11-apps/xauth-1.0.3
 		x11-apps/xsetroot
 		>=x11-misc/xkeyboard-config-2.4.1-r3
-		opengl? ( >=app-admin/eselect-opengl-1.0.8 )
+		opengl? ( >=app-eselect/eselect-opengl-1.0.8 )
 		xorgmodule? ( =x11-base/xorg-server-${XSERVER_VERSION%.*}* )
 	)
 	!net-misc/vnc
@@ -114,6 +114,7 @@ src_prepare() {
 		cd unix/xserver
 		epatch "${WORKDIR}"/patches/1000_server_xserver-1.16-rebased.patch
 		epatch "${WORKDIR}"/patches/1005_server_xserver-1.17.patch
+		epatch "${FILESDIR}"/tigervnc-1.4.2-byteorder.patch
 		eautoreconf
 	fi
 }

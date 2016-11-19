@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/egoboo/egoboo-2.8.1.ebuild,v 1.7 2015/03/01 16:32:30 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -22,6 +22,7 @@ DEPEND="virtual/opengl
 	media-libs/sdl-ttf
 	net-libs/enet:0
 	dev-games/physfs"
+RDEPEND=${DEPEND}
 
 src_prepare() {
 	edos2unix src/game/platform/file_linux.c \
@@ -32,7 +33,7 @@ src_prepare() {
 		-e "s:@GENTOO_DATADIR@:${GAMES_DATADIR}/${PN}:" \
 		-e "s:@GENTOO_CONFDIR@:${GAMES_SYSCONFDIR}/${PN}:" \
 		src/game/platform/file_linux.c || die "sed failed"
-	rm -rf src/enet || die "failed removing enet"
+	rm -rf src/enet || die
 }
 
 src_compile() {

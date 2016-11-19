@@ -1,12 +1,12 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/kodi/kodi-14.1.ebuild,v 1.3 2015/02/28 18:06:15 vapier Exp $
+# $Id$
 
 EAPI="5"
 
 # Does not work with py3 here
 # It might work with py:2.5 but I didn't test that
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="sqlite"
 
 inherit eutils python-single-r1 multiprocessing autotools
@@ -22,22 +22,27 @@ case ${PV} in
 	MY_P="${PN}-${MY_PV}"
 	SRC_URI="http://mirrors.kodi.tv/releases/source/${MY_PV}-${CODENAME}.tar.gz -> ${P}.tar.gz
 		http://mirrors.kodi.tv/releases/source/${MY_P}-generated-addons.tar.xz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 
 	S=${WORKDIR}/xbmc-${PV}-${CODENAME}
 	;;
 esac
 
 DESCRIPTION="Kodi is a free and open source media-player and entertainment hub"
-HOMEPAGE="http://kodi.tv/ http://kodi.wiki/"
+HOMEPAGE="https://kodi.tv/ http://kodi.wiki/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="airplay avahi bluetooth bluray caps cec css debug +fishbmc gles goom java joystick midi mysql nfs +opengl profile +projectm pulseaudio pvr +rsxs rtmp +samba sftp test udisks upnp upower +usb vaapi vdpau webserver +X +xrandr"
+IUSE="airplay avahi bluetooth bluray caps cec css debug +fishbmc gles goom java joystick midi mysql nfs +opengl profile +projectm pulseaudio pvr +rsxs rtmp +samba sdl sftp test +texturepacker udisks upnp upower +usb vaapi vdpau webserver +X +xrandr"
+# gles/vaapi: http://trac.kodi.tv/ticket/10552 #464306
 REQUIRED_USE="
+	|| ( gles opengl )
+	gles? ( !vaapi )
+	vaapi? ( !gles )
 	pvr? ( mysql )
 	rsxs? ( X )
 	xrandr? ( X )
+	joystick? ( sdl )
 "
 
 COMMON_DEPEND="${PYTHON_DEPS}
@@ -47,10 +52,13 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	app-i18n/enca
 	airplay? ( app-pda/libplist )
 	dev-libs/boost
+	dev-libs/expat
 	dev-libs/fribidi
 	dev-libs/libcdio[-minimal]
 	cec? ( >=dev-libs/libcec-2.2 )
 	dev-libs/libpcre[cxx]
+	dev-libs/libxml2
+	dev-libs/libxslt
 	>=dev-libs/lzo-2.04
 	dev-libs/tinyxml[stl]
 	dev-libs/yajl
@@ -61,8 +69,8 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	media-libs/flac
 	media-libs/fontconfig
 	media-libs/freetype
-	>=media-libs/glew-1.5.6
-	media-libs/jasper
+	>=media-libs/glew-1.5.6:0=
+	media-libs/jasper:=
 	media-libs/jbigkit
 	>=media-libs/libass-0.9.7
 	bluray? ( media-libs/libbluray )
@@ -71,20 +79,20 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	media-libs/libmodplug
 	media-libs/libmpeg2
 	media-libs/libogg
-	media-libs/libpng
+	media-libs/libpng:0=
 	projectm? ( media-libs/libprojectm )
 	media-libs/libsamplerate
-	joystick? ( media-libs/libsdl2 )
+	sdl? ( media-libs/libsdl2 )
 	>=media-libs/taglib-1.8
 	media-libs/libvorbis
-	media-libs/tiff
+	media-libs/tiff:0
 	pulseaudio? ( media-sound/pulseaudio )
 	media-sound/wavpack
 	>=media-video/ffmpeg-2.4:=[encode]
 	rtmp? ( media-video/rtmpdump )
 	avahi? ( net-dns/avahi )
 	nfs? ( net-fs/libnfs )
-	webserver? ( net-libs/libmicrohttpd[messages] )
+	net-libs/libmicrohttpd[messages]
 	sftp? ( net-libs/libssh[sftp] )
 	net-misc/curl
 	samba? ( >=net-fs/samba-3.4.6[smbclient(+)] )
@@ -92,8 +100,8 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	sys-apps/dbus
 	caps? ( sys-libs/libcap )
 	sys-libs/zlib
-	virtual/jpeg
-	usb? ( virtual/libusb )
+	virtual/jpeg:0
+	usb? ( virtual/libusb:1 )
 	mysql? ( virtual/mysql )
 	opengl? (
 		virtual/glu
@@ -123,6 +131,11 @@ DEPEND="${COMMON_DEPEND}
 	app-arch/xz-utils
 	dev-lang/swig
 	dev-util/gperf
+	texturepacker? (
+		media-libs/libsdl
+		media-libs/sdl-image
+	)
+	sdl? ( media-libs/sdl-image )
 	X? ( x11-proto/xineramaproto )
 	dev-util/cmake
 	x86? ( dev-lang/nasm )
@@ -142,8 +155,11 @@ src_unpack() {
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-9999-nomythtv.patch
-	epatch "${FILESDIR}"/${PN}-9999-no-arm-flags.patch #400617
+	epatch "${FILESDIR}"/${P}-no-arm-flags.patch #400617
 	epatch "${FILESDIR}"/${PN}-14.0-dvddemux-ffmpeg.patch #526992#36
+	epatch "${FILESDIR}"/${P}-gcc-5.patch #557300
+	epatch_user #293109
+
 	# The mythtv patch touches configure.ac, so force a regen
 	rm -f configure
 
@@ -174,8 +190,6 @@ src_prepare() {
 	sed -i \
 		-e '/dbus_connection_send_with_reply_and_block/s:-1:3000:' \
 		xbmc/linux/*.cpp || die
-
-	epatch_user #293109
 
 	# Tweak autotool timestamps to avoid regeneration
 	find . -type f -exec touch -r configure {} +
@@ -218,9 +232,11 @@ src_configure() {
 		$(use_enable rsxs) \
 		$(use_enable rtmp) \
 		$(use_enable samba) \
+		$(use_enable sdl) \
 		$(use_enable sftp ssh) \
 		$(use_enable usb libusb) \
 		$(use_enable test gtest) \
+		$(use_enable texturepacker) \
 		$(use_enable upnp) \
 		$(use_enable vaapi) \
 		$(use_enable vdpau) \

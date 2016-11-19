@@ -1,13 +1,24 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/musl/musl-9999.ebuild,v 1.13 2015/02/27 08:07:49 vapier Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit eutils flag-o-matic multilib toolchain-funcs
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="git://git.musl-libc.org/musl"
-	inherit git-2
+	inherit git-r3
+	SRC_URI="
+	http://dev.gentoo.org/~blueness/musl-misc/getconf.c
+	http://dev.gentoo.org/~blueness/musl-misc/getent.c
+	http://dev.gentoo.org/~blueness/musl-misc/iconv.c"
+	KEYWORDS=""
+else
+	SRC_URI="http://www.musl-libc.org/releases/${P}.tar.gz
+	http://dev.gentoo.org/~blueness/musl-misc/getconf.c
+	http://dev.gentoo.org/~blueness/musl-misc/getent.c
+	http://dev.gentoo.org/~blueness/musl-misc/iconv.c"
+	KEYWORDS="-* ~amd64 ~arm ~mips ~ppc ~x86"
 fi
 
 export CBUILD=${CBUILD:-${CHOST}}
@@ -18,21 +29,14 @@ if [[ ${CTARGET} == ${CHOST} ]] ; then
 	fi
 fi
 
-DESCRIPTION="Lightweight, fast and simple C library focused on standards-conformance and safety"
+DESCRIPTION="Light, fast and simple C library focused on standards-conformance and safety"
 HOMEPAGE="http://www.musl-libc.org/"
-if [[ ${PV} != "9999" ]] ; then
-	PATCH_VER=""
-	SRC_URI="http://www.musl-libc.org/releases/${P}.tar.gz"
-	KEYWORDS="-* ~amd64 ~arm ~mips ~ppc ~x86"
-fi
-
-LICENSE="MIT"
+LICENSE="MIT LGPL-2 GPL-2"
 SLOT="0"
 IUSE="crosscompile_opts_headers-only"
 
-if [[ ${CATEGORY} != cross-* ]] ; then
-	RDEPEND+=" sys-apps/getent"
-fi
+QA_SONAME="/usr/lib/libc.so"
+QA_DT_NEEDED="/usr/lib/libc.so"
 
 is_crosscompile() {
 	[[ ${CHOST} != ${CTARGET} ]]
@@ -49,40 +53,56 @@ pkg_setup() {
 		*) die "Use sys-devel/crossdev to build a musl toolchain" ;;
 		esac
 	fi
-
-	epatch_user
 }
 
 src_configure() {
 	tc-getCC ${CTARGET}
 	just_headers && export CC=true
 
+	local sysroot
+	is_crosscompile && sysroot=/usr/${CTARGET}
 	./configure \
-		--target="${CTARGET}" \
-		--prefix="/usr" \
-		--disable-gcc-wrapper
+		--target=${CTARGET} \
+		--prefix=${sysroot}/usr \
+		--syslibdir=${sysroot}/lib \
+		--disable-gcc-wrapper || die
 }
 
 src_compile() {
-	emake include/bits/alltypes.h || die
+	emake obj/include/bits/alltypes.h
 	just_headers && return 0
 
-	emake || die
+	emake
+	$(tc-getCC) ${CFLAGS} "${DISTDIR}"/getconf.c -o "${T}"/getconf || die
+	$(tc-getCC) ${CFLAGS} "${DISTDIR}"/getent.c -o "${T}"/getent || die
+	$(tc-getCC) ${CFLAGS} "${DISTDIR}"/iconv.c -o "${T}"/iconv || die
 }
 
 src_install() {
-	local sysroot=${D}
-	is_crosscompile && sysroot+="/usr/${CTARGET}"
-
 	local target="install"
 	just_headers && target="install-headers"
-	emake DESTDIR="${sysroot}" ${target} || die
+	emake DESTDIR="${D}" ${target}
+	just_headers && return 0
 
-	# Make sure we install the sys-include symlink so that when
-	# we build a 2nd stage cross-compiler, gcc finds the target
-	# system headers correctly.  See gcc/doc/gccinstall.info
-	if is_crosscompile ; then
-		dosym usr/include /usr/${CTARGET}/sys-include
+	# musl provides ldd via a sym link to its ld.so
+	local sysroot
+	is_crosscompile && sysroot=/usr/${CTARGET}
+	local ldso=$(basename "${D}"${sysroot}/lib/ld-musl-*)
+	dosym ${sysroot}/lib/${ldso} ${sysroot}/usr/bin/ldd
+
+	if [[ ${CATEGORY} != cross-* ]] ; then
+		local arch=$("${D}"usr/lib/libc.so 2>&1 | sed -n '1s/^musl libc (\(.*\))$/\1/p')
+		[[ -e "${D}"/lib/ld-musl-${arch}.so.1 ]] || die
+		cp "${FILESDIR}"/ldconfig.in "${T}" || die
+		sed -e "s|@@ARCH@@|${arch}|" "${T}"/ldconfig.in > "${T}"/ldconfig || die
+		into /
+		dosbin "${T}"/ldconfig
+		into /usr
+		dobin "${T}"/getconf
+		dobin "${T}"/getent
+		dobin "${T}"/iconv
+		echo 'LDPATH="include ld.so.conf.d/*.conf"' > "${T}"/00musl || die
+		doenvd "${T}"/00musl || die
 	fi
 }
 
@@ -91,9 +111,7 @@ pkg_postinst() {
 
 	[ "${ROOT}" != "/" ] && return 0
 
-	# TODO: musl doesn't use ldconfig, instead here we can
-	# create sym links to libraries outside of /lib and /usr/lib
-	ldconfig
+	ldconfig || die
 	# reload init ...
 	/sbin/telinit U 2>/dev/null
 }

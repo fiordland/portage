@@ -1,10 +1,12 @@
-DEFINED_PHASES=compile install postinst postrm preinst prepare unpack
-DEPEND=dev-python/pygobject:3 || ( =dev-lang/python-3.3* =dev-lang/python-3.2* ) >=sys-apps/sed-4 dev-vcs/git
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=dev-python/pygobject:3 python_targets_python3_4? ( dev-lang/python:3.4 ) >=dev-lang/python-exec-2:=[python_targets_python3_4(-)?,-python_single_target_python3_4(-)] >=sys-apps/sed-4 dev-vcs/git
 DESCRIPTION=simple viewer for NFO files, which are ASCII art in the CP437 codepage
-EAPI=3
+EAPI=5
 HOMEPAGE=http://home.gna.org/nfoview/
+IUSE=python_targets_python3_4
 LICENSE=GPL-3
-RDEPEND=dev-python/pygobject:3 media-fonts/terminus-font || ( =dev-lang/python-3.3* =dev-lang/python-3.2* )
+RDEPEND=dev-python/pygobject:3 media-fonts/terminus-font python_targets_python3_4? ( dev-lang/python:3.4 ) >=dev-lang/python-exec-2:=[python_targets_python3_4(-)?,-python_single_target_python3_4(-)]
+REQUIRED_USE=|| ( python_targets_python3_4 )
 SLOT=0
-_eclasses_=distutils	92e738ea29389cb3f34778d7a349ac71	fdo-mime	0acfe1a88fd8751a1d5dc671168219fa	git-2	e28f0d8a9b321431b1e699782851b827	gnome2-utils	5cdfd22a2163c9d3a891648bd19453a7	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	python	cd022f89fef846d083fc994b9e3d8c04	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=daa39d98e425dd0cb7b36c6bf77c2b83
+_eclasses_=distutils-r1	583a05d30524485fda6869c772682ecd	eutils	b83a2420b796f7c6eff682679d08fe25	fdo-mime	92d07846ea8ea54172f8c0112a47ae3d	git-2	7af5d170bfc02983b4bcd3167dc5edd4	gnome2-utils	c6dcdf3a2c22b578b16adb945dc85c35	multibuild	742139c87a9fa3766f0c2b155e5522bf	multilib	165fc17c38d1b11dac2008280dab6e80	multiprocessing	e32940a7b2a9992ad217eccddb84d548	python-r1	dcd61d7a5c283f18cfe763552b09eb88	python-utils-r1	d142329ab093dd20c1dd0edb5f094108	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	xdg-utils	e2b2bd56125ce8cf59ce30c642b59d48
+_md5_=2f8746f8863dd5e24b098be6aa12cdc8

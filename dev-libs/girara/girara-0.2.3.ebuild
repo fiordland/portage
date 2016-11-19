@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/girara/girara-0.2.3.ebuild,v 1.1 2014/10/24 17:54:42 ssuominen Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ HOMEPAGE="http://pwmt.org/projects/girara/"
 if ! [[ ${PV} == 9999* ]]; then
 SRC_URI="http://pwmt.org/projects/${PN}/download/${P}.tar.gz"
 fi
-EGIT_REPO_URI="git://git.pwmt.org/${PN}.git"
+EGIT_REPO_URI="https://git.pwmt.org/pwmt/${PN}.git"
 EGIT_BRANCH="develop"
 
 LICENSE="ZLIB"

@@ -1,16 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/cracklib/cracklib-2.9.1-r1.ebuild,v 1.15 2014/10/27 01:54:02 vapier Exp $
+# $Id$
 
 EAPI="4"
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 DISTUTILS_OPTIONAL=1
 
 inherit eutils distutils-r1 libtool multilib-minimal toolchain-funcs
 
 MY_P=${P/_}
 DESCRIPTION="Password Checking Library"
-HOMEPAGE="http://sourceforge.net/projects/cracklib"
+HOMEPAGE="https://sourceforge.net/projects/cracklib"
 SRC_URI="mirror://sourceforge/cracklib/${MY_P}.tar.gz"
 
 LICENSE="LGPL-2.1"
@@ -83,7 +83,7 @@ python_test() {
 multilib_src_install() {
 	default
 	# move shared libs to /
-	multilib_is_native_abi && gen_usr_ldscript -a crack
+	gen_usr_ldscript -a crack
 
 	do_python
 }

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/py-xmlrpc/py-xmlrpc-0.8.8.3-r1.ebuild,v 1.7 2012/02/21 08:46:27 patrick Exp $
+# $Id$
 
 EAPI="3"
 PYTHON_DEPEND="2"
@@ -10,7 +10,7 @@ RESTRICT_PYTHON_ABIS="3.* 2.7-pypy-* *-jython"
 inherit distutils eutils
 
 DESCRIPTION="Fast XML-RPC implementation for Python"
-HOMEPAGE="http://sourceforge.net/projects/py-xmlrpc/"
+HOMEPAGE="https://sourceforge.net/projects/py-xmlrpc/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"

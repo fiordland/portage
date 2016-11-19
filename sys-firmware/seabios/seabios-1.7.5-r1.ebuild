@@ -1,10 +1,10 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-firmware/seabios/seabios-1.7.5-r1.ebuild,v 1.1 2015/02/15 08:02:48 vapier Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python{2_7,3_{4,5}} )
 
 inherit eutils toolchain-funcs python-any-r1
 
@@ -20,18 +20,18 @@ if [[ ${PV} = *9999* || ! -z "${EGIT_COMMIT}" ]]; then
 	inherit git-2
 else
 	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd"
-	SRC_URI="!binary? ( http://code.coreboot.org/p/seabios/downloads/get/${P}.tar.gz )
+	SRC_URI="!binary? ( https://code.coreboot.org/p/seabios/downloads/get/${P}.tar.gz )
 		binary? (
-			http://code.coreboot.org/p/seabios/downloads/get/bios.bin-${PV}.gz
+			https://code.coreboot.org/p/seabios/downloads/get/bios.bin-${PV}.gz
 			seavgabios? (
 				mirror://debian/pool/main/s/${PN}/${PN}_${PV}-1_all.deb
 			)
 		)
-		${BACKPORTS:+http://dev.gentoo.org/~cardoe/distfiles/${P}-${BACKPORTS}.tar.xz}"
+		${BACKPORTS:+https://dev.gentoo.org/~cardoe/distfiles/${P}-${BACKPORTS}.tar.xz}"
 fi
 
 DESCRIPTION="Open Source implementation of a 16-bit x86 BIOS"
-HOMEPAGE="http://www.seabios.org"
+HOMEPAGE="https://www.seabios.org/"
 
 LICENSE="LGPL-3 GPL-3"
 SLOT="0"
@@ -58,11 +58,6 @@ pkg_pretend() {
 		ewarn "own SeaBIOS. Virtual machines subtly fail based on changes"
 		ewarn "in SeaBIOS."
 	fi
-
-	local myld=$(tc-getLD)
-
-	${myld} -v | grep -q "GNU gold" && \
-	ewarn "gold linker unable to handle 16-bit code using ld.bfd.  bug #438058"
 }
 
 pkg_setup() {
@@ -95,19 +90,19 @@ src_prepare() {
 }
 
 src_configure() {
-	:
+	use binary || tc-ld-disable-gold #438058
 }
 
 _emake() {
 	LANG=C \
 	emake V=1 \
-		CC=$(tc-getCC) \
-		LD="$(tc-getLD).bfd" \
-		AR=$(tc-getAR) \
-		OBJCOPY=$(tc-getOBJCOPY) \
-		RANLIB=$(tc-getRANLIB) \
-		OBJDUMP=$(tc-getPROG OBJDUMP objdump) \
-		HOST_CC=$(tc-getBUILD_CC) \
+		CC="$(tc-getCC)" \
+		LD="$(tc-getLD)" \
+		AR="$(tc-getAR)" \
+		OBJCOPY="$(tc-getOBJCOPY)" \
+		RANLIB="$(tc-getRANLIB)" \
+		OBJDUMP="$(tc-getOBJDUMP)" \
+		HOST_CC="$(tc-getBUILD_CC)" \
 		"$@"
 }
 

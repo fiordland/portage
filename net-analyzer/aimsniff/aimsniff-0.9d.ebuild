@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/aimsniff/aimsniff-0.9d.ebuild,v 1.2 2014/12/16 23:12:55 jer Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ inherit eutils webapp eutils depend.apache
 WAS_VER="0.1.2b"
 
 DESCRIPTION="Utility for monitoring and archiving AOL Instant Messenger messages across a network"
-HOMEPAGE="http://sourceforge.net/projects/aimsniff/"
+HOMEPAGE="https://sourceforge.net/projects/aimsniff/"
 SRC_URI="
 	mirror://sourceforge/${PN}/${P}.tar.gz
 	http? ( mirror://sourceforge/${PN}/was-${WAS_VER}.tar.gz )

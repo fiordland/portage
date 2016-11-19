@@ -1,6 +1,7 @@
 DEFINED_PHASES=install postinst unpack
 DEPEND=net-dialup/ppp
 DESCRIPTION=Driver for various ADSL modems. Also known as EciAdsl
+EAPI=0
 HOMEPAGE=http://eciadsl.flashtux.org
 IUSE=tk
 KEYWORDS=-amd64 x86
@@ -8,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=net-dialup/ppp dev-lang/perl tk? ( >=dev-lang/tk-8.3.4 )
 SLOT=0
 SRC_URI=http://eciadsl.flashtux.org/download/eciadsl-usermode-0.12.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=525e8a106dfcadba9cb3ed7675905c45
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=efbe56e0dec3b962f5fc1fb254f41dc3

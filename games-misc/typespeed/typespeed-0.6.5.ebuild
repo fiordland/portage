@@ -1,9 +1,9 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-misc/typespeed/typespeed-0.6.5.ebuild,v 1.7 2015/02/06 21:56:18 tupone Exp $
+# $Id$
 
 EAPI=5
-inherit autotools games
+inherit autotools eutils games
 
 DESCRIPTION="Test your typing speed, and get your fingers CPS"
 HOMEPAGE="http://typespeed.sourceforge.net/"
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="alpha amd64 ppc ~ppc64 x86"
 IUSE="nls"
 
-RDEPEND="sys-libs/ncurses
+RDEPEND="sys-libs/ncurses:0
 	nls? ( virtual/libintl )"
 DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
@@ -23,12 +23,9 @@ src_prepare() {
 	sed -i \
 		-e 's/testsuite//' \
 		-e 's/doc//' \
-		Makefile.am \
-		|| die
-	sed -i \
-		-e '/^CC =/d' \
-		src/Makefile.am \
-		|| die
+		Makefile.am || die
+	sed -i -e '/^CC =/d' src/Makefile.am || die
+	epatch "${FILESDIR}"/${P}-musl.patch
 	rm -rf m4 #417265
 	eautoreconf
 }

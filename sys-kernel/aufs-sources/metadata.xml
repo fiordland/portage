@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer>
+  <maintainer type="person">
     <email>jlec@gentoo.org</email>
   </maintainer>
   <use>
@@ -21,8 +21,10 @@
 		WARNING: This flag will drop all support from the Gentoo Kernel 
 		Security team
 	</flag>
+    <flag name="kdbus">Apply the kdbus patch. This also requires the "experimental" use flag.</flag>
   </use>
   <upstream>
     <remote-id type="cpe">cpe:/o:linux:linux_kernel</remote-id>
+    <remote-id type="sourceforge">aufs</remote-id>
   </upstream>
 </pkgmetadata>

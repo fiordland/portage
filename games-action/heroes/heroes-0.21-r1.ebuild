@@ -1,8 +1,8 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/heroes/heroes-0.21-r1.ebuild,v 1.12 2015/01/01 18:51:04 tupone Exp $
-EAPI=4
+# $Id$
 
+EAPI=5
 inherit eutils autotools games
 
 data_ver=1.5
@@ -36,8 +36,7 @@ src_prepare() {
 		"${FILESDIR}/${P}"-underlink.patch \
 		"${FILESDIR}"/${P}-automake-1.12.patch
 	sed -i 's:$(localedir):/usr/share/locale:' \
-		$(find . -name 'Makefile.in*') \
-		|| die "sed failed"
+		$(find . -name 'Makefile.in*') || die
 	eautoreconf
 }
 

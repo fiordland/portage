@@ -1,13 +1,13 @@
-DEFINED_PHASES=compile configure install prepare unpack
-DEPEND=dev-qt/qtcore:4 || ( ( >=dev-qt/qtgui-4.8.5:4 dev-qt/designer:4 ) <dev-qt/qtgui-4.8.5:4 ) dev-qt/qtopengl:4 !kde? ( || ( dev-qt/qtphonon:4 media-libs/phonon[qt4] ) ) kde? ( media-libs/phonon[qt4] ) dev-qt/qtscript:4 dev-qt/qtsql:4 dev-qt/qtsvg:4 dev-qt/qtwebkit:4 dev-qt/qtxmlpatterns:4
+DEFINED_PHASES=compile configure install prepare
+DEPEND=dev-qt/designer:4 dev-qt/qtcore:4 dev-qt/qtgui:4[accessibility] dev-qt/qtopengl:4 !kde? ( || ( dev-qt/qtphonon:4 media-libs/phonon[qt4] ) ) kde? ( media-libs/phonon[qt4] ) dev-qt/qtscript:4 dev-qt/qtsql:4 dev-qt/qtsvg:4[accessibility] dev-qt/qtwebkit:4 dev-qt/qtxmlpatterns:4
 DESCRIPTION=Tool for generating Qt bindings for Qt Script
 EAPI=4
-HOMEPAGE=http://code.google.com/p/qtscriptgenerator/
+HOMEPAGE=https://code.google.com/p/qtscriptgenerator/
 IUSE=debug kde
 KEYWORDS=amd64 ~arm ppc ~ppc64 x86
 LICENSE=GPL-2
-RDEPEND=dev-qt/qtcore:4 || ( ( >=dev-qt/qtgui-4.8.5:4 dev-qt/designer:4 ) <dev-qt/qtgui-4.8.5:4 ) dev-qt/qtopengl:4 !kde? ( || ( dev-qt/qtphonon:4 media-libs/phonon[qt4] ) ) kde? ( media-libs/phonon[qt4] ) dev-qt/qtscript:4 dev-qt/qtsql:4 dev-qt/qtsvg:4 dev-qt/qtwebkit:4 dev-qt/qtxmlpatterns:4
+RDEPEND=dev-qt/designer:4 dev-qt/qtcore:4 dev-qt/qtgui:4[accessibility] dev-qt/qtopengl:4 !kde? ( || ( dev-qt/qtphonon:4 media-libs/phonon[qt4] ) ) kde? ( media-libs/phonon[qt4] ) dev-qt/qtscript:4 dev-qt/qtsql:4 dev-qt/qtsvg:4[accessibility] dev-qt/qtwebkit:4 dev-qt/qtxmlpatterns:4
 SLOT=0
-SRC_URI=http://qtscriptgenerator.googlecode.com/files/qtscriptgenerator-src-0.2.0.tar.gz
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	qmake-utils	ea709b525d28e3087eddedb2f884dbbe	qt4-r2	7199e3db5b5908325487d379c6f67cf0	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=65f56bfecd6d8fc7286f1998ae11ce7c
+SRC_URI=https://qtscriptgenerator.googlecode.com/files/qtscriptgenerator-src-0.2.0.tar.gz
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	qmake-utils	0a242e7177789b0028b4045f336dd4db	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=6d748ecd0a1210a9d4b88c59cdda0f36

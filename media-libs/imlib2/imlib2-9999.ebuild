@@ -1,22 +1,22 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/imlib2/imlib2-9999.ebuild,v 1.22 2015/01/29 17:33:53 mgorny Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
 
 EGIT_SUB_PROJECT="legacy"
 EGIT_URI_APPEND=${PN}
 
 if [[ ${PV} != "9999" ]] ; then
-	EKEY_STATE="stable"
+	EKEY_STATE="snap"
 fi
 
 inherit enlightenment toolchain-funcs multilib-minimal
 
 DESCRIPTION="Version 2 of an advanced replacement library for libraries like libXpm"
-HOMEPAGE="http://www.enlightenment.org/"
+HOMEPAGE="https://www.enlightenment.org/"
 
-IUSE="bzip2 gif jpeg cpu_flags_x86_mmx mp3 png static-libs tiff X zlib"
+IUSE="bzip2 gif jpeg cpu_flags_x86_mmx cpu_flags_x86_sse2 mp3 png static-libs tiff X zlib"
 
 RDEPEND="=media-libs/freetype-2*[${MULTILIB_USEDEP}]
 	bzip2? ( >=app-arch/bzip2-1.0.6-r4[${MULTILIB_USEDEP}] )
@@ -31,16 +31,16 @@ RDEPEND="=media-libs/freetype-2*[${MULTILIB_USEDEP}]
 	)
 	mp3? ( >=media-libs/libid3tag-0.15.1b-r3[${MULTILIB_USEDEP}] )"
 DEPEND="${RDEPEND}
-	png? ( >=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}] )
+	>=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}]
 	X? (
 		>=x11-proto/xextproto-7.2.1-r1[${MULTILIB_USEDEP}]
 		>=x11-proto/xproto-7.0.24[${MULTILIB_USEDEP}]
 	)"
 
 multilib_src_configure() {
-	# imlib2 has diff configure options for x86/amd64 mmx
+	# imlib2 has diff configure options for x86/amd64 assembly
 	if [[ $(tc-arch) == amd64 ]]; then
-		E_ECONF+=( $(use_enable cpu_flags_x86_mmx amd64) --disable-mmx )
+		E_ECONF+=( $(use_enable cpu_flags_x86_sse2 amd64) --disable-mmx )
 	else
 		E_ECONF+=( --disable-amd64 $(use_enable cpu_flags_x86_mmx mmx) )
 	fi

@@ -1,11 +1,19 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/amd64/use.mask,v 1.67 2015/01/28 19:21:45 mgorny Exp $
+# $Id$
 
 # Unmask the flag which corresponds to ARCH.
 -amd64
 
 # SECTION: Unmask
+
+# cilk has been ported to this arch.
+-cilk
+
+# 2015/11/13 - Daniel Kuehn <lejonet@gentoo.org>
+# Unmask sssd USE-flag as it is tested on this arch in regards to bugs
+# 540540 and 525674
+-sssd
 
 # Mike Gilbert <floppym@gentoo.org> (19 Oct 2014)
 # sys-libs/libapparmor
@@ -49,8 +57,6 @@
 
 # Ralph Sennhauser <sera@gentoo.org> (31 Jul 2012)
 # Keyworded on amd64
--python_targets_jython2_5
--python_single_target_jython2_5
 -python_targets_jython2_7
 -python_single_target_jython2_7
 
@@ -87,7 +93,7 @@
 
 # 2011/10/21 - Hans de Graaff <graaff@gentoo.org>
 # Add support for Rubinius targets where rbx is available
--ruby_targets_rbx
+#-ruby_targets_rbx
 
 # Lilo works on amd64, so ...
 -lilo
@@ -104,10 +110,6 @@
 # 2007/03/10 - Mike Frysinger <vapier@gentoo.org>
 # NVRAM works on x86/amd64 hosts
 -nvram
-
-# 2006/06/07 - Danny van Dyk <kugelfang@gentoo.org>
-# Profile cleanup: Unmask emul-linux-x86
--emul-linux-x86
 
 # 2005/09/14 - Diego Pettenò <flameeyes@gentoo.org>
 # nVidia XvMC support works on amd64
@@ -145,6 +147,7 @@
 # SIMD assembler flags
 -mmx
 -mmxext
+-mpx
 -sse
 -sse2
 -sse3
@@ -209,10 +212,6 @@ drac
 video_cards_i740
 video_cards_newport
 video_cards_nsc
-
-# 2004/10/06 - Jeremy Huddleston <eradicator@gentoo.org>
-# sys-cluster/pvm won't build
-pvm
 
 # 2004/06/22 - Taken from 2004.0 profile
 # masked

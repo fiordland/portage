@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libzen/libzen-0.4.30.ebuild,v 1.2 2015/01/08 04:55:47 radhermit Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,7 +8,7 @@ inherit autotools multilib eutils
 
 MY_PN="ZenLib"
 DESCRIPTION="Shared library for libmediainfo and mediainfo"
-HOMEPAGE="http://sourceforge.net/projects/zenlib"
+HOMEPAGE="https://sourceforge.net/projects/zenlib"
 SRC_URI="mirror://sourceforge/zenlib/${PN}_${PV}.tar.bz2"
 
 LICENSE="ZLIB"

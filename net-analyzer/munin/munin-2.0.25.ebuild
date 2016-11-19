@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/munin/munin-2.0.25.ebuild,v 1.2 2014/12/28 16:08:50 titanofold Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,7 +14,7 @@ DESCRIPTION="Munin Server Monitoring Tool"
 HOMEPAGE="http://munin-monitoring.org/"
 SRC_URI="
 	mirror://sourceforge/munin/${MY_P}.tar.gz
-	http://dev.gentoo.org/~jlec/distfiles/${P}-gentoo-${PATCHSET}.tar.xz"
+	https://dev.gentoo.org/~jlec/distfiles/${P}-gentoo-${PATCHSET}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -27,9 +27,9 @@ REQUIRED_USE="cgi? ( !minimal ) apache? ( cgi )"
 # Some of the mysql plugins use DBD::mysql, while others call mysqladmin directly.
 # We replace the original ipmi plugins with the freeipmi_ plugin which at least works.
 DEPEND_COM="
-	dev-lang/perl[berkdb]
+	dev-lang/perl:=[berkdb]
 	dev-perl/DBI
-	dev-perl/DateManip
+	dev-perl/Date-Manip
 	dev-perl/File-Copy-Recursive
 	dev-perl/List-MoreUtils
 	dev-perl/Log-Log4perl
@@ -37,7 +37,7 @@ DEPEND_COM="
 	dev-perl/Net-DNS
 	dev-perl/Net-Netmask
 	dev-perl/Net-SNMP
-	dev-perl/net-server[ipv6(-)?]
+	dev-perl/Net-Server[ipv6(-)?]
 	virtual/perl-Digest-MD5
 	virtual/perl-Getopt-Long
 	virtual/perl-MIME-Base64
@@ -76,7 +76,7 @@ DEPEND_COM="
 
 # Keep this seperate, as previous versions have had other deps here
 DEPEND="${DEPEND_COM}
-	virtual/perl-Module-Build
+	dev-perl/Module-Build
 	java? ( >=virtual/jdk-1.5 )
 	test? (
 		dev-perl/Test-Deep

@@ -1,11 +1,11 @@
-DEFINED_PHASES=compile configure install preinst prepare unpack
-DEPEND=>=sys-apps/policycoreutils-2.3 virtual/udev !<=sec-policy/selinux-base-policy-2.20120725 sys-devel/m4 >=sys-apps/checkpolicy-2.3 dev-vcs/git
+DEFINED_PHASES=compile configure install prepare unpack
+DEPEND=>=sys-apps/policycoreutils-2.3 virtual/udev sys-devel/m4 >=sys-apps/checkpolicy-2.3 >=dev-vcs/git-1.8.2.1
 DESCRIPTION=Gentoo base policy for SELinux
 EAPI=5
-HOMEPAGE=http://www.gentoo.org/proj/en/hardened/selinux/
-IUSE=+peer_perms +open_perms +ubac +unconfined doc
+HOMEPAGE=https://www.gentoo.org/proj/en/hardened/selinux/
+IUSE=doc +open_perms +peer_perms systemd +ubac +unconfined
 LICENSE=GPL-2
-RDEPEND=>=sys-apps/policycoreutils-2.3 virtual/udev !<=sec-policy/selinux-base-policy-2.20120725
+RDEPEND=>=sys-apps/policycoreutils-2.3 virtual/udev
 SLOT=0
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	git-2	e28f0d8a9b321431b1e699782851b827	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=9d617982a665f781bce0649766921df5
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	e928b84a9f6f1d9076d1d27687876dc6	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=622d3c3bcf3310ae4a830d57c7960ffd

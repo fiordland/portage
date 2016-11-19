@@ -1,12 +1,12 @@
 DEFINED_PHASES=compile configure install prepare unpack
-DEPEND=dev-libs/protobuf sys-libs/ncurses:5 virtual/ssh client? ( dev-lang/perl dev-perl/IO-Tty ) utempter? ( sys-libs/libutempter ) dev-vcs/git[curl] virtual/pkgconfig !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 dev-vcs/git
+DEPEND=dev-libs/protobuf sys-libs/ncurses:0= virtual/ssh client? ( dev-lang/perl dev-perl/IO-Tty ) utempter? ( sys-libs/libutempter ) dev-vcs/git[curl] virtual/pkgconfig !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1
 DESCRIPTION=Mobile shell that supports roaming and intelligent local echo
 EAPI=5
 HOMEPAGE=http://mosh.mit.edu
 IUSE=+client examples +mosh-hardening +server ufw +utempter
 LICENSE=GPL-3
-RDEPEND=dev-libs/protobuf sys-libs/ncurses:5 virtual/ssh client? ( dev-lang/perl dev-perl/IO-Tty ) utempter? ( sys-libs/libutempter )
+RDEPEND=dev-libs/protobuf sys-libs/ncurses:0= virtual/ssh client? ( dev-lang/perl dev-perl/IO-Tty ) utempter? ( sys-libs/libutempter )
 REQUIRED_USE=|| ( client server ) examples? ( client )
 SLOT=0
-_eclasses_=autotools	8fc2dd333ef9346c906ffd9a523d8211	bash-completion-r1	c8399c7c7ecbcf7ed6e5bd3abb3d4af3	git-2	e28f0d8a9b321431b1e699782851b827	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=520d6f9ffbdbd4e52fdd02a378cb88c6
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	bash-completion-r1	acf715fa09463f043fbfdc1640f3fb85	eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	e928b84a9f6f1d9076d1d27687876dc6	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=9a836c9ee02d5d0913c49e06da8a2642

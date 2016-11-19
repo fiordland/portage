@@ -1,9 +1,9 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/capistrano/capistrano-3.3.5.ebuild,v 1.4 2015/01/22 14:29:18 graaff Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby20 ruby21"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
@@ -24,7 +24,7 @@ ruby_add_rdepend "
 	>=dev-ruby/capistrano-stats-1.1.0:1
 	>=dev-ruby/sshkit-1.3:0
 	>=dev-ruby/rake-10.0.0
-	dev-ruby/i18n
+	dev-ruby/i18n:*
 	!!<dev-ruby/capistrano-2.15.5-r2"
 ruby_add_bdepend "
 	test? (	dev-ruby/mocha:0.12 )"

@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install
+DEPEND=dev-libs/nss sys-devel/prelink
+DESCRIPTION=Tools for computing and checking HMAC values for files
+EAPI=5
+HOMEPAGE=https://fedorahosted.org/hmaccalc/
+IUSE=+fips
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/nss sys-devel/prelink
+SLOT=0
+SRC_URI=https://fedorahosted.org/released/hmaccalc/hmaccalc-0.9.14.tar.gz
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=a1c6d210c4664d3154011de58daef776

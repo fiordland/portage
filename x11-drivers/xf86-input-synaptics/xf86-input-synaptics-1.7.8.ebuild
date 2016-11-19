@@ -1,13 +1,13 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-input-synaptics/xf86-input-synaptics-1.7.8.ebuild,v 1.1 2015/02/04 17:22:57 chithanh Exp $
+# $Id$
 
 EAPI=5
 
 inherit linux-info xorg-2
 
 DESCRIPTION="Driver for Synaptics touchpads"
-HOMEPAGE="http://cgit.freedesktop.org/xorg/driver/xf86-input-synaptics/"
+HOMEPAGE="https://cgit.freedesktop.org/xorg/driver/xf86-input-synaptics/"
 
 KEYWORDS="~amd64 ~arm ~mips ~ppc ~ppc64 ~x86"
 IUSE=""
@@ -22,6 +22,10 @@ DEPEND="${RDEPEND}
 	>=x11-proto/recordproto-1.14"
 
 DOCS=( "README" )
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.7-glibc-2.20.patch
+)
 
 pkg_pretend() {
 	linux-info_pkg_setup

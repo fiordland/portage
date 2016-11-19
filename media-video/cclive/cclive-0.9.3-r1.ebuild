@@ -1,10 +1,10 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/cclive/cclive-0.9.3-r1.ebuild,v 1.6 2015/02/17 00:39:59 vapier Exp $
+# $Id$
 
 EAPI=5
 
-inherit eutils
+inherit eutils flag-o-matic
 
 DESCRIPTION="Command line tool for extracting videos from various websites"
 HOMEPAGE="http://cclive.sourceforge.net/"
@@ -26,8 +26,10 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-iostream.patch #527658
+	epatch "${FILESDIR}"/${P}-boost-ver-check.patch #548310
 }
 
 src_configure() {
+	append-cxxflags -std=c++11 #567174
 	econf --disable-ccl
 }

@@ -1,19 +1,19 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/fusil/fusil-1.5.ebuild,v 1.4 2014/12/17 23:25:56 monsieurp Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_7,3_3,3_4} pypy )
+PYTHON_COMPAT=( python{2_7,3_4} pypy )
 
 inherit distutils-r1 user
 
 DESCRIPTION="Fusil the fuzzer is a Python library used to write fuzzing programs"
-HOMEPAGE="http://bitbucket.org/haypo/fusil/wiki/Home http://pypi.python.org/pypi/fusil"
+HOMEPAGE="https://bitbucket.org/haypo/fusil/wiki/Home https://pypi.python.org/pypi/fusil"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="doc examples"
 
 DEPEND="doc? ( dev-python/docutils[${PYTHON_USEDEP}] )"

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/DBIx-Class-InflateColumn-Boolean/DBIx-Class-InflateColumn-Boolean-0.2.0.ebuild,v 1.2 2014/10/10 22:17:38 zlogene Exp $
+# $Id$
 
 EAPI=5
 
@@ -22,9 +22,15 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	test? (
-		dev-perl/Test-Pod
-		dev-perl/Test-Pod-Coverage
+		virtual/perl-Test-Simple
 	)
 "
 
 SRC_TEST=do
+
+src_prepare() {
+	# Module::Install causes fun problems if these are nuked after
+	# Makefile.PL
+	use test && perl_rm_files t/pod-coverage.t t/pod.t
+	perl-module_src_prepare
+}

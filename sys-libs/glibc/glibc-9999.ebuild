@@ -1,13 +1,13 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/glibc/glibc-9999.ebuild,v 1.28 2015/01/05 13:39:18 blueness Exp $
+# $Id$
 
 EAPI="4"
 
 inherit eutils versionator toolchain-funcs flag-o-matic gnuconfig multilib systemd unpacker multiprocessing
 
 DESCRIPTION="GNU libc6 (also called glibc2) C library"
-HOMEPAGE="http://www.gnu.org/software/libc/libc.html"
+HOMEPAGE="https://www.gnu.org/software/libc/libc.html"
 
 LICENSE="LGPL-2.1+ BSD HPND ISC inner-net rc PCRE"
 #KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
@@ -30,7 +30,7 @@ GCC_BOOTSTRAP_VER="4.7.3-r1"
 PATCH_VER=""                                   # Gentoo patchset
 : ${NPTL_KERN_VER:="2.6.32"}                   # min kernel version nptl requires
 
-IUSE="debug gd hardened multilib nscd selinux systemtap profile suid vanilla crosscompile_opts_headers-only"
+IUSE="audit caps debug gd hardened multilib nscd +rpc selinux systemtap profile suid vanilla crosscompile_opts_headers-only"
 
 # Here's how the cross-compile logic breaks down ...
 #  CTARGET - machine that will target the binaries
@@ -64,25 +64,33 @@ SLOT="2.2"
 
 # General: We need a new-enough binutils/gcc to match upstream baseline.
 # arch: we need to make sure our binutils/gcc supports TLS.
-DEPEND=">=app-misc/pax-utils-0.1.10
-	!<sys-apps/sandbox-1.6
-	!<sys-apps/portage-2.1.2
-	selinux? ( sys-libs/libselinux )"
-RDEPEND="!sys-kernel/ps3-sources
-	sys-apps/gentoo-functions
+COMMON_DEPEND="
+	nscd? ( selinux? (
+		audit? ( sys-process/audit )
+		caps? ( sys-libs/libcap )
+	) )
+	suid? ( caps? ( sys-libs/libcap ) )
 	selinux? ( sys-libs/libselinux )
+"
+DEPEND="${COMMON_DEPEND}
+	>=app-misc/pax-utils-0.1.10
+	!<sys-apps/sandbox-1.6
+	!<sys-apps/portage-2.1.2"
+RDEPEND="${COMMON_DEPEND}
+	!sys-kernel/ps3-sources
+	sys-apps/gentoo-functions
 	!sys-libs/nss-db"
 
 if [[ ${CATEGORY} == cross-* ]] ; then
 	DEPEND+=" !crosscompile_opts_headers-only? (
 		>=${CATEGORY}/binutils-2.24
-		>=${CATEGORY}/gcc-4.4
+		>=${CATEGORY}/gcc-4.7
 	)"
 	[[ ${CATEGORY} == *-linux* ]] && DEPEND+=" ${CATEGORY}/linux-headers"
 else
 	DEPEND+="
 		>=sys-devel/binutils-2.24
-		>=sys-devel/gcc-4.4
+		>=sys-devel/gcc-4.7
 		virtual/os-headers"
 	RDEPEND+=" vanilla? ( !sys-libs/timezone-data )"
 	PDEPEND+=" !vanilla? ( sys-libs/timezone-data )"
@@ -93,7 +101,7 @@ upstream_uris() {
 }
 gentoo_uris() {
 	local devspace="HTTP~vapier/dist/URI HTTP~azarah/glibc/URI"
-	devspace=${devspace//HTTP/http://dev.gentoo.org/}
+	devspace=${devspace//HTTP/https://dev.gentoo.org/}
 	echo mirror://gentoo/$1 ${devspace//URI/$1}
 }
 SRC_URI=$(
@@ -145,7 +153,7 @@ src_test()      { eblit-run src_test      ; }
 src_install()   { eblit-run src_install   ; }
 
 # FILESDIR might not be available during binpkg install
-for x in setup {pre,post}inst ; do
+for x in pretend setup {pre,post}inst ; do
 	e="${FILESDIR}/eblits/pkg_${x}.eblit"
 	if [[ -e ${e} ]] ; then
 		. "${e}"
@@ -161,10 +169,6 @@ eblit-src_prepare-post() {
 	cd "${S}"
 
 	if use hardened ; then
-		einfo "Patching to get working PIE binaries on PIE (hardened) platforms"
-		gcc-specs-pie && epatch "${FILESDIR}"/2.17/glibc-2.17-hardened-pie.patch
-		epatch "${FILESDIR}"/2.20/glibc-2.20-hardened-inittls-nosysenter.patch
-
 		# We don't enable these for non-hardened as the output is very terse --
 		# it only states that a crash happened.  The default upstream behavior
 		# includes backtraces and symbols.

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/HTML-Tree/HTML-Tree-5.30.0-r1.ebuild,v 1.5 2015/01/24 11:17:15 zlogene Exp $
+# $Id$
 
 EAPI=5
 
@@ -20,7 +20,7 @@ RDEPEND="
 "
 #	dev-perl/HTML-Format
 DEPEND="${RDEPEND}
-	virtual/perl-Module-Build
+	dev-perl/Module-Build
 	test? (
 		dev-perl/Test-Fatal
 	)

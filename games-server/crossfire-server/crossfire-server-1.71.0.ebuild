@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-server/crossfire-server/crossfire-server-1.71.0.ebuild,v 1.2 2015/02/19 03:56:18 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/crossfire/${PN}/${PV}/${MY_P}.tar.bz2
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~ppc x86"
 IUSE="X"
 RESTRICT="test"
 
@@ -28,6 +28,7 @@ RDEPEND=${DEPEND}
 src_prepare() {
 	rm -f "${WORKDIR}"/maps/Info/combine.pl # bug #236205
 	ln -s "${WORKDIR}/arch" "${S}/lib" || die
+	epatch "${FILESDIR}"/${P}-format.patch
 }
 
 src_configure() {

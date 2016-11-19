@@ -1,13 +1,13 @@
 DEFINED_PHASES=configure install setup
-DEPEND=sys-cluster/corosync dev-libs/libxml2 !sys-cluster/ccs >=sys-kernel/linux-headers-2.6.24
+DEPEND==sys-cluster/corosync-1.4.7 dev-libs/libxml2 !sys-cluster/ccs >=sys-kernel/linux-headers-2.6.24
 DESCRIPTION=Cluster Configuration System Library
 EAPI=4
 HOMEPAGE=https://fedorahosted.org/cluster/wiki/HomePage
 IUSE=static-libs
 KEYWORDS=~amd64 ~hppa ~x86
 LICENSE=LGPL-2.1
-RDEPEND=sys-cluster/corosync dev-libs/libxml2 !sys-cluster/ccs
+RDEPEND==sys-cluster/corosync-1.4.7 dev-libs/libxml2 !sys-cluster/ccs
 SLOT=0
 SRC_URI=https://fedorahosted.org/releases/c/l/cluster/cluster-3.2.0.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	linux-info	2b8c53f6065bdee2d757472215a3088f	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	versionator	cd0bcdb170807e4a1984115e9d53a26f
-_md5_=eb5111d92cab2b3e28ce7e79dbad21e8
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	linux-info	fd1e29abbb02cbc49f1a14299846e9c4	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=c85c599ed06f267c92a30d01bfa51d47

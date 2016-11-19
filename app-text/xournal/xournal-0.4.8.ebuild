@@ -1,12 +1,12 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/xournal/xournal-0.4.8.ebuild,v 1.3 2015/02/01 13:43:21 ago Exp $
+# $Id$
 
 EAPI=5
 
 GCONF_DEBUG=no
 
-inherit gnome2 autotools
+inherit gnome2
 
 DESCRIPTION="Xournal is an application for notetaking, sketching, and keeping a journal using a stylus"
 HOMEPAGE="http://xournal.sourceforge.net/"
@@ -20,10 +20,12 @@ if [[ "${PV}" != "9999" ]]; then
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 	KEYWORDS="amd64 x86"
 else
-	inherit git-2
+	inherit git-2 autotools
 	SRC_URI=""
 	KEYWORDS=""
-	EGIT_REPO_URI="git://xournal.git.sourceforge.net/gitroot/xournal/xournal"
+	EGIT_REPO_URI="git://git.code.sf.net/p/xournal/code"
+	EGIT_PROJECT="${PN}"
+	EGIT_BOOTSTRAP="autogen.sh"
 fi
 
 COMMONDEPEND="

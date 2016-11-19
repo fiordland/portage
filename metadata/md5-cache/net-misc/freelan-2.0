@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=dev-libs/boost:=[threads] dev-libs/openssl:0= net-misc/curl:= virtual/libiconv dev-util/scons
+DESCRIPTION=Peer-to-peer VPN software that abstracts a LAN over the Internet
+EAPI=5
+HOMEPAGE=http://www.freelan.org/
+IUSE=debug
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=dev-libs/boost:=[threads] dev-libs/openssl:0= net-misc/curl:= virtual/libiconv
+SLOT=0
+SRC_URI=https://github.com/freelan-developers/freelan/archive/2.0.tar.gz -> freelan-2.0.tar.gz
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	scons-utils	6a35944612b7ecb18a3803359554badc	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=112de2925bf5255ca6b0847ae56b67d7

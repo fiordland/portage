@@ -1,9 +1,9 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/postgis/postgis-2.1.1.ebuild,v 1.6 2015/03/02 09:35:05 ago Exp $
+# $Id$
 
 EAPI="5"
-POSTGRES_COMPAT=( 9.{0,1,2,3,4} )
+POSTGRES_COMPAT=( 9.{1,2,3,4} )
 
 inherit autotools eutils versionator
 
@@ -16,7 +16,7 @@ HOMEPAGE="http://postgis.net"
 SRC_URI="http://download.osgeo.org/postgis/source/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ppc x86 ~amd64-linux ~x86-linux"
 IUSE="doc gtk test"
 
 RDEPEND="
@@ -25,13 +25,12 @@ RDEPEND="
 			dev-db/postgresql:9.3[server]
 			dev-db/postgresql:9.2[server]
 			dev-db/postgresql:9.1[server]
-			dev-db/postgresql:9.0[server]
 		)
 		<dev-libs/json-c-0.11
 		dev-libs/libxml2:2
 		>=sci-libs/geos-3.3.8
 		>=sci-libs/proj-4.6.0
-		>=sci-libs/gdal-1.10.0
+		>=sci-libs/gdal-1.10.0:=
 		gtk? ( x11-libs/gtk+:2 )
 "
 

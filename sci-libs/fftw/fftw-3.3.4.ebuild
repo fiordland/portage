@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/fftw/fftw-3.3.4.ebuild,v 1.15 2015/02/28 13:57:47 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -21,7 +21,7 @@ else
 	KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 fi
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="3.0/3"
 IUSE="altivec cpu_flags_x86_avx doc cpu_flags_x86_fma3 cpu_flags_x86_fma4 fortran mpi neon openmp quad cpu_flags_x86_sse cpu_flags_x86_sse2 static-libs test threads zbus"
 
@@ -33,8 +33,7 @@ DEPEND="${RDEPEND}
 	test? ( dev-lang/perl )"
 
 pkg_setup() {
-	# XXX: this looks like it should be used with BUILD_TYPE!=binary
-	if use openmp; then
+	if [[ ${MERGE_TYPE} != binary ]] && use openmp; then
 		if [[ $(tc-getCC) == *gcc ]] && ! tc-has-openmp; then
 			ewarn "OpenMP is not available in your current selected gcc"
 			die "need openmp capable gcc"

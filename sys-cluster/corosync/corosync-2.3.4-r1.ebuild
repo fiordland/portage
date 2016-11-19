@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/corosync/corosync-2.3.4-r1.ebuild,v 1.1 2015/01/13 04:49:06 xarthisius Exp $
+# $Id$
 
 EAPI=4
 
@@ -10,7 +10,7 @@ MY_TREE="4dc01e3"
 
 DESCRIPTION="OSI Certified implementation of a complete cluster engine"
 HOMEPAGE="http://www.corosync.org/"
-SRC_URI="https://github.com/corosync/corosync/tarball/v${PV} -> ${P}.tar.gz"
+SRC_URI="http://build.clusterlabs.org/corosync/releases/${P}.tar.gz"
 
 LICENSE="BSD-2 public-domain"
 SLOT="0"
@@ -25,8 +25,8 @@ IUSE="doc infiniband static-libs"
 # --enable-systemd : Install systemd service files
 RDEPEND="!sys-cluster/heartbeat
 	infiniband? (
-		sys-infiniband/libibverbs
-		sys-infiniband/librdmacm
+		sys-fabric/libibverbs
+		sys-fabric/librdmacm
 	)
 	dev-libs/nss
 	>=sys-cluster/libqb-0.14.4"

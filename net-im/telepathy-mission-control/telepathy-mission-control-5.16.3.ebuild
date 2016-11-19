@@ -1,18 +1,18 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/telepathy-mission-control/telepathy-mission-control-5.16.3.ebuild,v 1.10 2015/01/02 12:10:22 ago Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 # Needed for tests and build #489466
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit gnome2 python-any-r1
 
 DESCRIPTION="An account manager and channel dispatcher for the Telepathy framework"
-HOMEPAGE="http://cgit.freedesktop.org/telepathy/telepathy-mission-control/"
-SRC_URI="http://telepathy.freedesktop.org/releases/${PN}/${P}.tar.gz"
+HOMEPAGE="https://cgit.freedesktop.org/telepathy/telepathy-mission-control/"
+SRC_URI="https://telepathy.freedesktop.org/releases/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"

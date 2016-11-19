@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/ir_lv2/ir_lv2-1.3.ebuild,v 1.2 2012/05/05 08:27:18 jdhore Exp $
+# $Id$
 
 EAPI=3
 
@@ -18,6 +18,7 @@ IUSE=""
 
 RDEPEND="media-libs/zita-convolver
 	>=x11-libs/gtk+-2.16:2
+	media-libs/lv2
 	media-libs/libsndfile
 	media-libs/libsamplerate"
 DEPEND="${RDEPEND}

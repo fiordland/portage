@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libqmi/libqmi-1.12.6.ebuild,v 1.1 2015/02/28 21:30:02 vapier Exp $
+# $Id$
 
 EAPI="5"
 
@@ -9,12 +9,12 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3 autotools
 	EGIT_REPO_URI="git://anongit.freedesktop.org/${PN}"
 else
-	KEYWORDS="~amd64 ~arm ~mips ~x86"
-	SRC_URI="http://www.freedesktop.org/software/${PN}/${P}.tar.xz"
+	KEYWORDS="amd64 arm ~mips x86"
+	SRC_URI="https://www.freedesktop.org/software/${PN}/${P}.tar.xz"
 fi
 
 DESCRIPTION="QMI modem protocol helper library"
-HOMEPAGE="http://cgit.freedesktop.org/libqmi/"
+HOMEPAGE="https://cgit.freedesktop.org/libqmi/"
 
 LICENSE="LGPL-2"
 SLOT="0"

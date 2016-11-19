@@ -1,15 +1,15 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/tatt/tatt-9999.ebuild,v 1.9 2015/01/07 14:16:39 tomka Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_7 python3_{3,4} )
+PYTHON_COMPAT=( python2_7 python3_4 )
 
 inherit distutils-r1 git-r3
 
 DESCRIPTION="arch testing tool"
-HOMEPAGE="http://github.com/tom111/tatt"
+HOMEPAGE="https://github.com/tom111/tatt"
 EGIT_REPO_URI="https://github.com/tom111/tatt.git \
 	git://github.com/tom111/tatt.git"
 

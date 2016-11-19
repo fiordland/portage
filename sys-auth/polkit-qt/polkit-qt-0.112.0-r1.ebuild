@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/polkit-qt/polkit-qt-0.112.0-r1.ebuild,v 1.3 2015/03/02 09:20:20 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,12 +9,12 @@ MY_P="${P/qt/qt-1}"
 inherit cmake-utils multibuild
 
 DESCRIPTION="PolicyKit Qt4 API wrapper library"
-HOMEPAGE="http://www.kde.org/"
+HOMEPAGE="https://www.kde.org/"
 SRC_URI="mirror://kde/stable/apps/KDE4.x/admin/${MY_P}.tar.bz2"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ppc ~ppc64 ~x86 ~x86-fbsd"
+KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 x86 ~x86-fbsd"
 IUSE="debug examples +qt4 qt5"
 
 REQUIRED_USE="|| ( qt4 qt5 )"

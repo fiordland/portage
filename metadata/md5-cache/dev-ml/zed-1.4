@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-ml/camomile:= dev-ml/react:= >=dev-ml/findlib-1.0.4-r1 >=dev-lang/ocaml-3.12:=[ocamlopt?]
+DEPEND=dev-ml/camomile:= dev-ml/react:= >=dev-ml/findlib-1.0.4-r1 >=dev-lang/ocaml-3.12:=[ocamlopt?] || ( dev-ml/ocamlbuild <dev-lang/ocaml-4.02.3-r1 )
 DESCRIPTION=Zed is an abstract engine for text edition
 EAPI=5
 HOMEPAGE=https://github.com/diml/zed
@@ -9,5 +9,5 @@ LICENSE=BSD
 RDEPEND=dev-ml/camomile:= dev-ml/react:= >=dev-lang/ocaml-3.12:=[ocamlopt?]
 SLOT=0/1.4
 SRC_URI=https://github.com/diml/zed/archive/1.4.tar.gz -> zed-1.4.tar.gz
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	998e5931fb95b10a6a11ec796ada2759	findlib	9cf6020ee5481f39f1aa566a323f9868	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	oasis	45027e91f880d9142eec842f0cca0088	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=bcfd68e5b275ede2a1c35351cd94e58a
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	b83a2420b796f7c6eff682679d08fe25	findlib	9909e5ca0f77ff5b693885a3d7aeadb7	multilib	165fc17c38d1b11dac2008280dab6e80	oasis	cc6dfb8b0c04cedd9840ff2ec5e38539	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=e5144225f44ba0f62295150ee6c1b1fd

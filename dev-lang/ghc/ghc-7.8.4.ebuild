@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/ghc/ghc-7.8.4.ebuild,v 1.9 2015/01/19 09:02:02 slyfox Exp $
+# $Id$
 
 EAPI=5
 
@@ -63,10 +63,10 @@ SRC_URI="!binary? ( http://downloads.haskell.org/~ghc/${PV/_rc/-rc}/${GHC_P}-src
 S="${WORKDIR}"/${GHC_P}
 
 [[ -n $arch_binaries ]] && SRC_URI+=" !ghcbootstrap? ( $arch_binaries )"
-SRC_URI+=" http://dev.gentoo.org/~slyfox/distfiles/${P}-ia64-CLOSUREs-regenerated.patch.gz"
+SRC_URI+=" https://dev.gentoo.org/~slyfox/distfiles/${P}-ia64-CLOSUREs-regenerated.patch.gz"
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 ia64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux"
 IUSE="doc ghcbootstrap ghcmakebinary +gmp"
 IUSE+=" binary"
 IUSE+=" elibc_glibc" # system stuff
@@ -97,9 +97,6 @@ DEPEND="${RDEPEND}
 PDEPEND="!ghcbootstrap? ( =app-admin/haskell-updater-1.2* )"
 
 REQUIRED_USE="?? ( ghcbootstrap binary )"
-
-# yeah, top-level 'use' sucks. I'd like to have it in 'src_install()'
-use binary && QA_PREBUILT="*"
 
 # haskell libraries built with cabal in configure mode, #515354
 QA_CONFIGURE_OPTIONS+=" --with-compiler --with-gcc"
@@ -269,6 +266,9 @@ relocate_ghc() {
 }
 
 pkg_setup() {
+	# quiet portage about prebuilt binaries
+	use binary && QA_PREBUILT="*"
+
 	[[ ${MERGE_TYPE} == binary ]] && return
 
 	if use ghcbootstrap; then
@@ -611,4 +611,8 @@ pkg_prerm() {
 	rm -rf "${PKGCACHE}"
 
 	cp -p "${PKGCACHE}"{.shipped,}
+}
+
+pkg_postrm() {
+	ghc-package_pkg_postrm
 }

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/libftdi/libftdi-1.0.ebuild,v 1.3 2013/12/09 05:24:42 vapier Exp $
+# $Id$
 
 EAPI="4"
 
@@ -12,14 +12,14 @@ if [[ ${PV} == 9999* ]] ; then
 	inherit git-2
 else
 	SRC_URI="http://www.intra2net.com/en/developer/${PN}/download/${MY_P}.tar.bz2"
-	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~sparc ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 fi
 
 DESCRIPTION="Userspace access to FTDI USB interface chips"
 HOMEPAGE="http://www.intra2net.com/en/developer/libftdi/"
 
 LICENSE="LGPL-2"
-SLOT="0"
+SLOT="1"
 IUSE="cxx doc examples python static-libs tools"
 
 RDEPEND="virtual/libusb:1
@@ -27,6 +27,7 @@ RDEPEND="virtual/libusb:1
 	python? ( dev-lang/python )
 	tools? ( dev-libs/confuse )"
 DEPEND="${RDEPEND}
+	python? ( dev-lang/swig )
 	doc? ( app-doc/doxygen )"
 
 S=${WORKDIR}/${MY_P}

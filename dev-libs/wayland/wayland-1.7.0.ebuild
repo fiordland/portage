@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/wayland/wayland-1.7.0.ebuild,v 1.2 2015/02/22 18:38:07 mattst88 Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,17 +14,17 @@ fi
 inherit autotools-multilib toolchain-funcs $GIT_ECLASS
 
 DESCRIPTION="Wayland protocol libraries"
-HOMEPAGE="http://wayland.freedesktop.org/"
+HOMEPAGE="https://wayland.freedesktop.org/"
 
 if [[ $PV = 9999* ]]; then
 	SRC_URI="${SRC_PATCHES}"
 else
-	SRC_URI="http://wayland.freedesktop.org/releases/${P}.tar.xz"
+	SRC_URI="https://wayland.freedesktop.org/releases/${P}.tar.xz"
 fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS="alpha amd64 arm hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86"
 IUSE="doc static-libs"
 
 RDEPEND=">=dev-libs/expat-2.1.0-r3:=[${MULTILIB_USEDEP}]

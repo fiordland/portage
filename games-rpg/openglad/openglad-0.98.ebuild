@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/openglad/openglad-0.98.ebuild,v 1.12 2015/02/07 03:03:40 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -12,12 +12,13 @@ SRC_URI="mirror://sourceforge/snowstorm/${P}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc x86"
+KEYWORDS="amd64 ~ppc x86"
 IUSE=""
 
 DEPEND="media-libs/sdl-mixer
 	media-libs/sdl-image
 	media-libs/libsdl[joystick,sound,video]"
+RDEPEND=${DEPEND}
 
 src_prepare() {
 	epatch \

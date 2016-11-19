@@ -1,6 +1,17 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/targets/systemd/package.mask,v 1.4 2015/02/08 18:24:10 chithanh Exp $
+# $Id$
+
+# Johannes Huber <johu@gentoo.org> (23 Jul 2015)
+# Needs sys-apps/systemd, masked in base for non systemd profiles.
+-app-admin/calamares
+
+# Pacho Ramos <pacho@gentoo.org> (21 Apr 2015)
+# This is for running sys-apps/systemd and also helps
+# portage to not try to pull in other providers leading to
+# strange blockers.
+sys-fs/eudev
+sys-fs/udev
 
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (26 Oct 2014)
 # package is masked for bugs #526762 and #526802 on non-systemd systems.

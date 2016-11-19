@@ -1,6 +1,6 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/mirage/mirage-0.9.5.1.ebuild,v 1.5 2011/03/22 12:54:20 tomka Exp $
+# $Id$
 
 EAPI=3
 
@@ -12,7 +12,8 @@ inherit distutils eutils
 
 DESCRIPTION="A fast and simple image viewer based on python and GTK+"
 HOMEPAGE="http://mirageiv.berlios.de/"
-SRC_URI="mirror://berlios/mirageiv/${P}.tar.bz2"
+#SRC_URI="mirror://berlios/mirageiv/${P}.tar.bz2"
+SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"

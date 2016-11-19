@@ -1,11 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-mail/notmuch/notmuch-0.18.2.ebuild,v 1.4 2014/12/02 15:09:02 aidecoe Exp $
+# $Id$
 
 EAPI=5
 
 DISTUTILS_OPTIONAL=1
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 
 inherit bash-completion-r1 elisp-common eutils pax-utils distutils-r1 \
 	toolchain-funcs
@@ -15,8 +15,10 @@ HOMEPAGE="http://notmuchmail.org/"
 SRC_URI="${HOMEPAGE%/}/releases/${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="0"
-KEYWORDS="amd64 ~x86"
+# Sub-slot corresponds to major wersion of libnotmuch.so.X.Y.  Bump of Y is
+# meant to be binary backward compatible.
+SLOT="0/3"
+KEYWORDS="amd64 x86"
 REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
 	test? ( crypt emacs python )
@@ -131,7 +133,7 @@ src_compile() {
 src_test() {
 	pax-mark -m notmuch
 	emake download-test-databases
-	LD_LIBRARY_PATH="${MY_LD_LIBRARY_PATH}" default
+	LD_LIBRARY_PATH="${MY_LD_LIBRARY_PATH}" V=1 default
 	pax-mark -ze notmuch
 }
 

@@ -1,9 +1,12 @@
-DEFINED_PHASES=compile install postinst preinst prepare test unpack
-DEPEND=>=dev-lang/go-bootstrap-1.4.1 >=dev-vcs/git-1.8.2.1
+DEFINED_PHASES=compile install pretend test unpack
+DEPEND=gccgo? ( >=sys-devel/gcc-5[go] ) >=dev-vcs/git-1.8.2.1
 DESCRIPTION=A concurrent garbage collected and typesafe programming language
-EAPI=5
+EAPI=6
 HOMEPAGE=http://www.golang.org
+IUSE=gccgo
 LICENSE=BSD
-SLOT=0
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	git-r3	3a2bd0ae504c33a50061885480f3def3	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=c8a246893c33fe76e06ffd5e4ff78efe
+RDEPEND=!<dev-go/go-tools-0_pre20150902
+SLOT=0/9999
+SRC_URI=!gccgo? ( kernel_Darwin? ( x64-macos? ( https://dev.gentoo.org/~williamh/dist/go-darwin-amd64-bootstrap.tbz ) ) kernel_FreeBSD? ( amd64-fbsd? ( https://dev.gentoo.org/~williamh/dist/go-freebsd-amd64-bootstrap.tbz ) x86-fbsd? ( https://dev.gentoo.org/~williamh/dist/go-freebsd-386-bootstrap-1.tbz ) ) kernel_linux? ( amd64? ( https://dev.gentoo.org/~williamh/dist/go-linux-amd64-bootstrap.tbz ) arm? ( https://dev.gentoo.org/~williamh/dist/go-linux-arm-bootstrap.tbz ) arm64? ( https://dev.gentoo.org/~williamh/dist/go-linux-arm64-bootstrap.tbz ) ppc64? ( https://dev.gentoo.org/~williamh/dist/go-linux-ppc64-bootstrap.tbz https://dev.gentoo.org/~williamh/dist/go-linux-ppc64le-bootstrap.tbz ) s390? ( https://dev.gentoo.org/~williamh/dist/go-linux-s390x-bootstrap.tbz ) x86? ( https://dev.gentoo.org/~williamh/dist/go-linux-386-bootstrap-1.tbz ) ) kernel_SunOS? ( x64-solaris? ( https://dev.gentoo.org/~williamh/dist/go-solaris-amd64-bootstrap.tbz ) ) )
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	e928b84a9f6f1d9076d1d27687876dc6	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=04998f221bb882504d953ded1893ae32

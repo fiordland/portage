@@ -1,9 +1,9 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec-mocks/rspec-mocks-2.99.2.ebuild,v 1.4 2015/02/21 09:38:20 graaff Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21 ruby22"
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
@@ -44,7 +44,7 @@ all_ruby_prepare() {
 
 each_ruby_prepare() {
 	case ${RUBY} in
-		*ruby22)
+		*ruby22|*ruby23)
 			# Psych and Syck are not supported by default anymore on ruby22.
 			rm spec/rspec/mocks/serialization_spec.rb || die
 			;;

@@ -1,10 +1,10 @@
 DEFINED_PHASES=compile install
 DESCRIPTION=small utility for making a poster from an EPS file or a one-page PS document
 EAPI=5
-HOMEPAGE=http://printing.kde.org/downloads
+HOMEPAGE=https://printing.kde.org/downloads
 KEYWORDS=amd64 ~ppc x86
 LICENSE=GPL-2
 SLOT=0
 SRC_URI=mirror://kde/printing/poster-20060221.tar.bz2
-_eclasses_=multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=b5b6111c996efb05c0f4f859db1633fd
+_eclasses_=multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=21c2481d1518b1e7aa5846508b90e6eb

@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vlc/vlc-9999.ebuild,v 1.234 2015/02/28 23:09:39 mrueg Exp $
+# $Id$
 
-EAPI="5"
+EAPI="6"
 
 SCM=""
 if [ "${PV%9999}" != "${PV}" ] ; then
@@ -15,7 +15,7 @@ if [ "${PV%9999}" != "${PV}" ] ; then
 	fi
 fi
 
-inherit eutils multilib autotools toolchain-funcs flag-o-matic virtualx ${SCM}
+inherit eutils multilib autotools toolchain-funcs flag-o-matic versionator virtualx ${SCM}
 
 MY_PV="${PV/_/-}"
 MY_PV="${MY_PV/-beta/-test}"
@@ -32,27 +32,25 @@ else
 fi
 
 LICENSE="LGPL-2.1 GPL-2"
-SLOT="0/5-7" # vlc - vlccore
+SLOT="0/5-8" # vlc - vlccore
 
-if [ "${PV%9999}" = "${PV}" ] ; then
-	KEYWORDS="~amd64 ~arm ~ppc -sparc ~x86 ~x86-fbsd"
-else
-	KEYWORDS=""
+if [[ ${PV} != *9999 ]] ; then
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 -sparc ~x86 ~x86-fbsd"
 fi
 
-IUSE="a52 aalib alsa altivec atmo +audioqueue avahi +avcodec
-	+avformat bidi bluray cdda cddb chromaprint dbus dc1394 debug
+IUSE="a52 aalib alsa altivec +audioqueue +avcodec
+	+avformat bidi bluray cddb chromaprint chromecast dbus dc1394 debug
 	directfb directx dts dvb +dvbpsi dvd dxva2 elibc_glibc +encode faad fdk
-	fluidsynth +ffmpeg flac fontconfig +gcrypt gme gnome gnutls
-	growl httpd ieee1394 jack jpeg kate kde libass libav libcaca libnotify
-	libsamplerate libtiger linsys libtar lirc live lua
-	macosx-dialog-provider macosx-eyetv macosx-quartztext macosx-qtkit
-	matroska media-library cpu_flags_x86_mmx modplug mp3 mpeg
-	mtp musepack ncurses neon ogg omxil opencv opengl optimisememory opus
+	fluidsynth +ffmpeg flac fontconfig +gcrypt gme gnutls gstreamer httpd
+	ieee1394 jack jpeg kate kde libass libav libcaca libnotify
+	+libsamplerate libtiger linsys libtar lirc live lua
+	macosx-eyetv macosx-notifications macosx-qtkit
+	matroska cpu_flags_x86_mmx modplug mp3 mpeg mtp musepack
+	ncurses neon ogg omxil opencv opengl optimisememory opus
 	png +postproc projectm pulseaudio +qt4 qt5 rdp rtsp run-as-root samba
 	schroedinger sdl sdl-image sftp shout sid skins speex cpu_flags_x86_sse svg +swscale
-	taglib theora tremor truetype twolame udev upnp vaapi v4l vcdx vdpau
-	vlm vnc vorbis vpx wma-fixed +X x264 x265 +xcb xml xv zvbi"
+	taglib theora tremor truetype twolame udev upnp vaapi v4l vcd vdpau
+	vlm vnc vorbis vpx wma-fixed +X x264 x265 +xcb xml xv zvbi zeroconf"
 
 RDEPEND="
 		!<media-video/ffmpeg-1.2:0
@@ -63,7 +61,6 @@ RDEPEND="
 		a52? ( >=media-libs/a52dec-0.7.4-r3:0 )
 		aalib? ( media-libs/aalib:0 )
 		alsa? ( >=media-libs/alsa-lib-1.0.24:0 )
-		avahi? ( >=net-dns/avahi-0.6:0[dbus] )
 		avcodec? (
 			!libav? ( media-video/ffmpeg:0= )
 			libav? ( media-video/libav:0= )
@@ -73,14 +70,15 @@ RDEPEND="
 			libav? ( media-video/libav:0= )
 		)
 		bidi? ( >=dev-libs/fribidi-0.10.4:0 )
-		bluray? ( >=media-libs/libbluray-0.3:0 )
+		bluray? ( >=media-libs/libbluray-0.6.2:0 )
 		cddb? ( >=media-libs/libcddb-1.2:0 )
 		chromaprint? ( >=media-libs/chromaprint-0.6:0 )
+		chromecast? ( >=dev-libs/protobuf-2.5.0 )
 		dbus? ( >=sys-apps/dbus-1.6:0 )
 		dc1394? ( >=sys-libs/libraw1394-2.0.1:0 >=media-libs/libdc1394-2.1:2 )
 		directfb? ( dev-libs/DirectFB:0 sys-libs/zlib:0 )
 		dts? ( >=media-libs/libdca-0.0.5:0 )
-		dvbpsi? ( >=media-libs/libdvbpsi-0.2.1:0 )
+		dvbpsi? ( >=media-libs/libdvbpsi-1.2.0:0= )
 		dvd? ( >=media-libs/libdvdread-4.9:0 >=media-libs/libdvdnav-4.9:0 )
 		elibc_glibc? ( >=sys-libs/glibc-2.8:2.2 )
 		faad? ( >=media-libs/faad2-2.6.1:0 )
@@ -88,12 +86,12 @@ RDEPEND="
 		flac? ( >=media-libs/libogg-1:0 >=media-libs/flac-1.1.2:0 )
 		fluidsynth? ( >=media-sound/fluidsynth-1.1.2:0 )
 		fontconfig? ( media-libs/fontconfig:1.0 )
-		gcrypt? ( >=dev-libs/libgcrypt-1.2.0:0= )
+		gcrypt? ( >=dev-libs/libgcrypt-1.6.0:0= )
 		gme? ( media-libs/game-music-emu:0 )
-		gnome? ( gnome-base/gnome-vfs:2 dev-libs/glib:2 )
-		gnutls? ( >=net-libs/gnutls-3.0.20:0 )
+		gnutls? ( >=net-libs/gnutls-3.2.0:0 )
+		gstreamer? ( >=media-libs/gst-plugins-base-1.4.5:1.0 )
 		ieee1394? ( >=sys-libs/libraw1394-2.0.1:0 >=sys-libs/libavc1394-0.5.3:0 )
-		jack? ( >=media-sound/jack-audio-connection-kit-0.99.0-r1:0 )
+		jack? ( >=media-sound/jack-audio-connection-kit-0.120.1:0 )
 		jpeg? ( virtual/jpeg:0 )
 		kate? ( >=media-libs/libkate-0.3:0 )
 		libass? ( >=media-libs/libass-0.9.8:0 media-libs/fontconfig:1.0 )
@@ -112,20 +110,20 @@ RDEPEND="
 		mpeg? ( >=media-libs/libmpeg2-0.3.2:0 )
 		mtp? ( >=media-libs/libmtp-1:0 )
 		musepack? ( >=media-sound/musepack-tools-444:0 )
-		ncurses? ( sys-libs/ncurses:5[unicode] )
+		ncurses? ( sys-libs/ncurses:0=[unicode] )
 		ogg? ( >=media-libs/libogg-1:0 )
 		opencv? ( >media-libs/opencv-2:0 )
 		opengl? ( virtual/opengl:0 >=x11-libs/libX11-1.3.99.901:0 )
 		opus? ( >=media-libs/opus-1.0.3:0 )
 		png? ( media-libs/libpng:0= sys-libs/zlib:0 )
 		postproc? (
-			!libav? ( >=media-video/ffmpeg-1.2:0= )
+			!libav? ( >=media-video/ffmpeg-3.1.3:0= )
 			libav? ( media-libs/libpostproc:0= )
 		)
 		projectm? ( media-libs/libprojectm:0 media-fonts/dejavu:0 )
 		pulseaudio? ( >=media-sound/pulseaudio-1:0 )
 		qt4? ( >=dev-qt/qtgui-4.6:4 >=dev-qt/qtcore-4.6:4 )
-		qt5? ( >=dev-qt/qtgui-5.1:5 >=dev-qt/qtcore-5.1:5 >=dev-qt/qtwidgets-5.1:5  >=dev-qt/qtx11extras-5.1:5 )
+		qt5? ( >=dev-qt/qtgui-5.2:5 >=dev-qt/qtcore-5.2:5 >=dev-qt/qtwidgets-5.2:5  >=dev-qt/qtx11extras-5.2:5 )
 		rdp? ( >=net-misc/freerdp-1.0.1:0= )
 		samba? ( || ( >=net-fs/samba-3.4.6:0[smbclient] >=net-fs/samba-4:0[client] ) )
 		schroedinger? ( >=media-libs/schroedinger-1.0.10:0 )
@@ -152,28 +150,33 @@ RDEPEND="
 		v4l? ( media-libs/libv4l:0 )
 		vaapi? (
 			x11-libs/libva:0[X,drm]
-			!libav? ( media-video/ffmpeg:0=[vaapi] )
+			!libav? ( >=media-video/ffmpeg-3.1.3:0=[vaapi] )
 			libav? ( media-video/libav:0=[vaapi] )
 		)
-		vcdx? ( >=dev-libs/libcdio-0.78.2:0 >=media-video/vcdimager-0.7.22:0 )"
+		vcd? ( >=dev-libs/libcdio-0.78.2:0 )
+		zeroconf? ( >=net-dns/avahi-0.6:0[dbus] )
+"
 
 # Temporarily block non-live FFMPEG versions as they break vdpau, 9999 works;
 # thus we'll have to wait for a new release there.
 RDEPEND="${RDEPEND}
 		vdpau? (
 			>=x11-libs/libvdpau-0.6:0
-			!libav? ( >=media-video/ffmpeg-1.2:0= )
+			!libav? (
+					>=media-video/ffmpeg-2.2:0=
+					<media-video/ffmpeg-2.9:0=
+			)
 			libav? ( >=media-video/libav-10:0= )
 		)
 		vnc? ( >=net-libs/libvncserver-0.9.9:0 )
 		vorbis? ( >=media-libs/libvorbis-1.1:0 )
-		vpx? ( media-libs/libvpx:0 )
+		vpx? ( media-libs/libvpx:0= )
 		X? ( x11-libs/libX11:0 )
 		x264? ( >=media-libs/x264-0.0.20090923:0= )
 		x265? ( media-libs/x265:0= )
 		xcb? ( >=x11-libs/libxcb-1.6:0 >=x11-libs/xcb-util-0.3.4:0 >=x11-libs/xcb-util-keysyms-0.3.4:0 )
 		xml? ( >=dev-libs/libxml2-2.5:2 )
-		zvbi? ( >=media-libs/zvbi-0.2.25:0 )
+		zvbi? ( >=media-libs/zvbi-0.2.28:0 )
 "
 
 DEPEND="${RDEPEND}
@@ -181,14 +184,13 @@ DEPEND="${RDEPEND}
 	xcb? ( x11-proto/xproto:0 )
 	app-arch/xz-utils:0
 	dev-lang/yasm:*
-	>=sys-devel/gettext-0.19.2:*
+	>=sys-devel/gettext-0.19.6:*
 	virtual/pkgconfig:*
 "
 
 REQUIRED_USE="
 	aalib? ( X )
 	bidi? ( truetype )
-	cddb? ( cdda )
 	dvb? ( dvbpsi )
 	dxva2? ( avcodec )
 	ffmpeg? ( avcodec avformat swscale postproc )
@@ -210,8 +212,8 @@ REQUIRED_USE="
 S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
-	if [[ "${MERGE_TYPE}" != "binary" && "$(tc-getCC)" == *"gcc"* ]] ; then
-		if [[ $(gcc-major-version) < 4 || ( $(gcc-major-version) == 4 && $(gcc-minor-version) < 5 ) ]] ; then
+	if [[ "${MERGE_TYPE}" != "binary" ]] && tc-is-gcc ; then
+		if ! version_is_at_least 4.5 $(gcc-version) ; then
 			die "You need to have at least >=sys-devel/gcc-4.5 to build and/or have a working vlc, see bug #426754."
 		fi
 	fi
@@ -232,8 +234,8 @@ src_prepare() {
 	# config.h:792: warning: ignoring #pragma STDC FENV_ACCESS [-Wunknown-pragmas]
 	# config.h:793: warning: ignoring #pragma STDC FP_CONTRACT [-Wunknown-pragmas]
 	#
-	# http://gcc.gnu.org/c99status.html
-	if [[ "$(tc-getCC)" == *"gcc"* ]] ; then
+	# https://gcc.gnu.org/c99status.html
+	if tc-is-gcc ; then
 		sed -i 's/ifndef __FAST_MATH__/if 0/g' configure.ac || die
 	fi
 
@@ -248,6 +250,8 @@ src_prepare() {
 	# We are not in a real git checkout due to the absence of a .git directory.
 	touch src/revision.txt || die
 
+	default
+
 	# Fix build system mistake.
 	epatch "${FILESDIR}"/${PN}-2.1.0-fix-libtremor-libs.patch
 
@@ -261,8 +265,6 @@ src_prepare() {
 	if ! use dbus ; then
 		sed -i 's/ --started-from-file//' share/vlc.desktop.in || die
 	fi
-
-	epatch_user
 
 	eautoreconf
 
@@ -285,6 +287,9 @@ src_configure() {
 	# We need to disable -fstack-check if use >=gcc 4.8.0.
 	# See bug #499996
 	use x86 && append-cflags $(test-flags-CC -fno-stack-check)
+
+	# VLC now requires C++11 after commit 4b1c9dcdda0bbff801e47505ff9dfd3f274eb0d8
+	append-cxxflags -std=c++11
 
 	# Needs libresid-builder from libsidplay:2 which is in another directory...
 	# FIXME!
@@ -316,16 +321,14 @@ src_configure() {
 		$(use_enable aalib aa) \
 		$(use_enable alsa) \
 		$(use_enable altivec) \
-		$(use_enable atmo) \
 		$(use_enable audioqueue) \
-		$(use_enable avahi bonjour) \
 		$(use_enable avcodec) \
 		$(use_enable avformat) \
 		$(use_enable bidi fribidi) \
 		$(use_enable bluray) \
-		$(use_enable cdda vcd) \
 		$(use_enable cddb libcddb) \
 		$(use_enable chromaprint) \
+		$(use_enable chromecast) \
 		$(use_enable dbus) \
 		$(use_enable directfb) \
 		$(use_enable directx) \
@@ -343,9 +346,8 @@ src_configure() {
 		$(use_enable fontconfig) \
 		$(use_enable gcrypt libgcrypt) \
 		$(use_enable gme) \
-		$(use_enable gnome gnomevfs) \
 		$(use_enable gnutls) \
-		$(use_enable growl) \
+		$(use_enable gstreamer gst-decode) \
 		$(use_enable httpd) \
 		$(use_enable ieee1394 dv1394) \
 		$(use_enable jack) \
@@ -362,11 +364,9 @@ src_configure() {
 		$(use_enable lirc) \
 		$(use_enable live live555) \
 		$(use_enable lua) \
-		$(use_enable macosx-dialog-provider) \
 		$(use_enable macosx-eyetv) \
+		$(use_enable macosx-notifications osx-notifications) \
 		$(use_enable macosx-qtkit) \
-		$(use_enable macosx-quartztext) \
-		$(use_enable matroska mkv) \
 		$(use_enable cpu_flags_x86_mmx mmx) \
 		$(use_enable modplug mod) \
 		$(use_enable mp3 mad) \
@@ -375,11 +375,10 @@ src_configure() {
 		$(use_enable musepack mpc) \
 		$(use_enable ncurses) \
 		$(use_enable neon) \
-		$(use_enable ogg) $(use_enable ogg mux_ogg) \
+		$(use_enable ogg) $(use_enable ogg) \
 		$(use_enable omxil) \
 		$(use_enable omxil omxil-vout) \
 		$(use_enable opencv) \
-		$(use_enable opengl glx) $(use_enable opengl glspectrum) \
 		$(use_enable opus) \
 		$(use_enable optimisememory optimize-memory) \
 		$(use_enable png) \
@@ -412,7 +411,7 @@ src_configure() {
 		$(use_enable upnp) \
 		$(use_enable v4l v4l2) \
 		$(use_enable vaapi libva) \
-		$(use_enable vcdx) \
+		$(use_enable vcd) \
 		$(use_enable vdpau) \
 		$(use_enable vlm) \
 		$(use_enable vnc) \
@@ -425,6 +424,7 @@ src_configure() {
 		$(use_enable xml libxml2) \
 		$(use_enable xv xvideo) \
 		$(use_enable x265) \
+		$(use_enable zeroconf avahi) \
 		$(use_enable zvbi) $(use_enable !zvbi telx) \
 		--disable-asdcp \
 		--disable-coverage \
@@ -439,11 +439,9 @@ src_configure() {
 		--disable-maintainer-mode \
 		--disable-merge-ffmpeg \
 		--disable-mfx \
-		--disable-mmal-codec \
-		--disable-mmal-vout \
+		--disable-mmal \
 		--disable-opensles \
 		--disable-oss \
-		--disable-quicktime \
 		--disable-rpi-omxil \
 		--disable-shine \
 		--disable-sndio \
@@ -463,7 +461,7 @@ src_test() {
 	Xemake check-TESTS
 }
 
-DOCS="AUTHORS THANKS NEWS README doc/fortunes.txt doc/intf-vcd.txt"
+DOCS="AUTHORS THANKS NEWS README doc/fortunes.txt"
 
 src_install() {
 	default
@@ -475,7 +473,6 @@ src_install() {
 pkg_postinst() {
 	if [ "$ROOT" = "/" ] && [ -x "/usr/$(get_libdir)/vlc/vlc-cache-gen" ] ; then
 		einfo "Running /usr/$(get_libdir)/vlc/vlc-cache-gen on /usr/$(get_libdir)/vlc/plugins/"
-		"/usr/$(get_libdir)/vlc/vlc-cache-gen" -f "/usr/$(get_libdir)/vlc/plugins/"
 	else
 		ewarn "We cannot run vlc-cache-gen (most likely ROOT!=/)"
 		ewarn "Please run /usr/$(get_libdir)/vlc/vlc-cache-gen manually"

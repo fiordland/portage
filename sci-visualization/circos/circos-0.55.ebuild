@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-visualization/circos/circos-0.55.ebuild,v 1.2 2012/11/30 06:59:28 bicatali Exp $
+# $Id$
 
 EAPI=4
 
@@ -13,14 +13,14 @@ SLOT="0"
 IUSE=""
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 
-DEPEND="dev-perl/config-general
+DEPEND="dev-perl/Config-General
 	dev-perl/GD
 	dev-perl/Math-Bezier
 	dev-perl/Math-Round
 	dev-perl/Math-VecStat
 	dev-perl/Params-Validate
 	dev-perl/Readonly
-	dev-perl/regexp-common
+	dev-perl/Regexp-Common
 	>=dev-perl/Set-IntSpan-1.11
 	dev-perl/Graphics-ColorObject
 	dev-perl/List-MoreUtils"

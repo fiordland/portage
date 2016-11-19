@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/spl/spl-0.6.3-r1.ebuild,v 1.3 2014/12/12 07:51:56 ryao Exp $
+# $Id$
 
 EAPI="4"
 AUTOTOOLS_AUTORECONF="1"
@@ -13,9 +13,9 @@ if [[ ${PV} == "9999" ]] ; then
 else
 	inherit eutils versionator
 	SRC_URI="https://github.com/zfsonlinux/${PN}/archive/${P}.tar.gz
-		http://dev.gentoo.org/~ryao/dist/${P}-patches-${PR}.tar.xz"
+		https://dev.gentoo.org/~ryao/dist/${P}-patches-${PR}.tar.xz"
 	S="${WORKDIR}/${PN}-${P}"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64"
 fi
 
 DESCRIPTION="The Solaris Porting Layer is a Linux kernel module which provides many of the Solaris kernel APIs"
@@ -46,7 +46,6 @@ pkg_setup() {
 		KALLSYMS
 		!PAX_KERNEXEC_PLUGIN_METHOD_OR
 		!PAX_SIZE_OVERFLOW
-		!PAX_RANDKSTACK
 		ZLIB_DEFLATE
 		ZLIB_INFLATE
 	"
@@ -79,7 +78,7 @@ src_prepare() {
 	fi
 
 	# splat is unnecessary unless we are debugging
-	use debug || sed -e 's/^subdir-m += splat$//' -i "${S}/module/Makefile.in"
+	use debug || { sed -e 's/^subdir-m += splat$//' -i "${S}/module/Makefile.in" || die ; }
 
 	# Set module revision number
 	[ ${PV} != "9999" ] && \

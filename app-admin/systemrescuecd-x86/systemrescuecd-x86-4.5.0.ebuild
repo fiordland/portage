@@ -1,25 +1,32 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/systemrescuecd-x86/systemrescuecd-x86-4.5.0.ebuild,v 1.1 2015/02/05 11:06:42 jlec Exp $
+# $Id$
 
 EAPI=5
 
 DESCRIPTION="The .iso image of SystemRescueCD rescue disk, x86 (+ amd64) variant"
 HOMEPAGE="http://www.sysresccd.org/"
+# Large ISO mirroring explicitly approved by infra in bug #588766
 SRC_URI="mirror://sourceforge/systemrescuecd/sysresccd-${PN#*-}/${PV}/${P}.iso"
 
 LICENSE="GPL-2"
 SLOT="${PV}"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="+isohybrid"
+
+DEPEND="isohybrid? ( >=sys-boot/syslinux-4 )"
 
 S=${WORKDIR}
-
-RESTRICT="mirror"
 
 src_install() {
 	insinto "/usr/share/${PN%-*}"
 	doins "${DISTDIR}/${P}.iso"
+
+	if use isohybrid; then
+		set -- isohybrid -u "${ED}usr/share/${PN%-*}/${P}.iso"
+		echo "${@}"
+		"${@}" || die "${*} failed"
+	fi
 }
 
 pkg_postinst() {

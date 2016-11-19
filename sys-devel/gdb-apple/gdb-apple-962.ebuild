@@ -1,13 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gdb-apple/gdb-apple-962.ebuild,v 1.6 2013/02/09 04:36:22 vapier Exp $
+# $Id$
 
 EAPI="3"
 
 inherit eutils flag-o-matic
 
 DESCRIPTION="Apple branch of the GNU Debugger, Xcode Tools 3.1.2"
-HOMEPAGE="http://sourceware.org/gdb/"
+HOMEPAGE="https://sourceware.org/gdb/"
 SRC_URI="http://www.opensource.apple.com/darwinsource/tarballs/other/gdb-${PV}.tar.gz"
 
 LICENSE="APSL-2 GPL-2"

@@ -1,21 +1,149 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/arm/package.use.mask,v 1.245 2015/02/21 11:37:26 mgorny Exp $
+# $Id$
 
-# Michał Górny <mgorny@gentoo.org> (21 Feb 2015)
-# The external QCA plugins are not keyworded on this arch. Since
-# this is only a temporary measure and nothing depends on them,
-# just masking them until the new version goes stable.
-<app-crypt/qca-2.1 logger pkcs11 sasl
+# Christoph Junghans <junghans@gentoo.org> (11 Sep 2016)
+# Missing keywords on openmpi deps
+sys-cluster/openmpi openmpi_fabrics_ofed openmpi_fabrics_knem openmpi_fabrics_psm openmpi_rm_pbs openmpi_rm_slurm openmpi_ofed_features_rdmacm
+
+# Gilles Dartiguelongue <eva@gentoo.org> (23 Aug 2016)
+# Missing keywords on media-libs/grilo - bug #521972
+media-sound/rhythmbox upnp-av
+
+# Gilles Dartiguelongue <eva@gentoo.org> (22 Aug 2016)
+# Missing keywords on dev-libs/gom - bug #521972
+media-libs/grilo test
+
+# Brian Evans <grknight@gentoo.org> (18 Aug 2016)
+# Allow jdbc on this arch
+dev-db/mariadb -jdbc
+
+# David Seifert <soap@gentoo.org> (31 Jul 2016)
+# media-gfx/graphicsmagick is not keyworded on arm, users will need
+# to enable imagemagick flag and disable graphicsmagick use flag
+# to enable conversion facilities
+sci-mathematics/octave graphicsmagick
+
+# Davide Pesavento <pesa@gentoo.org> (28 Jul 2016)
+# The corresponding Qt5 modules are not keyworded on arm, and we don't want to
+# keyword them solely because of PyQt5 while there are no other in-tree users.
+dev-python/PyQt5 location webengine
+
+# Göktürk Yüksek <gokturk@gentoo.org> (14 June 2016) on behalf of
+# Nicholas Vinson <nvinso234@gmail.com> (proxy-maint)
+# net-firewall/nftables[doc] requires dblatex which is not keyworded
+net-firewall/nftables doc
+
+# Amy Winston <amynka@gentoo.org> (12 June 2016)
+# does not build on arm at all (upstream bug)
+dev-scheme/racket futures jit
+
+# Davide Pesavento <pesa@gentoo.org> (13 May 2016)
+# dev-qt/qtwebengine:5 not keyworded, bug 581478
+dev-qt/qt-creator webengine
+
+# Patrick McLean <chutzpah@gentoo.org> (12 May 2016)
+# Tests require dev-python/tox which isn't keyworded on arm
+sys-cluster/ceph test
+
+# Thomas Deutschmann <whissi@whissi.de> (25 Apr 2016), on behalf of
+# Ian Delaney <idella4@gentoo.org> (25 Apr 2016)
+# for the proxy-maintainers project
+# Unkeyworded deps, bug #581180
+app-admin/rsyslog grok
+
+# Ian Delaney <idella4@gentoo.org> (06 Apr 2016)
+# on behalf of Ilya Tumaykin <itumaykin+gentoo@gmail.com>
+# Unmask Raspberry Pi support on arm.
+media-video/mpv -raspberry-pi
+
+# Thomas Deutschmann <whissi@whissi.de> (19 Mar 2016), on behalf of
+# Ian Delaney <idella4@gentoo.org> (19 Mar 2016)
+# for the proxy-maintainers project
+# Unkeyworded deps, bug #564274
+app-admin/collectd collectd_plugins_gmond
+app-admin/collectd collectd_plugins_ipmi
+app-admin/collectd collectd_plugins_modbus
+app-admin/collectd collectd_plugins_oracle
+app-admin/collectd collectd_plugins_routeros
+app-admin/collectd collectd_plugins_sigrok
+app-admin/collectd collectd_plugins_tokyotyrant
+app-admin/collectd collectd_plugins_varnish
+app-admin/collectd collectd_plugins_virt
+
+# Markus Meier <maekke@gentoo.org> (02 Mar 2016)
+# unkeyworded deps for bug #573324
+sci-mathematics/flint ntl
+
+# Markus Meier <maekke@gentoo.org> (26 Feb 2016)
+# unmask scanner for net-print/hplip, bug #518456
+media-sound/moc timidity
+
+# Justin Lecher <jlec@gentoo.org> (22 Feb 2016)
+# Missing test deps keyword #575366
+dev-cpp/eigen test
+
+# James Le Cuirot <chewi@gentoo.org> (30 Jan 2016)
+# scrollview requires SWT, which is currently unsupported on ARM.
+app-text/tesseract scrollview
+
+# Michael Weber <xmw@gentoo.org> (09 Jan 2016)
+# no arm support in media-libs/glfw
+app-text/mupdf opengl
+
+# Brian Evans <grknight@gentoo.org> (23 Nov 2015)
+# unmask galera for dev-db/mariadb
+>=dev-db/mariadb-10.1.0 -galera
+
+# Markus Meier <maekke@gentoo.org> (22 Nov 2015)
+# unmask scanner for net-print/hplip, bug #518456
+net-print/hplip -scanner kde
+media-gfx/xsane ocr
+
+# Pacho Ramos <pacho@gentoo.org> (15 Nov 2015)
+# Missing keywords
+>=media-plugins/grilo-plugins-0.2.16 upnp-av
+
+# Alexis Ballier <aballier@gentoo.org> (14 Nov 2015)
+# MMAL is available on the Raspberry Pi (armv6 & armv7 so far)
+media-video/ffmpeg -mmal
+
+# Markus Meier <maekke@gentoo.org> (10 Nov 2015)
+# unkeyworded deps, bug #555896
+sci-libs/armadillo mkl
+
+# Pawel Hajdan jr <phajdan.jr@gentoo.org> (15 Oct 2015)
+# Repoman reports dependency issues on arm.
+www-client/chromium system-ffmpeg
+
+# Markus Meier <maekke@gentoo.org> (10 Oct 2015)
+# unkeyworded deps, bug #552330
+app-portage/g-sorcery bson
+
+# Ben de Groot <yngwin@gentoo.org> (03 May 2015)
+# media-libs/rubberband lacks arm keyword, bug 548446
+media-video/mpv rubberband
+
+# Markos Chandras <hwoarang@gentoo.org> (18 Apr 2015)
+# samba-4 not keyworded on arm
+sys-auth/sssd samba
+
+# Markus Meier <maekke@gentoo.org> (03 Apr 2015)
+# Deps not yet stable or keyworded
+media-libs/libsdl2 fusionsound
+
+# Alexis Ballier <aballier@gentoo.org> (02 Apr 2015)
+# Needs ilmbase (openexr), which does not build and is masked on arm.
+media-libs/freeimage tiff
+
+# Markus Meier <maekke@gentoo.org> (03 Mar 2015)
+# Unkeyworded deps, bug #540540
+sys-auth/sssd augeas
 
 # Jason A. Donenfeld <zx2c4@gentoo.org> (09 Feb 2015)
 # Google does not distribute the widevine plugin for ARM. It must be extracted from a Chromebook,
 # and this kind of reverse engineering work likely violates many agreements, so we mask the flag.
 www-client/chromium widevine
-
-# Markos Chandras <hwoarang@gentoo.org> (07 Feb 2015)
-# app-admin/cgmanager misses ARM keyword. Bug #539208
-app-emulation/lxc cgmanager
 
 # Markus Meier <maekke@gentoo.org> (17 Jan 2015)
 # Unkeyworded deps, bug #536226
@@ -61,10 +189,6 @@ net-im/prosody libevent mysql postgres sqlite
 # sci-libs/hdf is not supported on arm
 sci-libs/netcdf hdf
 
-# Markus Meier <maekke@gentoo.org> (23 Oct 2014)
-# Unkeyworded deps, bug #523468
-net-misc/networkmanager teamd
-
 # Markus Meier <maekke@gentoo.org> (24 Sep 2014)
 # Unkeyworded deps, bug #519618
 sys-block/fio glusterfs rbd
@@ -97,10 +221,6 @@ mail-filter/opendkim opendbx
 # Unkeyworded deps, bug #507896
 dev-qt/qt-mobility messaging
 
-# Julian Ospald <hasufell@gentoo.org> (20 Apr 2014)
-# Missing keywords, bug #508226
-media-video/mpv sdl
-
 # S. Suominen <ssuominen@g.o> (17 Apr 2014)
 # First GTK+-3.x version of EasyTAG!
 # Keyword as reqiuired, ~arch is enough for now:
@@ -110,12 +230,6 @@ media-video/mpv sdl
 # Do it! No reason to ask permission before!
 >=media-sound/easytag-2.2.0 opus test
 
-# Johannes Huber <johu@gentoo.org> (16 Apr 2014)
-# unkeyworded deps
-kde-base/gwenview semantic-desktop
-kde-base/okular dpi
-kde-base/nepomuk-core migrator
-
 # Yixun Lan <dlan@gentoo.org> (12 Apr 2014)
 # app-emulation/qemu is not keyworded on arm arch.
 app-emulation/xen-tools system-qemu
@@ -123,11 +237,9 @@ app-emulation/xen-tools system-qemu
 # Markus Meier <maekke@gentoo.org> (25 Feb 2014)
 # stable reverse deps of media-libs/libquvi, bug #495254
 =dev-libs/totem-pl-parser-2.32.6-r3 quvi
-=media-video/mplayer2-2.0_p20130126 quvi
-=media-video/mplayer2-2.0_p20130428-r1 quvi
 
 # Markus Meier <maekke@gentoo.org> (23 Feb 2014)
-# unkeyworded dep, bug #499974
+# Needs sci-physics/bullet tested #499974
 dev-libs/efl physics
 
 # Jason A. Donenfeld <zx2c4@gentoo.org> (27 Jan 2014)
@@ -166,10 +278,6 @@ gnome-base/gnome classic extras
 # Missing keywords from dev-ml/lablgtk, bug #487722
 net-p2p/mldonkey gtk guionly
 
-# Tom Wijsman <TomWij@gentoo.org> (16 Oct 2013)
-# Mask luajit on ~media-video/mpv-0.2.0 because it only has amd64 x86 keywords. See bug #488318.
->=media-video/mpv-0.2.0 luajit
-
 # Pacho Ramos <pacho@gentoo.org> (22 Sep 2013)
 # Missing keywords, bug #484734
 media-sound/rhythmbox visualizer
@@ -180,7 +288,7 @@ dev-python/ipython nbconvert
 
 # Johannes Huber <johu@gentoo.org> (15 Sep 2013)
 # Depends on kde-misc/networkmanagement, not keyworded yet.
-kde-base/solid-runtime networkmanager
+kde-apps/solid-runtime networkmanager
 
 # Sergey Popov <pinkbyte@gentoo.org> (06 Sep 2013)
 # sci-libs/hdf does not build properly on arm
@@ -193,7 +301,7 @@ media-gfx/fim graphicsmagick svg
 
 # Markus Meier <maekke@gentoo.org> (04 Aug 2013)
 # Unkeyworded deps, bug #474026
-app-admin/conky lua-cairo lua-imlib xmms2 audacious moc
+app-admin/conky audacious cmus irc lua-cairo lua-imlib lua-rsvg moc xmms2
 
 # Sergey Popov <pinkbyte@gentoo.org> (30 Jul 2013)
 # Not tested
@@ -215,10 +323,6 @@ media-libs/phonon zeitgeist
 # no stable jdk+java-config
 net-misc/tightvnc java
 
-# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (28 May 2013)
-# depends on sys-devel/llvm[video_cards_radeon]
-media-libs/mesa r600-llvm-compiler
-
 # Andreas K. Huettel <dilfridge@gentoo.org> (27 May 2013)
 # Firmware loader not keyworded yet
 sci-libs/linux-gpib firmware
@@ -239,7 +343,7 @@ x11-misc/lightdm razor kde
 # dev-util/google-perftools is not keyworded for arm
 >=dev-libs/libmemcached-0.50 tcmalloc
 
-# Christoph Junghans <ottxor@gentoo.org> (29 Apr 2013)
+# Christoph Junghans <junghans@gentoo.org> (29 Apr 2013)
 # MKL not available on this arch
 media-gfx/povray mkl
 
@@ -257,14 +361,15 @@ dev-libs/xapian-bindings java
 
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (20 Feb 2013)
 # Mask flags of calligra and dependencies due to lack of keywords
-app-office/calligra openexr postgres spacenav vc
+app-office/calligra color-management openexr postgres spacenav vc
 media-gfx/pstoedit emf
 
 # Rick Farina <zerochaos@gentoo.org> (05 Feb 2013)
 # masking all stable packages with java use flag
+net-misc/openconnect java
 dev-util/oprofile java
 =dev-db/qdbm-1.8.78-r1 java
-=dev-libs/beecrypt-4.2.1 java
+dev-libs/beecrypt java
 dev-libs/cyrus-sasl java
 =dev-libs/xapian-bindings-1.2.12 java
 =dev-libs/xapian-bindings-1.2.12-r1 java
@@ -292,10 +397,6 @@ x11-misc/colord argyllcms extra-print-profiles
 gnome-extra/sushi office
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (30 Dec 2012)
-# sys-apps/systemd works on this arch (masked in base)
-sys-kernel/dracut -dracut_modules_systemd
-
-# Alexandre Rostovtsev <tetromino@gentoo.org> (30 Dec 2012)
 # requires dev-util/bustle, which is written in haskell
 # remove mask if/when dev-lang/ghc is keywoded for arm
 dev-util/dbus-test-runner test
@@ -318,17 +419,12 @@ app-accessibility/speech-dispatcher flite
 
 # Markus Meier <maekke@gentoo.org> (23 Dec 2012)
 # mask kde-base/* flags due to unkeyworded dependencies
-kde-base/kalzium editor solver
-kde-base/krdc rdesktop
-kde-base/kopete jingle msn sms
-kde-base/kdeplasma-addons fcitx oauth qwt scim
-kde-base/okular ebook chm
-kde-base/kstars indi
-kde-base/kdeutils-meta floppy
-kde-base/kdenetwork-meta ppp
-kde-base/smokeqt qscintilla qwt
-kde-base/qtruby qscintilla qwt
-kde-base/perlqt qscintilla qwt
+kde-apps/kalzium editor solver
+kde-apps/kopete jingle
+kde-plasma/kdeplasma-addons fcitx oauth
+kde-apps/kstars indi
+kde-apps/kdeutils-meta floppy
+kde-apps/kdenetwork-meta ppp
 
 # Alexandre Rostovtsev <tetromino@gentoo.org> (15 Dec 2012)
 # media-video/coherence not keyworded
@@ -369,8 +465,9 @@ app-admin/syslog-ng json
 net-misc/tinc vde
 
 # Davide Pesavento <pesa@gentoo.org> (30 Nov 2011)
-# JavaScriptCore JIT is supported only on amd64/arm/x86,
-# so it's masked in base profile and unmasked here.
+# The QML (V4) and JSC JITs are supported only on amd64/arm/x86,
+# so the flag is masked in the base profile and unmasked here.
+dev-qt/qtdeclarative -jit
 dev-qt/qtscript -jit
 dev-qt/qtwebkit -jit
 
@@ -432,10 +529,6 @@ net-misc/mediatomb lastfm
 # Needs kde-4 stable
 dev-vcs/subversion kde
 
-# Raúl Porcel <armin76@gentoo.org> (20 Jan 2010)
-# Needs mplayer
-kde-base/dolphin thumbnail
-
 # Markus Meier <maekke@gentoo.org> (27 Sep 2009)
 # mask media-gfx/imagemagick[autotrace] as autotrace is not keyworded
 media-gfx/imagemagick autotrace
@@ -457,6 +550,10 @@ media-plugins/gst-plugins-meta aac dts dv lame libvisual modplug taglib vcd wavp
 # projectm not keyworded, bug #314969
 media-video/vlc projectm chromaprint opencv
 
-# Ultrabug <ultrabug@gentoo.org) (05 Sept 2011)
+# Ultrabug <ultrabug@gentoo.org> (05 Sept 2011)
 # missing keyword for net-libs/zeromq
 app-admin/rsyslog zeromq
+
+# Ian Whyman <thev00d00@gentoo.org> (22 May 2016)
+# RPI support on arm
+dev-libs/libcec -raspberry-pi

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/lua/lua-5.1.5-r2.ebuild,v 1.1 2014/04/22 21:30:44 mabi Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,8 +15,8 @@ SLOT="5.1"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~arm-linux ~x86-linux"
 IUSE="+deprecated emacs readline static"
 
-RDEPEND="readline? ( sys-libs/readline )
-	app-admin/eselect-lua
+RDEPEND="readline? ( sys-libs/readline:0= )
+	app-eselect/eselect-lua
 	!dev-lang/lua:0"
 DEPEND="${RDEPEND}
 	sys-devel/libtool"

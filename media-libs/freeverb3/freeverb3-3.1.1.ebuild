@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/freeverb3/freeverb3-3.1.1.ebuild,v 1.2 2015/01/30 17:34:58 mgorny Exp $
+# $Id$
 
 EAPI=5
 inherit multilib versionator
@@ -33,7 +33,7 @@ S="${WORKDIR}/${PN}-$(get_version_component_range 1-3)"
 
 src_configure() {
 	econf \
-        --disable-profile \
+		--disable-profile \
 		--enable-release \
 		--disable-autocflags \
 		--enable-undenormal \

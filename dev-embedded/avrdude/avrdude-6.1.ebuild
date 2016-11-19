@@ -1,13 +1,13 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/avrdude/avrdude-6.1.ebuild,v 1.3 2015/02/09 10:26:01 aballier Exp $
+# $Id$
 
 EAPI=5
 
 inherit toolchain-funcs
 
 DESCRIPTION="AVR Downloader/UploaDEr"
-HOMEPAGE="http://savannah.nongnu.org/projects/avrdude"
+HOMEPAGE="https://savannah.nongnu.org/projects/avrdude"
 SRC_URI="mirror://nongnu/${PN}/${P}.tar.gz
 	doc? (
 		mirror://nongnu/${PN}/${PN}-doc-${PV}.tar.gz
@@ -21,8 +21,8 @@ IUSE="doc ftdi ncurses readline"
 
 RDEPEND="virtual/libusb:1
 	virtual/libusb:0
-	ftdi? ( dev-embedded/libftdi )
-	ncurses? ( sys-libs/ncurses )
+	ftdi? ( dev-embedded/libftdi:= )
+	ncurses? ( sys-libs/ncurses:= )
 	readline? ( sys-libs/readline )"
 DEPEND="${RDEPEND}"
 

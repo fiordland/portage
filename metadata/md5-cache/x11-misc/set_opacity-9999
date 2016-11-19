@@ -1,10 +1,10 @@
 DEFINED_PHASES=compile install unpack
-DEPEND=x11-libs/libXdamage x11-libs/libXcomposite x11-libs/libXfixes x11-libs/libXrender dev-vcs/git
+DEPEND=x11-libs/libXdamage x11-libs/libXcomposite x11-libs/libXfixes x11-libs/libXrender >=dev-vcs/git-1.8.2.1
 DESCRIPTION=Tool for set real compositing for windows through window's id, process' pid etc.
-EAPI=4
-HOMEPAGE=https://gitorious.org/x11-tools/set_opacity
+EAPI=6
+HOMEPAGE=https://github.com/XVilka/set_opacity
 LICENSE=GPL-2
 RDEPEND=x11-libs/libXdamage x11-libs/libXcomposite x11-libs/libXfixes x11-libs/libXrender
 SLOT=0
-_eclasses_=git-2	e28f0d8a9b321431b1e699782851b827	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=53b330f885fe62429c8a2627071901ba
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	git-r3	e928b84a9f6f1d9076d1d27687876dc6	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=f8a829a90af7d29667c005a9ead8d6df

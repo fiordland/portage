@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/texlive-core/texlive-core-2014.ebuild,v 1.1 2014/11/03 06:45:36 aballier Exp $
+# $Id$
 
 EAPI=5
 
@@ -78,10 +78,7 @@ MODULAR_X_DEPEND="X? (
 				x11-libs/libXmu
 				x11-libs/libXp
 				x11-libs/libXpm
-				x11-libs/libICE
-				x11-libs/libSM
 				x11-libs/libXaw
-				x11-libs/libXfont
 	)"
 
 COMMON_DEPEND="${MODULAR_X_DEPEND}
@@ -124,7 +121,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=app-text/dvipsk-5.993_p20130530
 	>=dev-tex/bibtexu-3.71_p20130530
 	virtual/perl-Getopt-Long
-	tk? ( dev-perl/perl-tk )"
+	tk? ( dev-perl/Tk )"
 
 S="${WORKDIR}/${P}_build"
 B="${WORKDIR}/${MY_PV}"
@@ -327,7 +324,7 @@ pkg_postinst() {
 	elog
 	ewarn "If you are migrating from an older TeX distribution"
 	ewarn "Please make sure you have read:"
-	ewarn "http://www.gentoo.org/proj/en/tex/texlive-migration-guide.xml"
+	ewarn "https://wiki.gentoo.org/wiki/Project:TeX/Tex_Live_Migration_Guide"
 	ewarn "in order to avoid possible problems"
 	elog
 	elog "TeXLive has been split in various ebuilds. If you are missing a"

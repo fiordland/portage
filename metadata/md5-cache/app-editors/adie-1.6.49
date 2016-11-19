@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst prepare unpack
-DEPEND=x11-libs/fox:1.6 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 dev-util/reswrap >=sys-apps/sed-4
+DEPEND=x11-libs/fox:1.6 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 dev-util/reswrap >=sys-apps/sed-4
 DESCRIPTION=Text editor based on the FOX Toolkit
 EAPI=5
 HOMEPAGE=http://www.fox-toolkit.org/
@@ -9,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=x11-libs/fox:1.6
 SLOT=0
 SRC_URI=ftp://ftp.fox-toolkit.org/pub/fox-1.6.49.tar.gz
-_eclasses_=autotools	8fc2dd333ef9346c906ffd9a523d8211	eutils	998e5931fb95b10a6a11ec796ada2759	fox	26650ced206327e4fca3dec6cd441381	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	versionator	cd0bcdb170807e4a1984115e9d53a26f
-_md5_=f660a68b59d24dbb0ed28406db4cc7ce
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	eutils	b83a2420b796f7c6eff682679d08fe25	fox	83ccbb53af419d6651a10292aa01fc4c	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=a691a7c09ae3b22bf7dfb529bf1bdd1c

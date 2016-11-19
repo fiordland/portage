@@ -1,18 +1,19 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/uwsgi/uwsgi-2.0.9.ebuild,v 1.1 2014/12/31 14:32:28 ultrabug Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python2_7 python3_{2,3,4} )
+PYTHON_COMPAT=( python2_7 python3_4 )
+PYTHON_REQ_USE="threads(+)"
 
 RUBY_OPTIONAL="yes"
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby20"
 
 PHP_EXT_INI="no"
 PHP_EXT_NAME="dummy"
 PHP_EXT_OPTIONAL_USE="php"
-USE_PHP="php5-4 php5-5" # deps must be registered separately below
+USE_PHP="php5-5" # deps must be registered separately below
 
 MY_P="${P/_/-}"
 
@@ -24,7 +25,7 @@ SRC_URI="https://github.com/unbit/uwsgi/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 UWSGI_PLUGINS_STD=( ping cache carbon nagios rpc rrdtool
 	http ugreen signal syslog rsyslog
@@ -55,7 +56,7 @@ LANG_SUPPORT_EXTENDED=( lua php python python_asyncio python_gevent ruby )
 # *java*: TODO
 # v8: TODO
 # matheval: TODO
-IUSE="apache2 +caps debug +embedded expat jemalloc json +pcre +routing +ssl +xml yajl yaml zeromq"
+IUSE="apache2 +caps debug +embedded expat jemalloc json +pcre +routing selinux +ssl +xml yajl yaml zeromq"
 
 for plugin in ${UWSGI_PLUGINS_STD[@]}  ; do IUSE="${IUSE} +uwsgi_plugins_${plugin}" ; done
 for plugin in ${UWSGI_PLUGINS_OPT[@]}  ; do IUSE="${IUSE} uwsgi_plugins_${plugin}" ; done
@@ -84,7 +85,7 @@ CDEPEND="sys-libs/zlib
 	json? ( !yajl? ( dev-libs/jansson )
 		yajl? ( dev-libs/yajl ) )
 	pcre? ( dev-libs/libpcre:3 )
-	ssl? ( dev-libs/openssl )
+	ssl? ( dev-libs/openssl:= )
 	xml? ( !expat? ( dev-libs/libxml2 )
 		expat? ( dev-libs/expat ) )
 	yaml? ( dev-libs/libyaml )
@@ -104,11 +105,10 @@ CDEPEND="sys-libs/zlib
 	uwsgi_plugins_systemd_logger? ( sys-apps/systemd )
 	uwsgi_plugins_webdav? ( dev-libs/libxml2 )
 	uwsgi_plugins_xslt? ( dev-libs/libxslt )
-	lua? ( dev-lang/lua )
+	lua? ( dev-lang/lua:= )
 	mono? ( =dev-lang/mono-2* )
 	perl? ( dev-lang/perl:= )
 	php? (
-		php_targets_php5-4? ( dev-lang/php:5.4[embed] )
 		php_targets_php5-5? ( dev-lang/php:5.5[embed] )
 	)
 	python? ( ${PYTHON_DEPS} )
@@ -117,6 +117,7 @@ CDEPEND="sys-libs/zlib
 DEPEND="${CDEPEND}
 	virtual/pkgconfig"
 RDEPEND="${CDEPEND}
+	selinux? ( sec-policy/selinux-uwsgi )
 	uwsgi_plugins_rrdtool? ( net-analyzer/rrdtool )"
 
 want_apache2

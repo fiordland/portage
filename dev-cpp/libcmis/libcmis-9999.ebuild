@@ -1,17 +1,24 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/libcmis/libcmis-9999.ebuild,v 1.15 2015/02/15 19:14:47 dilfridge Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-EGIT_REPO_URI="git://git.code.sf.net/p/libcmis/code"
+EGIT_REPO_URI="https://github.com/tdf/libcmis.git"
 [[ ${PV} == 9999 ]] && SCM_ECLASS="git-r3"
 inherit eutils alternatives autotools ${SCM_ECLASS}
 unset SCM_ECLASS
 
 DESCRIPTION="C++ client library for the CMIS interface"
-HOMEPAGE="https://sourceforge.net/projects/libcmis/"
-[[ ${PV} == 9999 ]] || SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+HOMEPAGE="https://github.com/tdf/libcmis"
+if [[ ${PV} = *_pre* ]]; then
+	snapshot=d2054a12e3f52fff8e96341e8c48f0dcd75e2e2a
+	SRC_URI="https://github.com/tdf/${PN}/archive/${snapshot}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${snapshot}"
+	unset snapshot
+elif [[ ${PV} != 9999 ]] ; then
+	SRC_URI="https://github.com/tdf/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+fi
 
 LICENSE="|| ( GPL-2 LGPL-2 MPL-1.1 )"
 SLOT="0.5"
@@ -22,16 +29,12 @@ KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux ~x86-linux"
 
 IUSE="static-libs man test"
 
-RDEPEND="
-	!dev-cpp/libcmis:0
-	!dev-cpp/libcmis:0.2
-	!dev-cpp/libcmis:0.3
-	!dev-cpp/libcmis:0.4
+COMMON_DEPEND="
 	dev-libs/boost:=
 	dev-libs/libxml2
 	net-misc/curl
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 	man? (
 		app-text/docbook2X
@@ -42,9 +45,13 @@ DEPEND="${RDEPEND}
 		dev-util/cppunit
 	)
 "
+RDEPEND="${COMMON_DEPEND}
+	!<dev-cpp/libcmis-0.5.0
+"
 
 src_prepare() {
-	[[ ${PV} == 9999 ]] && eautoreconf
+	default
+	[[ ${PV} = *_pre* || ${PV} = 9999 ]] && eautoreconf
 }
 
 src_configure() {

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/vigra/vigra-1.9.0.ebuild,v 1.7 2014/12/29 16:32:04 dilfridge Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,7 +14,7 @@ inherit cmake-utils eutils multilib python-single-r1
 MY_P=${P}-src
 
 DESCRIPTION="a C++ computer vision library with emphasis on customizability of algorithms and data structures"
-HOMEPAGE="http://hci.iwr.uni-heidelberg.de/vigra/"
+HOMEPAGE="https://ukoethe.github.io/vigra/"
 SRC_URI="http://hci.iwr.uni-heidelberg.de/${PN}/${MY_P}.tar.gz"
 
 LICENSE="MIT"
@@ -64,7 +64,7 @@ src_configure() {
 	local libdir=$(get_libdir)
 
 	# required for ddocdir
-	_check_build_dir init
+	_cmake_check_build_dir init
 	local mycmakeargs=(
 		-DDOCDIR="${CMAKE_BUILD_DIR}"/doc
 		-DLIBDIR_SUFFIX=${libdir/lib}

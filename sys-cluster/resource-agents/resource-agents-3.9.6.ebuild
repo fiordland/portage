@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/resource-agents/resource-agents-3.9.6.ebuild,v 1.1 2015/02/23 15:21:06 ultrabug Exp $
+# $Id$
 
 EAPI="5"
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/ClusterLabs/resource-agents/archive/v${PV}.tar.gz ->
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~x86"
+KEYWORDS="amd64 ~hppa x86"
 IUSE="doc libnet rgmanager"
 
 RDEPEND="sys-apps/iproute2

@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-physics/root/root-5.34.26.ebuild,v 1.1 2015/03/02 08:27:34 bircoph Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,10 +8,9 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="http://root.cern.ch/git/root.git"
 else
-	SRC_URI="ftp://root.cern.ch/${PN}/${PN}_v${PV}.source.tar.gz"
-	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+	SRC_URI="https://root.cern.ch/download/${PN}_v${PV}.source.tar.gz"
+	KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 fi
-SRC_URI+=" http://dev.gentoo.org/~bircoph/patches/${PN}-5.34.26-ldflags.patch.xz"
 
 PYTHON_COMPAT=( python2_7 )
 
@@ -19,8 +18,7 @@ inherit elisp-common eutils fdo-mime fortran-2 multilib python-single-r1 \
 	toolchain-funcs user versionator
 
 DESCRIPTION="C++ data analysis framework and interpreter from CERN"
-HOMEPAGE="http://root.cern.ch/"
-DOC_URI="ftp://root.cern.ch/${PN}/doc"
+HOMEPAGE="https://root.cern.ch"
 
 SLOT="0/$(get_version_component_range 1-3 ${PV})"
 LICENSE="LGPL-2.1 freedist MSttfEULA LGPL-3 libpng UoI-NCSA"
@@ -59,8 +57,8 @@ CDEPEND="
 		x11-libs/libXpm:0=
 		!minimal? (
 			|| (
-				media-libs/libafterimage:0=[gif,jpeg,png,tiff]
-				>=x11-wm/afterstep-2.2.11:0=[gif,jpeg,png,tiff]
+				media-libs/libafterimage[gif,jpeg,png,tiff]
+				>=x11-wm/afterstep-2.2.11[gif,jpeg,png,tiff]
 			)
 			opengl? ( virtual/opengl virtual/glu x11-libs/gl2ps:0= )
 			qt4? (
@@ -90,11 +88,11 @@ CDEPEND="
 			mpi? ( virtual/mpi )
 		)
 		mysql? ( virtual/mysql )
-		odbc? ( || ( dev-db/libiodbc:0= dev-db/unixODBC:0= ) )
+		odbc? ( || ( dev-db/libiodbc dev-db/unixODBC ) )
 		oracle? ( dev-db/oracle-instantclient-basic:0= )
 		postgres? ( dev-db/postgresql:= )
 		pythia6? ( sci-physics/pythia:6= )
-		pythia8? ( >=sci-physics/pythia-8.1.80:8= )
+		pythia8? ( >=sci-physics/pythia-8.1.80:8= <sci-physics/pythia-8.2.0:8= )
 		python? ( ${PYTHON_DEPS} )
 		ruby? (
 			dev-lang/ruby:=
@@ -121,7 +119,7 @@ S="${WORKDIR}/${PN}"
 DOC_DIR="/usr/share/doc/${P}"
 
 die_compiler() {
-	eerror "You are using a $(tc-getCXX) without C++$1 capabilities"
+	eerror "You are using a $(tc-getCXX)-$5 without C++$1 capabilities"
 	die "Need one of the following C++$1 capable compilers:\n"\
 		"    >=sys-devel/gcc[cxx]-$2\n"\
 		"    >=sys-devel/clang-$3\n"\
@@ -134,21 +132,27 @@ die_compiler() {
 # $3 - clang++
 # $4 - icc/icpc
 check_compiler() {
+	local cur ver
 	case "$(tc-getCXX)" in
 		*clang++*)
-			version_is_at_least "$3" "$(has_version sys-devel/clang)" || die_compiler "$1" "$2" "$3" "$4"
+			ver="$(best_version sys-devel/clang | sed 's:sys-devel/clang-::')"
+			cur="$3"
 		;;
 		*g++*)
-			version_is_at_least "$2" "$(gcc-version)" || die_compiler "$1" "$2" "$3" "$4"
+			ver="$(gcc-version)"
+			cur="$2"
 		;;
 		*icc*|*icpc*)
-			version_is_at_least "$4" "$(has_version dev-lang/icc)" || die_compiler "$1" "$2" "$3" "$4"
+			ver="$(best_version dev-lang/icc | sed 's:dev-lang/icc-::')"
+			cur="$4"
 		;;
 		*)
 			ewarn "You are using an unsupported compiler."
 			ewarn "Please report any issues upstream."
+			return 0
 		;;
 	esac
+	version_is_at_least "${cur}" "${ver}" || die_compiler "$1" "$2" "$3" "$4" "${ver}"
 }
 
 pkg_setup() {
@@ -195,7 +199,7 @@ src_prepare() {
 		"${FILESDIR}"/${PN}-5.34.05-nobyte-compile.patch \
 		"${FILESDIR}"/${PN}-5.34.13-unuran.patch \
 		"${FILESDIR}"/${PN}-5.34.13-desktop.patch \
-		"${WORKDIR}"/${PN}-5.34.26-ldflags.patch
+		"${FILESDIR}"/${PN}-5.34.26-ldflags.patch
 
 	# make sure we use system libs and headers
 	rm montecarlo/eg/inc/cfortran.h README/cfortran.doc || die
@@ -274,7 +278,6 @@ src_configure() {
 		--nohowto
 		--cflags='${CFLAGS}'
 		--cxxflags='${CXXFLAGS}'
-		--ldflags='${LDFLAGS}'
 	)
 
 	if use minimal; then
@@ -326,7 +329,6 @@ src_configure() {
 			$(use_enable opengl)
 			$(use_enable oracle)
 			$(use_enable postgres pgsql)
-			$(usex postgres "--with-pgsql-incdir=$(pg_config --includedir)" "")
 			$(use_enable prefix rpath)
 			$(use_enable pythia6)
 			$(use_enable pythia8)
@@ -343,6 +345,10 @@ src_configure() {
 			${EXTRA_ECONF}
 		)
 	fi
+
+	# usex can't be used here, because pg_config may be not
+	# installed with USE="-postgres"
+	use postgres && myconf+=( --with-pgsql-incdir=$(pg_config --includedir) )
 
 	./configure ${myconf[@]} || die "configure failed"
 }
@@ -363,6 +369,7 @@ daemon_install() {
 	dodir /var/spool/rootd/{pub,tmp}
 	fperms 1777 /var/spool/rootd/{pub,tmp}
 
+	local i
 	for i in ${daemons}; do
 		newinitd "${FILESDIR}"/${i}.initd ${i}
 		newconfd "${FILESDIR}"/${i}.confd ${i}

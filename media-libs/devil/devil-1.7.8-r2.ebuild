@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/devil/devil-1.7.8-r2.ebuild,v 1.3 2015/01/29 17:28:34 mgorny Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils
@@ -13,20 +13,20 @@ SRC_URI="mirror://sourceforge/openil/${MY_P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~mips ppc ~ppc64 x86"
+KEYWORDS="amd64 ~arm ~mips ppc ppc64 x86"
 IUSE="allegro gif glut jpeg jpeg2k mng nvtt openexr opengl png sdl cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 static-libs tiff xpm X"
 
 RDEPEND="allegro? ( media-libs/allegro:0 )
-	gif? ( media-libs/giflib )
+	gif? ( media-libs/giflib:= )
 	glut? ( media-libs/freeglut )
-	jpeg? ( virtual/jpeg )
-	jpeg2k? ( media-libs/jasper )
-	mng? ( media-libs/libmng )
+	jpeg? ( virtual/jpeg:0 )
+	jpeg2k? ( media-libs/jasper:= )
+	mng? ( media-libs/libmng:= )
 	nvtt? ( media-gfx/nvidia-texture-tools )
-	openexr? ( media-libs/openexr )
+	openexr? ( media-libs/openexr:= )
 	opengl? ( virtual/opengl
 		virtual/glu )
-	png? ( media-libs/libpng:0 )
+	png? ( media-libs/libpng:0= )
 	sdl? ( media-libs/libsdl )
 	tiff? ( media-libs/tiff:0 )
 	xpm? ( x11-libs/libXpm )
@@ -38,7 +38,7 @@ DEPEND="${RDEPEND}
 	X? ( x11-proto/xextproto )"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-{CVE-2009-3994,libpng14,nvtt-glut,ILUT}.patch
+	epatch "${FILESDIR}"/${P}-{CVE-2009-3994,libpng14,nvtt-glut,ILUT,restrict,fix-test}.patch
 	eautoreconf
 }
 

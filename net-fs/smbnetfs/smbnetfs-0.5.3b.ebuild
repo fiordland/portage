@@ -1,12 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-fs/smbnetfs/smbnetfs-0.5.3b.ebuild,v 1.1 2013/12/24 07:49:59 slyfox Exp $
+# $Id$
 
 EAPI=5
 inherit eutils readme.gentoo
 
 DESCRIPTION="FUSE filesystem for SMB shares"
-HOMEPAGE="http://sourceforge.net/projects/smbnetfs"
+HOMEPAGE="https://sourceforge.net/projects/smbnetfs"
 SRC_URI="mirror://sourceforge/smbnetfs/${P}.tar.bz2"
 
 LICENSE="GPL-2"

@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-atscepg/vdr-atscepg-0.3.0-r1.ebuild,v 1.1 2015/02/01 15:53:20 hd_brummy Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,7 +10,7 @@ DESCRIPTION="VDR plugin: receive schedule and event information from ATSC broadc
 HOMEPAGE="http://www.fepg.org/atscepg.html"
 SRC_URI="http://www.fepg.org/files/${P}.tgz
 		mirror://gentoo/atscepg-${PV}_vdr-1.7.13.tbz
-		http://dev.gentoo.org/~hd_brummy/distfiles/atscepg-${PV}_vdr-1.7.13.tbz"
+		https://dev.gentoo.org/~hd_brummy/distfiles/atscepg-${PV}_vdr-1.7.13.tbz"
 
 SLOT="0"
 LICENSE="GPL-2"
@@ -31,6 +31,8 @@ src_prepare() {
 	vdr-plugin-2_src_prepare
 
 	epatch "${WORKDIR}/atscepg-${PV}_vdr-1.7.13.diff"
+
+	epatch "${FILESDIR}/${P}_gcc6.patch"
 
 	fix_vdr_libsi_include tables.cpp filter.cpp scanner.cpp
 }

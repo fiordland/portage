@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/simgear/simgear-3.4.0.ebuild,v 1.1 2015/02/25 00:29:43 reavertm Exp $
+# $Id$
 
 EAPI=5
 
@@ -11,7 +11,7 @@ HOMEPAGE="http://www.simgear.org/"
 SRC_URI="http://mirrors.ibiblio.org/pub/mirrors/simgear/ftp/Source/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~ppc x86"
 SLOT="0"
 IUSE="debug subversion test"
 
@@ -31,9 +31,11 @@ RDEPEND="${COMMON_DEPEND}
 
 DOCS=(AUTHORS ChangeLog NEWS README Thanks)
 
+PATCHES=( "${FILESDIR}/${P}-osg340_fixes.patch" )
+
 src_configure() {
 	local mycmakeargs=(
-		-ENABLE_PKGUTIL=OFF
+		-DENABLE_PKGUTIL=ON
 		-DENABLE_RTI=OFF
 		-DENABLE_SOUND=ON
 		-DSIMGEAR_HEADLESS=OFF

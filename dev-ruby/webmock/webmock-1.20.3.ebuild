@@ -1,12 +1,12 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/webmock/webmock-1.20.3.ebuild,v 1.1 2015/01/02 23:05:57 mrueg Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby20 ruby21"
 
-RUBY_FAKEGEM_TASK_TEST="test spec NO_CONNECTION=true"
+RUBY_FAKEGEM_TASK_TEST="test NO_CONNECTION=true"
 
 RUBY_FAKEGEM_RECIPE_DOC="rdoc"
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
@@ -14,11 +14,11 @@ RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
 inherit ruby-fakegem
 
 DESCRIPTION="Allows stubbing HTTP requests and setting expectations on HTTP requests"
-HOMEPAGE="http://github.com/bblimke/webmock"
+HOMEPAGE="https://github.com/bblimke/webmock"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris ~x86-solaris"
+KEYWORDS="amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris ~x86-solaris"
 IUSE=""
 
 ruby_add_rdepend ">=dev-ruby/addressable-2.3.6 >=dev-ruby/crack-0.3.2"
@@ -40,10 +40,16 @@ all_ruby_prepare() {
 	# version is too old.
 	sed -i -e '/\(curb\|typhoeus\|em-http\)/d' spec/spec_helper.rb || die
 	rm spec/acceptance/{typhoeus,curb,excon,em_http_request}/* || die
+	sed -i -e '2i gem "http", "~>0.6.0"' spec/acceptance/http_gem/http_gem_spec.rb || die
+
+	# Avoid test failing with newer httpclient versions
+	sed -i -e '/when a client instance is re-used for another identical request/,/^  end/ s:^:#:' \
+		spec/acceptance/httpclient/httpclient_spec.rb
 }
 
 each_ruby_test() {
-	each_fakegem_test
+	${RUBY} -S rake test NO_CONNECTION=true || die
+	${RUBY} -S rspec-2 spec || die
 
 	einfo "Delay to allow the test server to stop"
 	sleep 10

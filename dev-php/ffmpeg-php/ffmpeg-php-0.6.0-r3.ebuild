@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/ffmpeg-php/ffmpeg-php-0.6.0-r3.ebuild,v 1.5 2015/01/22 17:55:56 grknight Exp $
+# $Id$
 
 EAPI="5"
 
@@ -15,14 +15,14 @@ inherit php-ext-source-r2 eutils
 KEYWORDS="amd64 x86"
 
 DESCRIPTION="PHP extension that provides access to movie info"
-HOMEPAGE="http://sourceforge.net/projects/ffmpeg-php/"
+HOMEPAGE="https://sourceforge.net/projects/ffmpeg-php/"
 SRC_URI="mirror://sourceforge/ffmpeg-php/${P}.tbz2"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
 DEPEND="virtual/ffmpeg
-		dev-lang/php[gd]"
+		dev-lang/php:*[gd]"
 RDEPEND="${DEPEND}"
 
 # The test breaks with the test movie, but it the same code works fine with
@@ -42,6 +42,7 @@ src_prepare() {
 		epatch "${FILESDIR}/${P}-ffincludes.patch"
 		epatch "${FILESDIR}/${P}-ffmpeg1.patch"
 		epatch "${FILESDIR}/${P}-api.patch"
+		epatch "${FILESDIR}/${P}-libav10.patch"
 	done
 	php-ext-source-r2_src_prepare
 }

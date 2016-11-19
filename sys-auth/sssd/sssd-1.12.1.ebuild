@@ -1,10 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-auth/sssd/sssd-1.12.1.ebuild,v 1.4 2014/11/02 10:08:25 swift Exp $
+# $Id$
 
 EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
+
+WANT_AUTOMAKE="1.13"
 
 AUTOTOOLS_IN_SOURCE_BUILD=1
 AUTOTOOLS_AUTORECONF=1
@@ -18,7 +20,7 @@ SRC_URI="http://fedorahosted.org/released/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 ~ppc ~ppc64 x86"
 IUSE="acl augeas autofs +locator netlink nfsv4 nls +manpages python selinux sudo ssh test"
 
 COMMON_DEP="
@@ -86,7 +88,7 @@ src_configure(){
 		--without-nscd
 		--with-unicode-lib="glib2"
 		--disable-rpath
-		--enable-silent-rules
+		--disable-silent-rules
 		--sbindir=/usr/sbin
 		--without-samba
 		$(use_enable acl cifs-idmap-plugin)

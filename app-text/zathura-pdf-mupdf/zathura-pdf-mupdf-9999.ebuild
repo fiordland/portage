@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/zathura-pdf-mupdf/zathura-pdf-mupdf-9999.ebuild,v 1.11 2014/10/24 18:29:07 ssuominen Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ HOMEPAGE="http://pwmt.org/projects/zathura/"
 if ! [[ ${PV} == 9999* ]]; then
 SRC_URI="http://pwmt.org/projects/zathura/plugins/download/${P}.tar.gz"
 fi
-EGIT_REPO_URI="git://git.pwmt.org/${PN}.git"
+EGIT_REPO_URI="https://git.pwmt.org/pwmt/${PN}.git"
 EGIT_BRANCH="develop"
 
 LICENSE="ZLIB"
@@ -25,7 +25,7 @@ fi
 IUSE=""
 
 RDEPEND="!app-text/zathura-pdf-poppler
-	>=app-text/mupdf-1.3:=
+	>=app-text/mupdf-1.7a:=
 	>=app-text/zathura-0.3.1
 	media-libs/jbig2dec:=
 	media-libs/openjpeg:2=

@@ -1,9 +1,26 @@
-#!/sbin/runscript
-# Copyright 1999-2014 Gentoo Foundation
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/burp/files/burp.initd,v 1.1 2014/12/01 16:28:47 aidecoe Exp $
+# $Id$
 
-PIDFILE=/run/burp-server.pid
+BURP_CONFIG="/etc/burp/burp-server.conf"
+
+description="Burp is a network backup and restore program"
+
+command="/usr/sbin/burp"
+command_args="-c '${BURP_CONFIG}' -F"
+command_background="yes"
+pidfile="/run/burp-server.pid"
+start_stop_daemon_arg="--make-pidfile --wait 500"
+
+extra_started_commands="reload summary"
+description_reload="Reloads configuration"
+description_summary="Displays main status monitor summary"
+
+get_backup_dir() {
+	grep '^directory = ' "${BURP_CONFIG}" \
+		| sed -e 's/^directory = //'
+}
 
 depend() {
 	need localmount
@@ -11,25 +28,20 @@ depend() {
 	use net
 }
 
-start() {
-	ebegin "Starting burp server"
-	checkpath -o burp:burp -m 0775 -d /run/lock/burp
+start_pre() {
 	checkpath -o root:burp -m 0775 -d /etc/burp
-	checkpath -o root:burp -m 0775 -d /etc/burp/CA
-	checkpath -o root:burp -m 0750 -d /etc/burp/clientconfdir
 	checkpath -o root:burp -m 0640 -f /etc/burp/burp-server.conf
-	start-stop-daemon --start \
-		--pidfile "$PIDFILE" \
-		--make-pidfile \
-		--background \
-		--wait 500 \
-		--exec /usr/sbin/burp -- -c /etc/burp/burp-server.conf -F
-	eend $? "Failed to start burp server"
+	checkpath -o root:burp -m 0750 -d /etc/burp/clientconfdir
+	checkpath -o burp:burp -m 0775 -d /run/lock/burp
+	checkpath -o root:burp -m 0770 -d "$(get_backup_dir)"
 }
 
-stop() {
-	ebegin "Stopping burp server"
-	start-stop-daemon --stop \
-		--pidfile "$PIDFILE"
-	eend $? "Failed to stop burp server"
+reload() {
+	ebegin "Reloading ${SVCNAME} configuration"
+	start-stop-daemon --exec ${command} --signal HUP
+	eend $?
+}
+
+summary() {
+	"${command}" -c "${BURP_CONFIG}" -a S
 }

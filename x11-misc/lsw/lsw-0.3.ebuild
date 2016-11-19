@@ -1,12 +1,12 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/lsw/lsw-0.3.ebuild,v 1.3 2015/01/31 11:44:48 ago Exp $
+# $Id$
 
 EAPI=5
 inherit toolchain-funcs
 
 DESCRIPTION="list window names"
-HOMEPAGE="http://tools.suckless.org/lsw"
+HOMEPAGE="http://tools.suckless.org/x/lsw"
 SRC_URI="http://dl.suckless.org/tools/${P}.tar.gz"
 
 LICENSE="MIT"

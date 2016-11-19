@@ -1,17 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libwebp/libwebp-0.4.2.ebuild,v 1.1 2014/12/16 19:35:49 phajdan.jr Exp $
+# $Id$
 
 EAPI=5
 inherit eutils libtool multilib-minimal
 
 DESCRIPTION="A lossy image compression format"
-HOMEPAGE="http://code.google.com/p/webp/"
+HOMEPAGE="https://developers.google.com/speed/webp/download"
 SRC_URI="http://downloads.webmproject.org/releases/webp/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/5" # subslot = libwebp soname version
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~x64-macos ~m68k-mint"
+KEYWORDS="alpha amd64 arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~x64-macos ~m68k-mint"
 IUSE="experimental gif +jpeg opengl +png static-libs swap-16bit-csp tiff"
 
 # TODO: dev-lang/swig bindings in swig/ subdirectory
@@ -30,7 +30,7 @@ ECONF_SOURCE=${S}
 src_prepare() {
 	# This is conflicting with `usex` later on, upstream is using ac_cv_ wrong
 	# If modifying configure.ac, eautoreconf is required because of "Maintainer mode"
-	sed -i -e '/unset ac_cv_header_GL_glut_h/d' configure || die
+	sed -i -e '/unset ac_cv_header_GL_glut_h/d' configure || die
 
 	# Fix libtool relinking, bug 499270.
 	elibtoolize

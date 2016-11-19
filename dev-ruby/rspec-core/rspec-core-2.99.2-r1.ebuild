@@ -1,9 +1,9 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec-core/rspec-core-2.99.2-r1.ebuild,v 1.2 2015/02/21 09:37:16 graaff Exp $
+# $Id$
 
 EAPI=5
-USE_RUBY="ruby19 ruby20 ruby21 ruby22"
+USE_RUBY="ruby20 ruby21 ruby22 ruby23"
 
 RUBY_FAKEGEM_TASK_TEST="none"
 RUBY_FAKEGEM_TASK_DOC="none"
@@ -20,7 +20,7 @@ RUBY_FAKEGEM_GEMSPEC="rspec-core.gemspec"
 inherit ruby-fakegem
 
 DESCRIPTION="A Behaviour Driven Development (BDD) framework for Ruby"
-HOMEPAGE="http://github.com/rspec/rspec-core"
+HOMEPAGE="https://github.com/rspec/rspec-core"
 SRC_URI="https://github.com/rspec/${PN}/archive/v${PV}.tar.gz -> ${P}-git.tgz"
 
 LICENSE="MIT"
@@ -38,7 +38,7 @@ ruby_add_bdepend "test? (
 
 # Skip yard for ruby21 for now since we don't support ruby21 eselected
 # yet and we can't bootstrap otherwise.
-USE_RUBY=${USE_RUBY/ruby21 ruby22/} ruby_add_bdepend "doc? ( dev-ruby/yard )"
+USE_RUBY=${USE_RUBY/ruby21 ruby22 ruby23/} ruby_add_bdepend "doc? ( dev-ruby/yard )"
 
 all_ruby_prepare() {
 	# Don't set up bundler: it doesn't understand our setup.
@@ -58,10 +58,19 @@ all_ruby_prepare() {
 	# Avoid aruba dependency so that we don't end up in dependency hell.
 	sed -i -e '/aruba/ s:^:#:' -e '/Aruba/,/}/ s:^:#:' spec/spec_helper.rb || die
 	rm spec/command_line/order_spec.rb || die
+
+	# Avoid testing issues with rspec 3 installed
+	sed -i -e '2igem "rspec", "~> 2.0"' bin/rspec || die
 }
 
 each_ruby_prepare() {
 	sed -i -e 's:ruby -e:'${RUBY}' -e:' spec/rspec/core_spec.rb || die
+
+	case ${RUBY} in
+		*ruby23)
+			sed -i -e 's/SAFE = 3/SAFE = 1/' spec/support/helper_methods.rb || die
+			;;
+	esac
 }
 
 all_ruby_compile() {

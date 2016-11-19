@@ -1,9 +1,8 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/valyriatear/valyriatear-1.0.0.ebuild,v 1.3 2015/02/25 15:55:13 ago Exp $
+# $Id$
 
 EAPI=5
-
 inherit cmake-utils games
 
 MY_P=ValyriaTear-${PV/_rc/-rc}
@@ -20,7 +19,7 @@ IUSE="debug editor nls"
 
 RDEPEND="
 	dev-cpp/luabind
-	dev-lang/lua
+	dev-lang/lua:0
 	media-libs/libpng:0=
 	media-libs/libsdl[X,joystick,opengl,video]
 	media-libs/libvorbis

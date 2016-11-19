@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/psi/psi-9999.ebuild,v 1.23 2015/02/22 18:41:23 mgorny Exp $
+# $Id$
 
 EAPI="4"
 
@@ -31,24 +31,25 @@ REQUIRED_USE="
 "
 
 RDEPEND="
-	>=dev-qt/qtgui-4.7:4
+	app-arch/unzip
 	>=app-crypt/qca-2.0.2:2[qt4(+)]
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
+	>=sys-libs/zlib-1.2.5.1-r2[minizip]
 	x11-libs/libX11
-	dbus? ( >=dev-qt/qtdbus-4.7:4 )
-	whiteboarding? ( dev-qt/qtsvg:4 )
+	dbus? ( dev-qt/qtdbus:4 )
+	extras? ( webkit? ( dev-qt/qtwebkit:4 ) )
 	spell? (
 		enchant? ( >=app-text/enchant-1.3.0 )
 		!enchant? ( app-text/aspell )
 	)
+	whiteboarding? ( dev-qt/qtsvg:4 )
 	xscreensaver? ( x11-libs/libXScrnSaver )
-	extras? ( webkit? ( dev-qt/qtwebkit:4 ) )
-	app-arch/unzip
-	|| ( >=sys-libs/zlib-1.2.5.1-r2[minizip] <sys-libs/zlib-1.2.5.1-r1 )
 "
 DEPEND="${RDEPEND}
 	extras? (
 		${SUBVERSION_DEPEND}
-		sys-devel/qconf
+		sys-devel/qconf[qt4(+)]
 	)
 	doc? ( app-doc/doxygen )
 	virtual/pkgconfig
@@ -57,9 +58,9 @@ PDEPEND="
 	crypt? ( app-crypt/qca:2[gpg] )
 	jingle? (
 		net-im/psimedia
-		app-crypt/qca:2[openssl]
+		app-crypt/qca:2[ssl]
 	)
-	ssl? ( app-crypt/qca:2[openssl] )
+	ssl? ( app-crypt/qca:2[ssl] )
 "
 RESTRICT="test"
 
@@ -70,7 +71,7 @@ pkg_setup() {
 		echo
 		ewarn "You're about to build heavily patched version of Psi called Psi+."
 		ewarn "It has really nice features but still is under heavy development."
-		ewarn "Take a look at homepage for more info: http://code.google.com/p/psi-dev"
+		ewarn "Take a look at homepage for more info: https://code.google.com/p/psi-dev"
 		ewarn "If you wish to disable some patches just put"
 		ewarn "MY_EPATCH_EXCLUDE=\"list of patches\""
 		ewarn "into /etc/portage/env/${CATEGORY}/${PN} file."

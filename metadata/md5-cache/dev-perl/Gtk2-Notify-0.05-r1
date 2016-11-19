@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-perl/glib-perl dev-perl/gtk2-perl >=x11-libs/libnotify-0.7 dev-perl/extutils-depends dev-perl/extutils-pkgconfig test? ( dev-perl/Test-Exception ) dev-lang/perl:=[-build(-)] test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )
+DEPEND=dev-perl/glib-perl dev-perl/gtk2-perl >=x11-libs/libnotify-0.7 dev-perl/ExtUtils-Depends dev-perl/extutils-pkgconfig test? ( dev-perl/Test-Exception ) dev-lang/perl:=[-build(-)] test? ( !prefix? ( x11-base/xorg-server[xvfb] ) x11-apps/xhost )
 DESCRIPTION=A perl interface to the notification library
 EAPI=5
 HOMEPAGE=http://search.cpan.org/dist/Gtk2-Notify/
@@ -9,5 +9,5 @@ LICENSE=LGPL-2
 RDEPEND=dev-perl/glib-perl dev-perl/gtk2-perl >=x11-libs/libnotify-0.7 dev-lang/perl:=[-build(-)]
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/F/FL/FLORA/Gtk2-Notify-0.05.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	perl-module	6b84915e66050718c89bcbc76c144e80	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	unpacker	f300a7ca9131b1024a79762e8edd3c52	virtualx	73cfc129b4b9ba23aed1abb10c825d86
-_md5_=c00bb5c8bbb99d4e32314ea3f3d0df14
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	multiprocessing	e32940a7b2a9992ad217eccddb84d548	perl-functions	aac50de73be0a80ebe780e0b20850130	perl-module	f6549146ea31a902e20b5f2e6f244358	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	unpacker	45d07319df5f40ee6af58418b0f930be	virtualx	86c9305a59b3e0459e7fbef3a5f30b96
+_md5_=9badef83810d0d5c8f4fc63d54a5cfcf

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>nimiux@gentoo.org</email>
 		<name>Chema Alonso</name>
 	</maintainer>
@@ -27,4 +27,7 @@
 		<flag name="vim-syntax">Pulls in related vim syntax scripts</flag>
 		<flag name="X">Add support for X11</flag>
 	</use>
+	<upstream>
+		<remote-id type="sourceforge">vifm</remote-id>
+	</upstream>
 </pkgmetadata>

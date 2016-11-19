@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/gtk-vnc/gtk-vnc-0.5.4.ebuild,v 1.1 2015/02/12 13:16:54 pacho Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -16,7 +16,7 @@ HOMEPAGE="https://wiki.gnome.org/Projects/gtk-vnc"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86 ~x86-fbsd"
 IUSE="examples +gtk3 +introspection pulseaudio python sasl vala"
 REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -27,7 +27,7 @@ REQUIRED_USE="
 # glib-2.30.1 needed to avoid linking failure due to .la files (bug #399129)
 COMMON_DEPEND="
 	>=dev-libs/glib-2.30.1:2
-	>=dev-libs/libgcrypt-1.4.2:0
+	>=dev-libs/libgcrypt-1.4.2:0=
 	dev-libs/libgpg-error
 	>=net-libs/gnutls-2.12
 	>=x11-libs/cairo-1.2

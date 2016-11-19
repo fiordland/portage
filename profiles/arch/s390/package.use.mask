@@ -1,6 +1,14 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/arch/s390/package.use.mask,v 1.29 2015/02/18 14:01:10 pinkbyte Exp $
+# $Id$
+
+# Sergey Popov <pinkbyte@gentoo.org> (24 Oct 2015)
+# Not tested
+net-mail/dovecot lz4
+
+# Mike Frysinger <vapier@gentoo.org> (16 Mar 2015)
+# Needs sci-physics/bullet tested #499974
+dev-libs/efl physics
 
 # Sergey Popov <pinkbyte@gentoo.org> (18 Feb 2015)
 # Not tested
@@ -9,14 +17,11 @@ app-portage/layman g-sorcery
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (16 Sep 2014)
 # Needs libepoxy keywording, bug #510940
 x11-base/xorg-server glamor wayland
+x11-drivers/xf86-video-ati glamor
 
 # Mikle Kolyada <zlogene@gentoo.org> (11 Jan 2014)
 # too much unkeyworded dependencies (bug #497068)
 dev-vcs/git mediawiki
-
-# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (28 May 2013)
-# depends on sys-devel/llvm[video_cards_radeon]
-media-libs/mesa r600-llvm-compiler
 
 # Agostino Sarubbo <ago@gentoo.org< (10 Apr 2013)
 # It requires too much unstable dep.

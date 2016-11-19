@@ -1,16 +1,16 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/plymouth/plymouth-0.8.8-r5.ebuild,v 1.1 2014/03/01 19:21:50 maksbotan Exp $
+# $Id$
 
 EAPI=5
 
 inherit autotools-utils readme.gentoo systemd toolchain-funcs
 
 DESCRIPTION="Graphical boot animation (splash) and logger"
-HOMEPAGE="http://cgit.freedesktop.org/plymouth/"
+HOMEPAGE="https://cgit.freedesktop.org/plymouth/"
 SRC_URI="
-	http://www.freedesktop.org/software/plymouth/releases/${P}.tar.bz2
-	http://dev.gentoo.org/~aidecoe/distfiles/${CATEGORY}/${PN}/gentoo-logo.png"
+	https://www.freedesktop.org/software/plymouth/releases/${P}.tar.bz2
+	https://dev.gentoo.org/~aidecoe/distfiles/${CATEGORY}/${PN}/gentoo-logo.png"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -38,7 +38,7 @@ RDEPEND="${CDEPEND}
 
 DOC_CONTENTS="
 	Follow the following instructions to set up Plymouth:\n
-	http://dev.gentoo.org/~aidecoe/doc/en/plymouth.xml
+	https://dev.gentoo.org/~aidecoe/doc/en/plymouth.xml
 "
 
 PATCHES=(

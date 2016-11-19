@@ -1,17 +1,17 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/newlib/newlib-2.2.0.ebuild,v 1.2 2015/02/27 08:01:12 vapier Exp $
+# $Id$
 
 EAPI="4"
 
 inherit flag-o-matic toolchain-funcs eutils
 
 if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="git://sourceware.org/git/newlib.git"
+	EGIT_REPO_URI="git://sourceware.org/git/newlib-cygwin.git"
 	inherit git-r3
 else
 	SRC_URI="ftp://sourceware.org/pub/newlib/${P}.tar.gz"
-	KEYWORDS="-* ~arm ~hppa ~m68k ~mips ~ppc ~ppc64 ~sh ~sparc ~x86"
+	KEYWORDS="-* arm hppa m68k ~mips ppc ppc64 sh sparc x86"
 fi
 
 export CBUILD=${CBUILD:-${CHOST}}
@@ -23,12 +23,15 @@ if [[ ${CTARGET} == ${CHOST} ]] ; then
 fi
 
 DESCRIPTION="Newlib is a C library intended for use on embedded systems"
-HOMEPAGE="http://sourceware.org/newlib/"
+HOMEPAGE="https://sourceware.org/newlib/"
 
 LICENSE="NEWLIB LIBGLOSS GPL-2"
 SLOT="0"
 IUSE="nls threads unicode crosscompile_opts_headers-only"
 RESTRICT="strip"
+
+# Handle the SLOT changes. #497344
+RDEPEND="!<${CATEGORY}/${PN}-2.1.0"
 
 NEWLIBBUILD="${WORKDIR}/build"
 

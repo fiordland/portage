@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-engines/frotz/frotz-2.43.ebuild,v 1.21 2015/01/18 15:41:51 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="amd64 ppc sparc x86"
 IUSE="alsa oss"
 
-DEPEND="sys-libs/ncurses
+DEPEND="sys-libs/ncurses:0
 	alsa? ( oss? ( media-libs/alsa-oss ) )"
 RDEPEND="${DEPEND}"
 

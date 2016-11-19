@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/ppp/ppp-2.4.7.ebuild,v 1.8 2014/08/21 09:46:10 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,19 +10,20 @@ PATCH_VER="1"
 DESCRIPTION="Point-to-Point Protocol (PPP)"
 HOMEPAGE="http://www.samba.org/ppp"
 SRC_URI="ftp://ftp.samba.org/pub/ppp/${P}.tar.gz
-	http://dev.gentoo.org/~polynomial-c/${P}-patches-${PATCH_VER}.tar.xz
+	https://dev.gentoo.org/~polynomial-c/${P}-patches-${PATCH_VER}.tar.xz
 	http://www.netservers.net.uk/gpl/ppp-dhcpc.tgz"
 
 LICENSE="BSD GPL-2"
 SLOT="0/${PV}"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86"
 IUSE="activefilter atm dhcp eap-tls gtk ipv6 pam radius"
 
-DEPEND="activefilter? ( net-libs/libpcap )
+DEPEND="!net-dialup/ppp-scripts
+	activefilter? ( net-libs/libpcap )
 	atm? ( net-dialup/linux-atm )
 	pam? ( virtual/pam )
 	gtk? ( x11-libs/gtk+:2 )
-	eap-tls? ( net-misc/curl dev-libs/openssl )"
+	eap-tls? ( net-misc/curl dev-libs/openssl:0 )"
 RDEPEND="${DEPEND}"
 
 src_prepare() {

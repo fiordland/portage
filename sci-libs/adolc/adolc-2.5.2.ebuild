@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-libs/adolc/adolc-2.5.2.ebuild,v 1.1 2014/10/31 08:22:10 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -17,7 +17,7 @@ SRC_URI="http://www.coin-or.org/download/source/${MYPN}/${MYPN}-${PV}.tgz"
 
 LICENSE="|| ( EPL-1.0 GPL-2 )"
 SLOT="0/1"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="mpi sparse static-libs"
 
 RDEPEND="

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/hddtemp/hddtemp-0.3_beta15-r7.ebuild,v 1.12 2014/11/01 20:12:03 aidecoe Exp $
+# $Id$
 
 EAPI=5
 inherit eutils autotools readme.gentoo systemd
@@ -9,7 +9,7 @@ MY_P=${P/_beta/-beta}
 DBV=20080531
 
 DESCRIPTION="A simple utility to read the temperature of SMART capable hard drives"
-HOMEPAGE="http://savannah.nongnu.org/projects/hddtemp/"
+HOMEPAGE="https://savannah.nongnu.org/projects/hddtemp/"
 SRC_URI="http://download.savannah.gnu.org/releases/hddtemp/${MY_P}.tar.bz2 mirror://gentoo/hddtemp-${DBV}.db.bz2"
 
 LICENSE="GPL-2"
@@ -41,6 +41,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-nls.patch
 	epatch "${FILESDIR}"/${P}-iconv.patch
 	epatch "${FILESDIR}"/${P}-dontwake.patch
+	mv "${S}"/configure.{in,ac} || die
 	AT_M4DIR="m4" eautoreconf
 }
 

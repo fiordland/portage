@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Data-Validate-IP/Data-Validate-IP-0.240.0.ebuild,v 1.5 2015/02/02 14:41:58 jer Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ inherit perl-module
 DESCRIPTION="Lightweight IPv4 and IPv6 validation module"
 
 SLOT="0"
-KEYWORDS="amd64 ~hppa"
+KEYWORDS="amd64 ~hppa ~x86"
 IUSE="test"
 
 RDEPEND="

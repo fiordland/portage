@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/mico/mico-2.3.13-r7.ebuild,v 1.3 2014/12/28 16:41:22 titanofold Exp $
+# $Id$
 
 EAPI="3"
 
@@ -19,7 +19,7 @@ IUSE="gtk postgres qt4 ssl tcl threads X"
 RESTRICT="test" #298101
 
 [[ -z ${PATCH_VER} ]] || \
-	SRC_URI="${SRC_URI} http://dev.gentoo.org/~haubi/distfiles/${P}-gentoo-patches-${PATCH_VER}.tar.bz2"
+	SRC_URI="${SRC_URI} https://dev.gentoo.org/~haubi/distfiles/${P}-gentoo-patches-${PATCH_VER}.tar.bz2"
 
 # doesn't compile:
 #   bluetooth? ( net-wireless/bluez )
@@ -29,7 +29,7 @@ RDEPEND="
 	postgres?  ( dev-db/postgresql )
 	qt4?       ( dev-qt/qtgui:4[qt3support] )
 	ssl?       ( dev-libs/openssl )
-	tcl?       ( dev-lang/tcl )
+	tcl?       ( dev-lang/tcl:0 )
 	X?         ( x11-libs/libXt )
 "
 DEPEND="${RDEPEND}

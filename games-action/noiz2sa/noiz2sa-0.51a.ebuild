@@ -1,12 +1,12 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-action/noiz2sa/noiz2sa-0.51a.ebuild,v 1.13 2015/01/01 19:35:56 tupone Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="Abstract Shooting Game"
-HOMEPAGE="http://www.asahi-net.or.jp/~cs8k-cyu/windows/noiz2sa_e.html http://sourceforge.net/projects/noiz2sa/"
+HOMEPAGE="http://www.asahi-net.or.jp/~cs8k-cyu/windows/noiz2sa_e.html https://sourceforge.net/projects/noiz2sa/"
 SRC_URI="mirror://sourceforge/noiz2sa/${P}.tar.gz"
 
 LICENSE="BSD"
@@ -27,10 +27,9 @@ src_prepare(){
 	sed -i \
 		-e "s:/.noiz2sa.prf:/noiz2sa.prf:" \
 		-e "s:getenv(\"HOME\"):\"${GAMES_STATEDIR}\":" \
-		attractmanager.c \
-		|| die "sed failed"
+		attractmanager.c || die
 
-	cp makefile.lin Makefile || die "Failed copying Makefile"
+	cp makefile.lin Makefile || die
 }
 
 src_install(){
@@ -38,7 +37,7 @@ src_install(){
 
 	dogamesbin ${PN}
 	dodir "${datadir}" "${GAMES_STATEDIR}"
-	cp -r ../noiz2sa_share/* "${D}/${datadir}" || die "cp failed"
+	cp -r ../noiz2sa_share/* "${D}/${datadir}" || die
 	dodoc ../readme*
 	touch "${D}${GAMES_STATEDIR}/${PN}.prf"
 	fperms 660 "${GAMES_STATEDIR}/${PN}.prf"

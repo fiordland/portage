@@ -1,11 +1,12 @@
 DEFINED_PHASES=compile install
 DEPEND=sys-apps/pciutils
 DESCRIPTION=Library for build EFI Applications
+EAPI=0
 HOMEPAGE=http://developer.intel.com/technology/efi
 KEYWORDS=~amd64 ia64 ~x86
 LICENSE=GPL-2
 RDEPEND=sys-apps/pciutils
 SLOT=0
 SRC_URI=mirror://sourceforge/gnu-efi/gnu-efi_3.0g.orig.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=9ed33d6b38a32abfda69d0235f189cbe
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=42d1751e471e5745f400d2ace6a69131

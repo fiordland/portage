@@ -1,11 +1,11 @@
 DEFINED_PHASES=compile install prepare unpack
-DEPEND=dev-libs/openssl[static-libs?] media-libs/freetype:2[static-libs?] media-libs/jbig2dec[static-libs?] media-libs/openjpeg:2[static-libs?] net-misc/curl[static-libs?] virtual/jpeg[static-libs?] X? ( x11-libs/libX11[static-libs?] x11-libs/libXext[static-libs?] ) virtual/pkgconfig static-libs? ( dev-libs/openssl[static-libs?] media-libs/freetype:2[static-libs?] media-libs/jbig2dec[static-libs?] media-libs/openjpeg:2[static-libs?] net-misc/curl[static-libs?] virtual/jpeg[static-libs?] X? ( x11-libs/libX11[static-libs?] x11-libs/libXext[static-libs?] ) ) static? ( app-arch/bzip2[static-libs] x11-libs/libXau[static-libs] x11-libs/libXdmcp[static-libs] x11-libs/libxcb[static-libs] ) dev-vcs/git
+DEPEND=!libressl? ( dev-libs/openssl:0[static-libs?] ) libressl? ( dev-libs/libressl[static-libs?] ) media-libs/freetype:2[static-libs?] media-libs/jbig2dec[static-libs?] media-libs/openjpeg:2[static-libs?] net-misc/curl[static-libs?] virtual/jpeg[static-libs?] X? ( x11-libs/libX11[static-libs?] x11-libs/libXext[static-libs?] ) virtual/pkgconfig static-libs? ( !libressl? ( dev-libs/openssl:0[static-libs?] ) libressl? ( dev-libs/libressl[static-libs?] ) media-libs/freetype:2[static-libs?] media-libs/jbig2dec[static-libs?] media-libs/openjpeg:2[static-libs?] net-misc/curl[static-libs?] virtual/jpeg[static-libs?] X? ( x11-libs/libX11[static-libs?] x11-libs/libXext[static-libs?] ) ) static? ( app-arch/bzip2[static-libs] x11-libs/libXau[static-libs] x11-libs/libXdmcp[static-libs] x11-libs/libxcb[static-libs] ) dev-vcs/git
 DESCRIPTION=a lightweight PDF viewer and toolkit written in portable C
 EAPI=5
 HOMEPAGE=http://mupdf.com/
-IUSE=X vanilla curl openssl static static-libs
+IUSE=X vanilla curl libressl openssl static static-libs
 LICENSE=AGPL-3
-RDEPEND=dev-libs/openssl[static-libs?] media-libs/freetype:2[static-libs?] media-libs/jbig2dec[static-libs?] media-libs/openjpeg:2[static-libs?] net-misc/curl[static-libs?] virtual/jpeg[static-libs?] X? ( x11-libs/libX11[static-libs?] x11-libs/libXext[static-libs?] )
-SLOT=0/1.6
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	git-2	e28f0d8a9b321431b1e699782851b827	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=1f268fd74f08e34731a2949d46ede0b7
+RDEPEND=!libressl? ( dev-libs/openssl:0[static-libs?] ) libressl? ( dev-libs/libressl[static-libs?] ) media-libs/freetype:2[static-libs?] media-libs/jbig2dec[static-libs?] media-libs/openjpeg:2[static-libs?] net-misc/curl[static-libs?] virtual/jpeg[static-libs?] X? ( x11-libs/libX11[static-libs?] x11-libs/libXext[static-libs?] )
+SLOT=0/1.7
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	flag-o-matic	7366202dd55cb8f018f5d450d54e7749	git-2	7af5d170bfc02983b4bcd3167dc5edd4	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=a9e99418963835d30427e69bc6a2fe47

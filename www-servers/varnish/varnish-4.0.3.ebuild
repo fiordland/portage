@@ -1,10 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/varnish/varnish-4.0.3.ebuild,v 1.1 2015/02/19 12:16:33 blueness Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy pypy2_0 )
+PYTHON_COMPAT=( python{2_7,3_4} pypy )
 
 inherit user autotools-utils eutils systemd python-r1
 
@@ -14,14 +14,14 @@ SRC_URI="http://repo.varnish-cache.org/source/${P}.tar.gz"
 
 LICENSE="BSD-2 GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~mips ~x86"
+KEYWORDS="amd64 ~mips x86"
 IUSE="jemalloc jit static-libs"
 
 CDEPEND="
 	|| ( dev-libs/libedit sys-libs/readline )
 	dev-libs/libpcre[jit?]
 	jemalloc? ( dev-libs/jemalloc )
-	sys-libs/ncurses"
+	sys-libs/ncurses:="
 
 #varnish compiles stuff at run time
 RDEPEND="

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/ktorrent/ktorrent-4.3.1-r1.ebuild,v 1.5 2014/08/10 20:37:11 slyfox Exp $
+# $Id$
 
 EAPI=5
 
@@ -24,7 +24,7 @@ if [[ ${PV} != 9999* ]]; then
 	SRC_URI="http://ktorrent.org/downloads/${MY_PV}/${MY_P}.tar.bz2"
 	S="${WORKDIR}"/"${MY_P}"
 
-	KEYWORDS="amd64 ppc x86"
+	KEYWORDS="amd64 x86"
 else
 	LIBKT_VERSION_MIN="${PV}"
 	LIBKT_VERSION_MAX="99999999"
@@ -34,7 +34,7 @@ fi
 inherit kde4-base
 
 DESCRIPTION="A BitTorrent program for KDE"
-HOMEPAGE="http://ktorrent.org/"
+HOMEPAGE="http://ktorrent.pwsp.net/"
 
 LICENSE="GPL-2"
 SLOT="4"
@@ -43,12 +43,16 @@ IUSE="+bwscheduler debug +downloadorder +infowidget +ipfilter +kross +logviewer
 +upnp webinterface +zeroconf"
 
 COMMONDEPEND="
-	<net-libs/libktorrent-${LIBKT_VERSION_MAX}
-	>=net-libs/libktorrent-${LIBKT_VERSION_MIN}
+	<net-libs/libktorrent-${LIBKT_VERSION_MAX}:4
+	>=net-libs/libktorrent-${LIBKT_VERSION_MIN}:4
 	infowidget? ( dev-libs/geoip )
 	mediaplayer? ( >=media-libs/taglib-1.5 )
 	plasma? ( $(add_kdebase_dep libtaskmanager) )
-	rss? ( $(add_kdebase_dep kdepimlibs) )
+	rss? ( $(add_kdeapps_dep kdepimlibs) )
+	search? (
+		$(add_kdebase_dep kdelibs webkit 4.14.22)
+		dev-qt/qtwebkit:4
+	)
 	shutdown? ( $(add_kdebase_dep libkworkspace) )
 "
 DEPEND="${COMMONDEPEND}
@@ -59,7 +63,7 @@ RDEPEND="${COMMONDEPEND}
 	ipfilter? (
 		app-arch/bzip2
 		app-arch/unzip
-		$(add_kdebase_dep kdebase-kioslaves)
+		$(add_kdeapps_dep kdebase-kioslaves)
 	)
 	kross? ( $(add_kdebase_dep krosspython) )
 "

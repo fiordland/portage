@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/cppunit/cppunit-1.13.1.ebuild,v 1.13 2013/06/17 07:38:23 pinkbyte Exp $
+# $Id$
 
 EAPI=4
 
@@ -9,7 +9,7 @@ EGIT_REPO_URI="git://anongit.freedesktop.org/libreoffice/cppunit"
 inherit eutils flag-o-matic
 
 DESCRIPTION="C++ port of the famous JUnit framework for unit testing"
-HOMEPAGE="http://www.freedesktop.org/wiki/Software/cppunit"
+HOMEPAGE="https://www.freedesktop.org/wiki/Software/cppunit"
 [[ ${PV} = 9999 ]] || SRC_URI="http://dev-www.libreoffice.org/src/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"

@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/licq/licq-1.8.2.ebuild,v 1.5 2015/01/26 10:41:36 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,27 +12,27 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="2"
-KEYWORDS="~alpha amd64 ~ia64 ~sparc x86"
-IUSE="debug doc linguas_he nls socks5 ssl xosd aosd jabber qt4 msn"
+KEYWORDS="alpha amd64 ia64 ppc sparc x86"
+IUSE="debug doc linguas_he nls socks5 ssl xosd aosd xmpp qt4 msn"
 
 RDEPEND=">=app-crypt/gpgme-1
-	jabber? ( net-libs/gloox )
+	xmpp? ( net-libs/gloox )
 	qt4? ( dev-qt/qtgui:4 )
 	socks5? ( net-proxy/dante )
-	ssl? ( >=dev-libs/openssl-0.9.5a )
+	ssl? ( >=dev-libs/openssl-0.9.5a:0= )
 	xosd? ( x11-libs/xosd )
 	aosd? ( x11-libs/libaosd )"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen[dot] )
 	nls? ( sys-devel/gettext )
-	dev-libs/boost"
+	dev-libs/boost:="
 
 src_prepare() {
 	local licq_plugins="auto-reply icq rms"
 	use msn && licq_plugins+=" msn"
 	use xosd && licq_plugins+=" osd"
 	use aosd && licq_plugins+=" aosd"
-	use jabber && licq_plugins+=" jabber"
+	use xmpp && licq_plugins+=" jabber"
 	use qt4 && licq_plugins+=" qt4-gui"
 
 	local plugins="" x
@@ -57,7 +57,8 @@ src_configure() {
 		$(cmake-utils_use socks5 USE_SOCKS5)
 		$(cmake-utils_use ssl USE_OPENSSL)
 		-DUSE_FIFO=ON
-		-DBUILD_PLUGINS=ON"
+		-DBUILD_PLUGINS=ON
+		-DBUILD_TESTS=OFF"
 
 	cmake-utils_src_configure
 }

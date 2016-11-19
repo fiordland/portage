@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/enaml/enaml-0.9.8.ebuild,v 1.1 2014/11/17 02:40:54 idella4 Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,19 +9,20 @@ PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1 virtualx flag-o-matic
 
 DESCRIPTION="Enthought Tool Suite: framework for writing declarative interfaces"
-HOMEPAGE="http://code.enthought.com/projects/enaml/ http://pypi.python.org/pypi/enaml"
+HOMEPAGE="http://code.enthought.com/projects/enaml/ https://pypi.python.org/pypi/enaml"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 IUSE="examples test"
 
 RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 	>=dev-python/atom-0.3.8[${PYTHON_USEDEP}]
 	>=dev-python/kiwisolver-0.1.2[${PYTHON_USEDEP}]
 	>=dev-python/ply-3.4[${PYTHON_USEDEP}]
-	|| ( dev-python/wxpython[${PYTHON_USEDEP}] \
+	|| (
+		dev-python/wxpython:*[${PYTHON_USEDEP}] \
 		dev-python/PyQt4[${PYTHON_USEDEP}] \
 		dev-python/pyside[${PYTHON_USEDEP}] )"
 

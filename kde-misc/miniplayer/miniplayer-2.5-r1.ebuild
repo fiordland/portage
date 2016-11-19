@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-misc/miniplayer/miniplayer-2.5-r1.ebuild,v 1.3 2014/12/31 13:13:53 kensington Exp $
+# $Id$
 
 EAPI=5
 
@@ -28,7 +28,7 @@ RDEPEND="
 src_prepare() {
 	local lang
 	for lang in ${KDE_LINGUAS} ; do
-		if ! use linguas_${lang} ; then
+		if ! use l10n_${lang} ; then
 			rm ${KDE_LINGUAS_DIR}/${lang}.mo
 		fi
 	done

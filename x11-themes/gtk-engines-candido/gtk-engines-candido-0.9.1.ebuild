@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/gtk-engines-candido/gtk-engines-candido-0.9.1.ebuild,v 1.8 2015/02/23 20:12:06 mgorny Exp $
+# $Id$
 
 EAPI=4
 inherit autotools eutils
@@ -8,7 +8,7 @@ inherit autotools eutils
 MY_P="candido-engine-${PV}"
 
 DESCRIPTION="Candido GTK+ 2.x Theme Engine"
-HOMEPAGE="http://sourceforge.net/projects/candido.berlios/"
+HOMEPAGE="https://sourceforge.net/projects/candido.berlios/"
 SRC_URI="mirror://sourceforge/candido.berlios/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"

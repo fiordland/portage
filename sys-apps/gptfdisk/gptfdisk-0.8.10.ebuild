@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/gptfdisk/gptfdisk-0.8.10.ebuild,v 1.9 2014/09/19 08:57:22 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,11 +12,12 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm ia64 ~mips ppc ppc64 sparc x86 ~amd64-linux ~arm-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm ~arm64 ia64 ~mips ppc ppc64 sparc x86 ~amd64-linux ~arm-linux ~x86-linux"
 IUSE="kernel_linux ncurses static"
 
-LIB_DEPEND="dev-libs/popt[static-libs(+)]
-	ncurses? ( >=sys-libs/ncurses-5.7-r7[static-libs(+)] )
+LIB_DEPEND="
+	dev-libs/popt[static-libs(+)]
+	ncurses? ( >=sys-libs/ncurses-5.7-r7:0=[static-libs(+)] )
 	kernel_linux? ( sys-apps/util-linux[static-libs(+)] )" # libuuid
 RDEPEND="!static? ( ${LIB_DEPEND//\[static-libs(+)]} )"
 DEPEND="${RDEPEND}

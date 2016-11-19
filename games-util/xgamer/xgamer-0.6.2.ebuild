@@ -1,13 +1,13 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-util/xgamer/xgamer-0.6.2.ebuild,v 1.5 2015/02/21 12:23:56 ago Exp $
+# $Id$
 
 EAPI=5
 inherit perl-module
 
 DESCRIPTION="A launcher for starting games in a second X session"
-HOMEPAGE="http://code.google.com/p/xgamer/"
-SRC_URI="http://xgamer.googlecode.com/files/${P}.tar.gz"
+HOMEPAGE="https://code.google.com/p/xgamer/"
+SRC_URI="https://xgamer.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -26,7 +26,7 @@ RDEPEND=">=dev-lang/perl-5.10
 	x11-misc/numlockx
 	media-gfx/feh"
 DEPEND="${RDEPEND}
-	virtual/perl-Module-Build"
+	dev-perl/Module-Build"
 
 S=${WORKDIR}/${PN}
 

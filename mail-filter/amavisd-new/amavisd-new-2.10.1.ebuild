@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/amavisd-new/amavisd-new-2.10.1.ebuild,v 1.1 2014/10/28 12:56:11 eras Exp $
+# $Id$
 
 EAPI=5
 inherit eutils systemd user
@@ -44,7 +44,7 @@ RDEPEND="${DEPEND}
 	virtual/perl-MIME-Base64
 	>=dev-perl/MIME-tools-5.415
 	>=dev-perl/MailTools-1.58
-	>=dev-perl/net-server-0.91
+	>=dev-perl/Net-Server-0.91
 	virtual/perl-Digest-MD5
 	dev-perl/IO-stringy
 	virtual/perl-IO-Socket-IP

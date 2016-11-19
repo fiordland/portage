@@ -1,11 +1,12 @@
 DEFINED_PHASES=install postinst postrm preinst
 DEPEND=dev-lisp/common-lisp-controller virtual/commonlisp dev-lisp/common-lisp-controller
 DESCRIPTION=CL-PPCRE is a portable regular expression library for Common Lisp
+EAPI=0
 HOMEPAGE=http://weitz.de/cl-ppcre/ http://www.cliki.net/cl-ppcre
 KEYWORDS=~amd64 ~ppc ~sparc ~x86
 LICENSE=BSD
 RDEPEND=dev-lisp/common-lisp-controller virtual/commonlisp
 SLOT=0
 SRC_URI=mirror://gentoo/cl-ppcre_1.2.14.orig.tar.gz
-_eclasses_=common-lisp	c0762703d46ef354d2354f7d73b80008	common-lisp-common	cc88c2e76410141434593a63f108303b	eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=e36f27a4b943a1fe837aeb1dc49a726a
+_eclasses_=common-lisp	60cbcaf2eeb26263fb81076645ff2c49	common-lisp-common	d7eda29a66502c59f79e6ad32047963f	eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=fc92c20178fd98922a3925f245fecb33

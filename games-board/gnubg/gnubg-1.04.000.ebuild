@@ -1,9 +1,9 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-board/gnubg/gnubg-1.04.000.ebuild,v 1.9 2015/01/28 19:59:49 mgorny Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python2_6 python2_7 )
+PYTHON_COMPAT=( python2_7 )
 inherit eutils python-single-r1 gnome2-utils games
 
 DESCRIPTION="GNU BackGammon"
@@ -13,7 +13,7 @@ SRC_URI="http://gnubg.org/media/sources/${PN}-release-${PV}-sources.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 ~arm ppc ppc64 x86 ~x86-fbsd"
-IUSE="cpu_flags_x86_avx gtk opengl python sqlite3 cpu_flags_x86_sse cpu_flags_x86_sse2 threads"
+IUSE="cpu_flags_x86_avx gtk opengl python sqlite cpu_flags_x86_sse cpu_flags_x86_sse2 threads"
 
 RDEPEND="dev-libs/glib:2
 	media-libs/freetype:2
@@ -30,7 +30,7 @@ RDEPEND="dev-libs/glib:2
 		x11-libs/gtkglext
 		virtual/glu
 	)
-	sys-libs/readline
+	sys-libs/readline:0
 	python? ( ${PYTHON_DEPS} )
 	media-fonts/dejavu
 	virtual/libintl"
@@ -75,7 +75,7 @@ src_configure() {
 		${gtk_arg} \
 		$(use_enable threads) \
 		$(use_with python) \
-		$(use_with sqlite3 sqlite) \
+		$(use_with sqlite sqlite) \
 		$(use_with opengl board3d)
 }
 

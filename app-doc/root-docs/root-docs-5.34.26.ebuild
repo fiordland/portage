@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-doc/root-docs/root-docs-5.34.26.ebuild,v 1.1 2015/03/02 08:25:14 bircoph Exp $
+# $Id$
 
 EAPI=5
 
@@ -15,19 +15,19 @@ if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="http://root.cern.ch/git/root.git"
 	KEYWORDS=""
 else
-	SRC_URI="ftp://root.cern.ch/${ROOT_PN}/${ROOT_PN}_v${PV}.source.tar.gz"
-	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+	SRC_URI="https://root.cern.ch/download/${ROOT_PN}_v${PV}.source.tar.gz"
+	KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 	S="${WORKDIR}/${ROOT_PN}"
 fi
 
 inherit eutils multilib virtualx
 
 DESCRIPTION="Documentation for ROOT Data Analysis Framework"
-HOMEPAGE="http://root.cern.ch/drupal"
+HOMEPAGE="https://root.cern.ch"
 SRC_URI="${SRC_URI}
 	math? (
 		http://tmva.sourceforge.net/docu/TMVAUsersGuide.pdf -> TMVAUsersGuide-v${TMVA_DOC_PV}.pdf
-		http://root.cern.ch/download/doc/RooFit_Users_Manual_${ROOFIT_DOC_PV}.pdf
+		https://root.cern.ch/download/doc/RooFit_Users_Manual_${ROOFIT_DOC_PV}.pdf
 		http://root.cern.ch/drupal/sites/default/files/roofit_quickstart_${ROOFIT_QS_DOC_PV}.pdf )
 	api? (
 		${HOMEPAGE}/sites/all/themes/newsflash/images/blue/root-banner.png
@@ -40,12 +40,14 @@ IUSE="api +math +metric http"
 VIRTUALX_REQUIRED="api"
 
 DEPEND="
-	~sci-physics/root-${PV}[X,graphviz,opengl]
 	app-text/pandoc
-	app-text/texlive
 	dev-haskell/pandoc-citeproc[bibutils]
-	media-fonts/dejavu
-	virtual/pkgconfig"
+	dev-texlive/texlive-latex
+	virtual/pkgconfig
+	api? (
+		media-fonts/dejavu
+		~sci-physics/root-${PV}[X,graphviz,opengl]
+	)"
 RDEPEND=""
 
 DOC_DIR="/usr/share/doc/${ROOT_PN}-${PV}"
@@ -92,6 +94,7 @@ src_compile() {
 	use math && pdf_target+=( minuit2 spectrum )
 	use http && pdf_target+=( HttpServer JSROOT )
 
+	local i
 	for (( i=0; i<${#pdf_target[@]}; i++ )); do
 		emake -C documentation/"${pdf_target[i]}" "${pdf_size}"
 	done
@@ -112,6 +115,7 @@ src_compile() {
 src_install() {
 	insinto "${DOC_DIR}"
 
+	local i
 	for (( i=0; i<${#pdf_target[@]}; i++ )); do
 		doins documentation/"${pdf_target[i]}"/*.pdf
 	done

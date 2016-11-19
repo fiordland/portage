@@ -5,8 +5,8 @@ EAPI=5
 HOMEPAGE=http://www.tvdr.de/remote.htm
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=>=media-tv/gentoo-vdr-scripts-0.4.2 >=app-admin/eselect-vdr-0.0.2
+RDEPEND=>=media-tv/gentoo-vdr-scripts-0.4.2 >=app-eselect/eselect-vdr-0.0.2
 SLOT=0
-SRC_URI=mirror://gentoo/vdr-rcu-2.2.0.tar.gz http://dev.gentoo.org/~hd_brummy/distfiles/vdr-rcu-2.2.0.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	flag-o-matic	c263990f1b677b0f0be0a3299f179762	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	unpacker	f300a7ca9131b1024a79762e8edd3c52	vdr-plugin-2	abe06aa01a351d441519a8a4bcde9b43
-_md5_=75ac5bc3bf33409317761e76af28c080
+SRC_URI=mirror://gentoo/vdr-rcu-2.2.0.tar.gz https://dev.gentoo.org/~hd_brummy/distfiles/vdr-rcu-2.2.0.tar.gz
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	flag-o-matic	7366202dd55cb8f018f5d450d54e7749	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	unpacker	45d07319df5f40ee6af58418b0f930be	vdr-plugin-2	793155a4c77b7ce10630747d0afcac0c
+_md5_=366a07debf1180fdf14db1e94271ef11

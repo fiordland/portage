@@ -1,12 +1,12 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xnots/xnots-0.2.1-r1.ebuild,v 1.2 2015/01/02 14:31:29 zlogene Exp $
+# $Id$
 
 EAPI=5
-inherit toolchain-funcs
+inherit flag-o-matic toolchain-funcs
 
 DESCRIPTION="A desktop sticky note program for the unix geek"
-HOMEPAGE="http://xnots.sourceforge.net"
+HOMEPAGE="http://xnots.sourceforge.net https://github.com/thePalindrome/xnots"
 SRC_URI="mirror://sourceforge/xnots/${P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -14,20 +14,26 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="vim-syntax"
 
-RDEPEND="x11-libs/libX11
+RDEPEND="
+	x11-libs/libX11
 	x11-libs/libXext
-	x11-libs/libXrender
 	x11-libs/libXrandr
-	x11-libs/pango[X]"
+	x11-libs/libXrender
+	x11-libs/pango[X]
+"
 
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	virtual/pkgconfig
-	x11-proto/xextproto
+	x11-proto/randrproto
 	x11-proto/renderproto
-	x11-proto/randrproto"
+	x11-proto/xextproto
+"
 
 src_prepare() {
 	sed -i -e 's|LICENCE||g' Makefile || die
+
+	append-cflags -std=gnu89
 }
 
 src_compile() {

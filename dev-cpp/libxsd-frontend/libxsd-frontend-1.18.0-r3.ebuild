@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-cpp/libxsd-frontend/libxsd-frontend-1.18.0-r3.ebuild,v 1.4 2014/08/10 19:54:52 slyfox Exp $
+# $Id$
 
 EAPI="5"
 
@@ -18,7 +18,7 @@ RDEPEND=">=dev-libs/xerces-c-3
 	>=dev-cpp/libcult-1.4.6-r1
 	>=dev-cpp/libfrontend-elements-1.1.4"
 DEPEND="${RDEPEND}
-	dev-util/build:0.3"
+	dev-util/build"
 
 src_prepare() {
 	epatch "${FILESDIR}/1.17.0-boost-filesystem-v2-deprecation.patch"

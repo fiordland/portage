@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/abrt/abrt-2.0.12-r2.ebuild,v 1.1 2014/12/15 05:10:05 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,12 +10,12 @@ PYTHON_COMPAT=( python2_7 )
 inherit autotools eutils gnome2-utils python-single-r1 systemd user
 
 DESCRIPTION="Automatic bug detection and reporting tool"
-HOMEPAGE="https://fedorahosted.org/abrt/"
+HOMEPAGE="https://github.com/abrt/abrt/wiki/ABRT-Project"
 SRC_URI="https://fedorahosted.org/released/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="debug"
 
 COMMON_DEPEND="${PYTHON_DEPS}

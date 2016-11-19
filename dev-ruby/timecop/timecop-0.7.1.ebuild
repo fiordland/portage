@@ -1,10 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/timecop/timecop-0.7.1.ebuild,v 1.7 2015/02/05 10:23:09 ago Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="ruby20 ruby21"
 
 RUBY_FAKEGEM_TASK_TEST="test"
 
@@ -15,7 +15,7 @@ RUBY_FAKEGEM_EXTRADOC="README.markdown"
 inherit ruby-fakegem
 
 DESCRIPTION="A gem providing 'time travel' and 'time freezing' capabilities"
-HOMEPAGE="http://github.com/jtrupiano/timecop"
+HOMEPAGE="https://github.com/jtrupiano/timecop"
 
 LICENSE="MIT"
 SLOT="0"

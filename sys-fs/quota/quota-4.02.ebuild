@@ -1,24 +1,24 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/quota/quota-4.02.ebuild,v 1.1 2014/12/15 09:20:54 polynomial-c Exp $
+# $Id$
 
 EAPI="4"
 
 inherit eutils
 
 DESCRIPTION="Linux quota tools"
-HOMEPAGE="http://sourceforge.net/projects/linuxquota/"
+HOMEPAGE="https://sourceforge.net/projects/linuxquota/"
 SRC_URI="mirror://sourceforge/linuxquota/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sparc x86"
 IUSE="ldap netlink nls rpc tcpd"
 
 RDEPEND="ldap? ( >=net-nds/openldap-2.3.35 )
 	netlink? (
 		sys-apps/dbus
-		dev-libs/libnl:1.1
+		dev-libs/libnl:3
 	)
 	rpc? ( net-nds/rpcbind )
 	tcpd? ( sys-apps/tcp-wrappers )"

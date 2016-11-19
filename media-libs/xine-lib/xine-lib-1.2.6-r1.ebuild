@@ -1,19 +1,19 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/xine-lib/xine-lib-1.2.6-r1.ebuild,v 1.1 2015/02/01 22:53:32 mgorny Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-inherit flag-o-matic libtool multilib
+inherit autotools flag-o-matic libtool multilib eutils
 
 if [[ ${PV} == *9999* ]]; then
 	EHG_REPO_URI="http://hg.debian.org/hg/xine-lib/xine-lib-1.2"
-	inherit autotools mercurial eutils
+	inherit mercurial eutils
 	unset NLS_IUSE
 	NLS_DEPEND="sys-devel/gettext"
 	NLS_RDEPEND="virtual/libintl"
 else
-	KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd"
+	KEYWORDS="amd64 hppa ppc ppc64 x86 ~amd64-fbsd ~x86-fbsd"
 	SRC_URI="mirror://sourceforge/xine/${P}.tar.xz"
 	NLS_IUSE="nls"
 	NLS_DEPEND="nls? ( sys-devel/gettext )"
@@ -87,7 +87,7 @@ RDEPEND="${NLS_RDEPEND}
 		media-libs/libogg
 		media-libs/libvorbis
 		)
-	vpx? ( media-libs/libvpx )
+	vpx? ( media-libs/libvpx:0= )
 	wavpack? ( media-sound/wavpack )
 	X? (
 		x11-libs/libX11
@@ -116,15 +116,17 @@ REQUIRED_USE="vidix? ( || ( X fbcon ) )
 	xv? ( X )
 	xinerama? ( X )"
 
-src_prepare() {
-	sed -i -e '/define VDR_ABS_FIFO_DIR/s|".*"|"/var/vdr/xine"|' src/vdr/input_vdr.c || die
+PATCHES=(
+	"${FILESDIR}/${P}-libxcb-1.12.patch"
+)
 
-	if [[ ${PV} == *9999* ]]; then
-		epatch_user
-		eautoreconf
-	else
-		elibtoolize
-	fi
+src_prepare() {
+	default
+
+	sed -i -e '/define VDR_ABS_FIFO_DIR/s|".*"|"/var/vdr/xine"|' src/vdr/input_vdr.c || die
+	has_version '>=media-video/ffmpeg-2.9' && eapply "${FILESDIR}/ffmpeg29.patch"
+
+	eautoreconf
 
 	local x
 	for x in 0 1 2 3; do

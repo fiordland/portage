@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/kipi-plugins/kipi-plugins-4.4.0.ebuild,v 1.6 2015/02/14 14:38:27 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,10 +8,9 @@ OPENGL_REQUIRED="optional"
 
 KDE_MINIMAL="4.10"
 
-KDE_LINGUAS="af ar az be bg bn br bs ca cs csb cy da de el en_GB eo es et eu fa
-fi fo fr fy ga gl ha he hi hr hsb hu id is it ja ka kk km ko ku lb lo lt lv mi
-mk mn ms mt nb nds ne nl nn nso oc pa pl pt pt_BR ro ru rw se sk sl sq sr ss sv
-ta te tg th tr tt uk uz ven vi wa xh zh_CN zh_HK zh_TW zu"
+KDE_LINGUAS="ar be bg bs ca cs da de el en_GB eo es et eu fi fr ga gl he hi hr
+hu is it ja km ko lt lv ms nb nds nl nn oc pa pl pt pt_BR ro ru se sk sl sq sv
+th tr uk zh_CN zh_TW "
 
 KDE_HANDBOOK="optional"
 
@@ -31,19 +30,19 @@ SLOT="4"
 IUSE="cdr calendar crypt debug expoblending gpssync +imagemagick ipod mediawiki panorama redeyes scanner upnp videoslideshow vkontakte"
 
 COMMONDEPEND="
-	|| ( kde-apps/libkipi:4 $(add_kdebase_dep libkipi) )
-	|| ( kde-apps/libkdcraw:4= kde-base/libkdcraw:4= )
-	|| ( kde-apps/libkexiv2:4= kde-base/libkexiv2:4= )
+	kde-apps/libkipi:4
+	kde-apps/libkdcraw:4=
+	kde-apps/libkexiv2:4=
 	dev-libs/expat
 	dev-libs/kqoauth
 	dev-libs/libxml2
 	dev-libs/libxslt
 	dev-libs/qjson
-	gpssync?	( >=media-libs/libkgeomap-4.2.0 )
+	gpssync?	( >=kde-apps/libkgeomap-4.2.0:4 )
 	media-libs/libpng:0=
 	media-libs/tiff
 	virtual/jpeg
-	calendar?	( $(add_kdebase_dep kdepimlibs) )
+	calendar?	( $(add_kdeapps_dep kdepimlibs) )
 	crypt?		( app-crypt/qca:2[qt4(+)] )
 	ipod?		(
 			  media-libs/libgpod
@@ -52,12 +51,12 @@ COMMONDEPEND="
 	mediawiki?	( >=net-libs/libmediawiki-3.0.0 )
 	redeyes?	( >=media-libs/opencv-2.4.9 )
 	scanner? 	(
-			|| ( kde-apps/libksane:4 $(add_kdebase_dep libksane) )
+			  $(add_kdeapps_dep libksane)
 			  media-gfx/sane-backends
 			)
 	upnp?		( media-libs/herqq )
 	videoslideshow?	(
-			  media-libs/qt-gstreamer
+			  media-libs/qt-gstreamer[qt4(+)]
 			  || ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] )
 			)
 	vkontakte?	( net-libs/libkvkontakte )

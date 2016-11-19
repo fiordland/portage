@@ -8,6 +8,6 @@ KEYWORDS=-* ~amd64
 LICENSE=EPSON EAPL
 RDEPEND=minimal? ( >=media-gfx/iscan-2.21.0 )
 SLOT=0
-SRC_URI=http://dev.gentoo.org/~flameeyes/avasys/iscan-plugin-gt-f500-1.0.0-1.c2.i386.rpm
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	rpm	b94b54b44f14d6bee3e966c8f5c86fba	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	versionator	cd0bcdb170807e4a1984115e9d53a26f
-_md5_=c159207c9e80cf7e85378c93172d425c
+SRC_URI=https://dev.gentoo.org/~flameeyes/avasys/iscan-plugin-gt-f500-1.0.0-1.c2.i386.rpm
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	rpm	3e120fdd74b358f9fb42b825a6558f61	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=110bc32f54624e9ffac67dbcc441ae3f

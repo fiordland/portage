@@ -1,16 +1,22 @@
 # Copyright 2010-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libbitcoinconsensus/libbitcoinconsensus-9999.ebuild,v 1.3 2015/02/23 21:48:34 blueness Exp $
+# $Id$
 
 EAPI=5
 
 BITCOINCORE_IUSE="test"
+BITCOINCORE_NO_DEPEND="libevent"
 inherit bitcoincore eutils
 
 DESCRIPTION="Bitcoin Core consensus library"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
+
+src_prepare() {
+	bitcoincore_src_prepare
+	epatch "${FILESDIR}/bugfix_bench_checks.patch"
+}
 
 src_configure() {
 	bitcoincore_conf \
@@ -19,5 +25,6 @@ src_configure() {
 
 src_install() {
 	bitcoincore_src_install
+	dodoc doc/bips.md
 	prune_libtool_files
 }

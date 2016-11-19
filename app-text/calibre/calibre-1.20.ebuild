@@ -1,15 +1,15 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/calibre/calibre-1.20.ebuild,v 1.5 2014/10/16 20:49:55 zmedico Exp $
+# $Id$
 
 EAPI=5
 
-inherit eutils fdo-mime bash-completion-r1 multilib toolchain-funcs
+inherit eutils fdo-mime bash-completion-r1 multilib toolchain-funcs qmake-utils
 
 DESCRIPTION="Ebook management application"
 HOMEPAGE="http://calibre-ebook.com/"
 [[ ${PV} == ${PV%.*}.${PV#*.} ]] && MY_PV=${PV}.0 || MY_PV=${PV}
-SRC_URI="http://sourceforge.net/projects/calibre/files/${MY_PV}/${PN}-${MY_PV}.tar.xz"
+SRC_URI="https://sourceforge.net/projects/calibre/files/${MY_PV}/${PN}-${MY_PV}.tar.xz"
 
 LICENSE="
 	GPL-3+
@@ -45,15 +45,15 @@ COMMON_DEPEND="
 	dev-python/apsw
 	>=dev-python/beautifulsoup-3.0.5:python-2
 	dev-python/netifaces
-	>=dev-python/dnspython-1.6.0
+	>=dev-python/dnspython-1.6.0:py2
 	>=dev-python/cssselect-0.7.1
 	>=dev-python/cssutils-0.9.9
 	>=dev-python/dbus-python-0.82.2
-	virtual/python-imaging
+	dev-python/pillow
 	>=dev-python/lxml-2.2.1
 	>=dev-python/mechanize-0.1.11
 	>=dev-python/python-dateutil-1.4.1[python_targets_python2_7(-)]
-	>=dev-python/PyQt4-4.9.1[X,svg,webkit]
+	|| ( >=dev-python/PyQt4-4.11.2-r1[X,compat(-),svg,webkit] <dev-python/PyQt4-4.11.2-r1[X,svg,webkit] )
 	media-fonts/liberation-fonts
 	>=media-gfx/imagemagick-6.5.9[jpeg,png]
 	>=media-libs/freetype-2:=
@@ -145,6 +145,8 @@ src_install() {
 	export OVERRIDE_CFLAGS="$CFLAGS" OVERRIDE_LDFLAGS="$LDFLAGS"
 	local libdir=$(get_libdir)
 	[[ -n $libdir ]] || die "get_libdir returned an empty string"
+
+	export QMAKE="$(qt4_get_bindir)/qmake"
 
 	# Bug #472690 - Avoid sandbox violation for /dev/dri/card0.
 	local x

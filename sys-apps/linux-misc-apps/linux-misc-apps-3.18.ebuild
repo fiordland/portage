@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/linux-misc-apps/linux-misc-apps-3.18.ebuild,v 1.1 2014/12/29 00:12:01 robbat2 Exp $
+# $Id$
 
 EAPI=5
 
-inherit versionator eutils toolchain-funcs linux-info autotools flag-o-matic
+inherit versionator eutils toolchain-funcs linux-info flag-o-matic
 
 DESCRIPTION="Misc tools bundled with kernel sources"
-HOMEPAGE="http://kernel.org/"
+HOMEPAGE="https://kernel.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -52,11 +52,11 @@ S="${WORKDIR}/linux-${LINUX_VER}"
 # No make install, and ideally build with with the root Makefile
 TARGETS_SIMPLE=(
 	Documentation/accounting/getdelays.c
-	tools/cgroup/cgroup_event_listener.c
 	Documentation/laptops/dslm.c
 	Documentation/laptops/freefall.c
 	Documentation/networking/timestamping/timestamping.c
 	Documentation/watchdog/src/watchdog-simple.c
+	tools/cgroup/cgroup_event_listener.c
 	tools/lguest/lguest.c
 	tools/vm/slabinfo.c
 	usr/gen_init_cpio.c
@@ -68,10 +68,10 @@ TARGETS_SIMPLE=(
 
 # These have a broken make install, no DESTDIR
 TARGET_MAKE_SIMPLE=(
-	tools/firewire:nosy-dump
-	tools/power/x86/turbostat:../../../../turbostat
-	tools/power/x86/x86_energy_perf_policy:x86_energy_perf_policy
 	Documentation/misc-devices/mei:mei-amt-version
+	tools/firewire:nosy-dump
+	tools/power/x86/turbostat:turbostat:../../../../turbostat
+	tools/power/x86/x86_energy_perf_policy:x86_energy_perf_policy
 )
 # tools/perf - covered by dev-utils/perf
 # tools/usb - testcases only
@@ -133,8 +133,10 @@ src_compile() {
 	done
 
 	for t in ${TARGET_MAKE_SIMPLE[@]} ; do
-		dir=${t/:*} target=${t/*:}
-		einfo "Building $dir => $target"
+		dir=${t/:*} target_binfile=${t#*:}
+		target=${target_binfile/:*} binfile=${target_binfile/*:}
+		[ -z "${binfile}" ] && binfile=$target
+		einfo "Building $dir => $binfile (via emake $target)"
 		emake -C $dir ARCH=${karch} $target
 	done
 }
@@ -148,9 +150,11 @@ src_install() {
 	done
 
 	for t in ${TARGET_MAKE_SIMPLE[@]} ; do
-		dir=${t/:*} target=${t/*:}
-		einfo "Installing $dir => $target"
-		dosbin ${dir}/${target}
+		dir=${t/:*} target_binfile=${t#*:}
+		target=${target_binfile/:*} binfile=${target_binfile/*:}
+		[ -z "${binfile}" ] && binfile=$target
+		einfo "Installing $dir => $binfile"
+		dosbin ${dir}/${binfile}
 	done
 
 	newconfd "${FILESDIR}"/freefall.confd freefall
@@ -162,4 +166,8 @@ pkg_postinst() {
 	echo
 	elog "The cpupower utility is maintained separately at sys-power/cpupower"
 	elog "The usbip utility is maintained separately at net-misc/usbip"
+	elog "The hpfall tool has been renamed by upstream to freefall; update your config if needed"
+	if find /etc/runlevels/ -name hpfall ; then
+		ewarn "You must change hpfall to freefall in your runlevels!"
+	fi
 }

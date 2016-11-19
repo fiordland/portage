@@ -1,20 +1,20 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/udisks/udisks-2.1.4.ebuild,v 1.1 2014/12/30 06:54:19 williamh Exp $
+# $Id$
 
 EAPI=5
 inherit bash-completion-r1 eutils linux-info systemd udev
 
 DESCRIPTION="Daemon providing interfaces to work with storage devices"
-HOMEPAGE="http://www.freedesktop.org/wiki/Software/udisks"
-SRC_URI="http://udisks.freedesktop.org/releases/${P}.tar.bz2"
+HOMEPAGE="https://www.freedesktop.org/wiki/Software/udisks"
+SRC_URI="https://udisks.freedesktop.org/releases/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="2"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86"
+KEYWORDS="alpha amd64 arm ia64 ~mips ppc ppc64 ~sh sparc x86"
 IUSE="debug cryptsetup +gptfdisk +introspection selinux systemd"
 
-COMMON_DEPEND=">=dev-libs/glib-2.32
+COMMON_DEPEND=">=dev-libs/glib-2.36
 	>=dev-libs/libatasmart-0.19
 	>=sys-auth/polkit-0.110
 	virtual/acl
@@ -52,7 +52,7 @@ pkg_setup() {
 	if use amd64 || use arm || use ppc || use ppc64 || use x86; then
 		CONFIG_CHECK="~!IDE" #319829
 		CONFIG_CHECK+=" ~TMPFS_POSIX_ACL" #412377
-		CONFIG_CHECK+=" ~SWAP" # http://forums.gentoo.org/viewtopic-t-923640.html
+		CONFIG_CHECK+=" ~SWAP" # https://forums.gentoo.org/viewtopic-t-923640.html
 		CONFIG_CHECK+=" ~NLS_UTF8" #425562
 		kernel_is lt 3 10 && CONFIG_CHECK+=" ~USB_SUSPEND" #331065, #477278
 		linux-info_pkg_setup

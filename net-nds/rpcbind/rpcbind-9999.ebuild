@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nds/rpcbind/rpcbind-9999.ebuild,v 1.13 2014/12/23 02:14:39 radhermit Exp $
+# $Id$
 
 EAPI="5"
 
 inherit eutils systemd
 
 if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="git://git.infradead.org/~steved/rpcbind.git"
+	EGIT_REPO_URI="git://linux-nfs.org/~steved/rpcbind.git"
 	inherit autotools git-r3
 else
 	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
@@ -15,20 +15,20 @@ else
 fi
 
 DESCRIPTION="portmap replacement which supports RPC over various protocols"
-HOMEPAGE="http://sourceforge.net/projects/rpcbind/"
+HOMEPAGE="https://sourceforge.net/projects/rpcbind/"
 
 LICENSE="BSD"
 SLOT="0"
 IUSE="debug selinux systemd tcpd warmstarts"
 
-CDEPEND=">=net-libs/libtirpc-0.2.3
+CDEPEND=">=net-libs/libtirpc-0.2.3:=
 	systemd? ( sys-apps/systemd:= )
 	tcpd? ( sys-apps/tcp-wrappers )"
 DEPEND="${CDEPEND}
 	virtual/pkgconfig"
 RDEPEND="${CDEPEND}
-	selinux? ( sec-policy/selinux-rpcbind )
-"
+	selinux? ( sec-policy/selinux-rpcbind )"
+
 src_prepare() {
 	[[ ${PV} == "9999" ]] && eautoreconf
 	epatch_user

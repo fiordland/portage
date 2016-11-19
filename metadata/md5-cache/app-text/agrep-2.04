@@ -1,10 +1,11 @@
 DEFINED_PHASES=compile install
 DESCRIPTION=agrep is a tool for the fast searching of text allowing for errors in the search pattern
+EAPI=0
 HOMEPAGE=ftp://ftp.cs.arizona.edu/agrep/README
 KEYWORDS=amd64 ~mips ppc ppc64 sparc x86 ~ppc-macos ~sparc-solaris
 LICENSE=AGREP
 RDEPEND=!dev-libs/tre !app-misc/glimpse
 SLOT=0
 SRC_URI=ftp://ftp.cs.arizona.edu/agrep/agrep-2.04.tar.Z
-_eclasses_=multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=76e2248a692704f95c1f9189190a3dd1
+_eclasses_=multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=6572c3a1e129f8434bbab85e8bfb1bf8

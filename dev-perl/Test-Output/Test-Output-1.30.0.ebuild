@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Test-Output/Test-Output-1.30.0.ebuild,v 1.1 2014/12/09 21:14:17 dilfridge Exp $
+# $Id$
 
 EAPI=5
 
@@ -11,7 +11,7 @@ inherit perl-module
 DESCRIPTION="Utilities to test STDOUT and STDERR messages"
 
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~m68k ppc ppc64 ~s390 ~sh sparc x86 ~x86-fbsd"
 IUSE="test"
 
 RDEPEND="
@@ -23,8 +23,18 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? (
 		virtual/perl-Test-Simple
-		>=dev-perl/Test-Tester-0.107
 	)
 "
 
 SRC_TEST=do
+
+src_test() {
+	# Bug 584238 Avoidance
+	if perl -e 'exit ( eval { require Test::Tester; Test::Tester->VERSION(0.107); 1 } ? 0 : 1 )'; then
+		perl-module_src_test
+	else
+		einfo "Test phase skipped: Test::Tester required for tests"
+		einfo "Please upgrade to >=dev-lang/perl-5.22.0 or >=virtual/perl-Test-Simple-1.1.10"
+		einfo "if you want this tested"
+	fi
+}

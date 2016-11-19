@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lisp/sbcl/sbcl-1.1.18.ebuild,v 1.6 2015/02/01 06:34:48 gienah Exp $
+# $Id$
 
 EAPI=5
 inherit multilib eutils flag-o-matic pax-utils
@@ -23,7 +23,7 @@ SRC_URI="mirror://sourceforge/sbcl/${P}-source.tar.bz2
 
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64 ~ppc ~sparc ~x86"
+KEYWORDS="amd64 ppc sparc x86"
 IUSE="debug doc source +threads +unicode pax_kernel zlib"
 
 CDEPEND="=dev-lisp/asdf-3.0*:="
@@ -31,7 +31,7 @@ DEPEND="${CDEPEND}
 		doc? ( sys-apps/texinfo >=media-gfx/graphviz-2.26.0 )
 		pax_kernel? ( sys-apps/paxctl sys-apps/elfix )"
 RDEPEND="${CDEPEND}
-		 elibc_glibc? ( >=sys-libs/glibc-2.3 || ( <sys-libs/glibc-2.6[nptl] >=sys-libs/glibc-2.6 ) )"
+		elibc_glibc? ( >=sys-libs/glibc-2.6 )"
 
 # Disable warnings about executable stacks, as this won't be fixed soon by upstream
 QA_EXECSTACK="usr/bin/sbcl"
@@ -107,6 +107,10 @@ src_prepare() {
 	sed "s,/lib,/$(get_libdir),g" -i install.sh || die
 	# #define SBCL_HOME ...
 	sed "s,/usr/local/lib,/usr/$(get_libdir),g" -i src/runtime/runtime.c || die
+
+	# Avoid sandbox violation, bug #572478
+	sed -i -e "/(sb-posix:rmdir /s%\"/\"%\"${WORKDIR}\"%" \
+		contrib/sb-posix/posix-tests.lisp || die
 
 	find . -type f -name .cvsignore -delete
 }

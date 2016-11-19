@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/kde4-functions.eclass,v 1.75 2015/02/11 04:29:06 patrick Exp $
+# $Id$
 
 # @ECLASS: kde4-functions.eclass
 # @MAINTAINER:
@@ -17,9 +17,9 @@ inherit versionator
 
 # @ECLASS-VARIABLE: EAPI
 # @DESCRIPTION:
-# Currently kde4 eclasses support EAPI 4 and 5.
+# Currently kde4 eclasses support EAPI 5 and 6.
 case ${EAPI} in
-	4|5) : ;;
+	5|6) : ;;
 	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
@@ -36,7 +36,7 @@ esac
 # @DESCRIPTION:
 # This gets set to a non-zero value when a package is considered a kde or
 # kdevelop ebuild.
-if [[ ${CATEGORY} = kde-base || ${CATEGORY} = kde-apps ]]; then
+if [[ ${CATEGORY} = kde-base || ${CATEGORY} == kde-plasma || ${CATEGORY} = kde-apps || ${CATEGORY} = kde-frameworks ]]; then
 	debug-print "${ECLASS}: KDEBASE ebuild recognized"
 	KDEBASE=kde-base
 elif [[ ${KMNAME-${PN}} = kdevelop ]]; then
@@ -76,6 +76,27 @@ case ${KDE_SCM} in
 	*) die "KDE_SCM: ${KDE_SCM} is not supported" ;;
 esac
 
+# @FUNCTION: kde4_lingua_to_l10n
+# @USAGE: <lingua>...
+# @INTERNAL
+# @DESCRIPTION:
+# Output l10n flag name(s) (without prefix(es)) appropriate for given KDE
+# locale(s).
+kde4_lingua_to_l10n() {
+	local l
+	for l; do
+		case ${l} in
+			ca@valencia) echo ca-valencia;;
+			sr@ijekavian) echo sr-ijekavsk;;
+			sr@ijekavianlatin) echo sr-Latn-ijekavsk;;
+			sr@latin|sr@Latn) echo sr-Latn;;
+			uz@cyrillic) echo uz-Cyrl;;
+			*@*) die "${FUNCNAME}: Unhandled KDE_LINGUAS: ${l}";;
+			*) echo "${l/_/-}";;
+		esac
+	done
+}
+
 # @ECLASS-VARIABLE: KDE_LINGUAS
 # @DESCRIPTION:
 # This is a whitespace-separated list of translations this ebuild supports.
@@ -86,8 +107,8 @@ esac
 #
 # Example: KDE_LINGUAS="de en_GB nl"
 if [[ ${KDE_BUILD_TYPE} != live || -n ${KDE_LINGUAS_LIVE_OVERRIDE} ]]; then
-	for _lingua in ${KDE_LINGUAS}; do
-		IUSE="${IUSE} linguas_${_lingua}"
+	for _lingua in $(kde4_lingua_to_l10n ${KDE_LINGUAS}); do
+		IUSE="${IUSE} l10n_${_lingua}"
 	done
 fi
 
@@ -139,18 +160,13 @@ comment_all_add_subdirectory() {
 
 # @FUNCTION: enable_selected_linguas
 # @DESCRIPTION:
-# Enable translations based on LINGUAS settings and translations supported by
+# Enable translations based on L10N settings and translations supported by
 # the package (see KDE_LINGUAS). By default, translations are found in "${S}"/po
 # but this default can be overridden by defining KDE_LINGUAS_DIR.
 enable_selected_linguas() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	local x
-
-	# if there is no linguas defined we enable everything
-	if ! $(env | grep -q "^LINGUAS="); then
-		return 0
-	fi
 
 	# @ECLASS-VARIABLE: KDE_LINGUAS_DIR
 	# @DESCRIPTION:
@@ -171,7 +187,7 @@ enable_selected_linguas() {
 
 # @FUNCTION: enable_selected_doc_linguas
 # @DESCRIPTION:
-# Enable only selected linguas enabled doc folders.
+# Enable only selected L10N enabled doc folders.
 enable_selected_doc_linguas() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -195,11 +211,6 @@ enable_selected_doc_linguas() {
 				-e "/ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*${handbookdir}[[:space:]]*)/s/^/#DONOTCOMPILE /" \
 				-i CMakeLists.txt || die 'failed to comment out all handbooks'
 		else
-			# if there is no linguas defined we enable everything (i.e. comment out nothing)
-			if ! $(env | grep -q "^LINGUAS="); then
-				return 0
-			fi
-
 			# Disable subdirectories recursively
 			comment_all_add_subdirectory "${handbookdir}"
 
@@ -213,7 +224,7 @@ enable_selected_doc_linguas() {
 			# Add requested translations
 			local lingua
 			for lingua in en ${KDE_LINGUAS}; do
-				if [[ ${lingua} = en ]] || use linguas_${lingua}; then
+				if [[ ${lingua} = en ]] || use "l10n_$(kde4_lingua_to_l10n "${lingua}")"; then
 					if [[ -d ${handbookdir}/${translationdir//%lingua/${lingua}} ]]; then
 						sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${translationdir//%lingua/${lingua}}/s/^#DONOTCOMPILE //" \
 							-e "/ADD_SUBDIRECTORY[[:space:]]*([[:space:]]*${translationdir//%lingua/${lingua}}/s/^#DONOTCOMPILE //" \
@@ -292,10 +303,11 @@ add_kdeapps_dep() {
 		ver=${KDE_OVERRIDE_MINIMAL}
 	elif [[ ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
-	# if building stable-live version depend just on the raw KDE version
-	# to allow merging packages against more stable basic stuff
-	elif [[ ${PV} == *.9999 ]]; then
-		ver=$(get_kde_version)
+	# if building kde-apps, live master or stable-live branch,
+	# use the final SC version since there are no further general releases.
+	# except when it is kdepim split packages, which rely on same-version deps
+	elif [[ ${CATEGORY} == kde-apps || ${PV} == *9999 ]] && [[ ${KMNAME} != "kdepim" ]]; then
+		ver=4.14.3
 	else
 		ver=${PV}
 	fi
@@ -325,16 +337,15 @@ add_kdebase_dep() {
 		ver=${3}
 	elif [[ -n ${KDE_OVERRIDE_MINIMAL} ]]; then
 		ver=${KDE_OVERRIDE_MINIMAL}
-	elif [[ -n ${KDE_MINIMAL} ]]; then
+	elif [[ ${KDEBASE} != kde-base ]]; then
 		ver=${KDE_MINIMAL}
-	# if building live version depend on the final release since there will
-	# not be any more major development. this solves dep errors as not all
-	# packages have kde-base live versions now
-
-	# depend on the last sane released version where the normal >=${PV} dep
-	# is not possible
-	elif [[ ${CATEGORY} == kde-apps || ${PV} == *9999 ]]; then
+	# if building live master or kde-apps, use the final SC version
+	# since there are no further general releases.
+	elif [[ ${CATEGORY} == kde-apps || ${PV} == 9999 ]]; then
 		ver=4.14.3
+	# if building a live version branch (eg. 4.11.49.9999) use the major version
+	elif [[ ${PV} == *.9999 ]]; then
+		ver=$(get_kde_version)
 	else
 		ver=${PV}
 	fi
@@ -352,7 +363,7 @@ _enable_selected_linguas_dir() {
 
 	[[ -d  ${dir} ]] || die "linguas dir \"${dir}\" does not exist"
 	comment_all_add_subdirectory "${dir}"
-	pushd "${dir}" > /dev/null
+	pushd "${dir}" > /dev/null || die
 
 	# fix all various crazy sr@Latn variations
 	# this part is only ease for ebuilds, so there wont be any die when this
@@ -376,7 +387,7 @@ _enable_selected_linguas_dir() {
 	done
 
 	for lingua in ${KDE_LINGUAS}; do
-		if use linguas_${lingua} ; then
+		if use "l10n_$(kde4_lingua_to_l10n ${lingua})" ; then
 			if [[ -d ${lingua} ]]; then
 				linguas="${linguas} ${lingua}"
 				sed -e "/add_subdirectory([[:space:]]*${lingua}[[:space:]]*)[[:space:]]*$/ s/^#DONOTCOMPILE //" \
@@ -391,7 +402,7 @@ _enable_selected_linguas_dir() {
 	done
 	[[ -n ${linguas} ]] && echo ">>> Enabling languages: ${linguas}"
 
-	popd > /dev/null
+	popd > /dev/null || die
 }
 
 # @FUNCTION: get_kde_version

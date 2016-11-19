@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-emulation/dosbox/dosbox-0.74.ebuild,v 1.16 2015/01/17 14:17:17 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -16,14 +16,16 @@ IUSE="alsa debug hardened opengl"
 
 DEPEND="alsa? ( media-libs/alsa-lib )
 	opengl? ( virtual/glu virtual/opengl )
-	debug? ( sys-libs/ncurses )
+	debug? ( sys-libs/ncurses:0 )
 	media-libs/libpng:0
 	media-libs/libsdl[joystick,video,X]
 	media-libs/sdl-net
 	media-libs/sdl-sound"
-RDEPEND="${DEPEND}"
+RDEPEND=${DEPEND}
 
-PATCHES=( "${FILESDIR}"/${P}-gcc46.patch )
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-gcc46.patch
+}
 
 src_configure() {
 	egamesconf \

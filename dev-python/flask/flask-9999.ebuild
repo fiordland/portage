@@ -1,9 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/flask/flask-9999.ebuild,v 1.9 2014/10/10 07:03:23 idella4 Exp $
+# $Id$
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 
 inherit distutils-r1 git-2
 
@@ -14,11 +14,11 @@ DESCRIPTION="A microframework based on Werkzeug, Jinja2 and good intentions"
 MY_PN="Flask"
 MY_P="${MY_PN}-${PV}"
 SRC_URI="mirror://pypi/${MY_P:0:1}/${MY_PN}/${MY_P}.tar.gz"
-HOMEPAGE="http://pypi.python.org/pypi/Flask"
+HOMEPAGE="https://pypi.python.org/pypi/Flask"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 IUSE="examples test"
 
 RDEPEND="dev-python/blinker[${PYTHON_USEDEP}]

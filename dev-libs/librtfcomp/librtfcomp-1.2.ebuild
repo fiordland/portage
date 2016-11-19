@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/librtfcomp/librtfcomp-1.2.ebuild,v 1.1 2012/06/15 09:03:25 ssuominen Exp $
+# $Id$
 
 EAPI=4
 
@@ -9,7 +9,7 @@ PYTHON_DEPEND="python? 2:2.7"
 inherit python
 
 DESCRIPTION="Library for handling compressed RTF documents"
-HOMEPAGE="http://sourceforge.net/projects/synce/"
+HOMEPAGE="https://sourceforge.net/projects/synce/"
 SRC_URI="mirror://sourceforge/synce/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"

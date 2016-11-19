@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-doc/psmark/psmark-2.1.ebuild,v 1.5 2015/01/15 14:21:17 mrueg Exp $
+# $Id$
 
 EAPI=5
 
@@ -11,7 +11,7 @@ MY_P=${MY_PN}${PV}
 S=${WORKDIR}/${PN}
 
 DESCRIPTION="Prints watermark-like text on any PostScript document"
-HOMEPAGE="http://www.antitachyon.com/Content/10_Produkte/50_Utilities/psmark/"
+HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
 SRC_URI="http://www.antitachyon.com/download/${MY_P}.tar.gz"
 
 IUSE=""

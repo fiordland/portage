@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/munin/munin-2.1.9999.ebuild,v 1.7 2015/01/03 12:12:32 swift Exp $
+# $Id$
 
 EAPI=5
 
@@ -21,7 +21,7 @@ REQUIRED_USE="cgi? ( !minimal ) apache? ( cgi )"
 # Some of the postgres plugins use DBD::Pg, while others call psql directly.
 # Some of the mysql plugins use DBD::mysql, while others call mysqladmin directly.
 # We replace the original ipmi plugins with the freeipmi_ plugin which at least works.
-DEPEND_COM="dev-lang/perl[berkdb]
+DEPEND_COM="dev-lang/perl:=[berkdb]
 			sys-process/procps
 			doc? ( dev-python/sphinx )
 			irc? ( dev-perl/Net-IRC )
@@ -41,14 +41,14 @@ DEPEND_COM="dev-lang/perl[berkdb]
 				dev-perl/HTTP-Date
 			)
 			dev-perl/DBI
-			dev-perl/DateManip
+			dev-perl/Date-Manip
 			dev-perl/File-Copy-Recursive
 			dev-perl/List-MoreUtils
 			dev-perl/Log-Log4perl
 			dev-perl/Net-CIDR
 			dev-perl/Net-Netmask
 			dev-perl/Net-SNMP
-			dev-perl/net-server[ipv6(-)?]
+			dev-perl/Net-Server[ipv6(-)?]
 			virtual/perl-Digest-MD5
 			virtual/perl-Getopt-Long
 			virtual/perl-MIME-Base64
@@ -65,7 +65,7 @@ DEPEND_COM="dev-lang/perl[berkdb]
 
 # Keep this seperate, as previous versions have had other deps here
 DEPEND="${DEPEND_COM}
-	virtual/perl-Module-Build
+	dev-perl/Module-Build
 	java? ( >=virtual/jdk-1.5 )
 	test? (
 		dev-perl/Test-Deep
@@ -164,7 +164,7 @@ src_install() {
 
 	# parallel install doesn't work and it's also pointless to have this
 	# run in parallel for now (because it uses internal loops).
-	emake -j1 DESTDIR="${D}" $(usex minimal install-minimal install)
+	emake -j1 DESTDIR="${D}" $(usex minimal "install-minimal install-man" install)
 
 	# we remove /run from the install, as it's not the package's to deal
 	# with.

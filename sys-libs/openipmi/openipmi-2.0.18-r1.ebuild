@@ -1,32 +1,34 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/openipmi/openipmi-2.0.18-r1.ebuild,v 1.1 2014/12/26 12:07:56 mgorny Exp $
+# $Id$
 
 EAPI=5
+
 PYTHON_COMPAT=( python2_7 )
 
 inherit eutils autotools python-single-r1
 
 DESCRIPTION="Library interface to IPMI"
-HOMEPAGE="http://sourceforge.net/projects/openipmi/"
+HOMEPAGE="https://sourceforge.net/projects/openipmi/"
 MY_PN="OpenIPMI"
 MY_P="${MY_PN}-${PV}"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="LGPL-2.1 GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~ia64 ~ppc ~x86"
+KEYWORDS="amd64 hppa ~ia64 ppc x86"
 IUSE="crypt snmp perl tcl python"
 S="${WORKDIR}/${MY_P}"
 RESTRICT='test'
 
-RDEPEND="dev-libs/glib:2
+RDEPEND="
+	dev-libs/glib:2
 	sys-libs/gdbm
-	crypt? ( dev-libs/openssl )
+	crypt? ( dev-libs/openssl:0= )
 	snmp? ( net-analyzer/net-snmp )
 	perl? ( dev-lang/perl )
 	python? ( ${PYTHON_DEPS} )
-	tcl? ( dev-lang/tcl )"
+	tcl? ( dev-lang/tcl:0= )"
 DEPEND="${RDEPEND}
 	>=dev-lang/swig-1.3.21
 	virtual/pkgconfig"

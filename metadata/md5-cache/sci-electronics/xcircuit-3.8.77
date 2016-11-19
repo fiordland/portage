@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-text/ghostscript-gpl dev-lang/tk sys-libs/zlib x11-libs/libX11 x11-libs/libXt x11-libs/libXpm x11-libs/libSM x11-libs/libICE !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEPEND=app-text/ghostscript-gpl dev-lang/tk:0 sys-libs/zlib x11-libs/libX11 x11-libs/libXt x11-libs/libXpm x11-libs/libSM x11-libs/libICE !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DESCRIPTION=Circuit drawing and schematic capture program
 EAPI=5
 HOMEPAGE=http://opencircuitdesign.com/xcircuit
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-2
-RDEPEND=app-text/ghostscript-gpl dev-lang/tk sys-libs/zlib x11-libs/libX11 x11-libs/libXt x11-libs/libXpm x11-libs/libSM x11-libs/libICE
+RDEPEND=app-text/ghostscript-gpl dev-lang/tk:0 sys-libs/zlib x11-libs/libX11 x11-libs/libXt x11-libs/libXpm x11-libs/libSM x11-libs/libICE
 RESTRICT=test
 SLOT=0
 SRC_URI=http://opencircuitdesign.com/xcircuit/archive/xcircuit-3.8.77.tgz
-_eclasses_=autotools	8fc2dd333ef9346c906ffd9a523d8211	autotools-utils	3727db64c7b960903d5033280f108080	eutils	998e5931fb95b10a6a11ec796ada2759	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=9303e1eaba79cdf2f0274a8682989ce3
+_eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	autotools-utils	419811142edf3516b0d0cf1a254d93cb	eutils	b83a2420b796f7c6eff682679d08fe25	libtool	4890219c51da247200223277f993e054	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=5e1ea59bc6d87f23548ad4fb6aed0b76

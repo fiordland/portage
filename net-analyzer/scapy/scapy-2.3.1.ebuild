@@ -1,11 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/scapy/scapy-2.3.1.ebuild,v 1.1 2014/12/23 12:30:19 jer Exp $
+# $Id$
 
 EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
-DISTUTILS_SINGLE_IMPL=true
 
 inherit eutils distutils-r1
 

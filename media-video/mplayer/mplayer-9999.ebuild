@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/mplayer/mplayer-9999.ebuild,v 1.167 2015/02/14 20:44:56 aballier Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,15 +10,15 @@ ESVN_REPO_URI="svn://svn.mplayerhq.hu/mplayer/trunk"
 
 inherit toolchain-funcs eutils flag-o-matic multilib base ${SVN_ECLASS}
 
-IUSE="cpu_flags_x86_3dnow cpu_flags_x86_3dnowext a52 aalib +alsa altivec aqua bidi bindist bl bluray
+IUSE="cpu_flags_x86_3dnow cpu_flags_x86_3dnowext a52 aalib +alsa altivec aqua bidi bl bluray
 bs2b cddb +cdio cdparanoia cpudetection debug dga
 directfb doc dts dv dvb +dvd +dvdnav +enca +encode faac faad fbcon
 ftp gif ggi gsm +iconv ipv6 jack joystick jpeg jpeg2k kernel_linux ladspa
 +libass libcaca libmpeg2 lirc live lzo mad md5sum +cpu_flags_x86_mmx cpu_flags_x86_mmxext mng mp3 nas
 +network nut openal opengl +osdmenu oss png pnm pulseaudio pvr
 radio rar rtc rtmp samba selinux +shm sdl speex cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_ssse3
-tga theora tremor +truetype toolame twolame +unicode v4l vdpau vidix
-vorbis +X x264 xanim xinerama +xscreensaver +xv xvid xvmc zoran"
+tga theora tremor +truetype toolame twolame +unicode v4l vcd vdpau vidix
+vorbis +X x264 xanim xinerama +xscreensaver +xv xvid xvmc yuv4mpeg zoran"
 
 VIDEO_CARDS="s3virge mga tdfx"
 for x in ${VIDEO_CARDS}; do
@@ -57,17 +57,17 @@ X_RDEPS="
 # Rar: althrought -gpl version is nice, it cant do most functions normal rars can
 #	nemesi? ( net-libs/libnemesi )
 RDEPEND+="
-	sys-libs/ncurses
+	sys-libs/ncurses:0=
 	app-arch/bzip2
 	sys-libs/zlib
-	>=media-video/ffmpeg-2.0:0
+	>=media-video/ffmpeg-3.0:0=[vdpau?]
 	a52? ( media-libs/a52dec )
 	aalib? ( media-libs/aalib )
 	alsa? ( media-libs/alsa-lib )
 	bidi? ( dev-libs/fribidi )
 	bluray? ( >=media-libs/libbluray-0.2.1 )
 	bs2b? ( media-libs/libbs2b )
-	cdio? ( dev-libs/libcdio )
+	cdio? ( dev-libs/libcdio dev-libs/libcdio-paranoia )
 	cdparanoia? ( !cdio? ( media-sound/cdparanoia ) )
 	dga? ( x11-libs/libXxf86dga )
 	directfb? ( dev-libs/DirectFB )
@@ -87,14 +87,14 @@ RDEPEND+="
 	enca? ( app-i18n/enca )
 	faad? ( media-libs/faad2 )
 	ggi? ( media-libs/libggi media-libs/libggiwmh )
-	gif? ( media-libs/giflib )
+	gif? ( media-libs/giflib:0= )
 	gsm? ( media-sound/gsm )
 	iconv? ( virtual/libiconv )
 	jack? ( media-sound/jack-audio-connection-kit )
 	jpeg? ( virtual/jpeg:0 )
 	jpeg2k? ( media-libs/openjpeg:0 )
 	ladspa? ( media-libs/ladspa-sdk )
-	libass? ( >=media-libs/libass-0.9.10:=[enca?] )
+	libass? ( >=media-libs/libass-0.9.10:= )
 	libcaca? ( media-libs/libcaca )
 	libmpeg2? ( media-libs/libmpeg2 )
 	lirc? ( app-misc/lirc )
@@ -172,7 +172,6 @@ fi
 # radio requires oss or alsa backend
 # xvmc requires xvideo support
 REQUIRED_USE="
-	bindist? ( !faac )
 	dga? ( X )
 	dvdnav? ( dvd )
 	enca? ( iconv )
@@ -187,6 +186,7 @@ REQUIRED_USE="
 	xscreensaver? ( X )
 	xv? ( X )
 	xvmc? ( xv )"
+RESTRICT="faac? ( bindist )"
 
 pkg_setup() {
 	if [[ ${PV} == *9999* ]]; then
@@ -293,7 +293,7 @@ src_configure() {
 		$(use_enable network networking)
 		$(use_enable joystick)
 	"
-	uses="bl bluray enca ftp rtc" # nemesi <- not working with in-tree ebuild
+	uses="bl bluray enca ftp rtc vcd" # nemesi <- not working with in-tree ebuild
 	myconf+=" --disable-nemesi" # nemesi automagic disable
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
@@ -416,7 +416,7 @@ src_configure() {
 	################
 	# Video Output #
 	################
-	uses="directfb md5sum sdl"
+	uses="directfb md5sum sdl yuv4mpeg"
 	for i in ${uses}; do
 		use ${i} || myconf+=" --disable-${i}"
 	done

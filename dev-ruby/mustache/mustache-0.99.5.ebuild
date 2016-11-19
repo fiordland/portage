@@ -1,10 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/mustache/mustache-0.99.5.ebuild,v 1.12 2015/01/17 19:40:08 ago Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="ruby20"
 
 RUBY_FAKEGEM_TASK_TEST=""
 
@@ -14,7 +14,7 @@ RUBY_FAKEGEM_EXTRADOC="README.md"
 inherit multilib ruby-fakegem
 
 DESCRIPTION="Mustache is a framework-agnostic way to render logic-free views"
-HOMEPAGE="http://mustache.github.com/"
+HOMEPAGE="https://mustache.github.com/"
 
 LICENSE="MIT"
 SLOT="0"

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/fish-fillets/fish-fillets-1.0.1.ebuild,v 1.7 2015/02/18 21:54:23 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit autotools eutils games
@@ -23,7 +23,7 @@ RDEPEND=">=media-libs/libsdl-1.2[sound,video]
 	x11-libs/libX11
 	media-libs/sdl-ttf
 	dev-libs/fribidi
-	>=dev-lang/lua-5"
+	>=dev-lang/lua-5:0"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 

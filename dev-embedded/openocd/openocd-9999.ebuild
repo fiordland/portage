@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-embedded/openocd/openocd-9999.ebuild,v 1.38 2014/06/17 04:57:34 vapier Exp $
+# $Id$
 
 EAPI="5"
 
@@ -10,6 +10,7 @@ inherit eutils multilib flag-o-matic toolchain-funcs udev
 if [[ ${PV} == "9999" ]] ; then
 	inherit autotools git-2
 	EGIT_REPO_URI="git://git.code.sf.net/p/${PN}/code"
+	EGIT_PROJECT="${PN}"
 else
 	MY_PV="${PV/_/-}"
 	MY_P="${PN}-${MY_PV}"
@@ -26,16 +27,18 @@ SLOT="0"
 IUSE="cmsis-dap dummy ftdi parport +usb verbose-io"
 RESTRICT="strip" # includes non-native binaries
 
-RDEPEND=">=dev-lang/jimtcl-0.75
+RDEPEND=">=dev-lang/jimtcl-0.76
+	dev-embedded/libjaylink
 	cmsis-dap? ( dev-libs/hidapi )
 	usb? (
 		virtual/libusb:0
 		virtual/libusb:1
 	)
-	ftdi? ( dev-embedded/libftdi )"
+	ftdi? ( dev-embedded/libftdi:= )"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
+[[ ${PV} == "9999" ]] && DEPEND+=" >=sys-apps/texinfo-5" #549946
 
 src_prepare() {
 	epatch_user
@@ -51,6 +54,7 @@ src_configure() {
 		--enable-buspirate
 		--disable-werror
 		--disable-internal-jimtcl
+		--disable-internal-libjaylink
 		--enable-amtjtagaccel
 		--enable-ep93xx
 		--enable-at91rm9200
@@ -100,7 +104,7 @@ src_configure() {
 
 	if use ftdi; then
 		myconf+=(
-			--enable-usb_blaster_libftd
+			--enable-usb_blaster_libftdi
 			--enable-openjtag_ftdi
 			--enable-presto_libftdi
 		)
@@ -123,6 +127,6 @@ src_configure() {
 
 src_install() {
 	default
-	env -uRESTRICT prepstrip "${ED}"/usr/bin "${ED}"/usr/$(get_libdir)
-	udev_dorules ${D}/usr/share/${PN}/contrib/*.rules
+	env -uRESTRICT prepstrip "${ED}"/usr/bin
+	udev_dorules "${D}"/usr/share/${PN}/contrib/*.rules
 }

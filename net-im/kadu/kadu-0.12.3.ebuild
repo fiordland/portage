@@ -1,10 +1,10 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/kadu/kadu-0.12.3.ebuild,v 1.9 2015/02/22 18:41:23 mgorny Exp $
+# $Id$
 
 EAPI="4"
 
-inherit base cmake-utils flag-o-matic
+inherit cmake-utils flag-o-matic
 
 MY_P="${P/_/-}"
 
@@ -56,7 +56,7 @@ DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto
 "
 RDEPEND="${COMMON_DEPEND}
-	app-crypt/qca:2[openssl]
+	app-crypt/qca:2[ssl]
 	>=dev-qt/qtsvg-4.7.0:4
 	speech? ( app-accessibility/powiedz )
 "

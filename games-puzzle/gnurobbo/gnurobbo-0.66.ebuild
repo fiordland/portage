@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/gnurobbo/gnurobbo-0.66.ebuild,v 1.7 2015/02/20 20:43:58 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -18,9 +18,11 @@ DEPEND="media-libs/libsdl[sound,video,joystick]
 	media-libs/sdl-image[png]
 	media-libs/sdl-mixer[vorbis]
 	media-libs/sdl-ttf"
-RDEPEND="${DEPEND}"
+RDEPEND=${DEPEND}
 
-PATCHES=( "${FILESDIR}"/${P}-underlink.patch )
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-underlink.patch
+}
 
 src_compile() {
 	emake \

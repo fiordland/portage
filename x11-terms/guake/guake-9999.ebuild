@@ -1,10 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-terms/guake/guake-9999.ebuild,v 1.2 2014/11/17 13:37:33 jer Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 
-GCONF_DEBUG=no
 GNOME2_LA_PUNT=yes
 PYTHON_COMPAT=( python2_7 )
 
@@ -44,11 +43,11 @@ src_unpack() {
 }
 
 src_prepare() {
+	default
+
 	eautoreconf
 
 	gnome2_src_prepare
-
-	G2CONF="--disable-static"
 }
 
 pkg_postinst() {

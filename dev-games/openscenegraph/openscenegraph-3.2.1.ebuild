@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-games/openscenegraph/openscenegraph-3.2.1.ebuild,v 1.4 2015/02/21 12:02:44 ago Exp $
+# $Id$
 
 EAPI=5
 
@@ -33,26 +33,26 @@ RDEPEND="
 		fox? ( x11-libs/fox:1.6[opengl] )
 		glut? ( media-libs/freeglut )
 		gtk? ( x11-libs/gtkglext )
-		qt4? (
-			dev-qt/qtcore:4
-			dev-qt/qtgui:4
-			dev-qt/qtopengl:4
-		)
 		sdl? ( media-libs/libsdl )
 		wxwidgets? ( x11-libs/wxGTK[opengl,X] )
 	)
 	ffmpeg? ( virtual/ffmpeg )
 	gdal? ( sci-libs/gdal )
 	gif? ( media-libs/giflib )
-	jpeg? ( virtual/jpeg )
-	jpeg2k? ( media-libs/jasper )
+	jpeg? ( virtual/jpeg:0 )
+	jpeg2k? ( media-libs/jasper:= )
 	openexr? (
 		media-libs/ilmbase
 		media-libs/openexr
 	)
 	openinventor? ( media-libs/coin )
 	pdf? ( app-text/poppler[cairo] )
-	png? ( media-libs/libpng:0 )
+	png? ( media-libs/libpng:0= )
+	qt4? (
+		dev-qt/qtcore:4
+		dev-qt/qtgui:4
+		dev-qt/qtopengl:4
+	)
 	svg? (
 		gnome-base/librsvg
 		x11-libs/cairo
@@ -90,6 +90,7 @@ src_configure() {
 	append-cppflags -D__STDC_CONSTANT_MACROS
 
 	mycmakeargs=(
+		-DDESIRED_QT_VERSION=4
 		-DDYNAMIC_OPENSCENEGRAPH=ON
 		-DWITH_ITK=OFF
 		-DGENTOO_DOCDIR="/usr/share/doc/${PF}"
@@ -111,7 +112,7 @@ src_configure() {
 		$(cmake-utils_use_with openinventor Inventor)
 		$(cmake-utils_use_with pdf Poppler-glib)
 		$(cmake-utils_use_with png)
-		$(cmake-utils_use_with qt4)
+		$(cmake-utils_use qt4 OSG_USE_QT)
 		$(cmake-utils_use_with sdl)
 		$(cmake-utils_use_with svg rsvg)
 		$(cmake-utils_use_with tiff)

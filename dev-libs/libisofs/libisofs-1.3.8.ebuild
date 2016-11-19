@@ -1,12 +1,12 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libisofs/libisofs-1.3.8.ebuild,v 1.11 2015/02/28 13:22:19 ago Exp $
+# $Id$
 
 EAPI=5
 
 inherit eutils
 
-DESCRIPTION="libisofs is an open-source library for reading, mastering and writing optical discs"
+DESCRIPTION="Open-source library for reading, mastering and writing optical discs"
 HOMEPAGE="http://libburnia-project.org/"
 SRC_URI="http://files.libburnia-project.org/releases/${P}.tar.gz"
 

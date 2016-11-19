@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/vdr/vdr-2.2.0.ebuild,v 1.4 2015/02/20 09:53:47 hd_brummy Exp $
+# $Id$
 
 EAPI=5
 
@@ -27,9 +27,9 @@ EXT_P="extpng-${P}-gentoo-edition-v1"
 DESCRIPTION="Video Disk Recorder - turns a pc into a powerful set top box for DVB"
 HOMEPAGE="http://www.tvdr.de/"
 SRC_URI="ftp://ftp.tvdr.de/vdr/${MY_P}.tar.bz2
-	http://dev.gentoo.org/~hd_brummy/distfiles/${EXT_P}.patch.bz2"
+	https://dev.gentoo.org/~hd_brummy/distfiles/${EXT_P}.patch.bz2"
 
-KEYWORDS="~arm ~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~ppc x86"
 SLOT="0"
 LICENSE="GPL-2"
 

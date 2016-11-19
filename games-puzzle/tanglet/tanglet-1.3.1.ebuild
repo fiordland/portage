@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-puzzle/tanglet/tanglet-1.3.1.ebuild,v 1.1 2015/02/11 05:25:07 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 LANGS="cs de es en fr he hu it nl ro tr uk"
@@ -13,11 +13,12 @@ SRC_URI="http://gottcode.org/${PN}/${P}-src.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND="sys-libs/zlib
 	dev-qt/qtcore:5
+	dev-qt/qtwidgets:5
 	dev-qt/qtgui:5"
 RDEPEND=${DEPEND}
 

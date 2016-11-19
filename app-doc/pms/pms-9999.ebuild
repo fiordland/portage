@@ -1,16 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-doc/pms/pms-9999.ebuild,v 1.6 2014/04/03 16:56:35 ulm Exp $
+# $Id$
 
 EAPI=5
 
 inherit git-r3
 
-EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/${PN}.git
-	http://git.overlays.gentoo.org/gitroot/proj/${PN}.git"
+EGIT_REPO_URI="git://anongit.gentoo.org/proj/${PN}.git
+	https://anongit.gentoo.org/git/proj/${PN}.git"
 
 DESCRIPTION="Gentoo Package Manager Specification (draft)"
-HOMEPAGE="http://wiki.gentoo.org/wiki/Project:PMS"
+HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Package_Manager_Specification"
 
 LICENSE="CC-BY-SA-3.0"
 SLOT="live"
@@ -36,7 +36,8 @@ src_compile() {
 src_install() {
 	dodoc pms.pdf eapi-cheatsheet.pdf
 	if use html; then
-		dohtml *.html pms.css $(shopt -s nullglob; echo *.png)
+		docinto html
+		dodoc *.html pms.css $(shopt -s nullglob; echo *.png)
 		dosym {..,/usr/share/doc/${PF}/html}/eapi-cheatsheet.pdf
 	fi
 }

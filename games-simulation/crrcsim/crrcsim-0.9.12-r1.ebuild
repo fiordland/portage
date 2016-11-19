@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-simulation/crrcsim/crrcsim-0.9.12-r1.ebuild,v 1.1 2014/06/01 22:27:36 hasufell Exp $
+# $Id$
 
 EAPI=5
 WANT_AUTOMAKE="1.10"
 inherit autotools eutils gnome2-utils games
 
 DESCRIPTION="model-airplane flight simulation program"
-HOMEPAGE="http://sourceforge.net/projects/crrcsim/"
+HOMEPAGE="https://sourceforge.net/projects/crrcsim/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/vdr-xineliboutput/vdr-xineliboutput-2.0.0_p20130821.ebuild,v 1.2 2015/02/21 02:14:47 hd_brummy Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ inherit vdr-plugin-2
 GENTOO_VDR_CONDITIONAL=yes
 
 DESCRIPTION="VDR Plugin: Xinelib PlugIn"
-HOMEPAGE="http://sourceforge.net/projects/xineliboutput/"
+HOMEPAGE="https://sourceforge.net/projects/xineliboutput/"
 SRC_URI="http://vdr.websitec.de/download/${PN}/xineliboutput-2.0.0_p20130821.tar.bz2"
 
 SLOT="0"
@@ -127,7 +127,7 @@ src_install() {
 		fi
 
 		if use xine; then
-			doinit "${FILESDIR}"/vdr-frontend
+			doinitd "${FILESDIR}"/vdr-frontend
 
 			insinto $XINE_PLUGIN_DIR
 			doins xineplug_inp_xvdr.so

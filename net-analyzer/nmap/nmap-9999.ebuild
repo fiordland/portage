@@ -1,40 +1,38 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/nmap/nmap-9999.ebuild,v 1.2 2015/01/26 12:08:35 jer Exp $
+# $Id$
 
 EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="sqlite,xml"
-inherit eutils flag-o-matic python-single-r1 subversion toolchain-funcs
+inherit autotools eutils flag-o-matic git-r3 python-single-r1 toolchain-funcs user
 
 MY_P=${P/_beta/BETA}
 
-DESCRIPTION="A utility for network exploration or security auditing"
+DESCRIPTION="A utility for network discovery and security auditing"
 HOMEPAGE="http://nmap.org/"
-ESVN_REPO_URI="https://svn.nmap.org/nmap"
-SRC_URI="
-	http://dev.gentoo.org/~jer/nmap-logo-64.png
-"
+
+EGIT_REPO_URI="https://github.com/nmap/nmap"
+SRC_URI="https://dev.gentoo.org/~jer/nmap-logo-64.png"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
 
-IUSE="ipv6 +lua system-lua ncat ndiff nls nmap-update nping ssl zenmap"
-NMAP_LINGUAS=( de fr hr it ja pl pt_BR ru zh )
+IUSE="ipv6 libressl +nse system-lua ncat ndiff nls nmap-update nping ssl zenmap"
+NMAP_LINGUAS=( de fr hi hr it ja pl pt_BR ru zh )
 IUSE+=" ${NMAP_LINGUAS[@]/#/linguas_}"
 
 REQUIRED_USE="
-	system-lua? ( lua )
+	system-lua? ( nse )
 	ndiff? ( ${PYTHON_REQUIRED_USE} )
 	zenmap? ( ${PYTHON_REQUIRED_USE} )
 "
 
 RDEPEND="
-	dev-libs/liblinear
+	dev-libs/liblinear:=
 	dev-libs/libpcre
-	net-libs/libpcap[ipv6?]
+	|| ( >=net-libs/libpcap-1.8.0 <net-libs/libpcap-1.8.0[ipv6?] )
 	zenmap? (
 		dev-python/pygtk:2[${PYTHON_USEDEP}]
 		${PYTHON_DEPS}
@@ -43,7 +41,10 @@ RDEPEND="
 	ndiff? ( ${PYTHON_DEPS} )
 	nls? ( virtual/libintl )
 	nmap-update? ( dev-libs/apr dev-vcs/subversion )
-	ssl? ( dev-libs/openssl )
+	ssl? (
+		!libressl? ( dev-libs/openssl:0= )
+		libressl? ( dev-libs/libressl:= )
+	)
 "
 DEPEND="
 	${RDEPEND}
@@ -60,14 +61,14 @@ pkg_setup() {
 
 src_prepare() {
 	epatch \
-		"${FILESDIR}"/${PN}-4.75-nolua.patch \
 		"${FILESDIR}"/${PN}-5.10_beta1-string.patch \
 		"${FILESDIR}"/${PN}-5.21-python.patch \
-		"${FILESDIR}"/${PN}-6.01-make.patch \
 		"${FILESDIR}"/${PN}-6.25-liblua-ar.patch \
 		"${FILESDIR}"/${PN}-6.46-uninstaller.patch \
 		"${FILESDIR}"/${PN}-6.47-no-libnl.patch \
-		"${FILESDIR}"/${PN}-6.47-no-FORTIFY_SOURCE.patch
+		"${FILESDIR}"/${PN}-7.25-CXXFLAGS.patch \
+		"${FILESDIR}"/${PN}-7.25-libpcre.patch \
+		"${FILESDIR}"/${PN}-7.25-no-FORTIFY_SOURCE.patch
 
 	if use nls; then
 		local lingua=''
@@ -97,6 +98,8 @@ src_prepare() {
 		zenmap/install_scripts/unix/zenmap.desktop || die
 
 	epatch_user
+
+	eautoreconf
 }
 
 src_configure() {
@@ -106,7 +109,7 @@ src_configure() {
 		$(use_enable ipv6) \
 		$(use_enable nls) \
 		$(use_with zenmap) \
-		$(usex lua --with-liblua=$(usex system-lua /usr included '' '') --without-liblua) \
+		$(usex nse --with-liblua=$(usex system-lua /usr included '' '') --without-liblua) \
 		$(use_with ncat) \
 		$(use_with ndiff) \
 		$(use_with nmap-update) \
@@ -119,9 +122,18 @@ src_configure() {
 }
 
 src_compile() {
+	local directory
+	for directory in . libnetutil nsock/src \
+		$(usex ncat ncat '') \
+		$(usex nmap-update nmap-update '') \
+		$(usex nping nping '')
+	do
+		emake -C "${directory}" makefile.dep
+	done
+
 	emake \
 		AR=$(tc-getAR) \
-		RANLIB=$(tc-getRANLIB )
+		RANLIB=$(tc-getRANLIB)
 }
 
 src_install() {

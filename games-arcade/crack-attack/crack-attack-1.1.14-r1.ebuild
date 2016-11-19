@@ -1,13 +1,13 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/crack-attack/crack-attack-1.1.14-r1.ebuild,v 1.11 2015/01/04 09:08:26 tupone Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
 
 DESCRIPTION="Addictive OpenGL-based block game"
 HOMEPAGE="http://www.nongnu.org/crack-attack/"
-SRC_URI="http://savannah.nongnu.org/download/crack-attack/${P}.tar.bz2"
+SRC_URI="https://savannah.nongnu.org/download/crack-attack/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"

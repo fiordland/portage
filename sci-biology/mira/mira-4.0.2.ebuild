@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/mira/mira-4.0.2.ebuild,v 1.2 2015/01/25 17:04:35 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,25 +9,26 @@ MY_PV="${PV/_}" # convert from mira-4.0_rc2 (Gentoo ebuild filename derived) to 
 
 inherit autotools eutils multilib
 
-DESCRIPTION="Whole Genome Shotgun and EST Sequence Assembler for Sanger, 454 and Solexa / Illumina"
+DESCRIPTION="Whole Genome Shotgun and EST Sequence Assembler for Sanger, 454 and Illumina"
 HOMEPAGE="http://www.chevreux.org/projects_mira.html"
 SRC_URI="
-	http://sourceforge.net/projects/mira-assembler/files/MIRA/stable/"${PN}"-"${MY_PV}".tar.bz2
+	https://sourceforge.net/projects/mira-assembler/files/MIRA/stable/"${PN}"-"${MY_PV}".tar.bz2
 	mirror://sourceforge/mira-assembler/mira_3rdparty_${MIRA_3RDPARTY_PV}.tar.bz2"
-#	http://sourceforge.net/projects/mira-assembler/files/MIRA/development/${P}.tar.bz2
+#	https://sourceforge.net/projects/mira-assembler/files/MIRA/development/${P}.tar.bz2
 #	mirror://sourceforge/mira-assembler/mira_3rdparty_${MIRA_3RDPARTY_PV}.tar.bz2"
 
 S="${WORKDIR}"/"${PN}"-"${MY_PV}"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x86-macos"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux ~x86-macos"
 IUSE="doc"
 
 CDEPEND="
-	dev-libs/boost
+	dev-libs/boost[threads]
 	dev-util/google-perftools"
 DEPEND="${CDEPEND}
+	<sys-devel/flex-2.6.0
 	app-editors/vim-core
 	dev-libs/expat"
 RDEPEND="${CDEPEND}"

@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare unpack
-DEPEND=media-libs/lv2 gtk? ( x11-libs/gtk+:2 ) qt4? ( dev-qt/qtgui:4 ) doc? ( app-doc/doxygen ) virtual/pkgconfig dev-lang/python !dev-lang/python[-threads]
+DEPEND=media-libs/lv2 gtk? ( x11-libs/gtk+:2 ) qt4? ( dev-qt/qtgui:4 ) doc? ( app-doc/doxygen ) virtual/pkgconfig
 DESCRIPTION=Lightweight C library for loading and wrapping LV2 plugin UIs
 EAPI=4
 HOMEPAGE=http://drobilla.net/software/suil/
@@ -9,5 +9,5 @@ LICENSE=ISC
 RDEPEND=media-libs/lv2 gtk? ( x11-libs/gtk+:2 ) qt4? ( dev-qt/qtgui:4 )
 SLOT=0
 SRC_URI=http://download.drobilla.net/suil-0.8.0.tar.bz2
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	waf-utils	b5ddb40c4095c9a1a3f6fd49d32fd922
-_md5_=2ac4b6960c2973c984f36266613793b4
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	waf-utils	c21174962af5ca8091b66f58612797ce
+_md5_=a5b23124ba029a8aec23045ef8b3e6e7

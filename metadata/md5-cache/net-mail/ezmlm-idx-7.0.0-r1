@@ -1,6 +1,7 @@
 DEFINED_PHASES=compile install setup unpack
 DEPEND=mysql? ( virtual/mysql ) postgres? ( dev-db/postgresql ) >=sys-apps/sed-4
 DESCRIPTION=Simple yet powerful mailing list manager for qmail
+EAPI=0
 HOMEPAGE=http://www.ezmlm.org
 IUSE=mysql postgres
 KEYWORDS=~alpha ~amd64 ~hppa ~mips ~ppc ~sparc ~x86
@@ -8,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=mysql? ( virtual/mysql ) postgres? ( dev-db/postgresql ) virtual/qmail
 SLOT=0
 SRC_URI=http://www.ezmlm.org/archive/7.0.0/ezmlm-idx-7.0.0.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	fixheadtails	c6fd1fc49c9dc11924f28a1406f251a0	flag-o-matic	c263990f1b677b0f0be0a3299f179762	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	qmail	9aa474d2def73a95c642872fdca9c014	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	user	f54e098dd38ba1c0847a13e685b87747
-_md5_=c0fc2df7866cff52ea8e14039917ad48
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	fixheadtails	2f44773656577fe2653bacc8bdcb2174	flag-o-matic	7366202dd55cb8f018f5d450d54e7749	multilib	165fc17c38d1b11dac2008280dab6e80	qmail	b5cb479953f486ad5e0d7f5a428f5913	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	user	80aaa71614ced86f02ee1a513821dc87
+_md5_=9d1baa7ba68e0f0d611048fc48cf3ec3

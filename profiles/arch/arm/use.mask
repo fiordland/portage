@@ -1,9 +1,19 @@
 # Unmask the flag which corresponds to ARCH.
 -arm
 
+# 2015/11/13 - Daniel Kuehn <lejonet@gentoo.org>
+# Unmask sssd USE-flag as it is tested on this arch in regards to bugs
+# 540540 and 525674
+-sssd
+
 # Unmask arm arch specific flags
 -iwmmxt
 
+# Patrick Lauer <patrick@gentoo.org> (28 Apr 2015)
+# Dependencies not keyworded
+ayatana
+
+# Mike Frysinger <vapier@gentoo.org> (25 Feb 2013)
 # doomsday ebuild is not available on this architecture
 doomsday
 
@@ -65,7 +75,6 @@ dmi
 
 # Stuff we don't want
 chicken
-fuse
 R
 octave
 tracker
@@ -98,7 +107,6 @@ nvtv
 mzscheme
 xemacs
 scanner
-madwifi
 libupnp
 zvbi
 fluidsynth
@@ -122,10 +130,10 @@ xanim
 fits
 tokyocabinet
 vaapi
+librtmp
 rtmp
 vpx
 iplayer
-plotutils
 lpsol
 upnp
 bluray
@@ -144,6 +152,8 @@ csharp
 -video_cards_omap
 -video_cards_omapfb
 -video_cards_tegra
+-video_cards_vc4
+-video_cards_vivante
 
 # 2006/02/05 - Donnie Berkholz <dberkholz@gentoo.org>
 # Modular X: mask for architectures on which they aren't available
@@ -183,6 +193,7 @@ video_cards_voodoo
 
 # Matt Turner <mattst88@gentoo.org>
 # Mask more VIDEO_CARDs added with mesa-8.0
+video_cards_amdgpu
 video_cards_r100
 video_cards_r200
 video_cards_r300
@@ -212,7 +223,7 @@ video_cards_vmware
 # Robin H. Johnson <robbat2@gentoo.org>
 audit
 
-# Matt Turner <mattst88@gentoo.org) (10 Feb 2012)
+# Matt Turner <mattst88@gentoo.org> (10 Feb 2012)
 # mask d3d since we don't have wine
 d3d
 
@@ -247,3 +258,4 @@ numa
 
 # toolkit for nvidia binary drivers
 cg
+

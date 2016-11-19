@@ -1,21 +1,21 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/re2/re2-0_p20140304.ebuild,v 1.2 2014/10/23 13:47:06 pacho Exp $
+# $Id$
 
 EAPI=5
 
 inherit flag-o-matic eutils multilib multilib-minimal toolchain-funcs
 
 DESCRIPTION="An efficent, principled regular expression library"
-HOMEPAGE="http://code.google.com/p/re2/"
-SRC_URI="http://re2.googlecode.com/files/${PN}-${PV##*_p}.tgz"
+HOMEPAGE="https://code.google.com/p/re2/"
+SRC_URI="https://re2.googlecode.com/files/${PN}-${PV##*_p}.tgz"
 
 LICENSE="BSD"
 # Symbols removed in version 20140110
 # http://upstream-tracker.org/compat_reports/re2/20131024_to_20140110/abi_compat_report.html
 # https://code.google.com/p/re2/issues/detail?id=111
 SLOT="0/0.20140110"
-KEYWORDS="amd64 ~arm x86"
+KEYWORDS="amd64 ~arm ~arm64 x86"
 IUSE=""
 
 # TODO: the directory in the tarball should really be versioned.

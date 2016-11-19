@@ -1,8 +1,9 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-process/pidof-bsd/pidof-bsd-20050501-r4.ebuild,v 1.2 2015/02/21 16:10:24 mgorny Exp $
+# $Id$
 
-inherit base bsdmk
+EAPI=5
+inherit bsdmk
 
 DESCRIPTION="pidof(1) utility for *BSD"
 HOMEPAGE="http://people.freebsd.org/~novel/pidof.html"
@@ -21,7 +22,11 @@ S="${WORKDIR}/pidof"
 PATCHES=( "${FILESDIR}/${P}-gfbsd.patch"
 	"${FILESDIR}/${P}-firstarg.patch"
 	"${FILESDIR}/${P}-pname.patch"
-	"${FILESDIR}/${P}-fbsd10.patch" )
+	"${FILESDIR}/${P}-fbsd11.patch" )
+
+src_prepare() {
+	epatch "${PATCHES[@]}"
+}
 
 src_install() {
 	into /

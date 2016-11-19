@@ -3,10 +3,10 @@ DEPEND=>=sys-apps/sed-4
 DESCRIPTION=GNOME integration for Spotify
 EAPI=4
 HOMEPAGE=https://github.com/mrpdaemon/gnome-integration-spotify
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-3
 RDEPEND=dev-lang/python dev-python/dbus-python media-gfx/imagemagick x11-misc/wmctrl x11-misc/xautomation x11-misc/xdotool x11-apps/xwininfo
 SLOT=0
 SRC_URI=https://github.com/mrpdaemon/gnome-integration-spotify/archive/20140907.tar.gz -> gnome-integration-spotify-20140907.tar.gz
-_eclasses_=gnome2-utils	5cdfd22a2163c9d3a891648bd19453a7	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=c10d0416258ee9e972a45bad539e645e
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	gnome2-utils	c6dcdf3a2c22b578b16adb945dc85c35	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	xdg-utils	e2b2bd56125ce8cf59ce30c642b59d48
+_md5_=a84594a93fe466c615337604b6604473

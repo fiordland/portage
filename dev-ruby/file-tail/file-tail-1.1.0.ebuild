@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/file-tail/file-tail-1.1.0.ebuild,v 1.2 2014/10/29 19:30:10 mrueg Exp $
+# $Id$
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20 ruby21"
+USE_RUBY="ruby20 ruby21 ruby22"
 
 RUBY_FAKEGEM_RECIPE_TEST="none"
 
@@ -18,7 +18,7 @@ RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 inherit ruby-fakegem
 
 DESCRIPTION="A small ruby library that allows it to 'tail' files in Ruby"
-HOMEPAGE="http://flori.github.com/file-tail"
+HOMEPAGE="https://flori.github.com/file-tail"
 
 LICENSE="GPL-2"
 SLOT="0"

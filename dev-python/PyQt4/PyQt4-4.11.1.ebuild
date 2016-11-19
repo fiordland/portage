@@ -1,18 +1,19 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/PyQt4/PyQt4-4.11.1.ebuild,v 1.13 2015/02/17 11:09:13 ago Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_4} )
 
 inherit eutils multibuild python-r1 qmake-utils toolchain-funcs
 
 DESCRIPTION="Python bindings for the Qt toolkit"
-HOMEPAGE="http://www.riverbankcomputing.co.uk/software/pyqt/intro/ https://pypi.python.org/pypi/PyQt4"
+HOMEPAGE="http://www.riverbankcomputing.com/software/pyqt/intro
+	https://pypi.python.org/pypi/PyQt4"
 
 if [[ ${PV} == *_pre* ]]; then
 	MY_P="PyQt-x11-gpl-snapshot-${PV%_pre*}-${REVISION}"
-	SRC_URI="http://dev.gentoo.org/~hwoarang/distfiles/${MY_P}.tar.gz"
+	SRC_URI="https://dev.gentoo.org/~hwoarang/distfiles/${MY_P}.tar.gz"
 else
 	MY_P="PyQt-x11-gpl-${PV}"
 	SRC_URI="mirror://sourceforge/pyqt/${MY_P}.tar.gz"
@@ -20,7 +21,7 @@ fi
 
 LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="0"
-KEYWORDS="alpha amd64 arm ~ia64 ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm ia64 ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
 
 IUSE="X dbus debug declarative designer doc examples help kde multimedia opengl phonon script scripttools sql svg webkit xmlpatterns"
 REQUIRED_USE="
@@ -175,7 +176,7 @@ src_configure() {
 			popd > /dev/null || return
 		fi
 	}
-	python_parallel_foreach_impl run_in_build_dir configuration
+	python_foreach_impl run_in_build_dir configuration
 }
 
 src_compile() {

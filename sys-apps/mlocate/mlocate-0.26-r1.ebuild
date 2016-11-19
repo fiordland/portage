@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/mlocate/mlocate-0.26-r1.ebuild,v 1.2 2014/11/02 09:50:19 swift Exp $
+# $Id$
 
 EAPI=4
 inherit eutils user toolchain-funcs
@@ -11,7 +11,7 @@ SRC_URI="https://fedorahosted.org/releases/m/l/mlocate/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 IUSE="nls selinux"
 
 RDEPEND="!sys-apps/slocate

@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/autoconf/autoconf-2.61-r2.ebuild,v 1.14 2014/12/03 05:52:22 heroxbd Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
 
 inherit eutils
 
 DESCRIPTION="Used to create autoconfiguration files"
-HOMEPAGE="http://www.gnu.org/software/autoconf/autoconf.html"
+HOMEPAGE="https://www.gnu.org/software/autoconf/autoconf.html"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
@@ -18,34 +18,22 @@ IUSE=""
 DEPEND=">=sys-devel/m4-1.4.6
 	dev-lang/perl"
 RDEPEND="${DEPEND}
-	!~sys-devel/${P}:0
+	!~sys-devel/${P}:2.5
 	>=sys-devel/autoconf-wrapper-13"
 
-src_prepare() {
-	find -name Makefile.in -exec sed -i '/^pkgdatadir/s:$:-@VERSION@:' {} +
-	epatch "${FILESDIR}"/${P}-GETMNTENT.patch
-}
+PATCHES=(
+	"${FILESDIR}"/${P}-GETMNTENT.patch
+)
 
-src_configure() {
-	# Disable Emacs in the build system since it is in a separate package.
-	export EMACS=no
-	econf --program-suffix="-${PV}"
-	# econf updates config.{sub,guess} which forces the manpages
-	# to be regenerated which we dont want to do #146621
-	touch man/*.1
-}
+if [[ -z ${__EBLITS__} && -n ${FILESDIR} ]] ; then
+	source "${FILESDIR}"/eblits/main.eblit || die
+fi
+src_prepare()   { eblit-run src_prepare   ; }
+src_configure() { eblit-run src_configure ; }
+src_install()   { eblit-run src_install   ; }
 
 src_compile() {
 	# From configure output:
 	# Parallel builds via `make -jN' do not work.
 	emake -j1
-}
-
-src_install() {
-	default
-
-	local f
-	for f in "${ED}"/usr/share/info/*.info* ; do
-		mv "${f}" "${f/.info/-${SLOT}.info}" || die
-	done
 }

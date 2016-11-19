@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/squashfs-tools/squashfs-tools-4.3.ebuild,v 1.6 2014/09/28 11:02:46 blueness Exp $
+# $Id$
 
 EAPI=5
 inherit eutils toolchain-funcs
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/squashfs/squashfs${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
 IUSE="+xz lzma lz4 lzo xattr"
 
 RDEPEND="
@@ -27,30 +27,31 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/squashfs${PV}/${PN}"
 
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-sysmacros.patch
+}
+
+use10() { usex $1 1 2 ; }
+
 src_configure() {
 	# set up make command line variables in EMAKE_SQUASHFS_CONF
 	EMAKE_SQUASHFS_CONF=(
-		$(usex lzma LZMA_XZ_SUPPORT=1 LZMA_XS_SUPPORT=0)
-		$(usex lzo LZO_SUPPORT=1 LZO_SUPPORT=0)
-		$(usex lz4 LZ4_SUPPORT=1 LZ4_SUPPORT=0)
-		$(usex xattr XATTR_SUPPORT=1 XATTR_SUPPORT=0)
-		$(usex xz XZ_SUPPORT=1 XZ_SUPPORT=0)
+		LZMA_XZ_SUPPORT=$(use10 lzma)
+		LZO_SUPPORT=$(use10 lzo)
+		LZ4_SUPPORT=$(use10 lz4)
+		XATTR_SUPPORT=$(use10 xattr)
+		XZ_SUPPORT=$(use10 xz)
 	)
 
 	tc-export CC
 }
 
 src_compile() {
-	emake ${EMAKE_SQUASHFS_CONF[@]}
+	emake "${EMAKE_SQUASHFS_CONF[@]}"
 }
 
 src_install() {
 	dobin mksquashfs unsquashfs
-	dodoc ../README
-}
-
-pkg_postinst() {
-	ewarn "This version of mksquashfs requires a 2.6.29 kernel or better"
-	use xz &&
-		ewarn "XZ support requires a 2.6.38 kernel or better"
+	cd ..
+	dodoc CHANGES PERFORMANCE.README pseudo-file.example README* OLD-READMEs/*
 }

@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/spatialite/spatialite-3.0.1.ebuild,v 1.5 2015/01/05 16:05:58 aballier Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 MY_PN="lib${PN}"
 MY_P="${MY_PN}-${PV}"

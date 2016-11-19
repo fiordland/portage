@@ -1,11 +1,12 @@
 DEFINED_PHASES=compile install postinst unpack
 DESCRIPTION=A wrapper library to adapt the JSRE SPU usage model to SPUFS
-HOMEPAGE=http://sourceforge.net/projects/libspe
+EAPI=0
+HOMEPAGE=https://sourceforge.net/projects/libspe
 IUSE=debug
 KEYWORDS=ppc ppc64
 LICENSE=LGPL-2
 RDEPEND=!sys-libs/libspe
 SLOT=0
 SRC_URI=mirror://sourceforge/libspe/libspe2-2.2.80-95.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=4e4bef8f9a1d5e1969357776e5e6a0f3
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=3f5c76fd9beaac430726988919e3748a

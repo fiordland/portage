@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/paludis/paludis-2.0.0.ebuild,v 1.6 2014/08/30 03:53:57 jdhore Exp $
+# $Id$
 
 EAPI=4
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit bash-completion-r1 eutils python-single-r1 user
 
@@ -49,9 +49,10 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	sys-apps/sandbox"
 
-PDEPEND="app-admin/eselect-package-manager"
+PDEPEND="app-eselect/eselect-package-manager"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+RESTRICT="!test? ( test )"
 
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != buildonly ]]; then

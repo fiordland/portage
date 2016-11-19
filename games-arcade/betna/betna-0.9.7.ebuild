@@ -1,8 +1,8 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/betna/betna-0.9.7.ebuild,v 1.11 2015/01/03 14:40:57 tupone Exp $
+# $Id$
 
-EAPI=4
+EAPI=5
 inherit eutils games
 
 DESCRIPTION="Defend your volcano from the attacking ants by firing rocks/bullets at them"

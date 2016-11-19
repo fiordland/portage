@@ -1,12 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/zabbix/zabbix-2.2.5.ebuild,v 1.7 2014/12/28 16:12:30 titanofold Exp $
+# $Id$
 
 EAPI="5"
 
 # needed to make webapp-config dep optional
 WEBAPP_OPTIONAL="yes"
-inherit flag-o-matic webapp depend.php autotools java-pkg-opt-2 user systemd toolchain-funcs
+inherit flag-o-matic webapp autotools java-pkg-opt-2 user systemd toolchain-funcs
 
 DESCRIPTION="ZABBIX is software for monitoring of your applications, network and servers"
 HOMEPAGE="http://www.zabbix.com/"
@@ -17,7 +17,7 @@ LICENSE="GPL-2"
 SLOT="0"
 WEBAPP_MANUAL_SLOT="yes"
 KEYWORDS="amd64 x86"
-IUSE="agent java curl frontend ipv6 jabber ldap libxml2 mysql openipmi oracle postgres proxy server ssh snmp sqlite odbc static"
+IUSE="agent java curl frontend ipv6 xmpp ldap libxml2 mysql openipmi oracle postgres proxy server ssh snmp sqlite odbc static"
 
 COMMON_DEPEND="snmp? ( net-analyzer/net-snmp )
 	ldap? (
@@ -27,14 +27,14 @@ COMMON_DEPEND="snmp? ( net-analyzer/net-snmp )
 	)
 	mysql? ( >=virtual/mysql-5.0.3 )
 	sqlite? ( >=dev-db/sqlite-3.3.5 )
-	postgres? ( >=dev-db/postgresql-8.3.0 )
+	postgres? ( dev-db/postgresql:* )
 	oracle? ( >=dev-db/oracle-instantclient-basic-10.0.0.0 )
-	jabber? ( dev-libs/iksemel )
+	xmpp? ( dev-libs/iksemel )
 	libxml2? ( dev-libs/libxml2 )
 	curl? ( net-misc/curl )
 	openipmi? ( sys-libs/openipmi )
 	ssh? ( net-libs/libssh2 )
-	java? ( >=virtual/jdk-1.4 )
+	java? ( virtual/jdk:* )
 	odbc? ( dev-db/unixODBC )"
 
 RDEPEND="${COMMON_DEPEND}
@@ -220,7 +220,7 @@ src_configure() {
 		$(use_with postgres postgresql) \
 		$(use_with oracle) \
 		$(use_with sqlite sqlite3) \
-		$(use_with jabber) \
+		$(use_with xmpp jabber) \
 		$(use_with curl libcurl) \
 		$(use_with openipmi openipmi) \
 		$(use_with ssh ssh2) \
@@ -325,7 +325,6 @@ src_install() {
 	if use frontend; then
 		webapp_src_preinst
 		cp -R frontends/php/* "${D}/${MY_HTDOCSDIR}"
-		webapp_postinst_txt en "${FILESDIR}/"1.6.6/postinstall-en.txt
 		webapp_configfile \
 			"${MY_HTDOCSDIR}"/include/db.inc.php \
 			"${MY_HTDOCSDIR}"/include/config.inc.php

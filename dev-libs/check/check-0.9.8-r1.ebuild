@@ -1,12 +1,12 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/check/check-0.9.8-r1.ebuild,v 1.13 2014/01/20 07:07:14 vapier Exp $
+# $Id$
 
 EAPI=4
 inherit autotools autotools-utils eutils
 
 DESCRIPTION="A unit test framework for C"
-HOMEPAGE="http://sourceforge.net/projects/check/"
+HOMEPAGE="https://sourceforge.net/projects/check/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"

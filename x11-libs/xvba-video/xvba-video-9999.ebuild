@@ -1,19 +1,19 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/xvba-video/xvba-video-9999.ebuild,v 1.11 2014/07/21 09:04:41 chithanh Exp $
+# $Id$
 
 EAPI=5
 
 EGIT_REPO_URI="git://anongit.freedesktop.org/vaapi/xvba-driver"
 [[ ${PV} = 9999 ]] && inherit git-2
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 AUTOTOOLS_AUTORECONF="yes"
 inherit eutils autotools-multilib python-any-r1
 
 DESCRIPTION="XVBA Backend for Video Acceleration (VA) API"
-HOMEPAGE="http://www.freedesktop.org/wiki/Software/vaapi"
+HOMEPAGE="https://www.freedesktop.org/wiki/Software/vaapi"
 # No source release yet, the src_uri is theoretical at best right now
-[[ ${PV} = 9999 ]] || SRC_URI="http://www.freedesktop.org/software/vaapi/releases/${PN}/${P}.tar.bz2"
+[[ ${PV} = 9999 ]] || SRC_URI="https://www.freedesktop.org/software/vaapi/releases/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2+ MIT"
 SLOT="0"

@@ -1,9 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-arcade/mari0/mari0-1.6.ebuild,v 1.11 2015/01/07 09:03:10 tupone Exp $
+# $Id$
 
-EAPI=4
-
+EAPI=5
 inherit eutils gnome2-utils games
 
 MY_P=${P/-/_}

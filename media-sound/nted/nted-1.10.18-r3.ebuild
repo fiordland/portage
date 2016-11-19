@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/nted/nted-1.10.18-r3.ebuild,v 1.6 2015/01/26 21:13:02 pacho Exp $
+# $Id$
 
 EAPI=5
 AUTOTOOLS_IN_SOURCE_BUILD=1
@@ -41,6 +41,7 @@ PATCHES=(
 	"${FILESDIR}/${P}-lilypond-tremolo.patch" # bug #437540
 	"${FILESDIR}/${P}-automake-1.12.patch" # bug #459466
 	"${FILESDIR}/${P}-freetype.patch" # bug #514522
+	"${FILESDIR}/${P}-cpp14.patch" # bug #594056
 )
 
 src_prepare() {

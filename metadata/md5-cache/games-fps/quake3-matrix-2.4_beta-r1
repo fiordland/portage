@@ -1,7 +1,7 @@
 DEFINED_PHASES=compile configure install postinst preinst prepare setup unpack
 DEPEND=app-arch/unzip
 DESCRIPTION=Quake III Matrix - Matrix conversion mod
-EAPI=2
+EAPI=5
 HOMEPAGE=http://www.moddb.com/mods/matrix-quake-3
 IUSE=dedicated opengl dedicated opengl
 KEYWORDS=amd64 ~ppc x86
@@ -10,5 +10,5 @@ RDEPEND=games-misc/games-envd dedicated? ( || ( games-fps/quake3[dedicated] game
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=mirror://quakeunity/modifications/matrix24.zip
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	998e5931fb95b10a6a11ec796ada2759	games	1ad3205dbf62a2c98249f2f59b0a2d39	games-mods	9d44c6f45289592ca9cf29d77424a048	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	user	f54e098dd38ba1c0847a13e685b87747
-_md5_=2e658e22f40ff25e3ee73c87a9af8707
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	b83a2420b796f7c6eff682679d08fe25	games	2cf0d67d765e6358b435ccda30c13ad8	games-mods	90103874732d91bf9d67e8b5fc55f5db	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	user	80aaa71614ced86f02ee1a513821dc87
+_md5_=570d317d64db428206c66b6b71b4069a

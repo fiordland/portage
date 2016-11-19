@@ -1,12 +1,13 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=virtual/perl-Memoize dev-perl/Tie-Array-Sorted dev-perl/Encode-compat dev-perl/File-Slurp dev-perl/Class-Virtual dev-perl/Class-Accessor virtual/perl-Time-Piece virtual/perl-File-Spec >=virtual/perl-Scalar-List-Utils-1.13 dev-perl/Lingua-Stem dev-perl/Bit-Vector-Minimal dev-perl/IO-stringy >=virtual/perl-Test-Harness-2.30 >=virtual/perl-Module-Build-0.28 dev-lang/perl:=[-build(-)]
+DEPEND=>=dev-perl/Bit-Vector-Minimal-1.0.0 virtual/perl-Carp >=dev-perl/Class-Accessor-0.180.0 >=dev-perl/Class-Virtual-0.30.0 virtual/perl-Encode virtual/perl-File-Spec virtual/perl-IO dev-perl/Lingua-Stem >=virtual/perl-Scalar-List-Utils-1.130.0 >=virtual/perl-Memoize-1.10.0 >=dev-perl/Tie-Array-Sorted-1.100.0 virtual/perl-Time-Piece dev-perl/Encode-compat dev-perl/File-Slurp dev-perl/IO-stringy >=dev-perl/Module-Build-0.280.0 test? ( >=virtual/perl-Test-Harness-2.300.0 ) dev-lang/perl:=[-build(-)]
 DESCRIPTION=Plucene - the Perl lucene port
 EAPI=5
 HOMEPAGE=http://search.cpan.org/dist/Plucene/
-KEYWORDS=~amd64 ~ppc ~x86
+IUSE=test
+KEYWORDS=amd64 ~ppc x86
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=virtual/perl-Memoize dev-perl/Tie-Array-Sorted dev-perl/Encode-compat dev-perl/File-Slurp dev-perl/Class-Virtual dev-perl/Class-Accessor virtual/perl-Time-Piece virtual/perl-File-Spec >=virtual/perl-Scalar-List-Utils-1.13 dev-perl/Lingua-Stem dev-perl/Bit-Vector-Minimal dev-perl/IO-stringy dev-lang/perl:=[-build(-)]
+RDEPEND=>=dev-perl/Bit-Vector-Minimal-1.0.0 virtual/perl-Carp >=dev-perl/Class-Accessor-0.180.0 >=dev-perl/Class-Virtual-0.30.0 virtual/perl-Encode virtual/perl-File-Spec virtual/perl-IO dev-perl/Lingua-Stem >=virtual/perl-Scalar-List-Utils-1.130.0 >=virtual/perl-Memoize-1.10.0 >=dev-perl/Tie-Array-Sorted-1.100.0 virtual/perl-Time-Piece dev-perl/Encode-compat dev-perl/File-Slurp dev-perl/IO-stringy dev-lang/perl:=[-build(-)]
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/T/TM/TMTM/Plucene-1.25.tar.gz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	perl-module	6b84915e66050718c89bcbc76c144e80	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9	unpacker	f300a7ca9131b1024a79762e8edd3c52
-_md5_=da2fbef2d5d012c6babdacb691b34858
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	multiprocessing	e32940a7b2a9992ad217eccddb84d548	perl-functions	aac50de73be0a80ebe780e0b20850130	perl-module	f6549146ea31a902e20b5f2e6f244358	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	unpacker	45d07319df5f40ee6af58418b0f930be
+_md5_=7c948ad15e329de6c0565abec782a726

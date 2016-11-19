@@ -1,31 +1,35 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libsecp256k1/libsecp256k1-9999.ebuild,v 1.1 2014/11/21 11:42:50 blueness Exp $
+# $Id$
 
 EAPI=5
 
 EGIT_REPO_URI="https://github.com/bitcoin/secp256k1.git"
-inherit git-2 autotools
+inherit git-2 autotools eutils
 
+MyPN=secp256k1
 DESCRIPTION="Optimized C library for EC operations on curve secp256k1"
-HOMEPAGE="https://github.com/bitcoin/secp256k1"
+HOMEPAGE="https://github.com/bitcoin/${MyPN}"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="asm doc endomorphism test"
+IUSE="asm doc ecdh endomorphism experimental gmp libressl +recovery schnorr test"
 
 REQUIRED_USE="
 	asm? ( amd64 )
+	ecdh? ( experimental )
+	schnorr? ( experimental )
 "
 RDEPEND="
-	dev-libs/gmp
+	gmp? ( dev-libs/gmp:0 )
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
-	>=sys-devel/gcc-4.7
-	asm? ( dev-lang/yasm )
-	test? ( dev-libs/openssl )
+	test? (
+		!libressl? ( dev-libs/openssl:0= )
+		libressl? ( dev-libs/libressl:0= )
+	)
 "
 
 src_prepare() {
@@ -35,18 +39,15 @@ src_prepare() {
 src_configure() {
 	econf \
 		--disable-benchmark \
+		$(use_enable experimental) \
 		$(use_enable test tests) \
+		$(use_enable ecdh module-ecdh) \
 		$(use_enable endomorphism)  \
-		--with-field=$(usex asm 64bit_asm $(usex amd64 64bit gmp)) \
+		--with-asm=$(usex asm auto no) \
+		--with-bignum=$(usex gmp gmp no) \
+		$(use_enable recovery module-recovery) \
+		$(use_enable schnorr module-schnorr) \
 		--disable-static
-}
-
-src_compile() {
-	emake
-}
-
-src_test() {
-	emake check
 }
 
 src_install() {

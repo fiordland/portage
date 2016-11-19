@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/imlib/imlib-1.9.15-r4.ebuild,v 1.14 2015/02/28 13:26:28 ago Exp $
+# $Id$
 
 EAPI=4
 inherit autotools eutils multilib-minimal
@@ -39,6 +39,8 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-fix-rendering.patch #197489
 	epatch "${FILESDIR}"/${P}-asneeded.patch #207638
 	epatch "${FILESDIR}"/${P}-libpng15.patch #357167
+	epatch "${FILESDIR}"/${P}-underlinking-test.patch #367645
+	epatch "${FILESDIR}"/${P}-no-LDFLAGS-in-pc.patch
 
 	mkdir m4 && cp "${WORKDIR}"/gtk-1-for-imlib.m4 m4
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-mud/tkmoo/tkmoo-0.3.32.ebuild,v 1.15 2015/02/07 13:30:38 ago Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -16,8 +16,10 @@ SLOT="0"
 KEYWORDS="amd64 ppc x86"
 IUSE=""
 
-DEPEND=">=dev-lang/tcl-8.3.3
-	>=dev-lang/tk-8.3.3"
+DEPEND="
+	>=dev-lang/tcl-8.3.3:0=
+	>=dev-lang/tk-8.3.3:0="
+RDEPEND=${DEPEND}
 
 S=${WORKDIR}/${MY_P}
 

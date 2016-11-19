@@ -1,25 +1,25 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/webapp-config/webapp-config-9999.ebuild,v 1.10 2014/12/28 22:24:40 twitch153 Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} pypy pypy2_0 )
+PYTHON_COMPAT=( python{2_7,3_4,3_5} pypy )
 
 inherit distutils-r1
 
 if [[ ${PV} = 9999* ]]
 then
-	EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/${PN}.git"
-	inherit git-2
+	EGIT_REPO_URI="git://anongit.gentoo.org/proj/${PN}.git"
+	inherit git-r3
 	KEYWORDS=""
 else
-	SRC_URI="http://dev.gentoo.org/~blueness/${PN}/${P}.tar.bz2"
+	SRC_URI="https://dev.gentoo.org/~blueness/${PN}/${P}.tar.bz2"
 	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd"
 fi
 
 DESCRIPTION="Gentoo's installer for web-based applications"
-HOMEPAGE="http://sourceforge.net/projects/webapp-config/"
+HOMEPAGE="https://sourceforge.net/projects/webapp-config/"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -58,7 +58,7 @@ python_install_all() {
 }
 
 python_test() {
-	PYTHONPATH="." "${PYTHON}" WebappConfig/tests/dtest.py \
+	PYTHONPATH="." "${PYTHON}" WebappConfig/tests/external.py \
 		|| die "Testing failed with ${EPYTHON}"
 }
 

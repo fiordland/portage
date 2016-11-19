@@ -1,9 +1,10 @@
 DEFINED_PHASES=compile install
 DESCRIPTION=a smaller, cheaper, faster SED implementation
+EAPI=0
 HOMEPAGE=http://www.exactcode.de/oss/minised/
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-2
 SLOT=0
 SRC_URI=http://dl.exactcode.de/oss/minised/minised-1.13.tar.gz
-_eclasses_=multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=4fc3e4adb8e9167a49ac194fb5ad3a97
+_eclasses_=multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=22bc758e102ca24c5a140e7e4ff7c569

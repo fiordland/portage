@@ -1,20 +1,24 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/go-etcd/go-etcd-0_p20141013-r1.ebuild,v 1.1 2015/02/24 23:42:49 zmedico Exp $
+# $Id$
 
 EAPI=5
 
-KEYWORDS="~amd64"
-DESCRIPTION="Go client library for etcd"
+inherit eutils
 GO_PN=github.com/coreos/${PN}
+DESCRIPTION="Go client library for etcd"
 HOMEPAGE="https://${GO_PN}"
 EGIT_COMMIT="25e2c63be8e8ab405014a78879e0992ae5ff55e8"
 SRC_URI="https://${GO_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-LICENSE="Apache-2.0"
+
 SLOT="0"
+LICENSE="Apache-2.0"
+KEYWORDS="~amd64"
 IUSE=""
+
 DEPEND=">=dev-lang/go-1.4"
 RDEPEND=""
+
 S=${WORKDIR}
 
 src_unpack() {
@@ -34,9 +38,10 @@ src_compile() {
 }
 
 src_install() {
+	insopts -m0644 -p # preserve timestamps for bug 551486
 	insinto /usr/lib/go
 	doins -r pkg
 	insinto /usr/lib/go/src
-	find src/${GO_PN} -name .gitignore -delete
+	egit_clean
 	doins -r src/*
 }

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-mud/mudix/mudix-4.3-r1.ebuild,v 1.7 2015/01/04 02:28:43 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit eutils games
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="amd64 ppc x86"
 IUSE=""
 
-DEPEND="sys-libs/ncurses"
+DEPEND="sys-libs/ncurses:0"
 RDEPEND=${DEPEND}
 
 src_prepare() {

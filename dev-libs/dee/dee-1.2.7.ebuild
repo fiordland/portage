@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/dee/dee-1.2.7.ebuild,v 1.1 2014/12/03 11:36:15 jlec Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_7 python3_{3,4} )
+PYTHON_COMPAT=( python2_7 python3_4 )
 
 AUTOTOOLS_AUTORECONF=y
 
@@ -16,7 +16,7 @@ SRC_URI="https://launchpad.net/dee/1.0/${PV}/+download/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-3"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86"
 IUSE="doc debug examples +icu introspection static-libs test"
 
 REQUIRED_USE="introspection? ( ${PYTHON_REQUIRED_USE} )"
@@ -26,7 +26,7 @@ RDEPEND="
 	dev-libs/icu:=
 	introspection? (
 		${PYTHON_DEPS}
-		dev-libs/gobject-introspection
+		dev-libs/gobject-introspection:=
 		)"
 DEPEND="${RDEPEND}
 	$(vala_depend)

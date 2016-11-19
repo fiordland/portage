@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ml/ocamlgsl/ocamlgsl-0.6.0.ebuild,v 1.6 2013/08/19 13:51:29 aballier Exp $
+# $Id$
 
 EAPI=5
 
@@ -16,7 +16,8 @@ KEYWORDS="amd64 ~ppc x86"
 IUSE="doc test"
 
 RDEPEND=">=dev-lang/ocaml-3.10:=
-	  sci-libs/gsl"
+	  sci-libs/gsl
+	  !dev-ml/gsl-ocaml"
 DEPEND="${RDEPEND}
 	  test? ( dev-ml/fort )"
 

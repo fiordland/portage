@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-dialup/radiusclient-ng/radiusclient-ng-0.5.6-r1.ebuild,v 1.4 2015/01/27 10:08:26 pinkbyte Exp $
+# $Id$
 
 EAPI=5
 
@@ -8,7 +8,7 @@ AUTOTOOLS_AUTORECONF=1
 inherit autotools-utils eutils toolchain-funcs
 
 DESCRIPTION="RadiusClient NextGeneration - library for RADIUS clients accompanied with several client utilities"
-HOMEPAGE="http://sourceforge.net/projects/radiusclient-ng.berlios/"
+HOMEPAGE="https://sourceforge.net/projects/radiusclient-ng.berlios/"
 SRC_URI="mirror://sourceforge/${PN}.berlios/${P}.tar.gz"
 
 LICENSE="BSD"

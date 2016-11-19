@@ -1,10 +1,10 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ipy/ipy-0.82a.ebuild,v 1.1 2015/02/27 13:49:47 jlec Exp $
+# $Id$
 
 EAPI="5"
 
-PYTHON_COMPAT=( python2_7 python3_{3,4} pypy )
+PYTHON_COMPAT=( python2_7 python3_4 pypy )
 
 inherit distutils-r1
 
@@ -12,12 +12,12 @@ MY_PN="IPy"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Class and tools for handling of IPv4 and IPv6 addresses and networks"
-HOMEPAGE="https://github.com/haypo/python-ipy/wiki http://pypi.python.org/pypi/IPy"
+HOMEPAGE="https://github.com/haypo/python-ipy/wiki https://pypi.python.org/pypi/IPy"
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="amd64 ~ppc ~ppc64 ~sparc x86"
 IUSE="examples"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"

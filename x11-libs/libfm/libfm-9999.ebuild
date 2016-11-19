@@ -1,25 +1,24 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/libfm/libfm-9999.ebuild,v 1.42 2014/10/18 20:31:52 hwoarang Exp $
+# $Id$
 
 EAPI=5
 
 EGIT_REPO_URI="https://github.com/lxde/${PN}"
-# master seems way too unstable for us to use
-EGIT_BRANCH="1.1"
-inherit autotools git-2 fdo-mime vala
+inherit autotools git-r3 fdo-mime vala
 
 DESCRIPTION="A library for file management"
 HOMEPAGE="http://pcmanfm.sourceforge.net/"
 
 LICENSE="GPL-2"
-SLOT="0/4.3.0" #copy ABI_VERSION because it seems upstream change it randomly
+SLOT="0/4.4.0" #copy ABI_VERSION because it seems upstream change it randomly
 IUSE="+automount debug doc examples exif gtk udisks vala"
 KEYWORDS=""
 
 COMMON_DEPEND=">=dev-libs/glib-2.18:2
 	gtk? ( >=x11-libs/gtk+-2.16:2 )
-	>=lxde-base/menu-cache-0.3.2:="
+	>=lxde-base/menu-cache-0.3.2:=
+	x11-libs/libfm-extra"
 RDEPEND="${COMMON_DEPEND}
 	!lxde-base/lxshortcut
 	x11-misc/shared-mime-info
@@ -95,13 +94,16 @@ src_configure() {
 src_install() {
 	default
 	find "${D}" -name '*.la' -exec rm -f '{}' +
-	# Remove broken symlink #439570
 	# Sometimes a directory is created instead of a symlink. No idea why...
 	# It is wrong anyway. We expect a libfm-1.0 directory and then a libfm
 	# symlink to it.
 	if [[ -h ${D}/usr/include/${PN} || -d ${D}/usr/include/${PN} ]]; then
 		rm -r "${D}"/usr/include/${PN}
 	fi
+	# Remove files installed by split-off libfm-extra package
+	rm "${D}"/usr/include/libfm-1.0/fm-{extra,version,xml-file}.h
+	rm "${D}"/usr/$(get_libdir)/libfm-extra*
+	rm "${D}"/usr/$(get_libdir)/pkgconfig/libfm-extra.pc
 }
 
 pkg_preinst() {

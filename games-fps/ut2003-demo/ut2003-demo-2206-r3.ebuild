@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-fps/ut2003-demo/ut2003-demo-2206-r3.ebuild,v 1.27 2014/10/15 11:29:02 pacho Exp $
+# $Id$
 
 EAPI=5
 
@@ -10,7 +10,7 @@ DESCRIPTION="Demo for the sequel to the 1999 Game of the Year multi-player first
 HOMEPAGE="http://www.ut2003.com/"
 SRC_URI="http://unreal.epicgames.com/linux/ut2003/ut2003demo-lnx-${PV}.sh.bin
 	http://download.factoryunreal.com/mirror/UT2003CrashFix.zip
-	http://dev.gentoo.org/~wolf31o2/sources/${PN}/${PN}-misc.tar.bz2"
+	https://dev.gentoo.org/~wolf31o2/sources/${PN}/${PN}-misc.tar.bz2"
 
 LICENSE="ut2003-demo"
 SLOT="0"
@@ -22,17 +22,9 @@ DEPEND="app-arch/unzip"
 RDEPEND="
 	sys-devel/bc
 	virtual/libstdc++:3.3
-	|| (
-		(
-			virtual/opengl[abi_x86_32(-)]
-			x11-libs/libX11[abi_x86_32(-)]
-			x11-libs/libXext[abi_x86_32(-)]
-		)
-		amd64? (
-			app-emulation/emul-linux-x86-opengl[-abi_x86_32(-)]
-			app-emulation/emul-linux-x86-xlibs[-abi_x86_32(-)]
-		)
-	)
+	virtual/opengl[abi_x86_32(-)]
+	x11-libs/libX11[abi_x86_32(-)]
+	x11-libs/libXext[abi_x86_32(-)]
 "
 
 S=${WORKDIR}
@@ -40,11 +32,11 @@ S=${WORKDIR}
 dir=${GAMES_PREFIX_OPT}/${PN}
 Ddir=${D}/${dir}
 
+QA_PREBUILT="${dir:1}/*.so ${dir:1}/*-bin ${dir:1}/System/libSDL-1.2.so.0"
+
 src_unpack() {
-	unpack_makeself "${DISTDIR}"/ut2003demo-lnx-${PV}.sh.bin \
-		|| die "unpacking demo"
-	unzip "${DISTDIR}"/UT2003CrashFix.zip \
-		|| die "unpacking crash-fix"
+	unpack_makeself "${DISTDIR}"/ut2003demo-lnx-${PV}.sh.bin || die
+	unzip "${DISTDIR}"/UT2003CrashFix.zip || die
 	cd "${S}"
 	unpack ./setupstuff.tar.gz || die
 	unpack ./ut2003lnx_demo.tar.bz2 || die
@@ -72,29 +64,25 @@ src_install() {
 			-e 's/ViewportManager=WinDrv.WindowsClient/\;ViewportManager=WinDrv.WindowsClient/' \
 			-e 's/\;RenderDevice=OpenGLDrv.OpenGLRenderDevice/RenderDevice=OpenGLDrv.OpenGLRenderDevice/' \
 			-e 's/\;ViewportManager=SDLDrv.SDLClient/ViewportManager=SDLDrv.SDLClient/' \
-			"${Ddir}"/Benchmark/Stuff/${f} \
-			|| die "sed ${dir}/Benchmark/Stuff/${f} failed"
+			"${Ddir}"/Benchmark/Stuff/${f} || die
 	done
 
 	# Have the benchmarks run the nifty wrapper script rather than
 	# ../System/ut2003-bin directly
 	for f in "${Ddir}"/Benchmark/*-*.sh ; do
 		sed -i \
-			-e 's:\.\./System/ut2003-bin:../ut2003_demo:' "${f}" \
-			|| die "sed ${f} failed"
+			-e 's:\.\./System/ut2003-bin:../ut2003_demo:' "${f}" || die
 	done
 
 	# Wrapper and benchmark-scripts
-	dogamesbin "${FILESDIR}"/ut2003-demo || die "dogamesbin failed"
+	dogamesbin "${FILESDIR}"/ut2003-demo
 	exeinto "${dir}"/Benchmark
 	doexe "${FILESDIR}/"{benchmark,results.sh}
 	sed -i -e "s:GAMES_PREFIX_OPT:${GAMES_PREFIX_OPT}:" \
-		"${ED}/${GAMES_BINDIR}/${PN}" "${ED}/${dir}"/Benchmark/benchmark \
-		|| die "sed GAMES_PREFIX_OPT"
+		"${ED}/${GAMES_BINDIR}/${PN}" "${ED}/${dir}"/Benchmark/benchmark || die
 
 	# Here we apply DrSiN's crash patch
-	cp "${S}"/CrashFix/System/crashfix.u "${Ddir}"/System \
-		|| die "CrashFix failed"
+	cp "${S}"/CrashFix/System/crashfix.u "${Ddir}"/System || die
 
 ed "${Ddir}"/System/Default.ini >/dev/null 2>&1 <<EOT
 $

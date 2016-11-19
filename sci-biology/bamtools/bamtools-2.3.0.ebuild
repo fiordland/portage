@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/bamtools/bamtools-2.3.0.ebuild,v 1.1 2013/09/17 15:37:30 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -17,6 +17,7 @@ IUSE="static-libs"
 
 DEPEND="
 	>=dev-libs/jsoncpp-0.5.0-r1
+	<dev-libs/jsoncpp-1
 	sys-libs/zlib"
 RDEPEND="${DEPEND}"
 
@@ -24,5 +25,7 @@ PATCHES=( "${FILESDIR}"/${P}-unbundle.patch )
 
 src_install() {
 	cmake-utils_src_install
-	use static-libs || rm "${ED}"/usr/$(get_libdir)/*.a
+	if ! use static-libs; then
+		rm "${ED}"/usr/$(get_libdir)/*.a || die
+	fi
 }

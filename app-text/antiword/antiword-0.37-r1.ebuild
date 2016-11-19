@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/antiword/antiword-0.37-r1.ebuild,v 1.7 2015/01/09 14:17:32 klausman Exp $
+# $Id$
 
 EAPI="5"
 
@@ -11,11 +11,11 @@ PATCHVER="r2"
 DESCRIPTION="free MS Word reader"
 HOMEPAGE="http://www.winfield.demon.nl"
 SRC_URI="http://www.winfield.demon.nl/linux/${P}.tar.gz
-	http://dev.gentoo.org/~grobian/distfiles/${PN}-gentoo-patches-${PATCHVER}.tar.bz2"
+	https://dev.gentoo.org/~grobian/distfiles/${PN}-gentoo-patches-${PATCHVER}.tar.bz2"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="alpha amd64 ~hppa ppc ppc64 sparc x86 ~ppc-aix ~ia64-hpux ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 ~arm ~hppa ppc ppc64 sparc x86 ~ppc-aix ~ia64-hpux ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 
 src_prepare() {
 	# Makefile is a symlink to Makefile.Linux, avoid that we patch it by

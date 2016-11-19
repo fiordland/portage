@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/dvdauthor/dvdauthor-0.7.1.ebuild,v 1.3 2015/02/06 10:09:20 aballier Exp $
+# $Id$
 
-EAPI=5
+EAPI=6
 inherit eutils flag-o-matic toolchain-funcs
 
 DESCRIPTION="Tools for generating DVD files to be played on standalone DVD players"
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="amd64 ppc ppc64 sparc x86"
 IUSE="graphicsmagick"
 
 RDEPEND=">=dev-libs/fribidi-0.19.2
@@ -20,7 +20,7 @@ RDEPEND=">=dev-libs/fribidi-0.19.2
 	media-libs/libdvdread
 	media-libs/libpng:0=
 	graphicsmagick? ( media-gfx/graphicsmagick )
-	!graphicsmagick? ( >=media-gfx/imagemagick-5.5.7.14 )"
+	!graphicsmagick? ( >=media-gfx/imagemagick-5.5.7.14:= )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
@@ -28,10 +28,16 @@ S=${WORKDIR}/${PN}
 
 DOCS=( AUTHORS ChangeLog README TODO )
 
+PATCHES=(
+	"${FILESDIR}/${P}-glibc220.patch"
+)
+
 src_prepare() {
-	epatch "${FILESDIR}/${P}-glibc220.patch"
-	use graphicsmagick && \
-		sed -i -e 's:ExportImagePixels:dIsAbLeAuToMaGiC&:' configure
+	default
+	if use graphicsmagick ; then
+		sed -i -e 's:ExportImagePixels:dIsAbLeAuToMaGiC&:' configure \
+			|| die
+	fi
 }
 
 src_configure() {

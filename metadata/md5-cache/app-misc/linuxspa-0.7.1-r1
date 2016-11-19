@@ -1,10 +1,10 @@
 DEFINED_PHASES=compile install prepare
 DESCRIPTION=Linux Serial Protocol Analyser
 EAPI=4
-HOMEPAGE=http://sourceforge.net/projects/serialsniffer/
+HOMEPAGE=https://sourceforge.net/projects/serialsniffer/
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 SLOT=0
 SRC_URI=mirror://sourceforge/serialsniffer/LinuxSPA-0.7.1.tgz
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
-_md5_=fa5a6b6e5260584e7b86cc322f76eced
+_eclasses_=eutils	b83a2420b796f7c6eff682679d08fe25	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783
+_md5_=0cf22846dc9ee0e6f2679ff40065c1cb

@@ -1,21 +1,28 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/go-fuse/go-fuse-0_p20140812-r1.ebuild,v 1.1 2015/02/24 23:43:26 zmedico Exp $
+# $Id$
 
 EAPI=5
 
-KEYWORDS="~amd64"
-RESTRICT="strip"
-DESCRIPTION="FUSE bindings for Go"
+inherit eutils
+
 GO_PN=github.com/hanwen/${PN}
-HOMEPAGE="https://${GO_PN}"
 EGIT_COMMIT="8c85ded140ac1889372a0e22d8d21e3d10a303bd"
+
+HOMEPAGE="https://${GO_PN}"
+DESCRIPTION="FUSE bindings for Go"
 SRC_URI="https://${GO_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-LICENSE="BSD"
+
 SLOT="0"
+LICENSE="BSD"
+KEYWORDS="~amd64"
 IUSE=""
+
 DEPEND=">=dev-lang/go-1.3"
 RDEPEND=""
+
+RESTRICT="strip"
+
 S=${WORKDIR}
 
 src_unpack() {
@@ -42,10 +49,11 @@ src_compile() {
 }
 
 src_install() {
+	insopts -m0644 -p # preserve timestamps for bug 551486
 	insinto /usr/lib/go
 	doins -r pkg
 	insinto /usr/lib/go/src
 	rm src/${GO_PN}/all.bash.patched || die
-	find src/${GO_PN} -name .gitignore -delete
+	egit_clean src/${GO_PN}
 	doins -r src/*
 }

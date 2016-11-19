@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/pecl-cairo/pecl-cairo-0.3.2.ebuild,v 1.1 2013/12/09 21:05:50 mabi Exp $
+# $Id$
 
 EAPI="5"
 
 DOCS="TODO"
 
-USE_PHP="php5-4 php5-5"
+USE_PHP="php5-5 php5-6"
 
 inherit php-ext-pecl-r2
 

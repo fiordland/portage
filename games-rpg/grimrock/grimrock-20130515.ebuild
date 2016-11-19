@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-rpg/grimrock/grimrock-20130515.ebuild,v 1.5 2015/02/09 22:57:54 mr_bones_ Exp $
+# $Id$
 
 EAPI=5
 inherit eutils multilib gnome2-utils unpacker games
@@ -27,9 +27,8 @@ RDEPEND="
 	media-libs/lcms
 	=media-libs/libpng-1.6*
 	media-libs/libraw
-	media-libs/jasper
+	media-libs/jasper:=
 	media-libs/openexr
-	media-libs/openjpeg:0
 	media-libs/tiff
 	sys-libs/zlib
 	virtual/jpeg:62

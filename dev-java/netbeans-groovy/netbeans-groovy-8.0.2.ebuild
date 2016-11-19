@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/netbeans-groovy/netbeans-groovy-8.0.2.ebuild,v 1.2 2015/02/04 21:37:29 fordfrog Exp $
+# $Id$
 
 EAPI="4"
 inherit eutils java-pkg-2 java-ant-2
@@ -10,10 +10,10 @@ HOMEPAGE="http://netbeans.org/projects/groovy"
 SLOT="8.0"
 SOURCE_URL="http://download.netbeans.org/netbeans/8.0.2/final/zip/netbeans-8.0.2-201411181905-src.zip"
 SRC_URI="${SOURCE_URL}
-	http://dev.gentoo.org/~fordfrog/distfiles/netbeans-8.0.2-build.xml.patch.bz2
+	https://dev.gentoo.org/~fordfrog/distfiles/netbeans-8.0.2-build.xml.patch.bz2
 	http://hg.netbeans.org/binaries/C136AE67C3C40740AE986582BAF65BA5C5CE69A0-groovy-all-2.1.7.jar"
-LICENSE="|| ( CDDL GPL-2-with-linking-exception )"
-KEYWORDS="~amd64 ~x86"
+LICENSE="|| ( CDDL GPL-2-with-classpath-exception )"
+KEYWORDS="amd64 x86"
 IUSE=""
 S="${WORKDIR}"
 

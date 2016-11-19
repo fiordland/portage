@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/gnat.eclass,v 1.42 2012/06/02 19:16:31 zmedico Exp $
+# $Id$
 #
 # Author: George Shapovalov <george@gentoo.org>
 # Belongs to: ada herd <ada@gentoo.org>
@@ -40,7 +40,7 @@ DESCRIPTION="Common procedures for building Ada libs using split gnat compilers"
 
 # make sure we have an appropriately recent eselect-gnat installed, as we are
 # using some common code here.
-DEPEND=">=app-admin/eselect-gnat-1.3"
+DEPEND=">=app-eselect/eselect-gnat-1.3"
 
 
 # ----------------------------------
@@ -124,7 +124,7 @@ get_ada_dep() {
 # This function is used to check whether the requested gnat profile matches the
 # requested Ada standard
 # !!ATTN!!
-# This must match dependencies as specified in vitrual/ada !!!
+# This must match dependencies as specified in virtual/ada !!!
 #
 # params:
 #  $1 - the requested gnat profile in usual form (e.g. x86_64-pc-linux-gnu-gnat-gcc-4.1)
